@@ -8,11 +8,11 @@ TEST_IMAGE_PATH = Path("test_image.png").resolve()
 ROOT_DIR = Path(".").resolve()
 
 @pytest.fixture
-def image_translator():
+def image_translator(tmp_path):
     """
-    Fixture to provide an instance of ImageTranslator for each test.
+    Fixture to provide an instance of ImageTranslator for each test, using a temporary directory for output.
     """
-    return ImageTranslator(default_output_dir="./test_translated_images", root_dir=ROOT_DIR)
+    return ImageTranslator(default_output_dir=tmp_path, root_dir=ROOT_DIR)
 
 @pytest.fixture
 def mock_line_bounding_boxes():
@@ -50,12 +50,12 @@ def mock_line_bounding_boxes():
 @patch('builtins.open', new_callable=MagicMock)
 @patch('PIL.Image.open', return_value=MagicMock(spec=Image.Image))
 @patch('PIL.Image.Image.save')
+@patch('os.makedirs')
 @patch('co_op_translator.translators.image_translator.ImageTranslator.get_image_analysis_client')
-def test_extract_line_bounding_boxes(mock_get_image_analysis_client, mock_image_save, mock_image_open, mock_file_open, image_translator):
+def test_extract_line_bounding_boxes(mock_get_image_analysis_client, mock_makedirs, mock_image_save, mock_image_open, mock_file_open, image_translator):
     """
     Test extract_line_bounding_boxes method to ensure it extracts text and bounding boxes correctly.
     """
-    # Mock Azure Image Analysis Client response
     mock_client = MagicMock()
     mock_result = MagicMock()
     mock_block = MagicMock()
@@ -76,18 +76,18 @@ def test_extract_line_bounding_boxes(mock_get_image_analysis_client, mock_image_
 
     bounding_boxes = image_translator.extract_line_bounding_boxes(TEST_IMAGE_PATH)
 
-    assert len(bounding_boxes) == 1
-    assert bounding_boxes[0]['text'] == "LIFE IS LIKE"
-    assert bounding_boxes[0]['bounding_box'] == [41, 111, 963, 77, 966, 147, 41, 185]
+    assert len(bounding_boxes) == 1, f"Expected 1 bounding box, got {len(bounding_boxes)}"
+    assert bounding_boxes[0]['text'] == "LIFE IS LIKE", f"Expected text 'LIFE IS LIKE', got {bounding_boxes[0]['text']}"
+    assert bounding_boxes[0]['bounding_box'] == [41, 111, 963, 77, 966, 147, 41, 185], f"Bounding box mismatch: {bounding_boxes[0]['bounding_box']}"
 
 @patch('co_op_translator.translators.image_translator.ImageTranslator.plot_annotated_image')
 @patch('co_op_translator.translators.image_translator.TextTranslator.translate_image_text')
 @patch('co_op_translator.translators.image_translator.ImageTranslator.extract_line_bounding_boxes')
-def test_translate_image(mock_extract_boxes, mock_translate_text, mock_plot_annotated_image, image_translator, mock_line_bounding_boxes):
+@patch('os.makedirs')
+def test_translate_image(mock_makedirs, mock_extract_boxes, mock_translate_text, mock_plot_annotated_image, image_translator, mock_line_bounding_boxes, tmp_path):
     """
     Test translate_image method to ensure the image is correctly translated and annotated.
     """
-    # Mock bounding box extraction and translation process
     mock_extract_boxes.return_value = mock_line_bounding_boxes
     mock_translate_text.return_value = [
         'LA VIDA ES COMO',
@@ -96,13 +96,13 @@ def test_translate_image(mock_extract_boxes, mock_translate_text, mock_plot_anno
         'MANTENER EL EQUILIBRIO',
         'DEBES SEGUIR MOVIÉNDOTE'
     ]
-    mock_plot_annotated_image.return_value = "./test_translated_images/translated_image.png"
+    mock_plot_annotated_image.return_value = tmp_path / "translated_image.png"
 
     target_language = "es"
-
     result_path = image_translator.translate_image(TEST_IMAGE_PATH, target_language)
 
-    assert result_path == "./test_translated_images/translated_image.png"
+    assert str(result_path) == str(tmp_path / "translated_image.png")
+
     mock_extract_boxes.assert_called_once_with(TEST_IMAGE_PATH)
     mock_translate_text.assert_called_once_with(
         ['LIFE IS LIKE', 'RIDING A BICYCLE', 'TO', 'KEEP YOUR BALANCE', 'YOU MUST KEEP MOVING'], 
