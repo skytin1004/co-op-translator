@@ -40,8 +40,8 @@ class JupyterNotebookTranslator:
         """Translate a Jupyter Notebook file to the target language.
 
         Extracts markdown cells from the notebook, translates them using
-        the existing markdown translator, and reconstructs the notebook
-        with translated content.
+        the existing markdown translator (without metadata/disclaimer per cell),
+        and reconstructs the notebook with translated content and header.
 
         Args:
             notebook_path: Path to the .ipynb file
@@ -82,13 +82,15 @@ class JupyterNotebookTranslator:
                     continue
 
                 try:
-                    # Translate the markdown content
+                    # Translate without metadata/disclaimer for individual cells
                     translated_content = (
                         await self.markdown_translator.translate_markdown(
                             markdown_content,
                             language_code,
                             notebook_path,
                             markdown_only=markdown_only,
+                            add_metadata=False,  # No metadata per cell
+                            add_disclaimer=False,  # No disclaimer per cell
                         )
                     )
 
