@@ -2,8 +2,12 @@ name: Publish Docker image
 
 on:
   push:
-    branches: [ "main", "docker" ]
+    branches: [ "main"]
     tags: [ "v*.*.*" ]
+    paths:
+      - "Dockerfile"
+      - "pyproject.toml"
+      - "poetry.lock"
 
 permissions:
   contents: read

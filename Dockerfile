@@ -24,8 +24,9 @@ COPY pyproject.toml poetry.lock* ./
 # Export env to ensure Poetry installs with the same Python
 ENV POETRY_VIRTUALENVS_CREATE=false
 
-# Pre-fetch dependencies into wheel cache (optional; speeds up build)
-RUN poetry install --no-interaction --no-ansi --only main
+# Export main dependencies and build a local wheelhouse for all deps
+RUN poetry export --without-hashes --only main -f requirements.txt -o requirements.txt
+RUN pip wheel -r requirements.txt -w /wheels
 
 # Now copy the application source
 COPY src ./src
@@ -52,9 +53,10 @@ RUN apt-get update \
 WORKDIR /work
 VOLUME ["/work"]
 
-# Copy the built wheel from the builder and install it
+# Copy the built wheel and dependency wheelhouse from the builder and install them
 COPY --from=builder /app/dist/*.whl /tmp/
-RUN pip install /tmp/*.whl \
+COPY --from=builder /wheels /wheels
+RUN pip install --no-index --find-links=/wheels /tmp/*.whl \
  && rm -f /tmp/*.whl
 
 # Default entrypoint to the primary CLI; override with --entrypoint for other commands
