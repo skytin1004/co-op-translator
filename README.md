@@ -39,6 +39,13 @@ See how Co-op Translator organizes translated educational GitHub content:
 ## Quick start
 
 ```bash
+# Create and activate a virtual environment (recommended)
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+source .venv/bin/activate
+
 pip install co-op-translator
 translate -l "ko ja fr" -md
 ```
