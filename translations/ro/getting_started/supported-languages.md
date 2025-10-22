@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "badae5ee6451cc1a6e367cfe5ba92efa",
-  "translation_date": "2025-10-15T03:57:45+00:00",
+  "original_hash": "40660d83d2792201cad4aec9fdf25a29",
+  "translation_date": "2025-10-22T14:07:52+00:00",
   "source_file": "getting_started/supported-languages.md",
   "language_code": "ro"
 }
@@ -63,6 +63,7 @@ Tabelul de mai jos prezintă limbile care sunt în prezent suportate de **Co-op 
 | my            | Birmană (Myanmar)           | NotoSansMyanmar-Medium.ttf        | Nu          | Nu                 |
 | ta            | Tamil                       | NotoSansTamil-Medium.ttf          | Nu          | Nu                 |
 | et            | Estoniană                   | NotoSans-Medium.ttf               | Nu          | Nu                 |
+| pcm           | Pidgin nigerian             | NotoSans-Medium.ttf               | Nu          | Nu                 |
 
 ## Adăugarea unei limbi noi
 
@@ -73,4 +74,4 @@ Vrei să adaugi o limbă nouă? Urmează ghidul de contribuție:
 ---
 
 **Declarație de responsabilitate**:
-Acest document a fost tradus folosind serviciul de traducere AI [Co-op Translator](https://github.com/Azure/co-op-translator). Deși ne străduim să asigurăm acuratețea, vă rugăm să rețineți că traducerile automate pot conține erori sau inexactități. Documentul original, în limba sa nativă, trebuie considerat sursa autoritară. Pentru informații critice, se recomandă traducerea profesională umană. Nu ne asumăm răspunderea pentru orice neînțelegeri sau interpretări greșite care pot apărea din utilizarea acestei traduceri.
+Acest document a fost tradus folosind serviciul de traducere AI [Co-op Translator](https://github.com/Azure/co-op-translator). Deși ne străduim să asigurăm acuratețea, vă rugăm să rețineți că traducerile automate pot conține erori sau inexactități. Documentul original, în limba sa nativă, trebuie considerat sursa autoritară. Pentru informații critice, se recomandă traducerea profesională realizată de oameni. Nu ne asumăm răspunderea pentru orice neînțelegeri sau interpretări greșite care pot apărea din utilizarea acestei traduceri.

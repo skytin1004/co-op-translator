@@ -1,15 +1,15 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "badae5ee6451cc1a6e367cfe5ba92efa",
-  "translation_date": "2025-10-15T03:48:45+00:00",
+  "original_hash": "40660d83d2792201cad4aec9fdf25a29",
+  "translation_date": "2025-10-22T14:04:07+00:00",
   "source_file": "getting_started/supported-languages.md",
   "language_code": "hu"
 }
 -->
 # Támogatott nyelvek
 
-Az alábbi táblázat felsorolja azokat a nyelveket, amelyeket jelenleg támogat a **Co-op Translator**. Megtalálható benne a nyelvkód, a nyelv neve, valamint az ismert problémák az adott nyelvhez kapcsolódóan. Ha szeretnél új nyelvet hozzáadni, írd be a megfelelő nyelvkódot, nevet és a szükséges betűtípust a `font_language_mappings.yml` fájlba, amely a `src/co_op_translator/fonts/` mappában található, majd tesztelés után küldj be egy pull requestet.
+Az alábbi táblázat felsorolja azokat a nyelveket, amelyeket jelenleg támogat a **Co-op Translator**. Megtalálható benne a nyelvkód, a nyelv neve, valamint az adott nyelvhez kapcsolódó ismert problémák. Ha szeretnél új nyelvet hozzáadni, írd be a megfelelő nyelvkódot, nevet és betűtípust a `font_language_mappings.yml` fájlba, amely a `src/co_op_translator/fonts/` mappában található, majd tesztelés után küldj be egy pull requestet.
 
 | Nyelvkód      | Nyelv neve                  | Betűtípus                         | RTL támogatás | Ismert problémák |
 |---------------|-----------------------------|------------------------------------|---------------|------------------|
@@ -19,7 +19,7 @@ Az alábbi táblázat felsorolja azokat a nyelveket, amelyeket jelenleg támogat
 | de            | Német                       | NotoSans-Medium.ttf                | Nem           | Nincs            |
 | ru            | Orosz                       | NotoSans-Medium.ttf                | Nem           | Nincs            |
 | ar            | Arab                        | NotoSansArabic-Medium.ttf          | Igen          | Nincs            |
-| fa            | Perzsa (Farsi)              | NotoSansArabic-Medium.ttf          | Igen          | Nincs            |
+| fa            | Perzsa (Fárszi)             | NotoSansArabic-Medium.ttf          | Igen          | Nincs            |
 | ur            | Urdu                        | NotoSansArabic-Medium.ttf          | Igen          | Nincs            |
 | zh            | Kínai (egyszerűsített)      | NotoSansCJK-Medium.ttc             | Nem           | Nincs            |
 | mo            | Kínai (hagyományos, Makaó)  | NotoSansCJK-Medium.ttc             | Nem           | Nincs            |
@@ -63,6 +63,7 @@ Az alábbi táblázat felsorolja azokat a nyelveket, amelyeket jelenleg támogat
 | my            | Burmai (Mianmar)            | NotoSansMyanmar-Medium.ttf         | Nem           | Nincs            |
 | ta            | Tamil                       | NotoSansTamil-Medium.ttf           | Nem           | Nincs            |
 | et            | Észt                        | NotoSans-Medium.ttf                | Nem           | Nincs            |
+| pcm           | Nigériai pidgin             | NotoSans-Medium.ttf                | Nem           | Nincs            |
 
 ## Új nyelv hozzáadása
 

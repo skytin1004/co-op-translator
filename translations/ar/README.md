@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f579b7f148746593e3e9023b56a8c30d",
-  "translation_date": "2025-10-22T11:51:38+00:00",
+  "original_hash": "7593c1fad8734e4050b60fc3da614aa5",
+  "translation_date": "2025-10-22T13:24:22+00:00",
   "source_file": "README.md",
   "language_code": "ar"
 }
@@ -13,8 +13,8 @@ _سهّل عملية ترجمة محتوى GitHub التعليمي الخاص ب
 
 [![حزمة بايثون](https://img.shields.io/pypi/v/co-op-translator?color=4BA3FF)](https://pypi.org/project/co-op-translator/)
 [![الرخصة: MIT](https://img.shields.io/github/license/azure/co-op-translator?color=4BA3FF)](https://github.com/azure/co-op-translator/blob/main/LICENSE)
-[![عدد التنزيلات](https://static.pepy.tech/badge/co-op-translator)](https://pepy.tech/project/co-op-translator)
-[![عدد التنزيلات](https://static.pepy.tech/badge/co-op-translator/month)](https://pepy.tech/project/co-op-translator)
+[![عدد التحميلات](https://static.pepy.tech/badge/co-op-translator)](https://pepy.tech/project/co-op-translator)
+[![عدد التحميلات](https://static.pepy.tech/badge/co-op-translator/month)](https://pepy.tech/project/co-op-translator)
 [![الحاوية: GHCR](https://img.shields.io/badge/Container-GHCR-2496ED?logo=docker&logoColor=fff)](https://github.com/azure/co-op-translator/pkgs/container/co-op-translator)
 [![أسلوب الكود: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
@@ -28,7 +28,7 @@ _سهّل عملية ترجمة محتوى GitHub التعليمي الخاص ب
 #### مدعوم من [مترجم Co-op](https://github.com/Azure/Co-op-Translator)
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
-[العربية](./README.md) | [البنغالية](../bn/README.md) | [البلغارية](../bg/README.md) | [البورمية (ميانمار)](../my/README.md) | [الصينية (المبسطة)](../zh/README.md) | [الصينية (التقليدية، هونغ كونغ)](../hk/README.md) | [الصينية (التقليدية، ماكاو)](../mo/README.md) | [الصينية (التقليدية، تايوان)](../tw/README.md) | [الكرواتية](../hr/README.md) | [التشيكية](../cs/README.md) | [الدنماركية](../da/README.md) | [الهولندية](../nl/README.md) | [الإستونية](../et/README.md) | [الفنلندية](../fi/README.md) | [الفرنسية](../fr/README.md) | [الألمانية](../de/README.md) | [اليونانية](../el/README.md) | [العبرية](../he/README.md) | [الهندية](../hi/README.md) | [المجرية](../hu/README.md) | [الإندونيسية](../id/README.md) | [الإيطالية](../it/README.md) | [اليابانية](../ja/README.md) | [الكورية](../ko/README.md) | [الليتوانية](../lt/README.md) | [الملايوية](../ms/README.md) | [الماراثية](../mr/README.md) | [النيبالية](../ne/README.md) | [البيجين النيجيري](../pcm/README.md) | [النرويجية](../no/README.md) | [الفارسية (فارسي)](../fa/README.md) | [البولندية](../pl/README.md) | [البرتغالية (البرازيل)](../br/README.md) | [البرتغالية (البرتغال)](../pt/README.md) | [البنجابية (غورموخي)](../pa/README.md) | [الرومانية](../ro/README.md) | [الروسية](../ru/README.md) | [الصربية (سيريلية)](../sr/README.md) | [السلوفاكية](../sk/README.md) | [السلوفينية](../sl/README.md) | [الإسبانية](../es/README.md) | [السواحيلية](../sw/README.md) | [السويدية](../sv/README.md) | [التاغالوغية (الفلبينية)](../tl/README.md) | [التاميلية](../ta/README.md) | [التايلاندية](../th/README.md) | [التركية](../tr/README.md) | [الأوكرانية](../uk/README.md) | [الأردية](../ur/README.md) | [الفيتنامية](../vi/README.md)
+[العربية](./README.md) | [البنغالية](../bn/README.md) | [البلغارية](../bg/README.md) | [البورمية (ميانمار)](../my/README.md) | [الصينية (المبسطة)](../zh/README.md) | [الصينية (التقليدية، هونغ كونغ)](../hk/README.md) | [الصينية (التقليدية، ماكاو)](../mo/README.md) | [الصينية (التقليدية، تايوان)](../tw/README.md) | [الكرواتية](../hr/README.md) | [التشيكية](../cs/README.md) | [الدانماركية](../da/README.md) | [الهولندية](../nl/README.md) | [الإستونية](../et/README.md) | [الفنلندية](../fi/README.md) | [الفرنسية](../fr/README.md) | [الألمانية](../de/README.md) | [اليونانية](../el/README.md) | [العبرية](../he/README.md) | [الهندية](../hi/README.md) | [المجرية](../hu/README.md) | [الإندونيسية](../id/README.md) | [الإيطالية](../it/README.md) | [اليابانية](../ja/README.md) | [الكورية](../ko/README.md) | [الليتوانية](../lt/README.md) | [الملايوية](../ms/README.md) | [الماراثية](../mr/README.md) | [النيبالية](../ne/README.md) | [النيجيرية بيدجن](../pcm/README.md) | [النرويجية](../no/README.md) | [الفارسية (فارسي)](../fa/README.md) | [البولندية](../pl/README.md) | [البرتغالية (البرازيل)](../br/README.md) | [البرتغالية (البرتغال)](../pt/README.md) | [البنجابية (غورموخي)](../pa/README.md) | [الرومانية](../ro/README.md) | [الروسية](../ru/README.md) | [الصربية (سيريلية)](../sr/README.md) | [السلوفاكية](../sk/README.md) | [السلوفينية](../sl/README.md) | [الإسبانية](../es/README.md) | [السواحيلية](../sw/README.md) | [السويدية](../sv/README.md) | [التاغالوغية (الفلبينية)](../tl/README.md) | [التاميلية](../ta/README.md) | [التايلاندية](../th/README.md) | [التركية](../tr/README.md) | [الأوكرانية](../uk/README.md) | [الأردية](../ur/README.md) | [الفيتنامية](../vi/README.md)
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
 [![مشاهدو GitHub](https://img.shields.io/github/watchers/azure/co-op-translator.svg?style=social&label=Watch)](https://GitHub.com/azure/co-op-translator/watchers/)
@@ -40,7 +40,7 @@ _سهّل عملية ترجمة محتوى GitHub التعليمي الخاص ب
 
 ## نظرة عامة
 
-**مترجم Co-op** يتيح لك ترجمة محتوى GitHub التعليمي الخاص بك بسرعة إلى عدة لغات، لتصل إلى جمهور عالمي بسهولة. عند تحديث ملفات Markdown أو الصور أو دفاتر Jupyter، تتم مزامنة الترجمات تلقائيًا لضمان بقاء محتواك التعليمي على GitHub حديثًا وملائمًا للمستخدمين حول العالم.
+**مترجم Co-op** يتيح لك ترجمة محتوى GitHub التعليمي الخاص بك بسرعة إلى عدة لغات، لتصل إلى جمهور عالمي بسهولة. عند تحديث ملفات Markdown أو الصور أو دفاتر Jupyter، تتم مزامنة الترجمات تلقائيًا لضمان بقاء محتوى GitHub التعليمي الخاص بك حديثًا وملائمًا للمستخدمين الدوليين.
 
 شاهد كيف ينظم مترجم Co-op المحتوى التعليمي المترجم على GitHub:
 
@@ -73,10 +73,10 @@ docker run --rm -it --env-file .env -v "${PWD}:/work" ghcr.io/azure/co-op-transl
 ## إعداد بسيط
 
 - أنشئ ملف `.env` باستخدام القالب: [.env.template](../../.env.template)
-- قم بإعداد مزود واحد لـ LLM (Azure OpenAI أو OpenAI)
+- قم بإعداد مزود LLM واحد (Azure OpenAI أو OpenAI)
 - لترجمة الصور (`-img`)، قم أيضًا بإعداد Azure AI Vision
 - يوصى به: إذا كان لديك ترجمات تم إنشاؤها بأدوات أخرى، قم بتنظيفها أولاً لتجنب التعارضات (مثلاً: `translations/`).
-- يوصى به: أضف قسم الترجمات إلى ملف README باستخدام [قالب لغات README](./README_languages_template.md)
+- يوصى به: أضف قسم الترجمات إلى ملف README الخاص بك باستخدام [قالب لغات README](./README_languages_template.md)
 - راجع: [إعداد Azure AI](./getting_started/set-up-azure-ai.md)
 
 ## الاستخدام
@@ -173,30 +173,27 @@ translate -l "zh" -nb
 
 نماذج اللغة الطبيعية والصور والصوت واسعة النطاق - مثل تلك المستخدمة في هذا المثال - قد تتصرف أحيانًا بشكل غير عادل أو غير موثوق أو مسيء، مما قد يسبب أضرارًا. يرجى مراجعة [ملاحظة الشفافية لخدمة Azure OpenAI](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) لتكون على علم بالمخاطر والقيود.
 
-الطريقة الموصى بها لتقليل هذه المخاطر هي تضمين نظام أمان في بنيتك يمكنه اكتشاف ومنع السلوك الضار. [أمان المحتوى في Azure AI](https://learn.microsoft.com/azure/ai-services/content-safety/overview) يوفر طبقة حماية مستقلة، قادرة على اكتشاف المحتوى الضار الذي ينشئه المستخدم أو الذكاء الاصطناعي في التطبيقات والخدمات. يتضمن أمان المحتوى في Azure AI واجهات برمجة تطبيقات للنصوص والصور تتيح لك اكتشاف المواد الضارة. لدينا أيضًا استوديو تفاعلي لأمان المحتوى يتيح لك عرض وتجربة عينات كود لاكتشاف المحتوى الضار عبر وسائط مختلفة. الوثائق التالية [دليل البدء السريع](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) ترشدك خلال إرسال الطلبات إلى الخدمة.
+الطريقة الموصى بها لتقليل هذه المخاطر هي تضمين نظام أمان في بنيتك يمكنه اكتشاف ومنع السلوك الضار. [أمان المحتوى في Azure AI](https://learn.microsoft.com/azure/ai-services/content-safety/overview) يوفر طبقة حماية مستقلة، قادرة على اكتشاف المحتوى الضار الذي ينشئه المستخدم أو الذكاء الاصطناعي في التطبيقات والخدمات. يتضمن أمان المحتوى في Azure AI واجهات برمجة تطبيقات للنصوص والصور تتيح لك اكتشاف المواد الضارة. لدينا أيضًا استوديو تفاعلي لأمان المحتوى يتيح لك عرض وتجربة عينات كود لاكتشاف المحتوى الضار عبر وسائط مختلفة. الوثائق التالية [دليل البدء السريع](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) ترشدك حول كيفية إرسال الطلبات للخدمة.
 
-جانب آخر يجب أخذه في الاعتبار هو أداء التطبيق بشكل عام. في التطبيقات متعددة الأنماط والنماذج، نقصد بالأداء أن يعمل النظام كما تتوقع أنت ومستخدموك، بما في ذلك عدم إنتاج مخرجات ضارة. من المهم تقييم أداء تطبيقك بشكل عام باستخدام [مقاييس جودة التوليد والمخاطر والسلامة](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
+جانب آخر يجب أخذه بعين الاعتبار هو أداء التطبيق بشكل عام. في التطبيقات متعددة الأنماط والنماذج، نعني بالأداء أن النظام يعمل كما تتوقع أنت ومستخدموك، بما في ذلك عدم إنتاج مخرجات ضارة. من المهم تقييم أداء تطبيقك بشكل عام باستخدام <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in">معايير جودة التوليد ومعايير المخاطر والسلامة</a>.
 
-يمكنك تقييم تطبيق الذكاء الاصطناعي الخاص بك في بيئة التطوير باستخدام [حزمة تطوير البرمجيات prompt flow](https://microsoft.github.io/promptflow/index.html). سواء كان لديك مجموعة بيانات اختبار أو هدف معين، يتم قياس نتائج تطبيق الذكاء الاصطناعي التوليدي الخاص بك بشكل كمي باستخدام أدوات التقييم المدمجة أو أدوات التقييم المخصصة التي تختارها. للبدء باستخدام حزمة prompt flow لتقييم نظامك، يمكنك اتباع [دليل البدء السريع](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). بعد تنفيذ عملية التقييم، يمكنك [عرض النتائج في Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
+يمكنك تقييم تطبيق الذكاء الاصطناعي الخاص بك في بيئة التطوير باستخدام <a href="https://microsoft.github.io/promptflow/index.html">حزمة prompt flow SDK</a>. سواء كان لديك مجموعة بيانات اختبار أو هدف معين، يتم قياس نتائج تطبيق الذكاء الاصطناعي التوليدي الخاص بك بشكل كمي باستخدام أدوات التقييم المدمجة أو أدوات التقييم المخصصة التي تختارها. للبدء باستخدام prompt flow sdk لتقييم نظامك، يمكنك اتباع <a href="https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk">دليل البدء السريع</a>. بعد تنفيذ عملية التقييم، يمكنك <a href="https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results">عرض النتائج في Azure AI Studio</a>.
 
 ## العلامات التجارية
 
-قد يحتوي هذا المشروع على علامات تجارية أو شعارات لمشاريع أو منتجات أو خدمات. يجب أن يكون استخدام علامات Microsoft التجارية أو شعاراتها مصرحًا به ويجب أن يتبع
-[إرشادات العلامات التجارية والعلامة التجارية لمايكروسوفت](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
-يجب ألا يؤدي استخدام علامات Microsoft التجارية أو شعاراتها في نسخ معدلة من هذا المشروع إلى حدوث لبس أو الإيحاء برعاية مايكروسوفت.
-أي استخدام لعلامات تجارية أو شعارات تابعة لجهات خارجية يخضع لسياسات تلك الجهات.
+قد يحتوي هذا المشروع على علامات تجارية أو شعارات لمشاريع أو منتجات أو خدمات. يجب أن يكون استخدام العلامات التجارية أو الشعارات الخاصة بـ Microsoft وفقًا لـ <a href="https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general">إرشادات العلامات التجارية والعلامة التجارية لـ Microsoft</a>. يجب ألا يؤدي استخدام علامات Microsoft التجارية أو شعاراتها في نسخ معدلة من هذا المشروع إلى حدوث لبس أو الإيحاء برعاية Microsoft. أي استخدام لعلامات تجارية أو شعارات خاصة بأطراف ثالثة يخضع لسياسات تلك الأطراف.
 
 ## الحصول على المساعدة
 
-إذا واجهت صعوبة أو كان لديك أي أسئلة حول بناء تطبيقات الذكاء الاصطناعي، انضم إلى:
+إذا واجهتك مشكلة أو كان لديك أي سؤال حول بناء تطبيقات الذكاء الاصطناعي، انضم إلى:
 
-[![خادم Discord لمجتمع Azure AI Foundry](https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
+<a href="https://aka.ms/foundry/discord"><img src="https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff" alt="Azure AI Foundry Discord"></a>
 
-إذا كان لديك ملاحظات حول المنتج أو واجهت أخطاء أثناء البناء، قم بزيارة:
+إذا كان لديك ملاحظات حول المنتج أو أخطاء أثناء البناء، قم بزيارة:
 
-[![منتدى مطوري Azure AI Foundry على GitHub](https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
+<a href="https://aka.ms/foundry/forum"><img src="https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff" alt="Azure AI Foundry Developer Forum"></a>
 
 ---
 
 **إخلاء المسؤولية**:
-تمت ترجمة هذا المستند باستخدام خدمة الترجمة بالذكاء الاصطناعي [Co-op Translator](https://github.com/Azure/co-op-translator). بينما نسعى لتحقيق الدقة، يرجى العلم أن الترجمات الآلية قد تحتوي على أخطاء أو معلومات غير دقيقة. يجب اعتبار المستند الأصلي بلغته الأصلية هو المصدر الرسمي والموثوق. للمعلومات الحساسة أو الهامة، يُنصح بالاستعانة بترجمة بشرية احترافية. نحن غير مسؤولين عن أي سوء فهم أو تفسير خاطئ ينشأ عن استخدام هذه الترجمة.
+تمت ترجمة هذا المستند باستخدام خدمة الترجمة بالذكاء الاصطناعي [Co-op Translator](https://github.com/Azure/co-op-translator). بينما نسعى لتحقيق الدقة، يرجى العلم أن الترجمات الآلية قد تحتوي على أخطاء أو معلومات غير دقيقة. يجب اعتبار المستند الأصلي بلغته الأصلية هو المصدر الرسمي والموثوق. بالنسبة للمعلومات الهامة، يُنصح بالاستعانة بترجمة بشرية احترافية. نحن غير مسؤولين عن أي سوء فهم أو تفسير خاطئ ينشأ عن استخدام هذه الترجمة.

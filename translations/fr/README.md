@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f579b7f148746593e3e9023b56a8c30d",
-  "translation_date": "2025-10-22T11:49:20+00:00",
+  "original_hash": "7593c1fad8734e4050b60fc3da614aa5",
+  "translation_date": "2025-10-22T13:20:25+00:00",
   "source_file": "README.md",
   "language_code": "fr"
 }
@@ -40,7 +40,7 @@ _Automatisez facilement la traduction de votre contenu éducatif GitHub dans plu
 
 ## Présentation
 
-**Co-op Translator** vous permet de traduire rapidement votre contenu éducatif GitHub dans plusieurs langues, pour toucher facilement un public international. Lorsque vous mettez à jour vos fichiers Markdown, images ou notebooks Jupyter, les traductions sont automatiquement synchronisées pour garantir que votre contenu éducatif reste à jour et pertinent pour les utilisateurs du monde entier.
+**Co-op Translator** vous permet de traduire rapidement votre contenu éducatif GitHub dans plusieurs langues, pour toucher facilement un public international. Lorsque vous mettez à jour vos fichiers Markdown, images ou notebooks Jupyter, les traductions sont automatiquement synchronisées afin que votre contenu éducatif reste à jour et pertinent pour les utilisateurs du monde entier.
 
 Découvrez comment Co-op Translator organise le contenu éducatif GitHub traduit :
 
@@ -113,7 +113,7 @@ Plus d’options : [Référence des commandes](./getting_started/command-referen
 - Synchronise les traductions avec les modifications de la source
 - Fonctionne en local (CLI) ou en CI (GitHub Actions)
 - Utilise Azure OpenAI ou OpenAI ; Azure AI Vision en option pour les images
-- Préserve la mise en forme et la structure du Markdown
+- Préserve la structure et la mise en forme Markdown
 
 ## Documentation
 
@@ -162,27 +162,29 @@ Ce projet accueille volontiers les contributions et suggestions. Vous souhaitez 
 
 ## Code de conduite
 
-Ce projet a adopté le [Code de conduite Open Source Microsoft](https://opensource.microsoft.com/codeofconduct/).
+Ce projet a adopté le [Code de conduite Microsoft Open Source](https://opensource.microsoft.com/codeofconduct/).
 Pour plus d’informations, consultez la [FAQ du code de conduite](https://opensource.microsoft.com/codeofconduct/faq/) ou
 contactez [opencode@microsoft.com](mailto:opencode@microsoft.com) pour toute question ou commentaire supplémentaire.
 
 ## IA responsable
 
-Microsoft s’engage à aider ses clients à utiliser ses produits d’IA de façon responsable, à partager ses apprentissages et à établir des partenariats de confiance grâce à des outils comme les Transparency Notes et les Impact Assessments. Beaucoup de ces ressources sont disponibles sur [https://aka.ms/RAI](https://aka.ms/RAI).
+Microsoft s’engage à aider ses clients à utiliser ses produits d’IA de manière responsable, à partager ses apprentissages et à établir des partenariats de confiance grâce à des outils comme les Transparency Notes et les Impact Assessments. Beaucoup de ces ressources sont disponibles sur [https://aka.ms/RAI](https://aka.ms/RAI).
 L’approche de Microsoft en matière d’IA responsable repose sur nos principes d’équité, de fiabilité et sécurité, de confidentialité et sécurité, d’inclusivité, de transparence et de responsabilité.
 
-Les modèles de langage, d’image et de parole à grande échelle – comme ceux utilisés dans cet exemple – peuvent parfois se comporter de manière injuste, peu fiable ou offensante, ce qui peut causer des préjudices. Veuillez consulter la [Transparency note du service Azure OpenAI](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) pour être informé des risques et limitations.
+Les modèles de langage, d’image et de parole à grande échelle – comme ceux utilisés dans cet exemple – peuvent parfois se comporter de façon injuste, peu fiable ou offensante, causant ainsi des préjudices. Veuillez consulter la [Transparency note du service Azure OpenAI](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) pour être informé des risques et limitations.
 
-La meilleure façon de réduire ces risques est d’intégrer un système de sécurité dans votre architecture, capable de détecter et de prévenir les comportements nuisibles. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) offre une couche de protection indépendante, capable de détecter les contenus nuisibles générés par les utilisateurs ou l’IA dans les applications et services. Azure AI Content Safety inclut des API texte et image qui permettent de détecter les contenus dangereux. Nous proposons aussi un Content Safety Studio interactif pour explorer et tester du code exemple pour la détection de contenus nuisibles sur différents supports. La [documentation de démarrage rapide](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) vous guide pour effectuer des requêtes vers le service.
-Un autre aspect à prendre en compte est la performance globale de l’application. Pour les applications multi-modales et multi-modèles, la performance signifie que le système fonctionne comme vous et vos utilisateurs l’attendez, y compris en évitant de générer des contenus nuisibles. Il est essentiel d’évaluer la performance de votre application dans son ensemble à l’aide des [indicateurs de qualité de génération, de risque et de sécurité](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
+La meilleure façon de réduire ces risques est d’intégrer un système de sécurité dans votre architecture, capable de détecter et de prévenir les comportements nuisibles. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) offre une couche de protection indépendante, capable de détecter les contenus nuisibles générés par les utilisateurs ou l’IA dans les applications et services. Azure AI Content Safety inclut des API texte et image permettant de détecter les contenus dangereux. Nous proposons aussi un Content Safety Studio interactif pour explorer et tester du code d’exemple pour la détection de contenus nuisibles sur différents supports. La [documentation de démarrage rapide](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) vous guide pour effectuer des requêtes vers le service.
 
-Vous pouvez évaluer votre application d’IA dans votre environnement de développement en utilisant le [SDK prompt flow](https://microsoft.github.io/promptflow/index.html). Que vous disposiez d’un jeu de données de test ou d’une cible, les générations de votre application d’IA générative sont mesurées quantitativement grâce aux évaluateurs intégrés ou personnalisés de votre choix. Pour commencer à utiliser le SDK prompt flow pour évaluer votre système, vous pouvez suivre le [guide de démarrage rapide](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). Une fois que vous avez lancé une évaluation, vous pouvez [visualiser les résultats dans Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
+
+Un autre aspect à prendre en compte est la performance globale de l’application. Pour les applications multi-modales et multi-modèles, la performance signifie que le système fonctionne comme vous et vos utilisateurs l’attendent, y compris en évitant de générer des contenus nuisibles. Il est essentiel d’évaluer la performance de votre application dans son ensemble à l’aide des [indicateurs de qualité de génération et de risques et sécurité](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
+
+Vous pouvez évaluer votre application d’IA dans votre environnement de développement grâce au [SDK prompt flow](https://microsoft.github.io/promptflow/index.html). Que vous disposiez d’un jeu de données de test ou d’un objectif précis, les générations de votre application d’IA générative sont mesurées quantitativement avec des évaluateurs intégrés ou personnalisés selon votre choix. Pour commencer à utiliser le SDK prompt flow pour évaluer votre système, suivez le [guide de démarrage rapide](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). Une fois que vous avez lancé une évaluation, vous pouvez [visualiser les résultats dans Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
 
 ## Marques déposées
 
-Ce projet peut contenir des marques déposées ou des logos de projets, produits ou services. L’utilisation autorisée des marques ou logos Microsoft est soumise aux
+Ce projet peut contenir des marques déposées ou des logos liés à des projets, produits ou services. L’utilisation autorisée des marques ou logos Microsoft est soumise aux
 [Directives sur les marques et l’image de marque de Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
-L’utilisation des marques ou logos Microsoft dans des versions modifiées de ce projet ne doit pas prêter à confusion ni suggérer un parrainage de Microsoft.
+L’utilisation des marques ou logos Microsoft dans des versions modifiées de ce projet ne doit pas prêter à confusion ni suggérer un parrainage de la part de Microsoft.
 Toute utilisation de marques ou logos de tiers est soumise aux politiques de ces tiers.
 
 ## Obtenir de l’aide
@@ -197,5 +199,5 @@ Si vous souhaitez donner votre avis sur le produit ou signaler des erreurs lors 
 
 ---
 
-**Avertissement** :  
-Ce document a été traduit à l’aide du service de traduction IA [Co-op Translator](https://github.com/Azure/co-op-translator). Bien que nous nous efforcions d’assurer l’exactitude, veuillez noter que les traductions automatisées peuvent contenir des erreurs ou des imprécisions. Le document original dans sa langue d’origine doit être considéré comme la source faisant autorité. Pour les informations critiques, il est recommandé de recourir à une traduction humaine professionnelle. Nous déclinons toute responsabilité en cas de malentendus ou d’interprétations erronées résultant de l’utilisation de cette traduction.
+**Avertissement** :
+Ce document a été traduit à l’aide du service de traduction IA [Co-op Translator](https://github.com/Azure/co-op-translator). Bien que nous nous efforcions d’assurer l’exactitude, veuillez noter que les traductions automatisées peuvent comporter des erreurs ou des imprécisions. Le document original dans sa langue d’origine doit être considéré comme la source faisant autorité. Pour les informations critiques, il est recommandé de recourir à une traduction humaine professionnelle. Nous déclinons toute responsabilité en cas de malentendus ou d’interprétations erronées résultant de l’utilisation de cette traduction.

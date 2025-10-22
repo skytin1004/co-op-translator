@@ -1,15 +1,15 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "badae5ee6451cc1a6e367cfe5ba92efa",
-  "translation_date": "2025-10-15T02:38:20+00:00",
+  "original_hash": "40660d83d2792201cad4aec9fdf25a29",
+  "translation_date": "2025-10-22T13:34:33+00:00",
   "source_file": "getting_started/supported-languages.md",
   "language_code": "ja"
 }
 -->
-# 対応言語
+# サポートされている言語
 
-下記の表は、**Co-op Translator** が現在対応している言語の一覧です。言語コード、言語名、および各言語に関連する既知の問題が含まれています。新しい言語を追加したい場合は、`src/co_op_translator/fonts/` にある `font_language_mappings.yml` ファイルに該当する言語コード、言語名、適切なフォントを追加し、テスト後にプルリクエストを送ってください。
+下の表は、**Co-op Translator** が現在サポートしている言語の一覧です。言語コード、言語名、そして各言語に関する既知の問題が記載されています。新しい言語を追加したい場合は、`src/co_op_translator/fonts/` にある `font_language_mappings.yml` ファイルに、該当する言語コード・言語名・適切なフォントを追加し、テスト後にプルリクエストを送ってください。
 
 | 言語コード    | 言語名                      | フォント                              | RTL対応     | 既知の問題   |
 |---------------|----------------------------|---------------------------------------|-------------|--------------|
@@ -49,28 +49,29 @@ CO_OP_TRANSLATOR_METADATA:
 | vi            | ベトナム語                 | NotoSans-Medium.ttf                   | いいえ      | なし         |
 | id            | インドネシア語             | NotoSans-Medium.ttf                   | いいえ      | なし         |
 | ms            | マレー語                   | NotoSans-Medium.ttf                   | いいえ      | なし         |
-| tl            | タガログ語（フィリピン語）  | NotoSans-Medium.ttf                   | いいえ      | なし         |
+| tl            | タガログ語（フィリピン）    | NotoSans-Medium.ttf                   | いいえ      | なし         |
 | sw            | スワヒリ語                 | NotoSans-Medium.ttf                   | いいえ      | なし         |
 | hu            | ハンガリー語               | NotoSans-Medium.ttf                   | いいえ      | なし         |
 | cs            | チェコ語                   | NotoSans-Medium.ttf                   | いいえ      | なし         |
 | sk            | スロバキア語               | NotoSans-Medium.ttf                   | いいえ      | なし         |
 | ro            | ルーマニア語               | NotoSans-Medium.ttf                   | いいえ      | なし         |
 | bg            | ブルガリア語               | NotoSans-Medium.ttf                   | いいえ      | なし         |
-| sr            | セルビア語（キリル）        | NotoSans-Medium.ttf                   | いいえ      | なし         |
+| sr            | セルビア語（キリル文字）    | NotoSans-Medium.ttf                   | いいえ      | なし         |
 | hr            | クロアチア語               | NotoSans-Medium.ttf                   | いいえ      | なし         |
 | sl            | スロベニア語               | NotoSans-Medium.ttf                   | いいえ      | なし         |
 | uk            | ウクライナ語               | NotoSans-Medium.ttf                   | いいえ      | なし         |
 | my            | ビルマ語（ミャンマー）      | NotoSansMyanmar-Medium.ttf            | いいえ      | なし         |
 | ta            | タミル語                   | NotoSansTamil-Medium.ttf              | いいえ      | なし         |
 | et            | エストニア語               | NotoSans-Medium.ttf                   | いいえ      | なし         |
+| pcm           | ナイジェリア・ピジン        | NotoSans-Medium.ttf                   | いいえ      | なし         |
 
 ## 新しい言語の追加
 
 新しい言語の追加に興味がありますか？貢献ガイドに従ってください：
 
-- コントリビュート方法はこちら: [新しい言語を追加する](../CONTRIBUTING.md#contribute-a-new-language)
+- コントリビュート方法はこちら: <a href="../CONTRIBUTING.md#contribute-a-new-language">新しい言語を追加する</a>
 
 ---
 
 **免責事項**：
-本書類は、AI翻訳サービス [Co-op Translator](https://github.com/Azure/co-op-translator) を使用して翻訳されています。正確性には努めておりますが、自動翻訳には誤りや不正確な表現が含まれる場合がありますのでご注意ください。原文（元の言語の文書）が正式な情報源とみなされるべきです。重要な情報については、専門の人間による翻訳を推奨します。本翻訳の利用により生じたいかなる誤解や誤認についても、当方は責任を負いかねます。
+本書類は、AI翻訳サービス [Co-op Translator](https://github.com/Azure/co-op-translator) を使用して翻訳されています。正確性には努めておりますが、自動翻訳には誤りや不正確な表現が含まれる場合がありますのでご注意ください。原文（元の言語の文書）が正式な情報源となります。重要な情報については、専門の人間による翻訳を推奨します。本翻訳の利用により生じたいかなる誤解や誤認についても、当方は責任を負いかねます。

@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f579b7f148746593e3e9023b56a8c30d",
-  "translation_date": "2025-10-22T12:14:59+00:00",
+  "original_hash": "7593c1fad8734e4050b60fc3da614aa5",
+  "translation_date": "2025-10-22T14:07:22+00:00",
   "source_file": "README.md",
   "language_code": "ro"
 }
@@ -40,9 +40,9 @@ _Automatizează cu ușurință traducerea conținutului educațional de pe GitHu
 
 ## Prezentare generală
 
-**Co-op Translator** îți permite să traduci rapid conținutul educațional de pe GitHub în mai multe limbi, ajungând cu ușurință la o audiență globală. Când actualizezi fișierele Markdown, imaginile sau notițele Jupyter, traducerile sunt sincronizate automat pentru ca materialele tale educaționale să rămână mereu actualizate și relevante pentru utilizatorii internaționali.
+**Co-op Translator** îți permite să traduci rapid conținutul educațional de pe GitHub în mai multe limbi, ajungând fără efort la o audiență globală. Când actualizezi fișierele Markdown, imaginile sau notițele Jupyter, traducerile sunt sincronizate automat pentru ca materialele tale educaționale să rămână mereu actualizate și relevante pentru utilizatorii internaționali.
 
-Vezi cum organizează Co-op Translator conținutul educațional tradus pe GitHub:
+Vezi cum Co-op Translator organizează conținutul educațional tradus pe GitHub:
 
 ![Exemplu](../../translated_images/translation-ex.0c8aa6a7ee0aad2b35cddcc110c719baf0afc640e8c5a45540e6c166b9907d91.ro.png)
 
@@ -75,7 +75,7 @@ docker run --rm -it --env-file .env -v "${PWD}:/work" ghcr.io/azure/co-op-transl
 - Creează un fișier `.env` folosind șablonul: [.env.template](../../.env.template)
 - Configurează un furnizor LLM (Azure OpenAI sau OpenAI)
 - Pentru traducerea imaginilor (`-img`), configurează și Azure AI Vision
-- Recomandat: Dacă ai traduceri generate cu alte instrumente, curăță-le înainte pentru a evita conflictele (de exemplu: `translations/`).
+- Recomandat: Dacă ai traduceri generate cu alte instrumente, curăță-le mai întâi pentru a evita conflictele (de exemplu: `translations/`).
 - Recomandat: Adaugă o secțiune de traduceri în README folosind [șablonul de limbi README](./README_languages_template.md)
 - Vezi: [Configurare Azure AI](./getting_started/set-up-azure-ai.md)
 
@@ -99,7 +99,7 @@ Markdown + imagini:
 translate -l "pt" -md -img
 ```
 
-Doar notițe:
+Doar notebook-uri:
 
 ```bash
 translate -l "zh" -nb
@@ -109,7 +109,7 @@ Mai multe opțiuni: [Referință comenzi](./getting_started/command-reference.md
 
 ## Funcționalități
 
-- Traducere automată pentru Markdown, notițe și imagini
+- Traducere automată pentru Markdown, notebook-uri și imagini
 - Menține traducerile sincronizate cu modificările sursei
 - Funcționează local (CLI) sau în CI (GitHub Actions)
 - Folosește Azure OpenAI sau OpenAI; opțional Azure AI Vision pentru imagini
@@ -125,14 +125,14 @@ Mai multe opțiuni: [Referință comenzi](./getting_started/command-reference.md
 
 ## Susține-ne și promovează învățarea globală
 
-Alătură-te nouă pentru a revoluționa modul în care conținutul educațional este distribuit la nivel global! Oferă [Co-op Translator](https://github.com/azure/co-op-translator) o ⭐ pe GitHub și susține misiunea noastră de a elimina barierele lingvistice în educație și tehnologie. Interesul și contribuțiile tale contează! Orice contribuție la cod sau sugestie de funcționalitate este binevenită.
+Alătură-te nouă pentru a revoluționa modul în care conținutul educațional este distribuit la nivel global! Oferă [Co-op Translator](https://github.com/azure/co-op-translator) o stea ⭐ pe GitHub și susține misiunea noastră de a elimina barierele lingvistice în educație și tehnologie. Interesul și contribuțiile tale contează! Orice contribuție la cod sau sugestie de funcționalitate este binevenită.
 
 ### Explorează conținut educațional Microsoft în limba ta
 
 - [AZD pentru Începători](https://github.com/microsoft/AZD-for-beginners)
 - [Edge AI pentru Începători](https://github.com/microsoft/edgeai-for-beginners)
 - [Model Context Protocol (MCP) Pentru Începători](https://github.com/microsoft/mcp-for-beginners)
-- [Agenți AI pentru Începători](https://github.com/microsoft/ai-agents-for-beginners)
+- [AI Agents pentru Începători](https://github.com/microsoft/ai-agents-for-beginners)
 - [Generative AI pentru Începători folosind .NET](https://github.com/microsoft/Generative-AI-for-beginners-dotnet)
 - [Generative AI pentru Începători](https://github.com/microsoft/generative-ai-for-beginners)
 - [Generative AI pentru Începători folosind Java](https://github.com/microsoft/generative-ai-for-beginners-java)
@@ -152,9 +152,9 @@ Află mai multe despre Co-op Translator din prezentările noastre _(Click pe ima
 
   [![Open at Microsoft](../../translated_images/open-ms-thumbnail.946b356b89bc5f0e33dcebb852f7926b98c33f54c1a49ce01c36ae7f35e2443a.ro.jpg)](https://www.youtube.com/watch?v=jX_swfH_KNU)
 
-## Contribuie
+## Contribuții
 
-Acest proiect primește cu drag contribuții și sugestii. Vrei să contribui la Azure Co-op Translator? Vezi [CONTRIBUTING.md](./CONTRIBUTING.md) pentru instrucțiuni despre cum poți ajuta la îmbunătățirea accesibilității Co-op Translator.
+Acest proiect încurajează contribuțiile și sugestiile. Vrei să contribui la Azure Co-op Translator? Vezi [CONTRIBUTING.md](./CONTRIBUTING.md) pentru instrucțiuni despre cum poți ajuta la îmbunătățirea accesibilității Co-op Translator.
 
 ## Contribuitori
 
@@ -171,21 +171,23 @@ contactează [opencode@microsoft.com](mailto:opencode@microsoft.com) pentru înt
 Microsoft se angajează să ajute clienții să folosească produsele noastre AI în mod responsabil, să împărtășească lecțiile învățate și să construiască parteneriate bazate pe încredere prin instrumente precum Transparency Notes și Impact Assessments. Multe dintre aceste resurse pot fi găsite la [https://aka.ms/RAI](https://aka.ms/RAI).
 Abordarea Microsoft privind AI responsabil se bazează pe principiile noastre AI: echitate, fiabilitate și siguranță, confidențialitate și securitate, incluziune, transparență și responsabilitate.
 
-Modelele de limbaj, imagine și vorbire la scară largă – precum cele folosite în acest exemplu – pot avea comportamente nedrepte, nesigure sau ofensatoare, ceea ce poate duce la efecte negative. Consultă [nota de transparență Azure OpenAI service](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) pentru a fi informat despre riscuri și limitări.
+Modelele de limbaj, imagine și vorbire la scară largă – precum cele folosite în acest exemplu – pot avea comportamente nedrepte, nesigure sau ofensatoare, ceea ce poate duce la efecte negative. Te rugăm să consulți [nota de transparență a serviciului Azure OpenAI](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) pentru a fi informat despre riscuri și limitări.
 
-Abordarea recomandată pentru a reduce aceste riscuri este să incluzi un sistem de siguranță în arhitectura ta care să detecteze și să prevină comportamentele dăunătoare. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) oferă un strat independent de protecție, capabil să detecteze conținut dăunător generat de utilizatori sau AI în aplicații și servicii. Azure AI Content Safety include API-uri pentru text și imagini care permit detectarea materialelor dăunătoare. Avem și un Content Safety Studio interactiv care îți permite să vizualizezi, explorezi și să testezi cod de exemplu pentru detectarea conținutului dăunător pe diferite tipuri de date. Următoarea [documentație de start rapid](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) te ghidează pentru a face cereri către serviciu.
+Abordarea recomandată pentru reducerea acestor riscuri este să incluzi un sistem de siguranță în arhitectura ta care să poată detecta și preveni comportamentele dăunătoare. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) oferă un strat independent de protecție, capabil să detecteze conținut dăunător generat de utilizatori sau AI în aplicații și servicii. Azure AI Content Safety include API-uri pentru text și imagini care permit detectarea materialelor dăunătoare. Avem și un Content Safety Studio interactiv care îți permite să vizualizezi, explorezi și să testezi cod de exemplu pentru detectarea conținutului dăunător pe diferite tipuri de date. Următoarea [documentație de start rapid](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) te ghidează în realizarea cererilor către serviciu.
+
+
 Un alt aspect de luat în considerare este performanța generală a aplicației. În cazul aplicațiilor multi-modale și cu mai multe modele, performanța înseamnă că sistemul funcționează conform așteptărilor tale și ale utilizatorilor, inclusiv evitarea generării de rezultate dăunătoare. Este important să evaluezi performanța aplicației tale folosind [metrice de calitate a generării și de risc și siguranță](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
 
-Poți evalua aplicația ta AI în mediul de dezvoltare folosind [prompt flow SDK](https://microsoft.github.io/promptflow/index.html). Fie că ai un set de date de test sau un obiectiv, generările aplicației tale AI generative sunt măsurate cantitativ cu evaluatori integrați sau personalizați, după preferință. Pentru a începe cu prompt flow sdk și a evalua sistemul tău, poți urma [ghidul de start rapid](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). După ce execuți o rundă de evaluare, poți [vizualiza rezultatele în Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
+Poți evalua aplicația ta AI în mediul de dezvoltare folosind [prompt flow SDK](https://microsoft.github.io/promptflow/index.html). Fie că folosești un set de date de test sau un obiectiv, generările aplicației tale AI generative sunt măsurate cantitativ cu evaluatori integrați sau personalizați, după preferință. Pentru a începe cu prompt flow sdk și a evalua sistemul tău, poți urma [ghidul de start rapid](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). După ce execuți o rundă de evaluare, poți [vizualiza rezultatele în Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
 
 ## Mărci înregistrate
 
-Acest proiect poate conține mărci înregistrate sau sigle pentru proiecte, produse sau servicii. Utilizarea autorizată a mărcilor sau siglelor Microsoft este supusă și trebuie să respecte
+Acest proiect poate conține mărci înregistrate sau logo-uri pentru proiecte, produse sau servicii. Utilizarea autorizată a mărcilor sau logo-urilor Microsoft este supusă și trebuie să respecte
 [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
-Utilizarea mărcilor sau siglelor Microsoft în versiuni modificate ale acestui proiect nu trebuie să creeze confuzie sau să implice sponsorizarea Microsoft.
-Orice utilizare a mărcilor sau siglelor terților este supusă politicilor respective ale acestora.
+Utilizarea mărcilor sau logo-urilor Microsoft în versiuni modificate ale acestui proiect nu trebuie să creeze confuzie sau să implice sponsorizarea Microsoft.
+Orice utilizare a mărcilor sau logo-urilor terților este supusă politicilor respective ale terților.
 
-## Obținerea de ajutor
+## Asistență
 
 Dacă întâmpini dificultăți sau ai întrebări despre dezvoltarea aplicațiilor AI, alătură-te:
 

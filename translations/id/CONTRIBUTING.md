@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "bd4704f50c55da7d572b691484aa0b30",
-  "translation_date": "2025-10-15T03:37:01+00:00",
+  "original_hash": "1ae2159f900e7d5d596bb00bcba4c999",
+  "translation_date": "2025-10-22T13:58:44+00:00",
   "source_file": "CONTRIBUTING.md",
   "language_code": "id"
 }
@@ -15,7 +15,7 @@ hak untuk menggunakan kontribusi Anda. Untuk detailnya, kunjungi https://cla.ope
 
 Saat Anda mengirimkan pull request, bot CLA akan secara otomatis menentukan apakah Anda perlu memberikan
 CLA dan menandai PR sesuai (misalnya, status check, komentar). Ikuti saja instruksi
-yang diberikan oleh bot. Anda hanya perlu melakukannya sekali untuk semua repo yang menggunakan CLA kami.
+yang diberikan oleh bot. Anda hanya perlu melakukan ini sekali untuk semua repositori yang menggunakan CLA kami.
 
 ## Pengaturan lingkungan pengembangan
 
@@ -107,7 +107,7 @@ Pengujian manual ini membantu memastikan perubahan Anda berjalan baik di skenari
 >
 > ### Opsi tambahan untuk lingkungan pengembangan
 >
-> Selain menjalankan proyek secara lokal, Anda juga bisa menggunakan GitHub Codespaces atau VS Code Dev Containers sebagai alternatif pengaturan lingkungan pengembangan.
+> Selain menjalankan proyek secara lokal, Anda juga dapat menggunakan GitHub Codespaces atau VS Code Dev Containers sebagai alternatif pengaturan lingkungan pengembangan.
 >
 > #### GitHub Codespaces
 >
@@ -121,7 +121,7 @@ Pengujian manual ini membantu memastikan perubahan Anda berjalan baik di skenari
 >
 > #### Menjalankan Secara Lokal menggunakan VS Code Dev Containers
 >
-> ⚠️ Opsi ini hanya berfungsi jika Docker Desktop Anda dialokasikan minimal 16 GB RAM. Jika RAM Anda kurang dari 16 GB, Anda bisa mencoba [opsi GitHub Codespaces](../..) atau [mengatur secara lokal](../..).
+> ⚠️ Opsi ini hanya akan berfungsi jika Docker Desktop Anda dialokasikan minimal 16 GB RAM. Jika RAM Anda kurang dari 16 GB, Anda bisa mencoba [opsi GitHub Codespaces](../..) atau [mengaturnya secara lokal](../..).
 >
 > Opsi terkait adalah VS Code Dev Containers, yang akan membuka proyek di VS Code lokal Anda menggunakan [ekstensi Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers):
 >
@@ -197,7 +197,7 @@ pip install black
 
 Untuk menjalankan Co-op Translator menggunakan Poetry di lingkungan Anda, ikuti langkah-langkah berikut:
 
-1. Masuk ke direktori tempat Anda ingin melakukan tes terjemahan atau buat folder sementara untuk keperluan tes.
+1. Masuk ke direktori tempat Anda ingin melakukan tes terjemahan atau buat folder sementara untuk keperluan pengujian.
 
 2. Jalankan perintah berikut. Ganti `-l ko` dengan kode bahasa yang ingin Anda gunakan. Flag `-d` menandakan mode debug.
 
@@ -210,7 +210,7 @@ Untuk menjalankan Co-op Translator menggunakan Poetry di lingkungan Anda, ikuti 
 
 ## Kontribusi bahasa baru
 
-Kami menerima kontribusi untuk menambah dukungan bahasa baru. Sebelum membuka PR, silakan selesaikan langkah-langkah berikut agar proses review berjalan lancar.
+Kami menyambut kontribusi yang menambah dukungan untuk bahasa baru. Sebelum membuka PR, silakan selesaikan langkah-langkah di bawah ini agar proses review berjalan lancar.
 
 1. Tambahkan bahasa ke pemetaan font
    - Edit `src/co_op_translator/fonts/font_language_mappings.yml`
@@ -225,8 +225,8 @@ Kami menerima kontribusi untuk menambah dukungan bahasa baru. Sebelum membuka PR
    - Tambahkan file font ke `src/co_op_translator/fonts/`
 
 3. Verifikasi lokal
-   - Jalankan terjemahan untuk sampel kecil (Markdown, gambar, dan notebook sesuai kebutuhan)
-   - Pastikan hasil output tampil dengan benar, termasuk font dan layout RTL jika berlaku
+   - Jalankan terjemahan untuk sampel kecil (Markdown, gambar, dan notebook jika perlu)
+   - Pastikan hasilnya tampil dengan benar, termasuk font dan tata letak RTL jika berlaku
 
 4. Perbarui dokumentasi
    - Pastikan bahasa muncul di `getting_started/supported-languages.md`
@@ -245,6 +245,22 @@ new_lang(code):
   rtl: false
 ```
 
+### Uji bahasa baru
+
+Anda dapat menguji bahasa baru dengan menjalankan perintah berikut:
+
+```bash
+# Create and activate a virtual environment (recommended)
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+source .venv/bin/activate
+# Install the development package
+pip install -e .
+# Run the translation
+translate -l "new_lang"
+```
 
 ## Maintainer
 
@@ -288,16 +304,16 @@ Kami menggunakan **Squash and Merge** sebagai strategi default untuk pull reques
 - Konsistensi dalam pesan commit.
 - Mengurangi noise dari commit kecil (misal, "fix typo").
 
-Saat menggabungkan, pastikan pesan commit akhir mengikuti format yang dijelaskan di atas.
+Saat melakukan merge, pastikan pesan commit akhir mengikuti format yang dijelaskan di atas.
 
 **Contoh Squash and Merge**
-Jika PR berisi commit berikut:
+Jika sebuah PR berisi commit berikut:
 
 - `fix typo`
 - `update README`
 - `adjust formatting`
 
-Maka semuanya digabung menjadi:
+Maka harus digabung menjadi:
 `Docs: Improve documentation clarity and formatting (#65)`
 
 ---

@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "badae5ee6451cc1a6e367cfe5ba92efa",
-  "translation_date": "2025-10-15T03:32:32+00:00",
+  "original_hash": "40660d83d2792201cad4aec9fdf25a29",
+  "translation_date": "2025-10-22T13:57:25+00:00",
   "source_file": "getting_started/supported-languages.md",
   "language_code": "he"
 }
@@ -63,6 +63,7 @@ CO_OP_TRANSLATOR_METADATA:
 | my           | בורמזית (מיאנמר)        | NotoSansMyanmar-Medium.ttf        | לא          | לא           |
 | ta           | טמילית                  | NotoSansTamil-Medium.ttf          | לא          | לא           |
 | et           | אסטונית                 | NotoSans-Medium.ttf               | לא          | לא           |
+| pcm          | פידג'ין ניגרי           | NotoSans-Medium.ttf               | לא          | לא           |
 
 ## הוספת שפה חדשה
 
@@ -73,4 +74,4 @@ CO_OP_TRANSLATOR_METADATA:
 ---
 
 **הצהרת אחריות**:
-מסמך זה תורגם באמצעות שירות תרגום מבוסס בינה מלאכותית [Co-op Translator](https://github.com/Azure/co-op-translator). למרות שאנו שואפים לדיוק, יש לקחת בחשבון כי תרגומים אוטומטיים עלולים להכיל טעויות או אי-דיוקים. יש לראות במסמך המקורי בשפתו המקורית כמקור הסמכותי. למידע קריטי, מומלץ לפנות לתרגום מקצועי על ידי אדם. איננו אחראים לכל אי-הבנה או פירוש שגוי הנובעים מהשימוש בתרגום זה.
+מסמך זה תורגם באמצעות שירות תרגום מבוסס בינה מלאכותית [Co-op Translator](https://github.com/Azure/co-op-translator). למרות שאנו שואפים לדיוק, יש לקחת בחשבון כי תרגומים אוטומטיים עשויים להכיל שגיאות או אי-דיוקים. המסמך המקורי בשפתו המקורית הוא המקור הסמכותי. למידע קריטי, מומלץ לפנות לתרגום מקצועי על ידי אדם. איננו אחראים לכל אי-הבנה או פירוש שגוי הנובעים מהשימוש בתרגום זה.

@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "badae5ee6451cc1a6e367cfe5ba92efa",
-  "translation_date": "2025-10-15T02:08:11+00:00",
+  "original_hash": "40660d83d2792201cad4aec9fdf25a29",
+  "translation_date": "2025-10-22T13:20:51+00:00",
   "source_file": "getting_started/supported-languages.md",
   "language_code": "fr"
 }
@@ -63,6 +63,7 @@ Le tableau ci-dessous présente les langues actuellement prises en charge par **
 | my            | Birman (Myanmar)            | NotoSansMyanmar-Medium.ttf          | Non                 | Non              |
 | ta            | Tamoul                      | NotoSansTamil-Medium.ttf            | Non                 | Non              |
 | et            | Estonien                    | NotoSans-Medium.ttf                 | Non                 | Non              |
+| pcm           | Pidgin nigérian             | NotoSans-Medium.ttf                 | Non                 | Non              |
 
 ## Ajouter une nouvelle langue
 
@@ -72,5 +73,5 @@ Vous souhaitez ajouter une nouvelle langue ? Veuillez suivre le guide de contrib
 
 ---
 
-**Avertissement** :  
-Ce document a été traduit à l’aide du service de traduction IA [Co-op Translator](https://github.com/Azure/co-op-translator). Bien que nous nous efforcions d’assurer l’exactitude, veuillez noter que les traductions automatisées peuvent comporter des erreurs ou des imprécisions. Le document original dans sa langue d’origine doit être considéré comme la source faisant autorité. Pour les informations critiques, il est recommandé de recourir à une traduction humaine professionnelle. Nous déclinons toute responsabilité en cas de malentendus ou d’interprétations erronées résultant de l’utilisation de cette traduction.
+**Avertissement** :
+Ce document a été traduit à l’aide du service de traduction IA [Co-op Translator](https://github.com/Azure/co-op-translator). Bien que nous nous efforcions d’assurer l’exactitude, veuillez noter que les traductions automatisées peuvent contenir des erreurs ou des imprécisions. Le document original dans sa langue d’origine doit être considéré comme la source faisant autorité. Pour les informations critiques, il est recommandé de recourir à une traduction humaine professionnelle. Nous déclinons toute responsabilité en cas de malentendus ou d’interprétations erronées résultant de l’utilisation de cette traduction.

@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f579b7f148746593e3e9023b56a8c30d",
-  "translation_date": "2025-10-22T11:55:36+00:00",
+  "original_hash": "7593c1fad8734e4050b60fc3da614aa5",
+  "translation_date": "2025-10-22T13:31:02+00:00",
   "source_file": "README.md",
   "language_code": "tw"
 }
@@ -25,7 +25,7 @@ _輕鬆自動化翻譯你的教育 GitHub 內容到多種語言，讓全球用�
 
 ### 🌐 多語言支援
 
-#### 由 [Co-op Translator](https://github.com/Azure/Co-op-Translator) 提供支援
+#### 由 [Co-op Translator](https://github.com/Azure/Co-op-Translator) 提供
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
 [Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh/README.md) | [Chinese (Traditional, Hong Kong)](../hk/README.md) | [Chinese (Traditional, Macau)](../mo/README.md) | [Chinese (Traditional, Taiwan)](./README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../br/README.md) | [Portuguese (Portugal)](../pt/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
@@ -44,7 +44,7 @@ _輕鬆自動化翻譯你的教育 GitHub 內容到多種語言，讓全球用�
 
 看看 Co-op Translator 如何組織翻譯後的教育 GitHub 內容：
 
-![範例](../../translated_images/translation-ex.0c8aa6a7ee0aad2b35cddcc110c719baf0afc640e8c5a45540e6c166b9907d91.tw.png)
+![Example](../../translated_images/translation-ex.0c8aa6a7ee0aad2b35cddcc110c719baf0afc640e8c5a45540e6c166b9907d91.tw.png)
 
 ## 快速開始
 
@@ -75,9 +75,9 @@ docker run --rm -it --env-file .env -v "${PWD}:/work" ghcr.io/azure/co-op-transl
 - 使用範本建立 `.env`： [.env.template](../../.env.template)
 - 設定一個 LLM 供應商（Azure OpenAI 或 OpenAI）
 - 若要翻譯圖片（`-img`），也要設定 Azure AI Vision
-- 建議：如果你有其他工具產生的翻譯，先清理（例如：`translations/`），避免衝突
+- 建議：如果你有其他工具產生的翻譯，先清理它們以避免衝突（例如：`translations/`）。
 - 建議：在你的 README 加入翻譯語言區塊，參考 [README 語言範本](./README_languages_template.md)
-- 詳見：[設定 Azure AI](./getting_started/set-up-azure-ai.md)
+- 參考：[設定 Azure AI](./getting_started/set-up-azure-ai.md)
 
 ## 使用方式
 
@@ -125,7 +125,7 @@ translate -l "zh" -nb
 
 ## 支持我們，推動全球學習
 
-邀請你一起改變教育內容的全球分享方式！歡迎在 GitHub 為 [Co-op Translator](https://github.com/azure/co-op-translator) 按下 ⭐，支持我們打破學習與科技的語言障礙。你的關注與貢獻都很重要！歡迎提供程式碼貢獻與功能建議。
+邀請你一起改變教育內容的全球分享方式！歡迎在 GitHub 為 [Co-op Translator](https://github.com/azure/co-op-translator) 點個 ⭐，支持我們打破學習與科技的語言障礙。你的關注與貢獻都很重要！歡迎提供程式碼貢獻與功能建議。
 
 ### 探索你語言的 Microsoft 教育內容
 
@@ -154,7 +154,7 @@ translate -l "zh" -nb
 
 ## 貢獻方式
 
-本專案歡迎各種貢獻與建議。想參與 Azure Co-op Translator 開發嗎？請參考 [CONTRIBUTING.md](./CONTRIBUTING.md) 了解如何協助 Co-op Translator 變得更易用。
+本專案歡迎各種貢獻與建議。想參與 Azure Co-op Translator 的開發嗎？請參考 [CONTRIBUTING.md](./CONTRIBUTING.md) 了解如何協助我們讓 Co-op Translator 更易用。
 
 ## 貢獻者
 
@@ -164,27 +164,27 @@ translate -l "zh" -nb
 
 本專案採用 [Microsoft 開源行為準則](https://opensource.microsoft.com/codeofconduct/)。
 更多資訊請參考 [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) 或
-如有疑問請聯絡 [opencode@microsoft.com](mailto:opencode@microsoft.com)。
+有任何問題與意見請聯絡 [opencode@microsoft.com](mailto:opencode@microsoft.com)。
 
 ## 負責任的 AI
 
-Microsoft 致力於協助客戶負責任地使用我們的 AI 產品，分享我們的經驗，並透過透明說明與影響評估等工具建立信任。你可以在 [https://aka.ms/RAI](https://aka.ms/RAI) 找到許多相關資源。
+Microsoft 致力於協助客戶負責任地使用我們的 AI 產品，分享我們的經驗，並透過透明說明與影響評估等工具建立信任。相關資源可在 [https://aka.ms/RAI](https://aka.ms/RAI) 找到。
 Microsoft 的負責任 AI 原則包括公平性、可靠與安全、隱私與安全、包容性、透明度與問責。
 
-大規模自然語言、影像和語音模型（如本範例所用）有可能出現不公平、不可靠或冒犯性行為，可能造成傷害。請參考 [Azure OpenAI 服務透明說明](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) 了解相關風險與限制。
+大規模自然語言、影像與語音模型（如本範例所用）有可能出現不公平、不可靠或冒犯性行為，可能造成傷害。請參考 [Azure OpenAI 服務透明說明](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) 以了解相關風險與限制。
 
-建議的風險緩解方式是，在你的架構中加入安全系統，偵測並防止有害行為。[Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) 提供獨立的保護層，能偵測應用程式與服務中的有害使用者或 AI 產生內容。Azure AI Content Safety 包含文字與圖片 API，可偵測有害內容。我們也有互動式 Content Safety Studio，讓你可以瀏覽、探索並試用偵測各種型態有害內容的範例程式碼。以下 [快速入門文件](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) 可協助你開始使用服務。
+建議的風險緩解方式是，在你的架構中加入安全系統，偵測並防止有害行為。[Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) 提供獨立的保護層，能偵測應用程式與服務中的有害用戶或 AI 產生內容。Azure AI Content Safety 包含文字與圖片 API，可偵測有害內容。我們也有互動式 Content Safety Studio，讓你可以瀏覽、探索並試用偵測各種型態有害內容的範例程式碼。以下 [快速入門文件](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) 可協助你開始使用該服務。
 另一個需要考慮的面向是整體應用程式效能。對於多模態和多模型的應用程式來說，效能指的是系統能夠如你和你的使用者所預期地運作，包括不產生有害的輸出。評估整體應用程式的效能時，建議參考[生成品質以及風險與安全性指標](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in)。
 
 你可以在開發環境中利用 [prompt flow SDK](https://microsoft.github.io/promptflow/index.html) 來評估你的 AI 應用程式。無論是使用測試資料集或目標，你的生成式 AI 應用程式都能透過內建或自訂的評估器進行量化評量。若要開始使用 prompt flow sdk 來評估你的系統，可以參考[快速入門指南](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk)。執行評估後，你可以[在 Azure AI Studio 中視覺化結果](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results)。
 
 ## 商標
 
-本專案可能包含專案、產品或服務的商標或標誌。授權使用 Microsoft
+本專案可能包含專案、產品或服務的商標或標誌。經授權使用 Microsoft
 商標或標誌時，必須遵守
 [Microsoft 商標與品牌指南](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general)。
 在本專案的修改版本中使用 Microsoft 商標或標誌時，不得造成混淆或暗示 Microsoft 贊助。
-任何第三方商標或標誌的使用，則需遵循該第三方的政策。
+任何第三方商標或標誌的使用，則需遵循該第三方的相關政策。
 
 ## 尋求協助
 

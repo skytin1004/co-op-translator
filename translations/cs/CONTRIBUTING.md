@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "bd4704f50c55da7d572b691484aa0b30",
-  "translation_date": "2025-10-15T03:50:45+00:00",
+  "original_hash": "1ae2159f900e7d5d596bb00bcba4c999",
+  "translation_date": "2025-10-22T14:04:23+00:00",
   "source_file": "CONTRIBUTING.md",
   "language_code": "cs"
 }
@@ -63,14 +63,14 @@ poetry install
 
 ### Manuální testování
 
-Před odesláním PR je důležité otestovat překladovou funkci na skutečné dokumentaci:
+Před odesláním PR je důležité otestovat funkčnost překladu na skutečné dokumentaci:
 
 1. V kořenovém adresáři vytvořte testovací složku:
     ```bash
     mkdir test_docs
     ```
 
-2. Zkopírujte do testovací složky nějakou markdown dokumentaci a obrázky, které chcete překládat. Například:
+2. Zkopírujte do testovací složky nějakou markdown dokumentaci a obrázky, které chcete přeložit. Například:
     ```bash
     cp /path/to/your/docs/*.md test_docs/
     cp /path/to/your/images/*.png test_docs/
@@ -92,12 +92,12 @@ Před odesláním PR je důležité otestovat překladovou funkci na skutečné 
    - Zachování původní struktury markdownu
    - Funkčnost odkazů a obrázků
 
-Toto manuální testování pomáhá zajistit, že vaše změny fungují dobře v reálných situacích.
+Toto manuální testování pomáhá ověřit, že vaše změny fungují i v reálných situacích.
 
 ### Proměnné prostředí
 
 1. V kořenovém adresáři vytvořte soubor `.env` zkopírováním poskytnutého souboru `.env.template`.
-1. Vyplňte proměnné prostředí podle pokynů.
+1. Doplňte proměnné prostředí podle pokynů.
 
 > [!TIP]
 >
@@ -117,19 +117,18 @@ Toto manuální testování pomáhá zajistit, že vaše změny fungují dobře 
 >
 > #### Lokální spuštění pomocí VS Code Dev Containers
 >
-> ⚠️ Tato možnost funguje pouze, pokud máte v Docker Desktopu přiděleno alespoň 16 GB RAM. Pokud máte méně než 16 GB RAM, zkuste [možnost GitHub Codespaces](../..) nebo [nastavte lokálně](../..).
+> ⚠️ Tato možnost funguje pouze, pokud je Docker Desktop nastaven na alespoň 16 GB RAM. Pokud máte méně než 16 GB RAM, zkuste [GitHub Codespaces](../..) nebo [lokální nastavení](../..).
 >
-> Další možností jsou VS Code Dev Containers, které otevřou projekt ve vašem lokálním VS Code pomocí [rozšíření Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers):
+> Další možností jsou VS Code Dev Containers, které otevřou projekt ve vašem lokálním VS Code pomocí [Dev Containers rozšíření](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers):
 >
 > 1. Spusťte Docker Desktop (nainstalujte, pokud ještě nemáte)
 > 2. Otevřete projekt:
 >
 >    <a href="https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure/co-op-translator"><img src="https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode" alt="Open in Dev Containers"></a>
 
-
 ### Styl kódu
 
-Používáme [Black](https://github.com/psf/black) jako formátovač Python kódu pro udržení jednotného stylu v celém projektu. Black je nekompromisní formátovač, který automaticky upravuje Python kód podle stylu Black.
+Používáme [Black](https://github.com/psf/black) jako formátovač Python kódu pro udržení jednotného stylu v celém projektu. Black je nekompromisní formátovač, který automaticky upravuje Python kód podle svého stylu.
 
 #### Konfigurace
 
@@ -193,7 +192,7 @@ pip install black
 
 Pro spuštění Co-op Translator pomocí Poetry ve vašem prostředí postupujte takto:
 
-1. Přejděte do složky, kde chcete provádět překladové testy, nebo si vytvořte dočasnou složku pro testování.
+1. Přejděte do složky, kde chcete provádět testy překladu, nebo si vytvořte dočasnou složku pro testování.
 
 2. Spusťte následující příkaz. Nahraďte `-l ko` kódem jazyka, do kterého chcete překládat. Přepínač `-d` aktivuje debug mód.
 
@@ -218,10 +217,10 @@ Uvítáme příspěvky, které přidávají podporu nových jazyků. Před otev�
 
 2. Přidejte potřebné fonty (pokud je třeba)
    - Pokud je potřeba nový font, ověřte kompatibilitu licence pro open source distribuci
-   - Přidejte soubor fontu do `src/co_op_translator/fonts/`
+   - Přidejte font do `src/co_op_translator/fonts/`
 
 3. Lokální ověření
-   - Proveďte překlad na malém vzorku (Markdown, obrázky, případně notebooky)
+   - Spusťte překlad na malém vzorku (Markdown, obrázky, notebooky dle potřeby)
    - Ověřte, že výstup se správně zobrazuje, včetně fontů a případného RTL rozložení
 
 4. Aktualizujte dokumentaci
@@ -230,7 +229,7 @@ Uvítáme příspěvky, které přidávají podporu nových jazyků. Před otev�
 
 5. Otevřete PR
    - Popište přidaný jazyk a případné font/licenční aspekty
-   - Přiložte screenshoty vykreslených výstupů, pokud je to možné
+   - Přiložte screenshoty výstupů, pokud je to možné
 
 Ukázka YAML položky:
 
@@ -241,14 +240,30 @@ new_lang(code):
   rtl: false
 ```
 
+### Testování nového jazyka
+
+Nový jazyk můžete otestovat spuštěním následujícího příkazu:
+
+```bash
+# Create and activate a virtual environment (recommended)
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+source .venv/bin/activate
+# Install the development package
+pip install -e .
+# Run the translation
+translate -l "new_lang"
+```
 
 ## Správci
 
 ### Formát zprávy o commitu a strategie slučování
 
-Pro zajištění konzistence a přehlednosti v historii commitů projektu dodržujeme specifický formát zpráv o commitu **pro finální commit** při použití strategie **Squash and Merge**.
+Pro zajištění konzistence a přehlednosti historie commitů projektu dodržujeme specifický formát zprávy o commitu **pro finální zprávu o commitu** při použití strategie **Squash and Merge**.
 
-Když se pull request (PR) sloučí, jednotlivé commity se spojí do jednoho. Finální zpráva o commitu by měla dodržet níže uvedený formát pro čistou a jednotnou historii.
+Když je pull request (PR) sloučen, jednotlivé commity se sloučí do jednoho. Finální zpráva o commitu by měla dodržovat níže uvedený formát pro udržení čisté a konzistentní historie.
 
 #### Formát zprávy o commitu (pro squash and merge)
 
@@ -260,7 +275,7 @@ Používáme následující formát zpráv o commitu:
 
 - **type**: Určuje kategorii commitu. Používáme tyto typy:
   - `Docs`: Pro aktualizace dokumentace.
-  - `Build`: Pro změny týkající se build systému nebo závislostí, včetně aktualizací konfiguračních souborů, CI workflow nebo Dockerfile.
+  - `Build`: Pro změny týkající se build systému nebo závislostí, včetně úprav konfiguračních souborů, CI workflow nebo Dockerfile.
   - `Core`: Pro úpravy hlavní funkcionality projektu, zejména souborů ve složce `src/co_op_translator/core`.
 
 - **description**: Stručné shrnutí změny.
@@ -272,11 +287,11 @@ Používáme následující formát zpráv o commitu:
 - `Core: Improve handling of image translation (#60)`
 
 > [!NOTE]
-> Prefixy **`Docs`**, **`Core`** a **`Build`** se aktuálně automaticky přidávají do názvů PR podle štítků aplikovaných na upravený zdrojový kód. Pokud je správný štítek aplikován, obvykle není potřeba název PR ručně upravovat. Stačí ověřit, že je vše správně a prefix byl vygenerován.
+> Prefixy **`Docs`**, **`Core`** a **`Build`** se aktuálně automaticky přidávají do názvů PR podle štítků aplikovaných na upravený zdrojový kód. Pokud je správný štítek aplikován, obvykle není potřeba název PR ručně upravovat. Stačí ověřit, že je vše správně a prefix byl vygenerován správně.
 
 #### Strategie slučování
 
-Používáme **Squash and Merge** jako výchozí strategii pro pull requesty. Tato strategie zajišťuje, že zprávy o commitu dodržují náš formát, i když jednotlivé commity ne.
+Používáme **Squash and Merge** jako výchozí strategii pro pull requesty. Tato strategie zajišťuje, že zprávy o commitu odpovídají našemu formátu, i když jednotlivé commity ne.
 
 **Důvody**:
 
@@ -299,4 +314,4 @@ Měly by být sloučeny do:
 ---
 
 **Prohlášení**:
-Tento dokument byl přeložen pomocí AI překladatelské služby [Co-op Translator](https://github.com/Azure/co-op-translator). Přestože usilujeme o přesnost, mějte prosím na paměti, že automatizované překlady mohou obsahovat chyby nebo nepřesnosti. Za autoritativní zdroj by měl být považován původní dokument v jeho rodném jazyce. Pro kritické informace doporučujeme profesionální lidský překlad. Neodpovídáme za žádné nedorozumění nebo nesprávné výklady vzniklé v důsledku použití tohoto překladu.
+Tento dokument byl přeložen pomocí AI překladatelské služby [Co-op Translator](https://github.com/Azure/co-op-translator). Přestože se snažíme o přesnost, mějte prosím na paměti, že automatizované překlady mohou obsahovat chyby nebo nepřesnosti. Za autoritativní zdroj by měl být považován původní dokument v jeho rodném jazyce. Pro kritické informace doporučujeme profesionální lidský překlad. Nenese odpovědnost za jakékoli nedorozumění nebo nesprávné výklady vzniklé použitím tohoto překladu.

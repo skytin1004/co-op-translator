@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f579b7f148746593e3e9023b56a8c30d",
-  "translation_date": "2025-10-22T12:08:25+00:00",
+  "original_hash": "7593c1fad8734e4050b60fc3da614aa5",
+  "translation_date": "2025-10-22T13:55:53+00:00",
   "source_file": "README.md",
   "language_code": "nl"
 }
@@ -40,7 +40,7 @@ _Automatiseer eenvoudig de vertaling van je educatieve GitHub-content naar meerd
 
 ## Overzicht
 
-**Co-op Translator** maakt het mogelijk om je educatieve GitHub-content snel te vertalen naar meerdere talen, zodat je moeiteloos een wereldwijd publiek bereikt. Wanneer je je Markdown-bestanden, afbeeldingen of Jupyter-notebooks bijwerkt, worden vertalingen automatisch gesynchroniseerd zodat je educatieve GitHub-content actueel en relevant blijft voor internationale gebruikers.
+**Co-op Translator** maakt het mogelijk om je educatieve GitHub-content snel te vertalen naar meerdere talen, zodat je moeiteloos een wereldwijd publiek bereikt. Wanneer je je Markdown-bestanden, afbeeldingen of Jupyter-notebooks bijwerkt, worden de vertalingen automatisch gesynchroniseerd. Zo blijft je educatieve GitHub-content actueel en relevant voor internationale gebruikers.
 
 Bekijk hoe Co-op Translator vertaalde educatieve GitHub-content organiseert:
 
@@ -73,10 +73,10 @@ docker run --rm -it --env-file .env -v "${PWD}:/work" ghcr.io/azure/co-op-transl
 ## Minimale setup
 
 - Maak een `.env` aan met behulp van de template: [.env.template](../../.env.template)
-- Configureer één LLM-provider (Azure OpenAI of OpenAI)
-- Voor vertaling van afbeeldingen (`-img`), stel ook Azure AI Vision in
+- Stel één LLM-provider in (Azure OpenAI of OpenAI)
+- Voor het vertalen van afbeeldingen (`-img`), stel ook Azure AI Vision in
 - Aanbevolen: Als je vertalingen hebt die door andere tools zijn gegenereerd, ruim deze eerst op om conflicten te voorkomen (bijvoorbeeld: `translations/`).
-- Aanbevolen: Voeg een vertalingen-sectie toe aan je README met behulp van de [README talen-template](./README_languages_template.md)
+- Aanbevolen: Voeg een vertalingen-sectie toe aan je README met behulp van de [README languages template](./README_languages_template.md)
 - Zie: [Azure AI instellen](./getting_started/set-up-azure-ai.md)
 
 ## Gebruik
@@ -112,14 +112,14 @@ Meer opties: [Commandoreferentie](./getting_started/command-reference.md)
 - Automatische vertaling van Markdown, notebooks en afbeeldingen
 - Houdt vertalingen synchroon met bronwijzigingen
 - Werkt lokaal (CLI) of in CI (GitHub Actions)
-- Gebruikt Azure OpenAI of OpenAI; optioneel Azure AI Vision voor afbeeldingen
+- Maakt gebruik van Azure OpenAI of OpenAI; optioneel Azure AI Vision voor afbeeldingen
 - Behoudt de opmaak en structuur van Markdown
 
 ## Documentatie
 
 - [Command-line gids](./getting_started/command-line-guide/command-line-guide.md)
 - [GitHub Actions gids (Publieke repositories & standaard secrets)](./getting_started/github-actions-guide/github-actions-guide-public.md)
-- [GitHub Actions gids (Microsoft organisatie-repositories & org-niveau setups)](./getting_started/github-actions-guide/github-actions-guide-org.md)
+- [GitHub Actions gids (Microsoft organisatie repositories & org-niveau setups)](./getting_started/github-actions-guide/github-actions-guide-org.md)
 - [Ondersteunde talen](./getting_started/supported-languages.md)
 - [Probleemoplossing](./getting_started/troubleshooting.md)
 
@@ -133,9 +133,9 @@ Help mee om de manier waarop educatieve content wereldwijd wordt gedeeld te vern
 - [Edge AI voor Beginners](https://github.com/microsoft/edgeai-for-beginners)
 - [Model Context Protocol (MCP) Voor Beginners](https://github.com/microsoft/mcp-for-beginners)
 - [AI Agents voor Beginners](https://github.com/microsoft/ai-agents-for-beginners)
-- [Generatieve AI voor Beginners met .NET](https://github.com/microsoft/Generative-AI-for-beginners-dotnet)
-- [Generatieve AI voor Beginners](https://github.com/microsoft/generative-ai-for-beginners)
-- [Generatieve AI voor Beginners met Java](https://github.com/microsoft/generative-ai-for-beginners-java)
+- [Generative AI voor Beginners met .NET](https://github.com/microsoft/Generative-AI-for-beginners-dotnet)
+- [Generative AI voor Beginners](https://github.com/microsoft/generative-ai-for-beginners)
+- [Generative AI voor Beginners met Java](https://github.com/microsoft/generative-ai-for-beginners-java)
 - [ML voor Beginners](https://aka.ms/ml-beginners)
 - [Data Science voor Beginners](https://aka.ms/datascience-beginners)
 - [AI voor Beginners](https://aka.ms/ai-beginners)
@@ -150,7 +150,7 @@ Leer meer over Co-op Translator via onze presentaties _(Klik op de afbeelding hi
 
 - **Open bij Microsoft**: Een korte introductie van 18 minuten en een snelle gids over het gebruik van Co-op Translator.
 
-  [![Open bij Microsoft](../../translated_images/open-ms-thumbnail.946b356b89bc5f0e33dcebb852f7926b98c33f54c1a49ce01c36ae7f35e2443a.nl.jpg)](https://www.youtube.com/watch?v=jX_swfH_KNU)
+  [![Open at Microsoft](../../translated_images/open-ms-thumbnail.946b356b89bc5f0e33dcebb852f7926b98c33f54c1a49ce01c36ae7f35e2443a.nl.jpg)](https://www.youtube.com/watch?v=jX_swfH_KNU)
 
 ## Bijdragen
 
@@ -168,23 +168,23 @@ neem contact op met [opencode@microsoft.com](mailto:opencode@microsoft.com) voor
 
 ## Verantwoordelijke AI
 
-Microsoft zet zich in om klanten te helpen onze AI-producten verantwoord te gebruiken, onze ervaringen te delen en vertrouwensrelaties op te bouwen via tools zoals Transparency Notes en Impact Assessments. Veel van deze bronnen zijn te vinden op [https://aka.ms/RAI](https://aka.ms/RAI).
-Microsofts benadering van verantwoordelijke AI is gebaseerd op onze AI-principes: eerlijkheid, betrouwbaarheid en veiligheid, privacy en beveiliging, inclusiviteit, transparantie en verantwoordelijkheid.
+Microsoft zet zich in om klanten te helpen onze AI-producten op een verantwoorde manier te gebruiken, onze ervaringen te delen en vertrouwensrelaties op te bouwen via tools zoals Transparency Notes en Impact Assessments. Veel van deze bronnen zijn te vinden op [https://aka.ms/RAI](https://aka.ms/RAI).
+De aanpak van Microsoft voor verantwoorde AI is gebaseerd op onze AI-principes: eerlijkheid, betrouwbaarheid en veiligheid, privacy en beveiliging, inclusiviteit, transparantie en verantwoordelijkheid.
 
-Grootschalige modellen voor natuurlijke taal, beeld en spraak – zoals die in dit voorbeeld worden gebruikt – kunnen zich soms oneerlijk, onbetrouwbaar of aanstootgevend gedragen, wat schade kan veroorzaken. Raadpleeg de [Azure OpenAI service Transparency note](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) om op de hoogte te zijn van risico’s en beperkingen.
+Grootschalige modellen voor natuurlijke taal, beeld en spraak – zoals die in dit voorbeeld worden gebruikt – kunnen zich soms op een oneerlijke, onbetrouwbare of aanstootgevende manier gedragen, wat schade kan veroorzaken. Raadpleeg de [Azure OpenAI service Transparency note](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) om op de hoogte te zijn van risico’s en beperkingen.
 
 De aanbevolen manier om deze risico’s te beperken is het opnemen van een veiligheidssysteem in je architectuur dat schadelijk gedrag kan detecteren en voorkomen. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) biedt een onafhankelijke beschermingslaag die schadelijke door gebruikers of AI gegenereerde content in applicaties en diensten kan detecteren. Azure AI Content Safety bevat tekst- en beeld-API’s waarmee je schadelijk materiaal kunt opsporen. Er is ook een interactieve Content Safety Studio waarmee je voorbeelden kunt bekijken, verkennen en uitproberen voor het detecteren van schadelijke content in verschillende vormen. De volgende [quickstart documentatie](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) helpt je bij het maken van verzoeken naar de service.
 
 
-Een ander aspect om rekening mee te houden is de algemene prestatie van de applicatie. Bij applicaties die gebruikmaken van meerdere modaliteiten en modellen, bedoelen we met prestaties dat het systeem werkt zoals jij en je gebruikers verwachten, inclusief het voorkomen van schadelijke uitkomsten. Het is belangrijk om de prestaties van je hele applicatie te beoordelen met behulp van [generatiekwaliteit en risico- en veiligheidsmetingen](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
+Een ander aspect om rekening mee te houden is de algemene prestatie van de applicatie. Bij multi-modale en multi-model applicaties bedoelen we met prestaties dat het systeem werkt zoals jij en je gebruikers verwachten, inclusief het voorkomen van schadelijke uitkomsten. Het is belangrijk om de prestaties van je hele applicatie te beoordelen met behulp van [generatiekwaliteit en risico- en veiligheidsmetingen](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
 
-Je kunt je AI-applicatie evalueren in je ontwikkelomgeving met de [prompt flow SDK](https://microsoft.github.io/promptflow/index.html). Op basis van een testdataset of een doel worden de generaties van je generatieve AI-applicatie kwantitatief gemeten met ingebouwde evaluators of evaluators die je zelf kiest. Wil je aan de slag met de prompt flow sdk om je systeem te evalueren, volg dan de [quickstart-gids](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). Zodra je een evaluatierun hebt uitgevoerd, kun je [de resultaten visualiseren in Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
+Je kunt je AI-applicatie evalueren in je ontwikkelomgeving met de [prompt flow SDK](https://microsoft.github.io/promptflow/index.html). Met een testdataset of een doel worden de generaties van je generatieve AI-applicatie kwantitatief gemeten met ingebouwde evaluators of eigen evaluators naar keuze. Om te beginnen met de prompt flow sdk voor het evalueren van je systeem, kun je de [quickstart-gids](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk) volgen. Zodra je een evaluatierun hebt uitgevoerd, kun je [de resultaten visualiseren in Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
 
 ## Handelsmerken
 
 Dit project kan handelsmerken of logo’s bevatten van projecten, producten of diensten. Geautoriseerd gebruik van Microsoft
 handelsmerken of logo’s is onderhevig aan en moet voldoen aan de
-[Richtlijnen voor het gebruik van Microsoft handelsmerken en merken](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
+[Microsoft Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
 Gebruik van Microsoft handelsmerken of logo’s in aangepaste versies van dit project mag geen verwarring veroorzaken of suggereren dat Microsoft het sponsort.
 Elk gebruik van handelsmerken of logo’s van derden valt onder het beleid van die derden.
 

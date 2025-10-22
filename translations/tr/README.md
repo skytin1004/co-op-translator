@@ -1,15 +1,15 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f579b7f148746593e3e9023b56a8c30d",
-  "translation_date": "2025-10-22T12:03:26+00:00",
+  "original_hash": "7593c1fad8734e4050b60fc3da614aa5",
+  "translation_date": "2025-10-22T13:47:17+00:00",
   "source_file": "README.md",
   "language_code": "tr"
 }
 -->
 # Co-op Translator
 
-_Eğitsel GitHub içeriğinizi kolayca birden fazla dile otomatik olarak çevirin ve küresel bir kitleye ulaşın._
+_Eğitici GitHub içeriğinizi kolayca birden fazla dile otomatik olarak çevirin ve küresel bir kitleye ulaşın._
 
 [![Python package](https://img.shields.io/pypi/v/co-op-translator?color=4BA3FF)](https://pypi.org/project/co-op-translator/)
 [![License: MIT](https://img.shields.io/github/license/azure/co-op-translator?color=4BA3FF)](https://github.com/azure/co-op-translator/blob/main/LICENSE)
@@ -40,9 +40,9 @@ _Eğitsel GitHub içeriğinizi kolayca birden fazla dile otomatik olarak çeviri
 
 ## Genel Bakış
 
-**Co-op Translator**, eğitsel GitHub içeriğinizi hızlıca birden fazla dile çevirmenizi sağlar ve küresel bir kitleye kolayca ulaşmanıza yardımcı olur. Markdown dosyalarınızı, görsellerinizi veya Jupyter defterlerinizi güncellediğinizde, çeviriler otomatik olarak senkronize edilir ve böylece eğitsel GitHub içeriğiniz uluslararası kullanıcılar için güncel ve alakalı kalır.
+**Co-op Translator** ile eğitici GitHub içeriğinizi hızlıca birden fazla dile çevirebilir ve küresel bir kitleye kolayca ulaşabilirsiniz. Markdown dosyalarınızı, görsellerinizi veya Jupyter defterlerinizi güncellediğinizde, çeviriler otomatik olarak senkronize edilir ve eğitici GitHub içeriğinizin uluslararası kullanıcılar için güncel ve anlamlı kalmasını sağlar.
 
-Co-op Translator'ın çevrilmiş eğitsel GitHub içeriğini nasıl organize ettiğini inceleyin:
+Co-op Translator'ın çevrilmiş eğitici GitHub içeriğini nasıl organize ettiğini inceleyin:
 
 ![Örnek](../../translated_images/translation-ex.0c8aa6a7ee0aad2b35cddcc110c719baf0afc640e8c5a45540e6c166b9907d91.tr.png)
 
@@ -72,11 +72,11 @@ docker run --rm -it --env-file .env -v "${PWD}:/work" ghcr.io/azure/co-op-transl
 
 ## Minimum Kurulum
 
-- `.env` dosyasını şablondan oluşturun: [.env.template](../../.env.template)
+- [.env.template](../../.env.template) şablonunu kullanarak bir `.env` dosyası oluşturun
 - Bir LLM sağlayıcısı yapılandırın (Azure OpenAI veya OpenAI)
 - Görsel çevirisi için (`-img`), ayrıca Azure AI Vision ayarlayın
-- Tavsiye: Başka araçlarla oluşturulmuş çevirileriniz varsa, çakışmaları önlemek için önce bunları temizleyin (örneğin: `translations/`).
-- Tavsiye: README dosyanıza [README diller şablonunu](./README_languages_template.md) kullanarak bir çeviri bölümü ekleyin
+- Tavsiye: Başka araçlarla oluşturulmuş çevirileriniz varsa, çakışmaları önlemek için önce temizleyin (örneğin: `translations/`).
+- Tavsiye: README'nize [README diller şablonunu](./README_languages_template.md) kullanarak bir çeviri bölümü ekleyin
 - Bakınız: [Azure AI Kurulumu](./getting_started/set-up-azure-ai.md)
 
 ## Kullanım
@@ -109,25 +109,25 @@ Daha fazla bayrak: [Komut referansı](./getting_started/command-reference.md)
 
 ## Özellikler
 
-- Markdown, defterler ve görseller için otomatik çeviri
+- Markdown, defter ve görseller için otomatik çeviri
 - Çevirileri kaynak değişiklikleriyle senkronize tutar
 - Yerel (CLI) veya CI (GitHub Actions) ile çalışır
 - Azure OpenAI veya OpenAI kullanır; görseller için isteğe bağlı Azure AI Vision
-- Markdown biçimlendirmesini ve yapısını korur
+- Markdown biçimini ve yapısını korur
 
 ## Belgeler
 
 - [Komut satırı rehberi](./getting_started/command-line-guide/command-line-guide.md)
 - [GitHub Actions rehberi (Herkese açık depolar & standart gizli anahtarlar)](./getting_started/github-actions-guide/github-actions-guide-public.md)
-- [GitHub Actions rehberi (Microsoft organizasyon depoları & organizasyon düzeyi kurulumlar)](./getting_started/github-actions-guide/github-actions-guide-org.md)
+- [GitHub Actions rehberi (Microsoft organizasyon depoları & organizasyon düzeyinde kurulumlar)](./getting_started/github-actions-guide/github-actions-guide-org.md)
 - [Desteklenen diller](./getting_started/supported-languages.md)
 - [Sorun giderme](./getting_started/troubleshooting.md)
 
-## Bizi Destekleyin ve Küresel Öğrenimi Teşvik Edin
+## Bizi Destekleyin ve Küresel Öğrenmeyi Teşvik Edin
 
-Eğitsel içeriğin küresel olarak paylaşılma şeklini birlikte değiştirelim! [Co-op Translator](https://github.com/azure/co-op-translator) projesine GitHub'da ⭐ verin ve öğrenme ile teknolojideki dil engellerini kaldırma misyonumuzu destekleyin. İlginiz ve katkılarınız büyük fark yaratıyor! Kod katkıları ve özellik önerileri her zaman memnuniyetle karşılanır.
+Eğitici içeriğin küresel olarak paylaşılma şeklini birlikte değiştirelim! [Co-op Translator](https://github.com/azure/co-op-translator) projesine GitHub'da bir ⭐ verin ve öğrenme ile teknolojideki dil engellerini kaldırma misyonumuzu destekleyin. İlginiz ve katkılarınız büyük fark yaratıyor! Kod katkıları ve yeni özellik önerileri her zaman memnuniyetle karşılanır.
 
-### Microsoft eğitsel içeriklerini kendi dilinizde keşfedin
+### Microsoft'un eğitici içeriklerini kendi dilinizde keşfedin
 
 - [AZD for Beginners](https://github.com/microsoft/AZD-for-beginners)
 - [Edge AI for Beginners](https://github.com/microsoft/edgeai-for-beginners)
@@ -146,15 +146,15 @@ Eğitsel içeriğin küresel olarak paylaşılma şeklini birlikte değiştireli
 
 ## Video Sunumlar
 
-Co-op Translator hakkında daha fazla bilgi edinin _(Aşağıdaki görsele tıklayarak YouTube'da izleyebilirsiniz.)_:
+Co-op Translator hakkında daha fazla bilgi edinmek için sunumlarımızı izleyin _(Aşağıdaki görsele tıklayarak YouTube'da izleyebilirsiniz.)_:
 
-- **Open at Microsoft**: Co-op Translator'ın nasıl kullanılacağına dair 18 dakikalık kısa bir tanıtım ve hızlı rehber.
+- **Open at Microsoft**: Co-op Translator'ın kullanımı hakkında kısa bir 18 dakikalık tanıtım ve hızlı rehber.
 
   [![Open at Microsoft](../../translated_images/open-ms-thumbnail.946b356b89bc5f0e33dcebb852f7926b98c33f54c1a49ce01c36ae7f35e2443a.tr.jpg)](https://www.youtube.com/watch?v=jX_swfH_KNU)
 
 ## Katkıda Bulunma
 
-Bu proje katkı ve önerilere açıktır. Azure Co-op Translator'a katkıda bulunmak ister misiniz? Lütfen [CONTRIBUTING.md](./CONTRIBUTING.md) dosyamıza göz atarak Co-op Translator'ı daha erişilebilir hale getirmek için nasıl yardımcı olabileceğinizi öğrenin.
+Bu proje katkıları ve önerileri memnuniyetle karşılar. Azure Co-op Translator'a katkıda bulunmak ister misiniz? [CONTRIBUTING.md](./CONTRIBUTING.md) dosyamıza göz atarak Co-op Translator'ı daha erişilebilir hale getirmek için nasıl yardımcı olabileceğinizi öğrenebilirsiniz.
 
 ## Katkıda Bulunanlar
 
@@ -163,34 +163,37 @@ Bu proje katkı ve önerilere açıktır. Azure Co-op Translator'a katkıda bulu
 ## Davranış Kuralları
 
 Bu proje [Microsoft Açık Kaynak Davranış Kuralları](https://opensource.microsoft.com/codeofconduct/) benimsemiştir.
-Daha fazla bilgi için [Davranış Kuralları SSS](https://opensource.microsoft.com/codeofconduct/faq/) sayfasına bakabilir veya
-ek sorularınız ve yorumlarınız için [opencode@microsoft.com](mailto:opencode@microsoft.com) adresine ulaşabilirsiniz.
+Daha fazla bilgi için [Davranış Kuralları SSS](https://opensource.microsoft.com/codeofconduct/faq/) sayfasını ziyaret edebilir veya
+ek sorularınız ve yorumlarınız için [opencode@microsoft.com](mailto:opencode@microsoft.com) adresine e-posta gönderebilirsiniz.
 
 ## Sorumlu Yapay Zeka
 
-Microsoft, müşterilerimizin yapay zeka ürünlerimizi sorumlu bir şekilde kullanmalarına yardımcı olmaya, öğrendiklerimizi paylaşmaya ve Şeffaflık Notları ve Etki Değerlendirmeleri gibi araçlarla güvene dayalı ortaklıklar kurmaya kararlıdır. Bu kaynakların birçoğuna [https://aka.ms/RAI](https://aka.ms/RAI) adresinden ulaşabilirsiniz.
-Microsoft'un sorumlu yapay zeka yaklaşımı; adalet, güvenilirlik ve güvenlik, gizlilik ve güvenlik, kapsayıcılık, şeffaflık ve hesap verebilirlik ilkelerine dayanmaktadır.
+Microsoft, müşterilerimizin yapay zeka ürünlerimizi sorumlu bir şekilde kullanmasına yardımcı olmaya, deneyimlerimizi paylaşmaya ve şeffaflık notları ile etki değerlendirmeleri gibi araçlarla güvene dayalı ortaklıklar kurmaya kararlıdır. Bu kaynakların çoğuna [https://aka.ms/RAI](https://aka.ms/RAI) adresinden ulaşabilirsiniz.
+Microsoft'un sorumlu yapay zeka yaklaşımı; adalet, güvenilirlik ve güvenlik, gizlilik ve güvenlik, kapsayıcılık, şeffaflık ve hesap verebilirlik ilkelerine dayanır.
 
-Bu örnekte kullanılanlar gibi büyük ölçekli doğal dil, görsel ve konuşma modelleri; adil olmayan, güvenilmez veya saldırgan davranışlar sergileyebilir ve bu da zararlara yol açabilir. Riskler ve sınırlamalar hakkında bilgi sahibi olmak için lütfen [Azure OpenAI hizmeti Şeffaflık Notu](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) sayfasını inceleyin.
+Bu örnekte kullanılanlar gibi büyük ölçekli doğal dil, görsel ve konuşma modelleri; adil olmayan, güvenilmez veya saldırgan davranışlar sergileyebilir ve zarara yol açabilir. Riskler ve sınırlamalar hakkında bilgi sahibi olmak için [Azure OpenAI hizmeti Şeffaflık notunu](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) inceleyin.
 
-Bu riskleri azaltmak için önerilen yaklaşım, zararlı davranışları tespit edip önleyebilecek bir güvenlik sistemi mimarinize dahil etmektir. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview), uygulama ve hizmetlerde kullanıcı veya yapay zeka tarafından üretilen zararlı içerikleri tespit edebilen bağımsız bir koruma katmanı sunar. Azure AI Content Safety, zararlı materyalleri tespit etmenizi sağlayan metin ve görsel API'leri içerir. Ayrıca, farklı modlarda zararlı içerik tespiti için örnek kodları görebileceğiniz, keşfedebileceğiniz ve deneyebileceğiniz etkileşimli bir Content Safety Studio'ya da sahibiz. Aşağıdaki [hızlı başlangıç dokümantasyonu](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) hizmete istek göndermeyi adım adım anlatır.
-Dikkate alınması gereken bir diğer konu ise uygulamanın genel performansıdır. Çok modlu ve çok modelli uygulamalarda, performanstan kastımız sistemin sizin ve kullanıcılarınızın beklentilerini karşılaması, zararlı çıktılar üretmemesidir. Uygulamanızın genel performansını [üretim kalitesi ile risk ve güvenlik metrikleri](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in) kullanarak değerlendirmek önemlidir.
+Bu riskleri azaltmak için önerilen yaklaşım, zararlı davranışları tespit edip önleyebilecek bir güvenlik sistemi mimarinize dahil etmektir. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) uygulama ve hizmetlerde kullanıcı veya yapay zeka tarafından üretilen zararlı içerikleri tespit edebilen bağımsız bir koruma katmanı sağlar. Azure AI Content Safety, zararlı materyalleri tespit etmenizi sağlayan metin ve görsel API'leri içerir. Ayrıca, farklı modlarda zararlı içerik tespiti için örnek kodları görebileceğiniz ve deneyebileceğiniz etkileşimli bir Content Safety Studio'ya sahibiz. [Hızlı başlangıç dokümantasyonu](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) hizmete istek göndermeyi adım adım anlatır.
 
-Yapay zeka uygulamanızı geliştirme ortamınızda [prompt flow SDK](https://microsoft.github.io/promptflow/index.html) ile değerlendirebilirsiniz. Test veri seti veya bir hedef verildiğinde, üretici yapay zeka uygulamanızın çıktıları, yerleşik değerlendiriciler veya sizin seçtiğiniz özel değerlendiricilerle nicel olarak ölçülür. Sisteminizi değerlendirmek için prompt flow sdk ile başlamak isterseniz [hızlı başlangıç rehberini](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk) takip edebilirsiniz. Bir değerlendirme çalıştırması yaptıktan sonra, [sonuçları Azure AI Studio'da görselleştirebilirsiniz](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
+Dikkate alınması gereken bir diğer konu ise genel uygulama performansıdır. Çok modlu ve çok modelli uygulamalarda, performanstan kastımız sistemin sizin ve kullanıcılarınızın beklentilerini karşılaması, zararlı çıktılar üretmemesi de dahil olmak üzere düzgün çalışmasıdır. Uygulamanızın genel performansını [üretim kalitesi ile risk ve güvenlik metrikleri](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in) kullanarak değerlendirmek önemlidir.
+
+Yapay zeka uygulamanızı geliştirme ortamınızda [prompt flow SDK](https://microsoft.github.io/promptflow/index.html) ile değerlendirebilirsiniz. Bir test veri seti veya bir hedef verildiğinde, üretici yapay zeka uygulamanızın çıktıları, yerleşik değerlendiriciler veya sizin seçtiğiniz özel değerlendiricilerle nicel olarak ölçülür. Sisteminizi değerlendirmek için prompt flow sdk ile başlamak isterseniz [hızlı başlangıç rehberini](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk) takip edebilirsiniz. Bir değerlendirme çalıştırması yaptıktan sonra, [sonuçları Azure AI Studio'da görselleştirebilirsiniz](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
 
 ## Ticari Markalar
 
-Bu projede projelere, ürünlere veya hizmetlere ait ticari markalar veya logolar bulunabilir. Microsoft ticari markalarının veya logolarının yetkili kullanımı, [Microsoft Ticari Marka ve Marka Yönergeleri](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general) ile uyumlu olmalıdır. Bu projenin değiştirilmiş sürümlerinde Microsoft ticari markalarının veya logolarının kullanımı, kafa karışıklığına yol açmamalı veya Microsoft'un sponsorluğunu ima etmemelidir. Üçüncü taraf ticari markalarının veya logolarının kullanımı ise ilgili üçüncü tarafın politikalarına tabidir.
+Bu projede projelere, ürünlere veya hizmetlere ait ticari markalar veya logolar bulunabilir. Microsoft ticari markalarının veya logolarının yetkili kullanımı, [Microsoft'un Ticari Marka ve Marka Yönergelerine](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general) tabidir ve bu yönergelere uyulmalıdır.
+Bu projenin değiştirilmiş sürümlerinde Microsoft ticari markalarının veya logolarının kullanımı, kafa karışıklığına yol açmamalı veya Microsoft'un sponsorluğunu ima etmemelidir.
+Üçüncü taraf ticari markalarının veya logolarının kullanımı, ilgili üçüncü tarafın politikalarına tabidir.
 
 ## Yardım Alma
 
 Yapay zeka uygulamaları geliştirirken takılırsanız veya sorularınız olursa, katılın:
 
-[![Azure AI Foundry Discord](https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
+<a href="https://aka.ms/foundry/discord"><img src="https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff" alt="Azure AI Foundry Discord"></a>
 
 Ürünle ilgili geri bildirimde bulunmak veya hata ile karşılaşırsanız ziyaret edin:
 
-[![Azure AI Foundry Developer Forum](https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
+<a href="https://aka.ms/foundry/forum"><img src="https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff" alt="Azure AI Foundry Developer Forum"></a>
 
 ---
 

@@ -1,31 +1,31 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "bd4704f50c55da7d572b691484aa0b30",
-  "translation_date": "2025-10-15T02:37:01+00:00",
+  "original_hash": "1ae2159f900e7d5d596bb00bcba4c999",
+  "translation_date": "2025-10-22T13:33:34+00:00",
   "source_file": "CONTRIBUTING.md",
   "language_code": "ja"
 }
 -->
-# Co-op Translatorへの貢献
+# Co-op Translator への貢献
 
-このプロジェクトでは、貢献や提案を歓迎しています。ほとんどの貢献には、Contributor License Agreement（CLA）への同意が必要です。これは、あなたが貢献する権利を持ち、実際にその権利を私たちに付与することを宣言するものです。詳細は https://cla.opensource.microsoft.com をご覧ください。
+このプロジェクトでは、貢献や提案を歓迎しています。ほとんどの貢献には、Contributor License Agreement (CLA) への同意が必要です。これは、あなたが貢献する権利を持ち、実際にその権利を私たちに付与することを宣言するものです。詳細は https://cla.opensource.microsoft.com をご覧ください。
 
-プルリクエストを提出すると、CLAボットが自動的にCLAの提出が必要かどうかを判断し、PRにステータスチェックやコメントなどを付与します。ボットの指示に従ってください。CLAへの同意は、CLAを利用しているすべてのリポジトリで一度だけ行えば大丈夫です。
+プルリクエストを提出すると、CLA ボットが自動的に CLA の提出が必要かどうかを判定し、PR にステータスチェックやコメントなどで案内します。ボットの指示に従ってください。CLA の提出は、同じ CLA を使うすべてのリポジトリで一度だけ行えば大丈夫です。
 
 ## 開発環境のセットアップ
 
-このプロジェクトの開発環境をセットアップするには、依存関係管理にPoetryの利用を推奨しています。プロジェクトの依存関係は `pyproject.toml` で管理しているため、依存関係のインストールにはPoetryを使ってください。
+このプロジェクトの開発環境をセットアップするには、依存関係管理に Poetry の利用を推奨しています。プロジェクトの依存関係は `pyproject.toml` で管理しているため、依存パッケージのインストールには Poetry を使ってください。
 
 ### 仮想環境の作成
 
-#### pipを使う場合
+#### pip を使う場合
 
 ```bash
 python -m venv .venv
 ```
 
-#### Poetryを使う場合
+#### Poetry を使う場合
 
 ```bash
 poetry init
@@ -33,21 +33,21 @@ poetry init
 
 ### 仮想環境の有効化
 
-#### pip・Poetry共通
+#### pip・Poetry 共通
 
-- Windowsの場合:
+- Windows:
 
     ```bash
     .venv\Scripts\activate.bat
     ```
 
-- Mac/Linuxの場合:
+- Mac/Linux:
 
     ```bash
     source .venv/bin/activate
     ```
 
-#### Poetryを使う場合
+#### Poetry を使う場合
 
 ```bash
 poetry shell
@@ -55,7 +55,7 @@ poetry shell
 
 ### パッケージと必要なパッケージのインストール
 
-#### Poetry（pyproject.tomlから）
+#### Poetry（pyproject.toml から）
 
 ```bash
 poetry install
@@ -63,14 +63,14 @@ poetry install
 
 ### 手動テスト
 
-PRを提出する前に、実際のドキュメントで翻訳機能をテストすることが重要です。
+PR を提出する前に、実際のドキュメントで翻訳機能をテストすることが重要です。
 
 1. ルートディレクトリにテスト用ディレクトリを作成します:
     ```bash
     mkdir test_docs
     ```
 
-2. 翻訳したいMarkdownドキュメントや画像をテストディレクトリにコピーします。例:
+2. 翻訳したい Markdown ドキュメントや画像をテストディレクトリにコピーします。例:
     ```bash
     cp /path/to/your/docs/*.md test_docs/
     cp /path/to/your/images/*.png test_docs/
@@ -81,15 +81,15 @@ PRを提出する前に、実際のドキュメントで翻訳機能をテスト
     pip install -e .
     ```
 
-4. テストドキュメントでCo-op Translatorを実行します:
+4. テストドキュメントで Co-op Translator を実行します:
     ```bash
     python -m co_op_translator --language-codes ko --root-dir test_docs
     ```
 
-5. `test_docs/translations` と `test_docs/translated_images` の翻訳済みファイルを確認し、以下を検証します:
+5. `test_docs/translations` と `test_docs/translated_images` の翻訳ファイルを確認し、以下をチェックします:
    - 翻訳品質
    - メタデータコメントが正しいか
-   - 元のMarkdown構造が保持されているか
+   - 元の Markdown 構造が維持されているか
    - リンクや画像が正しく動作しているか
 
 この手動テストにより、あなたの変更が実際の利用シーンで問題なく動作することを確認できます。
@@ -97,31 +97,31 @@ PRを提出する前に、実際のドキュメントで翻訳機能をテスト
 ### 環境変数
 
 1. ルートディレクトリに `.env.template` ファイルをコピーして `.env` ファイルを作成します。
-1. 指示に従って環境変数を記入してください。
+1. 指示に従って環境変数を設定してください。
 
 > [!TIP]
 >
 > ### 開発環境の追加オプション
 >
-> プロジェクトをローカルで実行する以外にも、GitHub CodespacesやVS Code Dev Containersを使って開発環境をセットアップできます。
+> プロジェクトをローカルで実行する以外にも、GitHub Codespaces や VS Code Dev Containers を使って開発環境を構築できます。
 >
 > #### GitHub Codespaces
 >
-> GitHub Codespacesを使えば、追加の設定やセットアップなしでサンプルを仮想的に実行できます。
+> GitHub Codespaces を使えば、追加の設定なしでサンプルを仮想的に実行できます。
 >
-> ボタンをクリックすると、ブラウザ上でWeb版VS Codeが開きます:
+> このボタンをクリックすると、ブラウザ上で VS Code が開きます:
 >
 > 1. テンプレートを開く（数分かかる場合があります）:
 >
 >     <a href="https://codespaces.new/azure/co-op-translator"><img src="https://github.com/codespaces/badge.svg" alt="Open in GitHub Codespaces"></a>
 >
-> #### VS Code Dev Containersを使ってローカルで実行
+> #### VS Code Dev Containers を使ってローカルで実行
 >
-> ⚠️ このオプションは、Docker Desktopに最低16GBのRAMが割り当てられている場合のみ動作します。16GB未満の場合は、[GitHub Codespacesオプション](../..)や[ローカルセットアップ](../..)をお試しください。
+> ⚠️ このオプションは、Docker Desktop に最低 16 GB の RAM が割り当てられている場合のみ動作します。16 GB 未満の場合は [GitHub Codespaces オプション](../..) や [ローカルセットアップ](../..) をご利用ください。
 >
-> 関連オプションとしてVS Code Dev Containersがあります。これは[Dev Containers拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)を使い、ローカルのVS Codeでプロジェクトを開きます:
+> 関連オプションとして VS Code Dev Containers があります。これは [Dev Containers 拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) を使ってローカルの VS Code でプロジェクトを開きます:
 >
-> 1. Docker Desktopを起動（未インストールの場合はインストール）
+> 1. Docker Desktop を起動（未インストールの場合はインストール）
 > 2. プロジェクトを開く:
 >
 >    <a href="https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure/co-op-translator"><img src="https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode" alt="Open in Dev Containers"></a>
@@ -129,11 +129,11 @@ PRを提出する前に、実際のドキュメントで翻訳機能をテスト
 
 ### コードスタイル
 
-プロジェクト全体のコードスタイルを統一するため、Pythonコードフォーマッター [Black](https://github.com/psf/black) を使用しています。Blackは妥協のないコードフォーマッターで、Pythonコードを自動的にBlackのスタイルに整形します。
+プロジェクト全体のコードスタイルを統一するため、Python コードフォーマッター [Black](https://github.com/psf/black) を使用しています。Black は妥協のないコードフォーマッターで、Python コードを自動的に Black のスタイルに整形します。
 
 #### 設定
 
-Blackの設定は `pyproject.toml` に記載されています:
+Black の設定は `pyproject.toml` に記載されています:
 
 ```toml
 [tool.black]
@@ -142,29 +142,29 @@ target-version = ['py310']
 include = '\.pyi?$'
 ```
 
-#### Blackのインストール
+#### Black のインストール
 
-BlackはPoetry（推奨）またはpipでインストールできます。
+Poetry（推奨）または pip で Black をインストールできます。
 
-##### Poetryを使う場合
+##### Poetry を使う場合
 
-開発環境をセットアップすると自動的にBlackがインストールされます:
+開発環境セットアップ時に Black も自動的にインストールされます:
 ```bash
 poetry install
 ```
 
-##### pipを使う場合
+##### pip を使う場合
 
-pipを使う場合は、Blackを直接インストールできます:
+pip を使う場合は、Black を直接インストールできます:
 ```bash
 pip install black
 ```
 
-#### Blackの使い方
+#### Black の使い方
 
-##### Poetryの場合
+##### Poetry で
 
-1. プロジェクト内のすべてのPythonファイルを整形:
+1. プロジェクト内のすべての Python ファイルを整形:
     ```bash
     poetry run black .
     ```
@@ -174,9 +174,9 @@ pip install black
     poetry run black path/to/file_or_directory
     ```
 
-##### pipの場合
+##### pip で
 
-1. プロジェクト内のすべてのPythonファイルを整形:
+1. プロジェクト内のすべての Python ファイルを整形:
     ```bash
     black .
     ```
@@ -187,52 +187,52 @@ pip install black
     ```
 
 > [!TIP]
-> エディターの保存時にBlackで自動整形する設定をおすすめします。多くのエディターで拡張機能やプラグインを通じて対応しています。
+> エディターの保存時に自動で Black で整形する設定をおすすめします。多くのエディターで拡張機能やプラグインで対応しています。
 
-## Co-op Translatorの実行
+## Co-op Translator の実行
 
-Poetryを使ってCo-op Translatorを実行するには、以下の手順に従ってください。
+Poetry を使って Co-op Translator を実行するには、以下の手順に従ってください。
 
 1. 翻訳テストを行いたいディレクトリに移動するか、テスト用の一時フォルダーを作成します。
 
-2. 以下のコマンドを実行します。`-l ko` は翻訳先の言語コードに置き換えてください。`-d` フラグはデバッグモードを示します。
+2. 以下のコマンドを実行します。`-l ko` の部分は翻訳したい言語コードに置き換えてください。`-d` フラグはデバッグモードです。
 
     ```bash
     poetry run co-op-translator translate -l ko -d
     ```
 
 > [!NOTE]
-> コマンド実行前にPoetry環境（poetry shell）が有効になっていることを確認してください。
+> コマンド実行前に Poetry 環境（poetry shell）が有効になっていることを確認してください。
 
 ## 新しい言語の追加
 
-新しい言語のサポート追加も歓迎しています。PRを作成する前に、以下の手順を完了してください。
+新しい言語のサポート追加も歓迎しています。PR を作成する前に、以下の手順を完了してください。
 
 1. フォントマッピングへの言語追加
    - `src/co_op_translator/fonts/font_language_mappings.yml` を編集
    - 以下の項目でエントリを追加:
-     - `code`: ISO風の言語コード（例: `vi`）
-     - `name`: 人が分かりやすい表示名
-     - `font`: 対応するスクリプトのフォント（`src/co_op_translator/fonts/` に含まれるもの）
+     - `code`: ISO 風の言語コード（例: `vi`）
+     - `name`: 人が見て分かりやすい表示名
+     - `font`: その言語の文字体系をサポートする `src/co_op_translator/fonts/` 配下のフォント
      - `rtl`: 右から左書きの場合は `true`、それ以外は `false`
 
 2. 必要なフォントファイルの追加（必要な場合）
-   - 新しいフォントが必要な場合は、オープンソース配布のライセンス互換性を確認
+   - 新しいフォントが必要な場合は、オープンソース配布に適したライセンスか確認
    - フォントファイルを `src/co_op_translator/fonts/` に追加
 
 3. ローカル検証
-   - 少量のサンプル（Markdown、画像、ノートブックなど）で翻訳を実行
-   - フォントやRTLレイアウトも含め、出力が正しく表示されるか確認
+   - サンプル（Markdown、画像、ノートブックなど）で翻訳を実行
+   - フォントや RTL レイアウトも含めて、出力が正しく表示されるか確認
 
 4. ドキュメントの更新
-   - 言語が `getting_started/supported-languages.md` に記載されていることを確認
+   - `getting_started/supported-languages.md` に言語が記載されていることを確認
    - `README_languages_template.md` の変更は不要です。これはサポートリストから自動生成されます
 
-5. PRの作成
-   - 追加した言語やフォント・ライセンスの考慮事項を説明
-   - 可能であれば、レンダリングされた出力のスクリーンショットを添付
+5. PR の作成
+   - 追加した言語やフォント・ライセンスの注意点を説明
+   - 可能ならレンダリング結果のスクリーンショットを添付
 
-YAMLエントリ例:
+YAML の例:
 
 ```yaml
 new_lang(code):
@@ -241,18 +241,34 @@ new_lang(code):
   rtl: false
 ```
 
+### 新しい言語のテスト
+
+以下のコマンドで新しい言語をテストできます:
+
+```bash
+# Create and activate a virtual environment (recommended)
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+source .venv/bin/activate
+# Install the development package
+pip install -e .
+# Run the translation
+translate -l "new_lang"
+```
 
 ## メンテナー向け
 
 ### コミットメッセージとマージ戦略
 
-プロジェクトのコミット履歴の一貫性と明確さを保つため、**Squash and Merge**戦略を使う際の**最終コミットメッセージ**には特定のフォーマットを採用しています。
+プロジェクトのコミット履歴の一貫性と明確さを保つため、**Squash and Merge** 戦略を使う際の**最終コミットメッセージ**には特定のフォーマットを採用しています。
 
-プルリクエスト（PR）がマージされると、個々のコミットは1つのコミットにまとめられます。最終コミットメッセージは、以下のフォーマットに従ってください。
+プルリクエスト（PR）がマージされると、個々のコミットは一つにまとめられます。最終コミットメッセージは、以下のフォーマットに従ってください。
 
-#### コミットメッセージフォーマット（Squash and Merge用）
+#### コミットメッセージのフォーマット（Squash and Merge 用）
 
-コミットメッセージは以下のフォーマットを使います:
+コミットメッセージは以下の形式です:
 
 ```bash
 <type>: <description> (#<PR number>)
@@ -260,8 +276,8 @@ new_lang(code):
 
 - **type**: コミットのカテゴリを指定します。以下のタイプを使います:
   - `Docs`: ドキュメントの更新
-  - `Build`: ビルドシステムや依存関係の変更（設定ファイル、CIワークフロー、Dockerfileなどの更新を含む）
-  - `Core`: プロジェクトのコア機能や特徴の修正（特に `src/co_op_translator/core` ディレクトリのファイル）
+  - `Build`: ビルドシステムや依存関係の変更（設定ファイル、CI ワークフロー、Dockerfile なども含む）
+  - `Core`: プロジェクトのコア機能や特徴の変更（特に `src/co_op_translator/core` ディレクトリのファイル）
 
 - **description**: 変更内容の簡潔な要約
 - **PR number**: コミットに関連するプルリクエスト番号
@@ -272,22 +288,22 @@ new_lang(code):
 - `Core: 画像翻訳の処理を改善 (#60)`
 
 > [!NOTE]
-> 現在、**`Docs`**、**`Core`**、**`Build`** のプレフィックスは、変更されたソースコードに適用されたラベルに基づきPRタイトルに自動的に追加されます。正しいラベルが適用されていれば、通常はPRタイトルを手動で更新する必要はありません。すべてが正しいか、プレフィックスが適切に生成されているかを確認してください。
+> 現在、**`Docs`**、**`Core`**、**`Build`** のプレフィックスは、変更されたソースコードにラベルが付与されることで PR タイトルに自動的に追加されます。正しいラベルが付いていれば、通常は PR タイトルを手動で修正する必要はありません。内容が正しいか、プレフィックスが適切に生成されているかだけ確認してください。
 
 #### マージ戦略
 
-プルリクエストには**Squash and Merge**をデフォルト戦略として使用しています。この戦略により、個々のコミットがどのような内容でも、コミットメッセージがフォーマットに従うことが保証されます。
+プルリクエストのデフォルト戦略は **Squash and Merge** です。この戦略により、個々のコミット内容に関わらず、コミットメッセージがフォーマットに従うことが保証されます。
 
 **理由**:
 
-- プロジェクト履歴がクリーンで直線的になる
+- プロジェクト履歴がシンプルで直線的になる
 - コミットメッセージの一貫性
 - 細かなコミット（例: "fix typo"）によるノイズの削減
 
-マージ時は、最終コミットメッセージが上記のフォーマットに従っていることを確認してください。
+マージ時は、最終コミットメッセージが上記フォーマットに従っていることを確認してください。
 
-**Squash and Mergeの例**
-PRに以下のコミットが含まれている場合:
+**Squash and Merge の例**
+PR に以下のコミットが含まれている場合:
 
 - `fix typo`
 - `update README`
@@ -299,4 +315,4 @@ PRに以下のコミットが含まれている場合:
 ---
 
 **免責事項**：
-本書類は、AI翻訳サービス [Co-op Translator](https://github.com/Azure/co-op-translator) を使用して翻訳されています。正確性には努めておりますが、自動翻訳には誤りや不正確な表現が含まれる場合がありますのでご注意ください。原文（元の言語の文書）が正式な情報源とみなされるべきです。重要な情報については、専門の人間による翻訳を推奨します。本翻訳の利用により生じたいかなる誤解や誤認についても、当方は責任を負いかねます。
+本書類は、AI翻訳サービス [Co-op Translator](https://github.com/Azure/co-op-translator) を使用して翻訳されています。正確性には努めておりますが、自動翻訳には誤りや不正確な表現が含まれる場合がありますのでご注意ください。原文（元の言語の文書）が正式な情報源となります。重要な情報については、専門の人間による翻訳を推奨します。本翻訳の利用により生じたいかなる誤解や誤認についても、当方は責任を負いかねます。

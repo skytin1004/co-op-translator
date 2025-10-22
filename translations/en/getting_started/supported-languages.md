@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "badae5ee6451cc1a6e367cfe5ba92efa",
-  "translation_date": "2025-10-15T02:05:59+00:00",
+  "original_hash": "40660d83d2792201cad4aec9fdf25a29",
+  "translation_date": "2025-10-22T13:19:54+00:00",
   "source_file": "getting_started/supported-languages.md",
   "language_code": "en"
 }
@@ -63,10 +63,11 @@ The table below shows the languages that **Co-op Translator** currently supports
 | my            | Burmese (Myanmar)    | NotoSansMyanmar-Medium.ttf        | No          | No           |
 | ta            | Tamil                | NotoSansTamil-Medium.ttf          | No          | No           |
 | et            | Estonian             | NotoSans-Medium.ttf               | No          | No           |
+| pcm           | Nigerian Pidgin      | NotoSans-Medium.ttf               | No          | No           |
 
 ## Adding a new language
 
-Want to add a new language? Please follow the contribution guide:
+Want to add a new language? Please follow the contribution instructions:
 
 - See Contributing: <a href="../CONTRIBUTING.md#contribute-a-new-language">Contribute a new language</a>
 

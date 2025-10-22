@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "bd4704f50c55da7d572b691484aa0b30",
-  "translation_date": "2025-10-15T02:09:36+00:00",
+  "original_hash": "1ae2159f900e7d5d596bb00bcba4c999",
+  "translation_date": "2025-10-22T13:21:04+00:00",
   "source_file": "CONTRIBUTING.md",
   "language_code": "es"
 }
@@ -14,7 +14,7 @@ Acuerdo de Licencia de Contribuyente (CLA), declarando que tienes el derecho de,
 los derechos para que usemos tu contribución. Para más detalles, visita https://cla.opensource.microsoft.com.
 
 Cuando envíes un pull request, un bot de CLA determinará automáticamente si necesitas proporcionar
-un CLA y marcará el PR apropiadamente (por ejemplo, con un estado o comentario). Simplemente sigue las instrucciones
+un CLA y marcará el PR apropiadamente (por ejemplo, con una verificación de estado o comentario). Simplemente sigue las instrucciones
 que te indique el bot. Solo tendrás que hacer esto una vez para todos los repositorios que usen nuestro CLA.
 
 ## Configuración del entorno de desarrollo
@@ -74,7 +74,7 @@ Antes de enviar un PR, es importante probar la funcionalidad de traducción con 
     mkdir test_docs
     ```
 
-2. Copia algunos archivos markdown y las imágenes que quieras traducir en el directorio de prueba. Por ejemplo:
+2. Copia documentación en markdown e imágenes que quieras traducir en el directorio de prueba. Por ejemplo:
     ```bash
     cp /path/to/your/docs/*.md test_docs/
     cp /path/to/your/images/*.png test_docs/
@@ -107,7 +107,7 @@ Estas pruebas manuales ayudan a asegurar que tus cambios funcionen bien en escen
 >
 > ### Opciones adicionales para el entorno de desarrollo
 >
-> Además de ejecutar el proyecto localmente, también puedes usar GitHub Codespaces o los Dev Containers de VS Code como alternativas para configurar el entorno de desarrollo.
+> Además de ejecutar el proyecto localmente, también puedes usar GitHub Codespaces o VS Code Dev Containers como alternativas para configurar el entorno de desarrollo.
 >
 > #### GitHub Codespaces
 >
@@ -119,13 +119,13 @@ Estas pruebas manuales ayudan a asegurar que tus cambios funcionen bien en escen
 >
 >     [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/azure/co-op-translator)
 >
-> #### Ejecución local usando Dev Containers de VS Code
+> #### Ejecución local usando VS Code Dev Containers
 >
 > ⚠️ Esta opción solo funcionará si tu Docker Desktop tiene al menos 16 GB de RAM asignados. Si tienes menos de 16 GB de RAM, puedes probar la [opción de GitHub Codespaces](../..) o [configurarlo localmente](../..).
 >
-> Otra opción relacionada son los Dev Containers de VS Code, que abrirán el proyecto en tu VS Code local usando la [extensión Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers):
+> Una opción relacionada es VS Code Dev Containers, que abrirá el proyecto en tu VS Code local usando la [extensión Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers):
 >
-> 1. Inicia Docker Desktop (instálalo si no lo tienes)
+> 1. Inicia Docker Desktop (instálalo si aún no lo tienes)
 > 2. Abre el proyecto:
 >
 >    [![Open in Dev Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure/co-op-translator)
@@ -133,7 +133,7 @@ Estas pruebas manuales ayudan a asegurar que tus cambios funcionen bien en escen
 
 ### Estilo de código
 
-Usamos [Black](https://github.com/psf/black) como formateador de código Python para mantener un estilo consistente en todo el proyecto. Black es un formateador estricto que reformatea automáticamente el código Python para ajustarse a su estilo.
+Usamos [Black](https://github.com/psf/black) como formateador de código Python para mantener un estilo consistente en todo el proyecto. Black es un formateador estricto que reformatea automáticamente el código Python para ajustarse al estilo de Black.
 
 #### Configuración
 
@@ -199,7 +199,7 @@ Para ejecutar Co-op Translator usando Poetry en tu entorno, sigue estos pasos:
 
 1. Navega al directorio donde quieras realizar pruebas de traducción o crea una carpeta temporal para pruebas.
 
-2. Ejecuta el siguiente comando. Reemplaza `-l ko` por el código de idioma al que quieras traducir. El flag `-d` indica modo debug.
+2. Ejecuta el siguiente comando. Reemplaza `-l ko` por el código de idioma al que deseas traducir. La opción `-d` activa el modo debug.
 
     ```bash
     poetry run co-op-translator translate -l ko -d
@@ -220,7 +220,7 @@ Aceptamos contribuciones que añadan soporte para nuevos idiomas. Antes de abrir
      - `font`: Una fuente incluida en `src/co_op_translator/fonts/` que soporte el sistema de escritura
      - `rtl`: `true` si es de derecha a izquierda, de lo contrario `false`
 
-2. Incluye los archivos de fuente necesarios (si aplica)
+2. Incluye los archivos de fuente requeridos (si es necesario)
    - Si se requiere una fuente nueva, verifica la compatibilidad de la licencia para distribución open source
    - Añade el archivo de fuente a `src/co_op_translator/fonts/`
 
@@ -230,7 +230,7 @@ Aceptamos contribuciones que añadan soporte para nuevos idiomas. Antes de abrir
 
 4. Actualiza la documentación
    - Asegúrate de que el idioma aparezca en `getting_started/supported-languages.md`
-   - No es necesario modificar `README_languages_template.md`; se genera a partir de la lista soportada
+   - No es necesario modificar `README_languages_template.md`; se genera a partir de la lista de idiomas soportados
 
 5. Abre un PR
    - Describe el idioma añadido y cualquier consideración sobre fuentes/licencias
@@ -245,12 +245,28 @@ new_lang(code):
   rtl: false
 ```
 
+### Probar el nuevo idioma
+
+Puedes probar el nuevo idioma ejecutando el siguiente comando:
+
+```bash
+# Create and activate a virtual environment (recommended)
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+source .venv/bin/activate
+# Install the development package
+pip install -e .
+# Run the translation
+translate -l "new_lang"
+```
 
 ## Mantenedores
 
-### Mensaje de commit y estrategia de merge
+### Mensaje de commit y estrategia de fusión
 
-Para asegurar consistencia y claridad en el historial de commits del proyecto, seguimos un formato específico de mensaje de commit **para el mensaje final** al usar la estrategia **Squash and Merge**.
+Para asegurar consistencia y claridad en el historial de commits del proyecto, seguimos un formato específico **para el mensaje final de commit** al usar la estrategia **Squash and Merge**.
 
 Cuando se fusiona un pull request (PR), los commits individuales se agrupan en un solo commit. El mensaje final debe seguir el formato de abajo para mantener un historial limpio y consistente.
 
@@ -265,7 +281,7 @@ Usamos el siguiente formato para los mensajes de commit:
 - **type**: Especifica la categoría del commit. Usamos los siguientes tipos:
   - `Docs`: Para actualizaciones de documentación.
   - `Build`: Para cambios relacionados con el sistema de construcción o dependencias, incluyendo actualizaciones de archivos de configuración, flujos de trabajo de CI o el Dockerfile.
-  - `Core`: Para modificaciones en la funcionalidad principal del proyecto, especialmente en archivos del directorio `src/co_op_translator/core`.
+  - `Core`: Para modificaciones en la funcionalidad principal del proyecto, especialmente en archivos dentro de `src/co_op_translator/core`.
 
 - **description**: Un resumen conciso del cambio.
 - **PR number**: El número del pull request asociado al commit.
@@ -278,7 +294,7 @@ Usamos el siguiente formato para los mensajes de commit:
 > [!NOTE]
 > Actualmente, los prefijos **`Docs`**, **`Core`** y **`Build`** se añaden automáticamente a los títulos de los PR según las etiquetas aplicadas al código fuente modificado. Mientras la etiqueta correcta esté aplicada, normalmente no necesitas actualizar el título del PR manualmente. Solo debes verificar que todo esté correcto y que el prefijo se haya generado adecuadamente.
 
-#### Estrategia de merge
+#### Estrategia de fusión
 
 Usamos **Squash and Merge** como estrategia predeterminada para los pull requests. Esta estrategia asegura que los mensajes de commit sigan nuestro formato, incluso si los commits individuales no lo hacen.
 
@@ -303,4 +319,4 @@ Deben agruparse en:
 ---
 
 **Descargo de responsabilidad**:
-Este documento ha sido traducido utilizando el servicio de traducción automática [Co-op Translator](https://github.com/Azure/co-op-translator). Si bien nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o inexactitudes. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda la traducción profesional humana. No nos hacemos responsables de cualquier malentendido o interpretación incorrecta que surja del uso de esta traducción.
+Este documento ha sido traducido utilizando el servicio de traducción automática [Co-op Translator](https://github.com/Azure/co-op-translator). Aunque nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o inexactitudes. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda la traducción profesional realizada por humanos. No nos hacemos responsables de cualquier malentendido o interpretación incorrecta que surja del uso de esta traducción.

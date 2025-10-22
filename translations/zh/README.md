@@ -1,15 +1,15 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f579b7f148746593e3e9023b56a8c30d",
-  "translation_date": "2025-10-22T11:53:43+00:00",
+  "original_hash": "7593c1fad8734e4050b60fc3da614aa5",
+  "translation_date": "2025-10-22T13:27:46+00:00",
   "source_file": "README.md",
   "language_code": "zh"
 }
 -->
 # Co-op Translator
 
-_轻松自动化翻译你的教育类 GitHub 内容，覆盖多语言用户，拓展全球影响力。_
+_轻松自动化翻译你的教育类 GitHub 内容，覆盖全球用户。_
 
 [![Python package](https://img.shields.io/pypi/v/co-op-translator?color=4BA3FF)](https://pypi.org/project/co-op-translator/)
 [![License: MIT](https://img.shields.io/github/license/azure/co-op-translator?color=4BA3FF)](https://github.com/azure/co-op-translator/blob/main/LICENSE)
@@ -38,11 +38,11 @@ _轻松自动化翻译你的教育类 GitHub 内容，覆盖多语言用户，�
 [![Microsoft Azure AI Foundry Discord](https://dcbadge.limes.pink/api/server/ByRwuEEgH4)](https://discord.com/invite/ByRwuEEgH4)
 [![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=Github%20Codespaces&message=Open&color=24292F&logo=github)](https://codespaces.new/azure/co-op-translator)
 
-## 概述
+## 项目简介
 
-**Co-op Translator** 让你能够快速将教育类 GitHub 内容翻译成多种语言，轻松触达全球用户。当你更新 Markdown 文件、图片或 Jupyter 笔记本时，翻译内容会自动同步，确保你的教育内容始终新鲜且适合国际用户。
+**Co-op Translator** 可以帮你快速将教育类 GitHub 内容翻译成多种语言，让全球用户都能轻松访问。当你更新 Markdown 文件、图片或 Jupyter 笔记本时，翻译内容会自动同步，确保你的教育内容始终新鲜、适合国际用户。
 
-来看一下 Co-op Translator 如何组织翻译后的教育类 GitHub 内容：
+看看 Co-op Translator 如何组织翻译后的教育内容：
 
 ![示例](../../translated_images/translation-ex.0c8aa6a7ee0aad2b35cddcc110c719baf0afc640e8c5a45540e6c166b9907d91.zh.png)
 
@@ -61,7 +61,7 @@ pip install co-op-translator
 translate -l "ko ja fr" -md
 ```
 
-Docker：
+Docker:
 
 ```bash
 # Pull the public image from GHCR
@@ -74,8 +74,8 @@ docker run --rm -it --env-file .env -v "${PWD}:/work" ghcr.io/azure/co-op-transl
 
 - 使用模板创建 `.env` 文件：[.env.template](../../.env.template)
 - 配置一个 LLM 提供商（Azure OpenAI 或 OpenAI）
-- 如需图片翻译（`-img`），还需配置 Azure AI Vision
-- 推荐：如果你有其他工具生成的翻译，建议先清理（如：`translations/`），避免冲突
+- 如果需要图片翻译（`-img`），还需设置 Azure AI Vision
+- 推荐：如果你有其他工具生成的翻译，建议先清理（比如：`translations/`），避免冲突
 - 推荐：在 README 中添加翻译语言区块，参考 [README 语言模板](./README_languages_template.md)
 - 参考：[设置 Azure AI](./getting_started/set-up-azure-ai.md)
 
@@ -87,7 +87,7 @@ docker run --rm -it --env-file .env -v "${PWD}:/work" ghcr.io/azure/co-op-transl
 translate -l "ko ja"
 ```
 
-仅翻译 Markdown：
+只翻译 Markdown：
 
 ```bash
 translate -l "de" -md
@@ -99,18 +99,18 @@ Markdown + 图片：
 translate -l "pt" -md -img
 ```
 
-仅翻译笔记本：
+只翻译笔记本：
 
 ```bash
 translate -l "zh" -nb
 ```
 
-更多参数：[命令参考](./getting_started/command-reference.md)
+更多参数见：[命令参考](./getting_started/command-reference.md)
 
-## 功能特性
+## 功能亮点
 
 - 自动翻译 Markdown、笔记本和图片
-- 翻译内容与源文件变动保持同步
+- 翻译内容与源文件变动自动同步
 - 支持本地（CLI）和 CI（GitHub Actions）运行
 - 支持 Azure OpenAI 或 OpenAI，可选 Azure AI Vision 处理图片
 - 保持 Markdown 格式和结构不变
@@ -119,13 +119,13 @@ translate -l "zh" -nb
 
 - [命令行指南](./getting_started/command-line-guide/command-line-guide.md)
 - [GitHub Actions 指南（公开仓库 & 标准密钥）](./getting_started/github-actions-guide/github-actions-guide-public.md)
-- [GitHub Actions 指南（Microsoft 组织仓库 & 组织级配置）](./getting_started/github-actions-guide/github-actions-guide-org.md)
+- [GitHub Actions 指南（微软组织仓库 & 组织级配置）](./getting_started/github-actions-guide/github-actions-guide-org.md)
 - [支持的语言](./getting_started/supported-languages.md)
-- [常见问题排查](./getting_started/troubleshooting.md)
+- [故障排查](./getting_started/troubleshooting.md)
 
 ## 支持我们，助力全球学习
 
-欢迎加入我们，共同推动教育内容的全球化分享！在 GitHub 上为 [Co-op Translator](https://github.com/azure/co-op-translator) 点个 ⭐，支持我们打破学习和技术的语言壁垒。你的关注和贡献意义重大！欢迎代码贡献和功能建议。
+欢迎加入我们，一起推动教育内容全球共享！在 GitHub 上为 [Co-op Translator](https://github.com/azure/co-op-translator) 点个 ⭐，支持我们打破学习和技术的语言壁垒。你的关注和贡献非常重要！欢迎代码贡献和功能建议。
 
 ### 用你的语言探索微软教育内容
 
@@ -144,17 +144,17 @@ translate -l "zh" -nb
 - [IoT for Beginners](https://aka.ms/iot-beginners)
 - [PhiCookBook](https://github.com/microsoft/PhiCookBook)
 
-## 视频演示
+## 视频介绍
 
-通过我们的演示视频进一步了解 Co-op Translator _(点击下方图片跳转 YouTube 观看)_：
+通过我们的演示视频进一步了解 Co-op Translator _(点击下方图片跳转 YouTube)_：
 
-- **Open at Microsoft**：18 分钟简要介绍及 Co-op Translator 快速上手指南。
+- **Open at Microsoft**：18 分钟简要介绍及快速上手指南
 
   [![Open at Microsoft](../../translated_images/open-ms-thumbnail.946b356b89bc5f0e33dcebb852f7926b98c33f54c1a49ce01c36ae7f35e2443a.zh.jpg)](https://www.youtube.com/watch?v=jX_swfH_KNU)
 
-## 参与贡献
+## 贡献指南
 
-欢迎大家贡献代码和提出建议。想为 Azure Co-op Translator 做贡献？请查阅我们的 [CONTRIBUTING.md](./CONTRIBUTING.md) 了解如何让 Co-op Translator 更加易用。
+欢迎大家贡献和提出建议。想参与 Azure Co-op Translator 项目？请查阅我们的 [CONTRIBUTING.md](./CONTRIBUTING.md)，了解如何让 Co-op Translator 更易用。
 
 ## 贡献者
 
@@ -162,39 +162,40 @@ translate -l "zh" -nb
 
 ## 行为准则
 
-本项目遵循 [Microsoft 开源行为准则](https://opensource.microsoft.com/codeofconduct/)。
-更多信息请参阅 [行为准则常见问题](https://opensource.microsoft.com/codeofconduct/faq/)，或通过 [opencode@microsoft.com](mailto:opencode@microsoft.com) 联系我们。
+本项目采用了 [Microsoft 开源行为准则](https://opensource.microsoft.com/codeofconduct/)。
+更多信息请参阅 [行为准则 FAQ](https://opensource.microsoft.com/codeofconduct/faq/) 或
+如有疑问请联系 [opencode@microsoft.com](mailto:opencode@microsoft.com)。
 
 ## 负责任的 AI
 
-微软致力于帮助客户负责任地使用我们的 AI 产品，分享我们的经验，并通过透明说明和影响评估等工具建立基于信任的合作关系。你可以在 [https://aka.ms/RAI](https://aka.ms/RAI) 找到许多相关资源。
-微软的负责任 AI 方法基于公平性、可靠性与安全、隐私与安全、包容性、透明度和问责制等原则。
+微软致力于帮助客户负责任地使用我们的 AI 产品，分享我们的经验，并通过透明说明和影响评估等工具建立信任。相关资源可在 [https://aka.ms/RAI](https://aka.ms/RAI) 查阅。
+微软的负责任 AI 方法基于公平、可靠与安全、隐私与安全、包容性、透明度和问责制等原则。
 
-大规模自然语言、图像和语音模型（如本示例中使用的模型）有时可能表现出不公平、不可靠或令人反感的行为，甚至带来伤害。请查阅 [Azure OpenAI 服务透明说明](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) 了解相关风险和限制。
+大规模自然语言、图像和语音模型（如本项目使用的模型）有可能出现不公平、不可靠或令人反感的行为，可能带来伤害。请查阅 [Azure OpenAI 服务透明说明](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text)，了解相关风险和限制。
 
-建议的风险缓解方法是在你的架构中加入安全系统，检测并防止有害行为。[Azure AI 内容安全](https://learn.microsoft.com/azure/ai-services/content-safety/overview) 提供了独立的保护层，能够检测应用和服务中的有害用户生成内容和 AI 生成内容。Azure AI 内容安全包括文本和图片 API，可检测有害内容。我们还提供了交互式内容安全工作室，方便你查看、探索和试用不同模态下的有害内容检测代码。以下 [快速入门文档](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) 可指导你如何调用该服务。
-另一个需要考虑的方面是整体应用性能。对于多模态和多模型应用来说，性能指的是系统能够按照你和用户的预期运行，包括不生成有害内容。评估整体应用性能时，建议使用[生成质量以及风险和安全指标](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in)。
+建议的风险缓解方法是在你的架构中加入安全系统，检测并阻止有害行为。[Azure AI 内容安全](https://learn.microsoft.com/azure/ai-services/content-safety/overview) 提供了独立的保护层，能检测应用和服务中的有害用户生成内容和 AI 生成内容。Azure AI 内容安全包括文本和图片 API，可检测有害信息。我们还提供了交互式内容安全工作室，方便你查看、探索和试用不同模态下的有害内容检测代码。以下 [快速入门文档](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) 可指导你如何调用服务。
+另一个需要考虑的方面是整体应用性能。对于多模态和多模型应用，我们认为性能是指系统能够按照你和用户的预期运行，包括不会生成有害内容。评估你的整体应用性能时，建议参考[生成质量以及风险和安全指标](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in)。
 
-你可以在开发环境中使用 [prompt flow SDK](https://microsoft.github.io/promptflow/index.html) 来评估你的 AI 应用。无论是测试数据集还是目标，生成式 AI 应用的输出都可以通过内置评估器或自定义评估器进行量化评估。要开始使用 prompt flow sdk 评估你的系统，可以参考[快速入门指南](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk)。完成评估后，你可以在 [Azure AI Studio 可视化结果](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results)。
+你可以在开发环境中使用[prompt flow SDK](https://microsoft.github.io/promptflow/index.html)来评估你的 AI 应用。无论是测试数据集还是目标，生成式 AI 应用的输出都可以通过内置评估器或你自定义的评估器进行量化评估。要开始使用 prompt flow sdk 评估你的系统，可以参考[快速入门指南](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk)。执行评估后，你可以在[Azure AI Studio 中可视化结果](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results)。
 
 ## 商标
 
 本项目可能包含项目、产品或服务的商标或标志。微软商标或标志的授权使用需遵守
 [微软商标与品牌指南](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general)。
-在本项目的修改版本中使用微软商标或标志时，不得引起混淆或暗示微软赞助。
+在本项目的修改版本中使用微软商标或标志时，不得造成混淆或暗示微软赞助。
 任何第三方商标或标志的使用需遵守相关第三方政策。
 
 ## 获取帮助
 
 如果你在构建 AI 应用时遇到问题或有疑问，欢迎加入：
 
-[![Azure AI Foundry Discord](https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
+<a href="https://aka.ms/foundry/discord"><img src="https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff" alt="Azure AI Foundry Discord"></a>
 
-如果你有产品反馈或在开发过程中遇到错误，请访问：
+如果你有产品反馈或在构建过程中遇到错误，请访问：
 
-[![Azure AI Foundry Developer Forum](https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
+<a href="https://aka.ms/foundry/forum"><img src="https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff" alt="Azure AI Foundry Developer Forum"></a>
 
 ---
 
 **免责声明**：
-本文件由 AI 翻译服务 [Co-op Translator](https://github.com/Azure/co-op-translator) 翻译。我们力求准确，但请注意，自动翻译可能包含错误或不准确之处。原始语言版本应视为权威来源。对于关键信息，建议使用专业人工翻译。因使用本翻译而产生的任何误解或误读，我们概不负责。
+本文件由 AI 翻译服务 [Co-op Translator](https://github.com/Azure/co-op-translator) 翻译。尽管我们力求准确，但请注意，自动翻译可能包含错误或不准确之处。原始语言版本应被视为权威来源。对于关键信息，建议使用专业人工翻译。因使用本翻译而产生的任何误解或误读，我们概不负责。

@@ -1,15 +1,15 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "badae5ee6451cc1a6e367cfe5ba92efa",
-  "translation_date": "2025-10-15T03:02:42+00:00",
+  "original_hash": "40660d83d2792201cad4aec9fdf25a29",
+  "translation_date": "2025-10-22T13:44:32+00:00",
   "source_file": "getting_started/supported-languages.md",
   "language_code": "br"
 }
 -->
 # Idiomas suportados
 
-A tabela abaixo lista os idiomas atualmente suportados pelo **Co-op Translator**. Ela inclui os códigos dos idiomas, nomes dos idiomas e quaisquer problemas conhecidos associados a cada idioma. Se você quiser adicionar suporte para um novo idioma, adicione o código do idioma correspondente, nome e a fonte apropriada no arquivo `font_language_mappings.yml` localizado em `src/co_op_translator/fonts/` e envie um pull request após testar.
+A tabela abaixo mostra os idiomas atualmente suportados pelo **Co-op Translator**. Ela inclui os códigos dos idiomas, nomes dos idiomas e possíveis problemas conhecidos para cada um. Se quiser adicionar suporte para um novo idioma, inclua o código do idioma, nome e a fonte apropriada no arquivo `font_language_mappings.yml` localizado em `src/co_op_translator/fonts/` e envie um pull request após testar.
 
 | Código do Idioma | Nome do Idioma             | Fonte                              | Suporte RTL | Problemas Conhecidos |
 |------------------|---------------------------|-------------------------------------|-------------|---------------------|
@@ -49,7 +49,7 @@ A tabela abaixo lista os idiomas atualmente suportados pelo **Co-op Translator**
 | vi               | Vietnamita                | NotoSans-Medium.ttf                 | Não         | Não                 |
 | id               | Indonésio                 | NotoSans-Medium.ttf                 | Não         | Não                 |
 | ms               | Malaio                    | NotoSans-Medium.ttf                 | Não         | Não                 |
-| tl               | Tagalo (Filipino)         | NotoSans-Medium.ttf                 | Não         | Não                 |
+| tl               | Tagalog (Filipino)        | NotoSans-Medium.ttf                 | Não         | Não                 |
 | sw               | Suaíli                    | NotoSans-Medium.ttf                 | Não         | Não                 |
 | hu               | Húngaro                   | NotoSans-Medium.ttf                 | Não         | Não                 |
 | cs               | Tcheco                    | NotoSans-Medium.ttf                 | Não         | Não                 |
@@ -63,12 +63,13 @@ A tabela abaixo lista os idiomas atualmente suportados pelo **Co-op Translator**
 | my               | Birmanês (Myanmar)        | NotoSansMyanmar-Medium.ttf          | Não         | Não                 |
 | ta               | Tâmil                     | NotoSansTamil-Medium.ttf            | Não         | Não                 |
 | et               | Estoniano                 | NotoSans-Medium.ttf                 | Não         | Não                 |
+| pcm              | Pidgin Nigeriano          | NotoSans-Medium.ttf                 | Não         | Não                 |
 
 ## Adicionando um novo idioma
 
-Quer adicionar um novo idioma? Siga o guia de contribuição:
+Quer contribuir com um novo idioma? Siga o guia de contribuição:
 
-- Veja Contribuindo: [Contribua com um novo idioma](../CONTRIBUTING.md#contribute-a-new-language)
+- Veja Contribuindo: <a href="../CONTRIBUTING.md#contribute-a-new-language">Contribua com um novo idioma</a>
 
 ---
 

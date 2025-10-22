@@ -1,21 +1,21 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "bd4704f50c55da7d572b691484aa0b30",
-  "translation_date": "2025-10-15T03:18:15+00:00",
+  "original_hash": "1ae2159f900e7d5d596bb00bcba4c999",
+  "translation_date": "2025-10-22T13:50:58+00:00",
   "source_file": "CONTRIBUTING.md",
   "language_code": "sv"
 }
 -->
 # Bidra till Co-op Translator
 
-Det här projektet välkomnar bidrag och förslag. De flesta bidrag kräver att du godkänner ett Contributor License Agreement (CLA) som intygar att du har rätt att ge oss tillstånd att använda ditt bidrag. För mer information, besök https://cla.opensource.microsoft.com.
+Det här projektet välkomnar bidrag och förslag. De flesta bidrag kräver att du godkänner ett Contributor License Agreement (CLA) som intygar att du har rätt att, och faktiskt gör, ge oss rättigheter att använda ditt bidrag. För mer information, besök https://cla.opensource.microsoft.com.
 
-När du skickar in en pull request kommer en CLA-bot automatiskt att avgöra om du behöver godkänna ett CLA och markera PR:n därefter (t.ex. statuskontroll, kommentar). Följ bara instruktionerna från boten. Du behöver bara göra detta en gång för alla repos som använder vårt CLA.
+När du skickar in en pull request kommer en CLA-bot automatiskt att avgöra om du behöver godkänna ett CLA och märka PR:n därefter (t.ex. statuskontroll, kommentar). Följ bara instruktionerna från boten. Du behöver bara göra detta en gång för alla repos som använder vårt CLA.
 
 ## Sätta upp utvecklingsmiljön
 
-För att sätta upp utvecklingsmiljön för det här projektet rekommenderar vi att du använder Poetry för att hantera beroenden. Vi använder `pyproject.toml` för att hantera projektets beroenden, så du bör använda Poetry för att installera dem.
+För att sätta upp utvecklingsmiljön för det här projektet rekommenderar vi att du använder Poetry för att hantera beroenden. Vi använder `pyproject.toml` för att hantera projektberoenden, så för att installera beroenden bör du använda Poetry.
 
 ### Skapa en virtuell miljö
 
@@ -103,11 +103,11 @@ Den här manuella testningen hjälper till att säkerställa att dina ändringar
 >
 > ### Ytterligare alternativ för utvecklingsmiljö
 >
-> Förutom att köra projektet lokalt kan du även använda GitHub Codespaces eller VS Code Dev Containers som alternativ för att sätta upp utvecklingsmiljön.
+> Förutom att köra projektet lokalt kan du även använda GitHub Codespaces eller VS Code Dev Containers som alternativa sätt att sätta upp utvecklingsmiljön.
 >
 > #### GitHub Codespaces
 >
-> Du kan köra dessa exempel virtuellt med GitHub Codespaces utan extra inställningar.
+> Du kan köra dessa exempel virtuellt med GitHub Codespaces utan extra inställningar eller konfiguration.
 >
 > Knappen öppnar en webbaserad VS Code-instans i din webbläsare:
 >
@@ -117,7 +117,7 @@ Den här manuella testningen hjälper till att säkerställa att dina ändringar
 >
 > #### Köra lokalt med VS Code Dev Containers
 >
-> ⚠️ Detta alternativ fungerar bara om din Docker Desktop har minst 16 GB RAM tilldelat. Om du har mindre än 16 GB RAM kan du testa [GitHub Codespaces-alternativet](../..) eller [sätta upp det lokalt](../..).
+> ⚠️ Det här alternativet fungerar bara om din Docker Desktop har minst 16 GB RAM tilldelat. Om du har mindre än 16 GB RAM kan du prova [GitHub Codespaces-alternativet](../..) eller [sätta upp det lokalt](../..).
 >
 > Ett relaterat alternativ är VS Code Dev Containers, som öppnar projektet i din lokala VS Code med [Dev Containers-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers):
 >
@@ -187,13 +187,13 @@ pip install black
     ```
 
 > [!TIP]
-> Vi rekommenderar att du ställer in din editor så att koden automatiskt formateras med Black vid varje spara. De flesta moderna editors har stöd för detta via tillägg eller plugins.
+> Vi rekommenderar att du ställer in din editor så att koden automatiskt formateras med Black vid varje sparning. De flesta moderna editorer har stöd för detta via tillägg eller plugins.
 
 ## Köra Co-op Translator
 
 För att köra Co-op Translator med Poetry i din miljö, följ dessa steg:
 
-1. Gå till den katalog där du vill göra översättningstester eller skapa en tillfällig mapp för teständamål.
+1. Navigera till den katalog där du vill utföra översättningstester eller skapa en temporär mapp för teständamål.
 
 2. Kör följande kommando. Byt ut `-l ko` mot den språkkod du vill översätta till. Flaggan `-d` aktiverar debug-läge.
 
@@ -212,25 +212,25 @@ Vi välkomnar bidrag som lägger till stöd för nya språk. Innan du öppnar en
    - Redigera `src/co_op_translator/fonts/font_language_mappings.yml`
    - Lägg till en post med:
      - `code`: ISO-liknande språkkod (t.ex. `vi`)
-     - `name`: Namn som visas för människor
+     - `name`: Namn som visas för användaren
      - `font`: Ett typsnitt som finns i `src/co_op_translator/fonts/` och stöder skriftspråket
      - `rtl`: `true` om höger-till-vänster, annars `false`
 
 2. Inkludera nödvändiga fontfiler (om det behövs)
-   - Om ett nytt typsnitt krävs, kontrollera att licensen är kompatibel med öppen källkod
+   - Om ett nytt typsnitt krävs, kontrollera att licensen tillåter öppen källkodsdistribution
    - Lägg till fontfilen i `src/co_op_translator/fonts/`
 
 3. Lokal verifiering
-   - Kör översättningar för ett litet exempel (Markdown, bilder och notebooks vid behov)
-   - Kontrollera att utdata visas korrekt, inklusive typsnitt och eventuell RTL-layout
+   - Kör översättningar på ett litet exempel (Markdown, bilder och notebooks vid behov)
+   - Kontrollera att resultatet visas korrekt, inklusive typsnitt och eventuell RTL-layout
 
 4. Uppdatera dokumentationen
    - Se till att språket finns med i `getting_started/supported-languages.md`
    - Ingen ändring av `README_languages_template.md` behövs; den genereras från listan över stödda språk
 
-5. Öppna en PR
+5. Skicka in en PR
    - Beskriv vilket språk som lagts till och eventuella font-/licensfrågor
-   - Bifoga skärmdumpar på renderad utdata om möjligt
+   - Bifoga gärna skärmdumpar av renderade resultat om möjligt
 
 Exempel på YAML-post:
 
@@ -241,6 +241,22 @@ new_lang(code):
   rtl: false
 ```
 
+### Testa det nya språket
+
+Du kan testa det nya språket genom att köra följande kommando:
+
+```bash
+# Create and activate a virtual environment (recommended)
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+source .venv/bin/activate
+# Install the development package
+pip install -e .
+# Run the translation
+translate -l "new_lang"
+```
 
 ## Underhållare
 
@@ -264,7 +280,7 @@ Vi använder följande format för commit-meddelanden:
   - `Core`: För ändringar av projektets kärnfunktionalitet eller funktioner, särskilt de som rör filer i `src/co_op_translator/core`-katalogen.
 
 - **description**: En kort sammanfattning av ändringen.
-- **PR number**: Numret på pull requesten som hör till commiten.
+- **PR number**: Numret på pull requesten som är kopplad till commiten.
 
 **Exempel**:
 
@@ -272,11 +288,11 @@ Vi använder följande format för commit-meddelanden:
 - `Core: Improve handling of image translation (#60)`
 
 > [!NOTE]
-> För närvarande läggs prefixen **`Docs`**, **`Core`** och **`Build`** automatiskt till i PR-titlar baserat på de etiketter som används på den ändrade källkoden. Så länge rätt etikett används behöver du vanligtvis inte ändra PR-titeln manuellt. Du behöver bara kontrollera att allt är korrekt och att prefixet har genererats som det ska.
+> För närvarande läggs prefixen **`Docs`**, **`Core`** och **`Build`** automatiskt till PR-titlar baserat på de etiketter som används på ändrad källkod. Så länge rätt etikett används behöver du vanligtvis inte ändra PR-titeln manuellt. Du behöver bara kontrollera att allt är korrekt och att prefixet har genererats som det ska.
 
 #### Sammanslagningsstrategi
 
-Vi använder **Squash and Merge** som standardstrategi för pull requests. Denna strategi säkerställer att commit-meddelanden följer vårt format, även om de enskilda commitarna inte gör det.
+Vi använder **Squash and Merge** som standardstrategi för pull requests. Denna strategi säkerställer att commit-meddelanden följer vårt format, även om enskilda commitar inte gör det.
 
 **Anledningar**:
 

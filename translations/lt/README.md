@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f579b7f148746593e3e9023b56a8c30d",
-  "translation_date": "2025-10-22T12:20:18+00:00",
+  "original_hash": "7593c1fad8734e4050b60fc3da614aa5",
+  "translation_date": "2025-10-22T14:16:16+00:00",
   "source_file": "README.md",
   "language_code": "lt"
 }
@@ -25,7 +25,7 @@ _Lengvai automatizuokite savo edukacinio GitHub turinio vertimą į daugelį kal
 
 ### 🌐 Daugiakalbė palaikymas
 
-#### Palaikoma per [Co-op Translator](https://github.com/Azure/Co-op-Translator)
+#### Palaikoma su [Co-op Translator](https://github.com/Azure/Co-op-Translator)
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
 [Arabų](../ar/README.md) | [Bengalų](../bn/README.md) | [Bulgarų](../bg/README.md) | [Birmiečių (Mianmaras)](../my/README.md) | [Kinų (supaprastinta)](../zh/README.md) | [Kinų (tradicinė, Honkongas)](../hk/README.md) | [Kinų (tradicinė, Makao)](../mo/README.md) | [Kinų (tradicinė, Taivanas)](../tw/README.md) | [Kroatų](../hr/README.md) | [Čekų](../cs/README.md) | [Danų](../da/README.md) | [Olandų](../nl/README.md) | [Estų](../et/README.md) | [Suomių](../fi/README.md) | [Prancūzų](../fr/README.md) | [Vokiečių](../de/README.md) | [Graikų](../el/README.md) | [Hebrajų](../he/README.md) | [Hindi](../hi/README.md) | [Vengrų](../hu/README.md) | [Indoneziečių](../id/README.md) | [Italų](../it/README.md) | [Japonų](../ja/README.md) | [Korėjiečių](../ko/README.md) | [Lietuvių](./README.md) | [Malajų](../ms/README.md) | [Maratų](../mr/README.md) | [Nepalų](../ne/README.md) | [Nigerijos pidžinas](../pcm/README.md) | [Norvegų](../no/README.md) | [Persų (farsi)](../fa/README.md) | [Lenkų](../pl/README.md) | [Portugalų (Brazilija)](../br/README.md) | [Portugalų (Portugalija)](../pt/README.md) | [Pandžabų (Gurmukhi)](../pa/README.md) | [Rumunų](../ro/README.md) | [Rusų](../ru/README.md) | [Serbų (kirilica)](../sr/README.md) | [Slovakų](../sk/README.md) | [Slovėnų](../sl/README.md) | [Ispanų](../es/README.md) | [Svahilių](../sw/README.md) | [Švedų](../sv/README.md) | [Tagalogų (filipiniečių)](../tl/README.md) | [Tamilų](../ta/README.md) | [Tajų](../th/README.md) | [Turkų](../tr/README.md) | [Ukrainiečių](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamiečių](../vi/README.md)
@@ -40,7 +40,7 @@ _Lengvai automatizuokite savo edukacinio GitHub turinio vertimą į daugelį kal
 
 ## Apžvalga
 
-**Co-op Translator** leidžia greitai išversti savo edukacinį GitHub turinį į daugelį kalbų ir lengvai pasiekti pasaulinę auditoriją. Kai atnaujinate savo Markdown failus, paveikslėlius ar Jupyter užrašus, vertimai automatiškai sinchronizuojami, kad jūsų edukacinis GitHub turinys visada būtų aktualus ir prieinamas tarptautiniams vartotojams.
+**Co-op Translator** leidžia greitai išversti edukacinį GitHub turinį į daugelį kalbų ir lengvai pasiekti pasaulinę auditoriją. Kai atnaujinate savo Markdown failus, paveikslėlius ar Jupyter užrašus, vertimai automatiškai sinchronizuojami, kad jūsų edukacinis GitHub turinys visada būtų aktualus ir prieinamas tarptautiniams vartotojams.
 
 Pažiūrėkite, kaip Co-op Translator organizuoja išverstą edukacinį GitHub turinį:
 
@@ -73,8 +73,8 @@ docker run --rm -it --env-file .env -v "${PWD}:/work" ghcr.io/azure/co-op-transl
 ## Minimalus paruošimas
 
 - Sukurkite `.env` pagal šabloną: [.env.template](../../.env.template)
-- Sujunkite bent vieną LLM tiekėją (Azure OpenAI arba OpenAI)
-- Jei norite versti paveikslėlius (`-img`), sukonfigūruokite Azure AI Vision
+- Suveskite vieną LLM tiekėją (Azure OpenAI arba OpenAI)
+- Norint versti paveikslėlius (`-img`), sukonfigūruokite Azure AI Vision
 - Rekomenduojama: Jei turite vertimų, sugeneruotų kitais įrankiais, išvalykite juos, kad išvengtumėte konfliktų (pvz.: `translations/`).
 - Rekomenduojama: Pridėkite vertimų sekciją į savo README naudodami [README kalbų šabloną](./README_languages_template.md)
 - Žiūrėkite: [Azure AI paruošimas](./getting_started/set-up-azure-ai.md)
@@ -105,7 +105,7 @@ Tik užrašai:
 translate -l "zh" -nb
 ```
 
-Daugiau vėliavėlių: [Komandų nuoroda](./getting_started/command-reference.md)
+Daugiau vėliavų: [Komandų nuoroda](./getting_started/command-reference.md)
 
 ## Funkcijos
 
@@ -127,7 +127,7 @@ Daugiau vėliavėlių: [Komandų nuoroda](./getting_started/command-reference.md
 
 Prisijunkite prie mūsų ir keiskite, kaip edukacinis turinys dalijamas visame pasaulyje! Skirkite [Co-op Translator](https://github.com/azure/co-op-translator) ⭐ GitHub'e ir prisidėkite prie mūsų misijos – naikinti kalbų barjerus mokymesi ir technologijose. Jūsų susidomėjimas ir indėlis daro didelę įtaką! Kodo indėliai ir funkcijų pasiūlymai visada laukiami.
 
-### Naršykite Microsoft edukacinį turinį savo kalba
+### Atraskite Microsoft edukacinį turinį savo kalba
 
 - [AZD pradedantiesiems](https://github.com/microsoft/AZD-for-beginners)
 - [Edge AI pradedantiesiems](https://github.com/microsoft/edgeai-for-beginners)
@@ -146,15 +146,15 @@ Prisijunkite prie mūsų ir keiskite, kaip edukacinis turinys dalijamas visame p
 
 ## Vaizdo pristatymai
 
-Sužinokite daugiau apie Co-op Translator per mūsų pristatymus _(Spauskite paveikslėlį žemiau, kad žiūrėtumėte YouTube.)_:
+Sužinokite daugiau apie Co-op Translator per mūsų pristatymus _(Spustelėkite paveikslėlį žemiau, kad žiūrėtumėte YouTube.)_:
 
-- **Open at Microsoft**: Trumpas 18 minučių įvadas ir greitas gidas, kaip naudoti Co-op Translator.
+- **Open at Microsoft**: Trumpas 18 minučių pristatymas ir greitas vadovas, kaip naudoti Co-op Translator.
 
   [![Open at Microsoft](../../translated_images/open-ms-thumbnail.946b356b89bc5f0e33dcebb852f7926b98c33f54c1a49ce01c36ae7f35e2443a.lt.jpg)](https://www.youtube.com/watch?v=jX_swfH_KNU)
 
 ## Prisidėjimas
 
-Šis projektas laukia jūsų indėlio ir pasiūlymų. Norite prisidėti prie Azure Co-op Translator? Peržiūrėkite mūsų [CONTRIBUTING.md](./CONTRIBUTING.md) – ten rasite gaires, kaip galite padėti Co-op Translator tapti dar prieinamesniu.
+Šis projektas laukia indėlių ir pasiūlymų. Norite prisidėti prie Azure Co-op Translator? Peržiūrėkite mūsų [CONTRIBUTING.md](./CONTRIBUTING.md) gaires, kaip galite padėti Co-op Translator tapti dar prieinamesniu.
 
 ## Prisidėję
 
@@ -168,35 +168,31 @@ kreipkitės el. paštu [opencode@microsoft.com](mailto:opencode@microsoft.com) d
 
 ## Atsakingas AI
 
-Microsoft siekia padėti klientams atsakingai naudoti mūsų AI produktus, dalintis savo patirtimi ir kurti pasitikėjimu grįstus partnerystes per tokius įrankius kaip Transparency Notes ir Impact Assessments. Daug šių išteklių rasite [https://aka.ms/RAI](https://aka.ms/RAI).
-Microsoft atsakingo AI požiūris remiasi mūsų AI principais: teisingumu, patikimumu ir saugumu, privatumu ir saugumu, įtrauktimi, skaidrumu ir atsakomybe.
+Microsoft siekia padėti klientams atsakingai naudoti mūsų AI produktus, dalintis patirtimi ir kurti pasitikėjimu grįstus partnerystes, naudodama tokius įrankius kaip Transparency Notes ir Impact Assessments. Daug šių išteklių rasite [https://aka.ms/RAI](https://aka.ms/RAI).
+Microsoft atsakingo AI požiūris remiasi mūsų AI principais: sąžiningumas, patikimumas ir saugumas, privatumas ir saugumas, įtrauktis, skaidrumas ir atsakomybė.
 
-Didelio masto natūralios kalbos, vaizdų ir kalbos modeliai – kaip tie, kurie naudojami šiame pavyzdyje – gali elgtis neteisingai, nepatikimai ar įžeidžiančiai, kas gali sukelti žalos. Prašome susipažinti su [Azure OpenAI service Transparency note](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text), kad žinotumėte apie rizikas ir apribojimus.
+Didelio masto natūralios kalbos, vaizdų ir kalbos modeliai – kaip tie, kurie naudojami šiame pavyzdyje – gali elgtis nesąžiningai, nepatikimai ar įžeidžiamai, kas gali sukelti žalos. Prašome susipažinti su [Azure OpenAI service Transparency note](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text), kad žinotumėte apie rizikas ir apribojimus.
 
-Rekomenduojamas būdas sumažinti šias rizikas – įtraukti saugumo sistemą į savo architektūrą, kuri gali aptikti ir užkirsti kelią žalingam elgesiui. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) suteikia nepriklausomą apsaugos sluoksnį, galintį aptikti žalingą vartotojų ir AI generuotą turinį programose ir paslaugose. Azure AI Content Safety apima teksto ir vaizdų API, leidžiančias aptikti žalingą medžiagą. Taip pat turime interaktyvią Content Safety Studio, kur galite peržiūrėti, tyrinėti ir išbandyti pavyzdinį kodą žalingo turinio aptikimui įvairiais būdais. Ši [greito starto dokumentacija](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) padės jums pradėti naudotis paslauga.
-Kitas svarbus aspektas – bendras programos našumas. Naudojant daugiarūšes ir daugiamodelines programas, našumas reiškia, kad sistema veikia taip, kaip tikitės jūs ir jūsų naudotojai, įskaitant tai, kad negeneruoja žalingų rezultatų. Svarbu įvertinti bendrą programos našumą naudojant [generavimo kokybės, rizikos ir saugumo metrikas](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
+Rekomenduojamas būdas mažinti šias rizikas – įtraukti saugumo sistemą į savo architektūrą, kuri gali aptikti ir užkirsti kelią žalingam elgesiui. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) suteikia nepriklausomą apsaugos sluoksnį, galintį aptikti žalingą vartotojų ir AI generuotą turinį programose ir paslaugose. Azure AI Content Safety apima teksto ir vaizdų API, leidžiančias aptikti žalingą medžiagą. Taip pat turime interaktyvią Content Safety Studio, kur galite peržiūrėti, išbandyti ir išmokti aptikti žalingą turinį įvairiais būdais. Ši [greito starto dokumentacija](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) padės jums pradėti naudotis paslauga.
+Kitas svarbus aspektas – bendras programos našumas. Kuriant daugiarūšes ir daugiamodelines programas, našumas reiškia, kad sistema veikia taip, kaip tikitės jūs ir jūsų naudotojai, įskaitant tai, kad negeneruoja žalingų rezultatų. Svarbu įvertinti bendrą programos našumą naudojant [generavimo kokybės, rizikos ir saugumo metrikas](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
 
-Dirbdami kūrimo aplinkoje, savo AI programą galite įvertinti naudodami [prompt flow SDK](https://microsoft.github.io/promptflow/index.html). Turėdami testavimo duomenų rinkinį arba tikslą, jūsų generatyvios AI programos generavimai kiekybiškai įvertinami naudojant integruotus arba jūsų pasirinktus vertintojus. Norėdami pradėti naudotis prompt flow sdk ir įvertinti savo sistemą, galite vadovautis [greitos pradžios vadovu](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). Kai atliksite vertinimo paleidimą, galite [vizualizuoti rezultatus Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
+Savo AI programą galite įvertinti kūrimo aplinkoje naudodami [prompt flow SDK](https://microsoft.github.io/promptflow/index.html). Turėdami testavimo duomenų rinkinį arba tikslą, jūsų generatyvios AI programos generavimai yra kiekybiškai matuojami naudojant integruotus arba pasirinktinius vertintojus. Norėdami pradėti naudotis prompt flow sdk ir įvertinti savo sistemą, galite vadovautis [greitos pradžios vadovu](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). Kai atliksite vertinimo paleidimą, galite [vizualizuoti rezultatus Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
 
 ## Prekių ženklai
 
-Šiame projekte gali būti prekių ženklų ar logotipų, susijusių su projektais, produktais ar paslaugomis. Leidžiamas Microsoft
-prekių ženklų ar logotipų naudojimas turi atitikti
-[Microsoft prekių ženklų ir prekės ženklo gaires](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
-Naudojant Microsoft prekių ženklus ar logotipus modifikuotose šio projekto versijose, negalima sukelti painiavos ar sudaryti įspūdžio, kad Microsoft remia projektą.
-Bet kokio trečiųjų šalių prekių ženklų ar logotipų naudojimas priklauso nuo tų trečiųjų šalių politikos.
+Šiame projekte gali būti prekių ženklų ar logotipų, susijusių su projektais, produktais ar paslaugomis. Leidžiamas Microsoft prekių ženklų ar logotipų naudojimas turi atitikti [Microsoft prekių ženklų ir prekės ženklo gaires](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general). Naudojant Microsoft prekių ženklus ar logotipus modifikuotose šio projekto versijose negalima sukelti painiavos ar sudaryti įspūdžio, kad Microsoft remia projektą. Bet kokio trečiųjų šalių prekių ženklų ar logotipų naudojimas priklauso nuo tų trečiųjų šalių politikos.
 
 ## Pagalba
 
 Jei užstrigote ar turite klausimų apie AI programų kūrimą, prisijunkite:
 
-<abbr title="Azure AI Foundry Discord"><img src="https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff"></abbr>(https://aka.ms/foundry/discord)
+[![Azure AI Foundry Discord](https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
 
 Jei turite atsiliepimų apie produktą ar susidūrėte su klaidomis kurdami, apsilankykite:
 
-<abbr title="Azure AI Foundry Developer Forum"><img src="https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff"></abbr>(https://aka.ms/foundry/forum)
+[![Azure AI Foundry Developer Forum](https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 
 ---
 
-**Atsakomybės atsisakymas**:
-Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba turėtų būti laikomas autoritetingu šaltiniu. Svarbios informacijos atveju rekomenduojame profesionalų žmogaus vertimą. Mes neatsakome už nesusipratimus ar neteisingą interpretavimą, kilusį dėl šio vertimo naudojimo.
+**Atsakomybės atsisakymas**:  
+Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba turėtų būti laikomas autoritetingu šaltiniu. Kritinei informacijai rekomenduojame profesionalų žmogaus vertimą. Mes neatsakome už nesusipratimus ar neteisingą interpretavimą, kilusį naudojantis šiuo vertimu.

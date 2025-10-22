@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "bd4704f50c55da7d572b691484aa0b30",
-  "translation_date": "2025-10-15T03:04:06+00:00",
+  "original_hash": "1ae2159f900e7d5d596bb00bcba4c999",
+  "translation_date": "2025-10-22T13:44:46+00:00",
   "source_file": "CONTRIBUTING.md",
   "language_code": "it"
 }
@@ -88,8 +88,8 @@ Prima di inviare una PR, è importante testare la funzionalità di traduzione co
 
 5. Controlla i file tradotti in `test_docs/translations` e `test_docs/translated_images` per verificare:
    - La qualità della traduzione
-   - Che i commenti dei metadati siano corretti
-   - Che la struttura originale del markdown sia preservata
+   - Che i commenti di metadati siano corretti
+   - Che la struttura originale del markdown sia mantenuta
    - Che link e immagini funzionino correttamente
 
 Questo test manuale aiuta a garantire che le tue modifiche funzionino bene in scenari reali.
@@ -103,13 +103,13 @@ Questo test manuale aiuta a garantire che le tue modifiche funzionino bene in sc
 >
 > ### Opzioni aggiuntive per l’ambiente di sviluppo
 >
-> Oltre a eseguire il progetto in locale, puoi anche usare GitHub Codespaces o i Dev Containers di VS Code per un’alternativa nella configurazione dell’ambiente di sviluppo.
+> Oltre a eseguire il progetto in locale, puoi anche usare GitHub Codespaces o i Dev Containers di VS Code come alternative per configurare l’ambiente di sviluppo.
 >
 > #### GitHub Codespaces
 >
 > Puoi eseguire questi esempi virtualmente usando GitHub Codespaces senza bisogno di ulteriori configurazioni.
 >
-> Il pulsante aprirà una versione web di VS Code nel tuo browser:
+> Il pulsante aprirà una versione web di VS Code direttamente nel tuo browser:
 >
 > 1. Apri il template (potrebbe richiedere alcuni minuti):
 >
@@ -121,7 +121,7 @@ Questo test manuale aiuta a garantire che le tue modifiche funzionino bene in sc
 >
 > Un’opzione correlata sono i Dev Containers di VS Code, che apriranno il progetto nel tuo VS Code locale usando l’estensione [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers):
 >
-> 1. Avvia Docker Desktop (installalo se non è già installato)
+> 1. Avvia Docker Desktop (installalo se non lo hai già)
 > 2. Apri il progetto:
 >
 >    [![Open in Dev Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure/co-op-translator)
@@ -129,7 +129,7 @@ Questo test manuale aiuta a garantire che le tue modifiche funzionino bene in sc
 
 ### Stile del codice
 
-Usiamo [Black](https://github.com/psf/black) come formattatore di codice Python per mantenere uno stile coerente in tutto il progetto. Black è un formattatore che riformatta automaticamente il codice Python secondo lo stile Black.
+Usiamo [Black](https://github.com/psf/black) come formattatore di codice Python per mantenere uno stile coerente in tutto il progetto. Black è un formattatore che riformatta automaticamente il codice Python secondo le sue regole.
 
 #### Configurazione
 
@@ -193,7 +193,7 @@ pip install black
 
 Per eseguire Co-op Translator usando Poetry nel tuo ambiente, segui questi passaggi:
 
-1. Vai nella cartella dove vuoi eseguire i test di traduzione o crea una cartella temporanea per i test.
+1. Vai nella cartella dove vuoi effettuare i test di traduzione o crea una cartella temporanea per le prove.
 
 2. Esegui il seguente comando. Sostituisci `-l ko` con il codice della lingua in cui vuoi tradurre. Il flag `-d` attiva la modalità debug.
 
@@ -212,7 +212,7 @@ Accogliamo con piacere contributi che aggiungono il supporto a nuove lingue. Pri
    - Modifica `src/co_op_translator/fonts/font_language_mappings.yml`
    - Aggiungi una voce con:
      - `code`: codice lingua in stile ISO (es. `vi`)
-     - `name`: nome visualizzato comprensibile
+     - `name`: nome leggibile
      - `font`: un font presente in `src/co_op_translator/fonts/` che supporta lo script
      - `rtl`: `true` se la lingua è da destra a sinistra, altrimenti `false`
 
@@ -222,14 +222,14 @@ Accogliamo con piacere contributi che aggiungono il supporto a nuove lingue. Pri
 
 3. Verifica locale
    - Esegui traduzioni su un piccolo campione (Markdown, immagini e notebook se necessario)
-   - Verifica che l’output sia visualizzato correttamente, inclusi font e layout RTL se applicabile
+   - Verifica che l’output sia corretto, inclusi font e layout RTL se applicabile
 
 4. Aggiorna la documentazione
    - Assicurati che la lingua compaia in `getting_started/supported-languages.md`
    - Non sono necessarie modifiche a `README_languages_template.md`; viene generato automaticamente dalla lista delle lingue supportate
 
 5. Apri una PR
-   - Descrivi la lingua aggiunta e qualsiasi considerazione su font/licenza
+   - Descrivi la lingua aggiunta e ogni considerazione su font/licenza
    - Allega screenshot degli output renderizzati se possibile
 
 Esempio di voce YAML:
@@ -241,6 +241,22 @@ new_lang(code):
   rtl: false
 ```
 
+### Testare la nuova lingua
+
+Puoi testare la nuova lingua eseguendo il seguente comando:
+
+```bash
+# Create and activate a virtual environment (recommended)
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+source .venv/bin/activate
+# Install the development package
+pip install -e .
+# Run the translation
+translate -l "new_lang"
+```
 
 ## Maintainer
 
@@ -248,7 +264,7 @@ new_lang(code):
 
 Per garantire coerenza e chiarezza nella cronologia dei commit del progetto, seguiamo un formato specifico **per il messaggio di commit finale** quando usiamo la strategia **Squash and Merge**.
 
-Quando una pull request (PR) viene unita, i singoli commit vengono uniti in un unico commit. Il messaggio di commit finale deve seguire il formato qui sotto per mantenere una cronologia pulita e coerente.
+Quando una pull request (PR) viene unita, i singoli commit vengono uniti in un unico commit. Il messaggio finale deve seguire il formato qui sotto per mantenere una cronologia pulita e coerente.
 
 #### Formato del messaggio di commit (per squash and merge)
 
@@ -258,7 +274,7 @@ Usiamo il seguente formato per i messaggi di commit:
 <type>: <description> (#<PR number>)
 ```
 
-- **type**: Specifica la categoria del commit. Usiamo i seguenti tipi:
+- **type**: Specifica la categoria del commit. Usiamo questi tipi:
   - `Docs`: Per aggiornamenti alla documentazione.
   - `Build`: Per modifiche al sistema di build o alle dipendenze, inclusi aggiornamenti a file di configurazione, workflow CI o Dockerfile.
   - `Core`: Per modifiche alle funzionalità principali del progetto, in particolare ai file nella cartella `src/co_op_translator/core`.
@@ -272,7 +288,7 @@ Usiamo il seguente formato per i messaggi di commit:
 - `Core: Migliora la gestione della traduzione delle immagini (#60)`
 
 > [!NOTE]
-> Attualmente, i prefissi **`Docs`**, **`Core`** e **`Build`** vengono aggiunti automaticamente ai titoli delle PR in base alle etichette applicate al codice modificato. Finché l’etichetta corretta è applicata, di solito non è necessario aggiornare manualmente il titolo della PR. Devi solo verificare che tutto sia corretto e che il prefisso sia stato generato correttamente.
+> Attualmente, i prefissi **`Docs`**, **`Core`** e **`Build`** vengono aggiunti automaticamente ai titoli delle PR in base alle etichette applicate al codice modificato. Finché l’etichetta corretta è applicata, di solito non devi aggiornare manualmente il titolo della PR. Devi solo verificare che tutto sia corretto e che il prefisso sia stato generato correttamente.
 
 #### Strategia di merge
 
@@ -284,7 +300,7 @@ Usiamo **Squash and Merge** come strategia predefinita per le pull request. Ques
 - Coerenza nei messaggi di commit.
 - Meno rumore da commit minori (es. "fix typo").
 
-Quando unisci, assicurati che il messaggio di commit finale segua il formato descritto sopra.
+Quando unisci, assicurati che il messaggio finale segua il formato descritto sopra.
 
 **Esempio di Squash and Merge**
 Se una PR contiene i seguenti commit:
@@ -294,9 +310,9 @@ Se una PR contiene i seguenti commit:
 - `adjust formatting`
 
 Devono essere uniti in:
-`Docs: Migliora la chiarezza e la formattazione della documentazione (#65)`
+`Docs: Migliora chiarezza e formattazione della documentazione (#65)`
 
 ---
 
 **Disclaimer**:
-Questo documento è stato tradotto utilizzando il servizio di traduzione AI [Co-op Translator](https://github.com/Azure/co-op-translator). Pur impegnandoci per garantire l’accuratezza, si prega di notare che le traduzioni automatiche possono contenere errori o imprecisioni. Il documento originale nella sua lingua nativa deve essere considerato la fonte autorevole. Per informazioni critiche, si raccomanda una traduzione professionale umana. Non siamo responsabili per eventuali incomprensioni o interpretazioni errate derivanti dall’uso di questa traduzione.
+Questo documento è stato tradotto utilizzando il servizio di traduzione AI [Co-op Translator](https://github.com/Azure/co-op-translator). Pur impegnandoci per garantire l’accuratezza, si prega di notare che le traduzioni automatiche possono contenere errori o imprecisioni. Il documento originale nella sua lingua nativa deve essere considerato la fonte autorevole. Per informazioni critiche, si raccomanda una traduzione professionale umana. Non siamo responsabili per eventuali fraintendimenti o interpretazioni errate derivanti dall’uso di questa traduzione.

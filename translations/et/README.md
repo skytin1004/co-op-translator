@@ -1,15 +1,15 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f579b7f148746593e3e9023b56a8c30d",
-  "translation_date": "2025-10-22T12:22:06+00:00",
+  "original_hash": "7593c1fad8734e4050b60fc3da614aa5",
+  "translation_date": "2025-10-22T14:18:37+00:00",
   "source_file": "README.md",
   "language_code": "et"
 }
 -->
 # Co-op Translator
 
-_Automatiseeri oma haridusliku GitHubi sisu tõlkimine mitmesse keelde, et jõuda globaalse publikuni._
+_Automatiseeri lihtsalt oma haridusliku GitHubi sisu tõlkimine mitmesse keelde, et jõuda ülemaailmse publikuni._
 
 [![Python package](https://img.shields.io/pypi/v/co-op-translator?color=4BA3FF)](https://pypi.org/project/co-op-translator/)
 [![License: MIT](https://img.shields.io/github/license/azure/co-op-translator?color=4BA3FF)](https://github.com/azure/co-op-translator/blob/main/LICENSE)
@@ -25,7 +25,7 @@ _Automatiseeri oma haridusliku GitHubi sisu tõlkimine mitmesse keelde, et jõud
 
 ### 🌐 Mitmekeelne tugi
 
-#### Toetatud [Co-op Translatori](https://github.com/Azure/Co-op-Translator) poolt
+#### Toetab [Co-op Translator](https://github.com/Azure/Co-op-Translator)
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
 [Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh/README.md) | [Chinese (Traditional, Hong Kong)](../hk/README.md) | [Chinese (Traditional, Macau)](../mo/README.md) | [Chinese (Traditional, Taiwan)](../tw/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](./README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../br/README.md) | [Portuguese (Portugal)](../pt/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
@@ -40,11 +40,11 @@ _Automatiseeri oma haridusliku GitHubi sisu tõlkimine mitmesse keelde, et jõud
 
 ## Ülevaade
 
-**Co-op Translator** võimaldab sul kiiresti tõlkida oma haridusliku GitHubi sisu mitmesse keelde, et jõuda rahvusvahelise publikuni ilma vaevata. Kui uuendad oma Markdown-faile, pilte või Jupyteri märkmikke, sünkroniseeritakse tõlked automaatselt, et sinu hariduslik GitHubi sisu oleks alati ajakohane ja asjakohane ka rahvusvahelistele kasutajatele.
+**Co-op Translator** võimaldab sul kiiresti tõlkida oma haridusliku GitHubi sisu mitmesse keelde, jõudes hõlpsalt rahvusvahelise publikuni. Kui uuendad oma Markdown-faile, pilte või Jupyteri märkmikke, sünkroonitakse tõlked automaatselt, et sinu hariduslik GitHubi sisu oleks alati ajakohane ja asjakohane ka rahvusvahelistele kasutajatele.
 
 Vaata, kuidas Co-op Translator korraldab tõlgitud haridusliku GitHubi sisu:
 
-![Näide](../../translated_images/translation-ex.0c8aa6a7ee0aad2b35cddcc110c719baf0afc640e8c5a45540e6c166b9907d91.et.png)
+![Example](../../translated_images/translation-ex.0c8aa6a7ee0aad2b35cddcc110c719baf0afc640e8c5a45540e6c166b9907d91.et.png)
 
 ## Kiire alustamine
 
@@ -75,8 +75,8 @@ docker run --rm -it --env-file .env -v "${PWD}:/work" ghcr.io/azure/co-op-transl
 - Loo `.env` kasutades seda malli: [.env.template](../../.env.template)
 - Sea üles üks LLM pakkuja (Azure OpenAI või OpenAI)
 - Piltide tõlkimiseks (`-img`) lisa ka Azure AI Vision
-- Soovituslik: Kui sul on varem teiste tööriistadega loodud tõlkeid, puhasta need enne, et vältida konflikte (näiteks: `translations/`).
-- Soovituslik: Lisa oma README-sse tõlgete sektsioon kasutades [README keelte malli](./README_languages_template.md)
+- Soovituslik: Kui sul on tõlked, mis on loodud teiste tööriistadega, puhasta need esmalt, et vältida konflikte (näiteks: `translations/`).
+- Soovituslik: Lisa oma README-sse tõlgete sektsioon, kasutades [README keelte malli](./README_languages_template.md)
 - Vaata: [Azure AI seadistamine](./getting_started/set-up-azure-ai.md)
 
 ## Kasutamine
@@ -105,13 +105,13 @@ Ainult märkmikud:
 translate -l "zh" -nb
 ```
 
-Rohkem lippusid: [Käsureferents](./getting_started/command-reference.md)
+Rohkem lippusid: [Käsurea viide](./getting_started/command-reference.md)
 
-## Funktsioonid
+## Võimalused
 
 - Automaatne tõlge Markdownile, märkmikele ja piltidele
-- Hoiab tõlked allikaga sünkroonis
-- Töötab kohapeal (CLI) või CI-s (GitHub Actions)
+- Hoiab tõlked sünkroonis algallika muudatustega
+- Töötab lokaalselt (CLI) või CI-s (GitHub Actions)
 - Kasutab Azure OpenAI või OpenAI; piltide jaoks valikuline Azure AI Vision
 - Säilitab Markdowni vormingu ja struktuuri
 
@@ -121,40 +121,40 @@ Rohkem lippusid: [Käsureferents](./getting_started/command-reference.md)
 - [GitHub Actions juhend (avalikud repositooriumid & standardsed saladused)](./getting_started/github-actions-guide/github-actions-guide-public.md)
 - [GitHub Actions juhend (Microsofti organisatsiooni repositooriumid & organisatsiooni tasemel seadistused)](./getting_started/github-actions-guide/github-actions-guide-org.md)
 - [Toetatud keeled](./getting_started/supported-languages.md)
-- [Veaotsing](./getting_started/troubleshooting.md)
+- [Tõrkeotsing](./getting_started/troubleshooting.md)
 
-## Toeta meid ja edenda globaalseid õpivõimalusi
+## Toeta meid ja aita kaasa ülemaailmsele õppimisele
 
-Liitu meiega, et muuta haridusliku sisu jagamine üle maailma lihtsamaks! Anna [Co-op Translatorile](https://github.com/azure/co-op-translator) ⭐ GitHubis ja toeta meie missiooni murda keelebarjääre õppimises ja tehnoloogias. Sinu huvi ja panus on väga oluline! Koodipanused ja uute funktsioonide ettepanekud on alati teretulnud.
+Aita meil muuta haridussisu jagamine üle maailma lihtsamaks! Anna [Co-op Translatorile](https://github.com/azure/co-op-translator) ⭐ GitHubis ja toeta meie missiooni murda keelebarjääre õppimises ja tehnoloogias. Sinu huvi ja panus on väga oluline! Koodipanused ja funktsioonisoovitused on alati teretulnud.
 
-### Avasta Microsofti hariduslikku sisu oma keeles
+### Avasta Microsofti haridussisu oma keeles
 
-- [AZD algajatele](https://github.com/microsoft/AZD-for-beginners)
-- [Edge AI algajatele](https://github.com/microsoft/edgeai-for-beginners)
-- [Model Context Protocol (MCP) algajatele](https://github.com/microsoft/mcp-for-beginners)
-- [AI agendid algajatele](https://github.com/microsoft/ai-agents-for-beginners)
-- [Generatiivne AI algajatele .NET-is](https://github.com/microsoft/Generative-AI-for-beginners-dotnet)
-- [Generatiivne AI algajatele](https://github.com/microsoft/generative-ai-for-beginners)
-- [Generatiivne AI algajatele Java-s](https://github.com/microsoft/generative-ai-for-beginners-java)
-- [ML algajatele](https://aka.ms/ml-beginners)
-- [Andmeteadus algajatele](https://aka.ms/datascience-beginners)
-- [AI algajatele](https://aka.ms/ai-beginners)
-- [Küberkaitse algajatele](https://github.com/microsoft/Security-101)
-- [Veebiarendus algajatele](https://aka.ms/webdev-beginners)
-- [IoT algajatele](https://aka.ms/iot-beginners)
+- [AZD for Beginners](https://github.com/microsoft/AZD-for-beginners)
+- [Edge AI for Beginners](https://github.com/microsoft/edgeai-for-beginners)
+- [Model Context Protocol (MCP) For Beginners](https://github.com/microsoft/mcp-for-beginners)
+- [AI Agents for Beginners](https://github.com/microsoft/ai-agents-for-beginners)
+- [Generative AI for Beginners using .NET](https://github.com/microsoft/Generative-AI-for-beginners-dotnet)
+- [Generative AI for Beginners](https://github.com/microsoft/generative-ai-for-beginners)
+- [Generative AI for Beginners using Java](https://github.com/microsoft/generative-ai-for-beginners-java)
+- [ML for Beginners](https://aka.ms/ml-beginners)
+- [Data Science for Beginners](https://aka.ms/datascience-beginners)
+- [AI for Beginners](https://aka.ms/ai-beginners)
+- [Cybersecurity for Beginners](https://github.com/microsoft/Security-101)
+- [Web Dev for Beginners](https://aka.ms/webdev-beginners)
+- [IoT for Beginners](https://aka.ms/iot-beginners)
 - [PhiCookBook](https://github.com/microsoft/PhiCookBook)
 
-## Videopresentatsioonid
+## Videotutvustused
 
-Õpi Co-op Translatori kohta rohkem meie ettekannetest _(Kliki alloleval pildil, et vaadata YouTube'is.)_:
+Tutvu Co-op Translatoriga meie esitlustes _(Kliki alloleval pildil, et vaadata YouTube'is.)_:
 
-- **Open at Microsoft**: Lühike 18-minutiline tutvustus ja kiire juhend Co-op Translatori kasutamiseks.
+- **Open at Microsoft**: Lühike 18-minutiline sissejuhatus ja kiire juhend Co-op Translatori kasutamiseks.
 
   [![Open at Microsoft](../../translated_images/open-ms-thumbnail.946b356b89bc5f0e33dcebb852f7926b98c33f54c1a49ce01c36ae7f35e2443a.et.jpg)](https://www.youtube.com/watch?v=jX_swfH_KNU)
 
-## Kaasalöömine
+## Kaasaaitamine
 
-See projekt ootab panuseid ja ettepanekuid. Kas soovid aidata Azure Co-op Translatori arendamisel? Vaata meie [CONTRIBUTING.md](./CONTRIBUTING.md) juhendit, et teada saada, kuidas saad Co-op Translatorit veelgi kättesaadavamaks muuta.
+See projekt ootab panuseid ja ettepanekuid. Soovid aidata Azure Co-op Translatori arendamisel? Vaata meie [CONTRIBUTING.md](./CONTRIBUTING.md), et saada juhiseid, kuidas saad muuta Co-op Translatori veelgi kättesaadavamaks.
 
 ## Kaasautorid
 
@@ -163,24 +163,24 @@ See projekt ootab panuseid ja ettepanekuid. Kas soovid aidata Azure Co-op Transl
 ## Käitumiskoodeks
 
 See projekt järgib [Microsofti avatud lähtekoodiga käitumiskoodeksit](https://opensource.microsoft.com/codeofconduct/).
-Lisainfo saamiseks vaata [Käitumiskoodeksi KKK](https://opensource.microsoft.com/codeofconduct/faq/) või
+Lisateabe saamiseks vaata [Käitumiskoodeksi KKK](https://opensource.microsoft.com/codeofconduct/faq/) või
 võta ühendust [opencode@microsoft.com](mailto:opencode@microsoft.com), kui sul on lisaküsimusi või kommentaare.
 
-## Vastutustundlik AI
+## Vastutustundlik tehisintellekt
 
-Microsoft on pühendunud sellele, et aidata klientidel kasutada meie AI-tooteid vastutustundlikult, jagada oma kogemusi ja luua usaldusel põhinevaid partnerlusi tööriistadega nagu Transparency Notes ja Impact Assessments. Paljud neist ressurssidest leiad aadressilt [https://aka.ms/RAI](https://aka.ms/RAI).
-Microsofti vastutustundliku AI lähenemine põhineb meie AI põhimõtetel: õiglus, usaldusväärsus ja ohutus, privaatsus ja turvalisus, kaasatus, läbipaistvus ja vastutus.
+Microsoft on pühendunud sellele, et aidata klientidel kasutada meie tehisintellekti tooteid vastutustundlikult, jagada oma kogemusi ning luua usaldusel põhinevaid partnerlusi selliste tööriistade kaudu nagu läbipaistvusmärkmed ja mõjuhinnangud. Paljud neist ressurssidest on leitavad aadressil [https://aka.ms/RAI](https://aka.ms/RAI).
+Microsofti vastutustundliku tehisintellekti lähenemine põhineb meie AI põhimõtetel: õiglus, usaldusväärsus ja turvalisus, privaatsus ja turvalisus, kaasavus, läbipaistvus ja vastutus.
 
-Suured keelemudelid, pildimudelid ja kõnemudelid – nagu neid kasutatakse ka selles näites – võivad käituda viisil, mis on ebaõiglane, ebausaldusväärne või solvav, põhjustades kahju. Palun tutvu [Azure OpenAI teenuse läbipaistvusmärkusega](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text), et olla teadlik riskidest ja piirangutest.
+Suurte keelemudelite, pildimudelite ja kõnemudelite - nagu selles näites kasutatavad - puhul võib esineda ebaõiglasi, ebausaldusväärseid või solvavaid käitumisi, mis võivad põhjustada kahju. Palun tutvu [Azure OpenAI teenuse läbipaistvusmärkmega](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text), et olla teadlik riskidest ja piirangutest.
 
-Soovitatav viis nende riskide maandamiseks on lisada oma arhitektuuri turvasüsteem, mis suudab tuvastada ja ennetada kahjulikku käitumist. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) pakub sõltumatut kaitsekihti, mis suudab tuvastada kahjulikku kasutaja- ja AI-l genereeritud sisu rakendustes ja teenustes. Azure AI Content Safety sisaldab teksti- ja pildiliideseid, mis võimaldavad tuvastada kahjulikku materjali. Samuti on olemas interaktiivne Content Safety Studio, kus saad vaadata, uurida ja proovida näidiskoodi kahjuliku sisu tuvastamiseks erinevates vormingutes. Järgmine [kiirstardi dokumentatsioon](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) juhendab sind teenuse päringute tegemisel.
-Teine oluline aspekt, mida arvestada, on rakenduse üldine jõudlus. Mitmeliigiliste ja mitmemudelitega rakenduste puhul tähendab jõudlus seda, et süsteem töötab nii, nagu sina ja sinu kasutajad ootavad, sealhulgas ei tekita kahjulikke väljundeid. Oluline on hinnata oma rakenduse jõudlust, kasutades [generatsiooni kvaliteedi ning riski ja ohutuse mõõdikuid](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
+Soovitatav viis nende riskide maandamiseks on lisada oma arhitektuuri turvasüsteem, mis suudab tuvastada ja ennetada kahjulikku käitumist. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) pakub sõltumatut kaitsekihti, mis suudab tuvastada kahjulikku kasutaja- ja AI-lt pärinevat sisu rakendustes ja teenustes. Azure AI Content Safety sisaldab teksti- ja pildipõhiseid API-sid, mis võimaldavad tuvastada kahjulikku materjali. Samuti on olemas interaktiivne Content Safety Studio, kus saad vaadata, uurida ja katsetada näidiskoodi kahjuliku sisu tuvastamiseks erinevates formaatides. Järgmine [kiirstardi dokumentatsioon](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) juhendab sind teenuse kasutamise alustamisel.
+Teine oluline aspekt, mida arvestada, on rakenduse üldine jõudlus. Mitmeliigiliste ja mitmemudelitega rakenduste puhul tähendab jõudlus seda, et süsteem töötab nii, nagu sina ja sinu kasutajad ootavad, sealhulgas ei tekita kahjulikke väljundeid. On tähtis hinnata oma rakenduse jõudlust, kasutades [generatsiooni kvaliteedi ning riski ja ohutuse mõõdikuid](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
 
-Saad oma tehisintellekti rakendust arenduskeskkonnas hinnata, kasutades [prompt flow SDK-d](https://microsoft.github.io/promptflow/index.html). Kasutades kas testandmestikku või sihtmärki, mõõdetakse sinu generatiivse AI rakenduse väljundeid kvantitatiivselt sisseehitatud või sinu valitud kohandatud hindajatega. Et alustada prompt flow SDK-ga oma süsteemi hindamist, järgi [kiirjuhendit](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). Kui oled hindamise käivitanud, saad [tulemusi visualiseerida Azure AI Studios](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
+Saad oma tehisintellekti rakendust arenduskeskkonnas hinnata, kasutades [prompt flow SDK-d](https://microsoft.github.io/promptflow/index.html). Kasutades kas testandmestikku või sihtmärki, mõõdetakse sinu generatiivse AI rakenduse tulemusi kvantitatiivselt sisseehitatud või sinu valitud kohandatud hindajatega. Et alustada prompt flow SDK-ga oma süsteemi hindamist, järgi [kiirjuhendit](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). Kui oled hindamise käivitanud, saad [tulemusi visualiseerida Azure AI Studios](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
 
 ## Kaubamärgid
 
-See projekt võib sisaldada kaubamärke või logosid, mis kuuluvad projektidele, toodetele või teenustele. Microsofti kaubamärkide või logode lubatud kasutamine peab järgima [Microsofti kaubamärgi ja brändi juhiseid](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general). Microsofti kaubamärkide või logode kasutamine projekti muudetud versioonides ei tohi tekitada segadust ega jätta muljet, et Microsoft toetab projekti. Kolmandate osapoolte kaubamärkide või logode kasutamine allub nende vastavatele reeglitele.
+See projekt võib sisaldada kaubamärke või logosid, mis kuuluvad erinevatele projektidele, toodetele või teenustele. Microsofti kaubamärkide või logode lubatud kasutamine peab järgima [Microsofti kaubamärgi ja brändi juhiseid](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general). Microsofti kaubamärkide või logode kasutamine muudetud projektiversioonides ei tohi tekitada segadust ega jätta muljet, et Microsoft toetab projekti. Kolmandate osapoolte kaubamärkide või logode kasutamine allub nende vastavatele reeglitele.
 
 ## Abi saamine
 
@@ -188,7 +188,7 @@ Kui jääd hätta või sul on küsimusi AI rakenduste loomise kohta, liitu:
 
 <a href="https://aka.ms/foundry/discord"><img src="https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff" alt="Azure AI Foundry Discord"></a>
 
-Kui sul on tootega seotud tagasisidet või esineb vigu arendamisel, külasta:
+Kui sul on tootetagasisidet või esineb vigu arendamisel, külasta:
 
 <a href="https://aka.ms/foundry/forum"><img src="https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff" alt="Azure AI Foundry Developer Forum"></a>
 

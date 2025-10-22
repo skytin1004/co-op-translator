@@ -1,21 +1,21 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "bd4704f50c55da7d572b691484aa0b30",
-  "translation_date": "2025-10-15T02:28:29+00:00",
+  "original_hash": "1ae2159f900e7d5d596bb00bcba4c999",
+  "translation_date": "2025-10-22T13:28:30+00:00",
   "source_file": "CONTRIBUTING.md",
   "language_code": "mo"
 }
 -->
 # 貢獻 Co-op Translator
 
-這個專案歡迎大家貢獻和提出建議。大多數貢獻都需要你同意一份貢獻者授權協議 (CLA)，聲明你有權利並且確實授予我們使用你的貢獻的權利。詳情請參考 https://cla.opensource.microsoft.com。
+這個專案歡迎大家貢獻和提出建議。大多數貢獻都需要你同意一份貢獻者授權協議（CLA），聲明你有權利並且確實授予我們使用你的貢獻的權利。詳情請參考 https://cla.opensource.microsoft.com。
 
 當你提交 pull request 時，CLA 機器人會自動判斷你是否需要提供 CLA，並在 PR 上做出相應標記（例如狀態檢查、留言）。只要按照機器人的指示操作即可。你只需要在所有使用我們 CLA 的 repo 中做一次這個步驟。
 
 ## 開發環境設定
 
-建議使用 Poetry 來管理這個專案的依賴。我們用 `pyproject.toml` 來管理專案依賴，所以安裝依賴時請使用 Poetry。
+要設定這個專案的開發環境，我們建議使用 Poetry 來管理相依套件。我們用 `pyproject.toml` 來管理專案相依套件，所以安裝套件時請使用 Poetry。
 
 ### 建立虛擬環境
 
@@ -35,13 +35,13 @@ poetry init
 
 #### pip 和 Poetry 都適用
 
-- Windows：
+- Windows:
 
     ```bash
     .venv\Scripts\activate.bat
     ```
 
-- Mac/Linux：
+- Mac/Linux:
 
     ```bash
     source .venv/bin/activate
@@ -53,7 +53,7 @@ poetry init
 poetry shell
 ```
 
-### 安裝套件及必要依賴
+### 安裝套件及必要相依套件
 
 #### 使用 Poetry（根據 pyproject.toml）
 
@@ -65,7 +65,7 @@ poetry install
 
 在提交 PR 之前，請務必用真實文件測試翻譯功能：
 
-1. 在根目錄建立一個測試資料夾：
+1. 在專案根目錄建立一個測試資料夾：
     ```bash
     mkdir test_docs
     ```
@@ -92,18 +92,18 @@ poetry install
    - 原本的 markdown 結構有保留
    - 連結和圖片都能正常顯示
 
-這個手動測試可以確保你的修改在實際情境下運作良好。
+這個手動測試可以確保你的修改在真實情境下運作良好。
 
 ### 環境變數
 
-1. 在根目錄用 `.env.template` 檔案複製一份 `.env` 檔案。
-1. 按照指示填寫環境變數。
+1. 在根目錄建立 `.env` 檔案，可以複製現有的 `.env.template` 檔案。
+1. 按照指示填入環境變數。
 
 > [!TIP]
 >
 > ### 其他開發環境選項
 >
-> 除了在本地執行專案，你也可以用 GitHub Codespaces 或 VS Code Dev Containers 來建立開發環境。
+> 除了在本地執行專案，你也可以用 GitHub Codespaces 或 VS Code Dev Containers 來設定開發環境。
 >
 > #### GitHub Codespaces
 >
@@ -117,7 +117,7 @@ poetry install
 >
 > #### 使用 VS Code Dev Containers 在本地執行
 >
-> ⚠️ 這個選項需要你的 Docker Desktop 至少分配 16 GB RAM。如果你的 RAM 不足 16 GB，可以考慮 [GitHub Codespaces 選項](../..) 或 [本地設定](../..)。
+> ⚠️ 這個選項需要你的 Docker Desktop 至少分配 16 GB RAM。如果你的 RAM 不足 16 GB，可以考慮用 [GitHub Codespaces](../..) 或 [本地設定](../..)。
 >
 > 另一個選項是 VS Code Dev Containers，可以用 [Dev Containers 擴充套件](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) 在本地 VS Code 開啟專案：
 >
@@ -129,7 +129,7 @@ poetry install
 
 ### 程式碼風格
 
-我們使用 [Black](https://github.com/psf/black) 作為 Python 程式碼格式化工具，確保整個專案的程式碼風格一致。Black 會自動將 Python 程式碼格式化成統一風格。
+我們使用 [Black](https://github.com/psf/black) 作為 Python 程式碼格式化工具，確保整個專案的程式碼風格一致。Black 會自動將 Python 程式碼格式化成統一的風格。
 
 #### 設定方式
 
@@ -155,7 +155,7 @@ poetry install
 
 ##### 使用 pip
 
-如果用 pip，可以直接安裝 Black：
+如果你用 pip，可以直接安裝 Black：
 ```bash
 pip install black
 ```
@@ -187,15 +187,15 @@ pip install black
     ```
 
 > [!TIP]
-> 建議你設定編輯器自動在儲存時用 Black 格式化程式碼。大多數現代編輯器都支援這個功能（可用擴充套件或外掛）。
+> 建議你設定編輯器，在儲存時自動用 Black 格式化程式碼。大多數現代編輯器都支援這個功能，可以安裝相關擴充套件或外掛。
 
 ## 執行 Co-op Translator
 
-要用 Poetry 在你的環境執行 Co-op Translator，請依照以下步驟：
+要在你的環境用 Poetry 執行 Co-op Translator，請依照以下步驟：
 
-1. 進入你想要進行翻譯測試的資料夾，或建立一個暫時的測試資料夾。
+1. 進入你想要測試翻譯的目錄，或建立一個暫時的資料夾來測試。
 
-2. 執行以下指令。請將 `-l ko` 換成你想翻譯的語言代碼。`-d` 參數代表除錯模式。
+2. 執行以下指令。把 `-l ko` 換成你想翻譯的語言代碼。`-d` 參數代表除錯模式。
 
     ```bash
     poetry run co-op-translator translate -l ko -d
@@ -206,19 +206,19 @@ pip install black
 
 ## 貢獻新語言
 
-歡迎大家貢獻新語言支援。開 PR 前，請完成以下步驟，讓審查流程更順利。
+我們歡迎大家貢獻新語言支援。開 PR 前，請完成以下步驟，讓審查流程更順利。
 
 1. 新增語言到字型對應表
    - 編輯 `src/co_op_translator/fonts/font_language_mappings.yml`
    - 新增一筆資料，包含：
-     - `code`：類似 ISO 的語言代碼（例如 `vi`）
-     - `name`：易懂的顯示名稱
-     - `font`：在 `src/co_op_translator/fonts/` 內有支援該文字的字型
-     - `rtl`：如果是由右至左語言填 `true`，否則填 `false`
+     - `code`: 類 ISO 語言代碼（例如 `vi`）
+     - `name`: 方便辨識的語言名稱
+     - `font`: 一個在 `src/co_op_translator/fonts/` 內、支援該文字的字型
+     - `rtl`: 如果是由右至左語言填 `true`，否則填 `false`
 
-2. 加入必要字型檔（如有需要）
+2. 加入必要字型檔案（如有需要）
    - 如果需要新字型，請確認授權可用於開源發佈
-   - 把字型檔加到 `src/co_op_translator/fonts/`
+   - 把字型檔案加到 `src/co_op_translator/fonts/`
 
 3. 本地驗證
    - 執行小範例翻譯（Markdown、圖片、notebook 等）
@@ -226,7 +226,7 @@ pip install black
 
 4. 更新文件
    - 確認語言已出現在 `getting_started/supported-languages.md`
-   - 不需要修改 `README_languages_template.md`，它會自動根據支援清單產生
+   - 不需要修改 `README_languages_template.md`，它會自動根據支援語言產生
 
 5. 開 PR
    - 說明新增的語言及字型/授權相關事項
@@ -241,30 +241,46 @@ new_lang(code):
   rtl: false
 ```
 
+### 測試新語言
+
+你可以用以下指令測試新語言：
+
+```bash
+# Create and activate a virtual environment (recommended)
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+source .venv/bin/activate
+# Install the development package
+pip install -e .
+# Run the translation
+translate -l "new_lang"
+```
 
 ## 維護者
 
 ### Commit 訊息與合併策略
 
-為了讓專案的 commit 歷史一致且清楚，我們在使用 **Squash and Merge** 合併策略時，會遵循特定的 commit 訊息格式（只針對最終 commit 訊息）。
+為了讓專案的 commit 歷史保持一致和清楚，我們在使用 **Squash and Merge** 策略時，最終 commit 訊息會遵循特定格式。
 
-當 PR 被合併時，所有 commit 會被壓縮成一個 commit。最終 commit 訊息請依照以下格式，保持歷史乾淨一致。
+當 pull request（PR）合併時，所有 commit 會被壓縮成一個 commit。最終 commit 訊息請依照以下格式，讓歷史紀錄乾淨又一致。
 
 #### Commit 訊息格式（Squash and Merge）
 
-我們使用以下格式：
+我們的 commit 訊息格式如下：
 
 ```bash
 <type>: <description> (#<PR number>)
 ```
 
-- **type**：commit 類型。我們使用以下類型：
-  - `Docs`：文件更新。
-  - `Build`：建置系統或依賴相關變更，包括設定檔、CI 工作流程或 Dockerfile。
-  - `Core`：專案核心功能或特性修改，特別是 `src/co_op_translator/core` 目錄下的檔案。
+- **type**: commit 類型。我們使用以下類型：
+  - `Docs`: 文件相關更新。
+  - `Build`: 建置系統或相依套件相關變更，包括設定檔、CI 工作流程或 Dockerfile。
+  - `Core`: 專案核心功能或特色的修改，特別是 `src/co_op_translator/core` 目錄下的檔案。
 
-- **description**：簡要說明這次變更。
-- **PR number**：這次 commit 對應的 PR 編號。
+- **description**: 變更的簡要說明。
+- **PR number**: 這次 commit 對應的 pull request 編號。
 
 **範例**：
 
@@ -272,17 +288,17 @@ new_lang(code):
 - `Core: Improve handling of image translation (#60)`
 
 > [!NOTE]
-> 目前 **`Docs`**、**`Core`** 和 **`Build`** 前綴會根據 PR 標籤自動加到 PR 標題。只要標籤正確，通常不需要手動修改 PR 標題。你只需要確認一切正確，前綴有自動產生即可。
+> 目前 **`Docs`**、**`Core`** 和 **`Build`** 前綴會根據你修改的原始碼自動加到 PR 標題。只要標籤正確，你通常不需要手動修改 PR 標題。只要確認一切正確，前綴有自動產生即可。
 
 #### 合併策略
 
-我們預設使用 **Squash and Merge** 合併 PR。這個策略可以確保 commit 訊息格式一致，即使每個 commit 本身沒有遵守格式。
+我們 pull request 預設使用 **Squash and Merge**。這個策略可以確保 commit 訊息符合我們的格式，即使每個 commit 本身沒有。
 
 **原因**：
 
 - 專案歷史乾淨、線性。
 - commit 訊息一致。
-- 減少小 commit（例如「fix typo」）造成的雜訊。
+- 減少雜訊（例如「fix typo」這類小 commit）。
 
 合併時，請確保最終 commit 訊息符合上述格式。
 
@@ -299,4 +315,4 @@ new_lang(code):
 ---
 
 **免責聲明**：
-本文件是使用 AI 翻譯服務 [Co-op Translator](https://github.com/Azure/co-op-translator) 進行翻譯。雖然我們力求準確，但請注意，自動翻譯可能包含錯誤或不準確之處。原始語言的文件應視為具權威性的來源。對於重要資訊，建議尋求專業人工翻譯。我們不對因使用本翻譯而產生的任何誤解或誤釋承擔責任。
+本文件是使用 AI 翻譯服務 [Co-op Translator](https://github.com/Azure/co-op-translator) 進行翻譯。雖然我們力求準確，但請注意自動翻譯可能包含錯誤或不準確之處。原始語言的文件應視為具權威性的來源。對於重要資訊，建議採用專業人工翻譯。因使用本翻譯而產生的任何誤解或誤釋，我們概不負責。

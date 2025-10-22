@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f579b7f148746593e3e9023b56a8c30d",
-  "translation_date": "2025-10-22T11:53:05+00:00",
+  "original_hash": "7593c1fad8734e4050b60fc3da614aa5",
+  "translation_date": "2025-10-22T13:26:42+00:00",
   "source_file": "README.md",
   "language_code": "ur"
 }
@@ -15,11 +15,11 @@ _اپنے تعلیمی GitHub مواد کو خودکار طریقے سے کئی 
 
 #### [کو-آپ ٹرانسلیٹر](https://github.com/Azure/Co-op-Translator) کی طرف سے سپورٹ کردہ
 
-[عربی](../ar/README.md) | [بنگالی](../bn/README.md) | [بلغاریائی](../bg/README.md) | [برمی (میانمار)](../my/README.md) | [چینی (آسان)](../zh/README.md) | [چینی (روایتی، ہانگ کانگ)](../hk/README.md) | [چینی (روایتی، مکاؤ)](../mo/README.md) | [چینی (روایتی، تائیوان)](../tw/README.md) | [کروشین](../hr/README.md) | [چیک](../cs/README.md) | [ڈینش](../da/README.md) | [ڈچ](../nl/README.md) | [ایسٹونین](../et/README.md) | [فنش](../fi/README.md) | [فرانسیسی](../fr/README.md) | [جرمن](../de/README.md) | [یونانی](../el/README.md) | [عبرانی](../he/README.md) | [ہندی](../hi/README.md) | [ہنگیرین](../hu/README.md) | [انڈونیشین](../id/README.md) | [اطالوی](../it/README.md) | [جاپانی](../ja/README.md) | [کوریائی](../ko/README.md) | [لتھوانیائی](../lt/README.md) | [ملائی](../ms/README.md) | [مراٹھی](../mr/README.md) | [نیپالی](../ne/README.md) | [نائجیرین پڈگن](../pcm/README.md) | [نارویجین](../no/README.md) | [فارسی](../fa/README.md) | [پولش](../pl/README.md) | [پرتگالی (برازیل)](../br/README.md) | [پرتگالی (پرتگال)](../pt/README.md) | [پنجابی (گرمکھی)](../pa/README.md) | [رومینین](../ro/README.md) | [روسی](../ru/README.md) | [سربین (سیریلک)](../sr/README.md) | [سلوواک](../sk/README.md) | [سلووینین](../sl/README.md) | [ہسپانوی](../es/README.md) | [سواحلی](../sw/README.md) | [سویڈش](../sv/README.md) | [ٹیگالوگ (فلپینو)](../tl/README.md) | [تمل](../ta/README.md) | [تھائی](../th/README.md) | [ترکش](../tr/README.md) | [یوکرینیائی](../uk/README.md) | [اردو](./README.md) | [ویتنامی](../vi/README.md)
+[عربی](../ar/README.md) | [بنگالی](../bn/README.md) | [بلغاریائی](../bg/README.md) | [برمی (میانمار)](../my/README.md) | [چینی (آسان)](../zh/README.md) | [چینی (روایتی، ہانگ کانگ)](../hk/README.md) | [چینی (روایتی، مکاؤ)](../mo/README.md) | [چینی (روایتی، تائیوان)](../tw/README.md) | [کروشین](../hr/README.md) | [چیک](../cs/README.md) | [ڈینش](../da/README.md) | [ڈچ](../nl/README.md) | [ایسٹونین](../et/README.md) | [فنش](../fi/README.md) | [فرانسیسی](../fr/README.md) | [جرمن](../de/README.md) | [یونانی](../el/README.md) | [عبرانی](../he/README.md) | [ہندی](../hi/README.md) | [ہنگیرین](../hu/README.md) | [انڈونیشین](../id/README.md) | [اطالوی](../it/README.md) | [جاپانی](../ja/README.md) | [کوریائی](../ko/README.md) | [لتھوانیائی](../lt/README.md) | [ملائی](../ms/README.md) | [مراٹھی](../mr/README.md) | [نیپالی](../ne/README.md) | [نائجیرین پڈجن](../pcm/README.md) | [نارویجین](../no/README.md) | [فارسی](../fa/README.md) | [پولش](../pl/README.md) | [پرتگالی (برازیل)](../br/README.md) | [پرتگالی (پرتگال)](../pt/README.md) | [پنجابی (گرمکھی)](../pa/README.md) | [رومینین](../ro/README.md) | [روسی](../ru/README.md) | [سربین (سیریلک)](../sr/README.md) | [سلوواک](../sk/README.md) | [سلووینین](../sl/README.md) | [ہسپانوی](../es/README.md) | [سواحلی](../sw/README.md) | [سویڈش](../sv/README.md) | [ٹیگالوگ (فلپائنی)](../tl/README.md) | [تمل](../ta/README.md) | [تھائی](../th/README.md) | [ترک](../tr/README.md) | [یوکرینیائی](../uk/README.md) | [اردو](./README.md) | [ویتنامی](../vi/README.md)
 
 ## جائزہ
 
-**کو-آپ ٹرانسلیٹر** آپ کو اپنے تعلیمی GitHub مواد کو تیزی سے کئی زبانوں میں ترجمہ کرنے کی سہولت دیتا ہے، تاکہ آپ آسانی سے عالمی سطح پر لوگوں تک پہنچ سکیں۔ جب بھی آپ اپنے مارک ڈاؤن فائلز، تصاویر یا جیوپیٹر نوٹ بکس کو اپ ڈیٹ کرتے ہیں، تو ترجمے خود بخود ہم آہنگ ہو جاتے ہیں تاکہ آپ کا تعلیمی GitHub مواد بین الاقوامی صارفین کے لیے ہمیشہ تازہ اور متعلقہ رہے۔
+**کو-آپ ٹرانسلیٹر** آپ کو اپنے تعلیمی GitHub مواد کو تیزی سے کئی زبانوں میں ترجمہ کرنے کی سہولت دیتا ہے، تاکہ آپ آسانی سے عالمی سطح پر زیادہ لوگوں تک پہنچ سکیں۔ جب آپ اپنے مارک ڈاؤن فائلز، تصاویر یا جیوپیٹر نوٹ بکس کو اپ ڈیٹ کرتے ہیں، تو ترجمے خود بخود ہم آہنگ ہو جاتے ہیں تاکہ آپ کا تعلیمی GitHub مواد بین الاقوامی صارفین کے لیے ہمیشہ تازہ اور متعلقہ رہے۔
 
 دیکھیں کو-آپ ٹرانسلیٹر کس طرح ترجمہ شدہ تعلیمی GitHub مواد کو منظم کرتا ہے:
 
@@ -97,24 +97,24 @@ translate -l "zh" -nb
 ## دستاویزات
 
 - [کمانڈ لائن گائیڈ](./getting_started/command-line-guide/command-line-guide.md)
-- [GitHub Actions گائیڈ (پبلک ریپوزٹریز اور اسٹینڈرڈ سیکرٹس)](./getting_started/github-actions-guide/github-actions-guide-public.md)
-- [GitHub Actions گائیڈ (Microsoft آرگنائزیشن ریپوزٹریز اور آرگنائزیشن لیول سیٹ اپ)](./getting_started/github-actions-guide/github-actions-guide-org.md)
+- [GitHub Actions گائیڈ (پبلک ریپوزٹریز اور اسٹینڈرڈ سیکریٹس)](./getting_started/github-actions-guide/github-actions-guide-public.md)
+- [GitHub Actions گائیڈ (مائیکروسافٹ آرگنائزیشن ریپوزٹریز اور آرگ لیول سیٹ اپ)](./getting_started/github-actions-guide/github-actions-guide-org.md)
 - [سپورٹڈ زبانیں](./getting_started/supported-languages.md)
 - [مسائل کا حل](./getting_started/troubleshooting.md)
 
 ## ہماری سپورٹ کریں اور عالمی تعلیم کو فروغ دیں
 
-ہمارے ساتھ مل کر تعلیمی مواد کو عالمی سطح پر شیئر کرنے کے طریقے میں انقلاب لائیں! [کو-آپ ٹرانسلیٹر](https://github.com/azure/co-op-translator) کو GitHub پر ⭐ دیں اور ہماری اس مشن میں ساتھ دیں کہ تعلیم اور ٹیکنالوجی میں زبان کی رکاوٹیں دور کی جائیں۔ آپ کی دلچسپی اور تعاون سے بڑا فرق پڑتا ہے! کوڈ میں تعاون اور فیچر کی تجاویز ہمیشہ خوش آمدید ہیں۔
+ہمارے ساتھ مل کر تعلیمی مواد کو عالمی سطح پر شیئر کرنے کے طریقے میں انقلاب لائیں! [کو-آپ ٹرانسلیٹر](https://github.com/azure/co-op-translator) کو GitHub پر ⭐ دیں اور ہماری اس مشن میں ساتھ دیں کہ تعلیم اور ٹیکنالوجی میں زبان کی رکاوٹیں دور کی جائیں۔ آپ کی دلچسپی اور تعاون سے بڑا فرق پڑتا ہے! کوڈ میں تعاون اور فیچر تجاویز ہمیشہ خوش آمدید ہیں۔
 
-### اپنی زبان میں Microsoft کا تعلیمی مواد دریافت کریں
+### اپنی زبان میں مائیکروسافٹ کا تعلیمی مواد دریافت کریں
 
 - [AZD فار بیگنرز](https://github.com/microsoft/AZD-for-beginners)
 - [ایج AI فار بیگنرز](https://github.com/microsoft/edgeai-for-beginners)
 - [ماڈل کانٹیکسٹ پروٹوکول (MCP) فار بیگنرز](https://github.com/microsoft/mcp-for-beginners)
 - [AI ایجنٹس فار بیگنرز](https://github.com/microsoft/ai-agents-for-beginners)
-- [.NET کے ساتھ جنریٹو AI فار بیگنرز](https://github.com/microsoft/Generative-AI-for-beginners-dotnet)
+- [جنریٹو AI فار بیگنرز (.NET)](https://github.com/microsoft/Generative-AI-for-beginners-dotnet)
 - [جنریٹو AI فار بیگنرز](https://github.com/microsoft/generative-ai-for-beginners)
-- [جاوا کے ساتھ جنریٹو AI فار بیگنرز](https://github.com/microsoft/generative-ai-for-beginners-java)
+- [جنریٹو AI فار بیگنرز (جاوا)](https://github.com/microsoft/generative-ai-for-beginners-java)
 - [ML فار بیگنرز](https://aka.ms/ml-beginners)
 - [ڈیٹا سائنس فار بیگنرز](https://aka.ms/datascience-beginners)
 - [AI فار بیگنرز](https://aka.ms/ai-beginners)
@@ -133,7 +133,7 @@ translate -l "zh" -nb
 
 ## تعاون
 
-اس پروجیکٹ میں تعاون اور تجاویز کا خیرمقدم کیا جاتا ہے۔ Azure کو-آپ ٹرانسلیٹر میں تعاون کرنے میں دلچسپی ہے؟ براہ کرم ہمارے [CONTRIBUTING.md](./CONTRIBUTING.md) دیکھیں تاکہ آپ جان سکیں کہ کو-آپ ٹرانسلیٹر کو مزید قابل رسائی بنانے میں کیسے مدد کر سکتے ہیں۔
+اس پروجیکٹ میں تعاون اور تجاویز کا خیرمقدم کیا جاتا ہے۔ Azure کو-آپ ٹرانسلیٹر میں تعاون کرنے میں دلچسپی ہے؟ براہ کرم ہمارے [CONTRIBUTING.md](./CONTRIBUTING.md) دیکھیں، اس میں بتایا گیا ہے کہ آپ کو-آپ ٹرانسلیٹر کو مزید قابل رسائی بنانے میں کیسے مدد کر سکتے ہیں۔
 
 ## معاونین
 
@@ -143,38 +143,38 @@ translate -l "zh" -nb
 
 اس پروجیکٹ نے [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) کو اپنایا ہے۔
 مزید معلومات کے لیے [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) دیکھیں یا
-[opencode@microsoft.com](mailto:opencode@microsoft.com) پر رابطہ کریں اگر آپ کے پاس مزید سوالات یا تبصرے ہوں۔
+[opencode@microsoft.com](mailto:opencode@microsoft.com) پر رابطہ کریں اگر آپ کے کوئی اضافی سوالات یا تبصرے ہوں۔
 
 ## ذمہ دار AI
 
-Microsoft اپنے صارفین کو AI مصنوعات ذمہ داری سے استعمال کرنے میں مدد دینے، اپنے تجربات شیئر کرنے اور اعتماد پر مبنی شراکت داری بنانے کے لیے پرعزم ہے، جیسے ٹولز: Transparency Notes اور Impact Assessments۔ ان میں سے کئی وسائل یہاں دستیاب ہیں: [https://aka.ms/RAI](https://aka.ms/RAI)۔
-Microsoft کا ذمہ دار AI کا طریقہ کار ہمارے AI اصولوں پر مبنی ہے: انصاف، قابل اعتماد اور حفاظت، پرائیویسی اور سیکیورٹی، شمولیت، شفافیت اور جوابدہی۔
+مائیکروسافٹ اپنے صارفین کو AI مصنوعات ذمہ داری سے استعمال کرنے میں مدد دینے، اپنے تجربات شیئر کرنے اور اعتماد پر مبنی شراکت داری بنانے کے لیے پرعزم ہے، جیسے ٹولز: Transparency Notes اور Impact Assessments۔ ان میں سے کئی وسائل یہاں دستیاب ہیں: [https://aka.ms/RAI](https://aka.ms/RAI)۔
+مائیکروسافٹ کا ذمہ دار AI کا طریقہ کار ہمارے AI اصولوں پر مبنی ہے: انصاف، قابل اعتماد اور حفاظت، پرائیویسی اور سیکیورٹی، شمولیت، شفافیت اور جوابدہی۔
 
-بڑے پیمانے پر قدرتی زبان، تصویر اور آواز کے ماڈلز - جیسے اس نمونے میں استعمال ہونے والے - بعض اوقات غیر منصفانہ، غیر قابل اعتماد یا ناگوار رویہ اختیار کر سکتے ہیں، جس سے نقصان ہو سکتا ہے۔ براہ کرم [Azure OpenAI service Transparency note](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) پڑھیں تاکہ آپ کو خطرات اور حدود کا علم ہو۔
+بڑے پیمانے پر قدرتی زبان، تصویر اور آواز کے ماڈلز - جیسے اس نمونے میں استعمال ہوئے ہیں - بعض اوقات غیر منصفانہ، غیر قابل اعتماد یا توہین آمیز رویہ اختیار کر سکتے ہیں، جس سے نقصان ہو سکتا ہے۔ براہ کرم [Azure OpenAI service Transparency note](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) پڑھیں تاکہ آپ کو خطرات اور حدود کا علم ہو۔
 
-ان خطرات کو کم کرنے کے لیے سفارش کی جاتی ہے کہ آپ اپنی آرکیٹیکچر میں ایک حفاظتی نظام شامل کریں جو نقصان دہ رویے کو شناخت اور روک سکے۔ [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) ایک آزاد حفاظتی پرت فراہم کرتا ہے، جو صارف یا AI کے بنائے گئے نقصان دہ مواد کو ایپلیکیشنز اور سروسز میں شناخت کر سکتا ہے۔ Azure AI Content Safety میں ٹیکسٹ اور امیج APIs شامل ہیں جو نقصان دہ مواد کی شناخت میں مدد دیتے ہیں۔ ہمارے پاس ایک انٹرایکٹو Content Safety Studio بھی ہے جس میں آپ مختلف اقسام کے نقصان دہ مواد کی شناخت کے لیے نمونہ کوڈ آزما سکتے ہیں۔ یہ [quickstart documentation](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) آپ کو سروس پر درخواست بھیجنے کا طریقہ بتاتا ہے۔
+ان خطرات کو کم کرنے کے لیے سفارش کی جاتی ہے کہ آپ اپنی آرکیٹیکچر میں ایک حفاظتی نظام شامل کریں جو نقصان دہ رویے کو شناخت اور روک سکے۔ [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) ایک آزاد حفاظتی پرت فراہم کرتا ہے، جو صارف یا AI کے بنائے گئے نقصان دہ مواد کو ایپلیکیشنز اور سروسز میں شناخت کر سکتا ہے۔ Azure AI Content Safety میں ٹیکسٹ اور امیج APIs شامل ہیں جو نقصان دہ مواد کی شناخت میں مدد دیتے ہیں۔ ہمارے پاس ایک انٹرایکٹو Content Safety Studio بھی ہے، جس میں آپ مختلف اقسام کے نقصان دہ مواد کی شناخت کے لیے نمونہ کوڈ آزما سکتے ہیں۔ یہ [quickstart documentation](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) آپ کو سروس پر درخواست بھیجنے کا طریقہ بتاتا ہے۔
 
-ایک اور پہلو جسے مدنظر رکھنا ضروری ہے، وہ ایپلیکیشن کی مجموعی کارکردگی ہے۔ جب آپ ملٹی موڈل اور ملٹی ماڈلز ایپلیکیشنز استعمال کرتے ہیں، تو کارکردگی سے مراد یہ ہے کہ سسٹم آپ اور آپ کے صارفین کی توقعات کے مطابق کام کرے، اور نقصان دہ نتائج پیدا نہ کرے۔ اپنی ایپلیکیشن کی کارکردگی کو جانچنا ضروری ہے، جس کے لیے آپ [جنریشن کوالٹی اور رسک و سیفٹی میٹرکس](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in) استعمال کر سکتے ہیں۔
+ایک اور پہلو جسے مدنظر رکھنا ضروری ہے وہ ایپلیکیشن کی مجموعی کارکردگی ہے۔ جب آپ ملٹی موڈل اور ملٹی ماڈلز ایپلیکیشنز استعمال کرتے ہیں، تو کارکردگی سے مراد یہ ہے کہ سسٹم ویسا ہی کام کرے جیسا آپ اور آپ کے صارفین توقع کرتے ہیں، اور نقصان دہ نتائج پیدا نہ کرے۔ اپنی ایپلیکیشن کی کارکردگی کو جانچنا ضروری ہے، جس کے لیے آپ [جنریشن کوالٹی اور رسک و سیفٹی میٹرکس](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in) استعمال کر سکتے ہیں۔
 
-آپ اپنی AI ایپلیکیشن کو ڈیولپمنٹ ماحول میں [پرومپٹ فلو SDK](https://microsoft.github.io/promptflow/index.html) کے ذریعے جانچ سکتے ہیں۔ چاہے آپ کے پاس ٹیسٹ ڈیٹا سیٹ ہو یا کوئی ہدف، آپ کی جنریٹو AI ایپلیکیشن کی جنریشنز کو بلٹ ان ایویلیوئیٹرز یا آپ کی پسند کے کسٹم ایویلیوئیٹرز کے ذریعے مقداری طور پر ناپا جاتا ہے۔ اگر آپ پرومپٹ فلو SDK کے ساتھ اپنے سسٹم کی جانچ شروع کرنا چاہتے ہیں، تو آپ [کوئیک اسٹارٹ گائیڈ](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk) پر عمل کر سکتے ہیں۔ جب آپ ایویلیوایشن رن مکمل کر لیں، تو آپ [نتائج کو Azure AI Studio میں دیکھ سکتے ہیں](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results)۔
+آپ اپنی AI ایپلیکیشن کو ڈیولپمنٹ ماحول میں [پرومپٹ فلو SDK](https://microsoft.github.io/promptflow/index.html) کے ذریعے جانچ سکتے ہیں۔ چاہے آپ کے پاس ٹیسٹ ڈیٹا سیٹ ہو یا کوئی ہدف، آپ کی جنریٹو AI ایپلیکیشن کی جنریشنز کو بلٹ ان ایویلیوئیٹرز یا آپ کی پسند کے کسٹم ایویلیوئیٹرز کے ذریعے مقداری طور پر ناپا جاتا ہے۔ اگر آپ پرومپٹ فلو SDK کے ساتھ اپنے سسٹم کی جانچ شروع کرنا چاہتے ہیں تو [کوئیک اسٹارٹ گائیڈ](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk) کو فالو کریں۔ جب آپ ایویلیوایشن رن مکمل کر لیں، تو آپ [نتائج کو Azure AI Studio میں دیکھ سکتے ہیں](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results)۔
 
 ## ٹریڈ مارکس
 
-اس پروجیکٹ میں کسی پروجیکٹ، پروڈکٹ یا سروس کے ٹریڈ مارکس یا لوگوز شامل ہو سکتے ہیں۔ مائیکروسافٹ کے ٹریڈ مارکس یا لوگوز کے مجاز استعمال کے لیے ضروری ہے کہ آپ [مائیکروسافٹ کی ٹریڈ مارک اور برانڈ گائیڈ لائنز](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general) پر عمل کریں۔
-اس پروجیکٹ کے ترمیم شدہ ورژن میں مائیکروسافٹ کے ٹریڈ مارکس یا لوگوز کا استعمال ایسا نہ ہو کہ صارفین کو کنفیوژن ہو یا مائیکروسافٹ کی اسپانسرشپ کا تاثر ملے۔
+اس پروجیکٹ میں کسی پروجیکٹ، پروڈکٹ یا سروس کے ٹریڈ مارکس یا لوگوز شامل ہو سکتے ہیں۔ مائیکروسافٹ کے ٹریڈ مارکس یا لوگوز کے مجاز استعمال کے لیے [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general) کی پیروی کرنا لازمی ہے۔
+اس پروجیکٹ کے ترمیم شدہ ورژنز میں مائیکروسافٹ کے ٹریڈ مارکس یا لوگوز کا استعمال ایسا نہ ہو کہ صارفین کو کنفیوژن ہو یا مائیکروسافٹ کی اسپانسرشپ کا تاثر ملے۔
 کسی بھی تھرڈ پارٹی کے ٹریڈ مارکس یا لوگوز کا استعمال ان کی اپنی پالیسیز کے مطابق ہوگا۔
 
 ## مدد حاصل کریں
 
-اگر آپ کو کوئی مسئلہ پیش آئے یا AI ایپس بنانے کے بارے میں کوئی سوال ہو، تو شامل ہوں:
+اگر آپ کو کوئی مسئلہ پیش آئے یا AI ایپس بنانے کے بارے میں سوال ہو، تو شامل ہوں:
 
 <a href="https://aka.ms/foundry/discord"><img src="https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff" alt="Azure AI Foundry Discord"></a>
 
-اگر آپ کو پروڈکٹ کے بارے میں فیڈبیک دینا ہو یا ایپ بنانے میں کوئی غلطی آئے تو وزٹ کریں:
+اگر آپ کو پروڈکٹ کے بارے میں فیڈبیک دینا ہو یا ایپ بنانے میں کوئی غلطی آئے تو یہاں جائیں:
 
 <a href="https://aka.ms/foundry/forum"><img src="https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff" alt="Azure AI Foundry Developer Forum"></a>
 
 ---
 
 **اعلانِ دستبرداری**:
-یہ دستاویز AI ترجمہ سروس [Co-op Translator](https://github.com/Azure/co-op-translator) کے ذریعے ترجمہ کی گئی ہے۔ اگرچہ ہم درستگی کی کوشش کرتے ہیں، براہ کرم آگاہ رہیں کہ خودکار ترجمے میں غلطیاں یا عدم درستگی ہو سکتی ہے۔ اصل دستاویز اپنی زبان میں مستند ماخذ سمجھی جائے۔ اہم معلومات کے لیے پیشہ ور انسانی ترجمہ کی سفارش کی جاتی ہے۔ اس ترجمے کے استعمال سے پیدا ہونے والی کسی بھی غلط فہمی یا غلط تشریح کی صورت میں ہم ذمہ دار نہیں ہیں۔
+یہ دستاویز AI ترجمہ سروس [Co-op Translator](https://github.com/Azure/co-op-translator) کے ذریعے ترجمہ کی گئی ہے۔ اگرچہ ہم درستگی کی کوشش کرتے ہیں، براہ کرم آگاہ رہیں کہ خودکار ترجمے میں غلطیاں یا عدم درستگی ہو سکتی ہے۔ اصل دستاویز اپنی مقامی زبان میں مستند ذریعہ سمجھی جائے۔ اہم معلومات کے لیے پیشہ ور انسانی ترجمہ کی سفارش کی جاتی ہے۔ اس ترجمے کے استعمال سے پیدا ہونے والی کسی بھی غلط فہمی یا غلط تشریح کی صورت میں ہم ذمہ دار نہیں ہیں۔

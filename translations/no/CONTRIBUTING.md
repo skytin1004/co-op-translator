@@ -1,21 +1,21 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "bd4704f50c55da7d572b691484aa0b30",
-  "translation_date": "2025-10-15T03:23:24+00:00",
+  "original_hash": "1ae2159f900e7d5d596bb00bcba4c999",
+  "translation_date": "2025-10-22T13:53:10+00:00",
   "source_file": "CONTRIBUTING.md",
   "language_code": "no"
 }
 -->
 # Bidra til Co-op Translator
 
-Dette prosjektet ønsker bidrag og forslag velkommen. De fleste bidrag krever at du godkjenner en Contributor License Agreement (CLA) som bekrefter at du har rett til, og faktisk gir oss, rettighetene til å bruke bidraget ditt. For mer informasjon, se https://cla.opensource.microsoft.com.
+Dette prosjektet ønsker bidrag og forslag velkommen. De fleste bidrag krever at du godtar en Contributor License Agreement (CLA) som bekrefter at du har rett til, og faktisk gir oss, rettighetene til å bruke ditt bidrag. For mer informasjon, se https://cla.opensource.microsoft.com.
 
-Når du sender inn en pull request, vil en CLA-bot automatisk avgjøre om du må signere en CLA og merke PR-en deretter (f.eks. status-sjekk, kommentar). Følg bare instruksjonene fra boten. Du trenger kun å gjøre dette én gang for alle repoer som bruker vår CLA.
+Når du sender inn en pull request, vil en CLA-bot automatisk sjekke om du må godta en CLA og merke PR-en deretter (f.eks. status-sjekk, kommentar). Følg bare instruksjonene fra boten. Du trenger kun å gjøre dette én gang for alle repos som bruker vår CLA.
 
 ## Sette opp utviklingsmiljø
 
-For å sette opp utviklingsmiljøet for dette prosjektet anbefaler vi å bruke Poetry for å håndtere avhengigheter. Vi bruker `pyproject.toml` for å administrere prosjektavhengigheter, så for å installere avhengigheter bør du bruke Poetry.
+For å sette opp utviklingsmiljøet for dette prosjektet anbefaler vi å bruke Poetry for å håndtere avhengigheter. Vi bruker `pyproject.toml` til å administrere prosjektavhengigheter, så du bør bruke Poetry for å installere dem.
 
 ### Opprett et virtuelt miljø
 
@@ -53,7 +53,7 @@ poetry init
 poetry shell
 ```
 
-### Installere pakken og nødvendige pakker
+### Installere pakken og nødvendige avhengigheter
 
 #### Med Poetry (fra pyproject.toml)
 
@@ -63,7 +63,7 @@ poetry install
 
 ### Manuell testing
 
-Før du sender inn en PR, er det viktig å teste oversettelsesfunksjonaliteten med ekte dokumentasjon:
+Før du sender inn en PR, er det viktig å teste oversettelsesfunksjonen med ekte dokumentasjon:
 
 1. Lag en testmappe i rotmappen:
     ```bash
@@ -89,7 +89,7 @@ Før du sender inn en PR, er det viktig å teste oversettelsesfunksjonaliteten m
 5. Sjekk de oversatte filene i `test_docs/translations` og `test_docs/translated_images` for å verifisere:
    - Kvaliteten på oversettelsen
    - At metadata-kommentarene er riktige
-   - At den opprinnelige markdown-strukturen er bevart
+   - At den originale markdown-strukturen er bevart
    - At lenker og bilder fungerer som de skal
 
 Denne manuelle testingen hjelper deg å sikre at endringene dine fungerer godt i praksis.
@@ -97,7 +97,7 @@ Denne manuelle testingen hjelper deg å sikre at endringene dine fungerer godt i
 ### Miljøvariabler
 
 1. Lag en `.env`-fil i rotmappen ved å kopiere den medfølgende `.env.template`-filen.
-1. Fyll inn miljøvariablene som angitt.
+1. Fyll inn miljøvariablene som beskrevet.
 
 > [!TIP]
 >
@@ -107,29 +107,28 @@ Denne manuelle testingen hjelper deg å sikre at endringene dine fungerer godt i
 >
 > #### GitHub Codespaces
 >
-> Du kan kjøre disse eksemplene virtuelt ved å bruke GitHub Codespaces, uten ekstra oppsett eller innstillinger.
+> Du kan kjøre disse eksemplene virtuelt med GitHub Codespaces uten ekstra oppsett.
 >
 > Knappen åpner en nettbasert VS Code-instans i nettleseren din:
 >
 > 1. Åpne malen (dette kan ta noen minutter):
 >
->     [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/azure/co-op-translator)
+>     <a href="https://codespaces.new/azure/co-op-translator"><img src="https://github.com/codespaces/badge.svg" alt="Open in GitHub Codespaces"></a>
 >
-> #### Kjør lokalt med VS Code Dev Containers
+> #### Kjøre lokalt med VS Code Dev Containers
 >
-> ⚠️ Dette alternativet fungerer kun hvis Docker Desktop er tildelt minst 16 GB RAM. Hvis du har mindre enn 16 GB RAM, kan du prøve [GitHub Codespaces-alternativet](../..) eller [sette det opp lokalt](../..).
+> ⚠️ Dette alternativet fungerer kun hvis Docker Desktop har minst 16 GB RAM tilgjengelig. Har du mindre enn 16 GB RAM, kan du prøve [GitHub Codespaces-alternativet](../..) eller [sette opp lokalt](../..).
 >
-> Et beslektet alternativ er VS Code Dev Containers, som åpner prosjektet i din lokale VS Code med [Dev Containers-utvidelsen](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers):
+> Et annet alternativ er VS Code Dev Containers, som åpner prosjektet i din lokale VS Code med [Dev Containers-utvidelsen](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers):
 >
-> 1. Start Docker Desktop (installer det hvis det ikke allerede er installert)
+> 1. Start Docker Desktop (installer det hvis du ikke har det)
 > 2. Åpne prosjektet:
 >
->    [![Open in Dev Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure/co-op-translator)
+>    <a href="https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure/co-op-translator"><img src="https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode" alt="Open in Dev Containers"></a>
 
+### Kodestil
 
-### Kode-stil
-
-Vi bruker [Black](https://github.com/psf/black) som formatteringsverktøy for Python-kode for å sikre en konsekvent stil i hele prosjektet. Black er en kompromissløs formatterer som automatisk omformaterer Python-kode til å følge Black sin stil.
+Vi bruker [Black](https://github.com/psf/black) som formatter for Python-kode for å holde enhetlig stil i prosjektet. Black er kompromissløs og formaterer automatisk Python-koden til sin egen stil.
 
 #### Konfigurasjon
 
@@ -193,9 +192,9 @@ pip install black
 
 For å kjøre Co-op Translator med Poetry i ditt miljø, følg disse stegene:
 
-1. Gå til mappen der du vil utføre oversettelsestester, eller lag en midlertidig mappe for testing.
+1. Gå til mappen der du vil teste oversettelser, eller lag en midlertidig mappe for testing.
 
-2. Kjør følgende kommando. Bytt ut `-l ko` med språkkoden du ønsker å oversette til. `-d`-flagget aktiverer debug-modus.
+2. Kjør følgende kommando. Bytt ut `-l ko` med språkkoden du vil oversette til. Flagget `-d` aktiverer debug-modus.
 
     ```bash
     poetry run co-op-translator translate -l ko -d
@@ -206,7 +205,7 @@ For å kjøre Co-op Translator med Poetry i ditt miljø, følg disse stegene:
 
 ## Bidra med et nytt språk
 
-Vi ønsker bidrag som legger til støtte for nye språk velkommen. Før du åpner en PR, vennligst fullfør stegene under for å gjøre gjennomgangen enklere.
+Vi ønsker bidrag som legger til støtte for nye språk. Før du åpner en PR, følg stegene under for å gjøre gjennomgangen enklere.
 
 1. Legg til språket i font-mappingen
    - Rediger `src/co_op_translator/fonts/font_language_mappings.yml`
@@ -216,12 +215,12 @@ Vi ønsker bidrag som legger til støtte for nye språk velkommen. Før du åpne
      - `font`: En font som ligger i `src/co_op_translator/fonts/` og støtter skriftsystemet
      - `rtl`: `true` hvis høyre-til-venstre, ellers `false`
 
-2. Inkluder nødvendige fontfiler (om nødvendig)
+2. Legg til nødvendige fontfiler (om nødvendig)
    - Hvis en ny font trengs, sjekk at lisensen tillater åpen kildekode-distribusjon
-   - Legg fontfilen til i `src/co_op_translator/fonts/`
+   - Legg fontfilen til `src/co_op_translator/fonts/`
 
 3. Lokal verifisering
-   - Kjør oversettelser på et lite utvalg (Markdown, bilder og notatbøker etter behov)
+   - Kjør oversettelser for et lite eksempel (Markdown, bilder og notatbøker etter behov)
    - Sjekk at utdata vises riktig, inkludert fonter og eventuell RTL-layout
 
 4. Oppdater dokumentasjonen
@@ -229,8 +228,8 @@ Vi ønsker bidrag som legger til støtte for nye språk velkommen. Før du åpne
    - Ingen endringer i `README_languages_template.md` er nødvendig; den genereres fra listen over støttede språk
 
 5. Åpne en PR
-   - Beskriv hvilket språk som er lagt til og eventuelle font-/lisenshensyn
-   - Legg gjerne ved skjermbilder av hvordan utdata ser ut
+   - Beskriv språket du har lagt til og eventuelle font-/lisenshensyn
+   - Legg ved skjermbilder av utdata om mulig
 
 Eksempel på YAML-oppføring:
 
@@ -241,14 +240,30 @@ new_lang(code):
   rtl: false
 ```
 
+### Test det nye språket
+
+Du kan teste det nye språket ved å kjøre følgende kommando:
+
+```bash
+# Create and activate a virtual environment (recommended)
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+source .venv/bin/activate
+# Install the development package
+pip install -e .
+# Run the translation
+translate -l "new_lang"
+```
 
 ## Vedlikeholdere
 
-### Commit-melding og flette-strategi
+### Commit-melding og flettestrategi
 
-For å sikre konsistens og tydelighet i prosjektets commit-historikk, følger vi et spesifikt format for commit-meldinger **for den endelige commit-meldingen** når vi bruker **Squash and Merge**-strategien.
+For å sikre konsistens og tydelighet i prosjektets commit-historikk, følger vi et bestemt format **for den endelige commit-meldingen** når vi bruker **Squash and Merge**-strategien.
 
-Når en pull request (PR) flettes, vil de individuelle commitene slås sammen til én commit. Den endelige commit-meldingen skal følge formatet under for å holde historikken ryddig og konsekvent.
+Når en pull request (PR) flettes, blir de individuelle commitene slått sammen til én commit. Den endelige commit-meldingen skal følge formatet under for å holde historikken ryddig og konsistent.
 
 #### Commit-meldingsformat (for squash and merge)
 
@@ -261,10 +276,10 @@ Vi bruker følgende format for commit-meldinger:
 - **type**: Angir kategorien for commiten. Vi bruker følgende typer:
   - `Docs`: For oppdateringer i dokumentasjonen.
   - `Build`: For endringer relatert til byggesystemet eller avhengigheter, inkludert oppdateringer av konfigurasjonsfiler, CI-workflows eller Dockerfile.
-  - `Core`: For endringer i prosjektets kjernefunksjonalitet eller funksjoner, spesielt de som gjelder filer i `src/co_op_translator/core`-mappen.
+  - `Core`: For endringer i prosjektets kjernefunksjonalitet eller funksjoner, spesielt de som involverer filer i `src/co_op_translator/core`-mappen.
 
 - **description**: En kort oppsummering av endringen.
-- **PR number**: Nummeret på pull requesten som hører til commiten.
+- **PR number**: Nummeret på pull requesten som commiten gjelder.
 
 **Eksempler**:
 
@@ -272,9 +287,9 @@ Vi bruker følgende format for commit-meldinger:
 - `Core: Forbedre håndtering av bildeoversettelse (#60)`
 
 > [!NOTE]
-> For øyeblikket blir **`Docs`**, **`Core`** og **`Build`**-prefiksene automatisk lagt til PR-titler basert på etikettene som brukes på endret kildekode. Så lenge riktig etikett er brukt, trenger du vanligvis ikke å endre PR-tittelen manuelt. Du må bare sjekke at alt er riktig og at prefikset er generert som det skal.
+> For øyeblikket blir **`Docs`**, **`Core`** og **`Build`**-prefiksene automatisk lagt til PR-titler basert på etikettene som brukes på endret kildekode. Så lenge riktig etikett er brukt, trenger du vanligvis ikke å oppdatere PR-tittelen manuelt. Du må bare sjekke at alt er riktig og at prefikset er generert som det skal.
 
-#### Flette-strategi
+#### Flettestrategi
 
 Vi bruker **Squash and Merge** som standard strategi for pull requests. Denne strategien sikrer at commit-meldinger følger vårt format, selv om de individuelle commitene ikke gjør det.
 

@@ -1,15 +1,15 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "bd4704f50c55da7d572b691484aa0b30",
-  "translation_date": "2025-10-15T04:05:14+00:00",
+  "original_hash": "1ae2159f900e7d5d596bb00bcba4c999",
+  "translation_date": "2025-10-22T14:10:31+00:00",
   "source_file": "CONTRIBUTING.md",
   "language_code": "hr"
 }
 -->
 # Doprinos projektu Co-op Translator
 
-Ovaj projekt otvoren je za doprinose i prijedloge. Većina doprinosa zahtijeva da prihvatite Contributor License Agreement (CLA) kojim potvrđujete da imate pravo i zapravo dajete dozvolu za korištenje vašeg doprinosa. Više informacija možete pronaći na https://cla.opensource.microsoft.com.
+Ovaj projekt otvoren je za doprinose i prijedloge. Većina doprinosa zahtijeva da prihvatite Contributor License Agreement (CLA) kojim potvrđujete da imate pravo i stvarno dajete dozvolu za korištenje vašeg doprinosa. Više informacija možete pronaći na https://cla.opensource.microsoft.com.
 
 Kada pošaljete pull request, CLA bot će automatski provjeriti trebate li prihvatiti CLA i označiti PR na odgovarajući način (npr. statusna provjera, komentar). Slijedite upute koje vam bot daje. Ovo trebate napraviti samo jednom za sve repozitorije koji koriste naš CLA.
 
@@ -115,7 +115,7 @@ Ovo ručno testiranje pomaže da budete sigurni da vaše promjene dobro funkcion
 >
 >     <a href="https://codespaces.new/azure/co-op-translator"><img src="https://github.com/codespaces/badge.svg" alt="Open in GitHub Codespaces"></a>
 >
-> #### Lokalno pokretanje pomoću VS Code Dev Containers
+> #### Lokalno pokretanje uz VS Code Dev Containers
 >
 > ⚠️ Ova opcija radi samo ako je vašem Docker Desktopu dodijeljeno najmanje 16 GB RAM-a. Ako imate manje od 16 GB RAM-a, možete koristiti [GitHub Codespaces opciju](../..) ili [postaviti lokalno](../..).
 >
@@ -129,11 +129,11 @@ Ovo ručno testiranje pomaže da budete sigurni da vaše promjene dobro funkcion
 
 ### Stil koda
 
-Koristimo [Black](https://github.com/psf/black) kao formatirač Python koda kako bismo održali dosljedan stil kroz cijeli projekt. Black je beskompromisan alat koji automatski preformatira Python kod prema Black standardu.
+Koristimo [Black](https://github.com/psf/black) kao formatirač Python koda kako bismo održali dosljedan stil kroz cijeli projekt. Black automatski preformatira Python kod prema svojim pravilima.
 
 #### Konfiguracija
 
-Black konfiguracija definirana je u našem `pyproject.toml`:
+Black konfiguracija je definirana u našem `pyproject.toml`:
 
 ```toml
 [tool.black]
@@ -144,7 +144,7 @@ include = '\.pyi?$'
 
 #### Instalacija Black-a
 
-Black možete instalirati pomoću Poetry-a (preporučeno) ili pip-a:
+Black možete instalirati putem Poetry-a (preporučeno) ili pip-a:
 
 ##### Korištenje Poetry-a
 
@@ -189,9 +189,9 @@ pip install black
 > [!TIP]
 > Preporučujemo da postavite svoj editor da automatski formatira kod s Black-om prilikom spremanja. Većina modernih editora to podržava putem ekstenzija ili dodataka.
 
-## Pokretanje Co-op Translatora
+## Pokretanje Co-op Translator-a
 
-Za pokretanje Co-op Translatora pomoću Poetry-a u vašoj okolini, slijedite ove korake:
+Za pokretanje Co-op Translator-a pomoću Poetry-a u vašoj okolini, slijedite ove korake:
 
 1. Idite u direktorij u kojem želite testirati prijevod ili kreirajte privremenu mapu za testiranje.
 
@@ -211,10 +211,10 @@ Otvoreni smo za doprinose koji dodaju podršku za nove jezike. Prije otvaranja P
 1. Dodajte jezik u mapiranje fontova
    - Uredite `src/co_op_translator/fonts/font_language_mappings.yml`
    - Dodajte unos s:
-     - `code`: ISO-sličan kod jezika (npr. `vi`)
-     - `name`: Prikazno ime za ljude
+     - `code`: ISO-like kod jezika (npr. `vi`)
+     - `name`: Prikazno ime jezika
      - `font`: Font koji se nalazi u `src/co_op_translator/fonts/` i podržava pismo
-     - `rtl`: `true` ako je desno-na-lijevo, inače `false`
+     - `rtl`: `true` ako je jezik desno-na-lijevo, inače `false`
 
 2. Dodajte potrebne font datoteke (ako je potrebno)
    - Ako je potreban novi font, provjerite licencu za open source distribuciju
@@ -226,7 +226,7 @@ Otvoreni smo za doprinose koji dodaju podršku za nove jezike. Prije otvaranja P
 
 4. Ažurirajte dokumentaciju
    - Provjerite da se jezik pojavljuje u `getting_started/supported-languages.md`
-   - Nema potrebe mijenjati `README_languages_template.md`; on se generira iz popisa podržanih jezika
+   - Nema potrebe mijenjati `README_languages_template.md`; generira se iz popisa podržanih jezika
 
 5. Otvorite PR
    - Opišite dodani jezik i sve font/licencne napomene
@@ -241,62 +241,78 @@ new_lang(code):
   rtl: false
 ```
 
+### Testiranje novog jezika
+
+Novi jezik možete testirati pokretanjem sljedeće naredbe:
+
+```bash
+# Create and activate a virtual environment (recommended)
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+source .venv/bin/activate
+# Install the development package
+pip install -e .
+# Run the translation
+translate -l "new_lang"
+```
 
 ## Održavatelji
 
-### Format poruke prilikom commita i strategija spajanja
+### Format poruke za commit i strategija spajanja
 
-Radi dosljednosti i jasnoće u povijesti commita projekta, koristimo određeni format poruke **za završni commit** prilikom korištenja strategije **Squash and Merge**.
+Radi dosljednosti i jasnoće u povijesti commitova projekta, koristimo određeni format poruke **za završni commit** prilikom korištenja strategije **Squash and Merge**.
 
-Kada se pull request (PR) spoji, pojedinačni commiti se spajaju u jedan commit. Završna poruka commita treba slijediti format u nastavku radi uredne i dosljedne povijesti.
+Kada se pull request (PR) spoji, pojedinačni commitovi se spajaju u jedan commit. Završna poruka commita treba slijediti format u nastavku radi uredne i dosljedne povijesti.
 
-#### Format poruke commita (za squash and merge)
+#### Format poruke za commit (za squash and merge)
 
-Koristimo sljedeći format za poruke commita:
+Koristimo sljedeći format za commit poruke:
 
 ```bash
 <type>: <description> (#<PR number>)
 ```
 
-- **type**: Određuje kategoriju commita. Koristimo sljedeće tipove:
+- **type**: Kategorija commita. Koristimo sljedeće tipove:
   - `Docs`: Za ažuriranja dokumentacije.
-  - `Build`: Za promjene vezane uz build sustav ili ovisnosti, uključujući ažuriranja konfiguracijskih datoteka, CI workflowa ili Dockerfile-a.
-  - `Core`: Za izmjene temeljne funkcionalnosti projekta, posebno onih u `src/co_op_translator/core` direktoriju.
+  - `Build`: Za promjene vezane uz build sustav ili ovisnosti, uključujući promjene konfiguracijskih datoteka, CI workflowa ili Dockerfile-a.
+  - `Core`: Za izmjene temeljne funkcionalnosti projekta, posebno datoteka u `src/co_op_translator/core` direktoriju.
 
 - **description**: Kratki sažetak promjene.
 - **PR number**: Broj pull requesta povezanog s commitom.
 
 **Primjeri**:
 
-- `Docs: Ažurirane upute za instalaciju radi jasnoće (#50)`
-- `Core: Poboljšano rukovanje prijevodom slika (#60)`
+- `Docs: Update installation instructions for clarity (#50)`
+- `Core: Improve handling of image translation (#60)`
 
 > [!NOTE]
-> Trenutno se **`Docs`**, **`Core`** i **`Build`** prefiksi automatski dodaju naslovima PR-a na temelju oznaka primijenjenih na izmijenjeni izvorni kod. Dok je ispravna oznaka primijenjena, obično ne trebate ručno mijenjati naslov PR-a. Samo provjerite da je sve ispravno i da je prefiks generiran kako treba.
+> Trenutno se prefiksi **`Docs`**, **`Core`** i **`Build`** automatski dodaju naslovima PR-a na temelju oznaka primijenjenih na izmijenjeni izvorni kod. Ako je ispravna oznaka primijenjena, obično ne morate ručno mijenjati naslov PR-a. Samo provjerite da je sve ispravno i da je prefiks ispravno generiran.
 
 #### Strategija spajanja
 
-Koristimo **Squash and Merge** kao zadanu strategiju za pull requestove. Ova strategija osigurava da poruke commita slijede naš format, čak i ako pojedinačni commiti to ne čine.
+Koristimo **Squash and Merge** kao zadanu strategiju za pull requestove. Ova strategija osigurava da commit poruke slijede naš format, čak i ako pojedinačni commitovi to ne čine.
 
 **Razlozi**:
 
 - Čista, linearna povijest projekta.
-- Dosljednost u porukama commita.
-- Manje "šuma" od manjih commitova (npr. "ispravljen tipfeler").
+- Dosljednost u commit porukama.
+- Manje "šuma" od sitnih commitova (npr. "fix typo").
 
-Prilikom spajanja, provjerite da završna poruka commita slijedi gore opisani format.
+Prilikom spajanja, provjerite da završna commit poruka slijedi opisani format.
 
 **Primjer Squash and Merge**
 Ako PR sadrži sljedeće commitove:
 
-- `ispravljen tipfeler`
-- `ažuriran README`
-- `prilagođen format`
+- `fix typo`
+- `update README`
+- `adjust formatting`
 
 Treba ih spojiti u:
-`Docs: Poboljšana jasnoća i formatiranje dokumentacije (#65)`
+`Docs: Improve documentation clarity and formatting (#65)`
 
 ---
 
 **Odricanje od odgovornosti**:
-Ovaj dokument je preveden pomoću AI usluge za prevođenje [Co-op Translator](https://github.com/Azure/co-op-translator). Iako nastojimo osigurati točnost, imajte na umu da automatski prijevodi mogu sadržavati pogreške ili netočnosti. Izvorni dokument na svom izvornom jeziku treba smatrati mjerodavnim izvorom. Za ključne informacije preporučuje se profesionalni ljudski prijevod. Ne snosimo odgovornost za bilo kakva nesporazume ili pogrešna tumačenja koja proizlaze iz korištenja ovog prijevoda.
+Ovaj dokument je preveden pomoću AI usluge za prevođenje [Co-op Translator](https://github.com/Azure/co-op-translator). Iako težimo točnosti, imajte na umu da automatski prijevodi mogu sadržavati pogreške ili netočnosti. Izvorni dokument na izvornom jeziku treba smatrati mjerodavnim izvorom. Za ključne informacije preporučuje se profesionalni ljudski prijevod. Ne snosimo odgovornost za bilo kakva nesporazume ili pogrešna tumačenja koja proizlaze iz korištenja ovog prijevoda.

@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "badae5ee6451cc1a6e367cfe5ba92efa",
-  "translation_date": "2025-10-15T03:19:20+00:00",
+  "original_hash": "40660d83d2792201cad4aec9fdf25a29",
+  "translation_date": "2025-10-22T13:51:44+00:00",
   "source_file": "getting_started/supported-languages.md",
   "language_code": "sv"
 }
@@ -33,7 +33,7 @@ Tabellen nedan visar de språk som för närvarande stöds av **Co-op Translator
 | ne            | Nepali               | NotoSansDevanagari-Medium.ttf      | Nej         | Nej           |
 | pa            | Punjabi (Gurmukhi)   | NotoSansGurmukhi-Medium.ttf        | Nej         | Nej           |
 | pt            | Portugisiska (Portugal) | NotoSans-Medium.ttf             | Nej         | Nej           |
-| br            | Portugisiska (Brasilien) | NotoSans-Medium.ttf             | Nej         | Nej           |
+| br            | Portugisiska (Brasilien) | NotoSans-Medium.ttf            | Nej         | Nej           |
 | it            | Italienska           | NotoSans-Medium.ttf                | Nej         | Nej           |
 | lt            | Litauiska            | NotoSans-Medium.ttf                | Nej         | Nej           |
 | pl            | Polska               | NotoSans-Medium.ttf                | Nej         | Nej           |
@@ -63,6 +63,7 @@ Tabellen nedan visar de språk som för närvarande stöds av **Co-op Translator
 | my            | Burmesiska (Myanmar) | NotoSansMyanmar-Medium.ttf         | Nej         | Nej           |
 | ta            | Tamil                | NotoSansTamil-Medium.ttf           | Nej         | Nej           |
 | et            | Estniska             | NotoSans-Medium.ttf                | Nej         | Nej           |
+| pcm           | Nigerian Pidgin      | NotoSans-Medium.ttf                | Nej         | Nej           |
 
 ## Lägga till ett nytt språk
 
@@ -73,4 +74,4 @@ Vill du lägga till ett nytt språk? Följ gärna bidragsguiden:
 ---
 
 **Ansvarsfriskrivning**:
-Detta dokument har översatts med hjälp av AI-översättningstjänsten [Co-op Translator](https://github.com/Azure/co-op-translator). Vi strävar efter noggrannhet, men var medveten om att automatiska översättningar kan innehålla fel eller brister. Det ursprungliga dokumentet på dess originalspråk ska betraktas som den auktoritativa källan. För kritisk information rekommenderas professionell mänsklig översättning. Vi ansvarar inte för eventuella missförstånd eller feltolkningar som uppstår vid användning av denna översättning.
+Detta dokument har översatts med hjälp av AI-översättningstjänsten [Co-op Translator](https://github.com/Azure/co-op-translator). Även om vi strävar efter noggrannhet, vänligen notera att automatiska översättningar kan innehålla fel eller brister. Det ursprungliga dokumentet på dess originalspråk ska betraktas som den auktoritativa källan. För kritisk information rekommenderas professionell mänsklig översättning. Vi ansvarar inte för eventuella missförstånd eller feltolkningar som uppstår vid användning av denna översättning.

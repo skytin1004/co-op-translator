@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f579b7f148746593e3e9023b56a8c30d",
-  "translation_date": "2025-10-22T12:17:09+00:00",
+  "original_hash": "7593c1fad8734e4050b60fc3da614aa5",
+  "translation_date": "2025-10-22T14:10:54+00:00",
   "source_file": "README.md",
   "language_code": "hr"
 }
@@ -40,11 +40,11 @@ _Automatski prevedite svoj edukativni GitHub sadržaj na više jezika i dosegnit
 
 ## Pregled
 
-**Co-op Translator** omogućuje brzo prevođenje vašeg edukativnog GitHub sadržaja na više jezika, tako da bez napora doprete do globalne publike. Kad ažurirate svoje Markdown datoteke, slike ili Jupyter bilježnice, prijevodi se automatski sinkroniziraju kako bi vaš edukativni GitHub sadržaj uvijek bio svjež i relevantan za međunarodne korisnike.
+**Co-op Translator** omogućuje brzo prevođenje vašeg edukativnog GitHub sadržaja na više jezika, tako da bez napora doprete do globalne publike. Kad ažurirate svoje Markdown datoteke, slike ili Jupyter bilježnice, prijevodi se automatski usklađuju kako bi vaš edukativni GitHub sadržaj uvijek bio svjež i relevantan za korisnike iz cijelog svijeta.
 
 Pogledajte kako Co-op Translator organizira prevedeni edukativni GitHub sadržaj:
 
-![Primjer](../../translated_images/translation-ex.0c8aa6a7ee0aad2b35cddcc110c719baf0afc640e8c5a45540e6c166b9907d91.hr.png)
+![Example](../../translated_images/translation-ex.0c8aa6a7ee0aad2b35cddcc110c719baf0afc640e8c5a45540e6c166b9907d91.hr.png)
 
 ## Brzi početak
 
@@ -74,7 +74,7 @@ docker run --rm -it --env-file .env -v "${PWD}:/work" ghcr.io/azure/co-op-transl
 
 - Napravite `.env` koristeći predložak: [.env.template](../../.env.template)
 - Konfigurirajte jednog LLM pružatelja (Azure OpenAI ili OpenAI)
-- Za prevođenje slika (`-img`), postavite i Azure AI Vision
+- Za prijevod slika (`-img`), postavite i Azure AI Vision
 - Preporuka: Ako imate prijevode generirane drugim alatima, prvo ih uklonite da izbjegnete konflikte (npr. `translations/`).
 - Preporuka: Dodajte sekciju s prijevodima u svoj README koristeći [README predložak jezika](./README_languages_template.md)
 - Pogledajte: [Postavljanje Azure AI](./getting_started/set-up-azure-ai.md)
@@ -109,11 +109,11 @@ Više opcija: [Referenca naredbi](./getting_started/command-reference.md)
 
 ## Značajke
 
-- Automatsko prevođenje za Markdown, bilježnice i slike
-- Prijevodi se automatski usklađuju s promjenama izvora
+- Automatski prijevod za Markdown, bilježnice i slike
+- Održava prijevode usklađenima s izvornim promjenama
 - Radi lokalno (CLI) ili u CI (GitHub Actions)
 - Koristi Azure OpenAI ili OpenAI; opcionalno Azure AI Vision za slike
-- Očuvanje Markdown formata i strukture
+- Zadržava Markdown formatiranje i strukturu
 
 ## Dokumentacija
 
@@ -125,17 +125,17 @@ Više opcija: [Referenca naredbi](./getting_started/command-reference.md)
 
 ## Podržite nas i potaknite globalno učenje
 
-Pridružite nam se u revoluciji dijeljenja edukativnog sadržaja na globalnoj razini! Dajte [Co-op Translatoru](https://github.com/azure/co-op-translator) ⭐ na GitHubu i podržite našu misiju uklanjanja jezičnih barijera u učenju i tehnologiji. Vaš interes i doprinosi čine veliku razliku! Kodni doprinosi i prijedlozi za nove značajke su uvijek dobrodošli.
+Pridružite nam se u revoluciji dijeljenja edukativnog sadržaja širom svijeta! Dajte [Co-op Translatoru](https://github.com/azure/co-op-translator) ⭐ na GitHubu i podržite našu misiju uklanjanja jezičnih barijera u učenju i tehnologiji. Vaš interes i doprinosi čine veliku razliku! Kodni doprinosi i prijedlozi za nove značajke su uvijek dobrodošli.
 
-### Istražite Microsoftov edukativni sadržaj na svom jeziku
+### Istražite Microsoft edukativni sadržaj na svom jeziku
 
 - [AZD za početnike](https://github.com/microsoft/AZD-for-beginners)
 - [Edge AI za početnike](https://github.com/microsoft/edgeai-for-beginners)
 - [Model Context Protocol (MCP) za početnike](https://github.com/microsoft/mcp-for-beginners)
 - [AI agenti za početnike](https://github.com/microsoft/ai-agents-for-beginners)
-- [Generativni AI za početnike uz .NET](https://github.com/microsoft/Generative-AI-for-beginners-dotnet)
-- [Generativni AI za početnike](https://github.com/microsoft/generative-ai-for-beginners)
-- [Generativni AI za početnike uz Java](https://github.com/microsoft/generative-ai-for-beginners-java)
+- [Generativna AI za početnike uz .NET](https://github.com/microsoft/Generative-AI-for-beginners-dotnet)
+- [Generativna AI za početnike](https://github.com/microsoft/generative-ai-for-beginners)
+- [Generativna AI za početnike uz Java](https://github.com/microsoft/generative-ai-for-beginners-java)
 - [ML za početnike](https://aka.ms/ml-beginners)
 - [Data Science za početnike](https://aka.ms/datascience-beginners)
 - [AI za početnike](https://aka.ms/ai-beginners)
@@ -154,7 +154,7 @@ Saznajte više o Co-op Translatoru kroz naše prezentacije _(Kliknite na sliku i
 
 ## Doprinos
 
-Ovaj projekt pozdravlja doprinose i prijedloge. Želite doprinijeti Azure Co-op Translatoru? Pogledajte naš [CONTRIBUTING.md](./CONTRIBUTING.md) za smjernice kako možete pomoći da Co-op Translator bude pristupačniji.
+Ovaj projekt pozdravlja doprinose i prijedloge. Želite doprinijeti Azure Co-op Translatoru? Pogledajte naš [CONTRIBUTING.md](./CONTRIBUTING.md) za smjernice kako možete pomoći da Co-op Translator bude još pristupačniji.
 
 ## Suradnici
 
@@ -163,7 +163,7 @@ Ovaj projekt pozdravlja doprinose i prijedloge. Želite doprinijeti Azure Co-op 
 ## Pravila ponašanja
 
 Ovaj projekt koristi [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-Za više informacija pogledajte [FAQ o pravilima ponašanja](https://opensource.microsoft.com/codeofconduct/faq/) ili
+Za više informacija pogledajte [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) ili
 kontaktirajte [opencode@microsoft.com](mailto:opencode@microsoft.com) za dodatna pitanja ili komentare.
 
 ## Odgovorna AI
@@ -171,20 +171,20 @@ kontaktirajte [opencode@microsoft.com](mailto:opencode@microsoft.com) za dodatna
 Microsoft je posvećen tome da korisnici odgovorno koriste naše AI proizvode, dijelimo svoja iskustva i gradimo partnerske odnose temeljene na povjerenju kroz alate poput Transparency Notes i Impact Assessments. Mnoge od tih resursa možete pronaći na [https://aka.ms/RAI](https://aka.ms/RAI).
 Microsoftov pristup odgovornoj AI temelji se na našim AI principima: pravednost, pouzdanost i sigurnost, privatnost i sigurnost, inkluzivnost, transparentnost i odgovornost.
 
-Veliki jezični, slikovni i govorni modeli – poput onih korištenih u ovom primjeru – mogu se ponašati nepravedno, nepouzdano ili uvredljivo, što može uzrokovati štetu. Molimo pročitajte [Azure OpenAI service Transparency note](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) kako biste bili informirani o rizicima i ograničenjima.
+Veliki jezični, slikovni i govorni modeli - poput onih korištenih u ovom primjeru - mogu se ponašati nepravedno, nepouzdano ili uvredljivo, što može uzrokovati štetu. Molimo pročitajte [Azure OpenAI service Transparency note](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) kako biste bili informirani o rizicima i ograničenjima.
 
-Preporučeni način za smanjenje tih rizika je uključivanje sigurnosnog sustava u vašu arhitekturu koji može otkriti i spriječiti štetno ponašanje. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) pruža neovisni sloj zaštite, sposoban za otkrivanje štetnog sadržaja generiranog od strane korisnika i AI-a u aplikacijama i servisima. Azure AI Content Safety uključuje API-je za tekst i slike koji omogućuju otkrivanje štetnog materijala. Također imamo interaktivni Content Safety Studio koji vam omogućuje pregled, istraživanje i isprobavanje uzoraka koda za otkrivanje štetnog sadržaja kroz različite modalitete. Sljedeća [brza dokumentacija](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) vodi vas kroz slanje zahtjeva servisu.
+Preporučeni način za smanjenje tih rizika je uključivanje sigurnosnog sustava u vašu arhitekturu koji može otkriti i spriječiti štetno ponašanje. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) pruža neovisni sloj zaštite, sposoban za otkrivanje štetnog sadržaja generiranog od strane korisnika i AI-a u aplikacijama i servisima. Azure AI Content Safety uključuje API-je za tekst i slike koji omogućuju otkrivanje štetnog materijala. Također imamo interaktivni Content Safety Studio koji vam omogućuje pregled, istraživanje i isprobavanje uzoraka koda za otkrivanje štetnog sadržaja kroz različite modalitete. Sljedeća [dokumentacija za brzi početak](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) vodi vas kroz slanje zahtjeva servisu.
 
 
-Još jedan aspekt koji treba uzeti u obzir je ukupna izvedba aplikacije. Kod aplikacija koje koriste više modaliteta i više modela, izvedba znači da sustav radi onako kako vi i vaši korisnici očekujete, uključujući i to da ne generira štetne rezultate. Važno je procijeniti izvedbu vaše aplikacije koristeći [metrike kvalitete generiranja te rizika i sigurnosti](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
+Još jedan aspekt koji treba uzeti u obzir je ukupna izvedba aplikacije. Kod aplikacija koje koriste više modaliteta i modela, izvedba znači da sustav radi onako kako vi i vaši korisnici očekujete, uključujući i to da ne generira štetne rezultate. Važno je procijeniti izvedbu vaše aplikacije koristeći [metrike kvalitete generiranja te rizika i sigurnosti](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
 
-Svoju AI aplikaciju možete procijeniti u razvojnom okruženju koristeći [prompt flow SDK](https://microsoft.github.io/promptflow/index.html). Na temelju testnog skupa podataka ili cilja, generacije vaše generativne AI aplikacije kvantitativno se mjere pomoću ugrađenih ili prilagođenih evaluatorima po vašem izboru. Za početak s prompt flow SDK-om za procjenu vašeg sustava, možete slijediti [vodič za brzi početak](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). Nakon što pokrenete evaluaciju, možete [vizualizirati rezultate u Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
+Svoju AI aplikaciju možete procijeniti u razvojnom okruženju koristeći [prompt flow SDK](https://microsoft.github.io/promptflow/index.html). Na temelju testnog skupa podataka ili cilja, generacije vaše generativne AI aplikacije kvantitativno se mjere pomoću ugrađenih ili prilagođenih evaluatorima po vašem izboru. Za početak s prompt flow SDK-om i procjenu vašeg sustava, možete slijediti [vodič za brzi početak](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). Nakon što pokrenete evaluaciju, rezultate možete [vizualizirati u Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
 
 ## Zaštitni znakovi
 
-Ovaj projekt može sadržavati zaštitne znakove ili logotipe za projekte, proizvode ili usluge. Ovlaštena upotreba Microsoftovih
-zaštitnih znakova ili logotipa podliježe i mora slijediti
-[Microsoftove smjernice za zaštitne znakove i brend](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
+Ovaj projekt može sadržavati zaštitne znakove ili logotipe projekata, proizvoda ili usluga. Ovlaštena upotreba Microsoftovih
+zaštitnih znakova ili logotipa podliježe i mora biti u skladu s
+[Microsoftovim smjernicama za zaštitne znakove i brend](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
 Upotreba Microsoftovih zaštitnih znakova ili logotipa u izmijenjenim verzijama ovog projekta ne smije izazvati zabunu niti sugerirati da Microsoft sponzorira projekt.
 Svaka upotreba zaštitnih znakova ili logotipa trećih strana podliježe pravilima tih trećih strana.
 
@@ -192,13 +192,13 @@ Svaka upotreba zaštitnih znakova ili logotipa trećih strana podliježe pravili
 
 Ako zapnete ili imate pitanja o izradi AI aplikacija, pridružite se:
 
-<a href="https://aka.ms/foundry/discord"><img src="https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff" alt="Azure AI Foundry Discord"></a>
+[![Azure AI Foundry Discord](https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
 
 Ako imate povratne informacije o proizvodu ili naiđete na greške tijekom izrade, posjetite:
 
-<a href="https://aka.ms/foundry/forum"><img src="https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff" alt="Azure AI Foundry Developer Forum"></a>
+[![Azure AI Foundry Developer Forum](https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 
 ---
 
 **Odricanje od odgovornosti**:
-Ovaj dokument je preveden pomoću AI usluge za prevođenje [Co-op Translator](https://github.com/Azure/co-op-translator). Iako nastojimo osigurati točnost, imajte na umu da automatski prijevodi mogu sadržavati pogreške ili netočnosti. Izvorni dokument na svom izvornom jeziku treba smatrati mjerodavnim izvorom. Za ključne informacije preporučuje se profesionalni ljudski prijevod. Ne snosimo odgovornost za bilo kakve nesporazume ili pogrešna tumačenja koja proizlaze iz korištenja ovog prijevoda.
+Ovaj dokument je preveden pomoću AI usluge za prevođenje [Co-op Translator](https://github.com/Azure/co-op-translator). Iako nastojimo osigurati točnost, imajte na umu da automatski prijevodi mogu sadržavati pogreške ili netočnosti. Izvorni dokument na svom izvornom jeziku treba smatrati mjerodavnim izvorom. Za ključne informacije preporučuje se profesionalni ljudski prijevod. Ne preuzimamo odgovornost za bilo kakve nesporazume ili pogrešna tumačenja koja proizlaze iz korištenja ovog prijevoda.

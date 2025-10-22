@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "badae5ee6451cc1a6e367cfe5ba92efa",
-  "translation_date": "2025-10-15T03:00:15+00:00",
+  "original_hash": "40660d83d2792201cad4aec9fdf25a29",
+  "translation_date": "2025-10-22T13:43:18+00:00",
   "source_file": "getting_started/supported-languages.md",
   "language_code": "pt"
 }
@@ -24,7 +24,7 @@ A tabela abaixo apresenta as línguas atualmente suportadas pelo **Co-op Transla
 | zh               | Chinês (Simplificado)   | NotoSansCJK-Medium.ttc             | Não         | Não                 |
 | mo               | Chinês (Tradicional, Macau) | NotoSansCJK-Medium.ttc        | Não         | Não                 |
 | hk               | Chinês (Tradicional, Hong Kong) | NotoSansCJK-Medium.ttc     | Não         | Não                 |
-| tw               | Chinês (Tradicional, Taiwan) | NotoSansCJK-Medium.ttc        | Não         | Não                 |
+| tw               | Chinês (Tradicional, Taiwan) | NotoSansCJK-Medium.ttc       | Não         | Não                 |
 | ja               | Japonês                 | NotoSansCJK-Medium.ttc             | Não         | Não                 |
 | ko               | Coreano                 | NotoSansCJK-Medium.ttc             | Não         | Não                 |
 | hi               | Hindi                   | NotoSansDevanagari-Medium.ttf      | Não         | Não                 |
@@ -63,12 +63,13 @@ A tabela abaixo apresenta as línguas atualmente suportadas pelo **Co-op Transla
 | my               | Birmanês (Myanmar)      | NotoSansMyanmar-Medium.ttf         | Não         | Não                 |
 | ta               | Tâmil                   | NotoSansTamil-Medium.ttf           | Não         | Não                 |
 | et               | Estónio                 | NotoSans-Medium.ttf                | Não         | Não                 |
+| pcm              | Pidgin Nigeriano        | NotoSans-Medium.ttf                | Não         | Não                 |
 
 ## Adicionar uma nova língua
 
 Quer contribuir com uma nova língua? Siga o guia de contribuição:
 
-- Consulte Contribuir: <a href="../CONTRIBUTING.md#contribute-a-new-language">Contribuir com uma nova língua</a>
+- Veja Contribuir: <a href="../CONTRIBUTING.md#contribute-a-new-language">Contribuir com uma nova língua</a>
 
 ---
 

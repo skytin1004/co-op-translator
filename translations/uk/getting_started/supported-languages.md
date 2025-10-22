@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "badae5ee6451cc1a6e367cfe5ba92efa",
-  "translation_date": "2025-10-15T04:16:48+00:00",
+  "original_hash": "40660d83d2792201cad4aec9fdf25a29",
+  "translation_date": "2025-10-22T14:15:35+00:00",
   "source_file": "getting_started/supported-languages.md",
   "language_code": "uk"
 }
@@ -19,19 +19,19 @@ CO_OP_TRANSLATOR_METADATA:
 | de            | Німецька                    | NotoSans-Medium.ttf                 | Ні            | Ні              |
 | ru            | Російська                   | NotoSans-Medium.ttf                 | Ні            | Ні              |
 | ar            | Арабська                    | NotoSansArabic-Medium.ttf           | Так           | Ні              |
-| fa            | Перська (Фарсі)             | NotoSansArabic-Medium.ttf           | Так           | Ні              |
+| fa            | Перська (фарсі)             | NotoSansArabic-Medium.ttf           | Так           | Ні              |
 | ur            | Урду                        | NotoSansArabic-Medium.ttf           | Так           | Ні              |
 | zh            | Китайська (спрощена)        | NotoSansCJK-Medium.ttc              | Ні            | Ні              |
 | mo            | Китайська (традиційна, Макао) | NotoSansCJK-Medium.ttc            | Ні            | Ні              |
 | hk            | Китайська (традиційна, Гонконг) | NotoSansCJK-Medium.ttc           | Ні            | Ні              |
-| tw            | Китайська (традиційна, Тайвань) | NotoSansCJK-Medium.ttc           | Ні            | Ні              |
+| tw            | Китайська (традиційна, Тайвань) | NotoSansCJK-Medium.ttc            | Ні            | Ні              |
 | ja            | Японська                    | NotoSansCJK-Medium.ttc              | Ні            | Ні              |
 | ko            | Корейська                   | NotoSansCJK-Medium.ttc              | Ні            | Ні              |
 | hi            | Гінді                       | NotoSansDevanagari-Medium.ttf       | Ні            | Ні              |
 | bn            | Бенгальська                 | NotoSansBengali-Medium.ttf          | Ні            | Ні              |
 | mr            | Маратхі                     | NotoSansDevanagari-Medium.ttf       | Ні            | Ні              |
 | ne            | Непальська                  | NotoSansDevanagari-Medium.ttf       | Ні            | Ні              |
-| pa            | Панджабі (Гурмухі)          | NotoSansGurmukhi-Medium.ttf         | Ні            | Ні              |
+| pa            | Панджабі (гурмукхі)         | NotoSansGurmukhi-Medium.ttf         | Ні            | Ні              |
 | pt            | Португальська (Португалія)  | NotoSans-Medium.ttf                 | Ні            | Ні              |
 | br            | Португальська (Бразилія)    | NotoSans-Medium.ttf                 | Ні            | Ні              |
 | it            | Італійська                  | NotoSans-Medium.ttf                 | Ні            | Ні              |
@@ -44,13 +44,13 @@ CO_OP_TRANSLATOR_METADATA:
 | da            | Данська                     | NotoSans-Medium.ttf                 | Ні            | Ні              |
 | no            | Норвезька                   | NotoSans-Medium.ttf                 | Ні            | Ні              |
 | fi            | Фінська                     | NotoSans-Medium.ttf                 | Ні            | Ні              |
-| nl            | Нідерландська               | NotoSans-Medium.ttf                 | Ні            | Ні              |
+| nl            | Голландська                 | NotoSans-Medium.ttf                 | Ні            | Ні              |
 | he            | Іврит                       | NotoSansHebrew-Medium.ttf           | Так           | Ні              |
 | vi            | В'єтнамська                 | NotoSans-Medium.ttf                 | Ні            | Ні              |
 | id            | Індонезійська               | NotoSans-Medium.ttf                 | Ні            | Ні              |
 | ms            | Малайська                   | NotoSans-Medium.ttf                 | Ні            | Ні              |
-| tl            | Тагальська (Філіппіни)      | NotoSans-Medium.ttf                 | Ні            | Ні              |
-| sw            | Свахілі                     | NotoSans-Medium.ttf                 | Ні            | Ні              |
+| tl            | Тагальська (філіппінська)   | NotoSans-Medium.ttf                 | Ні            | Ні              |
+| sw            | Суахілі                     | NotoSans-Medium.ttf                 | Ні            | Ні              |
 | hu            | Угорська                    | NotoSans-Medium.ttf                 | Ні            | Ні              |
 | cs            | Чеська                      | NotoSans-Medium.ttf                 | Ні            | Ні              |
 | sk            | Словацька                   | NotoSans-Medium.ttf                 | Ні            | Ні              |
@@ -63,14 +63,15 @@ CO_OP_TRANSLATOR_METADATA:
 | my            | Бірманська (М'янма)         | NotoSansMyanmar-Medium.ttf          | Ні            | Ні              |
 | ta            | Тамільська                  | NotoSansTamil-Medium.ttf            | Ні            | Ні              |
 | et            | Естонська                   | NotoSans-Medium.ttf                 | Ні            | Ні              |
+| pcm           | Нігерійський піджин         | NotoSans-Medium.ttf                 | Ні            | Ні              |
 
 ## Додавання нової мови
 
-Бажаєте додати нову мову? Будь ласка, дотримуйтесь інструкції для внесків:
+Хочете додати нову мову? Дотримуйтесь інструкції для внесків:
 
-- Дивіться Розділ для внесків: [Додати нову мову](../CONTRIBUTING.md#contribute-a-new-language)
+- Дивіться Розділ для внесків: <a href="../CONTRIBUTING.md#contribute-a-new-language">Додати нову мову</a>
 
 ---
 
 **Відмова від відповідальності**:
-Цей документ було перекладено за допомогою сервісу автоматичного перекладу [Co-op Translator](https://github.com/Azure/co-op-translator). Хоча ми прагнемо до точності, звертаємо вашу увагу, що автоматичний переклад може містити помилки або неточності. Оригінальний документ мовою оригіналу слід вважати авторитетним джерелом. Для критично важливої інформації рекомендується професійний людський переклад. Ми не несемо відповідальності за будь-які непорозуміння або неправильне тлумачення, що виникли внаслідок використання цього перекладу.
+Цей документ було перекладено за допомогою сервісу автоматичного перекладу [Co-op Translator](https://github.com/Azure/co-op-translator). Хоча ми прагнемо до точності, звертаємо вашу увагу, що автоматичні переклади можуть містити помилки або неточності. Оригінальний документ рідною мовою слід вважати авторитетним джерелом. Для критично важливої інформації рекомендується професійний людський переклад. Ми не несемо відповідальності за будь-які непорозуміння або неправильне тлумачення, що виникли внаслідок використання цього перекладу.

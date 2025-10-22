@@ -1,15 +1,15 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "badae5ee6451cc1a6e367cfe5ba92efa",
-  "translation_date": "2025-10-15T04:48:12+00:00",
+  "original_hash": "40660d83d2792201cad4aec9fdf25a29",
+  "translation_date": "2025-10-22T14:16:47+00:00",
   "source_file": "getting_started/supported-languages.md",
   "language_code": "lt"
 }
 -->
 # Palaikomos kalbos
 
-Žemiau pateiktoje lentelėje rasite kalbas, kurias šiuo metu palaiko **Co-op Translator**. Joje nurodyti kalbų kodai, pavadinimai ir žinomos problemos, susijusios su kiekviena kalba. Jei norite pridėti naujos kalbos palaikymą, įrašykite atitinkamą kalbos kodą, pavadinimą ir tinkamą šriftą į `font_language_mappings.yml` failą, esantį `src/co_op_translator/fonts/` kataloge, ir po testavimo pateikite „pull request“.
+Žemiau pateiktoje lentelėje rasite kalbas, kurias šiuo metu palaiko **Co-op Translator**. Joje nurodyti kalbų kodai, kalbų pavadinimai ir žinomos problemos, susijusios su kiekviena kalba. Jei norite pridėti naujos kalbos palaikymą, įrašykite atitinkamą kalbos kodą, pavadinimą ir tinkamą šriftą į `font_language_mappings.yml` failą, esantį `src/co_op_translator/fonts/` kataloge, ir po testavimo pateikite „pull request“.
 
 | Kalbos kodas  | Kalbos pavadinimas   | Šriftas                           | RTL palaikymas | Žinomos problemos |
 |---------------|---------------------|-----------------------------------|----------------|-------------------|
@@ -63,6 +63,7 @@ CO_OP_TRANSLATOR_METADATA:
 | my            | Birmiečių (Mianmaras)| NotoSansMyanmar-Medium.ttf       | Ne             | Nėra              |
 | ta            | Tamilų              | NotoSansTamil-Medium.ttf          | Ne             | Nėra              |
 | et            | Estų                | NotoSans-Medium.ttf               | Ne             | Nėra              |
+| pcm           | Nigerijos pidžinas   | NotoSans-Medium.ttf               | Ne             | Nėra              |
 
 ## Naujos kalbos pridėjimas
 
@@ -72,5 +73,5 @@ Norite pridėti naują kalbą? Vadovaukitės šia instrukcija:
 
 ---
 
-**Atsakomybės atsisakymas**:  
-Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba turėtų būti laikomas autoritetingu šaltiniu. Kritinei informacijai rekomenduojame profesionalų žmogaus vertimą. Mes neatsakome už nesusipratimus ar neteisingą interpretavimą, kilusį naudojantis šiuo vertimu.
+**Atsakomybės atsisakymas**:
+Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba turėtų būti laikomas autoritetingu šaltiniu. Kritinei informacijai rekomenduojame profesionalų žmogaus vertimą. Mes neatsakome už nesusipratimus ar neteisingą interpretavimą, kilusį dėl šio vertimo naudojimo.

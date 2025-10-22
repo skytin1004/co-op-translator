@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f579b7f148746593e3e9023b56a8c30d",
-  "translation_date": "2025-10-22T12:07:37+00:00",
+  "original_hash": "7593c1fad8734e4050b60fc3da614aa5",
+  "translation_date": "2025-10-22T13:54:39+00:00",
   "source_file": "README.md",
   "language_code": "fi"
 }
@@ -25,7 +25,7 @@ _Automaattinen tapa kääntää opetusmateriaalisi GitHubissa useille kielille j
 
 ### 🌐 Monikielinen tuki
 
-#### Tuettu [Co-op Translatorilla](https://github.com/Azure/Co-op-Translator)
+#### Tuetut kielet [Co-op Translatorissa](https://github.com/Azure/Co-op-Translator)
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
 [Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh/README.md) | [Chinese (Traditional, Hong Kong)](../hk/README.md) | [Chinese (Traditional, Macau)](../mo/README.md) | [Chinese (Traditional, Taiwan)](../tw/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](./README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../br/README.md) | [Portuguese (Portugal)](../pt/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
@@ -40,7 +40,7 @@ _Automaattinen tapa kääntää opetusmateriaalisi GitHubissa useille kielille j
 
 ## Yleiskatsaus
 
-**Co-op Translator** auttaa sinua kääntämään opetusmateriaalisi GitHubissa nopeasti useille kielille, jolloin tavoitat kansainvälisen yleisön helposti. Kun päivität Markdown-tiedostoja, kuvia tai Jupyter-notebookeja, käännökset synkronoidaan automaattisesti, jotta opetusmateriaalisi pysyy ajantasaisena ja relevanttina kansainvälisille käyttäjille.
+**Co-op Translator** mahdollistaa opetusmateriaalisi nopean kääntämisen GitHubissa useille kielille, jolloin tavoitat kansainvälisen yleisön helposti. Kun päivität Markdown-tiedostoja, kuvia tai Jupyter-notebookeja, käännökset synkronoidaan automaattisesti, jotta sisältösi pysyy ajantasaisena ja relevanttina kansainvälisille käyttäjille.
 
 Katso, miten Co-op Translator järjestää käännetyn opetusmateriaalin GitHubissa:
 
@@ -75,8 +75,8 @@ docker run --rm -it --env-file .env -v "${PWD}:/work" ghcr.io/azure/co-op-transl
 - Luo `.env` käyttämällä pohjaa: [.env.template](../../.env.template)
 - Määritä yksi LLM-palveluntarjoaja (Azure OpenAI tai OpenAI)
 - Kuvien kääntämiseen (`-img`) tarvitset myös Azure AI Visionin
-- Suositus: Jos sinulla on käännöksiä muista työkaluista, siivoa ne ensin, jotta vältyt ristiriidoilta (esim. `translations/`).
-- Suositus: Lisää README-tiedostoosi käännösosio käyttäen [README languages template](./README_languages_template.md)
+- Suositus: Jos sinulla on käännöksiä muista työkaluista, siivoa ne ensin välttääksesi ristiriidat (esim. `translations/`).
+- Suositus: Lisää käännösosio README-tiedostoosi käyttämällä [README-kielipohjaa](./README_languages_template.md)
 - Katso: [Azure AI:n käyttöönotto](./getting_started/set-up-azure-ai.md)
 
 ## Käyttö
@@ -105,15 +105,15 @@ Vain notebookit:
 translate -l "zh" -nb
 ```
 
-Lisää lippuja: [Komentojen viite](./getting_started/command-reference.md)
+Lisää valintoja: [Komentojen viite](./getting_started/command-reference.md)
 
 ## Ominaisuudet
 
 - Automaattinen käännös Markdownille, notebookeille ja kuville
 - Pitää käännökset synkronoituna lähdemateriaalin muutosten kanssa
 - Toimii paikallisesti (CLI) tai CI-ympäristössä (GitHub Actions)
-- Käyttää Azure OpenAI:ta tai OpenAI:ta; valinnainen Azure AI Vision kuvien kääntämiseen
-- Säilyttää Markdownin muotoilun ja rakenteen
+- Käyttää Azure OpenAI:ta tai OpenAI:ta; kuville valinnainen Azure AI Vision
+- Säilyttää Markdown-muotoilun ja rakenteen
 
 ## Dokumentaatio
 
@@ -154,7 +154,7 @@ Opi lisää Co-op Translatorista esitystemme kautta _(Klikkaa kuvaa alla katsoak
 
 ## Osallistuminen
 
-Tämä projekti toivottaa tervetulleeksi panokset ja ehdotukset. Kiinnostaako osallistua Azure Co-op Translatoriin? Katso [CONTRIBUTING.md](./CONTRIBUTING.md) ohjeet, miten voit auttaa tekemään Co-op Translatorista saavutettavamman.
+Tämä projekti toivottaa tervetulleeksi osallistumisen ja ehdotukset. Kiinnostaako osallistua Azure Co-op Translatoriin? Katso [CONTRIBUTING.md](./CONTRIBUTING.md) ohjeet, miten voit auttaa tekemään Co-op Translatorista entistä saavutettavamman.
 
 ## Tekijät
 
@@ -162,25 +162,29 @@ Tämä projekti toivottaa tervetulleeksi panokset ja ehdotukset. Kiinnostaako os
 
 ## Käyttäytymissäännöt
 
-Tässä projektissa noudatetaan [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
+Tässä projektissa noudatetaan [Microsoft Open Source Code of Conductia](https://opensource.microsoft.com/codeofconduct/).
 Lisätietoja löydät [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) -sivulta tai
-voit ottaa yhteyttä [opencode@microsoft.com](mailto:opencode@microsoft.com) lisäkysymyksissä tai kommenteissa.
+voit ottaa yhteyttä [opencode@microsoft.com](mailto:opencode@microsoft.com) mahdollisissa kysymyksissä tai kommenteissa.
 
 ## Vastuullinen tekoäly
 
 Microsoft on sitoutunut auttamaan asiakkaitaan käyttämään tekoälytuotteita vastuullisesti, jakamaan oppimaansa ja rakentamaan luottamukseen perustuvia kumppanuuksia työkalujen, kuten Transparency Notes ja Impact Assessments, avulla. Monet näistä resursseista löytyvät osoitteesta [https://aka.ms/RAI](https://aka.ms/RAI).
 Microsoftin vastuullisen tekoälyn periaatteet perustuvat oikeudenmukaisuuteen, luotettavuuteen ja turvallisuuteen, yksityisyyteen ja tietoturvaan, osallisuuteen, läpinäkyvyyteen ja vastuullisuuteen.
 
-Laajamittaiset kieli-, kuva- ja puhemallit – kuten tässä esimerkissä käytetyt – voivat joskus toimia epäoikeudenmukaisesti, epäluotettavasti tai loukkaavasti, mikä voi aiheuttaa haittaa. Tutustu [Azure OpenAI -palvelun Transparency note](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) -dokumenttiin, jotta tiedät riskit ja rajoitukset.
+Laajamittaiset kieli-, kuva- ja puhemallit – kuten tässä esimerkissä käytetyt – voivat joskus toimia epäoikeudenmukaisesti, epäluotettavasti tai loukkaavasti, mikä voi aiheuttaa haittaa. Tutustu [Azure OpenAI -palvelun Transparency noteen](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) saadaksesi tietoa riskeistä ja rajoituksista.
 
-Suositeltu tapa riskien hallintaan on sisällyttää turvallisuusjärjestelmä arkkitehtuuriin, joka tunnistaa ja estää haitallisen toiminnan. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) tarjoaa riippumattoman suojakerroksen, joka tunnistaa haitallista käyttäjä- ja tekoälytuotettua sisältöä sovelluksissa ja palveluissa. Azure AI Content Safety sisältää tekstin ja kuvien API:t, joiden avulla voit tunnistaa haitallista materiaalia. Lisäksi käytettävissä on interaktiivinen Content Safety Studio, jossa voit tarkastella, kokeilla ja testata esimerkkikoodia haitallisen sisällön tunnistamiseen eri muodoissa. Seuraava [pikaopas](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) opastaa palvelun käyttöönotossa.
-Toinen huomioon otettava seikka on sovelluksen yleinen suorituskyky. Monimuotoisissa ja monimallisissa sovelluksissa suorituskyvyllä tarkoitetaan sitä, että järjestelmä toimii sinun ja käyttäjiesi odotusten mukaisesti, eikä esimerkiksi tuota haitallisia tuloksia. On tärkeää arvioida koko sovelluksen suorituskykyä hyödyntämällä [generoinnin laatua sekä riski- ja turvallisuusmittareita](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
+Suositeltu tapa riskien hallintaan on sisällyttää turvallisuusjärjestelmä arkkitehtuuriin, joka tunnistaa ja estää haitallisen toiminnan. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) tarjoaa riippumattoman suojakerroksen, joka tunnistaa haitallista käyttäjä- ja tekoälytuotettua sisältöä sovelluksissa ja palveluissa. Azure AI Content Safety sisältää tekstin ja kuvan API:t, joiden avulla voit tunnistaa haitallista materiaalia. Lisäksi käytettävissä on interaktiivinen Content Safety Studio, jossa voit tarkastella, tutkia ja kokeilla esimerkkikoodia haitallisen sisällön tunnistamiseen eri muodoissa. Seuraava [pikaopas](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) opastaa palvelun käyttöönotossa.
+Toinen huomioon otettava seikka on sovelluksen yleinen suorituskyky. Monimuotoisissa ja monimallisissa sovelluksissa suorituskyvyllä tarkoitetaan sitä, että järjestelmä toimii sinun ja käyttäjiesi odotusten mukaisesti, eikä esimerkiksi tuota haitallisia tuloksia. On tärkeää arvioida koko sovelluksen suorituskykyä käyttämällä [generoinnin laatua sekä riski- ja turvallisuusmittareita](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
 
-Voit arvioida tekoälysovellustasi kehitysympäristössä käyttämällä [prompt flow SDK:ta](https://microsoft.github.io/promptflow/index.html). Kun käytössäsi on testiaineisto tai kohde, generatiivisen tekoälysovelluksesi tuotokset mitataan määrällisesti sisäänrakennetuilla arviointityökaluilla tai omilla arvioijillasi. Jos haluat aloittaa järjestelmäsi arvioinnin prompt flow SDK:lla, voit seurata [pikaopasta](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). Kun olet suorittanut arviointiajon, voit [visualisoida tulokset Azure AI Studiossa](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
+Voit arvioida tekoälysovellustasi kehitysympäristössäsi käyttämällä [prompt flow SDK:ta](https://microsoft.github.io/promptflow/index.html). Kun käytössäsi on testiaineisto tai kohde, generatiivisen tekoälysovelluksesi tuotokset mitataan määrällisesti sisäänrakennetuilla arviointityökaluilla tai omilla arvioijillasi. Jos haluat aloittaa järjestelmäsi arvioinnin prompt flow SDK:lla, voit seurata [pikaopasta](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). Kun olet suorittanut arviointiajon, voit [visualisoida tulokset Azure AI Studiossa](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
 
-## Tavara­merkit
+## Tavaramerkkejä
 
-Tämä projekti saattaa sisältää tavaramerkkejä tai logoja, jotka liittyvät projekteihin, tuotteisiin tai palveluihin. Microsoftin tavaramerkkien tai logojen luvallinen käyttö edellyttää, että noudatat [Microsoftin tavaramerkki- ja brändiohjeita](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general). Microsoftin tavaramerkkien tai logojen käyttö muokatuissa versioissa tästä projektista ei saa aiheuttaa sekaannusta tai antaa ymmärtää, että Microsoft tukee projektia. Kolmansien osapuolten tavaramerkkien tai logojen käyttöön sovelletaan kyseisten tahojen käytäntöjä.
+Tämä projekti saattaa sisältää tavaramerkkejä tai logoja projekteista, tuotteista tai palveluista. Microsoftin
+tavaramerkkien tai logojen luvallinen käyttö edellyttää, että noudatat
+[Microsoftin tavaramerkki- ja brändiohjeita](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
+Microsoftin tavaramerkkien tai logojen käyttö muokatuissa versioissa tästä projektista ei saa aiheuttaa sekaannusta tai antaa ymmärtää, että Microsoft tukee projektia.
+Kolmansien osapuolten tavaramerkkien tai logojen käyttöön sovelletaan kyseisten tahojen omia käytäntöjä.
 
 ## Apua saatavilla
 
@@ -195,4 +199,4 @@ Jos haluat antaa palautetta tuotteesta tai kohtaat virheitä kehitystyössä, k�
 ---
 
 **Vastuuvapauslauseke**:
-Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, huomioithan, että automaattiset käännökset voivat sisältää virheitä tai epätarkkuuksia. Alkuperäistä asiakirjaa sen alkuperäisellä kielellä tulee pitää ensisijaisena lähteenä. Kriittisissä tapauksissa suositellaan ammattimaista ihmiskääntäjää. Emme ole vastuussa tämän käännöksen käytöstä mahdollisesti aiheutuvista väärinkäsityksistä tai tulkintavirheistä.
+Tämä asiakirja on käännetty AI-käännöspalvelulla [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, huomioithan, että automaattiset käännökset voivat sisältää virheitä tai epätarkkuuksia. Alkuperäinen asiakirja sen alkuperäisellä kielellä tulee pitää ensisijaisena lähteenä. Kriittisissä tapauksissa suositellaan ammattimaista ihmiskääntäjää. Emme ole vastuussa tämän käännöksen käytöstä johtuvista väärinkäsityksistä tai tulkintavirheistä.

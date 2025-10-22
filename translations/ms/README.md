@@ -1,15 +1,15 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f579b7f148746593e3e9023b56a8c30d",
-  "translation_date": "2025-10-22T12:11:02+00:00",
+  "original_hash": "7593c1fad8734e4050b60fc3da614aa5",
+  "translation_date": "2025-10-22T14:00:10+00:00",
   "source_file": "README.md",
   "language_code": "ms"
 }
 -->
 # Co-op Translator
 
-_Automatikkan terjemahan kandungan pendidikan GitHub anda ke pelbagai bahasa dengan mudah untuk capai audiens global._
+_Automasi terjemahan kandungan pendidikan GitHub anda ke pelbagai bahasa dengan mudah untuk capai audiens global._
 
 [![Pakej Python](https://img.shields.io/pypi/v/co-op-translator?color=4BA3FF)](https://pypi.org/project/co-op-translator/)
 [![Lesen: MIT](https://img.shields.io/github/license/azure/co-op-translator?color=4BA3FF)](https://github.com/azure/co-op-translator/blob/main/LICENSE)
@@ -28,7 +28,7 @@ _Automatikkan terjemahan kandungan pendidikan GitHub anda ke pelbagai bahasa den
 #### Disokong oleh [Co-op Translator](https://github.com/Azure/Co-op-Translator)
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
-[Arab](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burma (Myanmar)](../my/README.md) | [Cina (Ringkas)](../zh/README.md) | [Cina (Tradisional, Hong Kong)](../hk/README.md) | [Cina (Tradisional, Macau)](../mo/README.md) | [Cina (Tradisional, Taiwan)](../tw/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Belanda](../nl/README.md) | [Estonian](../et/README.md) | [Finland](../fi/README.md) | [Perancis](../fr/README.md) | [Jerman](../de/README.md) | [Greek](../el/README.md) | [Ibrani](../he/README.md) | [Hindi](../hi/README.md) | [Hungary](../hu/README.md) | [Indonesia](../id/README.md) | [Itali](../it/README.md) | [Jepun](../ja/README.md) | [Korea](../ko/README.md) | [Lithuania](../lt/README.md) | [Melayu](./README.md) | [Marathi](../mr/README.md) | [Nepal](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norway](../no/README.md) | [Parsi (Farsi)](../fa/README.md) | [Poland](../pl/README.md) | [Portugis (Brazil)](../br/README.md) | [Portugis (Portugal)](../pt/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romania](../ro/README.md) | [Rusia](../ru/README.md) | [Serbia (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenia](../sl/README.md) | [Sepanyol](../es/README.md) | [Swahili](../sw/README.md) | [Sweden](../sv/README.md) | [Tagalog (Filipina)](../tl/README.md) | [Tamil](../ta/README.md) | [Thai](../th/README.md) | [Turki](../tr/README.md) | [Ukraine](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnam](../vi/README.md)
+[Arab](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burma (Myanmar)](../my/README.md) | [Cina (Ringkas)](../zh/README.md) | [Cina (Tradisional, Hong Kong)](../hk/README.md) | [Cina (Tradisional, Macau)](../mo/README.md) | [Cina (Tradisional, Taiwan)](../tw/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Belanda](../nl/README.md) | [Estonia](../et/README.md) | [Finland](../fi/README.md) | [Perancis](../fr/README.md) | [Jerman](../de/README.md) | [Greek](../el/README.md) | [Ibrani](../he/README.md) | [Hindi](../hi/README.md) | [Hungary](../hu/README.md) | [Indonesia](../id/README.md) | [Itali](../it/README.md) | [Jepun](../ja/README.md) | [Korea](../ko/README.md) | [Lithuania](../lt/README.md) | [Melayu](./README.md) | [Marathi](../mr/README.md) | [Nepal](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norway](../no/README.md) | [Parsi (Farsi)](../fa/README.md) | [Poland](../pl/README.md) | [Portugis (Brazil)](../br/README.md) | [Portugis (Portugal)](../pt/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romania](../ro/README.md) | [Rusia](../ru/README.md) | [Serbia (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenia](../sl/README.md) | [Sepanyol](../es/README.md) | [Swahili](../sw/README.md) | [Sweden](../sv/README.md) | [Tagalog (Filipina)](../tl/README.md) | [Tamil](../ta/README.md) | [Thai](../th/README.md) | [Turki](../tr/README.md) | [Ukraine](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnam](../vi/README.md)
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
 [![Pemerhati GitHub](https://img.shields.io/github/watchers/azure/co-op-translator.svg?style=social&label=Watch)](https://GitHub.com/azure/co-op-translator/watchers/)
@@ -40,13 +40,13 @@ _Automatikkan terjemahan kandungan pendidikan GitHub anda ke pelbagai bahasa den
 
 ## Pengenalan
 
-**Co-op Translator** membolehkan anda menterjemah kandungan pendidikan GitHub anda ke pelbagai bahasa dengan pantas, supaya anda boleh capai audiens global tanpa usaha yang rumit. Apabila anda mengemas kini fail Markdown, imej, atau Jupyter notebook, terjemahan akan diselaraskan secara automatik supaya kandungan pendidikan GitHub anda sentiasa segar dan relevan untuk pengguna antarabangsa.
+**Co-op Translator** membolehkan anda menterjemah kandungan pendidikan GitHub anda ke pelbagai bahasa dengan pantas, memudahkan capaian kepada audiens global. Apabila anda mengemas kini fail Markdown, imej, atau Jupyter notebook, terjemahan akan diselaraskan secara automatik supaya kandungan pendidikan GitHub anda sentiasa segar dan relevan untuk pengguna antarabangsa.
 
-Lihat bagaimana Co-op Translator mengatur kandungan pendidikan GitHub yang telah diterjemahkan:
+Lihat bagaimana Co-op Translator mengatur kandungan pendidikan GitHub yang telah diterjemah:
 
 ![Contoh](../../translated_images/translation-ex.0c8aa6a7ee0aad2b35cddcc110c719baf0afc640e8c5a45540e6c166b9907d91.ms.png)
 
-## Mula cepat
+## Mula pantas
 
 ```bash
 # Create and activate a virtual environment (recommended)
@@ -110,10 +110,10 @@ Lebih banyak flag: [Rujukan arahan](./getting_started/command-reference.md)
 ## Ciri-ciri
 
 - Terjemahan automatik untuk Markdown, notebook, dan imej
-- Pastikan terjemahan sentiasa selari dengan perubahan sumber
+- Menyelaraskan terjemahan dengan perubahan sumber
 - Berfungsi secara tempatan (CLI) atau dalam CI (GitHub Actions)
-- Guna Azure OpenAI atau OpenAI; Azure AI Vision untuk imej (pilihan)
-- Kekalkan format dan struktur Markdown
+- Menggunakan Azure OpenAI atau OpenAI; Azure AI Vision untuk imej (pilihan)
+- Mengekalkan format dan struktur Markdown
 
 ## Dokumentasi
 
@@ -123,9 +123,9 @@ Lebih banyak flag: [Rujukan arahan](./getting_started/command-reference.md)
 - [Bahasa yang disokong](./getting_started/supported-languages.md)
 - [Penyelesaian masalah](./getting_started/troubleshooting.md)
 
-## Sokong Kami & Galakkan Pembelajaran Global
+## Sokong Kami dan Galakkan Pembelajaran Global
 
-Sertai kami untuk merevolusikan cara kandungan pendidikan dikongsi di seluruh dunia! Beri [Co-op Translator](https://github.com/azure/co-op-translator) ⭐ di GitHub dan sokong misi kami untuk menghapuskan halangan bahasa dalam pembelajaran dan teknologi. Minat dan sumbangan anda sangat bermakna! Sumbangan kod dan cadangan ciri sentiasa dialu-alukan.
+Sertai kami untuk merevolusikan cara kandungan pendidikan dikongsi secara global! Beri [Co-op Translator](https://github.com/azure/co-op-translator) ⭐ di GitHub dan sokong misi kami untuk menghapuskan halangan bahasa dalam pembelajaran dan teknologi. Minat dan sumbangan anda sangat bermakna! Sumbangan kod dan cadangan ciri sentiasa dialu-alukan.
 
 ### Terokai kandungan pendidikan Microsoft dalam bahasa anda
 
@@ -152,7 +152,7 @@ Ketahui lebih lanjut tentang Co-op Translator melalui pembentangan kami _(Klik i
 
   [![Open at Microsoft](../../translated_images/open-ms-thumbnail.946b356b89bc5f0e33dcebb852f7926b98c33f54c1a49ce01c36ae7f35e2443a.ms.jpg)](https://www.youtube.com/watch?v=jX_swfH_KNU)
 
-## Menyumbang
+## Sumbangan
 
 Projek ini mengalu-alukan sumbangan dan cadangan. Berminat untuk menyumbang kepada Azure Co-op Translator? Sila rujuk [CONTRIBUTING.md](./CONTRIBUTING.md) untuk garis panduan bagaimana anda boleh membantu menjadikan Co-op Translator lebih mudah diakses.
 
@@ -168,32 +168,31 @@ hubungi [opencode@microsoft.com](mailto:opencode@microsoft.com) untuk sebarang s
 
 ## AI Bertanggungjawab
 
-Microsoft komited untuk membantu pelanggan menggunakan produk AI kami secara bertanggungjawab, berkongsi pembelajaran kami, dan membina perkongsian berasaskan kepercayaan melalui alat seperti Transparency Notes dan Impact Assessments. Banyak sumber ini boleh didapati di [https://aka.ms/RAI](https://aka.ms/RAI).
+Microsoft komited untuk membantu pelanggan menggunakan produk AI kami secara bertanggungjawab, berkongsi pembelajaran kami, dan membina kerjasama berasaskan kepercayaan melalui alat seperti Transparency Notes dan Impact Assessments. Banyak sumber ini boleh didapati di [https://aka.ms/RAI](https://aka.ms/RAI).
 Pendekatan Microsoft terhadap AI bertanggungjawab berasaskan prinsip AI kami: keadilan, kebolehpercayaan dan keselamatan, privasi dan keselamatan, keterangkuman, ketelusan, dan akauntabiliti.
 
 Model bahasa, imej, dan pertuturan berskala besar - seperti yang digunakan dalam sampel ini - berpotensi bertindak secara tidak adil, tidak boleh dipercayai, atau menyinggung, yang boleh menyebabkan kemudaratan. Sila rujuk [Nota Ketelusan Azure OpenAI service](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) untuk maklumat tentang risiko dan batasan.
 
-Cara yang disyorkan untuk mengurangkan risiko ini ialah dengan memasukkan sistem keselamatan dalam seni bina anda yang boleh mengesan dan mencegah tingkah laku berbahaya. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) menyediakan lapisan perlindungan bebas, mampu mengesan kandungan berbahaya yang dijana pengguna dan AI dalam aplikasi dan perkhidmatan. Azure AI Content Safety merangkumi API teks dan imej yang membolehkan anda mengesan bahan berbahaya. Kami juga ada Content Safety Studio interaktif untuk anda lihat, teroka dan cuba kod contoh bagi mengesan kandungan berbahaya merentasi pelbagai mod. [Dokumentasi permulaan pantas](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) berikut membimbing anda membuat permintaan ke perkhidmatan tersebut.
+Cara yang disyorkan untuk mengurangkan risiko ini ialah dengan memasukkan sistem keselamatan dalam seni bina anda yang boleh mengesan dan mencegah tingkah laku berbahaya. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) menyediakan lapisan perlindungan bebas, mampu mengesan kandungan berbahaya yang dijana pengguna dan AI dalam aplikasi dan perkhidmatan. Azure AI Content Safety merangkumi API teks dan imej yang membolehkan anda mengesan bahan berbahaya. Kami juga ada Content Safety Studio interaktif untuk anda melihat, meneroka dan cuba kod contoh bagi mengesan kandungan berbahaya merentasi pelbagai mod. [Dokumentasi permulaan pantas](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) berikut membimbing anda membuat permintaan kepada perkhidmatan ini.
+
+
 Satu lagi aspek yang perlu diambil kira ialah prestasi keseluruhan aplikasi. Untuk aplikasi multi-modal dan multi-model, prestasi bermaksud sistem berfungsi seperti yang anda dan pengguna anda harapkan, termasuk tidak menghasilkan output yang berbahaya. Adalah penting untuk menilai prestasi aplikasi anda secara keseluruhan menggunakan [metrik kualiti penjanaan serta risiko dan keselamatan](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
 
-Anda boleh menilai aplikasi AI anda dalam persekitaran pembangunan menggunakan [prompt flow SDK](https://microsoft.github.io/promptflow/index.html). Sama ada anda menggunakan set data ujian atau sasaran, penjanaan aplikasi AI generatif anda akan diukur secara kuantitatif dengan penilai terbina dalam atau penilai khusus pilihan anda. Untuk mula menggunakan prompt flow sdk bagi menilai sistem anda, anda boleh ikuti [panduan permulaan pantas](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). Selepas anda menjalankan penilaian, anda boleh [visualisasikan hasilnya di Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
+Anda boleh menilai aplikasi AI anda dalam persekitaran pembangunan menggunakan [prompt flow SDK](https://microsoft.github.io/promptflow/index.html). Dengan dataset ujian atau sasaran, penjanaan aplikasi AI generatif anda akan diukur secara kuantitatif menggunakan penilai terbina dalam atau penilai tersuai pilihan anda. Untuk mula menggunakan prompt flow sdk bagi menilai sistem anda, anda boleh ikuti [panduan permulaan pantas](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). Selepas anda menjalankan penilaian, anda boleh [visualisasikan hasilnya di Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
 
 ## Tanda Dagangan
 
-Projek ini mungkin mengandungi tanda dagangan atau logo untuk projek, produk, atau perkhidmatan. Penggunaan tanda dagangan atau logo Microsoft yang dibenarkan tertakluk kepada dan mesti mematuhi
-[Panduan Tanda Dagangan & Jenama Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
-Penggunaan tanda dagangan atau logo Microsoft dalam versi projek yang diubah suai tidak boleh menyebabkan kekeliruan atau menyatakan penajaan oleh Microsoft.
-Sebarang penggunaan tanda dagangan atau logo pihak ketiga tertakluk kepada polisi pihak ketiga tersebut.
+Projek ini mungkin mengandungi tanda dagangan atau logo untuk projek, produk, atau perkhidmatan. Penggunaan tanda dagangan atau logo Microsoft yang dibenarkan tertakluk kepada dan mesti mematuhi [Garis Panduan Tanda Dagangan & Jenama Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general). Penggunaan tanda dagangan atau logo Microsoft dalam versi projek yang diubah suai tidak boleh menyebabkan kekeliruan atau menyiratkan penajaan oleh Microsoft. Sebarang penggunaan tanda dagangan atau logo pihak ketiga tertakluk kepada polisi pihak ketiga tersebut.
 
 ## Mendapatkan Bantuan
 
 Jika anda menghadapi masalah atau ada sebarang soalan tentang membina aplikasi AI, sertai:
 
-[![Azure AI Foundry Discord](https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
+<a href="https://aka.ms/foundry/discord"><img src="https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff" alt="Azure AI Foundry Discord"></a>
 
 Jika anda ada maklum balas produk atau mengalami ralat semasa membina, lawati:
 
-[![Azure AI Foundry Developer Forum](https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
+<a href="https://aka.ms/foundry/forum"><img src="https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff" alt="Azure AI Foundry Developer Forum"></a>
 
 ---
 

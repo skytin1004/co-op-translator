@@ -1,15 +1,15 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "badae5ee6451cc1a6e367cfe5ba92efa",
-  "translation_date": "2025-10-15T03:54:53+00:00",
+  "original_hash": "40660d83d2792201cad4aec9fdf25a29",
+  "translation_date": "2025-10-22T14:06:47+00:00",
   "source_file": "getting_started/supported-languages.md",
   "language_code": "sk"
 }
 -->
 # Podporované jazyky
 
-V nasledujúcej tabuľke sú uvedené jazyky, ktoré momentálne podporuje **Co-op Translator**. Nájdete tu kódy jazykov, názvy jazykov a prípadné známe problémy spojené s jednotlivými jazykmi. Ak chcete pridať podporu pre nový jazyk, pridajte príslušný kód jazyka, názov a vhodné písmo do súboru `font_language_mappings.yml`, ktorý sa nachádza v `src/co_op_translator/fonts/`, a po otestovaní odošlite pull request.
+V nasledujúcej tabuľke nájdete zoznam jazykov, ktoré momentálne podporuje **Co-op Translator**. Tabuľka obsahuje kódy jazykov, názvy jazykov a prípadné známe problémy pri každom jazyku. Ak chcete pridať podporu pre nový jazyk, pridajte príslušný kód jazyka, názov a vhodné písmo do súboru `font_language_mappings.yml`, ktorý sa nachádza v `src/co_op_translator/fonts/`, a po otestovaní odošlite pull request.
 
 | Kód jazyka    | Názov jazyka         | Písmo                              | Podpora RTL | Známé problémy |
 |---------------|----------------------|------------------------------------|-------------|----------------|
@@ -23,8 +23,8 @@ V nasledujúcej tabuľke sú uvedené jazyky, ktoré momentálne podporuje **Co-
 | ur            | Urdu                 | NotoSansArabic-Medium.ttf          | Áno         | Nie            |
 | zh            | Čínština (zjednodušená) | NotoSansCJK-Medium.ttc           | Nie         | Nie            |
 | mo            | Čínština (tradičná, Macao) | NotoSansCJK-Medium.ttc         | Nie         | Nie            |
-| hk            | Čínština (tradičná, Hongkong) | NotoSansCJK-Medium.ttc        | Nie         | Nie            |
-| tw            | Čínština (tradičná, Taiwan) | NotoSansCJK-Medium.ttc         | Nie         | Nie            |
+| hk            | Čínština (tradičná, Hongkong) | NotoSansCJK-Medium.ttc      | Nie         | Nie            |
+| tw            | Čínština (tradičná, Taiwan) | NotoSansCJK-Medium.ttc        | Nie         | Nie            |
 | ja            | Japončina            | NotoSansCJK-Medium.ttc             | Nie         | Nie            |
 | ko            | Kórejčina            | NotoSansCJK-Medium.ttc             | Nie         | Nie            |
 | hi            | Hindčina             | NotoSansDevanagari-Medium.ttf      | Nie         | Nie            |
@@ -63,6 +63,7 @@ V nasledujúcej tabuľke sú uvedené jazyky, ktoré momentálne podporuje **Co-
 | my            | Barmčina (Myanmar)   | NotoSansMyanmar-Medium.ttf         | Nie         | Nie            |
 | ta            | Tamilčina            | NotoSansTamil-Medium.ttf           | Nie         | Nie            |
 | et            | Estónčina            | NotoSans-Medium.ttf                | Nie         | Nie            |
+| pcm           | Nigerijský pidžin    | NotoSans-Medium.ttf                | Nie         | Nie            |
 
 ## Pridanie nového jazyka
 

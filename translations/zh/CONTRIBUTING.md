@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "bd4704f50c55da7d572b691484aa0b30",
-  "translation_date": "2025-10-15T02:26:02+00:00",
+  "original_hash": "1ae2159f900e7d5d596bb00bcba4c999",
+  "translation_date": "2025-10-22T13:27:27+00:00",
   "source_file": "CONTRIBUTING.md",
   "language_code": "zh"
 }
@@ -15,7 +15,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 ## 开发环境搭建
 
-建议使用 Poetry 管理依赖。我们通过 `pyproject.toml` 管理项目依赖，因此安装依赖时请使用 Poetry。
+建议使用 Poetry 来管理依赖。我们通过 `pyproject.toml` 管理项目依赖，因此安装依赖时请使用 Poetry。
 
 ### 创建虚拟环境
 
@@ -63,7 +63,7 @@ poetry install
 
 ### 手动测试
 
-在提交 PR 前，建议用真实文档测试翻译功能：
+在提交 PR 之前，建议用真实文档测试翻译功能：
 
 1. 在项目根目录创建一个测试目录：
     ```bash
@@ -90,14 +90,14 @@ poetry install
    - 翻译质量
    - 元数据注释是否正确
    - 原有 markdown 结构是否保留
-   - 链接和图片是否正常
+   - 链接和图片是否正常显示
 
-手动测试可以确保你的修改在实际场景下表现良好。
+这种手动测试可以确保你的修改在实际场景下表现良好。
 
 ### 环境变量
 
-1. 在根目录下复制 `.env.template` 文件，创建 `.env` 文件。
-2. 按提示填写环境变量。
+1. 在项目根目录下复制 `.env.template` 文件，创建 `.env` 文件。
+1. 按照指引填写环境变量。
 
 > [!TIP]
 >
@@ -107,7 +107,7 @@ poetry install
 >
 > #### GitHub Codespaces
 >
-> 你可以直接在 GitHub Codespaces 上运行示例，无需额外设置。
+> 你可以通过 GitHub Codespaces 在线运行示例，无需额外设置。
 >
 > 点击按钮将在浏览器中打开基于 Web 的 VS Code 实例：
 >
@@ -128,7 +128,7 @@ poetry install
 
 ### 代码风格
 
-我们使用 [Black](https://github.com/psf/black) 作为 Python 代码格式化工具，确保项目代码风格统一。Black 会自动将 Python 代码格式化为标准风格。
+我们使用 [Black](https://github.com/psf/black) 作为 Python 代码格式化工具，以保持项目代码风格一致。Black 是一个严格的代码格式化工具，会自动将 Python 代码格式化为 Black 风格。
 
 #### 配置
 
@@ -147,7 +147,7 @@ include = '\.pyi?$'
 
 ##### 使用 Poetry
 
-搭建开发环境时会自动安装 Black：
+设置开发环境时会自动安装 Black：
 ```bash
 poetry install
 ```
@@ -163,7 +163,7 @@ pip install black
 
 ##### 配合 Poetry
 
-1. 格式化项目所有 Python 文件：
+1. 格式化项目中的所有 Python 文件：
     ```bash
     poetry run black .
     ```
@@ -175,7 +175,7 @@ pip install black
 
 ##### 配合 pip
 
-1. 格式化项目所有 Python 文件：
+1. 格式化项目中的所有 Python 文件：
     ```bash
     black .
     ```
@@ -194,7 +194,7 @@ pip install black
 
 1. 进入你想进行翻译测试的目录，或新建一个临时文件夹用于测试。
 
-2. 执行以下命令。将 `-l ko` 替换为你想翻译的目标语言代码。`-d` 参数表示调试模式。
+2. 执行以下命令。将 `-l ko` 替换为你想翻译成的语言代码。`-d` 参数表示调试模式。
 
     ```bash
     poetry run co-op-translator translate -l ko -d
@@ -203,9 +203,9 @@ pip install black
 > [!NOTE]
 > 运行命令前请确保已激活 Poetry 环境（poetry shell）。
 
-## 新增语言支持
+## 新增语言贡献指南
 
-欢迎大家为项目添加新语言支持。请在提交 PR 前完成以下步骤，以便顺利审核。
+欢迎大家为项目添加新语言支持。提交 PR 前请完成以下步骤，以便顺利审核。
 
 1. 添加语言到字体映射
    - 编辑 `src/co_op_translator/fonts/font_language_mappings.yml`
@@ -224,8 +224,8 @@ pip install black
    - 检查输出是否正确显示，包括字体和 RTL 布局（如适用）
 
 4. 更新文档
-   - 确保该语言已在 `getting_started/supported-languages.md` 中列出
-   - 无需修改 `README_languages_template.md`，该文件会根据支持列表自动生成
+   - 确保新语言已在 `getting_started/supported-languages.md` 中列出
+   - 无需修改 `README_languages_template.md`，该文件由支持列表自动生成
 
 5. 提交 PR
    - 说明新增语言及字体/许可相关事项
@@ -240,30 +240,46 @@ new_lang(code):
   rtl: false
 ```
 
+### 测试新语言
+
+可通过以下命令测试新语言：
+
+```bash
+# Create and activate a virtual environment (recommended)
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+source .venv/bin/activate
+# Install the development package
+pip install -e .
+# Run the translation
+translate -l "new_lang"
+```
 
 ## 维护者须知
 
 ### 提交信息与合并策略
 
-为保证项目提交历史的规范和清晰，采用特定的提交信息格式（仅用于最终提交信息），并使用 **Squash and Merge** 合并策略。
+为保证项目提交历史的规范和清晰，采用特定的提交信息格式（最终合并时的提交信息），并使用 **Squash and Merge** 策略。
 
-当合并 Pull Request（PR）时，所有提交会被压缩为一个提交。最终提交信息需遵循以下格式，以保持历史整洁一致。
+当 PR 合并时，所有提交会被压缩为一个提交。最终提交信息需遵循以下格式，以保持历史简洁一致。
 
 #### 提交信息格式（Squash and Merge）
 
-提交信息格式如下：
+我们采用如下格式：
 
 ```bash
 <type>: <description> (#<PR number>)
 ```
 
-- **type**：提交类别。包括以下类型：
-  - `Docs`：文档更新。
-  - `Build`：构建系统或依赖相关更改，包括配置文件、CI 工作流或 Dockerfile 更新。
-  - `Core`：项目核心功能或特性修改，尤其涉及 `src/co_op_translator/core` 目录的文件。
+- **type**：提交类别。包括：
+  - `Docs`：文档更新
+  - `Build`：构建系统或依赖相关变更，包括配置文件、CI 工作流、Dockerfile 等
+  - `Core`：项目核心功能或特性修改，尤其涉及 `src/co_op_translator/core` 目录的文件
 
-- **description**：简要说明更改内容。
-- **PR number**：对应 PR 的编号。
+- **description**：简要说明变更内容
+- **PR number**：对应 PR 编号
 
 **示例**：
 
@@ -271,7 +287,7 @@ new_lang(code):
 - `Core: Improve handling of image translation (#60)`
 
 > [!NOTE]
-> 目前，**`Docs`**、**`Core`** 和 **`Build`** 前缀会根据修改的源代码标签自动添加到 PR 标题。只要标签正确，一般无需手动修改 PR 标题。只需确认无误且前缀已正确生成即可。
+> 目前，**`Docs`**、**`Core`** 和 **`Build`** 前缀会根据修改的源码标签自动添加到 PR 标题。只要标签正确，一般无需手动修改 PR 标题。只需确认无误且前缀已正确生成即可。
 
 #### 合并策略
 
@@ -279,9 +295,9 @@ new_lang(code):
 
 **原因**：
 
-- 项目历史更简洁、线性。
-- 提交信息一致。
-- 减少琐碎提交（如“fix typo”）带来的噪音。
+- 项目历史简洁、线性
+- 提交信息一致
+- 减少琐碎提交（如“fix typo”）
 
 合并时请确保最终提交信息符合上述格式。
 
@@ -292,10 +308,10 @@ new_lang(code):
 - `update README`
 - `adjust formatting`
 
-最终应压缩为：
+最终应合并为：
 `Docs: Improve documentation clarity and formatting (#65)`
 
 ---
 
 **免责声明**：
-本文件由 AI 翻译服务 [Co-op Translator](https://github.com/Azure/co-op-translator) 翻译。我们力求准确，但请注意，自动翻译可能包含错误或不准确之处。原始语言版本应视为权威来源。对于关键信息，建议采用专业人工翻译。因使用本翻译而产生的任何误解或误读，我们概不负责。
+本文件由 AI 翻译服务 [Co-op Translator](https://github.com/Azure/co-op-translator) 翻译。尽管我们力求准确，但请注意，自动翻译可能包含错误或不准确之处。原始语言版本应被视为权威来源。对于关键信息，建议使用专业人工翻译。因使用本翻译而产生的任何误解或误读，我们概不负责。

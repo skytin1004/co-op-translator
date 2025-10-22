@@ -1,17 +1,17 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "bd4704f50c55da7d572b691484aa0b30",
-  "translation_date": "2025-10-15T03:09:32+00:00",
+  "original_hash": "1ae2159f900e7d5d596bb00bcba4c999",
+  "translation_date": "2025-10-22T13:46:55+00:00",
   "source_file": "CONTRIBUTING.md",
   "language_code": "tr"
 }
 -->
 # Co-op Translator'a Katkıda Bulunmak
 
-Bu projeye katkı ve önerileriniz memnuniyetle karşılanır. Çoğu katkı için, bize katkınızın haklarını kullanma izni verdiğinizi ve bu haklara sahip olduğunuzu beyan eden bir Katkı Sağlayıcı Lisans Sözleşmesi (CLA) kabul etmeniz gerekir. Detaylar için https://cla.opensource.microsoft.com adresini ziyaret edebilirsiniz.
+Bu projeye katkılarınızı ve önerilerinizi memnuniyetle karşılıyoruz. Çoğu katkı için, bize katkınızı kullanma hakkı verdiğinizi ve bu hakka sahip olduğunuzu beyan eden bir Katkı Sağlayıcı Lisans Sözleşmesi'ni (CLA) kabul etmeniz gerekir. Detaylar için https://cla.opensource.microsoft.com adresini ziyaret edebilirsiniz.
 
-Bir pull request gönderdiğinizde, bir CLA botu otomatik olarak CLA gerekip gerekmediğini belirler ve PR'ı uygun şekilde işaretler (örneğin, durum kontrolü, yorum). Botun verdiği talimatları takip etmeniz yeterlidir. Bunu, CLA kullanan tüm repolarda yalnızca bir kez yapmanız gerekir.
+Bir pull request gönderdiğinizde, bir CLA botu otomatik olarak CLA gerekip gerekmediğini belirler ve PR'ı uygun şekilde işaretler (örneğin, durum kontrolü, yorum). Botun verdiği talimatları takip etmeniz yeterlidir. Bunu, CLA kullanan tüm depolarda yalnızca bir kez yapmanız gerekir.
 
 ## Geliştirme ortamı kurulumu
 
@@ -63,7 +63,7 @@ poetry install
 
 ### Manuel test
 
-PR göndermeden önce, çeviri işlevini gerçek dokümantasyonla test etmek önemlidir:
+Bir PR göndermeden önce, çeviri işlevini gerçek dokümantasyonla test etmek önemlidir:
 
 1. Kök dizinde bir test klasörü oluşturun:
     ```bash
@@ -103,7 +103,7 @@ Bu manuel test, yaptığınız değişikliklerin gerçek dünyada sorunsuz çal�
 >
 > ### Ek geliştirme ortamı seçenekleri
 >
-> Projeyi yerel olarak çalıştırmanın yanı sıra, alternatif geliştirme ortamı olarak GitHub Codespaces veya VS Code Dev Containers da kullanabilirsiniz.
+> Projeyi yerel olarak çalıştırmanın yanı sıra, alternatif geliştirme ortamı kurulumları için GitHub Codespaces veya VS Code Dev Containers da kullanabilirsiniz.
 >
 > #### GitHub Codespaces
 >
@@ -113,9 +113,9 @@ Bu manuel test, yaptığınız değişikliklerin gerçek dünyada sorunsuz çal�
 >
 > 1. Şablonu açın (bu birkaç dakika sürebilir):
 >
->     [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/azure/co-op-translator)
+>     <a href="https://codespaces.new/azure/co-op-translator"><img src="https://github.com/codespaces/badge.svg" alt="Open in GitHub Codespaces"></a>
 >
-> #### Yerel olarak VS Code Dev Containers ile çalıştırma
+> #### Yerel olarak VS Code Dev Containers ile Çalıştırma
 >
 > ⚠️ Bu seçenek yalnızca Docker Desktop en az 16 GB RAM'e ayrılmışsa çalışır. 16 GB'tan az RAM'iniz varsa [GitHub Codespaces seçeneğini](../..) veya [yerel kurulum](../..) yöntemini deneyebilirsiniz.
 >
@@ -124,7 +124,7 @@ Bu manuel test, yaptığınız değişikliklerin gerçek dünyada sorunsuz çal�
 > 1. Docker Desktop'ı başlatın (yüklü değilse yükleyin)
 > 2. Projeyi açın:
 >
->    [![Open in Dev Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure/co-op-translator)
+>    <a href="https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure/co-op-translator"><img src="https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode" alt="Open in Dev Containers"></a>
 
 
 ### Kod Stili
@@ -191,7 +191,7 @@ pip install black
 
 ## Co-op Translator'ı Çalıştırmak
 
-Poetry ile Co-op Translator'ı ortamınızda çalıştırmak için şu adımları izleyin:
+Ortamınızda Poetry kullanarak Co-op Translator'ı çalıştırmak için şu adımları izleyin:
 
 1. Çeviri testleri yapmak istediğiniz dizine gidin veya test amaçlı geçici bir klasör oluşturun.
 
@@ -204,16 +204,16 @@ Poetry ile Co-op Translator'ı ortamınızda çalıştırmak için şu adımlar�
 > [!NOTE]
 > Komutu çalıştırmadan önce Poetry ortamınızın etkin olduğundan emin olun (poetry shell).
 
-## Yeni bir dil eklemek için katkı
+## Yeni bir dil eklemek için katkı sağlama
 
-Yeni dillerin eklenmesini memnuniyetle karşılıyoruz. PR açmadan önce aşağıdaki adımları tamamlayarak inceleme sürecinin sorunsuz olmasını sağlayın.
+Yeni diller için desteği artıracak katkıları memnuniyetle karşılıyoruz. Bir PR açmadan önce, aşağıdaki adımları tamamlayarak inceleme sürecinin sorunsuz olmasını sağlayın.
 
 1. Dili font eşlemesine ekleyin
    - `src/co_op_translator/fonts/font_language_mappings.yml` dosyasını düzenleyin
    - Şu bilgileri ekleyin:
      - `code`: ISO benzeri dil kodu (ör. `vi`)
      - `name`: İnsan dostu görünen ad
-     - `font`: İlgili yazıyı destekleyen ve `src/co_op_translator/fonts/` içinde bulunan bir font
+     - `font`: İlgili yazıyı destekleyen ve `src/co_op_translator/fonts/` klasöründe bulunan bir font
      - `rtl`: Sağdan sola ise `true`, değilse `false`
 
 2. Gerekli font dosyalarını ekleyin (gerekiyorsa)
@@ -221,15 +221,15 @@ Yeni dillerin eklenmesini memnuniyetle karşılıyoruz. PR açmadan önce aşağ
    - Font dosyasını `src/co_op_translator/fonts/` klasörüne ekleyin
 
 3. Yerel doğrulama
-   - Küçük bir örnek üzerinde çeviri çalıştırın (Markdown, görseller ve uygun ise notebooklar)
-   - Çıktının doğru şekilde göründüğünü doğrulayın; fontlar ve varsa RTL düzeni dahil
+   - Küçük bir örnek için çeviri çalıştırın (Markdown, görseller ve uygun ise notebooklar)
+   - Çıktının doğru şekilde görüntülendiğini doğrulayın, fontlar ve varsa RTL düzeni dahil
 
 4. Dokümantasyonu güncelleyin
    - Dilin `getting_started/supported-languages.md` dosyasında göründüğünden emin olun
-   - `README_languages_template.md` dosyasında değişiklik yapmanıza gerek yoktur; bu dosya desteklenen listeye göre oluşturulur
+   - `README_languages_template.md` dosyasında değişiklik yapmanıza gerek yoktur; bu dosya desteklenen listeye göre otomatik oluşturulur
 
 5. PR açın
-   - Eklediğiniz dili ve varsa font/lisans ile ilgili hususları açıklayın
+   - Eklenen dili ve varsa font/lisans ile ilgili hususları açıklayın
    - Mümkünse çıktıların ekran görüntülerini ekleyin
 
 Örnek YAML girişi:
@@ -241,6 +241,22 @@ new_lang(code):
   rtl: false
 ```
 
+### Yeni dili test etme
+
+Aşağıdaki komutu çalıştırarak yeni dili test edebilirsiniz:
+
+```bash
+# Create and activate a virtual environment (recommended)
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+source .venv/bin/activate
+# Install the development package
+pip install -e .
+# Run the translation
+translate -l "new_lang"
+```
 
 ## Sürdürücüler
 
@@ -248,11 +264,11 @@ new_lang(code):
 
 Proje commit geçmişimizin tutarlı ve anlaşılır olması için, **Squash and Merge** stratejisi kullanılırken **son commit mesajı** için belirli bir format izliyoruz.
 
-Bir pull request (PR) birleştirildiğinde, bireysel commitler tek bir committe birleştirilir. Son commit mesajı, temiz ve tutarlı bir geçmiş için aşağıdaki formata uygun olmalıdır.
+Bir pull request (PR) birleştirildiğinde, bireysel commitler tek bir committe birleştirilir. Son commit mesajı, temiz ve tutarlı bir geçmiş için aşağıdaki formatta olmalıdır.
 
 #### Commit mesajı formatı (squash and merge için)
 
-Commit mesajlarında şu formatı kullanıyoruz:
+Commit mesajlarında aşağıdaki formatı kullanıyoruz:
 
 ```bash
 <type>: <description> (#<PR number>)
@@ -278,15 +294,15 @@ Commit mesajlarında şu formatı kullanıyoruz:
 
 Pull requestler için varsayılan stratejimiz **Squash and Merge**'dir. Bu strateji, commit mesajlarının formatımıza uygun olmasını sağlar; bireysel commitler uygun olmasa bile.
 
-**Nedenler**:
+**Nedenleri**:
 
-- Temiz, doğrusal bir proje geçmişi.
+- Temiz ve doğrusal bir proje geçmişi.
 - Commit mesajlarında tutarlılık.
 - Küçük commitlerden (ör. "düzeltme yazım hatası") kaynaklanan gereksiz karmaşanın azalması.
 
-Birleştirirken, son commit mesajının yukarıda açıklanan formata uygun olduğundan emin olun.
+Birleştirirken, son commit mesajının yukarıda açıklanan commit mesajı formatına uygun olduğundan emin olun.
 
-**Squash and Merge örneği**
+**Squash and Merge Örneği**
 Bir PR şu commitleri içeriyorsa:
 
 - `fix typo`

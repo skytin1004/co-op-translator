@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "bd4704f50c55da7d572b691484aa0b30",
-  "translation_date": "2025-10-15T03:56:38+00:00",
+  "original_hash": "1ae2159f900e7d5d596bb00bcba4c999",
+  "translation_date": "2025-10-22T14:07:03+00:00",
   "source_file": "CONTRIBUTING.md",
   "language_code": "ro"
 }
@@ -15,7 +15,7 @@ de a folosi contribuția ta. Pentru detalii, vizitează https://cla.opensource.m
 
 Când trimiți un pull request, un bot CLA va determina automat dacă trebuie să furnizezi
 un CLA și va marca PR-ul corespunzător (de exemplu, status check, comentariu). Urmează pur și simplu instrucțiunile
-oferite de bot. Trebuie să faci acest lucru o singură dată pentru toate repo-urile care folosesc CLA-ul nostru.
+furnizate de bot. Va trebui să faci acest lucru o singură dată pentru toate repo-urile care folosesc CLA-ul nostru.
 
 ## Configurarea mediului de dezvoltare
 
@@ -37,7 +37,7 @@ poetry init
 
 ### Activează mediul virtual
 
-#### Pentru pip și Poetry
+#### Pentru ambele, pip și Poetry
 
 - Windows:
 
@@ -115,7 +115,7 @@ Această testare manuală te ajută să te asiguri că modificările tale funcț
 >
 > Butonul va deschide o instanță VS Code bazată pe web direct în browserul tău:
 >
-> 1. Deschide template-ul (poate dura câteva minute):
+> 1. Deschide șablonul (poate dura câteva minute):
 >
 >     [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/azure/co-op-translator)
 >
@@ -133,7 +133,7 @@ Această testare manuală te ajută să te asiguri că modificările tale funcț
 
 ### Stilul codului
 
-Folosim [Black](https://github.com/psf/black) ca formatter pentru codul Python, pentru a menține un stil consistent în tot proiectul. Black este un formatter strict care reformatează automat codul Python conform stilului Black.
+Folosim [Black](https://github.com/psf/black) ca formatter pentru codul Python pentru a menține un stil consistent în tot proiectul. Black este un formatter strict care reformatează automat codul Python conform stilului Black.
 
 #### Configurare
 
@@ -191,7 +191,7 @@ pip install black
     ```
 
 > [!TIP]
-> Îți recomandăm să configurezi editorul să formateze automat codul cu Black la salvare. Majoritatea editorilor moderne suportă acest lucru prin extensii sau plugin-uri.
+> Recomandăm să configurezi editorul să formateze automat codul cu Black la salvare. Majoritatea editorilor moderni suportă acest lucru prin extensii sau plugin-uri.
 
 ## Rularea Co-op Translator
 
@@ -215,8 +215,8 @@ Acceptăm contribuții care adaugă suport pentru limbi noi. Înainte de a desch
 1. Adaugă limba în maparea fonturilor
    - Editează `src/co_op_translator/fonts/font_language_mappings.yml`
    - Adaugă o intrare cu:
-     - `code`: cod de limbă tip ISO (ex: `vi`)
-     - `name`: denumire afișată prietenoasă
+     - `code`: cod de limbă de tip ISO (ex: `vi`)
+     - `name`: nume afișat prietenos
      - `font`: un font inclus în `src/co_op_translator/fonts/` care suportă scrierea respectivă
      - `rtl`: `true` dacă limba se scrie de la dreapta la stânga, altfel `false`
 
@@ -245,6 +245,22 @@ new_lang(code):
   rtl: false
 ```
 
+### Testează noua limbă
+
+Poți testa noua limbă rulând următoarea comandă:
+
+```bash
+# Create and activate a virtual environment (recommended)
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+source .venv/bin/activate
+# Install the development package
+pip install -e .
+# Run the translation
+translate -l "new_lang"
+```
 
 ## Maintaineri
 
@@ -276,7 +292,7 @@ Folosim următorul format pentru mesajele de commit:
 - `Core: Improve handling of image translation (#60)`
 
 > [!NOTE]
-> În prezent, prefixurile **`Docs`**, **`Core`** și **`Build`** sunt adăugate automat la titlurile PR-urilor pe baza etichetelor aplicate codului sursă modificat. Atât timp cât eticheta corectă este aplicată, de obicei nu trebuie să actualizezi manual titlul PR-ului. Trebuie doar să verifici că totul este corect și prefixul a fost generat corespunzător.
+> În prezent, prefixurile **`Docs`**, **`Core`** și **`Build`** sunt adăugate automat la titlurile PR-urilor pe baza etichetelor aplicate codului sursă modificat. Atâta timp cât eticheta corectă este aplicată, de obicei nu trebuie să actualizezi manual titlul PR-ului. Trebuie doar să verifici că totul este corect și prefixul a fost generat corespunzător.
 
 #### Strategia de îmbinare
 
@@ -288,7 +304,7 @@ Folosim **Squash and Merge** ca strategie implicită pentru pull request-uri. Ac
 - Consistență în mesajele de commit.
 - Mai puțin zgomot din commit-uri minore (ex: "fix typo").
 
-La îmbinare, asigură-te că mesajul final de commit respectă formatul descris mai sus.
+Când faci îmbinarea, asigură-te că mesajul final de commit respectă formatul descris mai sus.
 
 **Exemplu de Squash and Merge**
 Dacă un PR conține următoarele commit-uri:

@@ -1,15 +1,15 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "badae5ee6451cc1a6e367cfe5ba92efa",
-  "translation_date": "2025-10-15T03:21:50+00:00",
+  "original_hash": "40660d83d2792201cad4aec9fdf25a29",
+  "translation_date": "2025-10-22T13:52:55+00:00",
   "source_file": "getting_started/supported-languages.md",
   "language_code": "da"
 }
 -->
 # Understøttede sprog
 
-Tabellen nedenfor viser de sprog, der i øjeblikket understøttes af **Co-op Translator**. Den indeholder sprogkoder, sprognavne og eventuelle kendte problemer for hvert sprog. Hvis du ønsker at tilføje understøttelse af et nyt sprog, skal du tilføje den relevante sprogkode, navn og passende skrifttype i filen `font_language_mappings.yml`, som findes under `src/co_op_translator/fonts/`, og indsende et pull request efter test.
+Tabellen nedenfor viser de sprog, der i øjeblikket understøttes af **Co-op Translator**. Den indeholder sprogkoder, sprognavne og eventuelle kendte problemer for hvert sprog. Hvis du ønsker at tilføje understøttelse af et nyt sprog, skal du tilføje den relevante sprogkode, navn og passende skrifttype i filen `font_language_mappings.yml`, som findes under `src/co_op_translator/fonts/`, og indsende en pull request efter test.
 
 | Sprogkode     | Sprognavn            | Skrifttype                        | RTL-understøttelse | Kendte problemer |
 |---------------|----------------------|-----------------------------------|--------------------|------------------|
@@ -63,6 +63,7 @@ Tabellen nedenfor viser de sprog, der i øjeblikket understøttes af **Co-op Tra
 | my            | Burmesisk (Myanmar)  | NotoSansMyanmar-Medium.ttf        | Nej                | Nej              |
 | ta            | Tamil                | NotoSansTamil-Medium.ttf          | Nej                | Nej              |
 | et            | Estisk               | NotoSans-Medium.ttf               | Nej                | Nej              |
+| pcm           | Nigeriansk pidgin    | NotoSans-Medium.ttf               | Nej                | Nej              |
 
 ## Tilføj et nyt sprog
 
@@ -73,4 +74,4 @@ Vil du gerne tilføje et nyt sprog? Følg venligst bidragsvejledningen:
 ---
 
 **Ansvarsfraskrivelse**:
-Dette dokument er blevet oversat ved hjælp af AI-oversættelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selvom vi bestræber os på nøjagtighed, skal du være opmærksom på, at automatiserede oversættelser kan indeholde fejl eller unøjagtigheder. Det originale dokument på dets oprindelige sprog bør betragtes som den autoritative kilde. For kritiske oplysninger anbefales professionel menneskelig oversættelse. Vi påtager os intet ansvar for misforståelser eller fejltolkninger, der måtte opstå ved brug af denne oversættelse.
+Dette dokument er blevet oversat ved hjælp af AI-oversættelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selvom vi bestræber os på nøjagtighed, skal du være opmærksom på, at automatiserede oversættelser kan indeholde fejl eller unøjagtigheder. Det originale dokument på dets oprindelige sprog bør betragtes som den autoritative kilde. For kritisk information anbefales professionel menneskelig oversættelse. Vi påtager os intet ansvar for misforståelser eller fejltolkninger, der måtte opstå ved brug af denne oversættelse.

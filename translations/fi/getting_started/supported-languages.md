@@ -1,15 +1,15 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "badae5ee6451cc1a6e367cfe5ba92efa",
-  "translation_date": "2025-10-15T03:27:10+00:00",
+  "original_hash": "40660d83d2792201cad4aec9fdf25a29",
+  "translation_date": "2025-10-22T13:55:23+00:00",
   "source_file": "getting_started/supported-languages.md",
   "language_code": "fi"
 }
 -->
 # Tuetut kielet
 
-Alla olevassa taulukossa on lueteltu kielet, joita **Co-op Translator** tällä hetkellä tukee. Taulukossa näkyvät kielikoodit, kielten nimet sekä mahdolliset tunnetut ongelmat kunkin kielen kohdalla. Jos haluat lisätä uuden kielen tuen, lisää vastaava kielikoodi, nimi ja sopiva fontti tiedostoon `font_language_mappings.yml`, joka löytyy polusta `src/co_op_translator/fonts/`, ja tee pull request testauksen jälkeen.
+Alla olevassa taulukossa on lueteltu kielet, joita **Co-op Translator** tällä hetkellä tukee. Taulukossa näkyvät kielikoodit, kielten nimet sekä mahdolliset tunnetut ongelmat kunkin kielen kohdalla. Jos haluat lisätä tuen uudelle kielelle, lisää vastaava kielikoodi, nimi ja sopiva fontti tiedostoon `font_language_mappings.yml`, joka löytyy polusta `src/co_op_translator/fonts/`, ja tee pull request testauksen jälkeen.
 
 | Kielikoodi    | Kielen nimi                | Fontti                            | RTL-tuki    | Tunnetut ongelmat |
 |---------------|---------------------------|-----------------------------------|-------------|-------------------|
@@ -23,8 +23,8 @@ Alla olevassa taulukossa on lueteltu kielet, joita **Co-op Translator** tällä 
 | ur            | Urdu                      | NotoSansArabic-Medium.ttf         | Kyllä       | Ei                |
 | zh            | Kiina (yksinkertaistettu) | NotoSansCJK-Medium.ttc            | Ei          | Ei                |
 | mo            | Kiina (perinteinen, Macao)| NotoSansCJK-Medium.ttc            | Ei          | Ei                |
-| hk            | Kiina (perinteinen, Hong Kong) | NotoSansCJK-Medium.ttc       | Ei          | Ei                |
-| tw            | Kiina (perinteinen, Taiwan) | NotoSansCJK-Medium.ttc         | Ei          | Ei                |
+| hk            | Kiina (perinteinen, Hongkong) | NotoSansCJK-Medium.ttc        | Ei          | Ei                |
+| tw            | Kiina (perinteinen, Taiwan)   | NotoSansCJK-Medium.ttc         | Ei          | Ei                |
 | ja            | Japani                    | NotoSansCJK-Medium.ttc            | Ei          | Ei                |
 | ko            | Korea                     | NotoSansCJK-Medium.ttc            | Ei          | Ei                |
 | hi            | Hindi                     | NotoSansDevanagari-Medium.ttf     | Ei          | Ei                |
@@ -60,9 +60,10 @@ Alla olevassa taulukossa on lueteltu kielet, joita **Co-op Translator** tällä 
 | hr            | Kroatia                   | NotoSans-Medium.ttf               | Ei          | Ei                |
 | sl            | Slovenia                  | NotoSans-Medium.ttf               | Ei          | Ei                |
 | uk            | Ukraina                   | NotoSans-Medium.ttf               | Ei          | Ei                |
-| my            | Burmankieli (Myanmar)     | NotoSansMyanmar-Medium.ttf        | Ei          | Ei                |
+| my            | Burman kieli (Myanmar)    | NotoSansMyanmar-Medium.ttf        | Ei          | Ei                |
 | ta            | Tamili                    | NotoSansTamil-Medium.ttf          | Ei          | Ei                |
 | et            | Viro                      | NotoSans-Medium.ttf               | Ei          | Ei                |
+| pcm           | Nigerian pidgin           | NotoSans-Medium.ttf               | Ei          | Ei                |
 
 ## Uuden kielen lisääminen
 

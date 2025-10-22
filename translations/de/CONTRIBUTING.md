@@ -1,21 +1,21 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "bd4704f50c55da7d572b691484aa0b30",
-  "translation_date": "2025-10-15T02:11:57+00:00",
+  "original_hash": "1ae2159f900e7d5d596bb00bcba4c999",
+  "translation_date": "2025-10-22T13:22:01+00:00",
   "source_file": "CONTRIBUTING.md",
   "language_code": "de"
 }
 -->
-# Beitrag zu Co-op Translator
+# Beitrag zum Co-op Translator
 
-Dieses Projekt freut sich über Beiträge und Vorschläge. Die meisten Beiträge erfordern, dass du eine Contributor License Agreement (CLA) akzeptierst, in der du bestätigst, dass du das Recht hast, uns die Nutzungsrechte an deinem Beitrag zu gewähren. Weitere Informationen findest du unter https://cla.opensource.microsoft.com.
+Dieses Projekt freut sich über Beiträge und Vorschläge. Die meisten Beiträge erfordern, dass du einer Contributor License Agreement (CLA) zustimmst, in der du erklärst, dass du das Recht hast, uns die Nutzungsrechte an deinem Beitrag zu gewähren. Weitere Informationen findest du unter https://cla.opensource.microsoft.com.
 
-Wenn du einen Pull Request einreichst, prüft ein CLA-Bot automatisch, ob du eine CLA abgeben musst, und kennzeichnet den PR entsprechend (z. B. Statusprüfung, Kommentar). Folge einfach den Anweisungen des Bots. Dies musst du nur einmal für alle Repositories tun, die unsere CLA verwenden.
+Wenn du einen Pull Request einreichst, prüft ein CLA-Bot automatisch, ob du eine CLA bereitstellen musst, und kennzeichnet den PR entsprechend (z. B. Status-Check, Kommentar). Folge einfach den Anweisungen des Bots. Du musst dies nur einmal für alle Repositories tun, die unsere CLA verwenden.
 
-## Entwicklungsumgebung einrichten
+## Einrichtung der Entwicklungsumgebung
 
-Um die Entwicklungsumgebung für dieses Projekt einzurichten, empfehlen wir die Verwendung von Poetry zur Verwaltung der Abhängigkeiten. Wir nutzen `pyproject.toml` zur Verwaltung der Projektabhängigkeiten. Daher solltest du für die Installation von Abhängigkeiten Poetry verwenden.
+Für die Einrichtung der Entwicklungsumgebung empfehlen wir Poetry zur Verwaltung der Abhängigkeiten. Wir nutzen `pyproject.toml` für die Projektabhängigkeiten, daher solltest du Poetry zur Installation verwenden.
 
 ### Erstellen einer virtuellen Umgebung
 
@@ -63,7 +63,7 @@ poetry install
 
 ### Manuelles Testen
 
-Bevor du einen PR einreichst, ist es wichtig, die Übersetzungsfunktion mit echter Dokumentation zu testen:
+Bevor du einen PR einreichst, solltest du die Übersetzungsfunktion mit echter Dokumentation testen:
 
 1. Erstelle ein Testverzeichnis im Hauptverzeichnis:
     ```bash
@@ -86,13 +86,13 @@ Bevor du einen PR einreichst, ist es wichtig, die Übersetzungsfunktion mit echt
     python -m co_op_translator --language-codes ko --root-dir test_docs
     ```
 
-5. Überprüfe die übersetzten Dateien in `test_docs/translations` und `test_docs/translated_images`, um sicherzustellen:
-   - Die Übersetzungsqualität stimmt
-   - Die Metadaten-Kommentare korrekt sind
-   - Die ursprüngliche Markdown-Struktur erhalten bleibt
-   - Links und Bilder richtig funktionieren
+5. Überprüfe die übersetzten Dateien in `test_docs/translations` und `test_docs/translated_images` und achte auf:
+   - Die Übersetzungsqualität
+   - Die Korrektheit der Metadaten-Kommentare
+   - Die Beibehaltung der ursprünglichen Markdown-Struktur
+   - Funktionierende Links und Bilder
 
-Dieses manuelle Testen hilft sicherzustellen, dass deine Änderungen auch in realen Szenarien funktionieren.
+Dieses manuelle Testen hilft sicherzustellen, dass deine Änderungen auch in der Praxis funktionieren.
 
 ### Umgebungsvariablen
 
@@ -103,7 +103,7 @@ Dieses manuelle Testen hilft sicherzustellen, dass deine Änderungen auch in rea
 >
 > ### Weitere Optionen für die Entwicklungsumgebung
 >
-> Neben dem lokalen Ausführen des Projekts kannst du auch GitHub Codespaces oder VS Code Dev Containers als alternative Entwicklungsumgebung nutzen.
+> Zusätzlich zur lokalen Ausführung kannst du auch GitHub Codespaces oder VS Code Dev Containers als alternative Entwicklungsumgebung nutzen.
 >
 > #### GitHub Codespaces
 >
@@ -115,13 +115,13 @@ Dieses manuelle Testen hilft sicherzustellen, dass deine Änderungen auch in rea
 >
 >     [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/azure/co-op-translator)
 >
-> #### Lokal mit VS Code Dev Containers ausführen
+> #### Lokale Ausführung mit VS Code Dev Containers
 >
-> ⚠️ Diese Option funktioniert nur, wenn deinem Docker Desktop mindestens 16 GB RAM zugewiesen sind. Wenn du weniger als 16 GB RAM hast, kannst du die [GitHub Codespaces-Option](../..) ausprobieren oder [es lokal einrichten](../..).
+> ⚠️ Diese Option funktioniert nur, wenn deinem Docker Desktop mindestens 16 GB RAM zugewiesen sind. Falls du weniger als 16 GB RAM hast, kannst du die [GitHub Codespaces Option](../..) nutzen oder [es lokal einrichten](../..).
 >
-> Eine verwandte Option sind VS Code Dev Containers, mit denen du das Projekt in deinem lokalen VS Code mit der [Dev Containers-Erweiterung](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) öffnen kannst:
+> Eine weitere Möglichkeit sind VS Code Dev Containers, die das Projekt in deinem lokalen VS Code mit der [Dev Containers Erweiterung](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) öffnen:
 >
-> 1. Starte Docker Desktop (installiere es, falls noch nicht geschehen)
+> 1. Starte Docker Desktop (installiere es, falls noch nicht vorhanden)
 > 2. Öffne das Projekt:
 >
 >    [![Open in Dev Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure/co-op-translator)
@@ -129,7 +129,7 @@ Dieses manuelle Testen hilft sicherzustellen, dass deine Änderungen auch in rea
 
 ### Code-Stil
 
-Wir verwenden [Black](https://github.com/psf/black) als Python-Code-Formatter, um einen einheitlichen Code-Stil im gesamten Projekt zu gewährleisten. Black ist ein kompromissloser Code-Formatter, der Python-Code automatisch an den Black-Code-Stil anpasst.
+Wir verwenden [Black](https://github.com/psf/black) als Python-Code-Formatter, um einen einheitlichen Stil im Projekt zu gewährleisten. Black ist ein kompromissloser Code-Formatter, der Python-Code automatisch nach dem Black-Stil formatiert.
 
 #### Konfiguration
 
@@ -142,7 +142,7 @@ target-version = ['py310']
 include = '\.pyi?$'
 ```
 
-#### Black installieren
+#### Installation von Black
 
 Du kannst Black entweder mit Poetry (empfohlen) oder pip installieren:
 
@@ -160,7 +160,7 @@ Wenn du pip verwendest, kannst du Black direkt installieren:
 pip install black
 ```
 
-#### Black verwenden
+#### Verwendung von Black
 
 ##### Mit Poetry
 
@@ -193,9 +193,9 @@ pip install black
 
 Um Co-op Translator mit Poetry in deiner Umgebung auszuführen, folge diesen Schritten:
 
-1. Wechsle in das Verzeichnis, in dem du Übersetzungstests durchführen möchtest, oder erstelle einen temporären Ordner zu Testzwecken.
+1. Wechsle in das Verzeichnis, in dem du Übersetzungstests durchführen möchtest, oder erstelle einen temporären Ordner zum Testen.
 
-2. Führe den folgenden Befehl aus. Ersetze `-l ko` durch den Sprachcode, in den du übersetzen möchtest. Das `-d`-Flag aktiviert den Debug-Modus.
+2. Führe folgenden Befehl aus. Ersetze `-l ko` durch den Sprachcode, in den du übersetzen möchtest. Das `-d`-Flag aktiviert den Debug-Modus.
 
     ```bash
     poetry run co-op-translator translate -l ko -d
@@ -204,20 +204,20 @@ Um Co-op Translator mit Poetry in deiner Umgebung auszuführen, folge diesen Sch
 > [!NOTE]
 > Stelle sicher, dass deine Poetry-Umgebung aktiviert ist (poetry shell), bevor du den Befehl ausführst.
 
-## Eine neue Sprache beitragen
+## Neue Sprache beitragen
 
-Wir freuen uns über Beiträge, die neue Sprachen unterstützen. Bitte führe vor dem Öffnen eines PRs die folgenden Schritte durch, um eine reibungslose Überprüfung zu gewährleisten.
+Wir freuen uns über Beiträge, die neue Sprachen unterstützen. Bevor du einen PR öffnest, führe bitte die folgenden Schritte aus, um eine reibungslose Überprüfung zu gewährleisten.
 
-1. Sprache zur Schriftarten-Zuordnung hinzufügen
+1. Sprache zur Schriftzuordnung hinzufügen
    - Bearbeite `src/co_op_translator/fonts/font_language_mappings.yml`
    - Füge einen Eintrag hinzu mit:
      - `code`: ISO-ähnlicher Sprachcode (z. B. `vi`)
-     - `name`: Benutzerfreundlicher Anzeigename
+     - `name`: Menschlich lesbarer Name
      - `font`: Eine Schriftart aus `src/co_op_translator/fonts/`, die das Schriftsystem unterstützt
      - `rtl`: `true` bei Rechts-nach-Links-Schrift, sonst `false`
 
-2. Benötigte Schriftdateien einbinden (falls erforderlich)
-   - Wenn eine neue Schriftart benötigt wird, prüfe die Lizenz auf Kompatibilität mit Open Source
+2. Benötigte Schriftdateien einfügen (falls nötig)
+   - Falls eine neue Schriftart benötigt wird, prüfe die Lizenzkompatibilität für Open Source
    - Füge die Schriftdatei zu `src/co_op_translator/fonts/` hinzu
 
 3. Lokale Überprüfung
@@ -225,14 +225,14 @@ Wir freuen uns über Beiträge, die neue Sprachen unterstützen. Bitte führe vo
    - Überprüfe, ob die Ausgabe korrekt dargestellt wird, einschließlich Schriftarten und ggf. RTL-Layout
 
 4. Dokumentation aktualisieren
-   - Stelle sicher, dass die Sprache in `getting_started/supported-languages.md` aufgeführt ist
-   - Änderungen an `README_languages_template.md` sind nicht erforderlich; diese Datei wird aus der unterstützten Liste generiert
+   - Stelle sicher, dass die Sprache in `getting_started/supported-languages.md` erscheint
+   - Änderungen an `README_languages_template.md` sind nicht nötig; diese wird aus der unterstützten Liste generiert
 
-5. PR eröffnen
-   - Beschreibe die hinzugefügte Sprache und ggf. Schrift-/Lizenzüberlegungen
+5. PR öffnen
+   - Beschreibe die hinzugefügte Sprache und ggf. Schrift-/Lizenzhinweise
    - Füge nach Möglichkeit Screenshots der gerenderten Ausgaben bei
 
-Beispiel für einen YAML-Eintrag:
+Beispiel YAML-Eintrag:
 
 ```yaml
 new_lang(code):
@@ -241,16 +241,32 @@ new_lang(code):
   rtl: false
 ```
 
+### Neue Sprache testen
+
+Du kannst die neue Sprache mit folgendem Befehl testen:
+
+```bash
+# Create and activate a virtual environment (recommended)
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+source .venv/bin/activate
+# Install the development package
+pip install -e .
+# Run the translation
+translate -l "new_lang"
+```
 
 ## Maintainer
 
 ### Commit-Nachricht und Merge-Strategie
 
-Um Konsistenz und Klarheit in der Commit-Historie unseres Projekts zu gewährleisten, folgen wir einem bestimmten Format für Commit-Nachrichten **für die finale Commit-Nachricht** bei Verwendung der **Squash and Merge**-Strategie.
+Um Konsistenz und Klarheit in der Commit-Historie unseres Projekts zu gewährleisten, folgen wir einem bestimmten Format **für die finale Commit-Nachricht** beim **Squash and Merge**-Verfahren.
 
-Wenn ein Pull Request (PR) gemergt wird, werden die einzelnen Commits zu einem einzigen Commit zusammengefasst. Die finale Commit-Nachricht sollte dem untenstehenden Format folgen, um eine saubere und konsistente Historie zu erhalten.
+Wenn ein Pull Request (PR) gemerged wird, werden die einzelnen Commits zu einem einzigen Commit zusammengefasst. Die finale Commit-Nachricht sollte dem unten beschriebenen Format folgen, um eine saubere und konsistente Historie zu erhalten.
 
-#### Format der Commit-Nachricht (für Squash and Merge)
+#### Commit-Nachrichtenformat (für Squash and Merge)
 
 Wir verwenden folgendes Format für Commit-Nachrichten:
 
@@ -260,11 +276,11 @@ Wir verwenden folgendes Format für Commit-Nachrichten:
 
 - **type**: Gibt die Kategorie des Commits an. Wir verwenden folgende Typen:
   - `Docs`: Für Aktualisierungen der Dokumentation.
-  - `Build`: Für Änderungen am Build-System oder an Abhängigkeiten, einschließlich Updates an Konfigurationsdateien, CI-Workflows oder der Dockerfile.
-  - `Core`: Für Änderungen an der Kernfunktionalität des Projekts, insbesondere an Dateien im Verzeichnis `src/co_op_translator/core`.
+  - `Build`: Für Änderungen am Build-System oder an Abhängigkeiten, einschließlich Updates von Konfigurationsdateien, CI-Workflows oder Dockerfile.
+  - `Core`: Für Änderungen an der Kernfunktionalität oder Features des Projekts, insbesondere an Dateien im Verzeichnis `src/co_op_translator/core`.
 
 - **description**: Eine kurze Zusammenfassung der Änderung.
-- **PR number**: Die Nummer des Pull Requests, der mit dem Commit verknüpft ist.
+- **PR number**: Die Nummer des zugehörigen Pull Requests.
 
 **Beispiele**:
 
@@ -272,7 +288,7 @@ Wir verwenden folgendes Format für Commit-Nachrichten:
 - `Core: Improve handling of image translation (#60)`
 
 > [!NOTE]
-> Aktuell werden die Präfixe **`Docs`**, **`Core`** und **`Build`** automatisch zu PR-Titeln hinzugefügt, basierend auf den Labels, die dem geänderten Quellcode zugewiesen sind. Solange das richtige Label gesetzt ist, musst du den PR-Titel normalerweise nicht manuell anpassen. Du solltest nur überprüfen, ob alles korrekt ist und das Präfix richtig generiert wurde.
+> Die Präfixe **`Docs`**, **`Core`** und **`Build`** werden derzeit automatisch zu PR-Titeln hinzugefügt, basierend auf den Labels, die dem geänderten Quellcode zugewiesen sind. Solange das richtige Label gesetzt ist, musst du den PR-Titel normalerweise nicht manuell anpassen. Du solltest nur überprüfen, ob alles korrekt ist und das Präfix richtig generiert wurde.
 
 #### Merge-Strategie
 
@@ -282,7 +298,7 @@ Wir verwenden **Squash and Merge** als Standardstrategie für Pull Requests. Die
 
 - Eine saubere, lineare Projekt-Historie.
 - Konsistenz bei Commit-Nachrichten.
-- Weniger "Rauschen" durch kleinere Commits (z. B. "fix typo").
+- Weniger "Rauschen" durch kleine Commits (z. B. "fix typo").
 
 Beim Mergen stelle sicher, dass die finale Commit-Nachricht dem oben beschriebenen Format entspricht.
 

@@ -1,15 +1,15 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "badae5ee6451cc1a6e367cfe5ba92efa",
-  "translation_date": "2025-10-15T03:37:58+00:00",
+  "original_hash": "40660d83d2792201cad4aec9fdf25a29",
+  "translation_date": "2025-10-22T13:59:40+00:00",
   "source_file": "getting_started/supported-languages.md",
   "language_code": "id"
 }
 -->
 # Bahasa yang Didukung
 
-Tabel di bawah ini menunjukkan bahasa-bahasa yang saat ini didukung oleh **Co-op Translator**. Tabel ini mencakup kode bahasa, nama bahasa, dan masalah yang diketahui untuk setiap bahasa. Jika Anda ingin menambahkan dukungan untuk bahasa baru, silakan tambahkan kode bahasa, nama, dan font yang sesuai ke file `font_language_mappings.yml` yang ada di `src/co_op_translator/fonts/` lalu ajukan pull request setelah melakukan pengujian.
+Tabel di bawah ini menunjukkan bahasa-bahasa yang saat ini didukung oleh **Co-op Translator**. Tabel ini berisi kode bahasa, nama bahasa, dan masalah yang diketahui untuk setiap bahasa. Jika Anda ingin menambahkan dukungan untuk bahasa baru, silakan tambahkan kode bahasa, nama, dan font yang sesuai ke file `font_language_mappings.yml` yang ada di `src/co_op_translator/fonts/` lalu ajukan pull request setelah melakukan pengujian.
 
 | Kode Bahasa   | Nama Bahasa                | Font                              | Dukungan RTL | Masalah Diketahui |
 |---------------|---------------------------|-----------------------------------|--------------|-------------------|
@@ -21,10 +21,10 @@ Tabel di bawah ini menunjukkan bahasa-bahasa yang saat ini didukung oleh **Co-op
 | ar            | Arab                      | NotoSansArabic-Medium.ttf         | Ya           | Tidak             |
 | fa            | Persia (Farsi)            | NotoSansArabic-Medium.ttf         | Ya           | Tidak             |
 | ur            | Urdu                      | NotoSansArabic-Medium.ttf         | Ya           | Tidak             |
-| zh            | Mandarin (Sederhana)      | NotoSansCJK-Medium.ttc            | Tidak        | Tidak             |
-| mo            | Mandarin (Tradisional, Makau) | NotoSansCJK-Medium.ttc        | Tidak        | Tidak             |
-| hk            | Mandarin (Tradisional, Hong Kong) | NotoSansCJK-Medium.ttc     | Tidak        | Tidak             |
-| tw            | Mandarin (Tradisional, Taiwan) | NotoSansCJK-Medium.ttc       | Tidak        | Tidak             |
+| zh            | Tionghoa (Sederhana)      | NotoSansCJK-Medium.ttc            | Tidak        | Tidak             |
+| mo            | Tionghoa (Tradisional, Makau) | NotoSansCJK-Medium.ttc        | Tidak        | Tidak             |
+| hk            | Tionghoa (Tradisional, Hong Kong) | NotoSansCJK-Medium.ttc     | Tidak        | Tidak             |
+| tw            | Tionghoa (Tradisional, Taiwan) | NotoSansCJK-Medium.ttc       | Tidak        | Tidak             |
 | ja            | Jepang                    | NotoSansCJK-Medium.ttc            | Tidak        | Tidak             |
 | ko            | Korea                     | NotoSansCJK-Medium.ttc            | Tidak        | Tidak             |
 | hi            | Hindi                     | NotoSansDevanagari-Medium.ttf     | Tidak        | Tidak             |
@@ -39,7 +39,7 @@ Tabel di bawah ini menunjukkan bahasa-bahasa yang saat ini didukung oleh **Co-op
 | pl            | Polandia                  | NotoSans-Medium.ttf               | Tidak        | Tidak             |
 | tr            | Turki                     | NotoSans-Medium.ttf               | Tidak        | Tidak             |
 | el            | Yunani                    | NotoSans-Medium.ttf               | Tidak        | Tidak             |
-| th            | Thailand                  | NotoSansThai-Medium.ttf           | Tidak        | Tidak             |
+| th            | Thai                      | NotoSansThai-Medium.ttf           | Tidak        | Tidak             |
 | sv            | Swedia                    | NotoSans-Medium.ttf               | Tidak        | Tidak             |
 | da            | Denmark                   | NotoSans-Medium.ttf               | Tidak        | Tidak             |
 | no            | Norwegia                  | NotoSans-Medium.ttf               | Tidak        | Tidak             |
@@ -63,10 +63,11 @@ Tabel di bawah ini menunjukkan bahasa-bahasa yang saat ini didukung oleh **Co-op
 | my            | Burma (Myanmar)           | NotoSansMyanmar-Medium.ttf        | Tidak        | Tidak             |
 | ta            | Tamil                     | NotoSansTamil-Medium.ttf          | Tidak        | Tidak             |
 | et            | Estonia                   | NotoSans-Medium.ttf               | Tidak        | Tidak             |
+| pcm           | Pidgin Nigeria            | NotoSans-Medium.ttf               | Tidak        | Tidak             |
 
 ## Menambahkan bahasa baru
 
-Ingin menambahkan bahasa baru? Silakan ikuti panduan kontribusi berikut:
+Tertarik menambahkan bahasa baru? Silakan ikuti panduan kontribusi berikut:
 
 - Lihat Kontribusi: <a href="../CONTRIBUTING.md#contribute-a-new-language">Kontribusi bahasa baru</a>
 

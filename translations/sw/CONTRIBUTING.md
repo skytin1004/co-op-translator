@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "bd4704f50c55da7d572b691484aa0b30",
-  "translation_date": "2025-10-15T03:44:33+00:00",
+  "original_hash": "1ae2159f900e7d5d596bb00bcba4c999",
+  "translation_date": "2025-10-22T14:01:58+00:00",
   "source_file": "CONTRIBUTING.md",
   "language_code": "sw"
 }
@@ -11,11 +11,11 @@ CO_OP_TRANSLATOR_METADATA:
 
 Mradi huu unakaribisha michango na mapendekezo. Michango mingi inahitaji ukubali Mkataba wa Leseni ya Mchangiaji (CLA) unaothibitisha kuwa una haki ya, na kweli unatoa, haki ya sisi kutumia mchango wako. Kwa maelezo zaidi, tembelea https://cla.opensource.microsoft.com.
 
-Unapowasilisha pull request, bot ya CLA itatambua moja kwa moja kama unahitaji kutoa CLA na itaweka alama kwenye PR ipasavyo (mfano, status check, maoni). Fuata tu maelekezo yatakayotolewa na bot. Utahitaji kufanya hili mara moja tu kwenye repos zote zinazotumia CLA yetu.
+Unapowasilisha pull request, bot ya CLA itatambua moja kwa moja kama unahitaji kutoa CLA na itaweka alama kwenye PR ipasavyo (mfano, status check, maoni). Fuata tu maelekezo yatakayotolewa na bot. Unahitaji kufanya hili mara moja tu kwenye repos zote zinazotumia CLA yetu.
 
 ## Kuandaa Mazingira ya Maendeleo
 
-Ili kuandaa mazingira ya maendeleo kwa mradi huu, tunapendekeza utumie Poetry kusimamia utegemezi. Tunatumia `pyproject.toml` kusimamia utegemezi wa mradi, hivyo ili kusakinisha utegemezi, tumia Poetry.
+Ili kuandaa mazingira ya maendeleo kwa mradi huu, tunapendekeza utumie Poetry kusimamia utegemezi. Tunatumia `pyproject.toml` kusimamia utegemezi wa mradi, hivyo basi, ili kusakinisha utegemezi, tumia Poetry.
 
 ### Tengeneza mazingira ya virtual
 
@@ -119,7 +119,7 @@ Majaribio haya ya mkono husaidia kuhakikisha mabadiliko yako yanafanya kazi vizu
 >
 > ⚠️ Chaguo hili litafanya kazi tu kama Docker Desktop yako imetengewa angalau 16 GB ya RAM. Kama una RAM chini ya 16 GB, unaweza kujaribu [chaguo la GitHub Codespaces](../..) au [kuandaa kwa ndani](../..).
 >
-> Chaguo lingine ni VS Code Dev Containers, ambayo itafungua mradi kwenye VS Code yako ya ndani kwa kutumia [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers):
+> Chaguo lingine ni VS Code Dev Containers, ambalo litafungua mradi kwenye VS Code yako ya ndani kwa kutumia [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers):
 >
 > 1. Anzisha Docker Desktop (sakinisha kama bado haijasakinishwa)
 > 2. Fungua mradi:
@@ -212,8 +212,8 @@ Tunakaribisha michango ya kuongeza msaada kwa lugha mpya. Kabla ya kufungua PR, 
    - Hariri `src/co_op_translator/fonts/font_language_mappings.yml`
    - Ongeza kipengele chenye:
      - `code`: Msimbo wa lugha wa ISO (mfano, `vi`)
-     - `name`: Jina la lugha linaloeleweka kirahisi
-     - `font`: Fonti iliyopo kwenye `src/co_op_translator/fonts/` inayounga mkono maandishi ya lugha hiyo
+     - `name`: Jina la lugha linaloeleweka
+     - `font`: Fonti iliyopo kwenye `src/co_op_translator/fonts/` inayounga mkono maandishi hayo
      - `rtl`: `true` kama ni maandishi ya kulia kwenda kushoto, vinginevyo `false`
 
 2. Jumuisha faili za fonti zinazohitajika (ikibidi)
@@ -221,8 +221,8 @@ Tunakaribisha michango ya kuongeza msaada kwa lugha mpya. Kabla ya kufungua PR, 
    - Ongeza faili ya fonti kwenye `src/co_op_translator/fonts/`
 
 3. Hakiki kwa ndani
-   - Endesha tafsiri kwa sampuli ndogo (Markdown, picha, na notebooks inapofaa)
-   - Hakikisha matokeo yanaonekana vizuri, ikiwemo fonti na mpangilio wa RTL kama inahitajika
+   - Endesha tafsiri kwa sampuli ndogo (Markdown, picha, na notebooks inapohitajika)
+   - Hakikisha matokeo yanaonekana vizuri, ikiwemo fonti na mpangilio wa RTL kama inahusika
 
 4. Sasisha nyaraka
    - Hakikisha lugha inaonekana kwenye `getting_started/supported-languages.md`
@@ -241,14 +241,30 @@ new_lang(code):
   rtl: false
 ```
 
+### Pima lugha mpya
+
+Unaweza kupima lugha mpya kwa kuendesha amri ifuatayo:
+
+```bash
+# Create and activate a virtual environment (recommended)
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+source .venv/bin/activate
+# Install the development package
+pip install -e .
+# Run the translation
+translate -l "new_lang"
+```
 
 ## Walezi wa Mradi
 
-### Muundo wa ujumbe wa commit na mkakati wa kuunganisha
+### Ujumbe wa commit na mkakati wa kuunganisha
 
 Ili kuhakikisha historia ya commit ya mradi wetu ina uwazi na mpangilio, tunafuata muundo maalum wa ujumbe wa commit **kwa ujumbe wa mwisho wa commit** tunapotumia mkakati wa **Squash and Merge**.
 
-PR inapounganishwa, commits zote za ndani zitaunganishwa kuwa commit moja. Ujumbe wa mwisho wa commit unapaswa kufuata muundo ulio hapa chini ili kudumisha historia safi na yenye mpangilio.
+PR inapounganishwa, commits zote zitajumuishwa kwenye commit moja. Ujumbe wa mwisho wa commit unapaswa kufuata muundo ulio hapa chini ili kudumisha historia safi na yenye mpangilio.
 
 #### Muundo wa ujumbe wa commit (kwa squash and merge)
 
@@ -260,8 +276,8 @@ Tunatumia muundo huu kwa ujumbe wa commit:
 
 - **type**: Inaonyesha aina ya commit. Tunatumia aina zifuatazo:
   - `Docs`: Kwa masasisho ya nyaraka.
-  - `Build`: Kwa mabadiliko yanayohusiana na mfumo wa kujenga au utegemezi, ikiwemo masasisho ya faili za mpangilio, CI workflows, au Dockerfile.
-  - `Core`: Kwa mabadiliko kwenye utendaji wa msingi wa mradi, hasa yanayohusisha faili kwenye folda ya `src/co_op_translator/core`.
+  - `Build`: Kwa mabadiliko yanayohusiana na mfumo wa kujenga au utegemezi, ikiwemo masasisho ya faili za mipangilio, CI workflows, au Dockerfile.
+  - `Core`: Kwa mabadiliko kwenye utendaji wa msingi wa mradi au vipengele, hasa vinavyohusisha faili kwenye `src/co_op_translator/core`.
 
 - **description**: Muhtasari mfupi wa mabadiliko.
 - **PR number**: Namba ya pull request inayohusiana na commit.
@@ -272,7 +288,7 @@ Tunatumia muundo huu kwa ujumbe wa commit:
 - `Core: Improve handling of image translation (#60)`
 
 > [!NOTE]
-> Kwa sasa, vianzio vya **`Docs`**, **`Core`**, na **`Build`** vinaongezwa moja kwa moja kwenye vichwa vya PR kulingana na lebo zilizowekwa kwenye source code iliyobadilishwa. Mradi lebo sahihi imewekwa, mara nyingi huhitaji kubadilisha kichwa cha PR mwenyewe. Unachotakiwa ni kuthibitisha kila kitu kiko sawa na kianzio kimeundwa ipasavyo.
+> Kwa sasa, vianzio vya **`Docs`**, **`Core`**, na **`Build`** vinaongezwa moja kwa moja kwenye vichwa vya PR kulingana na lebo zilizowekwa kwenye source code iliyobadilishwa. Mradi tu lebo sahihi imewekwa, mara nyingi huhitaji kubadilisha kichwa cha PR mwenyewe. Unachotakiwa ni kuthibitisha kila kitu kiko sawa na kianzio kimezalishwa ipasavyo.
 
 #### Mkakati wa kuunganisha
 
@@ -280,11 +296,11 @@ Tunatumia **Squash and Merge** kama mkakati chaguo-msingi wa pull requests. Mkak
 
 **Sababu**:
 
-- Historia safi na ya mstari mmoja wa mradi.
+- Historia safi na ya mstari mmoja ya mradi.
 - Ujumbe wa commit wenye mpangilio.
-- Kupunguza kelele za commits ndogo (mfano, "fix typo").
+- Kupunguza kelele kutoka kwenye commits ndogo (mfano, "fix typo").
 
-Unapounganisha, hakikisha ujumbe wa mwisho wa commit unafuata muundo wa ujumbe wa commit ulioelezwa hapo juu.
+Unapounganisha, hakikisha ujumbe wa mwisho wa commit unafuata muundo wa commit ulioelezwa hapo juu.
 
 **Mfano wa Squash and Merge**
 Kama PR ina commits zifuatazo:
@@ -293,10 +309,10 @@ Kama PR ina commits zifuatazo:
 - `update README`
 - `adjust formatting`
 
-Zinapaswa kuunganishwa kuwa:
+Zinapaswa kujumuishwa kwenye:
 `Docs: Improve documentation clarity and formatting (#65)`
 
 ---
 
 **Kanusho**:
-Hati hii imetafsiriwa kwa kutumia huduma ya kutafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kwa usahihi, tafadhali fahamu kwamba tafsiri za kiotomatiki zinaweza kuwa na makosa au kutokuwa sahihi. Hati asili katika lugha yake ya asili inapaswa kuchukuliwa kama chanzo cha mamlaka. Kwa taarifa muhimu, inashauriwa kutumia huduma ya utafsiri wa binadamu wa kitaalamu. Hatutawajibika kwa kutokuelewana au tafsiri zisizo sahihi zinazotokana na matumizi ya tafsiri hii.
+Hati hii imetafsiriwa kwa kutumia huduma ya kutafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kuhakikisha usahihi, tafadhali fahamu kwamba tafsiri za kiotomatiki zinaweza kuwa na makosa au kutokuwa sahihi. Hati asili katika lugha yake ya asili inapaswa kuchukuliwa kama chanzo rasmi. Kwa taarifa muhimu, inashauriwa kutumia huduma ya utafsiri wa kibinadamu wa kitaalamu. Hatutawajibika kwa kutokuelewana au tafsiri zisizo sahihi zitakazotokana na matumizi ya tafsiri hii.

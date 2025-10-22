@@ -1,27 +1,25 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f579b7f148746593e3e9023b56a8c30d",
-  "translation_date": "2025-10-22T12:11:37+00:00",
+  "original_hash": "7593c1fad8734e4050b60fc3da614aa5",
+  "translation_date": "2025-10-22T14:01:22+00:00",
   "source_file": "README.md",
   "language_code": "tl"
 }
 -->
 # Co-op Translator
 
-_Madali mong ma-automate ang pagsasalin ng iyong educational GitHub content sa iba’t ibang wika para maabot ang mas maraming tao sa buong mundo._
+_Madaling i-automate ang pagsasalin ng iyong educational GitHub content sa iba’t ibang wika para maabot ang mas maraming tao sa buong mundo._
 
 ### 🌐 Suporta sa Maraming Wika
 
 #### Sinusuportahan ng [Co-op Translator](https://github.com/Azure/Co-op-Translator)
 
-<!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
 [Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh/README.md) | [Chinese (Traditional, Hong Kong)](../hk/README.md) | [Chinese (Traditional, Macau)](../mo/README.md) | [Chinese (Traditional, Taiwan)](../tw/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../br/README.md) | [Portuguese (Portugal)](../pt/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](./README.md) | [Tamil](../ta/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
-<!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
 ## Pangkalahatang-ideya
 
-Ang **Co-op Translator** ay tumutulong sa iyo na mabilis na maisalin ang iyong educational GitHub content sa iba’t ibang wika, kaya mas madali mong maabot ang mga tao sa buong mundo. Kapag nag-update ka ng iyong Markdown files, images, o Jupyter notebooks, awtomatikong nasusunod ang mga salin para siguradong laging bago at akma ang iyong educational content para sa mga international na user.
+Pinapadali ng **Co-op Translator** ang mabilis na pagsasalin ng iyong educational GitHub content sa iba’t ibang wika, kaya mas madali mong maabot ang mga tao sa buong mundo. Kapag nag-update ka ng iyong Markdown files, images, o Jupyter notebooks, awtomatikong nasisigurado na laging bago at akma ang mga salin para sa mga international na user.
 
 Tingnan kung paano inaayos ng Co-op Translator ang mga isinaling educational GitHub content:
 
@@ -51,12 +49,12 @@ docker pull ghcr.io/azure/co-op-translator:latest
 docker run --rm -it --env-file .env -v "${PWD}:/work" ghcr.io/azure/co-op-translator:latest -l "ko ja fr" -md
 ```
 
-## Minimal na Setup
+## Pinakamadaling Setup
 
 - Gumawa ng `.env` gamit ang template: [.env.template](../../.env.template)
 - I-configure ang isang LLM provider (Azure OpenAI o OpenAI)
-- Para sa pagsasalin ng larawan (`-img`), mag-set din ng Azure AI Vision
-- Rekomendado: Kung may mga salin ka na galing sa ibang tool, linisin muna ito para maiwasan ang conflict (halimbawa: `translations/`).
+- Para sa pagsasalin ng larawan (`-img`), i-set din ang Azure AI Vision
+- Rekomendado: Kung may mga salin ka na galing sa ibang tools, linisin muna ito para maiwasan ang conflict (halimbawa: `translations/`).
 - Rekomendado: Magdagdag ng translations section sa iyong README gamit ang [README languages template](./README_languages_template.md)
 - Tingnan: [Set up Azure AI](./getting_started/set-up-azure-ai.md)
 
@@ -91,7 +89,7 @@ Iba pang flags: [Command reference](./getting_started/command-reference.md)
 ## Mga Tampok
 
 - Awtomatikong pagsasalin para sa Markdown, notebook, at mga larawan
-- Laging updated ang mga salin kapag may pagbabago sa source
+- Laging naka-sync ang mga salin kapag may pagbabago sa source
 - Pwedeng gamitin local (CLI) o sa CI (GitHub Actions)
 - Gumagamit ng Azure OpenAI o OpenAI; optional ang Azure AI Vision para sa mga larawan
 - Pinapanatili ang format at istruktura ng Markdown
@@ -106,7 +104,7 @@ Iba pang flags: [Command reference](./getting_started/command-reference.md)
 
 ## Suportahan Kami at Palaganapin ang Global Learning
 
-Samahan kami sa pagbabago kung paano naibabahagi ang educational content sa buong mundo! Bigyan ng ⭐ ang [Co-op Translator](https://github.com/azure/co-op-translator) sa GitHub at suportahan ang aming misyon na alisin ang hadlang sa wika sa pag-aaral at teknolohiya. Malaki ang epekto ng iyong interes at ambag! Bukas kami sa code contributions at mga suhestiyon sa features.
+Samahan kami sa pagbabago kung paano naibabahagi ang educational content sa buong mundo! Bigyan ng ⭐ ang [Co-op Translator](https://github.com/azure/co-op-translator) sa GitHub at suportahan ang aming misyon na alisin ang hadlang sa wika sa pagkatuto at teknolohiya. Malaki ang epekto ng iyong interes at ambag! Bukas kami sa code contributions at mga mungkahi sa features.
 
 ### Tuklasin ang Microsoft educational content sa iyong wika
 
@@ -127,15 +125,15 @@ Samahan kami sa pagbabago kung paano naibabahagi ang educational content sa buon
 
 ## Mga Video Presentasyon
 
-Alamin pa ang tungkol sa Co-op Translator sa aming mga presentasyon _(I-click ang larawan sa ibaba para manood sa YouTube.)_:
+Alamin pa ang tungkol sa Co-op Translator sa aming mga presentasyon _(I-click ang larawan sa ibaba para panoorin sa YouTube.)_:
 
 - **Open at Microsoft**: Maikling 18-minutong pagpapakilala at mabilis na gabay kung paano gamitin ang Co-op Translator.
 
   [![Open at Microsoft](../../translated_images/open-ms-thumbnail.946b356b89bc5f0e33dcebb852f7926b98c33f54c1a49ce01c36ae7f35e2443a.tl.jpg)](https://www.youtube.com/watch?v=jX_swfH_KNU)
 
-## Pagsali at Pag-aambag
+## Pagsuporta
 
-Bukas ang proyektong ito sa mga ambag at suhestiyon. Interesado ka bang tumulong sa Azure Co-op Translator? Tingnan ang aming [CONTRIBUTING.md](./CONTRIBUTING.md) para sa mga gabay kung paano mo mapapadali ang pag-access ng Co-op Translator.
+Bukas ang proyektong ito sa mga ambag at mungkahi. Interesado ka bang tumulong sa Azure Co-op Translator? Tingnan ang aming [CONTRIBUTING.md](./CONTRIBUTING.md) para sa mga gabay kung paano mo mapapadali ang pag-access ng Co-op Translator.
 
 ## Mga Contributor
 
@@ -149,31 +147,31 @@ makipag-ugnayan sa [opencode@microsoft.com](mailto:opencode@microsoft.com) para 
 
 ## Responsible AI
 
-Ang Microsoft ay nakatuon sa pagtulong sa mga customer na gamitin ang aming AI products nang responsable, pagbabahagi ng aming mga natutunan, at pagbuo ng tiwala sa pamamagitan ng mga tool tulad ng Transparency Notes at Impact Assessments. Marami sa mga resources na ito ay makikita sa [https://aka.ms/RAI](https://aka.ms/RAI).
-Ang approach ng Microsoft sa responsible AI ay nakabase sa aming AI principles: fairness, reliability at safety, privacy at security, inclusiveness, transparency, at accountability.
+Ang Microsoft ay nakatuon sa pagtulong sa mga customer na gamitin ang aming AI products nang responsable, pagbabahagi ng aming mga natutunan, at pagbuo ng tiwala sa pamamagitan ng mga tools tulad ng Transparency Notes at Impact Assessments. Marami sa mga resources na ito ay matatagpuan sa [https://aka.ms/RAI](https://aka.ms/RAI).
+Ang approach ng Microsoft sa responsible AI ay nakabase sa aming AI principles: fairness, reliability and safety, privacy and security, inclusiveness, transparency, at accountability.
 
-Ang malalaking natural language, image, at speech models—tulad ng ginagamit sa sample na ito—ay maaaring magpakita ng hindi patas, hindi maaasahan, o nakakasakit na ugali, na maaaring magdulot ng pinsala. Mangyaring basahin ang [Azure OpenAI service Transparency note](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) para malaman ang mga panganib at limitasyon.
+Ang malalaking natural language, image, at speech models—gaya ng ginagamit sa sample na ito—ay maaaring magpakita ng hindi patas, hindi maaasahan, o nakakasakit na ugali, na maaaring magdulot ng pinsala. Mangyaring basahin ang [Azure OpenAI service Transparency note](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) para malaman ang mga panganib at limitasyon.
 
-Ang rekomendadong paraan para maiwasan ang mga panganib na ito ay maglagay ng safety system sa iyong architecture na kayang mag-detect at pigilan ang mapanirang ugali. Ang [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) ay nagbibigay ng independent na proteksyon, na kayang mag-detect ng mapanirang user-generated at AI-generated content sa mga application at serbisyo. Kasama sa Azure AI Content Safety ang text at image APIs na tumutulong mag-detect ng mapanirang materyal. Mayroon din kaming interactive Content Safety Studio kung saan pwede mong makita, subukan, at gamitin ang sample code para mag-detect ng harmful content sa iba’t ibang modality. Ang [quickstart documentation](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) ay gagabay sa iyo kung paano mag-request sa serbisyo.
-Isa pang aspeto na dapat isaalang-alang ay ang kabuuang performance ng application. Sa mga multi-modal at multi-model na application, ang ibig sabihin ng performance ay gumagana ang sistema ayon sa inaasahan mo at ng mga user mo, kabilang na ang hindi pag-generate ng mapanirang output. Mahalaga na suriin ang performance ng iyong buong application gamit ang [generation quality at risk and safety metrics](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
+Ang rekomendadong paraan para mabawasan ang mga panganib na ito ay maglagay ng safety system sa iyong architecture na kayang mag-detect at pigilan ang mapaminsalang ugali. Ang [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) ay nagbibigay ng independent na proteksyon, na kayang mag-detect ng mapaminsalang user-generated at AI-generated content sa mga application at serbisyo. Kasama sa Azure AI Content Safety ang text at image APIs na tumutulong mag-detect ng mapanganib na materyal. Mayroon din kaming interactive Content Safety Studio kung saan pwede mong makita, subukan, at gamitin ang sample code para sa pag-detect ng harmful content sa iba’t ibang modality. Ang [quickstart documentation](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) ay gagabay sa iyo kung paano mag-request sa serbisyo.
+Isa pang aspeto na dapat isaalang-alang ay ang kabuuang performance ng application. Sa mga multi-modal at multi-model na application, ang performance ay nangangahulugang gumagana ang sistema ayon sa inaasahan mo at ng mga user mo, kabilang na ang hindi pag-generate ng mapanirang output. Mahalaga na suriin ang performance ng iyong buong application gamit ang [generation quality at risk and safety metrics](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
 
-Pwede mong i-evaluate ang iyong AI application sa development environment gamit ang [prompt flow SDK](https://microsoft.github.io/promptflow/index.html). Gamit ang test dataset o target, ang mga generation ng iyong generative AI application ay sinusukat nang quantitatively gamit ang built-in evaluators o custom evaluators na gusto mo. Para makapagsimula sa prompt flow sdk para i-evaluate ang iyong system, sundan ang [quickstart guide](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). Kapag na-execute mo na ang evaluation run, pwede mong [i-visualize ang resulta sa Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
+Pwede mong i-evaluate ang iyong AI application sa development environment gamit ang [prompt flow SDK](https://microsoft.github.io/promptflow/index.html). Kapag may test dataset o target, ang mga generation ng iyong generative AI application ay sinusukat nang quantitatively gamit ang built-in evaluators o custom evaluators na gusto mo. Para makapagsimula sa prompt flow sdk para i-evaluate ang iyong system, sundan ang [quickstart guide](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). Kapag na-execute mo na ang evaluation run, pwede mong [i-visualize ang resulta sa Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
 
 ## Mga Trademark
 
-Ang proyektong ito ay maaaring naglalaman ng mga trademark o logo para sa mga proyekto, produkto, o serbisyo. Ang awtorisadong paggamit ng mga trademark o logo ng Microsoft ay dapat sumunod sa [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general). Ang paggamit ng mga trademark o logo ng Microsoft sa binagong bersyon ng proyektong ito ay hindi dapat magdulot ng kalituhan o magpahiwatig ng sponsorship ng Microsoft. Anumang paggamit ng trademark o logo ng third-party ay sakop ng kanilang sariling mga patakaran.
+Ang proyektong ito ay maaaring naglalaman ng mga trademark o logo para sa mga proyekto, produkto, o serbisyo. Ang awtorisadong paggamit ng mga trademark o logo ng Microsoft ay dapat sumunod sa [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general). Ang paggamit ng mga trademark o logo ng Microsoft sa binagong bersyon ng proyektong ito ay hindi dapat magdulot ng kalituhan o magpahiwatig ng sponsorship mula sa Microsoft. Anumang paggamit ng trademark o logo ng third-party ay sakop ng kanilang sariling mga patakaran.
 
 ## Paano Humingi ng Tulong
 
 Kung nahirapan ka o may tanong tungkol sa paggawa ng AI apps, sumali sa:
 
-<Azure AI Foundry Discord>
+[![Azure AI Foundry Discord](https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
 
 Kung may feedback ka sa produkto o nakaranas ng error habang gumagawa, bisitahin ang:
 
-<Azure AI Foundry Developer Forum>
+[![Azure AI Foundry Developer Forum](https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 
 ---
 
 **Paunawa**:
-Ang dokumentong ito ay isinalin gamit ang AI translation service na [Co-op Translator](https://github.com/Azure/co-op-translator). Bagaman nagsusumikap kami para sa katumpakan, pakatandaan na ang mga awtomatikong pagsasalin ay maaaring maglaman ng mga pagkakamali o hindi pagkakatugma. Ang orihinal na dokumento sa kanyang sariling wika ang dapat ituring na pangunahing sanggunian. Para sa mahahalagang impormasyon, inirerekomenda ang propesyonal na pagsasalin ng tao. Hindi kami mananagot sa anumang hindi pagkakaunawaan o maling interpretasyon na maaaring lumitaw mula sa paggamit ng pagsasaling ito.
+Ang dokumentong ito ay isinalin gamit ang AI translation service na [Co-op Translator](https://github.com/Azure/co-op-translator). Bagaman nagsusumikap kami para sa katumpakan, pakitandaan na ang mga awtomatikong pagsasalin ay maaaring maglaman ng mga pagkakamali o hindi pagkakatumpak. Ang orihinal na dokumento sa kanyang sariling wika ang dapat ituring na pangunahing sanggunian. Para sa mahahalagang impormasyon, inirerekomenda ang propesyonal na pagsasalin ng tao. Hindi kami mananagot sa anumang hindi pagkakaunawaan o maling interpretasyon na maaaring lumitaw mula sa paggamit ng pagsasaling ito.

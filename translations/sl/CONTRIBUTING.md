@@ -1,15 +1,15 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "bd4704f50c55da7d572b691484aa0b30",
-  "translation_date": "2025-10-15T04:08:10+00:00",
+  "original_hash": "1ae2159f900e7d5d596bb00bcba4c999",
+  "translation_date": "2025-10-22T14:11:34+00:00",
   "source_file": "CONTRIBUTING.md",
   "language_code": "sl"
 }
 -->
 # Prispevanje k Co-op Translator
 
-Ta projekt sprejema prispevke in predloge. Večina prispevkov zahteva, da se strinjate s Contributor License Agreement (CLA), s katero potrjujete, da imate pravico in dejansko podeljujete pravice za uporabo vašega prispevka. Več informacij najdete na https://cla.opensource.microsoft.com.
+Ta projekt sprejema prispevke in predloge. Večina prispevkov zahteva, da se strinjate s Contributor License Agreement (CLA), s katerim potrjujete, da imate pravico in dejansko podeljujete pravice za uporabo vašega prispevka. Več informacij najdete na https://cla.opensource.microsoft.com.
 
 Ko oddate pull request, bo CLA bot samodejno preveril, ali morate podati CLA, in ustrezno označil PR (npr. status check, komentar). Preprosto sledite navodilom bota. To morate storiti le enkrat za vse repozitorije, ki uporabljajo naš CLA.
 
@@ -19,13 +19,13 @@ Za nastavitev razvojnega okolja za ta projekt priporočamo uporabo Poetry za upr
 
 ### Ustvarjanje virtualnega okolja
 
-#### Z uporabo pip
+#### S pip
 
 ```bash
 python -m venv .venv
 ```
 
-#### Z uporabo Poetry
+#### S Poetry
 
 ```bash
 poetry init
@@ -47,7 +47,7 @@ poetry init
     source .venv/bin/activate
     ```
 
-#### Z uporabo Poetry
+#### S Poetry
 
 ```bash
 poetry shell
@@ -55,7 +55,7 @@ poetry shell
 
 ### Namestitev paketa in potrebnih paketov
 
-#### Z uporabo Poetry (iz pyproject.toml)
+#### S Poetry (iz pyproject.toml)
 
 ```bash
 poetry install
@@ -89,7 +89,7 @@ Pred oddajo PR je pomembno, da funkcionalnost prevajanja preizkusite na dejanski
 5. Preverite prevedene datoteke v `test_docs/translations` in `test_docs/translated_images` ter preverite:
    - Kakovost prevoda
    - Pravilnost metapodatkov v komentarjih
-   - Ohranjeno izvorno markdown strukturo
+   - Ohranjenost izvirne markdown strukture
    - Pravilno delovanje povezav in slik
 
 To ročno testiranje pomaga zagotoviti, da vaše spremembe delujejo tudi v dejanskih primerih.
@@ -111,7 +111,7 @@ To ročno testiranje pomaga zagotoviti, da vaše spremembe delujejo tudi v dejan
 >
 > Gumb bo odprl spletno različico VS Code v vašem brskalniku:
 >
-> 1. Odprite predlogo (to lahko traja nekaj minut):
+> 1. Odprite predlogo (lahko traja nekaj minut):
 >
 >     <a href="https://codespaces.new/azure/co-op-translator"><img src="https://github.com/codespaces/badge.svg" alt="Open in GitHub Codespaces"></a>
 >
@@ -125,7 +125,6 @@ To ročno testiranje pomaga zagotoviti, da vaše spremembe delujejo tudi v dejan
 > 2. Odprite projekt:
 >
 >    <a href="https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure/co-op-translator"><img src="https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode" alt="Open in Dev Containers"></a>
-
 
 ### Slog kode
 
@@ -146,14 +145,14 @@ include = '\.pyi?$'
 
 Black lahko namestite z uporabo Poetry (priporočeno) ali pip:
 
-##### Z uporabo Poetry
+##### S Poetry
 
 Black se samodejno namesti ob nastavitvi razvojnega okolja:
 ```bash
 poetry install
 ```
 
-##### Z uporabo pip
+##### S pip
 
 Če uporabljate pip, lahko Black namestite neposredno:
 ```bash
@@ -195,7 +194,7 @@ Za zagon Co-op Translator z uporabo Poetry v vašem okolju sledite tem korakom:
 
 1. Pomaknite se v mapo, kjer želite izvajati prevajalske teste ali ustvarite začasno mapo za testiranje.
 
-2. Izvedite naslednji ukaz. Zamenjajte `-l ko` s kodo jezika, v katerega želite prevesti. Zastavica `-d` pomeni način razhroščevanja.
+2. Zaženite naslednji ukaz. Zamenjajte `-l ko` s kodo jezika, v katerega želite prevesti. Zastavica `-d` pomeni način za odpravljanje napak.
 
     ```bash
     poetry run co-op-translator translate -l ko -d
@@ -214,23 +213,23 @@ Veseli bomo prispevkov, ki dodajo podporo za nove jezike. Preden odprete PR, dok
      - `code`: ISO-podobna koda jezika (npr. `vi`)
      - `name`: Prijazno prikazno ime
      - `font`: Pisava, ki je v `src/co_op_translator/fonts/` in podpira pisavo jezika
-     - `rtl`: `true` če je desno-proti-levi, sicer `false`
+     - `rtl`: `true` za desno-levo, sicer `false`
 
 2. Dodajte potrebne datoteke pisav (če je potrebno)
    - Če je potrebna nova pisava, preverite združljivost licence za odprtokodno distribucijo
    - Dodajte datoteko pisave v `src/co_op_translator/fonts/`
 
-3. Lokalna preveritev
-   - Zaženite prevode za majhen vzorec (Markdown, slike in zvezki po potrebi)
+3. Lokalno preverjanje
+   - Zaženite prevode na majhnem vzorcu (Markdown, slike in zvezki po potrebi)
    - Preverite, da se izhod pravilno prikazuje, vključno s pisavami in morebitno RTL postavitvijo
 
 4. Posodobite dokumentacijo
-   - Preverite, da je jezik naveden v `getting_started/supported-languages.md`
+   - Preverite, da jezik nastopa v `getting_started/supported-languages.md`
    - Spremembe v `README_languages_template.md` niso potrebne; ta se generira iz seznama podprtih jezikov
 
 5. Odprite PR
    - Opišite dodani jezik in morebitne pisave/licenčne podrobnosti
-   - Priložite posnetke zaslona prikazanih rezultatov, če je mogoče
+   - Priložite posnetke zaslona izhodov, če je mogoče
 
 Primer YAML vnosa:
 
@@ -241,62 +240,78 @@ new_lang(code):
   rtl: false
 ```
 
+### Testiranje novega jezika
+
+Novi jezik lahko testirate z naslednjim ukazom:
+
+```bash
+# Create and activate a virtual environment (recommended)
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+source .venv/bin/activate
+# Install the development package
+pip install -e .
+# Run the translation
+translate -l "new_lang"
+```
 
 ## Skrbniki
 
 ### Sporočilo ob commit-u in strategija združevanja
 
-Za doslednost in jasnost v zgodovini commit-ov projekta sledimo določenemu formatu sporočila commit-a **za končno sporočilo commit-a** pri uporabi strategije **Squash and Merge**.
+Za doslednost in jasnost v zgodovini commit-ov projekta sledimo določenemu formatu sporočila **za končno commit sporočilo** pri uporabi strategije **Squash and Merge**.
 
-Ko je pull request (PR) združen, se posamezni commiti združijo v en commit. Končno sporočilo commit-a naj sledi spodnjemu formatu za ohranjanje čiste in dosledne zgodovine.
+Ko se pull request (PR) združi, se posamezni commiti združijo v en commit. Končno sporočilo commita naj sledi spodnjemu formatu za ohranjanje čiste in dosledne zgodovine.
 
-#### Format sporočila commit-a (za squash and merge)
+#### Format sporočila ob commit-u (za squash and merge)
 
-Uporabljamo naslednji format za sporočila commit-ov:
+Uporabljamo naslednji format sporočil:
 
 ```bash
 <type>: <description> (#<PR number>)
 ```
 
-- **type**: Določa kategorijo commit-a. Uporabljamo naslednje tipe:
+- **type**: Določa kategorijo commita. Uporabljamo naslednje tipe:
   - `Docs`: Za posodobitve dokumentacije.
   - `Build`: Za spremembe, povezane z gradnjo ali odvisnostmi, vključno s konfiguracijskimi datotekami, CI workflow-i ali Dockerfile.
   - `Core`: Za spremembe v osnovni funkcionalnosti ali funkcijah projekta, zlasti v datotekah v mapi `src/co_op_translator/core`.
 
 - **description**: Kratek povzetek spremembe.
-- **PR number**: Številka pull request-a, povezanega s commit-om.
+- **PR number**: Številka pull requesta, povezanega s commitom.
 
 **Primeri**:
 
-- `Docs: Posodobljena navodila za namestitev (#50)`
-- `Core: Izboljšano obravnavanje prevajanja slik (#60)`
+- `Docs: Update installation instructions for clarity (#50)`
+- `Core: Improve handling of image translation (#60)`
 
 > [!NOTE]
 > Trenutno se predpone **`Docs`**, **`Core`** in **`Build`** samodejno dodajo naslovom PR glede na oznake, ki so dodeljene spremenjeni izvorni kodi. Če je pravilna oznaka dodeljena, običajno ni treba ročno spreminjati naslova PR. Preverite le, da je vse pravilno in da je predpona ustrezno generirana.
 
 #### Strategija združevanja
 
-Uporabljamo **Squash and Merge** kot privzeto strategijo za pull request-e. Ta strategija zagotavlja, da sporočila commit-ov sledijo našemu formatu, tudi če posamezni commiti ne.
+Uporabljamo **Squash and Merge** kot privzeto strategijo za pull requeste. Ta strategija zagotavlja, da sporočila commitov sledijo našemu formatu, tudi če posamezni commiti ne.
 
 **Razlogi**:
 
 - Čista, linearna zgodovina projekta.
-- Doslednost v sporočilih commit-ov.
-- Manj šuma zaradi manjših commit-ov (npr. "popravljena tipkarska napaka").
+- Doslednost v sporočilih commitov.
+- Manj "šuma" zaradi manjših commitov (npr. "popravi tipkarsko napako").
 
-Pri združevanju poskrbite, da končno sporočilo commit-a sledi zgoraj opisanemu formatu.
+Pri združevanju preverite, da končno sporočilo commit-a sledi opisanemu formatu.
 
 **Primer Squash and Merge**
 Če PR vsebuje naslednje commite:
 
-- `popravljena tipkarska napaka`
-- `posodobljen README`
-- `prilagojeno oblikovanje`
+- `fix typo`
+- `update README`
+- `adjust formatting`
 
 Se združijo v:
-`Docs: Izboljšana jasnost in oblikovanje dokumentacije (#65)`
+`Docs: Improve documentation clarity and formatting (#65)`
 
 ---
 
 **Izjava o omejitvi odgovornosti**:
-Ta dokument je bil preveden s pomočjo storitve za strojno prevajanje [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, vas opozarjamo, da lahko avtomatski prevodi vsebujejo napake ali netočnosti. Izvirni dokument v svojem izvoru jeziku naj velja za avtoritativni vir. Za kritične informacije priporočamo strokoven človeški prevod. Ne prevzemamo odgovornosti za morebitne nesporazume ali napačne razlage, ki bi izhajale iz uporabe tega prevoda.
+Ta dokument je bil preveden s pomočjo storitve za strojno prevajanje [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, vas opozarjamo, da lahko avtomatski prevodi vsebujejo napake ali netočnosti. Izvirni dokument v svojem izvoru jeziku naj velja za avtoritativni vir. Za kritične informacije priporočamo strokoven človeški prevod. Ne prevzemamo odgovornosti za morebitne nesporazume ali napačne razlage, ki bi nastale zaradi uporabe tega prevoda.

@@ -1,21 +1,21 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "bd4704f50c55da7d572b691484aa0b30",
-  "translation_date": "2025-10-15T02:55:00+00:00",
+  "original_hash": "1ae2159f900e7d5d596bb00bcba4c999",
+  "translation_date": "2025-10-22T13:40:53+00:00",
   "source_file": "CONTRIBUTING.md",
   "language_code": "pa"
 }
 -->
 # ਕੋ-ਓਪ ਟ੍ਰਾਂਸਲੇਟਰ ਵਿੱਚ ਯੋਗਦਾਨ ਪਾਉਣਾ
 
-ਇਹ ਪ੍ਰੋਜੈਕਟ ਯੋਗਦਾਨ ਅਤੇ ਸੁਝਾਵਾਂ ਦਾ ਸਵਾਗਤ ਕਰਦਾ ਹੈ। ਜ਼ਿਆਦਾਤਰ ਯੋਗਦਾਨ ਲਈ ਤੁਹਾਨੂੰ ਇੱਕ Contributor License Agreement (CLA) 'ਤੇ ਸਹਿਮਤ ਹੋਣਾ ਪੈਂਦਾ ਹੈ, ਜਿਸ ਵਿੱਚ ਤੁਸੀਂ ਐਲਾਨ ਕਰਦੇ ਹੋ ਕਿ ਤੁਹਾਡੇ ਕੋਲ ਯੋਗਦਾਨ ਦੇ ਹੱਕ ਹਨ ਅਤੇ ਤੁਸੀਂ ਸਾਨੂੰ ਇਸਨੂੰ ਵਰਤਣ ਦੀ ਇਜਾਜ਼ਤ ਦਿੰਦੇ ਹੋ। ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ https://cla.opensource.microsoft.com 'ਤੇ ਜਾਓ।
+ਇਹ ਪ੍ਰੋਜੈਕਟ ਯੋਗਦਾਨ ਅਤੇ ਸੁਝਾਵਾਂ ਦਾ ਸਵਾਗਤ ਕਰਦਾ ਹੈ। ਜ਼ਿਆਦਾਤਰ ਯੋਗਦਾਨ ਲਈ ਤੁਹਾਨੂੰ ਇੱਕ Contributor License Agreement (CLA) 'ਤੇ ਸਹਿਮਤ ਹੋਣਾ ਪੈਂਦਾ ਹੈ, ਜਿਸ ਵਿੱਚ ਤੁਸੀਂ ਐਲਾਨ ਕਰਦੇ ਹੋ ਕਿ ਤੁਹਾਡੇ ਕੋਲ ਯੋਗਦਾਨ ਦੇ ਅਧਿਕਾਰ ਹਨ ਅਤੇ ਤੁਸੀਂ ਸਾਨੂੰ ਇਸਨੂੰ ਵਰਤਣ ਦੀ ਇਜਾਜ਼ਤ ਦਿੰਦੇ ਹੋ। ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ https://cla.opensource.microsoft.com 'ਤੇ ਜਾਓ।
 
-ਜਦੋਂ ਤੁਸੀਂ pull request ਭੇਜਦੇ ਹੋ, ਇੱਕ CLA bot ਆਪਣੇ-ਆਪ ਚੈੱਕ ਕਰੇਗਾ ਕਿ ਤੁਹਾਨੂੰ CLA ਦੇਣੀ ਲੋੜੀਂਦੀ ਹੈ ਜਾਂ ਨਹੀਂ ਅਤੇ PR 'ਤੇ ਸਹੀ ਤਰੀਕੇ ਨਾਲ ਸਟੇਟਸ ਜਾਂ ਟਿੱਪਣੀ ਲਗਾਏਗਾ। ਬਸ bot ਵੱਲੋਂ ਦਿੱਤੀਆਂ ਹਦਾਇਤਾਂ ਦੀ ਪਾਲਣਾ ਕਰੋ। ਤੁਹਾਨੂੰ ਇਹ ਸਿਰਫ ਇੱਕ ਵਾਰ ਕਰਨਾ ਪਵੇਗਾ, ਜਿੱਥੇ ਵੀ ਸਾਡੀ CLA ਵਰਤੀ ਜਾਂਦੀ ਹੈ।
+ਜਦੋਂ ਤੁਸੀਂ pull request ਭੇਜਦੇ ਹੋ, ਇੱਕ CLA bot ਆਟੋਮੈਟਿਕ ਤੌਰ 'ਤੇ ਜਾਂਚੇਗਾ ਕਿ ਤੁਹਾਨੂੰ CLA ਦੇਣੀ ਲੋੜੀਂਦੀ ਹੈ ਜਾਂ ਨਹੀਂ ਅਤੇ PR 'ਤੇ ਸਹੀ ਤਰੀਕੇ ਨਾਲ ਸਟੇਟਸ ਜਾਂ ਟਿੱਪਣੀ ਲਗਾਏਗਾ। ਬਸ bot ਵੱਲੋਂ ਦਿੱਤੀਆਂ ਹਦਾਇਤਾਂ ਦੀ ਪਾਲਣਾ ਕਰੋ। ਤੁਹਾਨੂੰ ਇਹ ਸਿਰਫ ਇੱਕ ਵਾਰ ਕਰਨਾ ਪਵੇਗਾ, ਸਾਰੇ repos 'ਤੇ ਜੋ ਸਾਡੀ CLA ਵਰਤਦੇ ਹਨ।
 
 ## ਡਿਵੈਲਪਮੈਂਟ ਇਨਵਾਇਰਨਮੈਂਟ ਸੈਟਅੱਪ
 
-ਇਸ ਪ੍ਰੋਜੈਕਟ ਲਈ ਡਿਵੈਲਪਮੈਂਟ ਇਨਵਾਇਰਨਮੈਂਟ ਸੈਟਅੱਪ ਕਰਨ ਲਈ, dependencies ਮੈਨੇਜ ਕਰਨ ਲਈ Poetry ਦੀ ਸਿਫਾਰਸ਼ ਕੀਤੀ ਜਾਂਦੀ ਹੈ। ਅਸੀਂ `pyproject.toml` ਰਾਹੀਂ dependencies ਮੈਨੇਜ ਕਰਦੇ ਹਾਂ, ਇਸ ਲਈ dependencies install ਕਰਨ ਲਈ Poetry ਵਰਤੋ।
+ਇਸ ਪ੍ਰੋਜੈਕਟ ਲਈ ਡਿਵੈਲਪਮੈਂਟ ਇਨਵਾਇਰਨਮੈਂਟ ਸੈਟਅੱਪ ਕਰਨ ਲਈ, dependencies ਮੈਨੇਜ ਕਰਨ ਲਈ Poetry ਦੀ ਵਰਤੋਂ ਕਰਨ ਦੀ ਸਿਫਾਰਸ਼ ਕੀਤੀ ਜਾਂਦੀ ਹੈ। ਅਸੀਂ `pyproject.toml` ਰਾਹੀਂ dependencies ਮੈਨੇਜ ਕਰਦੇ ਹਾਂ, ਇਸ ਲਈ dependencies install ਕਰਨ ਲਈ Poetry ਵਰਤੋ।
 
 ### ਵਰਚੁਅਲ ਇਨਵਾਇਰਨਮੈਂਟ ਬਣਾਓ
 
@@ -70,7 +70,7 @@ PR ਭੇਜਣ ਤੋਂ ਪਹਿਲਾਂ, ਟ੍ਰਾਂਸਲੇਸ਼ਨ 
     mkdir test_docs
     ```
 
-2. ਕੁਝ markdown ਡੌਕੂਮੈਂਟੇਸ਼ਨ ਅਤੇ ਚਿੱਤਰ, ਜੋ ਤੁਸੀਂ ਟ੍ਰਾਂਸਲੇਟ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ, test ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ ਕਾਪੀ ਕਰੋ। ਉਦਾਹਰਨ ਵਜੋਂ:
+2. ਕੁਝ markdown ਡੌਕੂਮੈਂਟੇਸ਼ਨ ਅਤੇ images, ਜੋ ਤੁਸੀਂ ਟ੍ਰਾਂਸਲੇਟ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ, test ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ ਕਾਪੀ ਕਰੋ। ਉਦਾਹਰਨ ਵਜੋਂ:
     ```bash
     cp /path/to/your/docs/*.md test_docs/
     cp /path/to/your/images/*.png test_docs/
@@ -86,13 +86,13 @@ PR ਭੇਜਣ ਤੋਂ ਪਹਿਲਾਂ, ਟ੍ਰਾਂਸਲੇਸ਼ਨ 
     python -m co_op_translator --language-codes ko --root-dir test_docs
     ```
 
-5. `test_docs/translations` ਅਤੇ `test_docs/translated_images` ਵਿੱਚ ਟ੍ਰਾਂਸਲੇਟ ਕੀਤੇ ਫਾਈਲਾਂ ਚੈੱਕ ਕਰੋ, ਇਹ ਵੇਖਣ ਲਈ:
+5. `test_docs/translations` ਅਤੇ `test_docs/translated_images` ਵਿੱਚ ਟ੍ਰਾਂਸਲੇਟ ਕੀਤੇ ਫਾਈਲਾਂ ਚੈੱਕ ਕਰੋ:
    - ਟ੍ਰਾਂਸਲੇਸ਼ਨ ਦੀ ਗੁਣਵੱਤਾ
    - ਮੈਟਾਡਾਟਾ ਟਿੱਪਣੀਆਂ ਠੀਕ ਹਨ
    - ਅਸਲ markdown ਸਟ੍ਰੱਕਚਰ ਬਰਕਰਾਰ ਹੈ
-   - ਲਿੰਕ ਅਤੇ ਚਿੱਤਰ ਠੀਕ ਕੰਮ ਕਰ ਰਹੇ ਹਨ
+   - ਲਿੰਕ ਅਤੇ images ਠੀਕ ਕੰਮ ਕਰ ਰਹੀਆਂ ਹਨ
 
-ਇਹ ਮੈਨੂਅਲ ਟੈਸਟਿੰਗ ਯਕੀਨੀ ਬਣਾਉਂਦੀ ਹੈ ਕਿ ਤੁਹਾਡੀਆਂ ਤਬਦੀਲੀਆਂ ਅਸਲ ਹਾਲਾਤਾਂ ਵਿੱਚ ਠੀਕ ਕੰਮ ਕਰਦੀਆਂ ਹਨ।
+ਇਹ ਮੈਨੂਅਲ ਟੈਸਟਿੰਗ ਯਕੀਨੀ ਬਣਾਉਂਦੀ ਹੈ ਕਿ ਤੁਹਾਡੀਆਂ ਤਬਦੀਲੀਆਂ ਅਸਲ ਵਰਤੋਂ ਵਿੱਚ ਠੀਕ ਕੰਮ ਕਰਦੀਆਂ ਹਨ।
 
 ### ਇਨਵਾਇਰਨਮੈਂਟ ਵੈਰੀਏਬਲ
 
@@ -101,7 +101,7 @@ PR ਭੇਜਣ ਤੋਂ ਪਹਿਲਾਂ, ਟ੍ਰਾਂਸਲੇਸ਼ਨ 
 
 > [!TIP]
 >
-> ### ਹੋਰ ਡਿਵੈਲਪਮੈਂਟ ਇਨਵਾਇਰਨਮੈਂਟ ਵਿਕਲਪ
+> ### ਹੋਰ ਡਿਵੈਲਪਮੈਂਟ ਇਨਵਾਇਰਨਮੈਂਟ ਚੋਣਾਂ
 >
 > ਪ੍ਰੋਜੈਕਟ ਨੂੰ ਲੋਕਲ ਚਲਾਉਣ ਦੇ ਇਲਾਵਾ, ਤੁਸੀਂ GitHub Codespaces ਜਾਂ VS Code Dev Containers ਵੀ ਵਰਤ ਸਕਦੇ ਹੋ।
 >
@@ -109,27 +109,27 @@ PR ਭੇਜਣ ਤੋਂ ਪਹਿਲਾਂ, ਟ੍ਰਾਂਸਲੇਸ਼ਨ 
 >
 > ਤੁਸੀਂ ਇਹ ਸੈਂਪਲ GitHub Codespaces ਰਾਹੀਂ ਵਰਚੁਅਲ ਚਲਾ ਸਕਦੇ ਹੋ, ਕਿਸੇ ਵਾਧੂ ਸੈਟਅੱਪ ਦੀ ਲੋੜ ਨਹੀਂ।
 >
-> ਇਹ ਬਟਨ ਤੁਹਾਡੇ ਬਰਾਊਜ਼ਰ ਵਿੱਚ VS Code ਦਾ web-ਅਧਾਰਿਤ ਇੰਸਟੈਂਸ ਖੋਲ੍ਹੇਗਾ:
+> ਇਹ ਬਟਨ ਤੁਹਾਡੇ ਬਰਾਊਜ਼ਰ ਵਿੱਚ web-based VS Code ਖੋਲ੍ਹੇਗਾ:
 >
 > 1. ਟੈਮਪਲੇਟ ਖੋਲ੍ਹੋ (ਇਸ ਵਿੱਚ ਕੁਝ ਮਿੰਟ ਲੱਗ ਸਕਦੇ ਹਨ):
 >
->     [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/azure/co-op-translator)
+>     <a href="https://codespaces.new/azure/co-op-translator"><img src="https://github.com/codespaces/badge.svg" alt="Open in GitHub Codespaces"></a>
 >
-> #### ਲੋਕਲ VS Code Dev Containers ਰਾਹੀਂ ਚਲਾਉਣਾ
+> #### ਲੋਕਲ VS Code Dev Containers ਨਾਲ ਚਲਾਉਣਾ
 >
-> ⚠️ ਇਹ ਵਿਕਲਪ ਤਦ ਹੀ ਕੰਮ ਕਰੇਗਾ ਜੇ ਤੁਹਾਡੇ Docker Desktop ਨੂੰ ਘੱਟੋ-ਘੱਟ 16 GB RAM ਮਿਲੀ ਹੋਈ ਹੈ। ਜੇ ਤੁਹਾਡੇ ਕੋਲ 16 GB ਤੋਂ ਘੱਟ RAM ਹੈ, ਤਾਂ ਤੁਸੀਂ [GitHub Codespaces](../..) ਜਾਂ [ਲੋਕਲ ਸੈਟਅੱਪ](../..) ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰ ਸਕਦੇ ਹੋ।
+> ⚠️ ਇਹ ਚੋਣ ਤਾਂ ਹੀ ਕੰਮ ਕਰੇਗੀ ਜੇ ਤੁਹਾਡਾ Docker Desktop ਘੱਟੋ-ਘੱਟ 16 GB RAM ਲਈ ਐਲੋਕੇਟ ਕੀਤਾ ਹੋਇਆ ਹੈ। ਜੇ ਤੁਹਾਡੇ ਕੋਲ 16 GB ਤੋਂ ਘੱਟ RAM ਹੈ, ਤਾਂ ਤੁਸੀਂ [GitHub Codespaces](../..) ਜਾਂ [ਲੋਕਲ ਸੈਟਅੱਪ](../..) ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰ ਸਕਦੇ ਹੋ।
 >
-> ਇੱਕ ਹੋਰ ਵਿਕਲਪ VS Code Dev Containers ਹੈ, ਜੋ ਤੁਹਾਡੇ ਲੋਕਲ VS Code ਵਿੱਚ [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) ਰਾਹੀਂ ਪ੍ਰੋਜੈਕਟ ਖੋਲ੍ਹੇਗਾ:
+> ਇੱਕ ਹੋਰ ਚੋਣ VS Code Dev Containers ਹੈ, ਜੋ ਤੁਹਾਡੇ ਲੋਕਲ VS Code ਵਿੱਚ [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) ਰਾਹੀਂ ਪ੍ਰੋਜੈਕਟ ਖੋਲ੍ਹੇਗਾ:
 >
 > 1. Docker Desktop ਚਲਾਓ (ਜੇ ਇੰਸਟਾਲ ਨਹੀਂ, ਤਾਂ ਪਹਿਲਾਂ ਇੰਸਟਾਲ ਕਰੋ)
 > 2. ਪ੍ਰੋਜੈਕਟ ਖੋਲ੍ਹੋ:
 >
->    [![Open in Dev Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure/co-op-translator)
+>    <a href="https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure/co-op-translator"><img src="https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode" alt="Open in Dev Containers"></a>
 
 
 ### ਕੋਡ ਸਟਾਈਲ
 
-ਅਸੀਂ [Black](https://github.com/psf/black) ਨੂੰ Python ਕੋਡ ਫਾਰਮੈਟਰ ਵਜੋਂ ਵਰਤਦੇ ਹਾਂ, ਤਾਂ ਜੋ ਪ੍ਰੋਜੈਕਟ ਵਿੱਚ ਕੋਡ ਸਟਾਈਲ ਇਕਸਾਰ ਰਹੇ। Black ਇੱਕ uncompromising ਕੋਡ ਫਾਰਮੈਟਰ ਹੈ, ਜੋ Python ਕੋਡ ਨੂੰ ਆਪਣੇ ਸਟਾਈਲ ਅਨੁਸਾਰ ਆਪਣੇ-ਆਪ ਰੀਫਾਰਮੈਟ ਕਰਦਾ ਹੈ।
+ਅਸੀਂ [Black](https://github.com/psf/black) ਨੂੰ Python ਕੋਡ ਫਾਰਮੈਟਰ ਵਜੋਂ ਵਰਤਦੇ ਹਾਂ, ਤਾਂ ਜੋ ਪ੍ਰੋਜੈਕਟ ਵਿੱਚ ਕੋਡ ਸਟਾਈਲ ਇਕਸਾਰ ਰਹੇ। Black ਇੱਕ uncompromising ਕੋਡ ਫਾਰਮੈਟਰ ਹੈ, ਜੋ Python ਕੋਡ ਨੂੰ ਆਟੋਮੈਟਿਕ ਤੌਰ 'ਤੇ Black ਸਟਾਈਲ ਵਿੱਚ ਰੀਫਾਰਮੈਟ ਕਰਦਾ ਹੈ।
 
 #### ਕਨਫਿਗਰੇਸ਼ਨ
 
@@ -148,7 +148,7 @@ include = '\.pyi?$'
 
 ##### Poetry ਨਾਲ
 
-Poetry ਰਾਹੀਂ ਡਿਵੈਲਪਮੈਂਟ ਇਨਵਾਇਰਨਮੈਂਟ ਸੈਟਅੱਪ ਕਰਦੇ ਸਮੇਂ Black ਆਪਣੇ-ਆਪ ਇੰਸਟਾਲ ਹੋ ਜਾਂਦਾ ਹੈ:
+Poetry ਨਾਲ ਡਿਵੈਲਪਮੈਂਟ ਇਨਵਾਇਰਨਮੈਂਟ ਸੈਟਅੱਪ ਕਰਦੇ ਸਮੇਂ Black ਆਟੋਮੈਟਿਕ ਇੰਸਟਾਲ ਹੋ ਜਾਂਦਾ ਹੈ:
 ```bash
 poetry install
 ```
@@ -160,7 +160,7 @@ poetry install
 pip install black
 ```
 
-#### Black ਵਰਤਣਾ
+#### Black ਦੀ ਵਰਤੋਂ
 
 ##### Poetry ਨਾਲ
 
@@ -187,15 +187,15 @@ pip install black
     ```
 
 > [!TIP]
-> ਅਸੀਂ ਤੁਹਾਨੂੰ ਆਪਣੇ ਐਡੀਟਰ ਨੂੰ Black ਨਾਲ save 'ਤੇ code auto-format ਕਰਨ ਲਈ ਸੈਟਅੱਪ ਕਰਨ ਦੀ ਸਿਫਾਰਸ਼ ਕਰਦੇ ਹਾਂ। ਜ਼ਿਆਦਾਤਰ modern editors ਵਿੱਚ ਇਹ extension ਜਾਂ plugins ਰਾਹੀਂ ਹੋ ਜਾਂਦਾ ਹੈ।
+> ਅਸੀਂ ਤੁਹਾਡੇ ਐਡੀਟਰ ਨੂੰ Black ਨਾਲ ਆਟੋਮੈਟਿਕ ਫਾਰਮੈਟ ਕਰਨ ਲਈ ਸੈਟਅੱਪ ਕਰਨ ਦੀ ਸਿਫਾਰਸ਼ ਕਰਦੇ ਹਾਂ। ਜ਼ਿਆਦਾਤਰ ਐਡੀਟਰਾਂ ਵਿੱਚ ਇਹ plugins ਜਾਂ extensions ਰਾਹੀਂ ਹੋ ਜਾਂਦਾ ਹੈ।
 
 ## Co-op Translator ਚਲਾਉਣਾ
 
-Poetry ਰਾਹੀਂ Co-op Translator ਚਲਾਉਣ ਲਈ, ਇਹ ਕਦਮ ਅਪਣਾਓ:
+Poetry ਰਾਹੀਂ Co-op Translator ਚਲਾਉਣ ਲਈ, ਹੇਠਾਂ ਦਿੱਤੇ ਕਦਮਾਂ ਦੀ ਪਾਲਣਾ ਕਰੋ:
 
-1. ਜਿਸ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ ਤੁਸੀਂ ਟੈਸਟ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ ਜਾਂ ਟੈਸਟ ਲਈ temporary folder ਬਣਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ, ਉੱਥੇ ਜਾਓ।
+1. ਜਿਸ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ ਤੁਸੀਂ ਟੈਸਟ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ ਜਾਂ ਟੈਸਟਿੰਗ ਲਈ ਟੈਮਪਰੇਰੀ ਫੋਲਡਰ ਬਣਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ, ਉੱਥੇ ਜਾਓ।
 
-2. ਹੇਠਾਂ ਦਿੱਤਾ ਕਮਾਂਡ ਚਲਾਓ। `-l ko` ਨੂੰ ਆਪਣੀ ਚਾਹੀਦੀ ਭਾਸ਼ਾ ਕੋਡ ਨਾਲ ਬਦਲੋ। `-d` flag debug mode ਲਈ ਹੈ।
+2. ਹੇਠਾਂ ਦਿੱਤਾ ਕਮਾਂਡ ਚਲਾਓ। `-l ko` ਨੂੰ ਆਪਣੀ ਚਾਹੀਦੀ ਭਾਸ਼ਾ ਕੋਡ ਨਾਲ ਬਦਲੋ। `-d` ਫਲੈਗ debug ਮੋਡ ਲਈ ਹੈ।
 
     ```bash
     poetry run co-op-translator translate -l ko -d
@@ -206,33 +206,33 @@ Poetry ਰਾਹੀਂ Co-op Translator ਚਲਾਉਣ ਲਈ, ਇਹ ਕਦਮ
 
 ## ਨਵੀਂ ਭਾਸ਼ਾ ਲਈ ਯੋਗਦਾਨ ਪਾਓ
 
-ਅਸੀਂ ਨਵੀਆਂ ਭਾਸ਼ਾਵਾਂ ਲਈ ਯੋਗਦਾਨ ਦਾ ਸਵਾਗਤ ਕਰਦੇ ਹਾਂ। PR ਖੋਲ੍ਹਣ ਤੋਂ ਪਹਿਲਾਂ, ਹੇਠਾਂ ਦਿੱਤੇ ਕਦਮ ਪੂਰੇ ਕਰੋ, ਤਾਂ ਜੋ review ਆਸਾਨੀ ਨਾਲ ਹੋ ਸਕੇ।
+ਅਸੀਂ ਨਵੀਆਂ ਭਾਸ਼ਾਵਾਂ ਲਈ ਯੋਗਦਾਨ ਦਾ ਸਵਾਗਤ ਕਰਦੇ ਹਾਂ। PR ਖੋਲ੍ਹਣ ਤੋਂ ਪਹਿਲਾਂ, ਹੇਠਾਂ ਦਿੱਤੇ ਕਦਮ ਪੂਰੇ ਕਰੋ ਤਾਂ ਜੋ review ਆਸਾਨੀ ਨਾਲ ਹੋ ਸਕੇ।
 
-1. ਭਾਸ਼ਾ font mapping ਵਿੱਚ ਸ਼ਾਮਲ ਕਰੋ
+1. ਭਾਸ਼ਾ ਨੂੰ font mapping ਵਿੱਚ ਸ਼ਾਮਲ ਕਰੋ
    - `src/co_op_translator/fonts/font_language_mappings.yml` ਐਡਿਟ ਕਰੋ
-   - ਹੇਠਾਂ ਦਿੱਤੇ attributes ਨਾਲ entry ਸ਼ਾਮਲ ਕਰੋ:
+   - ਹੇਠਾਂ ਦਿੱਤੇ ਤਰੀਕੇ ਨਾਲ ਐਂਟਰੀ ਸ਼ਾਮਲ ਕਰੋ:
      - `code`: ISO-ਵਾਂਗ ਭਾਸ਼ਾ ਕੋਡ (ਜਿਵੇਂ `vi`)
      - `name`: ਆਮ ਵਰਤੋਂ ਵਾਲਾ ਨਾਂ
      - `font`: `src/co_op_translator/fonts/` ਵਿੱਚ ਮੌਜੂਦ font, ਜੋ script ਨੂੰ support ਕਰਦਾ ਹੋਵੇ
      - `rtl`: ਜੇ right-to-left ਹੈ ਤਾਂ `true`, ਨਹੀਂ ਤਾਂ `false`
 
 2. ਲੋੜੀਂਦੇ font files ਸ਼ਾਮਲ ਕਰੋ (ਜੇ ਲੋੜ ਹੋਵੇ)
-   - ਜੇ ਨਵਾਂ font ਚਾਹੀਦਾ ਹੈ, open source distribution ਲਈ license compatibility ਚੈੱਕ ਕਰੋ
-   - font file `src/co_op_translator/fonts/` ਵਿੱਚ ਪਾਓ
+   - ਜੇ ਨਵਾਂ font ਚਾਹੀਦਾ ਹੈ, ਤਾਂ open source distribution ਲਈ license compatibility ਚੈੱਕ ਕਰੋ
+   - font file ਨੂੰ `src/co_op_translator/fonts/` ਵਿੱਚ ਪਾਓ
 
 3. ਲੋਕਲ ਵੈਰੀਫਿਕੇਸ਼ਨ
    - ਛੋਟਾ sample (Markdown, images, notebooks) 'ਤੇ ਟ੍ਰਾਂਸਲੇਸ਼ਨ ਚਲਾਓ
-   - output ਠੀਕ render ਹੋ ਰਿਹਾ ਹੈ, font ਅਤੇ RTL layout ਸਮੇਤ, ਚੈੱਕ ਕਰੋ
+   - output ਠੀਕ ਰੇਂਡਰ ਹੋ ਰਿਹਾ ਹੈ ਜਾਂ ਨਹੀਂ, font ਅਤੇ RTL ਲੇਆਉਟ ਸਮੇਤ, ਚੈੱਕ ਕਰੋ
 
 4. ਡੌਕੂਮੈਂਟੇਸ਼ਨ ਅੱਪਡੇਟ ਕਰੋ
    - ਭਾਸ਼ਾ `getting_started/supported-languages.md` ਵਿੱਚ ਆਉਣੀ ਚਾਹੀਦੀ ਹੈ
-   - `README_languages_template.md` 'ਚ ਕੋਈ ਤਬਦੀਲੀ ਨਹੀਂ ਚਾਹੀਦੀ; ਇਹ supported list ਤੋਂ ਬਣਦੀ ਹੈ
+   - `README_languages_template.md` ਵਿੱਚ ਕੋਈ ਤਬਦੀਲੀ ਨਹੀਂ ਚਾਹੀਦੀ; ਇਹ supported list ਤੋਂ ਜਨਰੇਟ ਹੁੰਦੀ ਹੈ
 
 5. PR ਖੋਲ੍ਹੋ
    - ਜੋ ਭਾਸ਼ਾ ਐਡ ਕੀਤੀ, font/licensing ਬਾਰੇ ਜਾਣਕਾਰੀ ਦਿਓ
    - ਹੋ ਸਕੇ ਤਾਂ rendered output ਦੇ screenshots ਲਗਾਓ
 
-YAML entry ਦੀ ਉਦਾਹਰਨ:
+YAML ਐਂਟਰੀ ਦੀ ਉਦਾਹਰਨ:
 
 ```yaml
 new_lang(code):
@@ -241,18 +241,34 @@ new_lang(code):
   rtl: false
 ```
 
+### ਨਵੀਂ ਭਾਸ਼ਾ ਟੈਸਟ ਕਰੋ
+
+ਤੁਸੀਂ ਹੇਠਾਂ ਦਿੱਤਾ ਕਮਾਂਡ ਚਲਾਕੇ ਨਵੀਂ ਭਾਸ਼ਾ ਟੈਸਟ ਕਰ ਸਕਦੇ ਹੋ:
+
+```bash
+# Create and activate a virtual environment (recommended)
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+source .venv/bin/activate
+# Install the development package
+pip install -e .
+# Run the translation
+translate -l "new_lang"
+```
 
 ## ਮੈਨਟੇਨਰ
 
 ### Commit message ਅਤੇ Merge strategy
 
-ਸਾਡੇ ਪ੍ਰੋਜੈਕਟ ਦੀ commit history ਵਿਚ consistency ਅਤੇ clarity ਲਈ, ਅਸੀਂ **Squash and Merge** strategy ਵਰਤਦੇ ਹੋਏ commit message ਲਈ ਖਾਸ format follow ਕਰਦੇ ਹਾਂ।
+ਸਾਡੇ ਪ੍ਰੋਜੈਕਟ ਦੀ commit history ਵਿਚ consistency ਅਤੇ clarity ਲਈ, ਅਸੀਂ **Squash and Merge** strategy ਵਰਤਦੇ ਹੋਏ commit message ਲਈ ਖਾਸ ਫਾਰਮੈਟ ਫਾਲੋ ਕਰਦੇ ਹਾਂ।
 
-ਜਦੋਂ pull request (PR) merge ਹੁੰਦੀ ਹੈ, ਤਾਂ ਵੱਖ-ਵੱਖ commits ਇੱਕ commit ਵਿੱਚ squash ਹੋ ਜਾਂਦੇ ਹਨ। Final commit message ਹੇਠਾਂ ਦਿੱਤੇ format 'ਚ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ, ਤਾਂ ਜੋ history ਸਾਫ਼ ਅਤੇ consistent ਰਹੇ।
+ਜਦੋਂ pull request (PR) merge ਹੁੰਦੀ ਹੈ, ਤਾਂ ਵੱਖ-ਵੱਖ commits ਇੱਕ commit ਵਿੱਚ squash ਹੋ ਜਾਂਦੇ ਹਨ। Final commit message ਹੇਠਾਂ ਦਿੱਤੇ ਫਾਰਮੈਟ 'ਚ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ, ਤਾਂ ਜੋ history ਸਾਫ਼ ਅਤੇ consistent ਰਹੇ।
 
-#### Commit message format (squash and merge ਲਈ)
+#### Commit message ਫਾਰਮੈਟ (squash and merge ਲਈ)
 
-ਅਸੀਂ commit messages ਲਈ ਹੇਠਾਂ ਦਿੱਤਾ format ਵਰਤਦੇ ਹਾਂ:
+ਅਸੀਂ commit messages ਲਈ ਹੇਠਾਂ ਦਿੱਤਾ ਫਾਰਮੈਟ ਵਰਤਦੇ ਹਾਂ:
 
 ```bash
 <type>: <description> (#<PR number>)
@@ -272,19 +288,19 @@ new_lang(code):
 - `Core: Improve handling of image translation (#60)`
 
 > [!NOTE]
-> ਇਸ ਵੇਲੇ **`Docs`**, **`Core`**, ਅਤੇ **`Build`** prefixes PR titles 'ਚ labels ਦੇ ਆਧਾਰ 'ਤੇ ਆਪਣੇ-ਆਪ ਲੱਗ ਜਾਂਦੇ ਹਨ। ਜੇ ਸਹੀ label ਲੱਗਾ ਹੋਇਆ ਹੈ, ਤਾਂ ਤੁਹਾਨੂੰ PR title ਹੱਥੋਂ update ਕਰਨ ਦੀ ਲੋੜ ਨਹੀਂ। ਸਿਰਫ਼ ਇਹ ਚੈੱਕ ਕਰੋ ਕਿ prefix ਠੀਕ ਹੈ।
+> ਇਸ ਵੇਲੇ **`Docs`**, **`Core`**, ਅਤੇ **`Build`** prefixes PR titles 'ਤੇ labels ਦੇ ਆਧਾਰ 'ਤੇ ਆਟੋਮੈਟਿਕ ਲੱਗ ਜਾਂਦੇ ਹਨ। ਜੇ ਸਹੀ label ਲੱਗਾ ਹੋਇਆ ਹੈ, ਤਾਂ ਤੁਹਾਨੂੰ PR title ਹੱਥੋਂ update ਕਰਨ ਦੀ ਲੋੜ ਨਹੀਂ। ਸਿਰਫ਼ ਇਹ ਚੈੱਕ ਕਰੋ ਕਿ prefix ਠੀਕ ਜਨਰੇਟ ਹੋਇਆ ਹੈ।
 
 #### Merge strategy
 
-ਅਸੀਂ pull requests ਲਈ **Squash and Merge** default strategy ਵਜੋਂ ਵਰਤਦੇ ਹਾਂ। ਇਸ strategy ਨਾਲ commit messages ਸਾਡਾ format follow ਕਰਦੇ ਹਨ, ਭਾਵੇਂ individual commits ਨਾ ਕਰਦੇ ਹੋਣ।
+ਅਸੀਂ pull requests ਲਈ **Squash and Merge** default strategy ਵਜੋਂ ਵਰਤਦੇ ਹਾਂ। ਇਸ strategy ਨਾਲ commit messages ਸਾਡਾ ਫਾਰਮੈਟ follow ਕਰਦੇ ਹਨ, ਭਾਵੇਂ individual commits ਨਾ ਕਰਦੇ ਹੋਣ।
 
 **ਕਾਰਨ**:
 
 - ਸਾਫ਼, linear project history।
-- commit messages 'ਚ consistency।
+- commit messages ਵਿੱਚ consistency।
 - minor commits (ਜਿਵੇਂ "fix typo") ਤੋਂ noise ਘੱਟ।
 
-Merge ਕਰਦੇ ਸਮੇਂ, final commit message ਉਪਰੋਕਤ format 'ਚ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ।
+Merge ਕਰਦੇ ਸਮੇਂ, final commit message commit message ਫਾਰਮੈਟ ਅਨੁਸਾਰ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ।
 
 **Squash and Merge ਦੀ ਉਦਾਹਰਨ**
 ਜੇ PR ਵਿੱਚ ਹੇਠਾਂ ਦਿੱਤੇ commits ਹਨ:
@@ -299,4 +315,4 @@ Merge ਕਰਦੇ ਸਮੇਂ, final commit message ਉਪਰੋਕਤ format 
 ---
 
 **ਅਸਵੀਕਰਨ**:
-ਇਹ ਦਸਤਾਵੇਜ਼ AI ਅਨੁਵਾਦ ਸੇਵਾ [Co-op Translator](https://github.com/Azure/co-op-translator) ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਅਨੁਵਾਦ ਕੀਤਾ ਗਿਆ ਹੈ। ਅਸੀਂ ਯਥਾਸੰਭਵ ਸਹੀ ਅਨੁਵਾਦ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰਦੇ ਹਾਂ, ਪਰ ਕਿਰਪਾ ਕਰਕੇ ਧਿਆਨ ਵਿੱਚ ਰੱਖੋ ਕਿ ਆਟੋਮੈਟਿਕ ਅਨੁਵਾਦ ਵਿੱਚ ਗਲਤੀਆਂ ਜਾਂ ਅਣਪਛਾਤੀਆਂ ਹੋ ਸਕਦੀਆਂ ਹਨ। ਮੂਲ ਦਸਤਾਵੇਜ਼, ਜਿਸ ਭਾਸ਼ਾ ਵਿੱਚ ਉਹ ਲਿਖਿਆ ਗਿਆ ਹੈ, ਨੂੰ ਹੀ ਅਧਿਕਾਰਤ ਸਰੋਤ ਮੰਨਿਆ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ। ਜਰੂਰੀ ਜਾਣਕਾਰੀ ਲਈ, ਪੇਸ਼ੇਵਰ ਮਨੁੱਖੀ ਅਨੁਵਾਦ ਦੀ ਸਿਫਾਰਸ਼ ਕੀਤੀ ਜਾਂਦੀ ਹੈ। ਇਸ ਅਨੁਵਾਦ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਹੋਣ ਵਾਲੀ ਕਿਸੇ ਵੀ ਗਲਤਫਹਮੀ ਜਾਂ ਗਲਤ ਵਿਆਖਿਆ ਲਈ ਅਸੀਂ ਜ਼ਿੰਮੇਵਾਰ ਨਹੀਂ ਹਾਂ।
+ਇਹ ਦਸਤਾਵੇਜ਼ AI ਅਨੁਵਾਦ ਸੇਵਾ [Co-op Translator](https://github.com/Azure/co-op-translator) ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਅਨੁਵਾਦ ਕੀਤਾ ਗਿਆ ਹੈ। ਅਸੀਂ ਯਥਾਸੰਭਵ ਸਹੀ ਅਨੁਵਾਦ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰਦੇ ਹਾਂ, ਪਰ ਕਿਰਪਾ ਕਰਕੇ ਧਿਆਨ ਵਿੱਚ ਰੱਖੋ ਕਿ ਆਟੋਮੈਟਿਕ ਅਨੁਵਾਦ ਵਿੱਚ ਗਲਤੀਆਂ ਜਾਂ ਅਣਪਛਾਤੀਆਂ ਹੋ ਸਕਦੀਆਂ ਹਨ। ਮੂਲ ਦਸਤਾਵੇਜ਼, ਜਿਸ ਭਾਸ਼ਾ ਵਿੱਚ ਉਹ ਲਿਖਿਆ ਗਿਆ ਹੈ, ਨੂੰ ਹੀ ਅਧਿਕਾਰਤ ਸਰੋਤ ਮੰਨਿਆ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ। ਜੇਕਰ ਜਾਣਕਾਰੀ ਮਹੱਤਵਪੂਰਨ ਹੈ, ਤਾਂ ਪੇਸ਼ੇਵਰ ਮਨੁੱਖੀ ਅਨੁਵਾਦ ਦੀ ਸਿਫਾਰਸ਼ ਕੀਤੀ ਜਾਂਦੀ ਹੈ। ਇਸ ਅਨੁਵਾਦ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਹੋਣ ਵਾਲੀ ਕਿਸੇ ਵੀ ਗਲਤਫਹਮੀ ਜਾਂ ਗਲਤ ਵਿਆਖਿਆ ਲਈ ਅਸੀਂ ਜ਼ਿੰਮੇਵਾਰ ਨਹੀਂ ਹਾਂ।

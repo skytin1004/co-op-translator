@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "bd4704f50c55da7d572b691484aa0b30",
-  "translation_date": "2025-10-15T03:53:38+00:00",
+  "original_hash": "1ae2159f900e7d5d596bb00bcba4c999",
+  "translation_date": "2025-10-22T14:05:46+00:00",
   "source_file": "CONTRIBUTING.md",
   "language_code": "sk"
 }
@@ -11,7 +11,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 Tento projekt víta príspevky a návrhy. Väčšina príspevkov vyžaduje, aby ste súhlasili s Contributor License Agreement (CLA), čím potvrdíte, že máte právo a skutočne udeľujete práva na použitie vášho príspevku. Viac informácií nájdete na https://cla.opensource.microsoft.com.
 
-Keď odošlete pull request, CLA bot automaticky zistí, či musíte poskytnúť CLA, a podľa toho označí PR (napr. status check, komentár). Stačí postupovať podľa pokynov bota. Tento proces stačí absolvovať len raz pre všetky repozitáre využívajúce našu CLA.
+Keď odošlete pull request, CLA bot automaticky zistí, či musíte poskytnúť CLA, a podľa toho označí PR (napr. status check, komentár). Stačí postupovať podľa pokynov bota. Toto stačí urobiť len raz pre všetky repozitáre používajúce náš CLA.
 
 ## Nastavenie vývojového prostredia
 
@@ -92,7 +92,7 @@ Pred odoslaním PR je dôležité otestovať funkčnosť prekladu na reálnej do
    - Zachovanie pôvodnej štruktúry markdownu
    - Funkčnosť odkazov a obrázkov
 
-Toto manuálne testovanie pomáha zabezpečiť, že vaše zmeny fungujú aj v reálnych podmienkach.
+Toto manuálne testovanie pomáha zabezpečiť, že vaše zmeny fungujú aj v reálnych situáciách.
 
 ### Premenné prostredia
 
@@ -115,9 +115,9 @@ Toto manuálne testovanie pomáha zabezpečiť, že vaše zmeny fungujú aj v re
 >
 >     <a href="https://codespaces.new/azure/co-op-translator"><img src="https://github.com/codespaces/badge.svg" alt="Open in GitHub Codespaces"></a>
 >
-> #### Lokálne spustenie cez VS Code Dev Containers
+> #### Lokálne spustenie pomocou VS Code Dev Containers
 >
-> ⚠️ Táto možnosť funguje len ak máte v Docker Desktop pridelených aspoň 16 GB RAM. Ak máte menej, skúste [GitHub Codespaces](../..) alebo [nastavte lokálne](../..).
+> ⚠️ Táto možnosť funguje len ak máte v Docker Desktop pridelených aspoň 16 GB RAM. Ak máte menej, skúste [možnosť GitHub Codespaces](../..) alebo [nastavte si prostredie lokálne](../..).
 >
 > Alternatívou sú VS Code Dev Containers, ktoré otvoria projekt vo vašom lokálnom VS Code pomocou [Dev Containers rozšírenia](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers):
 >
@@ -155,7 +155,7 @@ poetry install
 
 ##### Pomocou pip
 
-Ak používate pip, Black nainštalujete priamo:
+Ak používate pip, Black môžete nainštalovať priamo:
 ```bash
 pip install black
 ```
@@ -191,11 +191,11 @@ pip install black
 
 ## Spustenie Co-op Translator
 
-Na spustenie Co-op Translator pomocou Poetry vo vašom prostredí postupujte takto:
+Ak chcete spustiť Co-op Translator pomocou Poetry vo vašom prostredí, postupujte takto:
 
 1. Prejdite do adresára, kde chcete vykonávať prekladové testy, alebo si vytvorte dočasný priečinok na testovanie.
 
-2. Spustite nasledujúci príkaz. Nahraďte `-l ko` kódom jazyka, do ktorého chcete prekladať. Prepínač `-d` aktivuje debug mód.
+2. Spustite nasledujúci príkaz. Nahraďte `-l ko` kódom jazyka, do ktorého chcete prekladať. Prepínač `-d` zapína debug mód.
 
     ```bash
     poetry run co-op-translator translate -l ko -d
@@ -212,7 +212,7 @@ Radi privítame príspevky, ktoré pridávajú podporu pre nové jazyky. Pred ot
    - Upraviť `src/co_op_translator/fonts/font_language_mappings.yml`
    - Pridať položku s:
      - `code`: ISO-like kód jazyka (napr. `vi`)
-     - `name`: Zrozumiteľný názov jazyka
+     - `name`: Zobrazovaný názov jazyka
      - `font`: Font dostupný v `src/co_op_translator/fonts/`, ktorý podporuje dané písmo
      - `rtl`: `true` ak je jazyk písaný sprava doľava, inak `false`
 
@@ -241,6 +241,22 @@ new_lang(code):
   rtl: false
 ```
 
+### Testovanie nového jazyka
+
+Nový jazyk môžete otestovať spustením nasledujúceho príkazu:
+
+```bash
+# Create and activate a virtual environment (recommended)
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+source .venv/bin/activate
+# Install the development package
+pip install -e .
+# Run the translation
+translate -l "new_lang"
+```
 
 ## Správcovia
 
@@ -248,11 +264,11 @@ new_lang(code):
 
 Aby sme udržali konzistentnú a prehľadnú históriu commitov, používame špecifický formát správy o commite **pre finálnu správu** pri použití stratégie **Squash and Merge**.
 
-Pri zlúčení pull requestu (PR) sa jednotlivé commity spoja do jedného. Finálna správa o commite by mala nasledovať formát nižšie, aby bola história čistá a jednotná.
+Keď sa pull request (PR) zlúči, jednotlivé commity sa spoja do jedného. Finálna správa o commite by mala nasledovať formát nižšie, aby bola história čistá a jednotná.
 
 #### Formát správy o commite (pre squash and merge)
 
-Používame nasledujúci formát:
+Používame nasledujúci formát správ:
 
 ```bash
 <type>: <description> (#<PR number>)
@@ -261,7 +277,7 @@ Používame nasledujúci formát:
 - **type**: Určuje kategóriu commitu. Používame tieto typy:
   - `Docs`: Aktualizácie dokumentácie.
   - `Build`: Zmeny týkajúce sa build systému alebo závislostí, vrátane úprav konfiguračných súborov, CI workflow alebo Dockerfile.
-  - `Core`: Úpravy hlavnej funkcionality projektu, najmä súborov v `src/co_op_translator/core`.
+  - `Core`: Úpravy hlavnej funkcionality alebo vlastností projektu, najmä súborov v `src/co_op_translator/core`.
 
 - **description**: Stručné zhrnutie zmeny.
 - **PR number**: Číslo pull requestu, s ktorým commit súvisí.
@@ -272,16 +288,16 @@ Používame nasledujúci formát:
 - `Core: Improve handling of image translation (#60)`
 
 > [!NOTE]
-> Prefixy **`Docs`**, **`Core`** a **`Build`** sa aktuálne automaticky pridávajú do názvu PR podľa priradených štítkov k upravenému zdrojovému kódu. Ak je správny štítok priradený, zvyčajne netreba názov PR manuálne upravovať. Stačí overiť, že je všetko správne a prefix bol vygenerovaný správne.
+> Prefixy **`Docs`**, **`Core`** a **`Build`** sa aktuálne pridávajú automaticky do názvu PR podľa priradených štítkov k upravenému zdrojovému kódu. Ak je správny štítok priradený, zvyčajne nemusíte názov PR upravovať manuálne. Stačí overiť, že je všetko správne a prefix bol vygenerovaný.
 
 #### Stratégia zlúčenia
 
-Používame **Squash and Merge** ako predvolenú stratégiu pre pull requesty. Táto stratégia zabezpečuje, že správy o commite budú podľa nášho formátu, aj keď jednotlivé commity nie sú.
+Ako predvolenú stratégiu pre pull requesty používame **Squash and Merge**. Táto stratégia zabezpečuje, že správy o commite budú podľa nášho formátu, aj keď jednotlivé commity nie sú.
 
 **Dôvody**:
 
 - Čistá, lineárna história projektu.
-- Konzistentné správy o commite.
+- Konzistentné správy o commitoch.
 - Menej zbytočných commitov (napr. "fix typo").
 
 Pri zlúčení sa uistite, že finálna správa o commite je podľa vyššie uvedeného formátu.
@@ -299,4 +315,4 @@ Mali by byť zlúčené do:
 ---
 
 **Vyhlásenie o vylúčení zodpovednosti**:
-Tento dokument bol preložený pomocou AI prekladovej služby [Co-op Translator](https://github.com/Azure/co-op-translator). Hoci sa snažíme o presnosť, upozorňujeme, že automatizované preklady môžu obsahovať chyby alebo nepresnosti. Za autoritatívny zdroj sa považuje pôvodný dokument v jeho pôvodnom jazyku. Pre kritické informácie odporúčame profesionálny ľudský preklad. Nenesieme zodpovednosť za akékoľvek nedorozumenia alebo nesprávne interpretácie vzniknuté použitím tohto prekladu.
+Tento dokument bol preložený pomocou AI prekladovej služby [Co-op Translator](https://github.com/Azure/co-op-translator). Hoci sa snažíme o presnosť, upozorňujeme, že automatizované preklady môžu obsahovať chyby alebo nepresnosti. Za autoritatívny zdroj sa považuje pôvodný dokument v jeho pôvodnom jazyku. Pri kritických informáciách odporúčame profesionálny ľudský preklad. Nenesieme zodpovednosť za akékoľvek nedorozumenia alebo nesprávne interpretácie vzniknuté použitím tohto prekladu.

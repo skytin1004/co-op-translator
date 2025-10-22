@@ -1,15 +1,15 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "badae5ee6451cc1a6e367cfe5ba92efa",
-  "translation_date": "2025-10-15T03:24:28+00:00",
+  "original_hash": "40660d83d2792201cad4aec9fdf25a29",
+  "translation_date": "2025-10-22T13:54:02+00:00",
   "source_file": "getting_started/supported-languages.md",
   "language_code": "no"
 }
 -->
 # Støttede språk
 
-Tabellen under viser hvilke språk som for øyeblikket støttes av **Co-op Translator**. Den inkluderer språkkoder, språknavn og eventuelle kjente problemer for hvert språk. Hvis du ønsker å legge til støtte for et nytt språk, må du legge til riktig språkkode, navn og passende font i `font_language_mappings.yml`-filen som ligger i `src/co_op_translator/fonts/`, og sende inn en pull request etter testing.
+Tabellen under viser språkene som for øyeblikket støttes av **Co-op Translator**. Den inkluderer språkkoder, språknavn og eventuelle kjente problemer for hvert språk. Hvis du ønsker å legge til støtte for et nytt språk, må du legge til riktig språkkode, navn og passende font i `font_language_mappings.yml`-filen som ligger i `src/co_op_translator/fonts/`, og sende inn en pull request etter testing.
 
 | Språkkode     | Språknavn                  | Font                              | RTL-støtte  | Kjente problemer |
 |---------------|----------------------------|-----------------------------------|-------------|------------------|
@@ -22,9 +22,9 @@ Tabellen under viser hvilke språk som for øyeblikket støttes av **Co-op Trans
 | fa            | Persisk (Farsi)            | NotoSansArabic-Medium.ttf         | Ja          | Nei              |
 | ur            | Urdu                       | NotoSansArabic-Medium.ttf         | Ja          | Nei              |
 | zh            | Kinesisk (forenklet)       | NotoSansCJK-Medium.ttc            | Nei         | Nei              |
-| mo            | Kinesisk (tradisjonell, Macau) | NotoSansCJK-Medium.ttc      | Nei         | Nei              |
-| hk            | Kinesisk (tradisjonell, Hong Kong) | NotoSansCJK-Medium.ttc   | Nei         | Nei              |
-| tw            | Kinesisk (tradisjonell, Taiwan) | NotoSansCJK-Medium.ttc     | Nei         | Nei              |
+| mo            | Kinesisk (tradisjonell, Macau) | NotoSansCJK-Medium.ttc        | Nei         | Nei              |
+| hk            | Kinesisk (tradisjonell, Hong Kong) | NotoSansCJK-Medium.ttc     | Nei         | Nei              |
+| tw            | Kinesisk (tradisjonell, Taiwan) | NotoSansCJK-Medium.ttc       | Nei         | Nei              |
 | ja            | Japansk                    | NotoSansCJK-Medium.ttc            | Nei         | Nei              |
 | ko            | Koreansk                   | NotoSansCJK-Medium.ttc            | Nei         | Nei              |
 | hi            | Hindi                      | NotoSansDevanagari-Medium.ttf     | Nei         | Nei              |
@@ -63,6 +63,7 @@ Tabellen under viser hvilke språk som for øyeblikket støttes av **Co-op Trans
 | my            | Burmesisk (Myanmar)        | NotoSansMyanmar-Medium.ttf        | Nei         | Nei              |
 | ta            | Tamil                      | NotoSansTamil-Medium.ttf          | Nei         | Nei              |
 | et            | Estisk                     | NotoSans-Medium.ttf               | Nei         | Nei              |
+| pcm           | Nigeriansk pidgin          | NotoSans-Medium.ttf               | Nei         | Nei              |
 
 ## Legge til et nytt språk
 

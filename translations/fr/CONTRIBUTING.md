@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "bd4704f50c55da7d572b691484aa0b30",
-  "translation_date": "2025-10-15T02:07:08+00:00",
+  "original_hash": "1ae2159f900e7d5d596bb00bcba4c999",
+  "translation_date": "2025-10-22T13:20:04+00:00",
   "source_file": "CONTRIBUTING.md",
   "language_code": "fr"
 }
@@ -10,7 +10,7 @@ CO_OP_TRANSLATOR_METADATA:
 # Contribuer à Co-op Translator
 
 Ce projet accueille volontiers les contributions et suggestions. La plupart des contributions nécessitent que vous acceptiez un
-Contributor License Agreement (CLA) déclarant que vous avez le droit de nous accorder,
+Contrat de Licence de Contributeur (CLA) déclarant que vous avez le droit de nous accorder,
 et que vous nous accordez effectivement, les droits d'utiliser votre contribution. Pour plus de détails, consultez https://cla.opensource.microsoft.com.
 
 Lorsque vous soumettez une pull request, un bot CLA déterminera automatiquement si vous devez fournir
@@ -19,7 +19,7 @@ fournies par le bot. Vous n'aurez à faire cela qu'une seule fois pour tous les 
 
 ## Configuration de l'environnement de développement
 
-Pour configurer l'environnement de développement de ce projet, nous recommandons d'utiliser Poetry pour gérer les dépendances. Nous utilisons `pyproject.toml` pour gérer les dépendances du projet, donc pour installer les dépendances, vous devez utiliser Poetry.
+Pour configurer l'environnement de développement de ce projet, nous recommandons d'utiliser Poetry pour la gestion des dépendances. Nous utilisons `pyproject.toml` pour gérer les dépendances du projet, donc pour installer les dépendances, vous devez utiliser Poetry.
 
 ### Créer un environnement virtuel
 
@@ -80,7 +80,7 @@ Avant de soumettre une PR, il est important de tester la fonctionnalité de trad
     cp /path/to/your/images/*.png test_docs/
     ```
 
-3. Installez le package en local :
+3. Installez le package localement :
     ```bash
     pip install -e .
     ```
@@ -105,9 +105,9 @@ Ce test manuel permet de s'assurer que vos modifications fonctionnent bien dans 
 
 > [!TIP]
 >
-> ### Autres options d'environnement de développement
+> ### Autres options pour l'environnement de développement
 >
-> En plus de l'exécution locale du projet, vous pouvez également utiliser GitHub Codespaces ou les Dev Containers de VS Code pour une configuration alternative de l'environnement de développement.
+> En plus de faire tourner le projet en local, vous pouvez aussi utiliser GitHub Codespaces ou les Dev Containers de VS Code pour une configuration alternative de l'environnement de développement.
 >
 > #### GitHub Codespaces
 >
@@ -125,7 +125,7 @@ Ce test manuel permet de s'assurer que vos modifications fonctionnent bien dans 
 >
 > Une option similaire est d'utiliser les Dev Containers de VS Code, qui ouvrira le projet dans votre VS Code local grâce à l'[extension Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) :
 >
-> 1. Démarrez Docker Desktop (installez-le si ce n'est pas déjà fait)
+> 1. Lancez Docker Desktop (installez-le si ce n'est pas déjà fait)
 > 2. Ouvrez le projet :
 >
 >    [![Open in Dev Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure/co-op-translator)
@@ -173,7 +173,7 @@ pip install black
     poetry run black .
     ```
 
-2. Formatez un fichier ou un dossier spécifique :
+2. Formatez un fichier ou dossier spécifique :
     ```bash
     poetry run black path/to/file_or_directory
     ```
@@ -185,7 +185,7 @@ pip install black
     black .
     ```
 
-2. Formatez un fichier ou un dossier spécifique :
+2. Formatez un fichier ou dossier spécifique :
     ```bash
     black path/to/file_or_directory
     ```
@@ -230,7 +230,7 @@ Nous accueillons volontiers les contributions ajoutant la prise en charge de nou
 
 4. Mettez à jour la documentation
    - Vérifiez que la langue apparaît dans `getting_started/supported-languages.md`
-   - Pas besoin de modifier `README_languages_template.md` ; il est généré à partir de la liste des langues supportées
+   - Aucun changement n'est nécessaire dans `README_languages_template.md` ; il est généré à partir de la liste des langues prises en charge
 
 5. Ouvrez une PR
    - Décrivez la langue ajoutée et toute considération liée à la police ou à la licence
@@ -245,6 +245,22 @@ new_lang(code):
   rtl: false
 ```
 
+### Tester la nouvelle langue
+
+Vous pouvez tester la nouvelle langue en exécutant la commande suivante :
+
+```bash
+# Create and activate a virtual environment (recommended)
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+source .venv/bin/activate
+# Install the development package
+pip install -e .
+# Run the translation
+translate -l "new_lang"
+```
 
 ## Mainteneurs
 
@@ -264,8 +280,8 @@ Nous utilisons le format suivant pour les messages de commit :
 
 - **type** : Spécifie la catégorie du commit. Nous utilisons les types suivants :
   - `Docs` : Pour les mises à jour de la documentation.
-  - `Build` : Pour les modifications liées au système de build ou aux dépendances, y compris les fichiers de configuration, les workflows CI ou le Dockerfile.
-  - `Core` : Pour les modifications du cœur du projet ou des fonctionnalités principales, notamment celles concernant les fichiers du dossier `src/co_op_translator/core`.
+  - `Build` : Pour les changements liés au système de build ou aux dépendances, y compris les fichiers de configuration, les workflows CI ou le Dockerfile.
+  - `Core` : Pour les modifications des fonctionnalités principales du projet, en particulier celles concernant les fichiers du dossier `src/co_op_translator/core`.
 
 - **description** : Un résumé concis du changement.
 - **PR number** : Le numéro de la pull request associée au commit.
@@ -280,7 +296,7 @@ Nous utilisons le format suivant pour les messages de commit :
 
 #### Stratégie de fusion
 
-Nous utilisons **Squash and Merge** comme stratégie par défaut pour les pull requests. Cette stratégie garantit que les messages de commit respectent notre format, même si les commits individuels ne le font pas.
+Nous utilisons **Squash and Merge** comme stratégie par défaut pour les pull requests. Cette stratégie garantit que les messages de commit suivent notre format, même si les commits individuels ne le font pas.
 
 **Raisons** :
 
@@ -303,4 +319,4 @@ Ils doivent être regroupés en :
 ---
 
 **Avertissement** :  
-Ce document a été traduit à l’aide du service de traduction IA [Co-op Translator](https://github.com/Azure/co-op-translator). Bien que nous nous efforcions d’assurer l’exactitude, veuillez noter que les traductions automatisées peuvent comporter des erreurs ou des inexactitudes. Le document original dans sa langue d’origine doit être considéré comme la source faisant autorité. Pour les informations critiques, il est recommandé de recourir à une traduction humaine professionnelle. Nous déclinons toute responsabilité en cas de malentendus ou d’interprétations erronées résultant de l’utilisation de cette traduction.
+Ce document a été traduit à l’aide du service de traduction IA [Co-op Translator](https://github.com/Azure/co-op-translator). Bien que nous nous efforcions d’assurer l’exactitude, veuillez noter que les traductions automatisées peuvent comporter des erreurs ou des imprécisions. Le document original dans sa langue d’origine doit être considéré comme la source faisant autorité. Pour les informations critiques, il est recommandé de recourir à une traduction humaine professionnelle. Nous déclinons toute responsabilité en cas de malentendus ou d’interprétations erronées résultant de l’utilisation de cette traduction.

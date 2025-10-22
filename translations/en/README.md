@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f579b7f148746593e3e9023b56a8c30d",
-  "translation_date": "2025-10-22T11:48:47+00:00",
+  "original_hash": "7593c1fad8734e4050b60fc3da614aa5",
+  "translation_date": "2025-10-22T13:19:32+00:00",
   "source_file": "README.md",
   "language_code": "en"
 }
@@ -40,9 +40,9 @@ _Easily automate the translation of your educational GitHub content into multipl
 
 ## Overview
 
-**Co-op Translator** lets you quickly translate your educational GitHub content into many languages, making it easy to reach people around the world. When you update your Markdown files, images, or Jupyter notebooks, translations are automatically kept up to date so your educational GitHub content stays current and useful for international users.
+**Co-op Translator** lets you quickly translate your educational GitHub content into many languages, making it easy to reach people around the world. When you update your Markdown files, images, or Jupyter notebooks, translations are automatically kept up to date so your educational GitHub content is always fresh and relevant for international users.
 
-See how Co-op Translator organizes translated educational GitHub content:
+Here’s how Co-op Translator organizes translated educational GitHub content:
 
 ![Example](../../translated_images/translation-ex.0c8aa6a7ee0aad2b35cddcc110c719baf0afc640e8c5a45540e6c166b9907d91.en.png)
 
@@ -109,11 +109,11 @@ More flags: [Command reference](./getting_started/command-reference.md)
 
 ## Features
 
-- Automated translation for Markdown, notebooks, and images
-- Keeps translations in sync with source changes
+- Automatically translates Markdown, notebooks, and images
+- Keeps translations up to date with source changes
 - Works locally (CLI) or in CI (GitHub Actions)
 - Uses Azure OpenAI or OpenAI; optional Azure AI Vision for images
-- Preserves Markdown formatting and structure
+- Maintains Markdown formatting and structure
 
 ## Docs
 
@@ -154,7 +154,7 @@ Learn more about Co-op Translator through our presentations _(Click the image be
 
 ## Contributing
 
-We welcome contributions and suggestions for this project. Interested in helping with Azure Co-op Translator? Please read our [CONTRIBUTING.md](./CONTRIBUTING.md) for details on how you can help make Co-op Translator more accessible.
+We welcome contributions and suggestions for this project. Interested in contributing to Azure Co-op Translator? Please check out our [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines on how you can help make Co-op Translator more accessible.
 
 ## Contributors
 
@@ -163,24 +163,24 @@ We welcome contributions and suggestions for this project. Interested in helping
 ## Code of Conduct
 
 This project follows the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+For more details, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
+contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any questions or comments.
 
 ## Responsible AI
 
-Microsoft is committed to helping our customers use our AI products responsibly, sharing what we've learned, and building trust-based partnerships through tools like Transparency Notes and Impact Assessments. Many of these resources are available at [https://aka.ms/RAI](https://aka.ms/RAI).
-Microsoft's approach to responsible AI is based on our principles of fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability.
+Microsoft is dedicated to helping customers use our AI products responsibly, sharing what we've learned, and building trust through tools like Transparency Notes and Impact Assessments. Many of these resources are available at [https://aka.ms/RAI](https://aka.ms/RAI).
+Microsoft’s approach to responsible AI is based on our principles of fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability.
 
 Large-scale natural language, image, and speech models—like those used in this sample—can sometimes behave in ways that are unfair, unreliable, or offensive, which can cause harm. Please read the [Azure OpenAI service Transparency note](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) to understand the risks and limitations.
 
-The best way to reduce these risks is to include a safety system in your architecture that can detect and prevent harmful behavior. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) provides an independent layer of protection, able to detect harmful user-generated and AI-generated content in applications and services. Azure AI Content Safety includes text and image APIs that let you detect harmful material. There's also an interactive Content Safety Studio where you can view, explore, and try sample code for detecting harmful content across different types. The following [quickstart documentation](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) will guide you through making requests to the service.
+To help reduce these risks, it’s recommended to include a safety system in your architecture that can detect and block harmful behavior. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) provides an extra layer of protection, able to detect harmful user-generated and AI-generated content in apps and services. Azure AI Content Safety includes text and image APIs to help you spot harmful material. There’s also an interactive Content Safety Studio where you can view, explore, and try sample code for detecting harmful content in different formats. The following [quickstart documentation](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) shows you how to make requests to the service.
 Another important factor to consider is the overall performance of your application. In multi-modal and multi-model applications, performance means that the system works as you and your users expect, including not producing harmful outputs. It's essential to evaluate your application's performance using [generation quality and risk and safety metrics](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
 
-You can assess your AI application in your development environment with the [prompt flow SDK](https://microsoft.github.io/promptflow/index.html). Whether you use a test dataset or a specific target, your generative AI application's outputs are measured quantitatively using built-in or custom evaluators. To start using the prompt flow SDK to evaluate your system, check out the [quickstart guide](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). After running an evaluation, you can [visualize the results in Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
+You can test your AI application in your development environment with the [prompt flow SDK](https://microsoft.github.io/promptflow/index.html). Whether you use a test dataset or a specific target, your generative AI application's outputs are measured quantitatively using built-in or custom evaluators. To start using the prompt flow SDK to assess your system, check out the [quickstart guide](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). After running an evaluation, you can [view the results in Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
 
 ## Trademarks
 
-This project may include trademarks or logos for projects, products, or services. Authorized use of Microsoft trademarks or logos must comply with [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general). Using Microsoft trademarks or logos in modified versions of this project must not create confusion or suggest Microsoft sponsorship. Any use of third-party trademarks or logos must follow those third parties' policies.
+This project may include trademarks or logos for projects, products, or services. Authorized use of Microsoft trademarks or logos must comply with [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general). Using Microsoft trademarks or logos in modified versions of this project should not create confusion or suggest Microsoft sponsorship. Any use of third-party trademarks or logos must follow those third parties' policies.
 
 ## Getting Help
 

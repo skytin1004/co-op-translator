@@ -1,21 +1,21 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "bd4704f50c55da7d572b691484aa0b30",
-  "translation_date": "2025-10-22T11:14:52+00:00",
+  "original_hash": "1ae2159f900e7d5d596bb00bcba4c999",
+  "translation_date": "2025-10-22T14:19:25+00:00",
   "source_file": "CONTRIBUTING.md",
   "language_code": "pcm"
 }
 -->
 # How to Contribute for Co-op Translator
 
-Dis project dey open for anybody wey wan contribute or suggest beta idea. Most times, if you wan contribute, you go need sign one Contributor License Agreement (CLA) wey go show say you get right to give us permission to use wetin you contribute. If you wan sabi more, go https://cla.opensource.microsoft.com.
+Dis project dey open for anybody wey wan contribute or suggest beta idea. Most times, before you fit contribute, you go need sign one Contributor License Agreement (CLA) wey go show say you get right to give us your work and say we fit use am. If you wan know more, go https://cla.opensource.microsoft.com.
 
-If you submit pull request, CLA bot go check whether you need to sign CLA, e go mark your PR well (like status check, comment). Just follow wetin the bot talk. You go only do am once for all repo wey dey use our CLA.
+If you submit pull request, CLA bot go check if you need to sign CLA and e go mark your PR well (like status check or comment). Just follow wetin the bot talk. You go only do am once for all repo wey dey use our CLA.
 
 ## How to Set Up Development Environment
 
-To set up your environment for this project, na Poetry we dey recommend to manage dependencies. We dey use `pyproject.toml` to manage project dependencies, so to install dependencies, use Poetry.
+To set up your environment for this project, na Poetry we dey recommend to manage all the package wey you need. We dey use `pyproject.toml` to manage all the package, so to install anything, use Poetry.
 
 ### How to Create Virtual Environment
 
@@ -53,7 +53,7 @@ poetry init
 poetry shell
 ```
 
-### How to Install Package and Other Packages Weh You Need
+### How to Install the Package and All the Packages wey you need
 
 #### If na Poetry (from pyproject.toml)
 
@@ -65,7 +65,7 @@ poetry install
 
 Before you submit PR, abeg test the translation work with real documentation:
 
-1. Create one test folder for the main directory:
+1. Create one test folder for the root directory:
     ```bash
     mkdir test_docs
     ```
@@ -92,18 +92,18 @@ Before you submit PR, abeg test the translation work with real documentation:
    - The original markdown style still dey
    - Links and images dey work well
 
-This manual test go help make sure say your change dey work for real life.
+This manual test go help you make sure say your change dey work for real life.
 
 ### Environment Variables
 
-1. Create `.env` file for the main directory by copying the `.env.template` file wey dem give.
+1. Create `.env` file for root directory by copying the `.env.template` wey dem give.
 1. Fill the environment variables as dem take guide you.
 
 > [!TIP]
 >
-> ### Other Ways to Set Up Development Environment
+> ### Other Way to Set Up Development Environment
 >
-> Apart from running the project for your computer, you fit use GitHub Codespaces or VS Code Dev Containers as another way to set up your environment.
+> Apart from running the project for your computer, you fit use GitHub Codespaces or VS Code Dev Containers join.
 >
 > #### GitHub Codespaces
 >
@@ -117,7 +117,7 @@ This manual test go help make sure say your change dey work for real life.
 >
 > #### How to Run for Your Computer with VS Code Dev Containers
 >
-> ⚠️ This option go work only if your Docker Desktop get at least 16 GB RAM. If your RAM no reach, try the [GitHub Codespaces option](../..) or [set am for your computer](../..).
+> ⚠️ This one go work only if your Docker Desktop get at least 16 GB RAM. If your RAM no reach, try the [GitHub Codespaces option](../..) or [set am for your computer](../..).
 >
 > Another way na VS Code Dev Containers, e go open the project for your VS Code with the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers):
 >
@@ -129,11 +129,11 @@ This manual test go help make sure say your change dey work for real life.
 
 ### Code Style
 
-We dey use [Black](https://github.com/psf/black) as our Python code formatter so that code style go dey the same everywhere for the project. Black no dey compromise, e go reformat Python code make e follow Black style.
+We dey use [Black](https://github.com/psf/black) as our Python code formatter so that code go dey the same style everywhere. Black no dey compromise, e go arrange your Python code make e follow Black style.
 
 #### Configuration
 
-The Black configuration dey inside our `pyproject.toml`:
+We put Black configuration for our `pyproject.toml`:
 
 ```toml
 [tool.black]
@@ -164,30 +164,30 @@ pip install black
 
 ##### With Poetry
 
-1. Format all Python files for the project:
+1. Arrange all Python files for the project:
     ```bash
     poetry run black .
     ```
 
-2. Format one file or folder:
+2. Arrange one file or folder:
     ```bash
     poetry run black path/to/file_or_directory
     ```
 
 ##### With pip
 
-1. Format all Python files for the project:
+1. Arrange all Python files for the project:
     ```bash
     black .
     ```
 
-2. Format one file or folder:
+2. Arrange one file or folder:
     ```bash
     black path/to/file_or_directory
     ```
 
 > [!TIP]
-> E good make you set your editor to dey format code with Black anytime you save. Most editors fit do am with extension or plugin.
+> E good make you set your editor to dey arrange code with Black anytime you save. Most editors fit do am with extension or plugin.
 
 ## How to Run Co-op Translator
 
@@ -195,7 +195,7 @@ To run Co-op Translator with Poetry for your environment, do like this:
 
 1. Go the folder wey you wan use test translation or create one temporary folder for test.
 
-2. Run this command. Change `-l ko` to the language code wey you wan translate to. The `-d` flag mean debug mode.
+2. Run this command. Change `-l ko` to the language code wey you wan translate to. The `-d` flag na for debug mode.
 
     ```bash
     poetry run co-op-translator translate -l ko -d
@@ -212,25 +212,25 @@ We dey happy if you fit add new language. Before you open PR, abeg do these step
    - Edit `src/co_op_translator/fonts/font_language_mappings.yml`
    - Add entry wey get:
      - `code`: ISO-like language code (like `vi`)
-     - `name`: The name wey people fit read
-     - `font`: Font wey dey inside `src/co_op_translator/fonts/` wey fit support the language
-     - `rtl`: `true` if na right-to-left, if no be, put `false`
+     - `name`: Human-friendly name
+     - `font`: Font wey dey `src/co_op_translator/fonts/` wey fit support the language
+     - `rtl`: `true` if na right-to-left, else `false`
 
-2. Add font files wey you need
-   - If you need new font, check say the license fit open source
+2. Add font files if you need am
+   - If you need new font, check say the license fit allow open source
    - Put the font file for `src/co_op_translator/fonts/`
 
 3. Test for your computer
-   - Run translation for small sample (Markdown, images, notebooks if e dey)
-   - Check say output dey render well, font and RTL layout if e apply
+   - Run translation for small sample (Markdown, images, notebooks if need)
+   - Check say output dey show well, font and RTL layout dey correct
 
 4. Update documentation
-   - Make sure say the language dey inside `getting_started/supported-languages.md`
+   - Make sure say the language dey for `getting_started/supported-languages.md`
    - No need change `README_languages_template.md`; e dey generate from the supported list
 
 5. Open PR
-   - Talk about the language wey you add and any font/license matter
-   - If you fit, add screenshot of how the output look
+   - Talk the language wey you add and any font/license matter
+   - If you fit, add screenshot of how the output dey show
 
 Example YAML entry:
 
@@ -241,14 +241,30 @@ new_lang(code):
   rtl: false
 ```
 
+### How to Test the New Language
+
+You fit test the new language with this command:
+
+```bash
+# Create and activate a virtual environment (recommended)
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+source .venv/bin/activate
+# Install the development package
+pip install -e .
+# Run the translation
+translate -l "new_lang"
+```
 
 ## Maintainers
 
 ### How to Write Commit Message and Merge
 
-To make our commit history dey clear and correct, we dey follow one style for commit message **for the final commit message** when we dey use **Squash and Merge**.
+To make our commit history dey clear and correct, we dey follow one style for the final commit message when we use **Squash and Merge**.
 
-When PR merge, all the commits go join as one commit. The final commit message suppose follow the style below so history go clean.
+When you merge pull request (PR), all the commits go join as one. The final commit message suppose follow this style so history go clean.
 
 #### Commit Message Style (for squash and merge)
 
@@ -259,11 +275,11 @@ We dey use this style for commit message:
 ```
 
 - **type**: Na the category of the commit. We dey use:
-  - `Docs`: For documentation update.
-  - `Build`: For anything wey concern build system or dependencies, like config files, CI workflow, or Dockerfile.
-  - `Core`: For change wey affect the main project work or features, especially files inside `src/co_op_translator/core`.
+  - `Docs`: If na documentation update.
+  - `Build`: If na build system or package change, like config files, CI workflow, or Dockerfile.
+  - `Core`: If na main project feature or function, especially files for `src/co_op_translator/core`.
 
-- **description**: Small summary of wetin change.
+- **description**: Short summary of wetin change.
 - **PR number**: The pull request number wey join with the commit.
 
 **Examples**:
@@ -272,11 +288,11 @@ We dey use this style for commit message:
 - `Core: Improve handling of image translation (#60)`
 
 > [!NOTE]
-> For now, the **`Docs`**, **`Core`**, and **`Build`** prefix dey add to PR title automatically based on the label wey you put for the source code. If you put the correct label, you no need change PR title by yourself. Just check say everything correct and the prefix dey as e suppose.
+> For now, the **`Docs`**, **`Core`**, and **`Build`** prefix dey add to PR title by itself based on the label wey you put for the code wey change. As long as you put the correct label, you no need change PR title by hand. Just check say everything correct and the prefix dey as e suppose.
 
 #### Merge Style
 
-We dey use **Squash and Merge** as our normal way to merge PR. This way make sure say commit message follow our style, even if the small commits no follow.
+We dey use **Squash and Merge** as our default way to merge PR. This way go make sure say commit message follow our style, even if the small commits no follow.
 
 **Why we dey do am**:
 
@@ -299,4 +315,4 @@ Dem go join as one:
 ---
 
 **Disclaimer**:
-Na AI translation service wey dem dey call [Co-op Translator](https://github.com/Azure/co-op-translator) we use take translate dis document. Even though we try make e correct, abeg make you sabi say AI fit make mistake or no too accurate. Na the original document for the main language be the correct one wey you suppose follow. If the info dey important, abeg use professional human translation. We no go fit hold any responsibility for wahala wey fit happen because of how you take use this translation.
+Na AI translation service wey dem dey call [Co-op Translator](https://github.com/Azure/co-op-translator) we use take translate this document. Even though we try make the translation correct, abeg make you sabi say AI fit make mistake or no translate am well. Na the original document for the main language be the correct one wey you suppose follow. If the information dey important, abeg use professional human translator. We no go fit hold any responsibility for any wahala or misunderstanding wey fit happen because of this translation.

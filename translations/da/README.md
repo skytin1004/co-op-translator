@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f579b7f148746593e3e9023b56a8c30d",
-  "translation_date": "2025-10-22T12:06:20+00:00",
+  "original_hash": "7593c1fad8734e4050b60fc3da614aa5",
+  "translation_date": "2025-10-22T13:52:27+00:00",
   "source_file": "README.md",
   "language_code": "da"
 }
@@ -40,7 +40,7 @@ _Automatisér nemt oversættelsen af dit uddannelsesindhold på GitHub til flere
 
 ## Overblik
 
-**Co-op Translator** gør det nemt og hurtigt at oversætte dit uddannelsesindhold på GitHub til flere sprog, så du kan nå ud til et globalt publikum uden besvær. Når du opdaterer dine Markdown-filer, billeder eller Jupyter-notebooks, bliver oversættelserne automatisk synkroniseret, så dit indhold altid er opdateret og relevant for brugere verden over.
+**Co-op Translator** gør det nemt og hurtigt at oversætte dit uddannelsesindhold på GitHub til flere sprog, så du uden besvær kan nå ud til et globalt publikum. Når du opdaterer dine Markdown-filer, billeder eller Jupyter-notebooks, bliver oversættelserne automatisk synkroniseret, så dit indhold altid er opdateret og relevant for internationale brugere.
 
 Se hvordan Co-op Translator organiserer oversat uddannelsesindhold på GitHub:
 
@@ -76,7 +76,7 @@ docker run --rm -it --env-file .env -v "${PWD}:/work" ghcr.io/azure/co-op-transl
 - Konfigurer én LLM-udbyder (Azure OpenAI eller OpenAI)
 - Til billedoversættelse (`-img`), skal du også sætte Azure AI Vision op
 - Anbefalet: Hvis du har oversættelser fra andre værktøjer, så ryd op i dem først for at undgå konflikter (for eksempel: `translations/`).
-- Anbefalet: Tilføj et oversættelsesafsnit til din README ved hjælp af [README-sprogskabelonen](./README_languages_template.md)
+- Anbefalet: Tilføj et oversættelsesafsnit til din README ved at bruge [README-sprogskabelonen](./README_languages_template.md)
 - Se: [Opsæt Azure AI](./getting_started/set-up-azure-ai.md)
 
 ## Brug
@@ -111,8 +111,8 @@ Flere flag: [Kommando-reference](./getting_started/command-reference.md)
 
 - Automatisk oversættelse af Markdown, notebooks og billeder
 - Holder oversættelser synkroniseret med kildeændringer
-- Kan bruges lokalt (CLI) eller i CI (GitHub Actions)
-- Understøtter Azure OpenAI eller OpenAI; valgfri Azure AI Vision til billeder
+- Fungerer lokalt (CLI) eller i CI (GitHub Actions)
+- Bruger Azure OpenAI eller OpenAI; valgfri Azure AI Vision til billeder
 - Bevarer Markdown-formatering og struktur
 
 ## Dokumentation
@@ -163,7 +163,7 @@ Dette projekt byder bidrag og forslag velkommen. Er du interesseret i at bidrage
 ## Adfærdskodeks
 
 Dette projekt har vedtaget [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For mere information, se [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) eller
+For mere information se [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) eller
 kontakt [opencode@microsoft.com](mailto:opencode@microsoft.com) hvis du har yderligere spørgsmål eller kommentarer.
 
 ## Ansvarlig AI
@@ -174,15 +174,15 @@ Microsofts tilgang til ansvarlig AI bygger på vores AI-principper om retfærdig
 Store sprog-, billed- og tale-modeller – som dem, der bruges i dette eksempel – kan potentielt opføre sig på måder, der er uretfærdige, upålidelige eller stødende, hvilket kan forårsage skade. Læs venligst [Azure OpenAI service Transparency note](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) for at blive informeret om risici og begrænsninger.
 
 Den anbefalede måde at mindske disse risici på er at inkludere et sikkerhedssystem i din arkitektur, der kan opdage og forhindre skadelig adfærd. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) giver et uafhængigt beskyttelseslag, der kan opdage skadeligt bruger- og AI-genereret indhold i applikationer og tjenester. Azure AI Content Safety indeholder tekst- og billed-API'er, der gør det muligt at opdage skadeligt materiale. Vi har også et interaktivt Content Safety Studio, hvor du kan se, udforske og afprøve eksempler på kode til at opdage skadeligt indhold på tværs af forskellige modaliteter. Følgende [quickstart-dokumentation](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) guider dig igennem, hvordan du laver forespørgsler til tjenesten.
-En anden ting, du skal tage højde for, er den samlede ydeevne for din applikation. Med multimodale og multi-model applikationer betyder ydeevne, at systemet fungerer, som du og dine brugere forventer, herunder at det ikke genererer skadeligt indhold. Det er vigtigt at vurdere ydeevnen for hele din applikation ved hjælp af [genereringskvalitet samt risiko- og sikkerhedsmetrikker](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
+En anden vigtig faktor at tage højde for er den samlede ydeevne for din applikation. Med multimodale og multi-model applikationer betyder ydeevne, at systemet leverer, som du og dine brugere forventer, herunder at det ikke genererer skadeligt indhold. Det er vigtigt at vurdere ydeevnen for hele din applikation ved hjælp af [genereringskvalitet samt risikometoder og sikkerhedsmetrikker](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
 
-Du kan evaluere din AI-applikation i dit udviklingsmiljø ved hjælp af [prompt flow SDK](https://microsoft.github.io/promptflow/index.html). Med enten et testdatasæt eller et mål bliver dine generative AI-applikations output målt kvantitativt med indbyggede eller brugerdefinerede evaluatorer, som du selv vælger. For at komme i gang med prompt flow sdk til at evaluere dit system, kan du følge [quickstart-guiden](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). Når du har kørt en evaluering, kan du [visualisere resultaterne i Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
+Du kan evaluere din AI-applikation i dit udviklingsmiljø ved hjælp af [prompt flow SDK](https://microsoft.github.io/promptflow/index.html). Med enten et testdatasæt eller et mål bliver dine generative AI-applikations resultater målt kvantitativt med indbyggede eller brugerdefinerede evaluatorer, som du selv vælger. For at komme i gang med prompt flow sdk til at evaluere dit system, kan du følge [quickstart-guiden](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). Når du har kørt en evaluering, kan du [visualisere resultaterne i Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
 
 ## Varemærker
 
 Dette projekt kan indeholde varemærker eller logoer for projekter, produkter eller tjenester. Autoriseret brug af Microsofts
 varemærker eller logoer er underlagt og skal følge
-[Microsofts retningslinjer for varemærker og brand](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
+[Microsofts retningslinjer for varemærker og branding](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
 Brug af Microsofts varemærker eller logoer i ændrede versioner af dette projekt må ikke skabe forvirring eller antyde, at Microsoft sponsorerer projektet.
 Enhver brug af tredjeparts varemærker eller logoer er underlagt de pågældende tredjeparts politikker.
 
@@ -192,11 +192,11 @@ Hvis du går i stå eller har spørgsmål om at bygge AI-apps, kan du deltage i:
 
 [![Azure AI Foundry Discord](https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
 
-Hvis du har feedback til produktet eller støder på fejl under udviklingen, kan du besøge:
+Hvis du har feedback til produktet eller oplever fejl under udviklingen, kan du besøge:
 
 [![Azure AI Foundry Developer Forum](https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 
 ---
 
 **Ansvarsfraskrivelse**:
-Dette dokument er blevet oversat ved hjælp af AI-oversættelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selvom vi bestræber os på nøjagtighed, skal du være opmærksom på, at automatiserede oversættelser kan indeholde fejl eller unøjagtigheder. Det originale dokument på dets oprindelige sprog bør betragtes som den autoritative kilde. For kritiske oplysninger anbefales professionel menneskelig oversættelse. Vi påtager os intet ansvar for misforståelser eller fejltolkninger, der måtte opstå ved brug af denne oversættelse.
+Dette dokument er blevet oversat ved hjælp af AI-oversættelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selvom vi bestræber os på nøjagtighed, skal du være opmærksom på, at automatiserede oversættelser kan indeholde fejl eller unøjagtigheder. Det originale dokument på dets oprindelige sprog bør betragtes som den autoritative kilde. For kritiske oplysninger anbefales professionel menneskelig oversættelse. Vi er ikke ansvarlige for eventuelle misforståelser eller fejltolkninger, der måtte opstå ved brug af denne oversættelse.

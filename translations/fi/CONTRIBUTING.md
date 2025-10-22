@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "bd4704f50c55da7d572b691484aa0b30",
-  "translation_date": "2025-10-15T03:26:01+00:00",
+  "original_hash": "1ae2159f900e7d5d596bb00bcba4c999",
+  "translation_date": "2025-10-22T13:54:14+00:00",
   "source_file": "CONTRIBUTING.md",
   "language_code": "fi"
 }
@@ -11,11 +11,11 @@ CO_OP_TRANSLATOR_METADATA:
 
 Tähän projektiin ovat tervetulleita kaikki kontribuutiot ja ehdotukset. Useimmat kontribuutiot edellyttävät, että hyväksyt Contributor License Agreementin (CLA), jossa vakuutat, että sinulla on oikeus antaa meille oikeudet käyttää kontribuutiotasi. Lisätietoja: https://cla.opensource.microsoft.com.
 
-Kun lähetät pull requestin, CLA-botti tarkistaa automaattisesti, tarvitsetko CLA:n, ja merkitsee PR:n sen mukaisesti (esim. tilatarkistus, kommentti). Seuraa vain botin antamia ohjeita. Tämä tarvitsee tehdä vain kerran kaikissa repositorioissa, jotka käyttävät CLA:ta.
+Kun lähetät pull requestin, CLA-botti tarkistaa automaattisesti, tarvitsetko CLA:n, ja merkitsee PR:n asianmukaisesti (esim. tilatarkistus, kommentti). Seuraa vain botin antamia ohjeita. Tämä tarvitsee tehdä vain kerran kaikissa repositorioissa, jotka käyttävät CLA:tamme.
 
 ## Kehitysympäristön asennus
 
-Tämän projektin kehitysympäristön asennukseen suosittelemme Poetrya riippuvuuksien hallintaan. Käytämme `pyproject.toml`-tiedostoa projektin riippuvuuksien hallintaan, joten riippuvuudet kannattaa asentaa Poetrylla.
+Tämän projektin kehitysympäristön asennukseen suosittelemme Poetrya riippuvuuksien hallintaan. Käytämme `pyproject.toml`-tiedostoa projektin riippuvuuksien hallintaan, joten asennukset kannattaa tehdä Poetrylla.
 
 ### Virtuaaliympäristön luominen
 
@@ -103,11 +103,11 @@ Tämä manuaalinen testaus auttaa varmistamaan, että muutoksesi toimivat hyvin 
 >
 > ### Lisävaihtoehtoja kehitysympäristölle
 >
-> Voit ajaa projektia paikallisesti, mutta vaihtoehtoisesti voit käyttää myös GitHub Codespacesia tai VS Code Dev Containersia kehitysympäristön pystyttämiseen.
+> Voit ajaa projektia paikallisesti tai käyttää vaihtoehtoisesti GitHub Codespacesia tai VS Code Dev Containersia kehitysympäristönä.
 >
 > #### GitHub Codespaces
 >
-> Voit ajaa näitä esimerkkejä virtuaalisesti GitHub Codespacesilla ilman lisäasetuksia.
+> Voit ajaa esimerkit virtuaalisesti GitHub Codespacesilla ilman lisäasetuksia.
 >
 > Painike avaa selainpohjaisen VS Code -instanssin:
 >
@@ -129,7 +129,7 @@ Tämä manuaalinen testaus auttaa varmistamaan, että muutoksesi toimivat hyvin 
 
 ### Koodityyli
 
-Käytämme [Blackia](https://github.com/psf/black) Python-koodin muotoiluun, jotta koodityyli pysyy yhtenäisenä koko projektissa. Black on automaattinen koodinmuotoilija, joka muotoilee Python-koodin Blackin tyyliin.
+Käytämme [Blackia](https://github.com/psf/black) Python-koodin muotoiluun yhtenäisen tyylin varmistamiseksi. Black on automaattinen koodinmuotoilija, joka muokkaa Python-koodin Blackin tyyliin.
 
 #### Konfiguraatio
 
@@ -144,7 +144,7 @@ include = '\.pyi?$'
 
 #### Blackin asennus
 
-Voit asentaa Blackin joko Poetrylla (suositeltavaa) tai pipillä:
+Voit asentaa Blackin joko Poetrylla (suositeltu) tai pipillä:
 
 ##### Poetrylla
 
@@ -187,11 +187,11 @@ pip install black
     ```
 
 > [!TIP]
-> Suosittelemme asettamaan editorisi muotoilemaan koodin automaattisesti Blackilla tallennuksen yhteydessä. Useimmat modernit editorit tukevat tätä laajennusten tai lisäosien avulla.
+> Suosittelemme asettamaan editorisi muotoilemaan koodin automaattisesti Blackilla tallennuksen yhteydessä. Useimmat modernit editorit tukevat tätä laajennuksilla tai lisäosilla.
 
 ## Co-op Translatorin ajaminen
 
-Voit ajaa Co-op Translatoria Poetrylla seuraavasti:
+Voit ajaa Co-op Translatorin Poetrylla seuraavasti:
 
 1. Siirry kansioon, jossa haluat tehdä käännöstestejä, tai luo väliaikainen kansio testausta varten.
 
@@ -202,17 +202,17 @@ Voit ajaa Co-op Translatoria Poetrylla seuraavasti:
     ```
 
 > [!NOTE]
-> Varmista, että Poetry-ympäristö on aktivoitu (poetry shell) ennen komennon suorittamista.
+> Varmista, että Poetry-ympäristösi on aktivoitu (poetry shell) ennen komennon suorittamista.
 
 ## Uuden kielen lisääminen
 
-Otamme mielellämme vastaan kontribuutioita, jotka lisäävät tuen uusille kielille. Ennen PR:n avaamista tee seuraavat vaiheet, jotta tarkistus sujuu sujuvasti.
+Otamme mielellämme vastaan uusia kieliä tukevia kontribuutioita. Ennen PR:n avaamista tee seuraavat vaiheet sujuvan tarkistuksen varmistamiseksi.
 
 1. Lisää kieli fonttikarttaan
    - Muokkaa tiedostoa `src/co_op_translator/fonts/font_language_mappings.yml`
    - Lisää rivi, jossa on:
      - `code`: ISO-tyyppinen kielikoodi (esim. `vi`)
-     - `name`: Ihmisläheinen nimi
+     - `name`: Selkeä näyttönimi
      - `font`: Fontti, joka löytyy kansiosta `src/co_op_translator/fonts/` ja tukee kyseistä kirjoitusjärjestelmää
      - `rtl`: `true`, jos oikealta vasemmalle, muuten `false`
 
@@ -226,7 +226,7 @@ Otamme mielellämme vastaan kontribuutioita, jotka lisäävät tuen uusille kiel
 
 4. Päivitä dokumentaatio
    - Varmista, että kieli näkyy tiedostossa `getting_started/supported-languages.md`
-   - Tiedostoon `README_languages_template.md` ei tarvitse tehdä muutoksia; se generoidaan tuetun listan perusteella
+   - Tiedostoon `README_languages_template.md` ei tarvitse tehdä muutoksia; se generoidaan tuetusta listasta
 
 5. Avaa PR
    - Kuvaile lisätty kieli ja mahdolliset fontti/lisenssihuomiot
@@ -241,12 +241,28 @@ new_lang(code):
   rtl: false
 ```
 
+### Uuden kielen testaus
+
+Voit testata uutta kieltä ajamalla seuraavan komennon:
+
+```bash
+# Create and activate a virtual environment (recommended)
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+source .venv/bin/activate
+# Install the development package
+pip install -e .
+# Run the translation
+translate -l "new_lang"
+```
 
 ## Ylläpitäjille
 
 ### Commit-viestit ja yhdistämisstrategia
 
-Jotta projektin commit-historia pysyy selkeänä ja johdonmukaisena, noudatamme tiettyä commit-viestien muotoa **lopullisessa commit-viestissä** käytettäessä **Squash and Merge** -strategiaa.
+Jotta commit-historia pysyy selkeänä ja johdonmukaisena, noudatamme tiettyä commit-viestien muotoa **lopullisessa commit-viestissä** käytettäessä **Squash and Merge** -strategiaa.
 
 Kun pull request (PR) yhdistetään, yksittäiset commitit yhdistetään yhdeksi commitiksi. Lopullisen commit-viestin tulee noudattaa alla olevaa muotoa, jotta historia pysyy siistinä ja yhtenäisenä.
 
@@ -264,15 +280,15 @@ Käytämme seuraavaa muotoa commit-viesteissä:
   - `Core`: Projektin ydintoiminnallisuuden tai ominaisuuksien muutokset, erityisesti `src/co_op_translator/core`-kansiossa.
 
 - **description**: Tiivis yhteenveto muutoksesta.
-- **PR number**: Pull requestin numero.
+- **PR number**: Pull requestin numero, johon commit liittyy.
 
 **Esimerkkejä**:
 
-- `Docs: Update installation instructions for clarity (#50)`
-- `Core: Improve handling of image translation (#60)`
+- `Docs: Päivitä asennusohjeet selkeämmiksi (#50)`
+- `Core: Paranna kuvakäännösten käsittelyä (#60)`
 
 > [!NOTE]
-> Tällä hetkellä **`Docs`**, **`Core`** ja **`Build`** -etuliitteet lisätään automaattisesti PR-otsikoihin muokattujen lähdekooditiedostojen perusteella. Kunhan oikea label on lisätty, sinun ei yleensä tarvitse muokata PR-otsikkoa käsin. Tarkista vain, että kaikki on oikein ja etuliite on muodostettu oikein.
+> Tällä hetkellä **`Docs`**, **`Core`** ja **`Build`** -etuliitteet lisätään automaattisesti PR-otsikoihin muokattujen lähdekooditiedostojen perusteella. Kunhan oikea label on lisätty, sinun ei yleensä tarvitse muokata PR-otsikkoa käsin. Tarkista vain, että kaikki on oikein ja etuliite on muodostettu asianmukaisesti.
 
 #### Yhdistämisstrategia
 
@@ -294,7 +310,7 @@ Jos PR sisältää seuraavat commitit:
 - `adjust formatting`
 
 Ne yhdistetään muotoon:
-`Docs: Improve documentation clarity and formatting (#65)`
+`Docs: Paranna dokumentaation selkeyttä ja muotoilua (#65)`
 
 ---
 

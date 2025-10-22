@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f579b7f148746593e3e9023b56a8c30d",
-  "translation_date": "2025-10-22T12:06:55+00:00",
+  "original_hash": "7593c1fad8734e4050b60fc3da614aa5",
+  "translation_date": "2025-10-22T13:53:29+00:00",
   "source_file": "README.md",
   "language_code": "no"
 }
@@ -40,7 +40,7 @@ _Automatiser enkelt oversettelsen av ditt utdanningsinnhold på GitHub til flere
 
 ## Oversikt
 
-**Co-op Translator** lar deg raskt oversette ditt utdanningsinnhold på GitHub til flere språk, slik at du enkelt når ut til et globalt publikum. Når du oppdaterer Markdown-filer, bilder eller Jupyter-notatbøker, blir oversettelsene automatisk synkronisert, slik at innholdet ditt alltid er oppdatert og relevant for brukere over hele verden.
+**Co-op Translator** lar deg raskt oversette ditt utdanningsinnhold på GitHub til flere språk, slik at du enkelt når ut til et globalt publikum. Når du oppdaterer Markdown-filer, bilder eller Jupyter-notebooks, blir oversettelsene automatisk synkronisert, slik at innholdet ditt alltid er oppdatert og relevant for brukere over hele verden.
 
 Se hvordan Co-op Translator organiserer oversatt utdanningsinnhold på GitHub:
 
@@ -75,9 +75,9 @@ docker run --rm -it --env-file .env -v "${PWD}:/work" ghcr.io/azure/co-op-transl
 - Lag en `.env` ved å bruke malen: [.env.template](../../.env.template)
 - Konfigurer én LLM-leverandør (Azure OpenAI eller OpenAI)
 - For bildeoversettelse (`-img`), må du også sette opp Azure AI Vision
-- Anbefalt: Hvis du har oversettelser fra andre verktøy, rydd opp i dem først for å unngå konflikter (for eksempel: `translations/`).
-- Anbefalt: Legg til en oversettelsesseksjon i README ved å bruke [README languages template](./README_languages_template.md)
-- Se: [Sette opp Azure AI](./getting_started/set-up-azure-ai.md)
+- Anbefalt: Hvis du har oversettelser generert av andre verktøy, rydd opp i dem først for å unngå konflikter (for eksempel: `translations/`).
+- Anbefalt: Legg til en oversettelsesseksjon i README ved å bruke [README språkmalen](./README_languages_template.md)
+- Se: [Sett opp Azure AI](./getting_started/set-up-azure-ai.md)
 
 ## Bruk
 
@@ -99,7 +99,7 @@ Markdown + bilder:
 translate -l "pt" -md -img
 ```
 
-Kun notatbøker:
+Kun notebooks:
 
 ```bash
 translate -l "zh" -nb
@@ -109,7 +109,7 @@ Flere flagg: [Kommandooversikt](./getting_started/command-reference.md)
 
 ## Funksjoner
 
-- Automatisk oversettelse av Markdown, notatbøker og bilder
+- Automatisk oversettelse av Markdown, notebooks og bilder
 - Holder oversettelser synkronisert med kildeendringer
 - Fungerer lokalt (CLI) eller i CI (GitHub Actions)
 - Bruker Azure OpenAI eller OpenAI; valgfritt Azure AI Vision for bilder
@@ -169,34 +169,32 @@ kontakt [opencode@microsoft.com](mailto:opencode@microsoft.com) hvis du har spø
 ## Ansvarlig AI
 
 Microsoft er opptatt av å hjelpe kundene våre med å bruke våre AI-produkter på en ansvarlig måte, dele våre erfaringer og bygge tillitsbaserte partnerskap gjennom verktøy som Transparency Notes og Impact Assessments. Mange av disse ressursene finner du på [https://aka.ms/RAI](https://aka.ms/RAI).
-Microsofts tilnærming til ansvarlig AI bygger på våre AI-prinsipper: rettferdighet, pålitelighet og sikkerhet, personvern og sikkerhet, inkludering, åpenhet og ansvarlighet.
+Microsofts tilnærming til ansvarlig AI bygger på våre AI-prinsipper om rettferdighet, pålitelighet og sikkerhet, personvern og sikkerhet, inkludering, åpenhet og ansvarlighet.
 
-Store språk-, bilde- og tale-modeller – som de som brukes i dette eksempelet – kan noen ganger oppføre seg på måter som er urettferdige, upålitelige eller støtende, og dermed forårsake skade. Les [Azure OpenAI service Transparency note](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) for å bli informert om risikoer og begrensninger.
+Store språk-, bilde- og tale-modeller – som de som brukes i dette eksempelet – kan noen ganger oppføre seg på måter som er urettferdige, upålitelige eller støtende, og kan føre til skade. Les [Azure OpenAI service Transparency note](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) for å bli informert om risikoer og begrensninger.
 
-Den anbefalte måten å redusere disse risikoene på er å inkludere et sikkerhetssystem i din arkitektur som kan oppdage og forhindre skadelig oppførsel. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) gir et uavhengig beskyttelseslag, som kan oppdage skadelig innhold generert av brukere og AI i applikasjoner og tjenester. Azure AI Content Safety inkluderer tekst- og bilde-APIer som lar deg oppdage skadelig materiale. Vi har også et interaktivt Content Safety Studio hvor du kan se, utforske og teste eksempelkode for å oppdage skadelig innhold på ulike måter. Følgende [hurtigstart-dokumentasjon](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) viser deg hvordan du gjør forespørsler til tjenesten.
+Den anbefalte måten å redusere disse risikoene på er å inkludere et sikkerhetssystem i din arkitektur som kan oppdage og forhindre skadelig oppførsel. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) gir et uavhengig beskyttelseslag, og kan oppdage skadelig innhold generert av brukere og AI i applikasjoner og tjenester. Azure AI Content Safety inkluderer tekst- og bilde-APIer som lar deg oppdage skadelig materiale. Vi har også et interaktivt Content Safety Studio der du kan se, utforske og teste eksempelkode for å oppdage skadelig innhold på ulike måter. Følgende [hurtigstart-dokumentasjon](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) viser deg hvordan du gjør forespørsler til tjenesten.
 
 
-En annen faktor å ta hensyn til er den generelle ytelsen til applikasjonen. Med applikasjoner som bruker flere modaliteter og modeller, handler ytelse om at systemet oppfører seg slik du og brukerne dine forventer, inkludert at det ikke genererer skadelige resultater. Det er viktig å vurdere ytelsen til hele applikasjonen ved hjelp av [genereringskvalitet og risiko- og sikkerhetsmålinger](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
+En annen faktor å ta hensyn til er den generelle ytelsen til applikasjonen. Med applikasjoner som bruker flere modaliteter og modeller, betyr ytelse at systemet fungerer slik du og brukerne dine forventer, inkludert at det ikke genererer skadelige resultater. Det er viktig å vurdere ytelsen til hele applikasjonen ved hjelp av [genereringskvalitet og risiko- og sikkerhetsmålinger](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
 
-Du kan evaluere AI-applikasjonen din i utviklingsmiljøet ved å bruke [prompt flow SDK](https://microsoft.github.io/promptflow/index.html). Med enten et testdatasett eller et mål, blir genereringene fra din generative AI-applikasjon målt kvantitativt med innebygde eller egendefinerte evaluatorer. For å komme i gang med prompt flow sdk for å evaluere systemet ditt, kan du følge [kom-i-gang-guiden](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). Når du har kjørt en evalueringsrunde, kan du [visualisere resultatene i Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
+Du kan evaluere AI-applikasjonen din i utviklingsmiljøet ved å bruke [prompt flow SDK](https://microsoft.github.io/promptflow/index.html). Med enten et testdatasett eller et mål, blir genereringene fra din generative AI-applikasjon målt kvantitativt med innebygde eller egendefinerte evaluatorer etter eget valg. For å komme i gang med prompt flow sdk for å evaluere systemet ditt, kan du følge [kom-i-gang-guiden](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). Når du har kjørt en evalueringsrunde, kan du [visualisere resultatene i Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
 
 ## Varemerker
 
-Dette prosjektet kan inneholde varemerker eller logoer for prosjekter, produkter eller tjenester. Autorisert bruk av Microsofts
-varemerker eller logoer er underlagt og må følge
-[Microsofts retningslinjer for varemerker og merkevare](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
-Bruk av Microsofts varemerker eller logoer i modifiserte versjoner av dette prosjektet må ikke skape forvirring eller antyde at Microsoft er sponsor.
+Dette prosjektet kan inneholde varemerker eller logoer for prosjekter, produkter eller tjenester. Autorisert bruk av Microsofts varemerker eller logoer er underlagt og må følge [Microsofts retningslinjer for varemerker og merkevare](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
+Bruk av Microsofts varemerker eller logoer i modifiserte versjoner av dette prosjektet må ikke skape forvirring eller antyde at Microsoft sponser prosjektet.
 All bruk av tredjeparts varemerker eller logoer er underlagt de respektive tredjeparts retningslinjer.
 
 ## Få hjelp
 
 Hvis du står fast eller har spørsmål om å bygge AI-apper, bli med i:
 
-<a href="https://aka.ms/foundry/discord"><img src="https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff" alt="Azure AI Foundry Discord"></a>
+[![Azure AI Foundry Discord](https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
 
 Hvis du har tilbakemeldinger om produktet eller opplever feil under utvikling, besøk:
 
-<a href="https://aka.ms/foundry/forum"><img src="https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff" alt="Azure AI Foundry Developer Forum"></a>
+[![Azure AI Foundry Developer Forum](https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 
 ---
 

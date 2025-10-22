@@ -1,15 +1,15 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "badae5ee6451cc1a6e367cfe5ba92efa",
-  "translation_date": "2025-10-15T02:10:31+00:00",
+  "original_hash": "40660d83d2792201cad4aec9fdf25a29",
+  "translation_date": "2025-10-22T13:21:49+00:00",
   "source_file": "getting_started/supported-languages.md",
   "language_code": "es"
 }
 -->
 # Idiomas compatibles
 
-La siguiente tabla muestra los idiomas que actualmente son compatibles con **Co-op Translator**. Incluye los códigos de idioma, los nombres de los idiomas y cualquier problema conocido asociado con cada uno. Si deseas agregar soporte para un nuevo idioma, añade el código de idioma correspondiente, el nombre y la fuente adecuada en el archivo `font_language_mappings.yml` ubicado en `src/co_op_translator/fonts/` y envía un pull request después de hacer las pruebas necesarias.
+La siguiente tabla muestra los idiomas que actualmente admite **Co-op Translator**. Incluye los códigos de idioma, los nombres de los idiomas y cualquier problema conocido asociado con cada uno. Si deseas agregar soporte para un nuevo idioma, añade el código de idioma correspondiente, el nombre y la fuente adecuada en el archivo `font_language_mappings.yml` ubicado en `src/co_op_translator/fonts/` y envía un pull request después de hacer las pruebas necesarias.
 
 | Código de idioma | Nombre del idioma         | Fuente                             | Soporte RTL | Problemas conocidos |
 |------------------|--------------------------|------------------------------------|-------------|---------------------|
@@ -63,6 +63,7 @@ La siguiente tabla muestra los idiomas que actualmente son compatibles con **Co-
 | my               | Birmano (Myanmar)        | NotoSansMyanmar-Medium.ttf         | No          | No                  |
 | ta               | Tamil                    | NotoSansTamil-Medium.ttf           | No          | No                  |
 | et               | Estonio                  | NotoSans-Medium.ttf                | No          | No                  |
+| pcm              | Pidgin nigeriano         | NotoSans-Medium.ttf                | No          | No                  |
 
 ## Agregar un nuevo idioma
 
@@ -72,5 +73,5 @@ La siguiente tabla muestra los idiomas que actualmente son compatibles con **Co-
 
 ---
 
-**Descargo de responsabilidad**:  
-Este documento ha sido traducido utilizando el servicio de traducción automática [Co-op Translator](https://github.com/Azure/co-op-translator). Si bien nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o inexactitudes. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda la traducción profesional humana. No nos hacemos responsables de cualquier malentendido o interpretación incorrecta que surja del uso de esta traducción.
+**Descargo de responsabilidad**:
+Este documento ha sido traducido utilizando el servicio de traducción automática [Co-op Translator](https://github.com/Azure/co-op-translator). Aunque nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o inexactitudes. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda la traducción profesional humana. No nos hacemos responsables de cualquier malentendido o interpretación incorrecta que surja del uso de esta traducción.

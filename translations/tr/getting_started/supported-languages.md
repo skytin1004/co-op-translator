@@ -1,15 +1,15 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "badae5ee6451cc1a6e367cfe5ba92efa",
-  "translation_date": "2025-10-15T03:10:40+00:00",
+  "original_hash": "40660d83d2792201cad4aec9fdf25a29",
+  "translation_date": "2025-10-22T13:47:48+00:00",
   "source_file": "getting_started/supported-languages.md",
   "language_code": "tr"
 }
 -->
 # Desteklenen diller
 
-Aşağıdaki tabloda **Co-op Translator** tarafından şu anda desteklenen diller listelenmiştir. Tablo; dil kodlarını, dil adlarını ve her dil ile ilgili bilinen sorunları içerir. Yeni bir dil desteği eklemek isterseniz, ilgili dil kodunu, adını ve uygun fontu `src/co_op_translator/fonts/` yolundaki `font_language_mappings.yml` dosyasına ekleyip, test ettikten sonra bir pull request gönderebilirsiniz.
+Aşağıdaki tabloda **Co-op Translator** tarafından şu anda desteklenen diller listelenmiştir. Tablo; dil kodları, dil adları ve her dil ile ilgili bilinen sorunları içerir. Yeni bir dil desteği eklemek isterseniz, ilgili dil kodunu, adını ve uygun fontu `src/co_op_translator/fonts/` yolundaki `font_language_mappings.yml` dosyasına ekleyip, test ettikten sonra bir pull request gönderebilirsiniz.
 
 | Dil Kodu      | Dil Adı                      | Font                              | RTL Desteği | Bilinen Sorunlar |
 |---------------|------------------------------|-----------------------------------|-------------|------------------|
@@ -63,14 +63,15 @@ Aşağıdaki tabloda **Co-op Translator** tarafından şu anda desteklenen dille
 | my            | Birmanca (Myanmar)           | NotoSansMyanmar-Medium.ttf        | Hayır       | Yok              |
 | ta            | Tamilce                      | NotoSansTamil-Medium.ttf          | Hayır       | Yok              |
 | et            | Estonca                      | NotoSans-Medium.ttf               | Hayır       | Yok              |
+| pcm           | Nijerya Pidgin               | NotoSans-Medium.ttf               | Hayır       | Yok              |
 
 ## Yeni bir dil eklemek
 
 Yeni bir dil eklemek ister misiniz? Lütfen katkı rehberini takip edin:
 
-- Katkıda bulunmak için bakınız: <a href="../CONTRIBUTING.md#contribute-a-new-language">Yeni bir dil ekleyin</a>
+- Katkı için bakınız: <a href="../CONTRIBUTING.md#contribute-a-new-language">Yeni bir dil ekleyin</a>
 
 ---
 
 **Feragatname**:
-Bu belge, AI çeviri hizmeti [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba göstersek de, otomatik çevirilerde hata veya yanlışlıklar olabileceğini lütfen unutmayın. Belgenin orijinal dili, yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımından doğabilecek herhangi bir yanlış anlama veya yanlış yorumlamadan sorumlu değiliz.
+Bu belge, AI çeviri hizmeti [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba göstersek de, otomatik çevirilerde hata veya yanlışlıklar olabileceğini lütfen unutmayın. Belgenin orijinal dili, yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımından doğabilecek herhangi bir yanlış anlama veya yanlış yorumdan sorumlu değiliz.

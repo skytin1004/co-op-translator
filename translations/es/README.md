@@ -1,15 +1,15 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f579b7f148746593e3e9023b56a8c30d",
-  "translation_date": "2025-10-22T11:49:54+00:00",
+  "original_hash": "7593c1fad8734e4050b60fc3da614aa5",
+  "translation_date": "2025-10-22T13:21:21+00:00",
   "source_file": "README.md",
   "language_code": "es"
 }
 -->
 # Co-op Translator
 
-_Automatiza fácilmente la traducción de tu contenido educativo en GitHub a varios idiomas para llegar a una audiencia global._
+_Automatiza fácilmente la traducción de tu contenido educativo de GitHub a varios idiomas para llegar a una audiencia global._
 
 [![Paquete de Python](https://img.shields.io/pypi/v/co-op-translator?color=4BA3FF)](https://pypi.org/project/co-op-translator/)
 [![Licencia: MIT](https://img.shields.io/github/license/azure/co-op-translator?color=4BA3FF)](https://github.com/azure/co-op-translator/blob/main/LICENSE)
@@ -21,7 +21,7 @@ _Automatiza fácilmente la traducción de tu contenido educativo en GitHub a var
 [![Colaboradores de GitHub](https://img.shields.io/github/contributors/azure/co-op-translator.svg)](https://GitHub.com/azure/co-op-translator/graphs/contributors/)
 [![Issues de GitHub](https://img.shields.io/github/issues/azure/co-op-translator.svg)](https://GitHub.com/azure/co-op-translator/issues/)
 [![Pull-requests de GitHub](https://img.shields.io/github/issues-pr/azure/co-op-translator.svg)](https://GitHub.com/azure/co-op-translator/pulls/)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+[![PRs Bienvenidos](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
 ### 🌐 Soporte multilingüe
 
@@ -40,7 +40,7 @@ _Automatiza fácilmente la traducción de tu contenido educativo en GitHub a var
 
 ## Descripción general
 
-**Co-op Translator** te permite traducir rápidamente tu contenido educativo en GitHub a varios idiomas, llegando a una audiencia global sin esfuerzo. Cuando actualizas tus archivos Markdown, imágenes o notebooks de Jupyter, las traducciones se sincronizan automáticamente para que tu contenido educativo en GitHub se mantenga actualizado y relevante para usuarios internacionales.
+**Co-op Translator** te permite traducir rápidamente tu contenido educativo de GitHub a varios idiomas, llegando a una audiencia global sin esfuerzo. Cuando actualizas tus archivos Markdown, imágenes o cuadernos Jupyter, las traducciones se sincronizan automáticamente para que tu contenido educativo en GitHub se mantenga actualizado y relevante para usuarios internacionales.
 
 Así organiza Co-op Translator el contenido educativo traducido en GitHub:
 
@@ -73,7 +73,7 @@ docker run --rm -it --env-file .env -v "${PWD}:/work" ghcr.io/azure/co-op-transl
 ## Configuración mínima
 
 - Crea un archivo `.env` usando la plantilla: [.env.template](../../.env.template)
-- Configura un proveedor LLM (Azure OpenAI o OpenAI)
+- Configura un proveedor LLM (Azure OpenAI u OpenAI)
 - Para traducir imágenes (`-img`), también configura Azure AI Vision
 - Recomendado: Si tienes traducciones generadas por otras herramientas, límpialas primero para evitar conflictos (por ejemplo: `translations/`).
 - Recomendado: Añade una sección de traducciones a tu README usando la [plantilla de idiomas para README](./README_languages_template.md)
@@ -99,7 +99,7 @@ Markdown + imágenes:
 translate -l "pt" -md -img
 ```
 
-Solo notebooks:
+Solo cuadernos:
 
 ```bash
 translate -l "zh" -nb
@@ -109,10 +109,10 @@ Más opciones: [Referencia de comandos](./getting_started/command-reference.md)
 
 ## Características
 
-- Traducción automática de Markdown, notebooks e imágenes
+- Traducción automática de Markdown, cuadernos y imágenes
 - Mantiene las traducciones sincronizadas con los cambios en el origen
 - Funciona localmente (CLI) o en CI (GitHub Actions)
-- Utiliza Azure OpenAI o OpenAI; Azure AI Vision opcional para imágenes
+- Utiliza Azure OpenAI u OpenAI; Azure AI Vision opcional para imágenes
 - Conserva el formato y la estructura de Markdown
 
 ## Documentación
@@ -169,21 +169,18 @@ contacta a [opencode@microsoft.com](mailto:opencode@microsoft.com) si tienes pre
 ## IA responsable
 
 Microsoft está comprometido en ayudar a nuestros clientes a usar nuestros productos de IA de manera responsable, compartiendo nuestros aprendizajes y construyendo relaciones de confianza a través de herramientas como Transparency Notes y Impact Assessments. Muchos de estos recursos están disponibles en [https://aka.ms/RAI](https://aka.ms/RAI).
-El enfoque de Microsoft hacia la IA responsable se basa en nuestros principios de equidad, confiabilidad y seguridad, privacidad y protección, inclusión, transparencia y responsabilidad.
+El enfoque de Microsoft para la IA responsable se basa en nuestros principios de equidad, confiabilidad y seguridad, privacidad y protección, inclusión, transparencia y responsabilidad.
 
 Los modelos de lenguaje natural, imagen y voz a gran escala, como los que se usan en este ejemplo, pueden comportarse de manera injusta, poco confiable u ofensiva, lo que puede causar daños. Consulta la [nota de transparencia del servicio Azure OpenAI](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) para estar informado sobre riesgos y limitaciones.
 
-La forma recomendada de mitigar estos riesgos es incluir un sistema de seguridad en tu arquitectura que pueda detectar y prevenir comportamientos dañinos. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) proporciona una capa independiente de protección, capaz de detectar contenido dañino generado por usuarios y por IA en aplicaciones y servicios. Azure AI Content Safety incluye APIs de texto e imagen que te permiten detectar material dañino. También contamos con un Content Safety Studio interactivo que te permite ver, explorar y probar código de ejemplo para detectar contenido dañino en diferentes modalidades. La siguiente [documentación de inicio rápido](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) te guía para hacer solicitudes al servicio.
+La forma recomendada de mitigar estos riesgos es incluir un sistema de seguridad en tu arquitectura que pueda detectar y prevenir comportamientos dañinos. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) proporciona una capa independiente de protección, capaz de detectar contenido dañino generado por usuarios y por IA en aplicaciones y servicios. Azure AI Content Safety incluye APIs de texto e imagen que te permiten detectar material dañino. También contamos con un Content Safety Studio interactivo que te permite ver, explorar y probar código de ejemplo para detectar contenido dañino en diferentes modalidades. La siguiente [documentación de inicio rápido](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) te guía para realizar solicitudes al servicio.
 Otro aspecto a tener en cuenta es el rendimiento general de la aplicación. En aplicaciones multimodales y con múltiples modelos, consideramos que el rendimiento significa que el sistema funciona como tú y tus usuarios esperan, incluyendo no generar resultados dañinos. Es importante evaluar el rendimiento de tu aplicación en general usando [métricas de calidad de generación y de riesgo y seguridad](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
 
 Puedes evaluar tu aplicación de IA en tu entorno de desarrollo usando el [SDK de prompt flow](https://microsoft.github.io/promptflow/index.html). Ya sea con un conjunto de datos de prueba o un objetivo, las generaciones de tu aplicación de IA generativa se miden cuantitativamente con evaluadores integrados o personalizados que elijas. Para comenzar a usar el SDK de prompt flow y evaluar tu sistema, puedes seguir la [guía de inicio rápido](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). Una vez que ejecutes una evaluación, puedes [visualizar los resultados en Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
 
 ## Marcas registradas
 
-Este proyecto puede contener marcas registradas o logotipos de proyectos, productos o servicios. El uso autorizado de marcas registradas o logotipos de Microsoft está sujeto a y debe seguir las
-[Directrices de marca y marcas registradas de Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
-El uso de marcas registradas o logotipos de Microsoft en versiones modificadas de este proyecto no debe causar confusión ni implicar patrocinio de Microsoft.
-Cualquier uso de marcas registradas o logotipos de terceros está sujeto a las políticas de esos terceros.
+Este proyecto puede contener marcas registradas o logotipos de proyectos, productos o servicios. El uso autorizado de marcas registradas o logotipos de Microsoft está sujeto a y debe seguir las [Directrices de marca y marcas registradas de Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general). El uso de marcas registradas o logotipos de Microsoft en versiones modificadas de este proyecto no debe causar confusión ni implicar patrocinio de Microsoft. Cualquier uso de marcas registradas o logotipos de terceros está sujeto a las políticas de esos terceros.
 
 ## Obtener ayuda
 
@@ -191,11 +188,11 @@ Si tienes dudas o te quedas atascado al crear aplicaciones de IA, únete a:
 
 [![Azure AI Foundry Discord](https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
 
-Si tienes comentarios sobre el producto o encuentras errores al desarrollar, visita:
+Si tienes comentarios sobre el producto o errores al desarrollar, visita:
 
 [![Azure AI Foundry Developer Forum](https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 
 ---
 
-**Descargo de responsabilidad**:  
-Este documento ha sido traducido utilizando el servicio de traducción automática [Co-op Translator](https://github.com/Azure/co-op-translator). Si bien nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o inexactitudes. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda la traducción profesional humana. No nos hacemos responsables de cualquier malentendido o interpretación incorrecta que surja del uso de esta traducción.
+**Descargo de responsabilidad**:
+Este documento ha sido traducido utilizando el servicio de traducción automática [Co-op Translator](https://github.com/Azure/co-op-translator). Aunque nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o inexactitudes. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda la traducción profesional humana. No nos hacemos responsables de cualquier malentendido o interpretación incorrecta que surja del uso de esta traducción.

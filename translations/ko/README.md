@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "f579b7f148746593e3e9023b56a8c30d",
-  "translation_date": "2025-10-22T11:56:48+00:00",
+  "original_hash": "7593c1fad8734e4050b60fc3da614aa5",
+  "translation_date": "2025-10-22T13:35:09+00:00",
   "source_file": "README.md",
   "language_code": "ko"
 }
@@ -21,11 +21,11 @@ _교육용 GitHub 콘텐츠를 여러 언어로 자동 번역하여 전 세계 �
 
 ## 개요
 
-**Co-op Translator**는 교육용 GitHub 콘텐츠를 여러 언어로 빠르게 번역하여 전 세계 사용자에게 손쉽게 전달할 수 있도록 도와줍니다. Markdown 파일, 이미지, Jupyter 노트북을 업데이트하면 번역본도 자동으로 동기화되어, 국제 사용자에게 항상 최신의 교육 콘텐츠를 제공할 수 있습니다.
+**Co-op Translator**는 교육용 GitHub 콘텐츠를 여러 언어로 빠르게 번역하여, 전 세계 사용자에게 손쉽게 전달할 수 있도록 도와줍니다. Markdown 파일, 이미지, Jupyter 노트북을 업데이트하면 번역본도 자동으로 동기화되어, 국제 사용자에게 항상 최신의 교육 콘텐츠를 제공할 수 있습니다.
 
 Co-op Translator가 번역된 교육용 GitHub 콘텐츠를 어떻게 구성하는지 확인해보세요:
 
-![예시](../../translated_images/translation-ex.0c8aa6a7ee0aad2b35cddcc110c719baf0afc640e8c5a45540e6c166b9907d91.ko.png)
+![Example](../../translated_images/translation-ex.0c8aa6a7ee0aad2b35cddcc110c719baf0afc640e8c5a45540e6c166b9907d91.ko.png)
 
 ## 빠른 시작
 
@@ -55,8 +55,8 @@ docker run --rm -it --env-file .env -v "${PWD}:/work" ghcr.io/azure/co-op-transl
 
 - `.env` 파일을 템플릿을 참고해 생성하세요: [.env.template](../../.env.template)
 - LLM 공급자(Azure OpenAI 또는 OpenAI) 중 하나를 설정하세요
-- 이미지 번역(`-img`)을 하려면 Azure AI Vision도 설정해야 합니다
-- 권장: 다른 도구로 생성된 번역본이 있다면 먼저 정리해서 충돌을 방지하세요 (예: `translations/` 폴더)
+- 이미지 번역(`-img`)을 사용하려면 Azure AI Vision도 설정해야 합니다
+- 권장: 다른 도구로 생성된 번역본이 있다면 먼저 정리하여 충돌을 방지하세요 (예: `translations/` 폴더)
 - 권장: [README 언어 템플릿](./README_languages_template.md)을 참고해 README에 번역 섹션을 추가하세요
 - 참고: [Azure AI 설정 방법](./getting_started/set-up-azure-ai.md)
 
@@ -101,12 +101,12 @@ translate -l "zh" -nb
 - [명령줄 가이드](./getting_started/command-line-guide/command-line-guide.md)
 - [GitHub Actions 가이드 (공개 저장소 & 표준 시크릿)](./getting_started/github-actions-guide/github-actions-guide-public.md)
 - [GitHub Actions 가이드 (Microsoft 조직 저장소 & 조직 단위 설정)](./getting_started/github-actions-guide/github-actions-guide-org.md)
-- [지원 언어 목록](./getting_started/supported-languages.md)
+- [지원 언어](./getting_started/supported-languages.md)
 - [문제 해결](./getting_started/troubleshooting.md)
 
 ## 후원 및 글로벌 학습 확산
 
-교육 콘텐츠의 글로벌 공유 혁신에 함께하세요! [Co-op Translator](https://github.com/azure/co-op-translator)에 GitHub ⭐를 남기고, 학습과 기술의 언어 장벽을 허무는 우리의 미션을 응원해주세요. 여러분의 관심과 기여가 큰 변화를 만듭니다! 코드 기여와 기능 제안도 언제든 환영합니다.
+교육 콘텐츠의 글로벌 공유 혁신에 함께하세요! [Co-op Translator](https://github.com/azure/co-op-translator)에 ⭐를 남기고, 학습과 기술의 언어 장벽을 허무는 우리의 미션을 응원해주세요. 여러분의 관심과 기여가 큰 변화를 만듭니다! 코드 기여와 기능 제안도 언제든 환영합니다.
 
 ### Microsoft 교육 콘텐츠를 내 언어로 만나보세요
 
@@ -135,7 +135,7 @@ Co-op Translator에 대해 더 알고 싶다면 아래 발표 영상을 참고�
 
 ## 기여 안내
 
-이 프로젝트는 다양한 기여와 제안을 환영합니다. Azure Co-op Translator에 기여하고 싶으신가요? [CONTRIBUTING.md](./CONTRIBUTING.md)에서 기여 방법을 확인해 주세요.
+이 프로젝트는 다양한 기여와 제안을 환영합니다. Azure Co-op Translator에 기여하고 싶으신가요? [CONTRIBUTING.md](./CONTRIBUTING.md)에서 기여 방법을 확인하실 수 있습니다.
 
 ## 기여자
 
@@ -143,21 +143,21 @@ Co-op Translator에 대해 더 알고 싶다면 아래 발표 영상을 참고�
 
 ## 행동 강령
 
-이 프로젝트는 [Microsoft 오픈소스 행동 강령](https://opensource.microsoft.com/codeofconduct/)을 따릅니다.
+이 프로젝트는 [Microsoft 오픈 소스 행동 강령](https://opensource.microsoft.com/codeofconduct/)을 따릅니다.
 자세한 내용은 [행동 강령 FAQ](https://opensource.microsoft.com/codeofconduct/faq/)를 참고하거나,
-추가 질문 및 의견은 [opencode@microsoft.com](mailto:opencode@microsoft.com)으로 문의해 주세요.
+추가 질문이나 의견은 [opencode@microsoft.com](mailto:opencode@microsoft.com)으로 문의해 주세요.
 
 ## 책임 있는 AI
 
 Microsoft는 고객이 AI 제품을 책임감 있게 사용할 수 있도록 돕고, 우리의 경험을 공유하며, 투명성 노트와 영향 평가 같은 도구를 통해 신뢰 기반의 파트너십을 구축하고 있습니다. 관련 자료는 [https://aka.ms/RAI](https://aka.ms/RAI)에서 확인할 수 있습니다.
-Microsoft의 책임 있는 AI 접근법은 공정성, 신뢰성 및 안전성, 프라이버시와 보안, 포용성, 투명성, 책임이라는 AI 원칙에 기반합니다.
+Microsoft의 책임 있는 AI 접근 방식은 공정성, 신뢰성 및 안전성, 개인정보 보호 및 보안, 포용성, 투명성, 책임이라는 AI 원칙에 기반합니다.
 
-이 샘플에서 사용되는 대규모 자연어, 이미지, 음성 모델은 때때로 불공정하거나 신뢰할 수 없거나 불쾌감을 줄 수 있는 방식으로 동작할 수 있으며, 그로 인해 피해가 발생할 수 있습니다. 위험과 한계에 대해 알고 싶다면 [Azure OpenAI 서비스 투명성 노트](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text)를 참고하세요.
+이 샘플에서 사용하는 대규모 자연어, 이미지, 음성 모델은 때때로 불공정하거나 신뢰할 수 없거나 불쾌감을 줄 수 있는 방식으로 동작할 수 있으며, 그로 인해 피해가 발생할 수 있습니다. 위험과 한계에 대해 알고 싶다면 [Azure OpenAI 서비스 투명성 노트](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text)를 참고하세요.
 
 이러한 위험을 완화하는 권장 방법은 해로운 행동을 감지하고 방지할 수 있는 안전 시스템을 아키텍처에 포함하는 것입니다. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview)는 독립적인 보호 계층을 제공하며, 애플리케이션과 서비스에서 사용자 생성 및 AI 생성 콘텐츠의 유해성을 감지할 수 있습니다. Azure AI Content Safety는 텍스트와 이미지 API를 통해 유해한 자료를 감지할 수 있습니다. 또한 다양한 방식의 유해 콘텐츠 감지 샘플 코드를 직접 확인하고 실험할 수 있는 Content Safety Studio도 제공합니다. [빠른 시작 문서](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest)를 참고해 서비스 요청 방법을 알아보세요.
-또 하나 고려해야 할 점은 전체 애플리케이션의 성능입니다. 멀티모달 및 멀티모델 애플리케이션에서는 성능이란 시스템이 여러분과 사용자들이 기대하는 대로 동작하는 것, 즉 해로운 결과를 생성하지 않는 것도 포함합니다. 전체 애플리케이션의 성능을 평가할 때는 [생성 품질, 위험 및 안전성 지표](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in)를 활용하는 것이 중요합니다.
+또 하나 고려해야 할 점은 전체 애플리케이션의 성능입니다. 멀티모달 및 멀티모델 애플리케이션에서는 성능이란 시스템이 여러분과 사용자들이 기대하는 대로 동작하는 것, 그리고 해로운 결과를 생성하지 않는 것을 의미합니다. 전체 애플리케이션의 성능을 평가할 때는 [생성 품질, 위험 및 안전성 지표](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in)를 활용하는 것이 중요합니다.
 
-개발 환경에서 [prompt flow SDK](https://microsoft.github.io/promptflow/index.html)를 사용해 AI 애플리케이션을 평가할 수 있습니다. 테스트 데이터셋이나 목표를 제공하면, 생성형 AI 애플리케이션의 결과를 내장 평가 도구나 원하는 커스텀 평가 도구로 정량적으로 측정할 수 있습니다. 시스템 평가를 위해 prompt flow sdk를 시작하려면 [빠른 시작 가이드](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk)를 참고하세요. 평가를 실행한 후에는 [Azure AI Studio에서 결과를 시각화](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results)할 수 있습니다.
+개발 환경에서 [prompt flow SDK](https://microsoft.github.io/promptflow/index.html)를 사용해 AI 애플리케이션을 평가할 수 있습니다. 테스트 데이터셋이나 목표가 주어지면, 생성형 AI 애플리케이션의 결과를 내장 평가 도구나 원하는 커스텀 평가 도구로 정량적으로 측정할 수 있습니다. 시스템 평가를 위해 prompt flow sdk를 시작하려면 [빠른 시작 가이드](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk)를 참고하세요. 평가 실행을 완료하면 [Azure AI Studio에서 결과를 시각화](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results)할 수 있습니다.
 
 ## 상표
 
@@ -169,11 +169,11 @@ Microsoft의 책임 있는 AI 접근법은 공정성, 신뢰성 및 안전성, �
 
 AI 앱 개발 중 막히거나 궁금한 점이 있다면 다음에 참여하세요:
 
-<a href="https://aka.ms/foundry/discord"><img src="https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff" alt="Azure AI Foundry Discord"></a>
+[![Azure AI Foundry Discord](https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
 
 제품 피드백이나 개발 중 오류가 있다면 다음을 방문하세요:
 
-<a href="https://aka.ms/foundry/forum"><img src="https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff" alt="Azure AI Foundry Developer Forum"></a>
+[![Azure AI Foundry Developer Forum](https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 
 ---
 

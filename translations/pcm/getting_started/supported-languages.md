@@ -1,15 +1,15 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "badae5ee6451cc1a6e367cfe5ba92efa",
-  "translation_date": "2025-10-22T11:16:23+00:00",
+  "original_hash": "40660d83d2792201cad4aec9fdf25a29",
+  "translation_date": "2025-10-22T14:20:10+00:00",
   "source_file": "getting_started/supported-languages.md",
   "language_code": "pcm"
 }
 -->
 # Di Languages Weh We Dey Support
 
-Di table wey dey down show di languages wey **Co-op Translator** fit run now. E get di language code, di name of di language, plus any wahala wey dey for each language. If you wan add new language, abeg put di language code, name, and correct font for `font_language_mappings.yml` wey dey inside `src/co_op_translator/fonts/`, test am, then do pull request.
+Di table wey dey down show di languages wey **Co-op Translator** fit run now. E get di language code, di name of di language, plus any wahala wey dey for each language. If you wan add new language, abeg put di language code, name, and correct font for `font_language_mappings.yml` wey dey inside `src/co_op_translator/fonts/` then test am before you do pull request.
 
 | Language Code | Language Name        | Font                              | RTL Support | Known Issues |
 |---------------|----------------------|-----------------------------------|-------------|--------------|
@@ -63,14 +63,15 @@ Di table wey dey down show di languages wey **Co-op Translator** fit run now. E 
 | my            | Burmese (Myanmar)    | NotoSansMyanmar-Medium.ttf        | No          | No           |
 | ta            | Tamil                | NotoSansTamil-Medium.ttf          | No          | No           |
 | et            | Estonian             | NotoSans-Medium.ttf               | No          | No           |
+| pcm           | Nigerian Pidgin      | NotoSans-Medium.ttf               | No          | No           |
 
 ## How You Fit Add New Language
 
-You wan add new language? Abeg follow di guide for contribution:
+You wan add new language? Abeg follow di guide wey dey for contribution:
 
 - Check Contributing: <a href="../CONTRIBUTING.md#contribute-a-new-language">How to add new language</a>
 
 ---
 
 **Disclaimer**:
-Na AI translation service wey dem dey call [Co-op Translator](https://github.com/Azure/co-op-translator) we use take translate this document. Even though we try make the translation correct, abeg make you sabi say AI fit make mistake or no translate am well. Na the original document for the main language be the correct one wey you suppose follow. If the information dey important, abeg use professional human translator. We no go fit hold any responsibility for wahala or misunderstanding wey fit happen because of this translation.
+Na AI translation service wey dem dey call [Co-op Translator](https://github.com/Azure/co-op-translator) we use take translate dis document. Even though we try make e correct, abeg make you sabi say AI fit make mistake or no too accurate. Na the original document for the main language be the correct one wey you suppose follow. If the info dey very important, abeg use professional human translation. We no go fit hold any responsibility for wahala wey fit happen because of how you take use this translation.

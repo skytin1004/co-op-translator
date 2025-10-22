@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "bd4704f50c55da7d572b691484aa0b30",
-  "translation_date": "2025-10-15T03:39:24+00:00",
+  "original_hash": "1ae2159f900e7d5d596bb00bcba4c999",
+  "translation_date": "2025-10-22T13:59:53+00:00",
   "source_file": "CONTRIBUTING.md",
   "language_code": "ms"
 }
@@ -10,7 +10,7 @@ CO_OP_TRANSLATOR_METADATA:
 # Menyumbang kepada Co-op Translator
 
 Projek ini mengalu-alukan sumbangan dan cadangan. Kebanyakan sumbangan memerlukan anda bersetuju dengan
-Perjanjian Lesen Penyumbang (CLA) yang mengesahkan anda mempunyai hak untuk, dan benar-benar memberikan kami
+Perjanjian Lesen Penyumbang (CLA) yang mengesahkan bahawa anda mempunyai hak untuk, dan benar-benar telah, memberikan kami
 hak untuk menggunakan sumbangan anda. Untuk maklumat lanjut, lawati https://cla.opensource.microsoft.com.
 
 Apabila anda menghantar pull request, bot CLA akan secara automatik menentukan sama ada anda perlu menyediakan
@@ -90,7 +90,7 @@ Sebelum menghantar PR, adalah penting untuk menguji fungsi terjemahan dengan dok
     python -m co_op_translator --language-codes ko --root-dir test_docs
     ```
 
-5. Semak fail terjemahan dalam `test_docs/translations` dan `test_docs/translated_images` untuk memastikan:
+5. Semak fail terjemahan di `test_docs/translations` dan `test_docs/translated_images` untuk memastikan:
    - Kualiti terjemahan
    - Komen metadata adalah betul
    - Struktur markdown asal dikekalkan
@@ -107,7 +107,7 @@ Ujian manual ini membantu memastikan perubahan anda berfungsi dengan baik dalam 
 >
 > ### Pilihan tambahan untuk persekitaran pembangunan
 >
-> Selain menjalankan projek secara tempatan, anda juga boleh menggunakan GitHub Codespaces atau VS Code Dev Containers sebagai pilihan alternatif untuk persediaan persekitaran pembangunan.
+> Selain menjalankan projek secara tempatan, anda juga boleh menggunakan GitHub Codespaces atau VS Code Dev Containers sebagai alternatif untuk persediaan persekitaran pembangunan.
 >
 > #### GitHub Codespaces
 >
@@ -137,7 +137,7 @@ Kami menggunakan [Black](https://github.com/psf/black) sebagai pemformat kod Pyt
 
 #### Konfigurasi
 
-Konfigurasi Black ditetapkan dalam `pyproject.toml` kami:
+Konfigurasi Black ditentukan dalam `pyproject.toml` kami:
 
 ```toml
 [tool.black]
@@ -191,7 +191,7 @@ pip install black
     ```
 
 > [!TIP]
-> Kami mengesyorkan anda menetapkan editor anda untuk memformat kod secara automatik dengan Black setiap kali anda menyimpan. Kebanyakan editor moden menyokong ciri ini melalui sambungan atau plugin.
+> Kami mengesyorkan anda menetapkan editor anda untuk memformat kod secara automatik dengan Black setiap kali anda menyimpan. Kebanyakan editor moden menyokong ini melalui sambungan atau plugin.
 
 ## Menjalankan Co-op Translator
 
@@ -199,7 +199,7 @@ Untuk menjalankan Co-op Translator menggunakan Poetry dalam persekitaran anda, i
 
 1. Pergi ke direktori di mana anda ingin melakukan ujian terjemahan atau cipta folder sementara untuk tujuan ujian.
 
-2. Jalankan arahan berikut. Gantikan `-l ko` dengan kod bahasa yang anda ingin terjemahkan. Flag `-d` menandakan mod debug.
+2. Jalankan arahan berikut. Gantikan `-l ko` dengan kod bahasa yang anda ingin terjemahkan. Flag `-d` menunjukkan mod debug.
 
     ```bash
     poetry run co-op-translator translate -l ko -d
@@ -217,7 +217,7 @@ Kami mengalu-alukan sumbangan untuk menambah sokongan bahasa baru. Sebelum membu
    - Tambah entri dengan:
      - `code`: Kod bahasa berformat ISO (contoh: `vi`)
      - `name`: Nama paparan mesra pengguna
-     - `font`: Fon yang terdapat dalam `src/co_op_translator/fonts/` dan menyokong skrip tersebut
+     - `font`: Fon yang terdapat dalam `src/co_op_translator/fonts/` yang menyokong skrip tersebut
      - `rtl`: `true` jika kanan-ke-kiri, jika tidak `false`
 
 2. Sertakan fail fon yang diperlukan (jika perlu)
@@ -229,8 +229,8 @@ Kami mengalu-alukan sumbangan untuk menambah sokongan bahasa baru. Sebelum membu
    - Pastikan output dipaparkan dengan betul, termasuk fon dan susun atur RTL jika berkenaan
 
 4. Kemas kini dokumentasi
-   - Pastikan bahasa tersebut disenaraikan dalam `getting_started/supported-languages.md`
-   - Tiada perubahan diperlukan pada `README_languages_template.md`; ia dijana daripada senarai sokongan
+   - Pastikan bahasa tersebut muncul dalam `getting_started/supported-languages.md`
+   - Tiada perubahan diperlukan pada `README_languages_template.md`; ia dijana daripada senarai yang disokong
 
 5. Buka PR
    - Terangkan bahasa yang ditambah dan sebarang pertimbangan fon/lesen
@@ -245,62 +245,78 @@ new_lang(code):
   rtl: false
 ```
 
+### Uji bahasa baru
+
+Anda boleh menguji bahasa baru dengan menjalankan arahan berikut:
+
+```bash
+# Create and activate a virtual environment (recommended)
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+source .venv/bin/activate
+# Install the development package
+pip install -e .
+# Run the translation
+translate -l "new_lang"
+```
 
 ## Penyelenggara
 
-### Format mesej komit dan strategi penggabungan
+### Format mesej commit dan strategi Merge
 
-Untuk memastikan konsistensi dan kejelasan dalam sejarah komit projek, kami mengikuti format mesej komit tertentu **untuk mesej komit akhir** apabila menggunakan strategi **Squash and Merge**.
+Untuk memastikan konsistensi dan kejelasan dalam sejarah commit projek kami, kami mengikuti format mesej commit tertentu **untuk mesej commit akhir** apabila menggunakan strategi **Squash and Merge**.
 
-Apabila pull request (PR) digabungkan, semua komit individu akan digabungkan menjadi satu komit. Mesej komit akhir perlu mengikuti format di bawah untuk mengekalkan sejarah yang bersih dan konsisten.
+Apabila pull request (PR) digabungkan, commit individu akan digabungkan menjadi satu commit. Mesej commit akhir harus mengikuti format di bawah untuk mengekalkan sejarah yang bersih dan konsisten.
 
-#### Format mesej komit (untuk squash and merge)
+#### Format mesej commit (untuk squash and merge)
 
-Kami menggunakan format berikut untuk mesej komit:
+Kami menggunakan format berikut untuk mesej commit:
 
 ```bash
 <type>: <description> (#<PR number>)
 ```
 
-- **type**: Menentukan kategori komit. Kami menggunakan jenis berikut:
+- **type**: Menentukan kategori commit. Kami menggunakan jenis berikut:
   - `Docs`: Untuk kemas kini dokumentasi.
   - `Build`: Untuk perubahan berkaitan sistem binaan atau kebergantungan, termasuk kemas kini fail konfigurasi, workflow CI, atau Dockerfile.
-  - `Core`: Untuk perubahan pada fungsi utama projek atau ciri, terutamanya yang melibatkan fail dalam direktori `src/co_op_translator/core`.
+  - `Core`: Untuk pengubahsuaian fungsi teras projek atau ciri, terutamanya yang melibatkan fail dalam direktori `src/co_op_translator/core`.
 
 - **description**: Ringkasan perubahan secara padat.
-- **PR number**: Nombor pull request yang berkaitan dengan komit.
+- **PR number**: Nombor pull request yang berkaitan dengan commit.
 
 **Contoh**:
 
-- `Docs: Kemas kini arahan pemasangan untuk lebih jelas (#50)`
+- `Docs: Kemas kini arahan pemasangan untuk penjelasan (#50)`
 - `Core: Penambahbaikan pengendalian terjemahan imej (#60)`
 
 > [!NOTE]
 > Pada masa ini, awalan **`Docs`**, **`Core`**, dan **`Build`** akan ditambah secara automatik pada tajuk PR berdasarkan label yang digunakan pada kod sumber yang diubah. Selagi label yang betul digunakan, anda biasanya tidak perlu mengemas kini tajuk PR secara manual. Anda hanya perlu memastikan semuanya betul dan awalan telah dijana dengan betul.
 
-#### Strategi penggabungan
+#### Strategi Merge
 
-Kami menggunakan **Squash and Merge** sebagai strategi lalai untuk pull request. Strategi ini memastikan mesej komit mengikut format kami, walaupun komit individu tidak.
+Kami menggunakan **Squash and Merge** sebagai strategi lalai untuk pull request. Strategi ini memastikan mesej commit mengikuti format kami, walaupun commit individu tidak.
 
 **Sebab**:
 
 - Sejarah projek yang bersih dan linear.
-- Konsistensi dalam mesej komit.
-- Mengurangkan gangguan daripada komit kecil (contohnya, "betulkan typo").
+- Konsistensi dalam mesej commit.
+- Mengurangkan gangguan daripada commit kecil (contohnya, "betulkan typo").
 
-Semasa menggabungkan, pastikan mesej komit akhir mengikut format yang diterangkan di atas.
+Semasa menggabungkan, pastikan mesej commit akhir mengikuti format mesej commit yang diterangkan di atas.
 
 **Contoh Squash and Merge**
-Jika PR mengandungi komit berikut:
+Jika PR mengandungi commit berikut:
 
 - `betulkan typo`
 - `kemas kini README`
 - `ubah suai format`
 
-Ia perlu digabungkan menjadi:
+Ia harus digabungkan menjadi:
 `Docs: Penambahbaikan kejelasan dan format dokumentasi (#65)`
 
 ---
 
 **Penafian**:
-Dokumen ini telah diterjemahkan menggunakan perkhidmatan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Walaupun kami berusaha untuk ketepatan, sila maklum bahawa terjemahan automatik mungkin mengandungi kesilapan atau ketidaktepatan. Dokumen asal dalam bahasa asalnya harus dianggap sebagai sumber yang berwibawa. Untuk maklumat kritikal, terjemahan manusia profesional adalah disyorkan. Kami tidak bertanggungjawab atas sebarang salah faham atau salah tafsir yang timbul daripada penggunaan terjemahan ini.
+Dokumen ini telah diterjemahkan menggunakan perkhidmatan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Walaupun kami berusaha untuk memastikan ketepatan, sila ambil maklum bahawa terjemahan automatik mungkin mengandungi kesilapan atau ketidaktepatan. Dokumen asal dalam bahasa asalnya harus dianggap sebagai sumber yang berwibawa. Untuk maklumat kritikal, terjemahan manusia profesional adalah disyorkan. Kami tidak bertanggungjawab atas sebarang salah faham atau salah tafsir yang timbul daripada penggunaan terjemahan ini.

@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "bd4704f50c55da7d572b691484aa0b30",
-  "translation_date": "2025-10-15T04:37:54+00:00",
+  "original_hash": "1ae2159f900e7d5d596bb00bcba4c999",
+  "translation_date": "2025-10-22T14:15:48+00:00",
   "source_file": "CONTRIBUTING.md",
   "language_code": "lt"
 }
@@ -11,11 +11,11 @@ CO_OP_TRANSLATOR_METADATA:
 
 Šis projektas kviečia prisidėti ir teikti pasiūlymus. Dauguma indėlių reikalauja, kad sutiktumėte su Contributor License Agreement (CLA), patvirtinančiu, kad turite teisę ir iš tikrųjų suteikiate mums teises naudoti jūsų indėlį. Daugiau informacijos rasite https://cla.opensource.microsoft.com.
 
-Kai pateikiate pull request, CLA bot automatiškai nustatys, ar reikia pateikti CLA, ir atitinkamai pažymės PR (pvz., statuso patikrinimas, komentaras). Tiesiog vykdykite boto pateiktas instrukcijas. Tai reikės padaryti tik vieną kartą visuose mūsų CLA naudojančiuose repozitorijose.
+Kai pateikiate pull request, CLA bot automatiškai nustatys, ar reikia pateikti CLA, ir atitinkamai pažymės PR (pvz., statuso patikrinimas, komentaras). Tiesiog sekite boto pateiktas instrukcijas. Tai reikės padaryti tik vieną kartą visiems repo, naudojantiems mūsų CLA.
 
-## Programavimo aplinkos paruošimas
+## Aplinkos paruošimas vystymui
 
-Norint paruošti šio projekto programavimo aplinką, rekomenduojame naudoti Poetry priklausomybių valdymui. Priklausomybės tvarkomos per `pyproject.toml`, todėl jas diegti reikia su Poetry.
+Norint paruošti vystymo aplinką šiam projektui, rekomenduojame naudoti Poetry priklausomybių valdymui. Priklausomybės tvarkomos per `pyproject.toml`, todėl jas diegti reikėtų su Poetry.
 
 ### Sukurkite virtualią aplinką
 
@@ -86,7 +86,7 @@ Prieš pateikiant PR, svarbu išbandyti vertimo funkcionalumą su tikra dokument
     python -m co_op_translator --language-codes ko --root-dir test_docs
     ```
 
-5. Patikrinkite išverstus failus `test_docs/translations` ir `test_docs/translated_images` kataloguose, kad įsitikintumėte:
+5. Patikrinkite išverstus failus `test_docs/translations` ir `test_docs/translated_images`, kad įsitikintumėte:
    - Vertimo kokybe
    - Ar metaduomenų komentarai teisingi
    - Ar išlaikyta originali markdown struktūra
@@ -101,13 +101,13 @@ Prieš pateikiant PR, svarbu išbandyti vertimo funkcionalumą su tikra dokument
 
 > [!TIP]
 >
-> ### Papildomos programavimo aplinkos parinktys
+> ### Papildomos vystymo aplinkos galimybės
 >
-> Be vietinio projekto paleidimo, galite naudoti GitHub Codespaces arba VS Code Dev Containers kaip alternatyvą programavimo aplinkos paruošimui.
+> Be vietinio projekto paleidimo, galite naudoti GitHub Codespaces arba VS Code Dev Containers kaip alternatyvų vystymo aplinkos paruošimą.
 >
 > #### GitHub Codespaces
 >
-> Šiuos pavyzdžius galite paleisti virtualiai naudodami GitHub Codespaces, nereikia papildomų nustatymų ar diegimo.
+> Galite paleisti šiuos pavyzdžius virtualiai naudodami GitHub Codespaces, nereikia papildomų nustatymų ar diegimo.
 >
 > Mygtukas atidarys naršyklėje VS Code internetinę versiją:
 >
@@ -115,11 +115,11 @@ Prieš pateikiant PR, svarbu išbandyti vertimo funkcionalumą su tikra dokument
 >
 >     <a href="https://codespaces.new/azure/co-op-translator"><img src="https://github.com/codespaces/badge.svg" alt="Open in GitHub Codespaces"></a>
 >
-> #### Vietinis paleidimas naudojant VS Code Dev Containers
+> #### Paleidimas vietoje naudojant VS Code Dev Containers
 >
-> ⚠️ Ši parinktis veiks tik jei jūsų Docker Desktop paskirta bent 16 GB RAM. Jei turite mažiau nei 16 GB RAM, galite išbandyti [GitHub Codespaces parinktį](../..) arba [paruošti vietinę aplinką](../..).
+> ⚠️ Ši galimybė veiks tik jei jūsų Docker Desktop paskirta bent 16 GB RAM. Jei turite mažiau nei 16 GB RAM, galite išbandyti [GitHub Codespaces galimybę](../..) arba [paruošti vietinę aplinką](../..).
 >
-> Kita galimybė – VS Code Dev Containers, kuri atidarys projektą jūsų vietiniame VS Code naudojant [Dev Containers plėtinį](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers):
+> Susijusi galimybė – VS Code Dev Containers, kuri atidarys projektą jūsų vietiniame VS Code naudojant [Dev Containers plėtinį](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers):
 >
 > 1. Paleiskite Docker Desktop (įdiekite, jei dar neįdiegta)
 > 2. Atidarykite projektą:
@@ -129,11 +129,11 @@ Prieš pateikiant PR, svarbu išbandyti vertimo funkcionalumą su tikra dokument
 
 ### Kodo stilius
 
-Naudojame [Black](https://github.com/psf/black) kaip Python kodo formatavimo įrankį, kad projektas būtų vientisas. Black – griežtas kodo formatavimo įrankis, automatiškai pertvarkantis Python kodą pagal Black stilių.
+Naudojame [Black](https://github.com/psf/black) kaip Python kodo formatuotoją, kad palaikytume vienodą kodo stilių visame projekte. Black automatiškai performatuoja Python kodą pagal Black stilių.
 
 #### Konfigūracija
 
-Black konfigūracija nurodyta mūsų `pyproject.toml` faile:
+Black konfigūracija nurodyta mūsų `pyproject.toml`:
 
 ```toml
 [tool.black]
@@ -144,11 +144,11 @@ include = '\.pyi?$'
 
 #### Black diegimas
 
-Black galite įdiegti naudodami Poetry (rekomenduojama) arba pip:
+Galite įdiegti Black naudodami Poetry (rekomenduojama) arba pip:
 
 ##### Naudojant Poetry
 
-Black įdiegiama automatiškai, kai paruošiate programavimo aplinką:
+Black automatiškai įdiegiama, kai paruošiate vystymo aplinką:
 ```bash
 poetry install
 ```
@@ -193,7 +193,7 @@ pip install black
 
 Norėdami paleisti Co-op Translator su Poetry savo aplinkoje, atlikite šiuos veiksmus:
 
-1. Eikite į katalogą, kuriame norite atlikti vertimo testus, arba sukurkite laikiną katalogą testavimui.
+1. Pereikite į katalogą, kuriame norite atlikti vertimo testus, arba sukurkite laikiną katalogą testavimui.
 
 2. Vykdykite šią komandą. Pakeiskite `-l ko` į norimos kalbos kodą. `-d` žymi debug režimą.
 
@@ -206,14 +206,14 @@ Norėdami paleisti Co-op Translator su Poetry savo aplinkoje, atlikite šiuos ve
 
 ## Naujos kalbos pridėjimas
 
-Kviečiame prisidėti, pridedant naujų kalbų palaikymą. Prieš atidarydami PR, atlikite žemiau nurodytus veiksmus, kad peržiūra vyktų sklandžiai.
+Kviečiame prisidėti, pridedant naujų kalbų palaikymą. Prieš atidarant PR, atlikite žemiau nurodytus veiksmus, kad peržiūra vyktų sklandžiai.
 
 1. Pridėkite kalbą į šriftų susiejimą
    - Redaguokite `src/co_op_translator/fonts/font_language_mappings.yml`
    - Pridėkite įrašą su:
      - `code`: ISO tipo kalbos kodas (pvz., `vi`)
      - `name`: Draugiškas kalbos pavadinimas
-     - `font`: Šriftas iš `src/co_op_translator/fonts/`, palaikantis rašmenį
+     - `font`: Šriftas, esantis `src/co_op_translator/fonts/`, palaikantis rašmenį
      - `rtl`: `true`, jei rašoma iš dešinės į kairę, kitaip `false`
 
 2. Pridėkite reikalingus šriftų failus (jei reikia)
@@ -241,18 +241,34 @@ new_lang(code):
   rtl: false
 ```
 
+### Naujos kalbos testavimas
+
+Naują kalbą galite išbandyti paleisdami šią komandą:
+
+```bash
+# Create and activate a virtual environment (recommended)
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+source .venv/bin/activate
+# Install the development package
+pip install -e .
+# Run the translation
+translate -l "new_lang"
+```
 
 ## Prižiūrėtojai
 
 ### Commit žinutės ir sujungimo strategija
 
-Kad projektas būtų aiškus ir nuoseklus, laikomės tam tikro commit žinučių formato **galutinei commit žinutei** naudojant **Squash and Merge** strategiją.
+Kad projektas būtų aiškus ir nuoseklus, laikomės tam tikro commit žinutės formato **galutinei commit žinutei** naudojant **Squash and Merge** strategiją.
 
-Kai pull request (PR) sujungiamas, atskiri commit sujungiami į vieną. Galutinė commit žinutė turi atitikti žemiau pateiktą formatą, kad istorija būtų tvarkinga ir nuosekli.
+Kai pull request (PR) sujungiamas, atskiri commit bus sujungti į vieną. Galutinė commit žinutė turi atitikti žemiau pateiktą formatą, kad istorija būtų tvarkinga ir nuosekli.
 
-#### Commit žinutės formatas (squash and merge atveju)
+#### Commit žinutės formatas (squash and merge)
 
-Naudojame šį commit žinučių formatą:
+Naudojame šį commit žinutės formatą:
 
 ```bash
 <type>: <description> (#<PR number>)
@@ -260,7 +276,7 @@ Naudojame šį commit žinučių formatą:
 
 - **type**: Nurodo commit kategoriją. Naudojame šiuos tipus:
   - `Docs`: Dokumentacijos atnaujinimai.
-  - `Build`: Pakeitimai, susiję su build sistema ar priklausomybėmis, įskaitant konfigūracijos failus, CI darbo eigas ar Dockerfile.
+  - `Build`: Pakeitimai, susiję su build sistema ar priklausomybėmis, įskaitant konfigūracijos failus, CI workflows ar Dockerfile.
   - `Core`: Projekto pagrindinės funkcijos ar savybių pakeitimai, ypač failuose `src/co_op_translator/core` kataloge.
 
 - **description**: Trumpas pakeitimo aprašymas.
@@ -272,7 +288,7 @@ Naudojame šį commit žinučių formatą:
 - `Core: Improve handling of image translation (#60)`
 
 > [!NOTE]
-> Šiuo metu **`Docs`**, **`Core`** ir **`Build`** priešdėliai automatiškai pridedami prie PR pavadinimų pagal priskirtas etiketes pakeistam šaltinio kodui. Jei teisinga etiketė priskirta, paprastai nereikia rankiniu būdu keisti PR pavadinimo. Tiesiog patikrinkite, ar viskas teisinga ir priešdėlis sugeneruotas tinkamai.
+> Šiuo metu **`Docs`**, **`Core`** ir **`Build`** priešdėliai automatiškai pridedami prie PR pavadinimų pagal priskirtas etiketes modifikuotam šaltinio kodui. Jei teisinga etiketė priskirta, paprastai nereikia rankiniu būdu keisti PR pavadinimo. Tiesiog patikrinkite, ar viskas teisinga ir priešdėlis sugeneruotas tinkamai.
 
 #### Sujungimo strategija
 
@@ -282,7 +298,7 @@ Naudojame **Squash and Merge** kaip numatytą strategiją pull requestams. Ši s
 
 - Tvarkinga, linijinė projekto istorija.
 - Nuoseklumas commit žinutėse.
-- Mažiau triukšmo dėl smulkių commit (pvz., „fix typo“).
+- Mažiau triukšmo nuo smulkių commit (pvz., "fix typo").
 
 Sujungiant, įsitikinkite, kad galutinė commit žinutė atitinka aukščiau aprašytą formatą.
 
@@ -298,5 +314,5 @@ Jie turi būti sujungti į:
 
 ---
 
-**Atsakomybės atsisakymas**:
-Šis dokumentas buvo išverstas naudojant AI vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba turėtų būti laikomas autoritetingu šaltiniu. Kritinei informacijai rekomenduojame profesionalų žmogaus vertimą. Mes neatsakome už nesusipratimus ar neteisingą interpretavimą, kilusį naudojantis šiuo vertimu.
+**Atsakomybės atsisakymas**:  
+Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba turėtų būti laikomas autoritetingu šaltiniu. Svarbios informacijos atveju rekomenduojame profesionalų žmogaus vertimą. Mes neatsakome už nesusipratimus ar neteisingą interpretavimą, kilusį naudojantis šiuo vertimu.
