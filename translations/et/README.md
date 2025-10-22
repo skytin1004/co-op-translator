@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "8f776df01855a3a659c8eb6f16a5de74",
-  "translation_date": "2025-10-15T04:40:19+00:00",
+  "original_hash": "f579b7f148746593e3e9023b56a8c30d",
+  "translation_date": "2025-10-22T12:22:06+00:00",
   "source_file": "README.md",
   "language_code": "et"
 }
@@ -25,10 +25,10 @@ _Automatiseeri oma haridusliku GitHubi sisu tõlkimine mitmesse keelde, et jõud
 
 ### 🌐 Mitmekeelne tugi
 
-#### Toetab [Co-op Translator](https://github.com/Azure/Co-op-Translator)
+#### Toetatud [Co-op Translatori](https://github.com/Azure/Co-op-Translator) poolt
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
-[Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh/README.md) | [Chinese (Traditional, Hong Kong)](../hk/README.md) | [Chinese (Traditional, Macau)](../mo/README.md) | [Chinese (Traditional, Taiwan)](../tw/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](./README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../br/README.md) | [Portuguese (Portugal)](../pt/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
+[Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh/README.md) | [Chinese (Traditional, Hong Kong)](../hk/README.md) | [Chinese (Traditional, Macau)](../mo/README.md) | [Chinese (Traditional, Taiwan)](../tw/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](./README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../br/README.md) | [Portuguese (Portugal)](../pt/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
 [![GitHub watchers](https://img.shields.io/github/watchers/azure/co-op-translator.svg?style=social&label=Watch)](https://GitHub.com/azure/co-op-translator/watchers/)
@@ -40,7 +40,7 @@ _Automatiseeri oma haridusliku GitHubi sisu tõlkimine mitmesse keelde, et jõud
 
 ## Ülevaade
 
-**Co-op Translator** võimaldab sul kiiresti tõlkida oma haridusliku GitHubi sisu mitmesse keelde, jõudes hõlpsalt rahvusvahelise publikuni. Kui uuendad oma Markdown-faile, pilte või Jupyteri märkmikke, sünkroniseeritakse tõlked automaatselt, et sinu hariduslik GitHubi sisu oleks alati ajakohane ja asjakohane ka rahvusvahelistele kasutajatele.
+**Co-op Translator** võimaldab sul kiiresti tõlkida oma haridusliku GitHubi sisu mitmesse keelde, et jõuda rahvusvahelise publikuni ilma vaevata. Kui uuendad oma Markdown-faile, pilte või Jupyteri märkmikke, sünkroniseeritakse tõlked automaatselt, et sinu hariduslik GitHubi sisu oleks alati ajakohane ja asjakohane ka rahvusvahelistele kasutajatele.
 
 Vaata, kuidas Co-op Translator korraldab tõlgitud haridusliku GitHubi sisu:
 
@@ -74,9 +74,9 @@ docker run --rm -it --env-file .env -v "${PWD}:/work" ghcr.io/azure/co-op-transl
 
 - Loo `.env` kasutades seda malli: [.env.template](../../.env.template)
 - Sea üles üks LLM pakkuja (Azure OpenAI või OpenAI)
-- Kui soovid tõlkida pilte (`-img`), lisa ka Azure AI Vision
+- Piltide tõlkimiseks (`-img`) lisa ka Azure AI Vision
 - Soovituslik: Kui sul on varem teiste tööriistadega loodud tõlkeid, puhasta need enne, et vältida konflikte (näiteks: `translations/`).
-- Soovituslik: Lisa oma README-sse tõlgete sektsioon, kasutades [README keelte malli](./README_languages_template.md)
+- Soovituslik: Lisa oma README-sse tõlgete sektsioon kasutades [README keelte malli](./README_languages_template.md)
 - Vaata: [Azure AI seadistamine](./getting_started/set-up-azure-ai.md)
 
 ## Kasutamine
@@ -123,9 +123,9 @@ Rohkem lippusid: [Käsureferents](./getting_started/command-reference.md)
 - [Toetatud keeled](./getting_started/supported-languages.md)
 - [Veaotsing](./getting_started/troubleshooting.md)
 
-## Toeta meid ja edenda globaalset õppimist
+## Toeta meid ja edenda globaalseid õpivõimalusi
 
-Liitu meiega, et muuta haridusliku sisu jagamine üle maailma! Anna [Co-op Translatorile](https://github.com/azure/co-op-translator) ⭐ GitHubis ja toeta meie missiooni murda keelebarjääre õppimises ja tehnoloogias. Sinu huvi ja panus on väga oluline! Koodipanused ja uute funktsioonide ettepanekud on alati teretulnud.
+Liitu meiega, et muuta haridusliku sisu jagamine üle maailma lihtsamaks! Anna [Co-op Translatorile](https://github.com/azure/co-op-translator) ⭐ GitHubis ja toeta meie missiooni murda keelebarjääre õppimises ja tehnoloogias. Sinu huvi ja panus on väga oluline! Koodipanused ja uute funktsioonide ettepanekud on alati teretulnud.
 
 ### Avasta Microsofti hariduslikku sisu oma keeles
 
@@ -152,9 +152,9 @@ Liitu meiega, et muuta haridusliku sisu jagamine üle maailma! Anna [Co-op Trans
 
   [![Open at Microsoft](../../translated_images/open-ms-thumbnail.946b356b89bc5f0e33dcebb852f7926b98c33f54c1a49ce01c36ae7f35e2443a.et.jpg)](https://www.youtube.com/watch?v=jX_swfH_KNU)
 
-## Kaasaaitamine
+## Kaasalöömine
 
-See projekt ootab panuseid ja ettepanekuid. Kas soovid aidata Azure Co-op Translatori arendamisel? Vaata meie [CONTRIBUTING.md](./CONTRIBUTING.md), et saada juhiseid, kuidas saad Co-op Translatori muuta veelgi kättesaadavamaks.
+See projekt ootab panuseid ja ettepanekuid. Kas soovid aidata Azure Co-op Translatori arendamisel? Vaata meie [CONTRIBUTING.md](./CONTRIBUTING.md) juhendit, et teada saada, kuidas saad Co-op Translatorit veelgi kättesaadavamaks muuta.
 
 ## Kaasautorid
 
@@ -169,34 +169,30 @@ võta ühendust [opencode@microsoft.com](mailto:opencode@microsoft.com), kui sul
 ## Vastutustundlik AI
 
 Microsoft on pühendunud sellele, et aidata klientidel kasutada meie AI-tooteid vastutustundlikult, jagada oma kogemusi ja luua usaldusel põhinevaid partnerlusi tööriistadega nagu Transparency Notes ja Impact Assessments. Paljud neist ressurssidest leiad aadressilt [https://aka.ms/RAI](https://aka.ms/RAI).
-Microsofti lähenemine vastutustundlikule AI-le põhineb meie AI põhimõtetel: õiglus, usaldusväärsus ja turvalisus, privaatsus ja turvalisus, kaasatus, läbipaistvus ja vastutus.
+Microsofti vastutustundliku AI lähenemine põhineb meie AI põhimõtetel: õiglus, usaldusväärsus ja ohutus, privaatsus ja turvalisus, kaasatus, läbipaistvus ja vastutus.
 
-Suurte keelemudelite, pildimudelite ja kõnemudelite - nagu neid kasutatakse selles näites - käitumine võib olla ebaõiglane, ebausaldusväärne või solvav, mis võib põhjustada kahju. Palun tutvu [Azure OpenAI teenuse läbipaistvusmärkusega](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text), et olla teadlik riskidest ja piirangutest.
+Suured keelemudelid, pildimudelid ja kõnemudelid – nagu neid kasutatakse ka selles näites – võivad käituda viisil, mis on ebaõiglane, ebausaldusväärne või solvav, põhjustades kahju. Palun tutvu [Azure OpenAI teenuse läbipaistvusmärkusega](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text), et olla teadlik riskidest ja piirangutest.
 
-Soovitatav viis nende riskide maandamiseks on lisada oma arhitektuuri turvasüsteem, mis suudab tuvastada ja ennetada kahjulikku käitumist. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) pakub sõltumatut kaitsekihti, mis suudab tuvastada kahjulikku kasutaja- ja AI-genereeritud sisu rakendustes ja teenustes. Azure AI Content Safety sisaldab teksti- ja pildiliideseid, mis võimaldavad tuvastada kahjulikku materjali. Samuti on olemas interaktiivne Content Safety Studio, kus saad vaadata, uurida ja proovida näidiskoodi kahjuliku sisu tuvastamiseks erinevates vormides. Järgmine [kiirstardi dokumentatsioon](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) juhendab sind teenusele päringute tegemisel.
+Soovitatav viis nende riskide maandamiseks on lisada oma arhitektuuri turvasüsteem, mis suudab tuvastada ja ennetada kahjulikku käitumist. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) pakub sõltumatut kaitsekihti, mis suudab tuvastada kahjulikku kasutaja- ja AI-l genereeritud sisu rakendustes ja teenustes. Azure AI Content Safety sisaldab teksti- ja pildiliideseid, mis võimaldavad tuvastada kahjulikku materjali. Samuti on olemas interaktiivne Content Safety Studio, kus saad vaadata, uurida ja proovida näidiskoodi kahjuliku sisu tuvastamiseks erinevates vormingutes. Järgmine [kiirstardi dokumentatsioon](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) juhendab sind teenuse päringute tegemisel.
+Teine oluline aspekt, mida arvestada, on rakenduse üldine jõudlus. Mitmeliigiliste ja mitmemudelitega rakenduste puhul tähendab jõudlus seda, et süsteem töötab nii, nagu sina ja sinu kasutajad ootavad, sealhulgas ei tekita kahjulikke väljundeid. Oluline on hinnata oma rakenduse jõudlust, kasutades [generatsiooni kvaliteedi ning riski ja ohutuse mõõdikuid](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
 
-
-Teine oluline aspekt, mida arvestada, on rakenduse üldine jõudlus. Mitmeliigiliste ja mitmemudelitega rakenduste puhul tähendab jõudlus seda, et süsteem töötab nii, nagu sina ja sinu kasutajad ootavad, sealhulgas ei tekita kahjulikke väljundeid. Oluline on hinnata oma rakenduse üldist jõudlust, kasutades [generatsiooni kvaliteedi ning riski ja ohutuse mõõdikuid](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
-
-Saad oma tehisintellekti rakendust arenduskeskkonnas hinnata, kasutades [prompt flow SDK-d](https://microsoft.github.io/promptflow/index.html). Kasutades kas testandmestikku või sihtmärki, mõõdetakse sinu generatiivse AI rakenduse tulemusi kvantitatiivselt sisseehitatud või sinu valitud kohandatud hindajatega. Et alustada prompt flow SDK-ga oma süsteemi hindamist, järgi [kiirstardi juhendit](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). Kui oled hindamise käivitanud, saad [tulemusi visualiseerida Azure AI Studios](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
+Saad oma tehisintellekti rakendust arenduskeskkonnas hinnata, kasutades [prompt flow SDK-d](https://microsoft.github.io/promptflow/index.html). Kasutades kas testandmestikku või sihtmärki, mõõdetakse sinu generatiivse AI rakenduse väljundeid kvantitatiivselt sisseehitatud või sinu valitud kohandatud hindajatega. Et alustada prompt flow SDK-ga oma süsteemi hindamist, järgi [kiirjuhendit](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). Kui oled hindamise käivitanud, saad [tulemusi visualiseerida Azure AI Studios](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
 
 ## Kaubamärgid
 
-See projekt võib sisaldada kaubamärke või logosid, mis kuuluvad erinevatele projektidele, toodetele või teenustele. Microsofti kaubamärkide või logode volitatud kasutamine peab järgima [Microsofti kaubamärgi ja brändi juhiseid](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
-Microsofti kaubamärkide või logode kasutamine muudetud projektiversioonides ei tohi tekitada segadust ega jätta muljet, et Microsoft toetab projekti.
-Kolmandate osapoolte kaubamärkide või logode kasutamine allub nende vastavatele reeglitele.
+See projekt võib sisaldada kaubamärke või logosid, mis kuuluvad projektidele, toodetele või teenustele. Microsofti kaubamärkide või logode lubatud kasutamine peab järgima [Microsofti kaubamärgi ja brändi juhiseid](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general). Microsofti kaubamärkide või logode kasutamine projekti muudetud versioonides ei tohi tekitada segadust ega jätta muljet, et Microsoft toetab projekti. Kolmandate osapoolte kaubamärkide või logode kasutamine allub nende vastavatele reeglitele.
 
 ## Abi saamine
 
 Kui jääd hätta või sul on küsimusi AI rakenduste loomise kohta, liitu:
 
-[![Azure AI Foundry Discord](https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
+<a href="https://aka.ms/foundry/discord"><img src="https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff" alt="Azure AI Foundry Discord"></a>
 
-Kui sul on tootetagasisidet või esineb vigu arendamisel, külasta:
+Kui sul on tootega seotud tagasisidet või esineb vigu arendamisel, külasta:
 
-[![Azure AI Foundry Developer Forum](https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
+<a href="https://aka.ms/foundry/forum"><img src="https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff" alt="Azure AI Foundry Developer Forum"></a>
 
 ---
 
 **Vastutusest loobumine**:  
-See dokument on tõlgitud tehisintellekti tõlketeenuse [Co-op Translator](https://github.com/Azure/co-op-translator) abil. Kuigi püüame tagada täpsust, tuleb arvestada, et automaatsed tõlked võivad sisaldada vigu või ebatäpsusi. Originaaldokument selle algses keeles on autoriteetne allikas. Kriitilise teabe puhul soovitame kasutada professionaalset inimtõlget. Me ei vastuta selle tõlke kasutamisest tulenevate arusaamatuste või valesti tõlgendamise eest.
+See dokument on tõlgitud tehisintellekti tõlketeenuse [Co-op Translator](https://github.com/Azure/co-op-translator) abil. Kuigi püüame tagada täpsust, tuleb arvestada, et automaatsed tõlked võivad sisaldada vigu või ebatäpsusi. Originaaldokumenti selle algses keeles tuleks pidada autoriteetseks allikaks. Kriitilise teabe puhul soovitame kasutada professionaalset inimtõlget. Me ei vastuta selle tõlke kasutamisest tulenevate arusaamatuste või valesti tõlgendamise eest.

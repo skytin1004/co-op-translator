@@ -1,15 +1,15 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "8f776df01855a3a659c8eb6f16a5de74",
-  "translation_date": "2025-10-15T03:23:44+00:00",
+  "original_hash": "f579b7f148746593e3e9023b56a8c30d",
+  "translation_date": "2025-10-22T12:06:55+00:00",
   "source_file": "README.md",
   "language_code": "no"
 }
 -->
 # Co-op Translator
 
-_Automatiser oversettelsen av ditt pedagogiske GitHub-innhold til flere språk for å nå et globalt publikum._
+_Automatiser enkelt oversettelsen av ditt utdanningsinnhold på GitHub til flere språk, og nå ut til et globalt publikum._
 
 [![Python package](https://img.shields.io/pypi/v/co-op-translator?color=4BA3FF)](https://pypi.org/project/co-op-translator/)
 [![License: MIT](https://img.shields.io/github/license/azure/co-op-translator?color=4BA3FF)](https://github.com/azure/co-op-translator/blob/main/LICENSE)
@@ -28,7 +28,7 @@ _Automatiser oversettelsen av ditt pedagogiske GitHub-innhold til flere språk f
 #### Støttet av [Co-op Translator](https://github.com/Azure/Co-op-Translator)
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
-[Arabisk](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarsk](../bg/README.md) | [Burmesisk (Myanmar)](../my/README.md) | [Kinesisk (forenklet)](../zh/README.md) | [Kinesisk (tradisjonell, Hong Kong)](../hk/README.md) | [Kinesisk (tradisjonell, Macau)](../mo/README.md) | [Kinesisk (tradisjonell, Taiwan)](../tw/README.md) | [Kroatisk](../hr/README.md) | [Tsjekkisk](../cs/README.md) | [Dansk](../da/README.md) | [Nederlandsk](../nl/README.md) | [Estisk](../et/README.md) | [Finsk](../fi/README.md) | [Fransk](../fr/README.md) | [Tysk](../de/README.md) | [Gresk](../el/README.md) | [Hebraisk](../he/README.md) | [Hindi](../hi/README.md) | [Ungarsk](../hu/README.md) | [Indonesisk](../id/README.md) | [Italiensk](../it/README.md) | [Japansk](../ja/README.md) | [Koreansk](../ko/README.md) | [Litauisk](../lt/README.md) | [Malayisk](../ms/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Norsk](./README.md) | [Persisk (Farsi)](../fa/README.md) | [Polsk](../pl/README.md) | [Portugisisk (Brasil)](../br/README.md) | [Portugisisk (Portugal)](../pt/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Rumensk](../ro/README.md) | [Russisk](../ru/README.md) | [Serbisk (kyrillisk)](../sr/README.md) | [Slovakisk](../sk/README.md) | [Slovensk](../sl/README.md) | [Spansk](../es/README.md) | [Swahili](../sw/README.md) | [Svensk](../sv/README.md) | [Tagalog (Filippinsk)](../tl/README.md) | [Tamil](../ta/README.md) | [Thai](../th/README.md) | [Tyrkisk](../tr/README.md) | [Ukrainsk](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamesisk](../vi/README.md)
+[Arabisk](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarsk](../bg/README.md) | [Burmesisk (Myanmar)](../my/README.md) | [Kinesisk (forenklet)](../zh/README.md) | [Kinesisk (tradisjonell, Hong Kong)](../hk/README.md) | [Kinesisk (tradisjonell, Macau)](../mo/README.md) | [Kinesisk (tradisjonell, Taiwan)](../tw/README.md) | [Kroatisk](../hr/README.md) | [Tsjekkisk](../cs/README.md) | [Dansk](../da/README.md) | [Nederlandsk](../nl/README.md) | [Estisk](../et/README.md) | [Finsk](../fi/README.md) | [Fransk](../fr/README.md) | [Tysk](../de/README.md) | [Gresk](../el/README.md) | [Hebraisk](../he/README.md) | [Hindi](../hi/README.md) | [Ungarsk](../hu/README.md) | [Indonesisk](../id/README.md) | [Italiensk](../it/README.md) | [Japansk](../ja/README.md) | [Koreansk](../ko/README.md) | [Litauisk](../lt/README.md) | [Malaysisk](../ms/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigeriansk pidgin](../pcm/README.md) | [Norsk](./README.md) | [Persisk (Farsi)](../fa/README.md) | [Polsk](../pl/README.md) | [Portugisisk (Brasil)](../br/README.md) | [Portugisisk (Portugal)](../pt/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Rumensk](../ro/README.md) | [Russisk](../ru/README.md) | [Serbisk (kyrillisk)](../sr/README.md) | [Slovakisk](../sk/README.md) | [Slovensk](../sl/README.md) | [Spansk](../es/README.md) | [Swahili](../sw/README.md) | [Svensk](../sv/README.md) | [Tagalog (Filippinsk)](../tl/README.md) | [Tamil](../ta/README.md) | [Thai](../th/README.md) | [Tyrkisk](../tr/README.md) | [Ukrainsk](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamesisk](../vi/README.md)
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
 [![GitHub watchers](https://img.shields.io/github/watchers/azure/co-op-translator.svg?style=social&label=Watch)](https://GitHub.com/azure/co-op-translator/watchers/)
@@ -40,9 +40,9 @@ _Automatiser oversettelsen av ditt pedagogiske GitHub-innhold til flere språk f
 
 ## Oversikt
 
-**Co-op Translator** lar deg raskt oversette ditt pedagogiske GitHub-innhold til flere språk, slik at du enkelt kan nå et globalt publikum. Når du oppdaterer Markdown-filer, bilder eller Jupyter-notatbøker, blir oversettelsene automatisk synkronisert slik at innholdet ditt alltid er oppdatert og relevant for internasjonale brukere.
+**Co-op Translator** lar deg raskt oversette ditt utdanningsinnhold på GitHub til flere språk, slik at du enkelt når ut til et globalt publikum. Når du oppdaterer Markdown-filer, bilder eller Jupyter-notatbøker, blir oversettelsene automatisk synkronisert, slik at innholdet ditt alltid er oppdatert og relevant for brukere over hele verden.
 
-Slik organiserer Co-op Translator oversatt pedagogisk GitHub-innhold:
+Se hvordan Co-op Translator organiserer oversatt utdanningsinnhold på GitHub:
 
 ![Eksempel](../../translated_images/translation-ex.0c8aa6a7ee0aad2b35cddcc110c719baf0afc640e8c5a45540e6c166b9907d91.no.png)
 
@@ -75,9 +75,9 @@ docker run --rm -it --env-file .env -v "${PWD}:/work" ghcr.io/azure/co-op-transl
 - Lag en `.env` ved å bruke malen: [.env.template](../../.env.template)
 - Konfigurer én LLM-leverandør (Azure OpenAI eller OpenAI)
 - For bildeoversettelse (`-img`), må du også sette opp Azure AI Vision
-- Anbefalt: Hvis du har oversettelser generert av andre verktøy, rydd opp i disse først for å unngå konflikter (for eksempel: `translations/`).
+- Anbefalt: Hvis du har oversettelser fra andre verktøy, rydd opp i dem først for å unngå konflikter (for eksempel: `translations/`).
 - Anbefalt: Legg til en oversettelsesseksjon i README ved å bruke [README languages template](./README_languages_template.md)
-- Se: [Set up Azure AI](./getting_started/set-up-azure-ai.md)
+- Se: [Sette opp Azure AI](./getting_started/set-up-azure-ai.md)
 
 ## Bruk
 
@@ -113,7 +113,7 @@ Flere flagg: [Kommandooversikt](./getting_started/command-reference.md)
 - Holder oversettelser synkronisert med kildeendringer
 - Fungerer lokalt (CLI) eller i CI (GitHub Actions)
 - Bruker Azure OpenAI eller OpenAI; valgfritt Azure AI Vision for bilder
-- Bevarer Markdown-formatering og struktur
+- Bevarer Markdown-format og struktur
 
 ## Dokumentasjon
 
@@ -125,30 +125,30 @@ Flere flagg: [Kommandooversikt](./getting_started/command-reference.md)
 
 ## Støtt oss og frem global læring
 
-Bli med og revolusjoner hvordan pedagogisk innhold deles globalt! Gi [Co-op Translator](https://github.com/azure/co-op-translator) en ⭐ på GitHub og støtt vårt oppdrag om å bryte ned språkbarrierer i læring og teknologi. Din interesse og dine bidrag har stor betydning! Kodebidrag og forslag til nye funksjoner er alltid velkomne.
+Bli med og revolusjoner hvordan utdanningsinnhold deles globalt! Gi [Co-op Translator](https://github.com/azure/co-op-translator) en ⭐ på GitHub og støtt vårt mål om å bryte ned språkbarrierer innen læring og teknologi. Din interesse og dine bidrag har stor betydning! Bidrag til kode og forslag til nye funksjoner er alltid velkomne.
 
-### Utforsk Microsofts pedagogiske innhold på ditt språk
+### Utforsk Microsofts utdanningsinnhold på ditt språk
 
-- [AZD for Beginners](https://github.com/microsoft/AZD-for-beginners)
-- [Edge AI for Beginners](https://github.com/microsoft/edgeai-for-beginners)
-- [Model Context Protocol (MCP) For Beginners](https://github.com/microsoft/mcp-for-beginners)
-- [AI Agents for Beginners](https://github.com/microsoft/ai-agents-for-beginners)
-- [Generative AI for Beginners using .NET](https://github.com/microsoft/Generative-AI-for-beginners-dotnet)
-- [Generative AI for Beginners](https://github.com/microsoft/generative-ai-for-beginners)
-- [Generative AI for Beginners using Java](https://github.com/microsoft/generative-ai-for-beginners-java)
-- [ML for Beginners](https://aka.ms/ml-beginners)
-- [Data Science for Beginners](https://aka.ms/datascience-beginners)
-- [AI for Beginners](https://aka.ms/ai-beginners)
-- [Cybersecurity for Beginners](https://github.com/microsoft/Security-101)
-- [Web Dev for Beginners](https://aka.ms/webdev-beginners)
-- [IoT for Beginners](https://aka.ms/iot-beginners)
+- [AZD for nybegynnere](https://github.com/microsoft/AZD-for-beginners)
+- [Edge AI for nybegynnere](https://github.com/microsoft/edgeai-for-beginners)
+- [Model Context Protocol (MCP) For nybegynnere](https://github.com/microsoft/mcp-for-beginners)
+- [AI-agenter for nybegynnere](https://github.com/microsoft/ai-agents-for-beginners)
+- [Generativ AI for nybegynnere med .NET](https://github.com/microsoft/Generative-AI-for-beginners-dotnet)
+- [Generativ AI for nybegynnere](https://github.com/microsoft/generative-ai-for-beginners)
+- [Generativ AI for nybegynnere med Java](https://github.com/microsoft/generative-ai-for-beginners-java)
+- [ML for nybegynnere](https://aka.ms/ml-beginners)
+- [Data Science for nybegynnere](https://aka.ms/datascience-beginners)
+- [AI for nybegynnere](https://aka.ms/ai-beginners)
+- [Cybersikkerhet for nybegynnere](https://github.com/microsoft/Security-101)
+- [Webutvikling for nybegynnere](https://aka.ms/webdev-beginners)
+- [IoT for nybegynnere](https://aka.ms/iot-beginners)
 - [PhiCookBook](https://github.com/microsoft/PhiCookBook)
 
 ## Videopresentasjoner
 
 Lær mer om Co-op Translator gjennom våre presentasjoner _(Klikk på bildet under for å se på YouTube.)_:
 
-- **Open at Microsoft**: En kort 18-minutters introduksjon og hurtigguide til hvordan du bruker Co-op Translator.
+- **Open at Microsoft**: En kort 18-minutters introduksjon og rask guide til bruk av Co-op Translator.
 
   [![Open at Microsoft](../../translated_images/open-ms-thumbnail.946b356b89bc5f0e33dcebb852f7926b98c33f54c1a49ce01c36ae7f35e2443a.no.jpg)](https://www.youtube.com/watch?v=jX_swfH_KNU)
 
@@ -169,28 +169,34 @@ kontakt [opencode@microsoft.com](mailto:opencode@microsoft.com) hvis du har spø
 ## Ansvarlig AI
 
 Microsoft er opptatt av å hjelpe kundene våre med å bruke våre AI-produkter på en ansvarlig måte, dele våre erfaringer og bygge tillitsbaserte partnerskap gjennom verktøy som Transparency Notes og Impact Assessments. Mange av disse ressursene finner du på [https://aka.ms/RAI](https://aka.ms/RAI).
-Microsofts tilnærming til ansvarlig AI er forankret i våre AI-prinsipper om rettferdighet, pålitelighet og sikkerhet, personvern og sikkerhet, inkludering, åpenhet og ansvarlighet.
+Microsofts tilnærming til ansvarlig AI bygger på våre AI-prinsipper: rettferdighet, pålitelighet og sikkerhet, personvern og sikkerhet, inkludering, åpenhet og ansvarlighet.
 
-Storskala språk-, bilde- og tale-modeller – som de som brukes i dette eksempelet – kan potensielt oppføre seg på måter som er urettferdige, upålitelige eller støtende, og dermed forårsake skade. Les [Azure OpenAI service Transparency note](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) for å bli informert om risikoer og begrensninger.
+Store språk-, bilde- og tale-modeller – som de som brukes i dette eksempelet – kan noen ganger oppføre seg på måter som er urettferdige, upålitelige eller støtende, og dermed forårsake skade. Les [Azure OpenAI service Transparency note](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) for å bli informert om risikoer og begrensninger.
 
-Den anbefalte tilnærmingen for å redusere disse risikoene er å inkludere et sikkerhetssystem i din arkitektur som kan oppdage og forhindre skadelig atferd. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) gir et uavhengig beskyttelseslag, som kan oppdage skadelig bruker- og AI-generert innhold i applikasjoner og tjenester. Azure AI Content Safety inkluderer tekst- og bilde-API-er som lar deg oppdage skadelig materiale. Vi har også et interaktivt Content Safety Studio hvor du kan se, utforske og prøve ut eksempelkode for å oppdage skadelig innhold på tvers av ulike modaliteter. Følgende [hurtigstart-dokumentasjon](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) veileder deg gjennom hvordan du gjør forespørsler til tjenesten.
-En annen faktor å ta hensyn til er den generelle ytelsen til applikasjonen. Med applikasjoner som bruker flere modaliteter og modeller, betyr ytelse at systemet fungerer slik du og brukerne dine forventer, inkludert at det ikke genererer skadelige resultater. Det er viktig å vurdere ytelsen til hele applikasjonen din ved hjelp av [genereringskvalitet og risiko- og sikkerhetsmålinger](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
+Den anbefalte måten å redusere disse risikoene på er å inkludere et sikkerhetssystem i din arkitektur som kan oppdage og forhindre skadelig oppførsel. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) gir et uavhengig beskyttelseslag, som kan oppdage skadelig innhold generert av brukere og AI i applikasjoner og tjenester. Azure AI Content Safety inkluderer tekst- og bilde-APIer som lar deg oppdage skadelig materiale. Vi har også et interaktivt Content Safety Studio hvor du kan se, utforske og teste eksempelkode for å oppdage skadelig innhold på ulike måter. Følgende [hurtigstart-dokumentasjon](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) viser deg hvordan du gjør forespørsler til tjenesten.
 
-Du kan evaluere AI-applikasjonen din i utviklingsmiljøet ved å bruke [prompt flow SDK](https://microsoft.github.io/promptflow/index.html). Med enten et testdatasett eller et mål, blir genereringene fra din generative AI-applikasjon målt kvantitativt med innebygde eller egendefinerte evaluatorer du velger. For å komme i gang med prompt flow sdk for å evaluere systemet ditt, kan du følge [kom-i-gang-guiden](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). Når du har kjørt en evalueringsrunde, kan du [visualisere resultatene i Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
+
+En annen faktor å ta hensyn til er den generelle ytelsen til applikasjonen. Med applikasjoner som bruker flere modaliteter og modeller, handler ytelse om at systemet oppfører seg slik du og brukerne dine forventer, inkludert at det ikke genererer skadelige resultater. Det er viktig å vurdere ytelsen til hele applikasjonen ved hjelp av [genereringskvalitet og risiko- og sikkerhetsmålinger](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
+
+Du kan evaluere AI-applikasjonen din i utviklingsmiljøet ved å bruke [prompt flow SDK](https://microsoft.github.io/promptflow/index.html). Med enten et testdatasett eller et mål, blir genereringene fra din generative AI-applikasjon målt kvantitativt med innebygde eller egendefinerte evaluatorer. For å komme i gang med prompt flow sdk for å evaluere systemet ditt, kan du følge [kom-i-gang-guiden](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). Når du har kjørt en evalueringsrunde, kan du [visualisere resultatene i Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
 
 ## Varemerker
 
-Dette prosjektet kan inneholde varemerker eller logoer for prosjekter, produkter eller tjenester. Autorisert bruk av Microsofts varemerker eller logoer er underlagt og må følge [Microsofts retningslinjer for varemerker og merkevare](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general). Bruk av Microsofts varemerker eller logoer i modifiserte versjoner av dette prosjektet må ikke skape forvirring eller antyde at Microsoft sponser prosjektet. All bruk av tredjeparts varemerker eller logoer er underlagt de respektive tredjeparts retningslinjer.
+Dette prosjektet kan inneholde varemerker eller logoer for prosjekter, produkter eller tjenester. Autorisert bruk av Microsofts
+varemerker eller logoer er underlagt og må følge
+[Microsofts retningslinjer for varemerker og merkevare](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
+Bruk av Microsofts varemerker eller logoer i modifiserte versjoner av dette prosjektet må ikke skape forvirring eller antyde at Microsoft er sponsor.
+All bruk av tredjeparts varemerker eller logoer er underlagt de respektive tredjeparts retningslinjer.
 
 ## Få hjelp
 
 Hvis du står fast eller har spørsmål om å bygge AI-apper, bli med i:
 
-[![Azure AI Foundry Discord](https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
+<a href="https://aka.ms/foundry/discord"><img src="https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff" alt="Azure AI Foundry Discord"></a>
 
 Hvis du har tilbakemeldinger om produktet eller opplever feil under utvikling, besøk:
 
-[![Azure AI Foundry Developer Forum](https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
+<a href="https://aka.ms/foundry/forum"><img src="https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff" alt="Azure AI Foundry Developer Forum"></a>
 
 ---
 

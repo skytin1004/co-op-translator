@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "8f776df01855a3a659c8eb6f16a5de74",
-  "translation_date": "2025-10-15T03:09:55+00:00",
+  "original_hash": "f579b7f148746593e3e9023b56a8c30d",
+  "translation_date": "2025-10-22T12:03:26+00:00",
   "source_file": "README.md",
   "language_code": "tr"
 }
@@ -28,7 +28,7 @@ _Eğitsel GitHub içeriğinizi kolayca birden fazla dile otomatik olarak çeviri
 #### [Co-op Translator](https://github.com/Azure/Co-op-Translator) tarafından desteklenen diller
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
-[Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh/README.md) | [Chinese (Traditional, Hong Kong)](../hk/README.md) | [Chinese (Traditional, Macau)](../mo/README.md) | [Chinese (Traditional, Taiwan)](../tw/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../br/README.md) | [Portuguese (Portugal)](../pt/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Thai](../th/README.md) | [Turkish](./README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
+[Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh/README.md) | [Chinese (Traditional, Hong Kong)](../hk/README.md) | [Chinese (Traditional, Macau)](../mo/README.md) | [Chinese (Traditional, Taiwan)](../tw/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../br/README.md) | [Portuguese (Portugal)](../pt/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Thai](../th/README.md) | [Turkish](./README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
 [![GitHub watchers](https://img.shields.io/github/watchers/azure/co-op-translator.svg?style=social&label=Watch)](https://GitHub.com/azure/co-op-translator/watchers/)
@@ -44,7 +44,7 @@ _Eğitsel GitHub içeriğinizi kolayca birden fazla dile otomatik olarak çeviri
 
 Co-op Translator'ın çevrilmiş eğitsel GitHub içeriğini nasıl organize ettiğini inceleyin:
 
-![Example](../../translated_images/translation-ex.0c8aa6a7ee0aad2b35cddcc110c719baf0afc640e8c5a45540e6c166b9907d91.tr.png)
+![Örnek](../../translated_images/translation-ex.0c8aa6a7ee0aad2b35cddcc110c719baf0afc640e8c5a45540e6c166b9907d91.tr.png)
 
 ## Hızlı Başlangıç
 
@@ -72,7 +72,7 @@ docker run --rm -it --env-file .env -v "${PWD}:/work" ghcr.io/azure/co-op-transl
 
 ## Minimum Kurulum
 
-- [.env.template](../../.env.template) şablonunu kullanarak bir `.env` dosyası oluşturun
+- `.env` dosyasını şablondan oluşturun: [.env.template](../../.env.template)
 - Bir LLM sağlayıcısı yapılandırın (Azure OpenAI veya OpenAI)
 - Görsel çevirisi için (`-img`), ayrıca Azure AI Vision ayarlayın
 - Tavsiye: Başka araçlarla oluşturulmuş çevirileriniz varsa, çakışmaları önlemek için önce bunları temizleyin (örneğin: `translations/`).
@@ -111,23 +111,23 @@ Daha fazla bayrak: [Komut referansı](./getting_started/command-reference.md)
 
 - Markdown, defterler ve görseller için otomatik çeviri
 - Çevirileri kaynak değişiklikleriyle senkronize tutar
-- Yerel olarak (CLI) veya CI'da (GitHub Actions) çalışır
+- Yerel (CLI) veya CI (GitHub Actions) ile çalışır
 - Azure OpenAI veya OpenAI kullanır; görseller için isteğe bağlı Azure AI Vision
 - Markdown biçimlendirmesini ve yapısını korur
 
 ## Belgeler
 
 - [Komut satırı rehberi](./getting_started/command-line-guide/command-line-guide.md)
-- [GitHub Actions rehberi (Genel depolar & standart gizli anahtarlar)](./getting_started/github-actions-guide/github-actions-guide-public.md)
+- [GitHub Actions rehberi (Herkese açık depolar & standart gizli anahtarlar)](./getting_started/github-actions-guide/github-actions-guide-public.md)
 - [GitHub Actions rehberi (Microsoft organizasyon depoları & organizasyon düzeyi kurulumlar)](./getting_started/github-actions-guide/github-actions-guide-org.md)
 - [Desteklenen diller](./getting_started/supported-languages.md)
 - [Sorun giderme](./getting_started/troubleshooting.md)
 
 ## Bizi Destekleyin ve Küresel Öğrenimi Teşvik Edin
 
-Eğitsel içeriğin küresel olarak paylaşılma şeklini birlikte değiştirelim! [Co-op Translator](https://github.com/azure/co-op-translator) projesine GitHub'da ⭐ vererek öğrenme ve teknolojideki dil engellerini kaldırma misyonumuzu destekleyin. İlginiz ve katkılarınız büyük fark yaratıyor! Kod katkıları ve özellik önerileri her zaman memnuniyetle karşılanır.
+Eğitsel içeriğin küresel olarak paylaşılma şeklini birlikte değiştirelim! [Co-op Translator](https://github.com/azure/co-op-translator) projesine GitHub'da ⭐ verin ve öğrenme ile teknolojideki dil engellerini kaldırma misyonumuzu destekleyin. İlginiz ve katkılarınız büyük fark yaratıyor! Kod katkıları ve özellik önerileri her zaman memnuniyetle karşılanır.
 
-### Microsoft'un eğitsel içeriklerini kendi dilinizde keşfedin
+### Microsoft eğitsel içeriklerini kendi dilinizde keşfedin
 
 - [AZD for Beginners](https://github.com/microsoft/AZD-for-beginners)
 - [Edge AI for Beginners](https://github.com/microsoft/edgeai-for-beginners)
@@ -154,7 +154,7 @@ Co-op Translator hakkında daha fazla bilgi edinin _(Aşağıdaki görsele tıkl
 
 ## Katkıda Bulunma
 
-Bu proje katkı ve önerilere açıktır. Azure Co-op Translator'a katkıda bulunmak ister misiniz? [CONTRIBUTING.md](./CONTRIBUTING.md) dosyamıza göz atarak Co-op Translator'ı daha erişilebilir hale getirmek için nasıl yardımcı olabileceğinizi öğrenebilirsiniz.
+Bu proje katkı ve önerilere açıktır. Azure Co-op Translator'a katkıda bulunmak ister misiniz? Lütfen [CONTRIBUTING.md](./CONTRIBUTING.md) dosyamıza göz atarak Co-op Translator'ı daha erişilebilir hale getirmek için nasıl yardımcı olabileceğinizi öğrenin.
 
 ## Katkıda Bulunanlar
 
@@ -162,7 +162,7 @@ Bu proje katkı ve önerilere açıktır. Azure Co-op Translator'a katkıda bulu
 
 ## Davranış Kuralları
 
-Bu proje [Microsoft Açık Kaynak Davranış Kuralları'nı](https://opensource.microsoft.com/codeofconduct/) benimsemiştir.
+Bu proje [Microsoft Açık Kaynak Davranış Kuralları](https://opensource.microsoft.com/codeofconduct/) benimsemiştir.
 Daha fazla bilgi için [Davranış Kuralları SSS](https://opensource.microsoft.com/codeofconduct/faq/) sayfasına bakabilir veya
 ek sorularınız ve yorumlarınız için [opencode@microsoft.com](mailto:opencode@microsoft.com) adresine ulaşabilirsiniz.
 
@@ -171,26 +171,26 @@ ek sorularınız ve yorumlarınız için [opencode@microsoft.com](mailto:opencod
 Microsoft, müşterilerimizin yapay zeka ürünlerimizi sorumlu bir şekilde kullanmalarına yardımcı olmaya, öğrendiklerimizi paylaşmaya ve Şeffaflık Notları ve Etki Değerlendirmeleri gibi araçlarla güvene dayalı ortaklıklar kurmaya kararlıdır. Bu kaynakların birçoğuna [https://aka.ms/RAI](https://aka.ms/RAI) adresinden ulaşabilirsiniz.
 Microsoft'un sorumlu yapay zeka yaklaşımı; adalet, güvenilirlik ve güvenlik, gizlilik ve güvenlik, kapsayıcılık, şeffaflık ve hesap verebilirlik ilkelerine dayanmaktadır.
 
-Bu örnekte kullanılanlar gibi büyük ölçekli doğal dil, görsel ve konuşma modelleri; adil olmayan, güvenilmez veya saldırgan davranışlar sergileyebilir ve bu da zararlara yol açabilir. Riskler ve sınırlamalar hakkında bilgi sahibi olmak için lütfen [Azure OpenAI hizmeti Şeffaflık Notu'na](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) başvurun.
+Bu örnekte kullanılanlar gibi büyük ölçekli doğal dil, görsel ve konuşma modelleri; adil olmayan, güvenilmez veya saldırgan davranışlar sergileyebilir ve bu da zararlara yol açabilir. Riskler ve sınırlamalar hakkında bilgi sahibi olmak için lütfen [Azure OpenAI hizmeti Şeffaflık Notu](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) sayfasını inceleyin.
 
-Bu riskleri azaltmak için önerilen yaklaşım, mimarinizde zararlı davranışları tespit edip önleyebilecek bir güvenlik sistemi bulundurmaktır. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview), uygulama ve hizmetlerde kullanıcı veya yapay zeka tarafından üretilen zararlı içerikleri tespit edebilen bağımsız bir koruma katmanı sunar. Azure AI Content Safety, zararlı materyalleri tespit etmenizi sağlayan metin ve görsel API'leri içerir. Ayrıca, farklı modlarda zararlı içerik tespiti için örnek kodları görebileceğiniz, keşfedebileceğiniz ve deneyebileceğiniz etkileşimli bir Content Safety Studio'ya da sahibiz. Aşağıdaki [hızlı başlangıç dokümantasyonu](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) hizmete istek göndermeyi adım adım anlatır.
-Dikkate alınması gereken bir diğer konu ise genel uygulama performansıdır. Çok modlu ve çok modellerli uygulamalarda, performanstan kastımız sistemin sizin ve kullanıcılarınızın beklentilerini karşılaması, zararlı çıktılar üretmemesi de dahil olmak üzere, beklenen şekilde çalışmasıdır. Uygulamanızın genel performansını [üretim kalitesi ile risk ve güvenlik metrikleri](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in) kullanarak değerlendirmeniz önemlidir.
+Bu riskleri azaltmak için önerilen yaklaşım, zararlı davranışları tespit edip önleyebilecek bir güvenlik sistemi mimarinize dahil etmektir. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview), uygulama ve hizmetlerde kullanıcı veya yapay zeka tarafından üretilen zararlı içerikleri tespit edebilen bağımsız bir koruma katmanı sunar. Azure AI Content Safety, zararlı materyalleri tespit etmenizi sağlayan metin ve görsel API'leri içerir. Ayrıca, farklı modlarda zararlı içerik tespiti için örnek kodları görebileceğiniz, keşfedebileceğiniz ve deneyebileceğiniz etkileşimli bir Content Safety Studio'ya da sahibiz. Aşağıdaki [hızlı başlangıç dokümantasyonu](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) hizmete istek göndermeyi adım adım anlatır.
+Dikkate alınması gereken bir diğer konu ise uygulamanın genel performansıdır. Çok modlu ve çok modelli uygulamalarda, performanstan kastımız sistemin sizin ve kullanıcılarınızın beklentilerini karşılaması, zararlı çıktılar üretmemesidir. Uygulamanızın genel performansını [üretim kalitesi ile risk ve güvenlik metrikleri](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in) kullanarak değerlendirmek önemlidir.
 
-Yapay zeka uygulamanızı geliştirme ortamınızda [prompt flow SDK](https://microsoft.github.io/promptflow/index.html) ile değerlendirebilirsiniz. Bir test veri seti veya hedef verildiğinde, üretici yapay zeka uygulamanızın çıktıları, yerleşik değerlendiriciler veya sizin seçeceğiniz özel değerlendiriciler ile nicel olarak ölçülür. Sisteminizi değerlendirmek için prompt flow sdk ile başlamak isterseniz, [hızlı başlangıç rehberini](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk) takip edebilirsiniz. Bir değerlendirme çalıştırması yaptıktan sonra, [sonuçları Azure AI Studio'da görselleştirebilirsiniz](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
+Yapay zeka uygulamanızı geliştirme ortamınızda [prompt flow SDK](https://microsoft.github.io/promptflow/index.html) ile değerlendirebilirsiniz. Test veri seti veya bir hedef verildiğinde, üretici yapay zeka uygulamanızın çıktıları, yerleşik değerlendiriciler veya sizin seçtiğiniz özel değerlendiricilerle nicel olarak ölçülür. Sisteminizi değerlendirmek için prompt flow sdk ile başlamak isterseniz [hızlı başlangıç rehberini](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk) takip edebilirsiniz. Bir değerlendirme çalıştırması yaptıktan sonra, [sonuçları Azure AI Studio'da görselleştirebilirsiniz](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
 
 ## Ticari Markalar
 
-Bu projede projelere, ürünlere veya hizmetlere ait ticari markalar veya logolar bulunabilir. Microsoft ticari markalarının veya logolarının yetkili kullanımı, [Microsoft'un Ticari Marka ve Marka Yönergeleri](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general) ile uyumlu olmalı ve bu yönergeleri takip etmelidir. Bu projenin değiştirilmiş sürümlerinde Microsoft ticari markalarının veya logolarının kullanımı, karışıklığa yol açmamalı veya Microsoft'un sponsorluğunu ima etmemelidir. Üçüncü taraf ticari markalarının veya logolarının kullanımı ise ilgili üçüncü tarafın politikalarına tabidir.
+Bu projede projelere, ürünlere veya hizmetlere ait ticari markalar veya logolar bulunabilir. Microsoft ticari markalarının veya logolarının yetkili kullanımı, [Microsoft Ticari Marka ve Marka Yönergeleri](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general) ile uyumlu olmalıdır. Bu projenin değiştirilmiş sürümlerinde Microsoft ticari markalarının veya logolarının kullanımı, kafa karışıklığına yol açmamalı veya Microsoft'un sponsorluğunu ima etmemelidir. Üçüncü taraf ticari markalarının veya logolarının kullanımı ise ilgili üçüncü tarafın politikalarına tabidir.
 
 ## Yardım Alma
 
-Takılırsanız veya yapay zeka uygulamaları geliştirme hakkında sorularınız olursa, katılın:
+Yapay zeka uygulamaları geliştirirken takılırsanız veya sorularınız olursa, katılın:
 
-< a href="https://aka.ms/foundry/discord" title="Azure AI Foundry Discord"><img src="https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff" alt="Azure AI Foundry Discord"></a>
+[![Azure AI Foundry Discord](https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
 
-Ürünle ilgili geri bildiriminiz veya geliştirme sırasında hatalarınız varsa, ziyaret edin:
+Ürünle ilgili geri bildirimde bulunmak veya hata ile karşılaşırsanız ziyaret edin:
 
-< a href="https://aka.ms/foundry/forum" title="Azure AI Foundry Developer Forum"><img src="https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff" alt="Azure AI Foundry Developer Forum"></a>
+[![Azure AI Foundry Developer Forum](https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 
 ---
 

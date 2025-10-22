@@ -1,0 +1,34 @@
+<!--
+CO_OP_TRANSLATOR_METADATA:
+{
+  "original_hash": "1ca17f25db3762aab74c3543070fcfc0",
+  "translation_date": "2025-10-22T12:34:47+00:00",
+  "source_file": "src/co_op_translator/templates/other_courses.md",
+  "language_code": "ru"
+}
+-->
+<!-- CO-OP TRANSLATOR OTHER COURSES START -->
+- [**НОВОЕ** AZD для начинающих](https://github.com/microsoft/AZD-for-beginners?WT.mc_id=academic-105485-koreyst)
+- [**НОВОЕ** Edge AI для начинающих](https://github.com/microsoft/edgeai-for-beginners?WT.mc_id=academic-105485-koreyst)
+- [Протокол Model Context (MCP) для начинающих](https://github.com/microsoft/mcp-for-beginners?WT.mc_id=academic-105485-koreyst)
+- [AI-агенты для начинающих](https://github.com/microsoft/ai-agents-for-beginners?WT.mc_id=academic-105485-koreyst)
+- [Генеративный ИИ для начинающих](https://github.com/microsoft/generative-ai-for-beginners?WT.mc_id=academic-105485-koreyst)
+- [Генеративный ИИ для начинающих с .NET](https://github.com/microsoft/Generative-AI-for-beginners-dotnet?WT.mc_id=academic-105485-koreyst)
+- [Генеративный ИИ для начинающих с Java](https://github.com/microsoft/generative-ai-for-beginners-java?WT.mc_id=academic-105485-koreyst)
+- [Генеративный ИИ для начинающих с JavaScript](https://github.com/microsoft/generative-ai-with-javascript?WT.mc_id=academic-105485-koreyst)
+- [Машинное обучение для начинающих](https://akams/ml-beginners?WT.mc_id=academic-105485-koreyst)
+- [Data Science для начинающих](https://aka.ms/datascience-beginners?WT.mc_id=academic-105485-koreyst)
+- [ИИ для начинающих](https://aka.ms/ai-beginners?WT.mc_id=academic-105485-koreyst)
+- [Кибербезопасность для начинающих](https://github.com/microsoft/Security-101?WT.mc_id=academic-96948-sayoung)
+- [Веб-разработка для начинающих](https://aka.ms/webdev-beginners?WT.mc_id=academic-105485-koreyst)
+- [IoT для начинающих](https://aka.ms/iot-beginners?WT.mc_id=academic-105485-koreyst)
+- [XR-разработка для начинающих](https://github.com/microsoft/xr-development-for-beginners?WT.mc_id=academic-105485-koreyst)
+- [Осваиваем GitHub Copilot для парного программирования с ИИ](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)
+- [Осваиваем GitHub Copilot для разработчиков C#/.NET](https://github.com/microsoft/mastering-github-copilot-for-dotnet-csharp-developers?WT.mc_id=academic-105485-koreyst)
+- [Выбери своё приключение с Copilot](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)
+<!-- CO-OP TRANSLATOR OTHER COURSES END -->
+
+---
+
+**Отказ от ответственности**:
+Этот документ был переведен с помощью сервиса автоматического перевода [Co-op Translator](https://github.com/Azure/co-op-translator). Несмотря на стремление к точности, автоматические переводы могут содержать ошибки или неточности. Оригинальный документ на исходном языке следует считать авторитетным источником. Для получения критически важной информации рекомендуется использовать профессиональный человеческий перевод. Мы не несём ответственности за любые недоразумения или неправильные толкования, возникшие в результате использования данного перевода.

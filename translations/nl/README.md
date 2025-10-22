@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "8f776df01855a3a659c8eb6f16a5de74",
-  "translation_date": "2025-10-15T03:29:17+00:00",
+  "original_hash": "f579b7f148746593e3e9023b56a8c30d",
+  "translation_date": "2025-10-22T12:08:25+00:00",
   "source_file": "README.md",
   "language_code": "nl"
 }
@@ -28,7 +28,7 @@ _Automatiseer eenvoudig de vertaling van je educatieve GitHub-content naar meerd
 #### Ondersteund door [Co-op Translator](https://github.com/Azure/Co-op-Translator)
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
-[Arabisch](../ar/README.md) | [Bengaals](../bn/README.md) | [Bulgaars](../bg/README.md) | [Birmaans (Myanmar)](../my/README.md) | [Chinees (Vereenvoudigd)](../zh/README.md) | [Chinees (Traditioneel, Hong Kong)](../hk/README.md) | [Chinees (Traditioneel, Macau)](../mo/README.md) | [Chinees (Traditioneel, Taiwan)](../tw/README.md) | [Kroatisch](../hr/README.md) | [Tsjechisch](../cs/README.md) | [Deens](../da/README.md) | [Nederlands](./README.md) | [Ests](../et/README.md) | [Fins](../fi/README.md) | [Frans](../fr/README.md) | [Duits](../de/README.md) | [Grieks](../el/README.md) | [Hebreeuws](../he/README.md) | [Hindi](../hi/README.md) | [Hongaars](../hu/README.md) | [Indonesisch](../id/README.md) | [Italiaans](../it/README.md) | [Japans](../ja/README.md) | [Koreaans](../ko/README.md) | [Litouws](../lt/README.md) | [Maleis](../ms/README.md) | [Marathi](../mr/README.md) | [Nepalees](../ne/README.md) | [Noors](../no/README.md) | [Perzisch (Farsi)](../fa/README.md) | [Pools](../pl/README.md) | [Portugees (Brazilië)](../br/README.md) | [Portugees (Portugal)](../pt/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Roemeens](../ro/README.md) | [Russisch](../ru/README.md) | [Servisch (Cyrillisch)](../sr/README.md) | [Slowaaks](../sk/README.md) | [Sloveens](../sl/README.md) | [Spaans](../es/README.md) | [Swahili](../sw/README.md) | [Zweeds](../sv/README.md) | [Tagalog (Filipijns)](../tl/README.md) | [Tamil](../ta/README.md) | [Thais](../th/README.md) | [Turks](../tr/README.md) | [Oekraïens](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamees](../vi/README.md)
+[Arabisch](../ar/README.md) | [Bengaals](../bn/README.md) | [Bulgaars](../bg/README.md) | [Birmaans (Myanmar)](../my/README.md) | [Chinees (Vereenvoudigd)](../zh/README.md) | [Chinees (Traditioneel, Hong Kong)](../hk/README.md) | [Chinees (Traditioneel, Macau)](../mo/README.md) | [Chinees (Traditioneel, Taiwan)](../tw/README.md) | [Kroatisch](../hr/README.md) | [Tsjechisch](../cs/README.md) | [Deens](../da/README.md) | [Nederlands](./README.md) | [Ests](../et/README.md) | [Fins](../fi/README.md) | [Frans](../fr/README.md) | [Duits](../de/README.md) | [Grieks](../el/README.md) | [Hebreeuws](../he/README.md) | [Hindi](../hi/README.md) | [Hongaars](../hu/README.md) | [Indonesisch](../id/README.md) | [Italiaans](../it/README.md) | [Japans](../ja/README.md) | [Koreaans](../ko/README.md) | [Litouws](../lt/README.md) | [Maleis](../ms/README.md) | [Marathi](../mr/README.md) | [Nepalees](../ne/README.md) | [Nigeriaanse Pidgin](../pcm/README.md) | [Noors](../no/README.md) | [Perzisch (Farsi)](../fa/README.md) | [Pools](../pl/README.md) | [Portugees (Brazilië)](../br/README.md) | [Portugees (Portugal)](../pt/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Roemeens](../ro/README.md) | [Russisch](../ru/README.md) | [Servisch (Cyrillisch)](../sr/README.md) | [Slowaaks](../sk/README.md) | [Sloveens](../sl/README.md) | [Spaans](../es/README.md) | [Swahili](../sw/README.md) | [Zweeds](../sv/README.md) | [Tagalog (Filipijns)](../tl/README.md) | [Tamil](../ta/README.md) | [Thais](../th/README.md) | [Turks](../tr/README.md) | [Oekraïens](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamees](../vi/README.md)
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
 [![GitHub watchers](https://img.shields.io/github/watchers/azure/co-op-translator.svg?style=social&label=Watch)](https://GitHub.com/azure/co-op-translator/watchers/)
@@ -40,7 +40,7 @@ _Automatiseer eenvoudig de vertaling van je educatieve GitHub-content naar meerd
 
 ## Overzicht
 
-**Co-op Translator** maakt het mogelijk om je educatieve GitHub-content snel te vertalen naar meerdere talen, zodat je moeiteloos een wereldwijd publiek bereikt. Wanneer je je Markdown-bestanden, afbeeldingen of Jupyter-notebooks bijwerkt, worden de vertalingen automatisch gesynchroniseerd zodat je educatieve GitHub-content actueel en relevant blijft voor internationale gebruikers.
+**Co-op Translator** maakt het mogelijk om je educatieve GitHub-content snel te vertalen naar meerdere talen, zodat je moeiteloos een wereldwijd publiek bereikt. Wanneer je je Markdown-bestanden, afbeeldingen of Jupyter-notebooks bijwerkt, worden vertalingen automatisch gesynchroniseerd zodat je educatieve GitHub-content actueel en relevant blijft voor internationale gebruikers.
 
 Bekijk hoe Co-op Translator vertaalde educatieve GitHub-content organiseert:
 
@@ -74,7 +74,7 @@ docker run --rm -it --env-file .env -v "${PWD}:/work" ghcr.io/azure/co-op-transl
 
 - Maak een `.env` aan met behulp van de template: [.env.template](../../.env.template)
 - Configureer één LLM-provider (Azure OpenAI of OpenAI)
-- Voor het vertalen van afbeeldingen (`-img`), stel ook Azure AI Vision in
+- Voor vertaling van afbeeldingen (`-img`), stel ook Azure AI Vision in
 - Aanbevolen: Als je vertalingen hebt die door andere tools zijn gegenereerd, ruim deze eerst op om conflicten te voorkomen (bijvoorbeeld: `translations/`).
 - Aanbevolen: Voeg een vertalingen-sectie toe aan je README met behulp van de [README talen-template](./README_languages_template.md)
 - Zie: [Azure AI instellen](./getting_started/set-up-azure-ai.md)
@@ -133,9 +133,9 @@ Help mee om de manier waarop educatieve content wereldwijd wordt gedeeld te vern
 - [Edge AI voor Beginners](https://github.com/microsoft/edgeai-for-beginners)
 - [Model Context Protocol (MCP) Voor Beginners](https://github.com/microsoft/mcp-for-beginners)
 - [AI Agents voor Beginners](https://github.com/microsoft/ai-agents-for-beginners)
-- [Generative AI voor Beginners met .NET](https://github.com/microsoft/Generative-AI-for-beginners-dotnet)
-- [Generative AI voor Beginners](https://github.com/microsoft/generative-ai-for-beginners)
-- [Generative AI voor Beginners met Java](https://github.com/microsoft/generative-ai-for-beginners-java)
+- [Generatieve AI voor Beginners met .NET](https://github.com/microsoft/Generative-AI-for-beginners-dotnet)
+- [Generatieve AI voor Beginners](https://github.com/microsoft/generative-ai-for-beginners)
+- [Generatieve AI voor Beginners met Java](https://github.com/microsoft/generative-ai-for-beginners-java)
 - [ML voor Beginners](https://aka.ms/ml-beginners)
 - [Data Science voor Beginners](https://aka.ms/datascience-beginners)
 - [AI voor Beginners](https://aka.ms/ai-beginners)
@@ -148,13 +148,13 @@ Help mee om de manier waarop educatieve content wereldwijd wordt gedeeld te vern
 
 Leer meer over Co-op Translator via onze presentaties _(Klik op de afbeelding hieronder om te bekijken op YouTube.)_:
 
-- **Open bij Microsoft**: Een korte introductie van 18 minuten en snelle gids over het gebruik van Co-op Translator.
+- **Open bij Microsoft**: Een korte introductie van 18 minuten en een snelle gids over het gebruik van Co-op Translator.
 
   [![Open bij Microsoft](../../translated_images/open-ms-thumbnail.946b356b89bc5f0e33dcebb852f7926b98c33f54c1a49ce01c36ae7f35e2443a.nl.jpg)](https://www.youtube.com/watch?v=jX_swfH_KNU)
 
 ## Bijdragen
 
-Dit project verwelkomt bijdragen en suggesties. Wil je bijdragen aan Azure Co-op Translator? Bekijk dan onze [CONTRIBUTING.md](./CONTRIBUTING.md) voor richtlijnen over hoe je kunt helpen om Co-op Translator toegankelijker te maken.
+Dit project verwelkomt bijdragen en suggesties. Wil je bijdragen aan Azure Co-op Translator? Bekijk dan onze [CONTRIBUTING.md](./CONTRIBUTING.md) voor richtlijnen over hoe je kunt helpen Co-op Translator toegankelijker te maken.
 
 ## Bijdragers
 
@@ -184,13 +184,13 @@ Je kunt je AI-applicatie evalueren in je ontwikkelomgeving met de [prompt flow S
 
 Dit project kan handelsmerken of logo’s bevatten van projecten, producten of diensten. Geautoriseerd gebruik van Microsoft
 handelsmerken of logo’s is onderhevig aan en moet voldoen aan de
-[Richtlijnen voor het gebruik van Microsoft handelsmerken en merk](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
+[Richtlijnen voor het gebruik van Microsoft handelsmerken en merken](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
 Gebruik van Microsoft handelsmerken of logo’s in aangepaste versies van dit project mag geen verwarring veroorzaken of suggereren dat Microsoft het sponsort.
-Elk gebruik van handelsmerken of logo’s van derden valt onder het beleid van die derde partij.
+Elk gebruik van handelsmerken of logo’s van derden valt onder het beleid van die derden.
 
 ## Hulp nodig
 
-Loop je vast of heb je vragen over het bouwen van AI-apps? Word lid van:
+Kom je er niet uit of heb je vragen over het bouwen van AI-apps? Word lid van:
 
 [![Azure AI Foundry Discord](https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
 
@@ -201,4 +201,4 @@ Heb je feedback over het product of kom je fouten tegen tijdens het bouwen? Bezo
 ---
 
 **Disclaimer**:
-Dit document is vertaald met behulp van de AI-vertalingsdienst [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel we streven naar nauwkeurigheid, dient u er rekening mee te houden dat geautomatiseerde vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het originele document in de oorspronkelijke taal moet als de gezaghebbende bron worden beschouwd. Voor kritische informatie wordt professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.
+Dit document is vertaald met behulp van de AI-vertalingsdienst [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel we streven naar nauwkeurigheid, dient u er rekening mee te houden dat geautomatiseerde vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het originele document in de oorspronkelijke taal moet worden beschouwd als de gezaghebbende bron. Voor kritische informatie wordt professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.
