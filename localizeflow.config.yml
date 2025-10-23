@@ -1,0 +1,13 @@
+framework: generic
+target_languages:
+  - ko
+glossaries: []
+translation_options:
+  include_images: false
+file_patterns:
+  - '**/*.md'
+exclude_patterns:
+  - '**/node_modules/**'
+  - '**/build/**'
+translation_folder: translations
+images_folder: translated images
