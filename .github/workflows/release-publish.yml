@@ -1,0 +1,46 @@
+name: Build & Publish to GitHub Packages on Release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Poetry
+        run: pip install poetry
+
+      - name: Configure GitHub Packages registry
+        run: |
+          poetry config repositories.localizeflow "https://pypi.pkg.github.com/localizeflow"
+          poetry config http-basic.localizeflow "${GITHUB_ACTOR}" "${{ secrets.GITHUB_TOKEN }}"
+
+      - name: Extract version from release tag
+        id: tag
+        shell: bash
+        run: |
+          VERSION=${GITHUB_REF_NAME#v}
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Update version in pyproject.toml
+        run: poetry version ${{ steps.tag.outputs.version }}
+
+      - name: Build package
+        run: poetry build
+
+      - name: Publish to GitHub Packages
+        run: poetry publish -r localizeflow --no-interaction
