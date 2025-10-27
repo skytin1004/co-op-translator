@@ -26,8 +26,8 @@ jobs:
 
       - name: Configure GitHub Packages registry
         run: |
-          poetry config repositories.localizeflow "https://pypi.pkg.github.com/localizeflow"
-          poetry config http-basic.localizeflow "${GITHUB_ACTOR}" "${{ secrets.GITHUB_TOKEN }}"
+          poetry config repositories.localizeflow "https://pypi.pkg.github.com/localizeflow/localizeflow-co-op-translator"
+          poetry config http-basic.localizeflow "${{ github.actor }}" "${{ secrets.GITHUB_TOKEN }}"
 
       - name: Extract version from release tag
         id: tag
