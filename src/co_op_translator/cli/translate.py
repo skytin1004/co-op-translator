@@ -261,6 +261,27 @@ def translate_command(
             language_codes, root_dir, translation_types=translation_types
         )
 
+        # Estimate tokens before running translation and print a concise summary
+        try:
+            est = translator.translation_manager.estimate_tokens(update=update)
+            # Build breakdown for enabled categories with non-zero values
+            parts = []
+            if "markdown" in translation_types and est.get("markdown", 0):
+                parts.append(f"markdown: {est['markdown']:,}")
+            if "notebook" in translation_types and est.get("notebook", 0):
+                parts.append(f"notebook: {est['notebook']:,}")
+            # Outdated is only applicable when md/nb are enabled
+            if (
+                "markdown" in translation_types or "notebook" in translation_types
+            ) and est.get("outdated", 0):
+                parts.append(f"retranslation: {est['outdated']:,}")
+            breakdown = ", ".join(parts) if parts else "none"
+            click.echo(
+                f"📊 Estimated tokens before translation: {est.get('total', 0):,} (breakdown: {breakdown})"
+            )
+        except Exception as e:
+            logger.debug(f"Failed to compute estimated tokens: {e}")
+
         # Update README shared sections BEFORE translation
         readme_path = root_path / "README.md"
         try:

@@ -22,6 +22,7 @@ from co_op_translator.core.project.directory_manager import DirectoryManager
 from co_op_translator.utils.common.task_utils import worker
 from co_op_translator.utils.llm.markdown_utils import compare_line_breaks
 from co_op_translator.utils.common.metadata_utils import is_notebook_up_to_date
+from co_op_translator.utils.llm.token_utils import count_tokens
 
 logger = logging.getLogger(__name__)
 
@@ -616,10 +617,27 @@ class TranslationManager:
                     check_progress.update(1)
 
                 if outdated_files:
+                    try:
+                        est_tokens = self._estimate_tokens_for_outdated(outdated_files)
+                        logger.info(
+                            f"Estimated tokens for selected retranslation targets: {est_tokens:,}"
+                        )
+                    except Exception as e:
+                        logger.debug(
+                            f"Failed to estimate tokens for outdated files: {e}"
+                        )
                     await self.retranslate_outdated_files(outdated_files)
 
             # Execute translation for markdown, notebook and image files
             if "markdown" in self.translation_types:
+                try:
+                    md_pending = self._gather_pending_markdown(update=update)
+                    md_tokens = self._estimate_tokens_for_sources(md_pending)
+                    logger.info(
+                        f"Estimated tokens for markdown translations: {md_tokens:,} (files: {len(md_pending)})"
+                    )
+                except Exception as e:
+                    logger.debug(f"Failed to estimate markdown tokens: {e}")
                 md_modified, md_errors = await self.translate_all_markdown_files(
                     update=update
                 )
@@ -627,6 +645,14 @@ class TranslationManager:
                 all_errors.extend(md_errors)
 
             if "notebook" in self.translation_types:
+                try:
+                    nb_pending = self._gather_pending_notebooks(update=update)
+                    nb_tokens = self._estimate_tokens_for_sources(nb_pending)
+                    logger.info(
+                        f"Estimated tokens for notebook translations: {nb_tokens:,} (files: {len(nb_pending)})"
+                    )
+                except Exception as e:
+                    logger.debug(f"Failed to estimate notebook tokens: {e}")
                 nb_modified, nb_errors = await self.translate_all_notebook_files(
                     update=update
                 )
@@ -649,6 +675,89 @@ class TranslationManager:
             logger.warning(f"Encountered {len(all_errors)} errors during translation")
 
         return total_modified, all_errors
+
+    def estimate_tokens(self, update: bool = False) -> dict:
+        """Estimate tokens for the upcoming translation run.
+
+        Returns a dict: { 'outdated': int, 'markdown': int, 'notebook': int, 'total': int }
+        Only includes categories enabled by `translation_types`.
+        """
+        breakdown = {"outdated": 0, "markdown": 0, "notebook": 0}
+
+        # Outdated retranslation set (when md/nb enabled)
+        if ("markdown" in self.translation_types) or (
+            "notebook" in self.translation_types
+        ):
+            outdated = self.get_outdated_translations()
+            if outdated:
+                breakdown["outdated"] = self._estimate_tokens_for_outdated(outdated)
+
+        # Markdown new/updated set
+        if "markdown" in self.translation_types:
+            md_pending = self._gather_pending_markdown(update=update)
+            if md_pending:
+                breakdown["markdown"] = self._estimate_tokens_for_sources(md_pending)
+
+        # Notebook new/updated set
+        if "notebook" in self.translation_types:
+            nb_pending = self._gather_pending_notebooks(update=update)
+            if nb_pending:
+                breakdown["notebook"] = self._estimate_tokens_for_sources(nb_pending)
+
+        total = sum(breakdown.values())
+        return {**breakdown, "total": total}
+
+    def _estimate_tokens_for_sources(self, files: List[Path]) -> int:
+        total = 0
+        for f in files:
+            try:
+                text = read_input_file(f)
+                total += count_tokens(text)
+            except Exception:
+                continue
+        return total
+
+    def _estimate_tokens_for_outdated(
+        self, outdated_files: List[tuple[Path, Path]]
+    ) -> int:
+        sources = [orig for orig, _ in outdated_files]
+        return self._estimate_tokens_for_sources(sources)
+
+    def _gather_pending_markdown(self, update: bool) -> List[Path]:
+        pending: List[Path] = []
+        markdown_files = filter_files(self.root_dir, self.excluded_dirs)
+        for md_file_path in markdown_files:
+            md_file_path = md_file_path.resolve()
+            if md_file_path.suffix == ".md":
+                for language_code in self.language_codes:
+                    relative_path = md_file_path.relative_to(self.root_dir)
+                    translated_md_path = (
+                        self.translations_dir / language_code / relative_path
+                    )
+                    if not update and translated_md_path.exists():
+                        continue
+                    pending.append(md_file_path)
+        return pending
+
+    def _gather_pending_notebooks(self, update: bool) -> List[Path]:
+        pending: List[Path] = []
+        notebook_files: List[Path] = []
+        for ext in self.supported_notebook_extensions:
+            notebook_files.extend(filter_files(self.root_dir, self.excluded_dirs, ext))
+        for notebook_file_path in notebook_files:
+            notebook_file_path = notebook_file_path.resolve()
+            for language_code in self.language_codes:
+                relative_path = notebook_file_path.relative_to(self.root_dir)
+                translated_notebook_path = (
+                    self.translations_dir / language_code / relative_path
+                )
+                if translated_notebook_path.exists() and not update:
+                    if is_notebook_up_to_date(
+                        notebook_file_path, translated_notebook_path
+                    ):
+                        continue
+                pending.append(notebook_file_path)
+        return pending
 
     def get_outdated_translations(self) -> List[tuple[Path, Path]]:
         """Identify translations that need updates based on file hash comparison.

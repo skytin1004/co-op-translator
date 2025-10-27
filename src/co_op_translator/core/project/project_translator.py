@@ -17,6 +17,8 @@ from co_op_translator.config.constants import (
 
 from .directory_manager import DirectoryManager
 from .translation_manager import TranslationManager
+from co_op_translator.utils.llm.token_utils import count_tokens
+from co_op_translator.utils.common.file_utils import read_input_file
 
 logger = logging.getLogger(__name__)
 
@@ -251,6 +253,21 @@ class ProjectTranslator:
         if not files_to_retranslate:
             logger.info("No files could be prepared for retranslation")
             return 0, errors
+
+        # Estimate tokens for these retranslation sources (single language)
+        try:
+            est_total = 0
+            for orig_file, _ in files_to_retranslate:
+                try:
+                    text = read_input_file(orig_file)
+                    est_total += count_tokens(text)
+                except Exception:
+                    continue
+            logger.info(
+                f"Estimated tokens for selected low-confidence retranslation targets: {est_total:,} (files: {len(files_to_retranslate)})"
+            )
+        except Exception as e:
+            logger.debug(f"Failed to estimate tokens for low-confidence set: {e}")
 
         # Retranslate files
         retranslated = 0
