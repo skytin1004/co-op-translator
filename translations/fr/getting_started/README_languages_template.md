@@ -2,17 +2,17 @@
 CO_OP_TRANSLATOR_METADATA:
 {
   "original_hash": "ab4ff653cd1228f8b3f363a4768e2057",
-  "translation_date": "2025-10-15T04:40:53+00:00",
-  "source_file": "README_languages_template.md",
+  "translation_date": "2025-11-08T16:05:01+00:00",
+  "source_file": "getting_started/README_languages_template.md",
   "language_code": "fr"
 }
 -->
-# 🌐 Prise en charge multilingue (Modèle)
+# 🌐 Support multilingue (Modèle)
 
-Responsables : Le bloc ci-dessous est un exemple « toutes langues » géré par Co‑op Translator.
+Mainteneurs : Le bloc ci-dessous est un exemple "toutes langues" géré par Co‑op Translator.
 
-- Si vous souhaitez que Co‑op Translator garde cette liste entièrement à jour automatiquement lorsque vous exécutez `translate -l "all"`, conservez les deux marqueurs de commentaire tels quels.
-- Si vous voulez seulement afficher un sous-ensemble de langues, supprimez les deux marqueurs de commentaire et retirez les langues que vous ne souhaitez pas lister. Après avoir retiré les marqueurs, Co‑op Translator ne remplacera plus automatiquement cette section.
+- Si vous souhaitez que Co‑op Translator maintienne cette liste entièrement à jour automatiquement lorsque vous exécutez `translate -l "all"`, conservez les deux marqueurs de commentaire tels quels.
+- Si vous souhaitez afficher uniquement un sous-ensemble de langues, supprimez les deux marqueurs de commentaire et retirez les langues que vous ne voulez pas lister. Après avoir supprimé les marqueurs, Co‑op Translator ne remplacera plus automatiquement cette section.
 
 ```markdown
 
@@ -29,4 +29,4 @@ Responsables : Le bloc ci-dessous est un exemple « toutes langues » géré par
 ---
 
 **Avertissement** :  
-Ce document a été traduit à l’aide du service de traduction IA [Co-op Translator](https://github.com/Azure/co-op-translator). Bien que nous nous efforcions d’assurer l’exactitude, veuillez noter que les traductions automatisées peuvent comporter des erreurs ou des imprécisions. Le document original dans sa langue d’origine doit être considéré comme la source faisant autorité. Pour les informations critiques, il est recommandé de recourir à une traduction humaine professionnelle. Nous déclinons toute responsabilité en cas de malentendus ou d’interprétations erronées résultant de l’utilisation de cette traduction.
+Ce document a été traduit à l’aide du service de traduction automatique [Co-op Translator](https://github.com/Azure/co-op-translator). Bien que nous nous efforcions d’assurer l’exactitude, veuillez noter que les traductions automatiques peuvent contenir des erreurs ou des inexactitudes. Le document original dans sa langue d’origine doit être considéré comme la source faisant foi. Pour les informations critiques, une traduction professionnelle réalisée par un humain est recommandée. Nous déclinons toute responsabilité en cas de malentendus ou de mauvaises interprétations résultant de l’utilisation de cette traduction.
