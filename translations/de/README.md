@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "1d7514f77c46850bc8a88b732c6ea86b",
-  "translation_date": "2025-11-08T16:03:09+00:00",
+  "original_hash": "002b373f985f430110f3e449406bab23",
+  "translation_date": "2025-11-09T09:27:41+00:00",
   "source_file": "README.md",
   "language_code": "de"
 }
@@ -75,7 +75,7 @@ docker run --rm -it --env-file .env -v "${PWD}:/work" ghcr.io/azure/co-op-transl
 
 1. Erstellen Sie eine `.env`-Datei anhand der Vorlage: [.env.template](../../.env.template)
 2. Konfigurieren Sie einen LLM-Anbieter (Azure OpenAI oder OpenAI)
-3. (Optional) Für Bildübersetzungen (`-img`) Azure AI Vision konfigurieren
+3. (Optional) Für Bildübersetzungen (`-img`) Azure AI Vision einrichten
 4. (Empfohlen) Entfernen Sie vorherige Übersetzungen, um Konflikte zu vermeiden (z.B. `translations/`)
 5. (Empfohlen) Fügen Sie Ihrem README einen Übersetzungsabschnitt mit der [README-Sprachvorlage](./getting_started/README_languages_template.md) hinzu
 6. Siehe: [Azure AI einrichten](./getting_started/set-up-azure-ai.md)
@@ -128,7 +128,7 @@ Weitere Optionen: [Befehlsreferenz](./getting_started/command-reference.md)
 
 ### Microsoft-spezifische Anleitung
 > [!NOTE]
-> Nur für Maintainer der Microsoft „Für Anfänger“-Repositories.
+> Nur für Maintainer der Microsoft „Für Anfänger“ Repositories.
 
 - [Aktualisierung der „anderen Kurse“-Liste (nur für MS Anfänger-Repositories)](./getting_started/update-other-courses.md)
 
@@ -163,7 +163,7 @@ Begleiten Sie uns dabei, die Art und Weise zu revolutionieren, wie Bildungsinhal
 
 ## Mitwirken
 
-Dieses Projekt freut sich über Beiträge und Vorschläge. Möchten Sie zum Azure Co-op Translator beitragen? Bitte lesen Sie unsere [CONTRIBUTING.md](./CONTRIBUTING.md) für Richtlinien, wie Sie Co-op Translator zugänglicher machen können.
+Dieses Projekt freut sich über Beiträge und Vorschläge. Möchten Sie zum Azure Co-op Translator beitragen? Bitte lesen Sie unsere [CONTRIBUTING.md](./CONTRIBUTING.md) für Richtlinien, wie Sie helfen können, Co-op Translator zugänglicher zu machen.
 
 ## Mitwirkende
 
@@ -176,7 +176,7 @@ Weitere Informationen finden Sie in den [FAQ zum Verhaltenskodex](https://openso
 
 ## Verantwortungsvolle KI
 
-Microsoft engagiert sich dafür, unseren Kunden den verantwortungsvollen Einsatz unserer KI-Produkte zu ermöglichen, unsere Erkenntnisse zu teilen und vertrauensbasierte Partnerschaften durch Werkzeuge wie Transparenznotizen und Wirkungsbewertungen aufzubauen. Viele dieser Ressourcen finden Sie unter [https://aka.ms/RAI](https://aka.ms/RAI).
+Microsoft verpflichtet sich, unseren Kunden zu helfen, unsere KI-Produkte verantwortungsvoll zu nutzen, unsere Erkenntnisse zu teilen und vertrauensbasierte Partnerschaften durch Werkzeuge wie Transparenznotizen und Wirkungsbewertungen aufzubauen. Viele dieser Ressourcen finden Sie unter [https://aka.ms/RAI](https://aka.ms/RAI).
 Der Ansatz von Microsoft für verantwortungsvolle KI basiert auf unseren KI-Prinzipien: Fairness, Zuverlässigkeit und Sicherheit, Datenschutz und Sicherheit, Inklusivität, Transparenz und Verantwortlichkeit.
 
 Groß angelegte Modelle für natürliche Sprache, Bilder und Sprache – wie die in diesem Beispiel verwendeten – können sich potenziell unfair, unzuverlässig oder anstößig verhalten und dadurch Schaden verursachen. Bitte konsultieren Sie die [Transparenznotiz des Azure OpenAI-Dienstes](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text), um über Risiken und Einschränkungen informiert zu sein.
@@ -188,7 +188,7 @@ Sie können Ihre KI-Anwendung in Ihrer Entwicklungsumgebung mit dem [prompt flow
 
 ## Marken
 
-Dieses Projekt kann Marken oder Logos von Projekten, Produkten oder Diensten enthalten. Die autorisierte Nutzung von Microsoft-Marken oder -Logos unterliegt den [Microsoft-Marken- und Markenrichtlinien](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general) und muss diesen entsprechen. Die Verwendung von Microsoft-Marken oder -Logos in modifizierten Versionen dieses Projekts darf keine Verwirrung stiften oder eine Microsoft-Unterstützung suggerieren. Die Nutzung von Marken oder Logos Dritter unterliegt den jeweiligen Richtlinien dieser Dritten.
+Dieses Projekt kann Marken oder Logos von Projekten, Produkten oder Diensten enthalten. Die autorisierte Nutzung von Microsoft-Marken oder -Logos unterliegt den [Microsoft-Marken- und Markenrichtlinien](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general) und muss diesen folgen. Die Verwendung von Microsoft-Marken oder -Logos in modifizierten Versionen dieses Projekts darf keine Verwirrung stiften oder eine Microsoft-Unterstützung suggerieren. Die Nutzung von Marken oder Logos Dritter unterliegt den jeweiligen Richtlinien dieser Dritten.
 
 ## Hilfe erhalten
 
@@ -203,4 +203,4 @@ Wenn Sie Produktfeedback geben oder Fehler beim Erstellen melden möchten, besuc
 ---
 
 **Haftungsausschluss**:  
-Dieses Dokument wurde mit dem KI-Übersetzungsdienst [Co-op Translator](https://github.com/Azure/co-op-translator) übersetzt. Obwohl wir uns um Genauigkeit bemühen, beachten Sie bitte, dass automatisierte Übersetzungen Fehler oder Ungenauigkeiten enthalten können. Das Originaldokument in seiner Ursprungssprache gilt als maßgebliche Quelle. Für wichtige Informationen wird eine professionelle menschliche Übersetzung empfohlen. Wir übernehmen keine Haftung für Missverständnisse oder Fehlinterpretationen, die aus der Nutzung dieser Übersetzung entstehen.
+Dieses Dokument wurde mit dem KI-Übersetzungsdienst [Co-op Translator](https://github.com/Azure/co-op-translator) übersetzt. Obwohl wir uns um Genauigkeit bemühen, beachten Sie bitte, dass automatisierte Übersetzungen Fehler oder Ungenauigkeiten enthalten können. Das Originaldokument in seiner Ursprungssprache ist als maßgebliche Quelle zu betrachten. Für wichtige Informationen wird eine professionelle menschliche Übersetzung empfohlen. Wir übernehmen keine Haftung für Missverständnisse oder Fehlinterpretationen, die aus der Nutzung dieser Übersetzung entstehen.

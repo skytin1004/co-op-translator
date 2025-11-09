@@ -1,8 +1,8 @@
 <!--
 CO_OP_TRANSLATOR_METADATA:
 {
-  "original_hash": "1d7514f77c46850bc8a88b732c6ea86b",
-  "translation_date": "2025-11-08T16:01:05+00:00",
+  "original_hash": "002b373f985f430110f3e449406bab23",
+  "translation_date": "2025-11-09T09:28:29+00:00",
   "source_file": "README.md",
   "language_code": "fr"
 }
@@ -77,7 +77,7 @@ docker run --rm -it --env-file .env -v "${PWD}:/work" ghcr.io/azure/co-op-transl
 2. Configurez un fournisseur LLM (Azure OpenAI ou OpenAI)  
 3. (Optionnel) Pour la traduction d’images (`-img`), configurez Azure AI Vision  
 4. (Recommandé) Nettoyez les traductions précédentes pour éviter les conflits (ex. : `translations/`)  
-5. (Recommandé) Ajoutez une section de traduction à votre README en utilisant le [modèle README languages](./getting_started/README_languages_template.md)  
+5. (Recommandé) Ajoutez une section de traduction dans votre README en utilisant le [modèle README languages](./getting_started/README_languages_template.md)  
 6. Consultez : [Configurer Azure AI](./getting_started/set-up-azure-ai.md)
 
 ## Utilisation
@@ -122,7 +122,7 @@ Plus d’options : [Référence des commandes](./getting_started/command-referen
 - [Guide GitHub Actions (dépôts publics & secrets standards)](./getting_started/github-actions-guide/github-actions-guide-public.md)  
 - [Guide GitHub Actions (dépôts organisation Microsoft & configurations au niveau org)](./getting_started/github-actions-guide/github-actions-guide-org.md)  
 - [Modèle README languages](./getting_started/README_languages_template.md)  
-- [Langues prises en charge](./getting_started/supported-languages.md)  
+- [Langues supportées](./getting_started/supported-languages.md)  
 - [Contribuer](./CONTRIBUTING.md)  
 - [Dépannage](./getting_started/troubleshooting.md)
 
@@ -179,18 +179,16 @@ Pour plus d’informations, consultez la [FAQ du Code de conduite](https://opens
 Microsoft s’engage à aider ses clients à utiliser ses produits d’IA de manière responsable, à partager ses apprentissages et à construire des partenariats basés sur la confiance grâce à des outils comme les Notes de transparence et les Évaluations d’impact. Beaucoup de ces ressources sont disponibles sur [https://aka.ms/RAI](https://aka.ms/RAI).  
 L’approche de Microsoft en matière d’IA responsable repose sur nos principes d’IA : équité, fiabilité et sécurité, confidentialité et sécurité, inclusion, transparence et responsabilité.
 
-Les modèles à grande échelle de langage naturel, d’image et de parole – comme ceux utilisés dans cet exemple – peuvent potentiellement se comporter de manière injuste, peu fiable ou offensante, causant ainsi des préjudices. Veuillez consulter la [note de transparence du service Azure OpenAI](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) pour vous informer des risques et limitations.
+Les modèles à grande échelle de langage naturel, d’image et de parole – comme ceux utilisés dans cet exemple – peuvent potentiellement se comporter de manière injuste, peu fiable ou offensante, causant ainsi des préjudices. Veuillez consulter la [note de transparence du service Azure OpenAI](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) pour vous informer des risques et limites.
 L'approche recommandée pour atténuer ces risques consiste à inclure un système de sécurité dans votre architecture capable de détecter et de prévenir les comportements nuisibles. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) offre une couche de protection indépendante, capable de détecter les contenus nuisibles générés par les utilisateurs et par l'IA dans les applications et services. Azure AI Content Safety comprend des API de texte et d'image qui vous permettent de détecter les contenus préjudiciables. Nous proposons également un Content Safety Studio interactif qui vous permet de visualiser, d'explorer et d'essayer des exemples de code pour détecter les contenus nuisibles dans différentes modalités. La [documentation de démarrage rapide](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) suivante vous guide pour effectuer des requêtes vers le service.
 
-Un autre aspect à prendre en compte est la performance globale de l'application. Pour les applications multi-modales et multi-modèles, la performance signifie que le système fonctionne comme vous et vos utilisateurs l'attendez, y compris en ne générant pas de résultats nuisibles. Il est important d'évaluer la performance de votre application globale en utilisant les [métriques de qualité de génération, de risque et de sécurité](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
+Un autre aspect à prendre en compte est la performance globale de l'application. Pour les applications multi-modales et multi-modèles, la performance signifie que le système fonctionne comme vous et vos utilisateurs l'attendez, y compris en ne générant pas de résultats nuisibles. Il est important d’évaluer la performance de votre application globale en utilisant les [métriques de qualité de génération, de risque et de sécurité](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
 
-Vous pouvez évaluer votre application IA dans votre environnement de développement en utilisant le [prompt flow SDK](https://microsoft.github.io/promptflow/index.html). Que vous disposiez d'un jeu de données de test ou d'un objectif, les générations de votre application d'IA générative sont mesurées quantitativement avec des évaluateurs intégrés ou des évaluateurs personnalisés de votre choix. Pour commencer avec le prompt flow SDK afin d’évaluer votre système, vous pouvez suivre le [guide de démarrage rapide](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). Une fois que vous avez lancé une exécution d’évaluation, vous pouvez [visualiser les résultats dans Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
+Vous pouvez évaluer votre application IA dans votre environnement de développement en utilisant le [SDK prompt flow](https://microsoft.github.io/promptflow/index.html). Que vous disposiez d’un jeu de données de test ou d’un objectif, les générations de votre application d’IA générative sont mesurées quantitativement avec des évaluateurs intégrés ou des évaluateurs personnalisés de votre choix. Pour commencer avec le SDK prompt flow afin d’évaluer votre système, vous pouvez suivre le [guide de démarrage rapide](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). Une fois que vous avez lancé une exécution d’évaluation, vous pouvez [visualiser les résultats dans Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
 
 ## Marques déposées
 
-Ce projet peut contenir des marques ou logos de projets, produits ou services. L'utilisation autorisée des marques ou logos Microsoft est soumise aux [Directives sur les marques et la marque de Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).  
-L'utilisation des marques ou logos Microsoft dans des versions modifiées de ce projet ne doit pas prêter à confusion ni laisser entendre un parrainage par Microsoft.  
-Toute utilisation de marques ou logos tiers est soumise aux politiques de ces tiers.
+Ce projet peut contenir des marques ou logos de projets, produits ou services. L'utilisation autorisée des marques ou logos Microsoft est soumise aux [Directives sur les marques et la marque de Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general) et doit les respecter. L’utilisation des marques ou logos Microsoft dans des versions modifiées de ce projet ne doit pas créer de confusion ni laisser entendre un parrainage par Microsoft. Toute utilisation de marques ou logos tiers est soumise aux politiques de ces tiers.
 
 ## Obtenir de l’aide
 
