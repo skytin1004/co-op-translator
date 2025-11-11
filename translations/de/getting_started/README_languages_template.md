@@ -2,17 +2,17 @@
 CO_OP_TRANSLATOR_METADATA:
 {
   "original_hash": "ab4ff653cd1228f8b3f363a4768e2057",
-  "translation_date": "2025-10-15T04:41:04+00:00",
-  "source_file": "README_languages_template.md",
+  "translation_date": "2025-11-11T08:13:24+00:00",
+  "source_file": "getting_started/README_languages_template.md",
   "language_code": "de"
 }
 -->
 # 🌐 Mehrsprachige Unterstützung (Vorlage)
 
-Betreuer: Der folgende Block ist ein Beispiel für „alle Sprachen“, das vom Co‑op Translator verwaltet wird.
+Maintainer: Der folgende Block ist ein Beispiel für „alle Sprachen“, das von Co‑op Translator verwaltet wird.
 
-- Wenn Sie möchten, dass der Co‑op Translator diese Liste bei jedem Ausführen von `translate -l "all"` automatisch vollständig aktuell hält, lassen Sie die beiden Kommentar-Markierungen unverändert.
-- Wenn Sie nur eine Auswahl von Sprachen anzeigen möchten, löschen Sie die beiden Kommentar-Markierungen und entfernen Sie alle Sprachen, die Sie nicht auflisten möchten. Nach dem Entfernen der Markierungen wird der Co‑op Translator diesen Abschnitt nicht mehr automatisch ersetzen.
+- Wenn Sie möchten, dass Co‑op Translator diese Liste beim Ausführen von `translate -l "all"` automatisch vollständig aktuell hält, lassen Sie die beiden Kommentar-Markierungen unverändert.
+- Wenn Sie nur eine Teilmenge der Sprachen anzeigen möchten, löschen Sie die beiden Kommentar-Markierungen und entfernen Sie alle Sprachen, die Sie nicht auflisten möchten. Nach dem Entfernen der Markierungen wird Co‑op Translator diesen Abschnitt nicht mehr automatisch ersetzen.
 
 ```markdown
 
@@ -29,4 +29,4 @@ Betreuer: Der folgende Block ist ein Beispiel für „alle Sprachen“, das vom 
 ---
 
 **Haftungsausschluss**:  
-Dieses Dokument wurde mit dem KI-Übersetzungsdienst [Co-op Translator](https://github.com/Azure/co-op-translator) übersetzt. Obwohl wir uns um Genauigkeit bemühen, beachten Sie bitte, dass automatisierte Übersetzungen Fehler oder Ungenauigkeiten enthalten können. Das Originaldokument in seiner Ausgangssprache gilt als maßgebliche Quelle. Für kritische Informationen wird eine professionelle menschliche Übersetzung empfohlen. Wir übernehmen keine Haftung für Missverständnisse oder Fehlinterpretationen, die durch die Nutzung dieser Übersetzung entstehen.
+Dieses Dokument wurde mit dem KI-Übersetzungsdienst [Co-op Translator](https://github.com/Azure/co-op-translator) übersetzt. Obwohl wir uns um Genauigkeit bemühen, beachten Sie bitte, dass automatisierte Übersetzungen Fehler oder Ungenauigkeiten enthalten können. Das Originaldokument in seiner Ursprungssprache ist als maßgebliche Quelle zu betrachten. Für wichtige Informationen wird eine professionelle menschliche Übersetzung empfohlen. Wir übernehmen keine Haftung für Missverständnisse oder Fehlinterpretationen, die aus der Nutzung dieser Übersetzung entstehen.

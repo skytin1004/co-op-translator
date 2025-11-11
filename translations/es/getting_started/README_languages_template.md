@@ -2,17 +2,17 @@
 CO_OP_TRANSLATOR_METADATA:
 {
   "original_hash": "ab4ff653cd1228f8b3f363a4768e2057",
-  "translation_date": "2025-10-15T04:40:59+00:00",
-  "source_file": "README_languages_template.md",
+  "translation_date": "2025-11-11T08:13:40+00:00",
+  "source_file": "getting_started/README_languages_template.md",
   "language_code": "es"
 }
 -->
-# 🌐 Soporte multilingüe (Plantilla)
+# 🌐 Soporte Multilingüe (Plantilla)
 
-Responsables: El bloque de abajo es un ejemplo de "todos los idiomas" gestionado por Co‑op Translator.
+Mantenedores: El bloque a continuación es un ejemplo de "todos los idiomas" gestionado por Co‑op Translator.
 
-- Si quieres que Co‑op Translator mantenga esta lista completamente actualizada automáticamente cuando ejecutes `translate -l "all"`, deja los dos marcadores de comentario tal como están.
-- Si solo quieres mostrar un subconjunto de idiomas, elimina los dos marcadores de comentario y quita los idiomas que no quieras mostrar. Después de eliminar los marcadores, Co‑op Translator ya no reemplazará automáticamente esta sección.
+- Si quieres que Co‑op Translator mantenga esta lista completamente actualizada automáticamente cuando ejecutes `translate -l "all"`, conserva los dos marcadores de comentario tal cual.
+- Si solo quieres mostrar un subconjunto de idiomas, elimina los dos marcadores de comentario y quita los idiomas que no quieras listar. Después de eliminar los marcadores, Co‑op Translator ya no reemplazará esta sección automáticamente.
 
 ```markdown
 
@@ -28,5 +28,5 @@ Responsables: El bloque de abajo es un ejemplo de "todos los idiomas" gestionado
 
 ---
 
-**Descargo de responsabilidad**:  
-Este documento ha sido traducido utilizando el servicio de traducción automática [Co-op Translator](https://github.com/Azure/co-op-translator). Si bien nos esforzamos por lograr precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o inexactitudes. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda la traducción profesional realizada por humanos. No nos hacemos responsables de cualquier malentendido o interpretación incorrecta que surja del uso de esta traducción.
+**Aviso Legal**:
+Este documento ha sido traducido utilizando el servicio de traducción automática [Co-op Translator](https://github.com/Azure/co-op-translator). Aunque nos esforzamos por la precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o inexactitudes. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda una traducción profesional realizada por humanos. No nos hacemos responsables de malentendidos o interpretaciones erróneas derivadas del uso de esta traducción.
