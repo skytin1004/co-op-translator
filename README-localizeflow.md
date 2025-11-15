@@ -151,6 +151,39 @@ translate -l "pt" -md -img
 translate -l "zh" -nb
 ```
 
+### Programmatic usage from Localizeflow
+
+When you consume this fork from the Localizeflow SaaS repository, you can trigger
+translations programmatically instead of shelling out to the `translate` CLI.
+
+The `co_op_translator.localizeflow` namespace exposes a helper that mirrors the
+CLI options and adds Localizeflow-specific glossary support:
+
+```python
+from co_op_translator.localizeflow import run_translation
+
+
+run_translation(
+    language_codes="ko ja",  # same syntax as -l/--language-codes
+    root_dir=".",            # project root
+    markdown=True,            # enable markdown translation
+    images=True,              # enable image translation (requires Azure AI Service)
+    notebook=False,           # enable notebook translation if needed
+    debug=False,              # enable debug logging
+    save_logs=True,           # write logs under <root_dir>/logs
+    yes=True,                 # auto-confirm "all"/update warnings (non-interactive)
+    glossaries=["PR", "Issue"],  # glossary terms to preserve as-is in translations
+)
+```
+
+Notes:
+
+- `run_translation` runs the same internal pipeline as the `translate` CLI:
+  environment checks, LLM/Vision health checks, token estimation, and
+  progress bars.
+- When `glossaries` is provided, the terms are injected into the markdown and
+  image translation prompts so that those terms are preserved in the output.
+
 ## CI tips (optional)
 
 - In GitHub Actions, use: `pip install git+https://github.com/localizeflow/localizeflow-co-op-translator.git@<tag>`
