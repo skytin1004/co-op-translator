@@ -29,6 +29,8 @@ def run_translation(
     save_logs: bool = False,
     yes: bool = False,
     glossaries: Iterable[str] | None = None,
+    translations_dir: str | None = None,
+    image_dir: str | None = None,
 ) -> None:
     """Programmatic translation entrypoint mirroring the translate CLI options.
 
@@ -140,7 +142,12 @@ def run_translation(
 
     # Initialize ProjectTranslator with determined settings
     translator = ProjectTranslator(
-        language_codes, root_dir, translation_types=translation_types
+        language_codes,
+        root_dir,
+        translation_types=translation_types,
+        add_disclaimer=False,
+        translations_dir=translations_dir,
+        image_dir=image_dir,
     )
 
     # Estimate tokens before running translation and print a concise summary

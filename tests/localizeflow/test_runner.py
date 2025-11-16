@@ -50,11 +50,15 @@ async def test_run_translation_calls_project_translator_and_sets_glossaries(tmp_
     set_glossaries_mock.assert_called_once_with(["PR", "Issue"])
 
     # ProjectTranslator should be constructed with language codes, root_dir, and
-    # translation_types matching the CLI semantics (markdown-only here)
+    # translation_types matching the CLI semantics (markdown-only here), with
+    # disclaimers disabled for Localizeflow and default output dirs.
     project_translator_class.assert_called_once_with(
         "ko ja",
         str(root_dir),
         translation_types=["markdown"],
+        add_disclaimer=False,
+        translations_dir=None,
+        image_dir=None,
     )
 
     # And translate_project should be invoked once with the update flag

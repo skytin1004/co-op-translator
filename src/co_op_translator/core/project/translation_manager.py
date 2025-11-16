@@ -47,6 +47,7 @@ class TranslationManager:
         image_translator=None,
         notebook_translator=None,
         translation_types: list[str] = None,
+        add_disclaimer: bool = True,
     ):
         """Initialize translation manager with required components and settings.
 
@@ -80,6 +81,7 @@ class TranslationManager:
         if translation_types is None:
             translation_types = ["markdown", "notebook", "images"]
         self.translation_types = translation_types
+        self.add_disclaimer = add_disclaimer
         self.directory_manager = DirectoryManager(
             root_dir, translations_dir, language_codes, excluded_dirs
         )
@@ -158,6 +160,7 @@ class TranslationManager:
                 language_code,
                 file_path,
                 translation_types=self.translation_types,
+                add_disclaimer=self.add_disclaimer,
             )
             if not translated_content:
                 logger.error(
@@ -174,6 +177,7 @@ class TranslationManager:
                     language_code,
                     file_path,
                     translation_types=self.translation_types,
+                    add_disclaimer=self.add_disclaimer,
                 )
                 if not translated_content:
                     logger.error(
@@ -227,7 +231,7 @@ class TranslationManager:
                 file_path,
                 language_code,
                 use_translated_images=use_translated_images,
-                add_disclaimer=True,
+                add_disclaimer=self.add_disclaimer,
             )
             if not translated_content:
                 logger.error(
