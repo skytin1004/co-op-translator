@@ -204,7 +204,7 @@ class ImageTranslator(ABC):
 
             if heights:
                 median_height = float(np.median(heights))
-                target_min_height = 24.0
+                target_min_height = 40.0
                 max_scale = 3.0
                 if median_height > 0:
                     raw_scale = target_min_height / median_height
