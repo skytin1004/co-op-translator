@@ -184,6 +184,50 @@ class ImageTranslator(ABC):
             )
             text_index += group_size
 
+        # Compute a global scaling factor based on detected line heights to improve
+        # readability for images with very small text. This upscales both the
+        # canvas and bounding boxes before rendering translated text.
+        scale_factor = 1.0
+        try:
+            heights = []
+            for group in grouped_boxes:
+                for line_info in group:
+                    bounding_box = line_info.get("bounding_box") or []
+                    if len(bounding_box) >= 8:
+                        pts = np.array(bounding_box, dtype=np.float32).reshape(-1, 2)
+                        if pts.shape[0] >= 4:
+                            height_a = np.linalg.norm(pts[0] - pts[3])
+                            height_b = np.linalg.norm(pts[1] - pts[2])
+                            height = max(height_a, height_b)
+                            if height > 0:
+                                heights.append(height)
+
+            if heights:
+                median_height = float(np.median(heights))
+                target_min_height = 24.0
+                max_scale = 3.0
+                if median_height > 0:
+                    raw_scale = target_min_height / median_height
+                    scale_factor = max(1.0, min(raw_scale, max_scale))
+        except Exception as e:
+            logger.warning(
+                f"Failed to compute global scale factor for image '{Path(image_path).name}': {e}"
+            )
+            scale_factor = 1.0
+
+        if scale_factor > 1.0:
+            logger.info(
+                f"Upscaling canvas by factor {scale_factor:.2f} for better readability "
+                f"for image '{Path(image_path).name}'"
+            )
+            for group in grouped_boxes:
+                for line_info in group:
+                    bounding_box = line_info.get("bounding_box")
+                    if bounding_box:
+                        line_info["bounding_box"] = [
+                            int(round(coord * scale_factor)) for coord in bounding_box
+                        ]
+
         # Generate output path
         actual_image_path = Path(image_path).resolve()
         new_filename = generate_translated_filename(
@@ -198,6 +242,11 @@ class ImageTranslator(ABC):
         if fast_mode:
             # Fast method variant.
             image = Image.open(image_path).convert("RGBA")
+
+            if scale_factor > 1.0:
+                new_width = int(round(image.width * scale_factor))
+                new_height = int(round(image.height * scale_factor))
+                image = image.resize((new_width, new_height), resample=Image.LANCZOS)
 
             font_size = 40
             # Use instance variable for font config
@@ -355,6 +404,11 @@ class ImageTranslator(ABC):
             # Regular (neat) method.
             mode = get_image_mode(image_path)
             image = Image.open(image_path).convert(mode)
+
+            if scale_factor > 1.0:
+                new_width = int(round(image.width * scale_factor))
+                new_height = int(round(image.height * scale_factor))
+                image = image.resize((new_width, new_height), resample=Image.LANCZOS)
 
             font_size = 40
             font_path = self.font_config.get_font_path(target_language_code)
