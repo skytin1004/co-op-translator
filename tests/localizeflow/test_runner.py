@@ -65,3 +65,32 @@ async def test_run_translation_calls_project_translator_and_sets_glossaries(tmp_
     project_translator_instance.translate_project.assert_called_once_with(
         update=False,
     )
+
+
+@pytest.mark.asyncio
+async def test_run_translation_with_disclaimer_flag(tmp_path):
+    root_dir = tmp_path
+
+    runner.Config.check_configuration = MagicMock(return_value=None)
+    runner.LLMConfig.validate_connectivity = MagicMock(return_value=None)
+    runner.setup_logging = MagicMock(return_value=None)
+
+    project_translator_instance = MagicMock()
+    project_translator_class = MagicMock(return_value=project_translator_instance)
+    runner.ProjectTranslator = project_translator_class
+
+    runner.run_translation(
+        language_codes="ko",
+        root_dir=str(root_dir),
+        markdown=True,
+        add_disclaimer=True,
+    )
+
+    project_translator_class.assert_called_once_with(
+        "ko",
+        str(root_dir),
+        translation_types=["markdown"],
+        add_disclaimer=True,
+        translations_dir=None,
+        image_dir=None,
+    )

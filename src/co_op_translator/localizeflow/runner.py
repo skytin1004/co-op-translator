@@ -27,8 +27,9 @@ def run_translation(
     notebook: bool = False,
     debug: bool = False,
     save_logs: bool = False,
-    yes: bool = False,
+    yes: bool = True,
     glossaries: Iterable[str] | None = None,
+    add_disclaimer: bool = False,
     translations_dir: str | None = None,
     image_dir: str | None = None,
 ) -> None:
@@ -145,7 +146,7 @@ def run_translation(
         language_codes,
         root_dir,
         translation_types=translation_types,
-        add_disclaimer=False,
+        add_disclaimer=add_disclaimer,
         translations_dir=translations_dir,
         image_dir=image_dir,
     )
