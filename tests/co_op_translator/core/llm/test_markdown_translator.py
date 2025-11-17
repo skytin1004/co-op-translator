@@ -105,3 +105,106 @@ async def test_translate_markdown_full_integration(real_markdown_translator, tmp
     assert (
         "[Default Translation]" in result
     ), "Expected the default translation text in the output."
+
+
+def test_insert_metadata_comment_after_frontmatter(tmp_path):
+    translator = ConcreteMarkdownTranslator(root_dir=tmp_path)
+
+    content_with_frontmatter = """---
+layout: ../layouts/DocsLayout.astro
+title: Localizeflow  Quick Start Guide
+---
+
+# Heading
+Body
+"""
+
+    metadata = {
+        "original_hash": "hash",
+        "translation_date": "2025-10-15T03:44:55+00:00",
+        "source_file": "README.md",
+        "language_code": "sw",
+    }
+    metadata_comment = translator.format_metadata_comment(metadata)
+
+    result = translator._insert_metadata_comment(
+        content_with_frontmatter, metadata_comment
+    )
+
+    lines = result.splitlines()
+
+    assert lines[0] == "---"
+    assert lines[1].startswith("layout:")
+    assert lines[2].startswith("title:")
+    assert lines[3] == "---"
+
+    # There should be a blank line after frontmatter, then the metadata comment
+    assert lines[4] == ""
+    assert lines[5] == "<!--"
+
+    # CO_OP_TRANSLATOR_METADATA label should appear inside the comment block
+    assert any("CO_OP_TRANSLATOR_METADATA:" in line for line in lines)
+
+
+def test_update_astro_layout_path_relative(tmp_path):
+    """layout: path should be rewritten relative to translations/<lang>/..."""
+
+    # Simulate project structure: root/docs/README.md
+    root_dir = tmp_path
+    docs_dir = root_dir / "docs"
+    docs_dir.mkdir()
+    md_file = docs_dir / "README.md"
+
+    # Content with Astro-style frontmatter
+    content = """---
+layout: ../layouts/DocsLayout.astro
+title: Localizeflow – Quick Start Guide
+---
+
+# Heading
+Body
+"""
+
+    translator = ConcreteMarkdownTranslator(root_dir=root_dir)
+    # Simulate default translations_dir under root
+    translator.translations_dir = None
+
+    result = translator._update_astro_layout_path(content, md_file, "ko")
+
+    # For root/docs/README.md, translated markdown lives at
+    # root/translations/ko/docs/README.md, so layout should become
+    # ../../../layouts/DocsLayout.astro relative to that.
+    assert "layout: ../../../layouts/DocsLayout.astro" in result
+
+
+def test_update_astro_layout_path_no_frontmatter(tmp_path):
+    """Files without YAML frontmatter should remain unchanged."""
+
+    root_dir = tmp_path
+    md_file = root_dir / "README.md"
+    content = "# No frontmatter\nBody"
+
+    translator = ConcreteMarkdownTranslator(root_dir=root_dir)
+
+    result = translator._update_astro_layout_path(content, md_file, "ko")
+
+    assert result == content
+
+
+def test_update_astro_layout_path_no_layout_key(tmp_path):
+    """Frontmatter without layout key should be unchanged."""
+
+    root_dir = tmp_path
+    md_file = root_dir / "README.md"
+    content = """---
+title: Only Title
+---
+
+# Heading
+"""
+
+    translator = ConcreteMarkdownTranslator(root_dir=root_dir)
+
+    result = translator._update_astro_layout_path(content, md_file, "ko")
+
+    assert result == content

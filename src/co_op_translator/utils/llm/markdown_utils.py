@@ -61,6 +61,11 @@ def generate_prompt_template(
            - URLs or paths
         6. Keep all original markdown formatting intact
         7. Return ONLY the translated content without any additional tags or markup
+        8. If the document starts with a YAML frontmatter block delimited by '---' at the top and bottom (for example Astro frontmatter with layout/title), you MUST:
+           - KEEP the entire frontmatter block in the output (do NOT remove it).
+           - Preserve all keys exactly (e.g., 'layout:', 'title:', other fields).
+           - Translate only human-readable values like titles or descriptions.
+           - NEVER modify or "fix" any file paths in frontmatter (such as layout paths, import paths, or URLs); copy those paths exactly as they are.
         """
 
     if is_rtl:
