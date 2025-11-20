@@ -371,6 +371,68 @@ In this setup:
 - No machine-translation disclaimer is added to any output, making the results
   suitable for direct use in Localizeflow’s UI and review flows.
 
+### Advanced: multiple roots via `groups` (Localizeflow only)
+
+In addition to a single `root_dir` or a simple list of `root_dirs`, Localizeflow
+can orchestrate **multiple independent source/output roots** by using the
+`groups` parameter on `run_translation`:
+
+- Type: `Iterable[tuple[str, str | None]]`
+- Each tuple is `(source_root, translations_dir)` for one logical content group.
+- When `groups` is provided, it takes precedence over `root_dir` and
+  `root_dirs`. The helper will:
+  - Run once per group.
+  - Construct a separate `ProjectTranslator` for each group.
+  - For each group, write outputs under:
+    `translations_dir / <lang> / <relative_path_from_source_root>`.
+
+This is especially useful for Astro-style or multi-root documentation repos
+where you want to keep several content trees in sync.
+
+Example (two content groups: `docs/en` and `blog/en`):
+
+```python
+from pathlib import Path
+from co_op_translator.localizeflow import run_translation
+
+project_root = Path("/path/to/astro-project").resolve()
+
+groups = [
+    # docs: src/content/docs/en -> src/content/docs/<lang>/...
+    (
+        str(project_root / "src" / "content" / "docs" / "en"),
+        str(project_root / "src" / "content" / "docs"),
+    ),
+    # blog: src/content/blog/en -> src/content/blog/<lang>/...
+    (
+        str(project_root / "src" / "content" / "blog" / "en"),
+        str(project_root / "src" / "content" / "blog"),
+    ),
+]
+
+run_translation(
+    language_codes="ko",
+    root_dir=str(project_root),  # ignored when groups is provided
+    markdown=True,
+    images=False,
+    notebook=False,
+    debug=False,
+    save_logs=True,
+    yes=True,
+    glossaries=["PR", "Issue"],
+    groups=groups,
+)
+```
+
+In this setup:
+
+- Files under `src/content/docs/en/...` become
+  `src/content/docs/ko/...`, `src/content/docs/ja/...`, etc.
+- Files under `src/content/blog/en/...` become
+  `src/content/blog/ko/...`, `src/content/blog/ja/...`, etc.
+- Each group is isolated via its own `ProjectTranslator` instance, so
+  translated trees are automatically excluded from subsequent source scans.
+
 ## CI tips (optional)
 
 - In GitHub Actions, use: `pip install git+https://github.com/localizeflow/localizeflow-co-op-translator.git@<tag>`
