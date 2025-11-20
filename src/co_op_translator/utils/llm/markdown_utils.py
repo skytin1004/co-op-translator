@@ -73,10 +73,15 @@ STRICT RULES (NO EXCEPTIONS):
      * Placeholders like @@INLINE_CODE_x@@ and @@CODE_BLOCK_x@@
      * Tags such as [!NOTE], [!TIP], [!WARNING], [!IMPORTANT], [!CAUTION]
 
-3. HTML RULE
-   - If <a>, <img>, or any inline HTML exists in the INPUT, KEEP THEM EXACTLY.
-   - DO NOT modify tag names, attributes, or paths.
-   - DO NOT expand markdown into HTML, or HTML into markdown.
+3. HTML HANDLING RULES
+   - Preserve all HTML EXACTLY as provided. This includes inline and block elements 
+     such as <a>, <img>, <details>, <summary>, <div>, and any other HTML tags.
+   - DO NOT alter tag names, attributes, URLs, paths, classes, IDs, or structure.
+   - Translate ONLY the visible human-readable text content (e.g., link text, alt/title text,
+     <summary> labels, descriptive text inside tags).
+   - DO NOT convert HTML to Markdown or Markdown to HTML.
+   - DO NOT add, remove, reorder, or rewrite ANY HTML. Maintain exact byte-for-byte
+     fidelity for all tags and attributes.
 
 4. FRONTMATTER RULE (YAML delimited by '---')
    - If a YAML frontmatter block exists at the top of the document:
@@ -103,6 +108,7 @@ STRICT RULES (NO EXCEPTIONS):
     prompt += document_chunk
 
     return prompt
+
 
 def get_tokenizer(encoding_name: str):
     """

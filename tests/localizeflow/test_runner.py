@@ -94,3 +94,67 @@ async def test_run_translation_with_disclaimer_flag(tmp_path):
         translations_dir=None,
         image_dir=None,
     )
+
+
+@pytest.mark.asyncio
+async def test_run_translation_with_multiple_root_dirs(tmp_path):
+    root1 = tmp_path / "content1"
+    root2 = tmp_path / "content2"
+    root1.mkdir()
+    root2.mkdir()
+
+    runner.Config.check_configuration = MagicMock(return_value=None)
+    runner.LLMConfig.validate_connectivity = MagicMock(return_value=None)
+    runner.setup_logging = MagicMock(return_value=None)
+
+    project_translator_instance = MagicMock()
+    project_translator_class = MagicMock(return_value=project_translator_instance)
+    runner.ProjectTranslator = project_translator_class
+
+    runner.run_translation(
+        language_codes="ko",
+        markdown=True,
+        root_dirs=[str(root1), str(root2)],
+    )
+
+    assert project_translator_class.call_count == 2
+    called_roots = {call.args[1] for call in project_translator_class.call_args_list}
+    assert called_roots == {str(root1), str(root2)}
+
+
+@pytest.mark.asyncio
+async def test_run_translation_with_groups(tmp_path):
+    root1 = tmp_path / "content1"
+    root2 = tmp_path / "content2"
+    out1 = tmp_path / "out1"
+    out2 = tmp_path / "out2"
+    root1.mkdir()
+    root2.mkdir()
+    out1.mkdir()
+    out2.mkdir()
+
+    runner.Config.check_configuration = MagicMock(return_value=None)
+    runner.LLMConfig.validate_connectivity = MagicMock(return_value=None)
+    runner.setup_logging = MagicMock(return_value=None)
+
+    project_translator_instance = MagicMock()
+    project_translator_class = MagicMock(return_value=project_translator_instance)
+    runner.ProjectTranslator = project_translator_class
+
+    groups = [
+        (str(root1), str(out1)),
+        (str(root2), str(out2)),
+    ]
+
+    runner.run_translation(
+        language_codes="ko",
+        markdown=True,
+        groups=groups,
+    )
+
+    assert project_translator_class.call_count == 2
+    called = {
+        (call.args[1], call.kwargs["translations_dir"])
+        for call in project_translator_class.call_args_list
+    }
+    assert called == {(str(root1), str(out1)), (str(root2), str(out2))}

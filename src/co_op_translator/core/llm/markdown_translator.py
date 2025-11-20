@@ -14,6 +14,9 @@ from co_op_translator.utils.llm.markdown_utils import (
     restore_code_blocks,
     SPLIT_DELIMITER,
 )
+from co_op_translator.utils.llm.code_comment_translator import (
+    translate_comments_in_code_blocks,
+)
 from co_op_translator.config.font_config import FontConfig
 from co_op_translator.config.llm_config.config import LLMConfig
 from co_op_translator.utils.common.metadata_utils import (
@@ -99,100 +102,6 @@ class MarkdownTranslator(ABC):
 
         return metadata_comment + content
 
-    def _update_astro_layout_path(
-        self, content: str, md_file_path: Path, language_code: str
-    ) -> str:
-        """Adjust Astro frontmatter layout path for translated markdown files.
-
-        When a markdown file contains YAML frontmatter with a ``layout:`` key, this
-        rewrites the layout path so that the translated markdown under
-        ``translations/<lang>/`` still points back to the original layout file
-        relative to the project root.
-        """
-        if not content.startswith("---\n"):
-            return content
-
-        # Match top-of-file YAML frontmatter: ---\n ... \n---\n
-        frontmatter_match = re.match(r"^---\s*\n(.*?\n)---\s*\n", content, re.DOTALL)
-        if not frontmatter_match:
-            return content
-
-        frontmatter = frontmatter_match.group(0)
-        body_start = frontmatter_match.end()
-
-        lines = frontmatter.splitlines(keepends=True)
-        if len(lines) < 3:
-            return content
-
-        header = lines[0]
-        footer = lines[-1]
-        middle = lines[1:-1]
-
-        # Derive paths needed for computing the new relative layout path
-        root_dir = self.root_dir
-        translations_dir = self.translations_dir
-        if root_dir is None:
-            return content
-        root_dir = Path(root_dir)
-        if translations_dir is None:
-            translations_dir = root_dir / "translations"
-        else:
-            translations_dir = Path(translations_dir)
-
-        try:
-            md_file_path = Path(md_file_path)
-            relative_path = md_file_path.relative_to(root_dir)
-        except Exception:
-            # If the source file is not under root_dir, leave content unchanged
-            return content
-
-        translated_md_dir = translations_dir / language_code / relative_path.parent
-
-        for idx, line in enumerate(middle):
-            stripped = line.lstrip()
-            if not stripped.startswith("layout:"):
-                continue
-
-            indent = line[: len(line) - len(stripped)]
-            _, _, value = stripped.partition(":")
-            layout_value = value.strip()
-            if not layout_value:
-                break
-
-            # Preserve surrounding quotes if present
-            quote = ""
-            raw_path = layout_value
-            if (
-                len(layout_value) >= 2
-                and layout_value[0] in ('"', "'")
-                and layout_value[-1] == layout_value[0]
-            ):
-                quote = layout_value[0]
-                raw_path = layout_value[1:-1]
-
-            # Compute absolute layout path relative to original markdown location
-            try:
-                if raw_path.startswith("/"):
-                    layout_abs = (root_dir / raw_path.lstrip("/")).resolve()
-                else:
-                    layout_abs = (md_file_path.parent / raw_path).resolve()
-            except Exception:
-                break
-
-            try:
-                new_rel_path = os.path.relpath(layout_abs, translated_md_dir).replace(
-                    os.path.sep, "/"
-                )
-            except Exception:
-                break
-
-            new_value = f"{quote}{new_rel_path}{quote}" if quote else new_rel_path
-            middle[idx] = f"{indent}layout: {new_value}\n"
-            break
-
-        new_frontmatter = "".join([header, *middle, footer])
-        return new_frontmatter + content[body_start:]
-
     async def translate_markdown(
         self,
         document: str,
@@ -230,18 +139,29 @@ class MarkdownTranslator(ABC):
             metadata = self.create_metadata(md_file_path, language_code)
             metadata_comment = self.format_metadata_comment(metadata)
 
+        # Determine language display information once
+        language_name = self.font_config.get_language_name(language_code)
+        is_rtl = self.font_config.is_rtl(language_code)
+
         # Step 1: Replace code blocks and inline code with placeholders
         (
             document_with_placeholders,
             placeholder_map,
         ) = replace_code_blocks(document)
 
+        # Step 1.5: Translate only the comments inside fenced code blocks
+        placeholder_map = await translate_comments_in_code_blocks(
+            placeholder_map,
+            language_code,
+            language_name,
+            is_rtl,
+            self._run_prompt,
+        )
+
         # Step 2: Split the document into chunks
         document_chunks = process_markdown(document_with_placeholders)
 
         # Step 3: Generate translation prompts and translate each chunk
-        language_name = self.font_config.get_language_name(language_code)
-        is_rtl = self.font_config.is_rtl(language_code)
         prompts = [
             generate_prompt_template(language_code, language_name, chunk, is_rtl)
             for chunk in document_chunks
@@ -261,11 +181,6 @@ class MarkdownTranslator(ABC):
             translations_dir=self.translations_dir,
             translated_images_dir=self.image_dir,
             translation_types=translation_types,
-        )
-
-        # Step 6: Adjust Astro layout path in YAML frontmatter (if present)
-        updated_content = self._update_astro_layout_path(
-            updated_content, md_file_path, language_code
         )
 
         # Step 7: Add metadata and disclaimer (only if requested)

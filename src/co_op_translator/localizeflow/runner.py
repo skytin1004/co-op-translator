@@ -32,12 +32,51 @@ def run_translation(
     add_disclaimer: bool = False,
     translations_dir: str | None = None,
     image_dir: str | None = None,
+    root_dirs: Iterable[str] | None = None,
+    groups: Iterable[tuple[str, str | None]] | None = None,
 ) -> None:
     """Programmatic translation entrypoint mirroring the translate CLI options.
 
     This helper keeps behavior close to co_op_translator.cli.translate.translate_command
     while allowing Localizeflow to inject glossaries and avoid interactive prompts.
     """
+    if groups is not None:
+        for per_root, per_translations_dir in groups:
+            run_translation(
+                language_codes=language_codes,
+                root_dir=per_root,
+                update=update,
+                images=images,
+                markdown=markdown,
+                notebook=notebook,
+                debug=debug,
+                save_logs=save_logs,
+                yes=yes,
+                glossaries=glossaries,
+                add_disclaimer=add_disclaimer,
+                translations_dir=per_translations_dir,
+                image_dir=image_dir,
+            )
+        return
+
+    if root_dirs is not None:
+        for per_root in root_dirs:
+            run_translation(
+                language_codes=language_codes,
+                root_dir=per_root,
+                update=update,
+                images=images,
+                markdown=markdown,
+                notebook=notebook,
+                debug=debug,
+                save_logs=save_logs,
+                yes=yes,
+                glossaries=glossaries,
+                add_disclaimer=add_disclaimer,
+                translations_dir=translations_dir,
+                image_dir=image_dir,
+            )
+        return
 
     # Validate configuration
     Config.check_configuration()
