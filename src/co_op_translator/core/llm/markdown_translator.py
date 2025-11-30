@@ -192,15 +192,6 @@ class MarkdownTranslator(ABC):
             self._run_prompt,
         )
 
-        # Step 1.5: Translate only the comments inside fenced code blocks
-        placeholder_map = await translate_comments_in_code_blocks(
-            placeholder_map,
-            language_code,
-            language_name,
-            is_rtl,
-            self._run_prompt,
-        )
-
         # Step 2: Split the document into chunks
         document_chunks = process_markdown(document_with_placeholders)
 
