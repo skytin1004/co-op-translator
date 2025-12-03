@@ -59,6 +59,7 @@ async def test_run_translation_calls_project_translator_and_sets_glossaries(tmp_
         add_disclaimer=False,
         translations_dir=None,
         image_dir=None,
+        lang_subdir=None,
     )
 
     # And translate_project should be invoked once with the update flag
@@ -93,6 +94,7 @@ async def test_run_translation_with_disclaimer_flag(tmp_path):
         add_disclaimer=True,
         translations_dir=None,
         image_dir=None,
+        lang_subdir=None,
     )
 
 

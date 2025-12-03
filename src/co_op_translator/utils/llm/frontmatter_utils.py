@@ -136,7 +136,9 @@ class FrontmatterParser:
                 return None, content
             return frontmatter, body
         except yaml.YAMLError as e:
-            logger.warning(f"Failed to parse frontmatter YAML: {e}. Treating as no frontmatter.")
+            logger.warning(
+                f"Failed to parse frontmatter YAML: {e}. Treating as no frontmatter."
+            )
             return None, content
 
     def split_fields(
@@ -212,7 +214,9 @@ class FrontmatterParser:
             )
             return f"---\n{frontmatter_yaml}---\n{body}"
         except Exception as e:
-            logger.error(f"Failed to serialize frontmatter to YAML: {e}. Returning body only.")
+            logger.error(
+                f"Failed to serialize frontmatter to YAML: {e}. Returning body only."
+            )
             return body
 
     def extract_translatable_fields_as_markdown(
@@ -412,7 +416,9 @@ def adjust_frontmatter_links(
                             generate_translated_filename,
                         )
 
-                        rel_path = os.path.relpath(translated_images_dir, translated_md_dir)
+                        rel_path = os.path.relpath(
+                            translated_images_dir, translated_md_dir
+                        )
                         new_filename = generate_translated_filename(
                             actual_image_path, language_code, root_dir
                         )
@@ -429,9 +435,7 @@ def adjust_frontmatter_links(
                         )
                 else:
                     # For non-images or when not using translated images, keep root-relative path
-                    logger.debug(
-                        f"Keeping root-relative path in '{field}': {value}"
-                    )
+                    logger.debug(f"Keeping root-relative path in '{field}': {value}")
             else:
                 # Regular relative path
                 original_linked_file_path = (md_file_path.parent / path).resolve()
@@ -443,7 +447,9 @@ def adjust_frontmatter_links(
                             generate_translated_filename,
                         )
 
-                        rel_path = os.path.relpath(translated_images_dir, translated_md_dir)
+                        rel_path = os.path.relpath(
+                            translated_images_dir, translated_md_dir
+                        )
                         new_filename = generate_translated_filename(
                             original_linked_file_path, language_code, root_dir
                         )

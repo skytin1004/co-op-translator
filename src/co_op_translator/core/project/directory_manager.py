@@ -21,6 +21,7 @@ class DirectoryManager:
         translations_dir: Path,
         language_codes: list[str],
         excluded_dirs: list[str],
+        lang_subdir: Path | None = None,
     ):
         """Initialize directory manager with project configuration.
 
@@ -34,6 +35,19 @@ class DirectoryManager:
         self.translations_dir = translations_dir
         self.language_codes = language_codes
         self.excluded_dirs = excluded_dirs
+        self.lang_subdir = Path(lang_subdir) if lang_subdir else None
+
+    def _get_language_root(self, lang_code: str) -> Path:
+        """Return the root directory for a specific language.
+
+        By default this is translations_dir / lang_code. When lang_subdir is set,
+        it becomes translations_dir / lang_code / lang_subdir, which is useful
+        for layouts like Docusaurus (i18n/<lang>/docusaurus-plugin-content-... ).
+        """
+        lang_dir = self.translations_dir / lang_code
+        if self.lang_subdir:
+            lang_dir = lang_dir / self.lang_subdir
+        return lang_dir
 
     def sync_directory_structure(
         self, markdown: bool = True, images: bool = True, notebooks: bool = True
@@ -81,7 +95,7 @@ class DirectoryManager:
 
         # Sync each language directory
         for lang_code in self.language_codes:
-            lang_dir = self.translations_dir / lang_code
+            lang_dir = self._get_language_root(lang_code)
             if not lang_dir.exists():
                 lang_dir.mkdir(parents=True)
                 logger.info(f"Created language directory: {lang_dir}")
@@ -159,7 +173,7 @@ class DirectoryManager:
         # Handle markdown files
         if markdown:
             for lang_code in self.language_codes:
-                translation_dir = self.translations_dir / lang_code
+                translation_dir = self._get_language_root(lang_code)
                 if not translation_dir.exists():
                     logger.info(
                         f"Translation directory does not exist: {translation_dir}"

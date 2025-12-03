@@ -151,11 +151,11 @@ class MarkdownTranslator(ABC):
         # Step 0: Extract and process frontmatter
         parser = get_frontmatter_parser()
         frontmatter, body = parser.extract_frontmatter(document)
-        
+
         preserve_fields = {}
         translate_fields = {}
         frontmatter_section = ""
-        
+
         if frontmatter:
             # Split frontmatter into preserve and translate fields
             preserve_fields, translate_fields = parser.split_fields(frontmatter)
@@ -163,7 +163,7 @@ class MarkdownTranslator(ABC):
                 f"Frontmatter split for '{md_file_path.name}': "
                 f"{len(preserve_fields)} preserve, {len(translate_fields)} translate"
             )
-            
+
             # Convert translatable fields to markdown for LLM
             if translate_fields:
                 frontmatter_section = parser.extract_translatable_fields_as_markdown(
@@ -173,7 +173,7 @@ class MarkdownTranslator(ABC):
                     f"Translatable frontmatter fields for '{md_file_path.name}': "
                     f"{list(translate_fields.keys())}"
                 )
-        
+
         # Use body for translation (frontmatter already extracted)
         document_to_translate = body
 
@@ -219,8 +219,10 @@ class MarkdownTranslator(ABC):
                     timeout=self.TRANSLATION_TIMEOUT_SECONDS,
                 )
                 # Parse translated fields back from markdown
-                translated_frontmatter_fields = parser.parse_translated_fields_from_markdown(
-                    translated_fm_markdown, translate_fields
+                translated_frontmatter_fields = (
+                    parser.parse_translated_fields_from_markdown(
+                        translated_fm_markdown, translate_fields
+                    )
                 )
                 logger.debug(
                     f"Translated frontmatter fields for '{md_file_path.name}': "
@@ -244,7 +246,7 @@ class MarkdownTranslator(ABC):
             merged_frontmatter = parser.merge_fields(
                 preserve_fields, translated_frontmatter_fields
             )
-            
+
             # Step 6.5: Adjust frontmatter links (same logic as markdown-only mode)
             adjusted_frontmatter = adjust_frontmatter_links(
                 merged_frontmatter,
@@ -255,7 +257,7 @@ class MarkdownTranslator(ABC):
                 self.image_dir,
                 translation_types,
             )
-            
+
             translated_content = parser.reconstruct_content(
                 adjusted_frontmatter, translated_content
             )

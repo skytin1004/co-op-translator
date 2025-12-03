@@ -48,6 +48,7 @@ class TranslationManager:
         notebook_translator=None,
         translation_types: list[str] = None,
         add_disclaimer: bool = True,
+        lang_subdir: Path | None = None,
     ):
         """Initialize translation manager with required components and settings.
 
@@ -82,9 +83,25 @@ class TranslationManager:
             translation_types = ["markdown", "notebook", "images"]
         self.translation_types = translation_types
         self.add_disclaimer = add_disclaimer
+        self.lang_subdir = Path(lang_subdir) if lang_subdir else None
         self.directory_manager = DirectoryManager(
-            root_dir, translations_dir, language_codes, excluded_dirs
+            root_dir,
+            translations_dir,
+            language_codes,
+            excluded_dirs,
+            lang_subdir=self.lang_subdir,
         )
+
+    def _get_language_root(self, language_code: str) -> Path:
+        """Return the root directory for a specific language.
+
+        Default layout is translations_dir / language_code. When lang_subdir is
+        set, we append it, yielding translations_dir / language_code / lang_subdir.
+        """
+        lang_dir = self.translations_dir / language_code
+        if self.lang_subdir:
+            lang_dir = lang_dir / self.lang_subdir
+        return lang_dir
 
     async def translate_image(
         self, image_path: Path, language_code: str, fast_mode: bool = False
@@ -150,7 +167,7 @@ class TranslationManager:
             document = read_input_file(file_path)
             if not document:
                 relative_path = file_path.relative_to(self.root_dir)
-                output_file = self.translations_dir / language_code / relative_path
+                output_file = self._get_language_root(language_code) / relative_path
                 handle_empty_document(file_path, output_file)
                 return str(output_file)
 
@@ -186,7 +203,7 @@ class TranslationManager:
                     return ""
 
             relative_path = file_path.relative_to(self.root_dir)
-            translated_path = self.translations_dir / language_code / relative_path
+            translated_path = self._get_language_root(language_code) / relative_path
             translated_path.parent.mkdir(parents=True, exist_ok=True)
 
             try:
@@ -278,7 +295,7 @@ class TranslationManager:
         if update:
             for language_code in self.language_codes:
                 delete_translated_markdown_files_by_language_code(
-                    language_code, self.translations_dir
+                    language_code, self.translations_dir, self.lang_subdir
                 )
                 logger.info(
                     f"Deleted all translated markdown files for language: {language_code}"
@@ -296,7 +313,7 @@ class TranslationManager:
                 for language_code in self.language_codes:
                     relative_path = md_file_path.relative_to(self.root_dir)
                     translated_md_path = (
-                        self.translations_dir / language_code / relative_path
+                        self._get_language_root(language_code) / relative_path
                     )
 
                     if not update and translated_md_path.exists():
@@ -358,7 +375,7 @@ class TranslationManager:
         if update:
             for language_code in self.language_codes:
                 # Find and delete translated notebook files
-                translation_dir = self.translations_dir / language_code
+                translation_dir = self._get_language_root(language_code)
                 if translation_dir.exists():
                     for notebook_file in translation_dir.rglob("*.ipynb"):
                         notebook_file.unlink()
@@ -378,7 +395,7 @@ class TranslationManager:
             for language_code in self.language_codes:
                 relative_path = notebook_file_path.relative_to(self.root_dir)
                 translated_notebook_path = (
-                    self.translations_dir / language_code / relative_path
+                    self._get_language_root(language_code) / relative_path
                 )
 
                 if translated_notebook_path.exists() and not update:

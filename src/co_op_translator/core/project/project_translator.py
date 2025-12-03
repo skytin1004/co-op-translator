@@ -38,6 +38,7 @@ class ProjectTranslator:
         add_disclaimer: bool = True,
         translations_dir=None,
         image_dir=None,
+        lang_subdir=None,
     ):
         """Initialize project translation environment.
 
@@ -50,6 +51,7 @@ class ProjectTranslator:
         """
         self.language_codes = language_codes.split()
         self.root_dir = Path(root_dir).resolve()
+        self.lang_subdir = Path(lang_subdir) if lang_subdir else None
         # Resolve translations_dir relative to root_dir when a relative path is provided.
         if translations_dir is not None:
             t_dir = Path(translations_dir)
@@ -132,6 +134,7 @@ class ProjectTranslator:
             self.translations_dir,
             self.language_codes,
             self.excluded_dirs,
+            lang_subdir=self.lang_subdir,
         )
         self.translation_manager = TranslationManager(
             self.root_dir,
@@ -146,6 +149,7 @@ class ProjectTranslator:
             self.notebook_translator,
             self.translation_types,
             add_disclaimer=add_disclaimer,
+            lang_subdir=self.lang_subdir,
         )
 
     def translate_project(
@@ -247,6 +251,7 @@ class ProjectTranslator:
             excluded_dirs=self.excluded_dirs,
             use_llm=True,
             use_rule=True,
+            lang_subdir=self.lang_subdir,
         )
 
         # Get low confidence files
