@@ -205,10 +205,13 @@ def run_translation(
     notebook: bool = False,
     debug: bool = False,
     save_logs: bool = False,
-    yes: bool = False,
+    yes: bool = True,
     glossaries: Iterable[str] | None = None,
+    add_disclaimer: bool = False,
     translations_dir: str | None = None,
     image_dir: str | None = None,
+    root_dirs: Iterable[str] | None = None,
+    groups: Iterable[tuple[str, str | None]] | None = None,
 ) -> None:
     ...
 ```
@@ -264,9 +267,9 @@ def run_translation(
 
 - **`yes`**
   - Type: `bool`
-  - Default: `False`
+  - Default: `True`
   - Meaning: Equivalent to CLI `-y/--yes`. Automatically confirm warnings (e.g., `all`, `update`) instead of prompting.
-  - In Localizeflow scenarios, you typically set this to `True` to guarantee non-interactive execution.
+  - In Localizeflow scenarios, this default ensures non-interactive execution. Set to `False` only when debugging locally and you want more CLI-like behavior.
 
 - **`glossaries`**
   - Type: `Iterable[str] | None`
@@ -275,6 +278,12 @@ def run_translation(
   - Behavior:
     - When provided, `co_op_translator.localizeflow.glossary.set_glossaries(glossaries)` is called before translation.
     - Markdown/image prompts are constructed to encourage the LLM to keep these terms unmodified.
+
+- **`add_disclaimer`**
+  - Type: `bool`
+  - Default: `False`
+  - Meaning: Whether to append a machine-translation disclaimer block to translated markdown/notebook files.
+  - Localizeflow default is `False` so that output is suitable for direct end-user display. Set to `True` only if you explicitly want the disclaimer.
 
 - **`translations_dir`**
   - Type: `str | None`
@@ -298,11 +307,32 @@ def run_translation(
   - Recommended usage:
     - `image_dir=str(root_dir / "public" / "translated_media")`
 
+- **`root_dirs`**
+  - Type: `Iterable[str] | None`
+  - Default: `None`
+  - Meaning: Optional list of additional source roots to translate when you want to run the same settings across multiple trees.
+  - Behavior:
+    - When provided (and `groups` is not set), `run_translation` runs once per `root_dir` in `root_dirs`.
+    - Each root uses the same `translations_dir` / `image_dir` configuration.
+
+- **`groups`**
+  - Type: `Iterable[tuple[str, str | None]] | None`
+  - Default: `None`
+  - Meaning: Advanced multi-root mapping. Each tuple is `(source_root, target_path)` and results in a separate `ProjectTranslator`.
+  - Behavior:
+    - When `groups` is provided, it takes precedence over `root_dir` and `root_dirs`.
+    - For a tuple `(src, dst)` **without** a `<lang>` placeholder:
+      - Outputs go under: `dst / <lang> / <relative_path_from_src>`.
+    - For a tuple where `dst` **contains** `<lang>`, for example `"i18n/<lang>/docusaurus-plugin-content-docs/current"`:
+      - The part before `<lang>` (here `"i18n"`) is used as `translations_dir`.
+      - The part after `<lang>` (here `"docusaurus-plugin-content-docs/current"`) becomes a language-specific subdirectory (`lang_subdir`).
+      - Final layout: `i18n/<lang>/docusaurus-plugin-content-docs/current/<relative_path_from_src>`.
+
 #### Behavioral differences vs CLI `translate`
 
-  - Localizeflow `run_translation` always constructs `ProjectTranslator` with `add_disclaimer=False`.
-  - As a result, translated markdown/notebooks do **not** include the machine-translation disclaimer block at the end.
-  - CLI `translate` defaults to `--add-disclaimer` (enabled), but for Localizeflow integration this is disabled by design for better UX.
+-  By default, Localizeflow `run_translation` constructs `ProjectTranslator` with `add_disclaimer=False`.
+-  As a result, translated markdown/notebooks do **not** include the machine-translation disclaimer block at the end unless you explicitly set `add_disclaimer=True`.
+-  CLI `translate` defaults to `--add-disclaimer` (enabled), but for Localizeflow integration this is disabled by design for better UX.
 
 - **Output directories**
   - CLI `translate`:
@@ -375,19 +405,13 @@ In this setup:
 
 In addition to a single `root_dir` or a simple list of `root_dirs`, Localizeflow
 can orchestrate **multiple independent source/output roots** by using the
-`groups` parameter on `run_translation`:
-
-- Type: `Iterable[tuple[str, str | None]]`
-- Each tuple is `(source_root, translations_dir)` for one logical content group.
-- When `groups` is provided, it takes precedence over `root_dir` and
-  `root_dirs`. The helper will:
-  - Run once per group.
-  - Construct a separate `ProjectTranslator` for each group.
-  - For each group, write outputs under:
-    `translations_dir / <lang> / <relative_path_from_source_root>`.
+`groups` parameter on `run_translation`.
 
 This is especially useful for Astro-style or multi-root documentation repos
-where you want to keep several content trees in sync.
+where you want to keep several content trees in sync, or for Docusaurus-style
+sites that use an `i18n/<lang>/...` layout.
+
+#### 1) Astro-style layout (basic `groups` usage)
 
 Example (two content groups: `docs/en` and `blog/en`):
 
@@ -432,6 +456,57 @@ In this setup:
   `src/content/blog/ko/...`, `src/content/blog/ja/...`, etc.
 - Each group is isolated via its own `ProjectTranslator` instance, so
   translated trees are automatically excluded from subsequent source scans.
+
+#### 2) Docusaurus-style layout (`i18n/<lang>/...` with `<lang>` placeholder)
+
+For Docusaurus sites, translations are typically stored under an
+`i18n/<lang>/...` directory. You can achieve this layout by using a `<lang>`
+placeholder in each group's `target_path`.
+
+Example (Docusaurus docs + pages):
+
+```python
+from pathlib import Path
+from co_op_translator.localizeflow import run_translation
+
+project_root = Path("/path/to/docusaurus-project").resolve()
+
+groups = [
+    # Docs content → i18n/<lang>/docusaurus-plugin-content-docs/current/...
+    (
+        str(project_root / "docs"),
+        "i18n/<lang>/docusaurus-plugin-content-docs/current",
+    ),
+    # Pages content → i18n/<lang>/docusaurus-plugin-content-pages/...
+    (
+        str(project_root / "src" / "pages"),
+        "i18n/<lang>/docusaurus-plugin-content-pages",
+    ),
+]
+
+run_translation(
+    language_codes="ko ja",
+    root_dir=str(project_root),  # ignored when groups is provided
+    markdown=True,
+    images=False,
+    notebook=False,
+    debug=False,
+    save_logs=True,
+    yes=True,
+    glossaries=["PR", "Issue"],
+    groups=groups,
+)
+```
+
+In this setup:
+
+- Files under `docs/...` become
+  `i18n/<lang>/docusaurus-plugin-content-docs/current/docs/...`.
+- Files under `src/pages/...` become
+  `i18n/<lang>/docusaurus-plugin-content-pages/src/pages/...`.
+- The `<lang>` placeholder is replaced with each language code from
+  `language_codes`, and the part of the path after `<lang>` is treated as a
+  language-specific subdirectory for that content group.
 
 ## CI tips (optional)
 
