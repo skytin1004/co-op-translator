@@ -11,6 +11,10 @@ from co_op_translator.config.llm_config.config import LLMConfig
 from co_op_translator.config.vision_config.config import VisionConfig
 from co_op_translator.core.project.project_translator import ProjectTranslator
 from co_op_translator.utils.common.logging_utils import setup_logging
+from co_op_translator.utils.common.file_utils import (
+    update_readme_languages_table,
+    update_readme_other_courses,
+)
 
 from co_op_translator.localizeflow.glossary import set_glossaries
 
@@ -209,6 +213,25 @@ def run_translation(
             )
         except Exception as e:  # pragma: no cover - best-effort logging only
             logger.debug(f"Failed to compute estimated tokens: {e}")
+
+        # Update README shared sections BEFORE translation (mirror CLI behavior)
+        readme_path = root_path / "README.md"
+        try:
+            if all_languages_selected:
+                if update_readme_languages_table(readme_path):
+                    click.echo("✅ Updated README languages table from template.")
+                else:
+                    click.echo(
+                        "ℹ️ README languages table not updated (markers missing or template unavailable)."
+                    )
+        except Exception as e:  # pragma: no cover - best-effort logging only
+            logger.warning(f"Failed to update README languages table: {e}")
+
+        try:
+            if update_readme_other_courses(readme_path):
+                click.echo("✅ Updated README 'Other courses' section from template.")
+        except Exception as e:  # pragma: no cover - best-effort logging only
+            logger.warning(f"Failed to update README 'Other courses': {e}")
 
         translator.translate_project(
             update=update,
