@@ -249,6 +249,12 @@ async def test_translate_project_async_with_outdated(
     mock_translation_manager.directory_manager.migrate_markdown_image_links = (
         MagicMock(return_value=0)
     )
+<<<<<<< HEAD
+=======
+    mock_translation_manager.directory_manager.migrate_notebook_image_links = (
+        MagicMock(return_value=0)
+    )
+>>>>>>> 878e941c538d958f067ba61f38dad6f19d20e793
     mock_translation_manager.translation_types = ["markdown", "notebook", "images"]
     mock_translation_manager.translate_project_async = (
         TranslationManager.translate_project_async.__get__(mock_translation_manager)
