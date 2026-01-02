@@ -83,9 +83,16 @@ def load_other_courses_template() -> str:
         return ""
 
 
-def update_readme_languages_table(readme_path: Path) -> bool:
+def update_readme_languages_table(
+    readme_path: Path, repo_url: str | None = None
+) -> bool:
     """
     Update README languages table between markers using bundled template.
+    Optionally appends a 'Prefer to Clone Locally?' advisory block INSIDE the markers.
+
+    If repo_url is provided, it will be used to personalize the snippet; otherwise
+    the advisory will be shown with placeholder stars as given by the user.
+
     Returns True if updated, False otherwise.
     """
     if not readme_path.exists():
@@ -101,8 +108,46 @@ def update_readme_languages_table(readme_path: Path) -> bool:
         template,
         flags=re.IGNORECASE,
     )
+
+    # Build advisory block (with optional repo URL substitution)
+    repo_url_value = (
+        repo_url.strip() if isinstance(repo_url, str) and repo_url.strip() else None
+    )
+    repo_name_value: str | None = None
+    if repo_url_value:
+        try:
+            tail = repo_url_value.rstrip("/").split("/")[-1]
+            repo_name_value = tail[:-4] if tail.endswith(".git") else tail
+        except Exception:
+            repo_name_value = None
+
+    advisory_repo_url = repo_url_value or "https://github.com/*****.git"
+    advisory_repo_name = repo_name_value or "*****"
+
+    advisory_block = (
+        "> **Prefer to Clone Locally?**\n\n"
+        "> This repository includes 50+ language translations which significantly increases the download size. To clone without translations, use sparse checkout:\n"
+        "> ```bash\n"
+        f"> git clone --filter=blob:none --sparse {advisory_repo_url}\n"
+        f"> cd {advisory_repo_name}\n"
+        "> git sparse-checkout set --no-cone '/*' '!translations' '!translated_images'\n"
+        "> ```\n"
+        "> This gives you everything you need to complete the course with a much faster download."
+    )
+
+    # Insert advisory INSIDE the template's markers
+    lower_t = template.lower()
+    start_idx = lower_t.find(LANG_TABLE_START.lower())
+    end_idx = lower_t.find(LANG_TABLE_END.lower())
+    if start_idx == -1 or end_idx == -1 or end_idx < start_idx:
+        return False
+
+    inner_content = template[start_idx + len(LANG_TABLE_START) : end_idx].strip()
+    combined_inner = (inner_content + "\n\n" + advisory_block).strip()
+    new_block = f"{LANG_TABLE_START}\n{combined_inner}\n{LANG_TABLE_END}"
+
     updated = _replace_between_markers_generic(
-        original, template, LANG_TABLE_START, LANG_TABLE_END
+        original, new_block, LANG_TABLE_START, LANG_TABLE_END
     )
     if updated != original:
         readme_path.write_text(updated, encoding="utf-8", newline="\n")
@@ -137,34 +182,11 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-# Minimum and fallback hash prefix lengths for translated image filenames.
-_HASH_PREFIX_LENGTHS = (16, 20, 24)
-
-# Registry used to detect hash prefix collisions within a single process.
-# Keys are (language_code, hash_prefix); values are the corresponding full hash.
-_HASH_PREFIX_REGISTRY: dict[tuple[str, str], str] = {}
+# Fixed hash prefix length (in hex characters) for translated image filenames.
+HASH_PREFIX_LENGTH = 16
 
 
-def _select_hash_prefix(full_hash: str, language_code: str) -> str:
-    """Select a collision-aware hash prefix for a translated filename.
-
-    Uses the shared in-memory registry to prefer the shortest prefix length
-    while ensuring that (language_code, prefix) is never associated with two
-    different full hashes within a single process.
-    """
-
-    hash_prefix = full_hash
-    for prefix_len in _HASH_PREFIX_LENGTHS:
-        candidate_prefix = full_hash[:prefix_len]
-        key = (language_code, candidate_prefix)
-        existing_full = _HASH_PREFIX_REGISTRY.get(key)
-
-        if existing_full is None or existing_full == full_hash:
-            _HASH_PREFIX_REGISTRY[key] = full_hash
-            hash_prefix = candidate_prefix
-            break
-
-    return hash_prefix
+# Using a fixed-length hash prefix; collision-aware selection logic removed.
 
 
 def read_input_file(input_file: str | Path) -> str:
@@ -350,8 +372,8 @@ def generate_translated_filename(
     # Compute the full path hash based on the normalized path
     full_hash = get_unique_id(str(original_filepath), root_dir)
 
-    # Choose the shortest available prefix that does not collide (per language)
-    hash_prefix = _select_hash_prefix(full_hash, language_code)
+    # Use a fixed-size prefix for deterministic filenames across runs/OS
+    hash_prefix = full_hash[:HASH_PREFIX_LENGTH]
 
     # Generate the new filename with the selected hash prefix and language code
     new_filename = f"{original_filename}.{hash_prefix}.{language_code}{file_ext}"
@@ -412,13 +434,18 @@ def filter_files(directory: str | Path, excluded_dirs, extension: str = None) ->
 def migrate_translated_image_filenames(
     image_dir: Path, language_codes: list[str]
 ) -> dict[str, str]:
-    """Rename translated images that still use full 64-hex hashes in filenames.
+    """Rename translated images to use a fixed 16-hex hash prefix.
 
-    This helper only operates within the given image_dir and for the specified
-    language codes. Files already using truncated hashes are left untouched.
+    This helper operates within the given image_dir and for the specified
+    language codes.
+
+    It handles the following cases:
+    - Legacy filenames that embed a full 64-hex path hash → shorten to first 16 hex
+    - Older truncated prefixes with 20 or 24 hex → shorten to first 16 hex
+    Files already using a 16-hex prefix are left untouched.
 
     Returns a mapping from old basenames to new basenames for use when
-    updating markdown links.
+    updating markdown/notebook links.
     """
 
     image_dir = Path(image_dir)
@@ -455,14 +482,20 @@ def migrate_translated_image_filenames(
         if lang_code not in language_codes:
             continue
 
-        # Only migrate legacy filenames that embed a full 64-hex path hash.
-        if not re.fullmatch(r"[0-9a-f]{64}", raw_hash):
+        # Operate on hex segments of length 64 (legacy full) or 24/20 (older truncation).
+        if not re.fullmatch(r"[0-9a-f]+", raw_hash):
+            continue
+        seg_len = len(raw_hash)
+        if seg_len == HASH_PREFIX_LENGTH:
+            # Already standardized to 16 hex; nothing to do
+            continue
+        if seg_len not in (64, 24, 20):
+            # Unknown pattern length; skip to be conservative
             continue
 
         base_name = ".".join(parts[:-3])
-        full_hash = raw_hash
-        hash_prefix = _select_hash_prefix(full_hash, lang_code)
-        new_name = f"{base_name}.{hash_prefix}.{lang_code}.{extension}"
+        new_prefix = raw_hash[:HASH_PREFIX_LENGTH]
+        new_name = f"{base_name}.{new_prefix}.{lang_code}.{extension}"
 
         if new_name == image_file.name:
             continue

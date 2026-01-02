@@ -1,7 +1,11 @@
 from pathlib import Path
 import logging
 import json
-from co_op_translator.utils.common.file_utils import get_unique_id
+import re
+from co_op_translator.utils.common.file_utils import (
+    get_unique_id,
+    get_filename_and_extension,
+)
 from pathlib import PurePosixPath
 from co_op_translator.utils.common.metadata_utils import (
     extract_metadata_from_content,
@@ -9,6 +13,7 @@ from co_op_translator.utils.common.metadata_utils import (
 from co_op_translator.config.constants import (
     SUPPORTED_MARKDOWN_EXTENSIONS,
     SUPPORTED_NOTEBOOK_EXTENSIONS,
+    SUPPORTED_IMAGE_EXTENSIONS,
 )
 
 logger = logging.getLogger(__name__)
@@ -25,33 +30,27 @@ class DirectoryManager:
         translations_dir: Path,
         language_codes: list[str],
         excluded_dirs: list[str],
-        lang_subdir: Path | None = None,
+        image_dir: Path | None = None,
     ):
         """Initialize directory manager with project configuration.
 
         Args:
             root_dir: Root directory containing original files
-            translations_dir: Directory for translated files
+            translations_dir: Directory for translated text files (markdown/notebooks)
             language_codes: List of target language codes
             excluded_dirs: List of directories to exclude
+            image_dir: Directory for translated images (flat tree, language code embedded in filename)
         """
         self.root_dir = root_dir
         self.translations_dir = translations_dir
         self.language_codes = language_codes
         self.excluded_dirs = excluded_dirs
-        self.lang_subdir = Path(lang_subdir) if lang_subdir else None
-
-    def _get_language_root(self, lang_code: str) -> Path:
-        """Return the root directory for a specific language.
-
-        By default this is translations_dir / lang_code. When lang_subdir is set,
-        it becomes translations_dir / lang_code / lang_subdir, which is useful
-        for layouts like Docusaurus (i18n/<lang>/docusaurus-plugin-content-... ).
-        """
-        lang_dir = self.translations_dir / lang_code
-        if self.lang_subdir:
-            lang_dir = lang_dir / self.lang_subdir
-        return lang_dir
+        # Default to root_dir / "translated_images" if not provided
+        self.image_dir = (
+            image_dir
+            if image_dir is not None
+            else (self.root_dir / "translated_images")
+        )
 
     def sync_directory_structure(
         self, markdown: bool = True, images: bool = True, notebooks: bool = True
@@ -329,21 +328,26 @@ class DirectoryManager:
 
         # Handle image files
         if images:
-            # Collect all image files in the original directory
-            original_images = {}  # path_hash -> original_file_path
+            # Collect all candidate original images (compute path hash map)
+            original_images: dict[str, Path] = {}
             try:
                 for original_img_file in self.root_dir.rglob("*"):
                     if not original_img_file.is_file():
                         continue
-
-                    if original_img_file.suffix.lower() not in [
-                        ".png",
-                        ".jpg",
-                        ".jpeg",
-                        ".gif",
-                    ]:
+                    # Skip any files under excluded directories (e.g., translations, translated_images, translated_images_fast)
+                    try:
+                        rel_path = original_img_file.relative_to(self.root_dir)
+                        if any(part in self.excluded_dirs for part in rel_path.parts):
+                            continue
+                    except ValueError:
+                        # Outside root_dir
                         continue
 
+                    if (
+                        original_img_file.suffix.lower()
+                        not in SUPPORTED_IMAGE_EXTENSIONS
+                    ):
+                        continue
                     try:
                         path_hash = get_unique_id(original_img_file, self.root_dir)
                         original_images[path_hash] = original_img_file
@@ -352,65 +356,95 @@ class DirectoryManager:
             except Exception as e:
                 logger.warning(f"Error scanning for original images: {e}")
 
-            for lang_code in self.language_codes:
-                translation_dir = self.translations_dir / lang_code
-                if not translation_dir.exists():
-                    logger.info(
-                        f"Image translation directory does not exist: {translation_dir}"
-                    )
-                    continue
+            image_dir = self.image_dir
+            if not image_dir.exists():
+                logger.info(f"Image directory does not exist: {image_dir}")
+            else:
+                logger.info(f"Checking translated images in: {image_dir}")
 
-                logger.info(f"Checking translated images in: {translation_dir}")
-
-                image_files = []
                 try:
-                    image_files = list(translation_dir.rglob("*"))
+                    image_files = list(image_dir.rglob("*"))
                 except Exception as e:
                     logger.warning(f"Error scanning for image files: {e}")
+                    image_files = []
 
                 for image_file in image_files:
                     if not image_file.is_file():
                         continue
-
-                    if image_file.suffix.lower() not in [
-                        ".png",
-                        ".jpg",
-                        ".jpeg",
-                        ".gif",
-                    ]:
+                    if image_file.suffix.lower() not in SUPPORTED_IMAGE_EXTENSIONS:
                         continue
 
                     try:
                         parts = image_file.name.split(".")
-                        if (
-                            len(parts) < 4
-                        ):  # Need at least name, hash/prefix, lang_code, and extension
+                        # Expect at least: base, hash/prefix, lang, ext
+                        if len(parts) < 4:
                             continue
 
-                        # Last part is extension, second to last is lang_code, third to last is path hash or prefix
                         extension = parts[-1]
                         lang_code = parts[-2]
                         path_hash_segment = parts[-3]
+                        base_name = ".".join(parts[:-3])
 
+                        # If language code is not supported (not in language_codes), delete it
                         if lang_code not in self.language_codes:
+                            try:
+                                image_file.unlink()
+                                removed_count += 1
+                                logger.debug(
+                                    f"Removed image with unsupported language code: {image_file}"
+                                )
+                            except Exception as e:
+                                logger.warning(
+                                    f"Failed to delete image with unsupported language {image_file}: {e}"
+                                )
                             continue
 
-                        # Determine if this translated image corresponds to any known original
-                        if len(path_hash_segment) < 64:
-                            has_match = any(
-                                h.startswith(path_hash_segment)
-                                for h in original_images.keys()
-                            )
+                        # Validate hash segment: only 16 or 64 lowercase hex characters are allowed
+                        segment = path_hash_segment.lower()
+                        hex_allowed = re.fullmatch(
+                            r"[0-9a-f]{16}|[0-9a-f]{64}", segment
+                        )
+
+                        if not hex_allowed:
+                            has_match = False
                         else:
-                            has_match = path_hash_segment in original_images
+                            # Match by full hash (64) or by 16-char prefix, and require base filename match
+                            if len(segment) == 16:
+                                candidates = [
+                                    h
+                                    for h in original_images.keys()
+                                    if h.startswith(segment)
+                                ]
+                                has_match = False
+                                for h in candidates:
+                                    orig_path = original_images[h]
+                                    orig_base, _ = get_filename_and_extension(orig_path)
+                                    if orig_base == base_name:
+                                        has_match = True
+                                        break
+                            elif len(segment) == 64:
+                                if segment in original_images:
+                                    orig_path = original_images[segment]
+                                    orig_base, _ = get_filename_and_extension(orig_path)
+                                    has_match = orig_base == base_name
+                                else:
+                                    has_match = False
+                            else:
+                                has_match = False
 
                         if not has_match:
-                            image_file.unlink()
-                            removed_count += 1
-                            logger.debug(f"Removed orphaned image: {image_file}")
+                            try:
+                                image_file.unlink()
+                                removed_count += 1
+                                logger.debug(f"Removed orphaned image: {image_file}")
+                            except Exception as e:
+                                logger.warning(
+                                    f"Failed to delete orphaned image {image_file}: {e}"
+                                )
+                                continue
 
                             parent = image_file.parent
-                            while parent != translation_dir:
+                            while parent != image_dir:
                                 if parent.exists() and not any(parent.iterdir()):
                                     try:
                                         parent.rmdir()
