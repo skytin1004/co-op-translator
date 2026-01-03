@@ -17,6 +17,7 @@ from co_op_translator.config.constants import (
 
 from .directory_manager import DirectoryManager
 from .translation_manager import TranslationManager
+from co_op_translator.config.base_config import Config
 
 logger = logging.getLogger(__name__)
 
@@ -46,7 +47,16 @@ class ProjectTranslator:
             root_dir: Root directory of the project to translate
             translation_types: List of file types to translate (e.g., ["markdown", "images", "notebook"])
         """
-        self.language_codes = language_codes.split()
+        if isinstance(language_codes, str):
+            lang_str = language_codes.strip()
+            if lang_str.lower() == "all":
+                self.language_codes = Config.get_language_codes()
+            else:
+                self.language_codes = [code for code in lang_str.split() if code]
+        elif isinstance(language_codes, list):
+            self.language_codes = language_codes
+        else:
+            raise ValueError("language_codes must be a space-separated string or a list of codes")
         self.root_dir = Path(root_dir).resolve()
         # Resolve translations_dir relative to root_dir when a relative path is provided.
         if translations_dir is not None:

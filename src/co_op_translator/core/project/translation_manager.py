@@ -18,6 +18,9 @@ from co_op_translator.utils.common.file_utils import (
     migrate_translated_image_filenames,
 )
 from co_op_translator.utils.common.metadata_utils import calculate_file_hash
+from co_op_translator.utils.common.metadata_utils import (
+    extract_metadata_from_content,
+)
 from co_op_translator.config.constants import SUPPORTED_MARKDOWN_EXTENSIONS
 from co_op_translator.core.llm.markdown_translator import MarkdownTranslator
 from co_op_translator.core.project.directory_manager import DirectoryManager
@@ -1063,17 +1066,8 @@ class TranslationManager:
 
             # Handle markdown files with HTML comment metadata
             content = translation_file.read_text(encoding="utf-8")
-            metadata_match = re.search(
-                r"<!--\s*CO_OP_TRANSLATOR_METADATA:\s*(.*?)\s*-->",
-                content,
-                re.DOTALL,
-            )
-            if not metadata_match:
-                return True
-
-            try:
-                metadata = json.loads(metadata_match.group(1))
-            except json.JSONDecodeError:
+            metadata = extract_metadata_from_content(content)
+            if not metadata:
                 return True
 
             # Determine if content has changed since last translation
