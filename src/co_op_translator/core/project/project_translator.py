@@ -36,6 +36,7 @@ class ProjectTranslator:
         add_disclaimer: bool = True,
         translations_dir=None,
         image_dir=None,
+        enable_cross_language_image_cleanup: bool = True,
     ):
         """Initialize project translation environment.
 
@@ -145,6 +146,7 @@ class ProjectTranslator:
             self.notebook_translator,
             self.translation_types,
             add_disclaimer=add_disclaimer,
+            enable_cross_language_image_cleanup=enable_cross_language_image_cleanup,
         )
 
     def translate_project(
@@ -161,7 +163,7 @@ class ProjectTranslator:
             update: Whether to update existing translations
             fast_mode: Whether to use faster translation method
         """
-        asyncio.run(
+        return asyncio.run(
             self.translation_manager.translate_project_async(
                 update=update,
                 fast_mode=fast_mode,

@@ -8,6 +8,11 @@ import click
 import importlib.resources
 import yaml
 import os
+import math
+import json
+import time
+from datetime import datetime, timezone
+from concurrent.futures import ProcessPoolExecutor, as_completed
 from pathlib import Path
 
 from co_op_translator.core.project.project_translator import ProjectTranslator
@@ -21,6 +26,47 @@ from co_op_translator.utils.common.file_utils import (
 )
 
 logger = logging.getLogger(__name__)
+
+
+def _run_language_worker(
+    lang_code: str,
+    root_dir: str,
+    translation_types: list,
+    add_disclaimer: bool,
+    update: bool,
+    fast: bool,
+):
+    t0 = time.time()
+    try:
+        single = ProjectTranslator(
+            lang_code,
+            root_dir,
+            translation_types=translation_types,
+            add_disclaimer=add_disclaimer,
+            enable_cross_language_image_cleanup=False,
+        )
+        files_modified, errors = single.translate_project(update=update, fast_mode=fast)
+        duration_ms = int((time.time() - t0) * 1000)
+        if errors:
+            return {
+                "status": "failed",
+                "files": files_modified or 0,
+                "duration_ms": duration_ms,
+                "error": "; ".join(errors[:3]),
+            }
+        return {
+            "status": "success",
+            "files": files_modified or 0,
+            "duration_ms": duration_ms,
+        }
+    except Exception as e:
+        duration_ms = int((time.time() - t0) * 1000)
+        return {
+            "status": "failed",
+            "files": 0,
+            "duration_ms": duration_ms,
+            "error": str(e),
+        }
 
 
 @click.command(name="translate")
@@ -87,6 +133,27 @@ logger = logging.getLogger(__name__)
     default=None,
     help="Repository URL to show in the 'Prefer to Clone Locally?' advisory inside the languages table.",
 )
+@click.option(
+    "--parallel",
+    is_flag=True,
+    help="Enable parallel language execution (opt-in).",
+)
+@click.option(
+    "--max-workers",
+    type=int,
+    default=None,
+    help="Max concurrent language workers (default: auto).",
+)
+@click.option(
+    "--fail-fast/--no-fail-fast",
+    default=False,
+    help="Stop on first failure vs continue (default: continue).",
+)
+@click.option(
+    "--emit-results-json",
+    default=None,
+    help="Write per-language execution summary to PATH.",
+)
 def translate_command(
     language_codes,
     root_dir,
@@ -102,6 +169,10 @@ def translate_command(
     min_confidence,
     add_disclaimer,
     repo_url,
+    parallel,
+    max_workers,
+    fail_fast,
+    emit_results_json,
 ):
     """
     CLI for translating project files.
@@ -268,7 +339,7 @@ def translate_command(
             else:
                 click.echo("Auto-confirming update operation...")
 
-        # Initialize ProjectTranslator with determined settings
+        # Initialize ProjectTranslator with determined settings (used for non-parallel path and fix flow)
         translator = ProjectTranslator(
             language_codes,
             root_dir,
@@ -354,15 +425,132 @@ def translate_command(
             )
 
         else:
-            # Call translate_project with determined settings
-            translator.translate_project(
-                update=update,
-                fast_mode=fast,
-            )
+            # Parallel execution per language when requested
+            if parallel:
+                # Build list of languages
+                if language_codes.lower() == "all":
+                    lang_list = Config.get_language_codes()
+                else:
+                    lang_list = [
+                        code.strip() for code in language_codes.split() if code.strip()
+                    ]
 
-            logger.info(
-                f"Project translation completed for languages: {language_codes}"
-            )
+                # Auto max-workers heuristic
+                def _auto_max_workers():
+                    cpu = os.cpu_count() or 1
+                    return min(cpu, 8, max(2, math.floor(cpu / 2)))
+
+                workers = (
+                    max_workers
+                    if (
+                        isinstance(max_workers, int) and max_workers and max_workers > 0
+                    )
+                    else _auto_max_workers()
+                )
+
+                click.echo(
+                    f"🧵 Parallel mode enabled: {workers} worker(s) for {len(lang_list)} language(s)"
+                )
+
+                started_at = datetime.now(timezone.utc)
+                results_by_lang = {}
+
+                stop_scheduling = False
+                with ProcessPoolExecutor(max_workers=workers) as executor:
+                    in_flight = {}
+                    it = iter(lang_list)
+                    # Prime initial tasks
+                    for _ in range(min(workers, len(lang_list))):
+                        try:
+                            l = next(it)
+                        except StopIteration:
+                            break
+                        fut = executor.submit(
+                            _run_language_worker,
+                            l,
+                            str(root_path),
+                            translation_types,
+                            add_disclaimer,
+                            update,
+                            fast,
+                        )
+                        in_flight[fut] = l
+
+                    while in_flight:
+                        for fut in as_completed(list(in_flight.keys()), timeout=None):
+                            lang = in_flight.pop(fut)
+                            try:
+                                res = fut.result()
+                            except Exception as e:
+                                res = {
+                                    "status": "failed",
+                                    "files": 0,
+                                    "duration_ms": 0,
+                                    "error": str(e),
+                                }
+                            results_by_lang[lang] = res
+                            if fail_fast and res.get("status") == "failed":
+                                stop_scheduling = True
+                            if not stop_scheduling:
+                                try:
+                                    l = next(it)
+                                    nf = executor.submit(
+                                        _run_language_worker,
+                                        l,
+                                        str(root_path),
+                                        translation_types,
+                                        add_disclaimer,
+                                        update,
+                                        fast,
+                                    )
+                                    in_flight[nf] = l
+                                except StopIteration:
+                                    pass
+
+                finished_at = datetime.now(timezone.utc)
+
+                if emit_results_json:
+                    summary = {
+                        "meta": {
+                            "parallel": True,
+                            "max_workers": workers,
+                            "started_at": started_at.isoformat(),
+                            "finished_at": finished_at.isoformat(),
+                        },
+                        "languages": results_by_lang,
+                    }
+                    try:
+                        out_path = Path(emit_results_json)
+                        out_path.parent.mkdir(parents=True, exist_ok=True)
+                        with open(out_path, "w", encoding="utf-8") as f:
+                            json.dump(summary, f, ensure_ascii=False, indent=2)
+                        click.echo(f"📝 Wrote results JSON to: {out_path}")
+                    except Exception as e:
+                        logger.warning(f"Failed to write results JSON: {e}")
+
+                failed_langs = [
+                    k
+                    for k, v in results_by_lang.items()
+                    if v.get("status") != "success"
+                ]
+                if failed_langs:
+                    click.echo(f"❌ Failed languages: {', '.join(failed_langs)}")
+                else:
+                    click.echo("✅ All languages completed successfully")
+
+                logger.info(
+                    f"Project translation completed for languages (parallel): {' '.join(lang_list)}"
+                )
+            else:
+                # Sequential behavior (unchanged)
+                translator.translate_project(
+                    update=update,
+                    fast_mode=fast,
+                )
+
+                logger.info(
+                    f"Project translation completed for languages: {language_codes}"
+                )
 
     except Exception as e:
         if debug:

@@ -50,6 +50,7 @@ class TranslationManager:
         notebook_translator=None,
         translation_types: list[str] = None,
         add_disclaimer: bool = True,
+        enable_cross_language_image_cleanup: bool = True,
     ):
         """Initialize translation manager with required components and settings.
 
@@ -91,6 +92,24 @@ class TranslationManager:
             excluded_dirs,
             image_dir=image_dir,
         )
+        self.enable_cross_language_image_cleanup = enable_cross_language_image_cleanup
+
+    def _lang_label(self) -> str:
+        try:
+            codes = [c for c in self.language_codes if c]
+            if not codes:
+                return ""
+            return f"[{' '.join(codes)}]"
+        except Exception:
+            return ""
+
+    def _with_lang(self, base: str) -> str:
+        label = self._lang_label()
+        if not label:
+            return base
+        if label in base:
+            return base
+        return f"{base} {label}"
 
     async def translate_image(
         self, image_path: Path, language_code: str, fast_mode: bool = False
@@ -614,7 +633,9 @@ class TranslationManager:
 
             # Clean up files no longer needed in target directories
             logger.info("Removing orphaned files...")
-            with tqdm(total=1, desc="🧹 Cleaning orphaned files") as cleanup_progress:
+            with tqdm(
+                total=1, desc=self._with_lang("🧹 Cleaning orphaned files")
+            ) as cleanup_progress:
                 # Markdown/Notebook cleanup scoped to selected languages
                 removed_md_nb = self.directory_manager.cleanup_orphaned_translations(
                     markdown="markdown" in self.translation_types,
@@ -622,22 +643,31 @@ class TranslationManager:
                     notebooks="notebook" in self.translation_types,
                 )
 
-                # Image cleanup should consider ALL supported languages to avoid removing other languages
+                # Image cleanup can be cross-language by default; restrict to current language scope when configured
                 removed_imgs = 0
                 if "images" in self.translation_types:
-                    cleanup_langs = Config.get_language_codes()
-                    img_dm = DirectoryManager(
-                        self.root_dir,
-                        self.translations_dir,
-                        cleanup_langs,
-                        self.excluded_dirs,
-                        image_dir=self.image_dir,
-                    )
-                    removed_imgs = img_dm.cleanup_orphaned_translations(
-                        markdown=False,
-                        images=True,
-                        notebooks=False,
-                    )
+                    if self.enable_cross_language_image_cleanup:
+                        cleanup_langs = Config.get_language_codes()
+                        img_dm = DirectoryManager(
+                            self.root_dir,
+                            self.translations_dir,
+                            cleanup_langs,
+                            self.excluded_dirs,
+                            image_dir=self.image_dir,
+                        )
+                        removed_imgs = img_dm.cleanup_orphaned_translations(
+                            markdown=False,
+                            images=True,
+                            notebooks=False,
+                        )
+                    else:
+                        removed_imgs = (
+                            self.directory_manager.cleanup_orphaned_translations(
+                                markdown=False,
+                                images=True,
+                                notebooks=False,
+                            )
+                        )
 
                 removed_total = (removed_md_nb or 0) + (removed_imgs or 0)
                 cleanup_progress.set_postfix_str(
@@ -647,7 +677,9 @@ class TranslationManager:
 
             # Create and update directory structure to match source
             logger.info("Synchronizing directory structure...")
-            with tqdm(total=1, desc="📁 Synchronizing directories") as sync_progress:
+            with tqdm(
+                total=1, desc=self._with_lang("📁 Synchronizing directories")
+            ) as sync_progress:
                 created, removed, _ = self.directory_manager.sync_directory_structure(
                     markdown="markdown" in self.translation_types,
                     images="images" in self.translation_types,
@@ -665,7 +697,9 @@ class TranslationManager:
                 "markdown" in self.translation_types
                 or "notebook" in self.translation_types
             ):
-                with tqdm(total=1, desc="🔍 Checking translations") as check_progress:
+                with tqdm(
+                    total=1, desc=self._with_lang("🔍 Checking translations")
+                ) as check_progress:
                     outdated_files = self.get_outdated_translations()
                     check_progress.set_postfix_str(
                         "None"
@@ -699,46 +733,90 @@ class TranslationManager:
                 total_modified += img_modified
                 all_errors.extend(img_errors)
 
-                # Final image cleanup: ALWAYS across ALL supported languages (like -l "all").
-                cleanup_langs = Config.get_language_codes()
-                logger.info(
-                    "Performing final cleanup of translated images across ALL supported languages..."
-                )
-
-                dm_all = DirectoryManager(
-                    self.root_dir,
-                    self.translations_dir,
-                    cleanup_langs,
-                    self.excluded_dirs,
-                    image_dir=self.image_dir,
-                )
-                with tqdm(total=1, desc="🧹 Final image cleanup") as cleanup_progress:
-                    removed_after = dm_all.cleanup_orphaned_translations(
-                        markdown=False,
-                        images=True,
-                        notebooks=False,
+                # Final image cleanup
+                if self.enable_cross_language_image_cleanup:
+                    # Across ALL supported languages (like -l "all").
+                    cleanup_langs = Config.get_language_codes()
+                    logger.info(
+                        "Performing final cleanup of translated images across ALL supported languages..."
                     )
-                    cleanup_progress.set_postfix_str(
-                        "None" if removed_after == 0 else f"Removed: {removed_after}"
-                    )
-                    cleanup_progress.update(1)
 
-                # Also cleanup fast-mode images if that directory exists
-                fast_image_dir = self.root_dir / "translated_images_fast"
-                if fast_image_dir.exists():
-                    temp_dm = DirectoryManager(
+                    dm_all = DirectoryManager(
                         self.root_dir,
                         self.translations_dir,
                         cleanup_langs,
                         self.excluded_dirs,
-                        image_dir=fast_image_dir,
+                        image_dir=self.image_dir,
                     )
-                    removed_fast = temp_dm.cleanup_orphaned_translations(
-                        markdown=False, images=True, notebooks=False
-                    )
+                    with tqdm(
+                        total=1, desc=self._with_lang("🧹 Final image cleanup")
+                    ) as cleanup_progress:
+                        removed_after = dm_all.cleanup_orphaned_translations(
+                            markdown=False,
+                            images=True,
+                            notebooks=False,
+                        )
+                        cleanup_progress.set_postfix_str(
+                            "None"
+                            if removed_after == 0
+                            else f"Removed: {removed_after}"
+                        )
+                        cleanup_progress.update(1)
+
+                    # Also cleanup fast-mode images if that directory exists
+                    fast_image_dir = self.root_dir / "translated_images_fast"
+                    if fast_image_dir.exists():
+                        temp_dm = DirectoryManager(
+                            self.root_dir,
+                            self.translations_dir,
+                            cleanup_langs,
+                            self.excluded_dirs,
+                            image_dir=fast_image_dir,
+                        )
+                        removed_fast = temp_dm.cleanup_orphaned_translations(
+                            markdown=False, images=True, notebooks=False
+                        )
+                        logger.info(
+                            f"Final cleanup (fast) removed {removed_fast} files from {fast_image_dir}"
+                        )
+                else:
+                    # Restrict cleanup to current language scope only
                     logger.info(
-                        f"Final cleanup (fast) removed {removed_fast} files from {fast_image_dir}"
+                        "Performing final cleanup of translated images for current language scope..."
                     )
+                    with tqdm(
+                        total=1, desc=self._with_lang("🧹 Final image cleanup")
+                    ) as cleanup_progress:
+                        removed_after = (
+                            self.directory_manager.cleanup_orphaned_translations(
+                                markdown=False,
+                                images=True,
+                                notebooks=False,
+                            )
+                        )
+                        cleanup_progress.set_postfix_str(
+                            "None"
+                            if removed_after == 0
+                            else f"Removed: {removed_after}"
+                        )
+                        cleanup_progress.update(1)
+
+                    # Also cleanup fast-mode images for current language scope
+                    fast_image_dir = self.root_dir / "translated_images_fast"
+                    if fast_image_dir.exists():
+                        temp_dm = DirectoryManager(
+                            self.root_dir,
+                            self.translations_dir,
+                            self.language_codes,
+                            self.excluded_dirs,
+                            image_dir=fast_image_dir,
+                        )
+                        removed_fast = temp_dm.cleanup_orphaned_translations(
+                            markdown=False, images=True, notebooks=False
+                        )
+                        logger.info(
+                            f"Final cleanup (fast) removed {removed_fast} files from {fast_image_dir}"
+                        )
 
         except Exception as e:
             logger.error(f"Error during translation: {e}")
@@ -841,22 +919,28 @@ class TranslationManager:
         # Notebooks
         if notebook_items:
             with tqdm(
-                total=len(notebook_items), desc="📓 Retranslating outdated notebooks"
+                total=len(notebook_items),
+                desc=self._with_lang("📓 Retranslating outdated notebooks"),
             ) as progress_bar:
                 for original_file, language_code in notebook_items:
                     await self.translate_notebook(original_file, language_code)
                     progress_bar.update(1)
-                    progress_bar.set_postfix_str(f"Current: {original_file.name}")
+                    progress_bar.set_postfix_str(
+                        f"Current: {original_file.name} [{language_code}]"
+                    )
 
         # Markdown files
         if markdown_items:
             with tqdm(
-                total=len(markdown_items), desc="📝 Retranslating outdated markdowns"
+                total=len(markdown_items),
+                desc=self._with_lang("📝 Retranslating outdated markdowns"),
             ) as progress_bar:
                 for original_file, language_code in markdown_items:
                     await self.translate_markdown(original_file, language_code)
                     progress_bar.update(1)
-                    progress_bar.set_postfix_str(f"Current: {original_file.name}")
+                    progress_bar.set_postfix_str(
+                        f"Current: {original_file.name} [{language_code}]"
+                    )
 
     async def check_and_retry_translations(self):
         """Check translated files for formatting errors and retry failed translations.
@@ -892,7 +976,7 @@ class TranslationManager:
 
         # Identify files needing translation due to missing or format issues
         with tqdm(
-            total=total_files, desc="Checking files", unit="file"
+            total=total_files, desc=self._with_lang("Checking files"), unit="file"
         ) as progress_bar:
             for md_file_path, language_code in all_markdown_files:
                 md_file_path = Path(md_file_path).resolve()
@@ -932,7 +1016,9 @@ class TranslationManager:
 
             # Create a progress bar for translations
             with tqdm(
-                total=len(files_to_translate), desc="Translating files", unit="file"
+                total=len(files_to_translate),
+                desc=self._with_lang("Translating files"),
+                unit="file",
             ) as translation_progress_bar:
                 for md_file_path, language_code in files_to_translate:
                     logger.info(f"Translating {md_file_path} to {language_code}...")
@@ -981,7 +1067,7 @@ class TranslationManager:
             task_queue.put_nowait(None)
 
         # Setup progress tracking UI
-        with tqdm(total=len(tasks), desc=task_desc) as progress_bar:
+        with tqdm(total=len(tasks), desc=self._with_lang(task_desc)) as progress_bar:
             # Launch parallel worker tasks for processing
             workers = [
                 asyncio.create_task(worker(task_queue, progress_bar))
@@ -1017,12 +1103,14 @@ class TranslationManager:
         total_tasks = len(tasks)
 
         results = []
-        with tqdm(total=total_tasks, desc=task_desc) as progress_bar:
+        with tqdm(total=total_tasks, desc=self._with_lang(task_desc)) as progress_bar:
             for i, task in enumerate(tasks):
                 # Show current file name in progress bar if available
                 if file_names and i < len(file_names):
                     file_name = file_names[i]
-                    progress_bar.set_description(f"🔄 Translating: {file_name}")
+                    progress_bar.set_description(
+                        self._with_lang(f"🔄 Translating: {file_name}")
+                    )
 
                 # Execute task and get result
                 result = await task()  # Execute each task sequentially
@@ -1033,7 +1121,7 @@ class TranslationManager:
 
                 # Reset description after completion if needed
                 if i + 1 < total_tasks:
-                    progress_bar.set_description(task_desc)
+                    progress_bar.set_description(self._with_lang(task_desc))
 
         return results
 
