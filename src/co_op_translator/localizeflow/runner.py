@@ -38,6 +38,7 @@ def run_translation(
     image_dir: str | None = None,
     root_dirs: Iterable[str] | None = None,
     groups: Iterable[tuple[str, str | None]] | None = None,
+    repo_url: str | None = None,
 ) -> None:
     """Programmatic translation entrypoint mirroring the translate CLI options.
 
@@ -81,6 +82,7 @@ def run_translation(
         translations_dir: str | None,
         image_dir: str | None,
         lang_subdir: str | None,
+        repo_url: str | None,
     ) -> None:
         # Validate configuration
         Config.check_configuration()
@@ -217,13 +219,13 @@ def run_translation(
         # Update README shared sections BEFORE translation (mirror CLI behavior)
         readme_path = root_path / "README.md"
         try:
-            if all_languages_selected:
-                if update_readme_languages_table(readme_path):
-                    click.echo("✅ Updated README languages table from template.")
-                else:
-                    click.echo(
-                        "ℹ️ README languages table not updated (markers missing or template unavailable)."
-                    )
+            # Always attempt to update, and personalize advisory using repo_url when provided
+            if update_readme_languages_table(readme_path, repo_url=repo_url):
+                click.echo("✅ Updated README languages table from template.")
+            else:
+                click.echo(
+                    "ℹ️ README languages table not updated (markers missing or template unavailable)."
+                )
         except Exception as e:  # pragma: no cover - best-effort logging only
             logger.warning(f"Failed to update README languages table: {e}")
 
@@ -264,6 +266,7 @@ def run_translation(
                 translations_dir=per_translations_dir,
                 image_dir=image_dir,
                 lang_subdir=per_lang_subdir,
+                repo_url=repo_url,
             )
         return
 
@@ -284,6 +287,7 @@ def run_translation(
                 translations_dir=translations_dir,
                 image_dir=image_dir,
                 lang_subdir=None,
+                repo_url=repo_url,
             )
         return
 
@@ -302,4 +306,5 @@ def run_translation(
         translations_dir=translations_dir,
         image_dir=image_dir,
         lang_subdir=None,
+        repo_url=repo_url,
     )
