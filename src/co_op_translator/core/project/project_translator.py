@@ -135,6 +135,7 @@ class ProjectTranslator:
             self.language_codes,
             self.excluded_dirs,
             image_dir=self.image_dir,
+            lang_subdir=self.lang_subdir,
         )
         self.translation_manager = TranslationManager(
             self.root_dir,

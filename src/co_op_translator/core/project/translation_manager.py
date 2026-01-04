@@ -92,6 +92,7 @@ class TranslationManager:
             language_codes,
             excluded_dirs,
             image_dir=image_dir,
+            lang_subdir=lang_subdir,
         )
 
     def _get_language_root(self, language_code: str) -> Path:
