@@ -25,6 +25,7 @@ from co_op_translator.utils.common.task_utils import worker
 from co_op_translator.utils.llm.markdown_utils import compare_line_breaks
 from co_op_translator.utils.common.metadata_utils import is_notebook_up_to_date
 from co_op_translator.config.base_config import Config
+from co_op_translator.utils.llm.token_utils import count_tokens
 
 logger = logging.getLogger(__name__)
 
@@ -795,13 +796,36 @@ class TranslationManager:
         Returns a dict: { 'outdated': int, 'markdown': int, 'notebook': int, 'total': int }
         Only includes categories enabled by `translation_types`.
         """
-        breakdown = {"outdated": 0, "markdown": 0, "notebook": 0}
+        breakdown = {"outdated": 0, "markdown": 0, "notebook": 0, "images": 0}
 
         # Outdated retranslation set (when md/nb enabled)
         if ("markdown" in self.translation_types) or (
             "notebook" in self.translation_types
         ):
-            outdated = self.get_outdated_translations()
+            if update:
+                # Mirror check_outdated_files(update=True): treat all existing translations as outdated
+                files: list[tuple[Path, Path]] = []
+                for lang_code in self.language_codes:
+                    translation_dir = self.translations_dir / lang_code
+                    if not translation_dir.exists():
+                        continue
+                    trans_files: list[Path] = []
+                    for ext in SUPPORTED_MARKDOWN_EXTENSIONS:
+                        trans_files.extend(translation_dir.rglob(f"*{ext}"))
+                    for ext in self.supported_notebook_extensions:
+                        trans_files.extend(translation_dir.rglob(f"*{ext}"))
+
+                    for trans_file in trans_files:
+                        try:
+                            rel = trans_file.relative_to(translation_dir)
+                            original = self.root_dir / rel
+                            if original.exists():
+                                files.append((original, trans_file))
+                        except Exception:
+                            continue
+                outdated = files
+            else:
+                outdated = self.get_outdated_translations()
             if outdated:
                 breakdown["outdated"] = self._estimate_tokens_for_outdated(outdated)
 
@@ -816,6 +840,12 @@ class TranslationManager:
             nb_pending = self._gather_pending_notebooks(update=update)
             if nb_pending:
                 breakdown["notebook"] = self._estimate_tokens_for_sources(nb_pending)
+
+        if "images" in self.translation_types:
+            try:
+                breakdown["images"] = self._estimate_tokens_for_images(update=update)
+            except Exception:
+                breakdown["images"] = 0
 
         total = sum(breakdown.values())
         return {**breakdown, "total": total}
@@ -836,17 +866,32 @@ class TranslationManager:
         sources = [orig for orig, _ in outdated_files]
         return self._estimate_tokens_for_sources(sources)
 
+    def _estimate_tokens_for_images(self, update: bool) -> int:
+        count = 0
+        image_files = filter_files(self.root_dir, self.excluded_dirs)
+        for image_file_path in image_files:
+            image_file_path = Path(image_file_path).resolve()
+            base, ext = get_filename_and_extension(image_file_path)
+            if ext in self.supported_image_extensions:
+                for language_code in self.language_codes:
+                    translated_filename = generate_translated_filename(
+                        image_file_path, language_code, self.root_dir
+                    )
+                    translated_image_path = Path(self.image_dir) / translated_filename
+                    if not update and translated_image_path.exists():
+                        continue
+                    count += 1
+        return count * 5
+
     def _gather_pending_markdown(self, update: bool) -> List[Path]:
         pending: List[Path] = []
         markdown_files = filter_files(self.root_dir, self.excluded_dirs)
         for md_file_path in markdown_files:
             md_file_path = md_file_path.resolve()
-            if md_file_path.suffix == ".md":
+            if md_file_path.suffix.lower() in SUPPORTED_MARKDOWN_EXTENSIONS:
                 for language_code in self.language_codes:
                     relative_path = md_file_path.relative_to(self.root_dir)
-                    translated_md_path = (
-                        self.translations_dir / language_code / relative_path
-                    )
+                    translated_md_path = self._get_language_root(language_code) / relative_path
                     if not update and translated_md_path.exists():
                         continue
                     pending.append(md_file_path)
@@ -861,9 +906,7 @@ class TranslationManager:
             notebook_file_path = notebook_file_path.resolve()
             for language_code in self.language_codes:
                 relative_path = notebook_file_path.relative_to(self.root_dir)
-                translated_notebook_path = (
-                    self.translations_dir / language_code / relative_path
-                )
+                translated_notebook_path = self._get_language_root(language_code) / relative_path
                 if translated_notebook_path.exists() and not update:
                     if is_notebook_up_to_date(
                         notebook_file_path, translated_notebook_path

@@ -87,6 +87,11 @@ logger = logging.getLogger(__name__)
     default=None,
     help="Repository URL to show in the 'Prefer to Clone Locally?' advisory inside the languages table.",
 )
+@click.option(
+    "--dry-run",
+    is_flag=True,
+    help="Estimate tokens and exit without modifying files or running translation.",
+)
 def translate_command(
     language_codes,
     root_dir,
@@ -102,6 +107,7 @@ def translate_command(
     min_confidence,
     add_disclaimer,
     repo_url,
+    dry_run,
 ):
     """
     CLI for translating project files.
@@ -285,6 +291,8 @@ def translate_command(
                 parts.append(f"markdown: {est['markdown']:,}")
             if "notebook" in translation_types and est.get("notebook", 0):
                 parts.append(f"notebook: {est['notebook']:,}")
+            if "images" in translation_types and est.get("images", 0):
+                parts.append(f"images: {est['images']:,}")
             # Outdated is only applicable when md/nb are enabled
             if (
                 "markdown" in translation_types or "notebook" in translation_types
@@ -296,6 +304,11 @@ def translate_command(
             )
         except Exception as e:
             logger.debug(f"Failed to compute estimated tokens: {e}")
+
+        # If dry-run, stop after estimation without making any changes
+        if dry_run:
+            click.echo("🧪 Dry run complete: no changes made.")
+            return
 
         # Update README shared sections BEFORE translation
         readme_path = root_path / "README.md"

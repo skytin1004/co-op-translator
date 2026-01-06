@@ -39,6 +39,7 @@ def run_translation(
     root_dirs: Iterable[str] | None = None,
     groups: Iterable[tuple[str, str | None]] | None = None,
     repo_url: str | None = None,
+    dry_run: bool = False,
 ) -> None:
     """Programmatic translation entrypoint mirroring the translate CLI options.
 
@@ -83,6 +84,7 @@ def run_translation(
         image_dir: str | None,
         lang_subdir: str | None,
         repo_url: str | None,
+        dry_run: bool,
     ) -> None:
         # Validate configuration
         Config.check_configuration()
@@ -205,6 +207,8 @@ def run_translation(
                 parts.append(f"markdown: {est['markdown']:,}")
             if "notebook" in translation_types and est.get("notebook", 0):
                 parts.append(f"notebook: {est['notebook']:,}")
+            if "images" in translation_types and est.get("images", 0):
+                parts.append(f"images: {est['images']:,}")
             if (
                 "markdown" in translation_types or "notebook" in translation_types
             ) and est.get("outdated", 0):
@@ -215,6 +219,11 @@ def run_translation(
             )
         except Exception as e:  # pragma: no cover - best-effort logging only
             logger.debug(f"Failed to compute estimated tokens: {e}")
+
+        # If dry-run, stop after estimation without making any changes
+        if dry_run:
+            click.echo("🧪 Dry run complete: no changes made.")
+            return
 
         # Update README shared sections BEFORE translation (mirror CLI behavior)
         readme_path = root_path / "README.md"
@@ -267,6 +276,7 @@ def run_translation(
                 image_dir=image_dir,
                 lang_subdir=per_lang_subdir,
                 repo_url=repo_url,
+                dry_run=dry_run,
             )
         return
 
@@ -288,6 +298,7 @@ def run_translation(
                 image_dir=image_dir,
                 lang_subdir=None,
                 repo_url=repo_url,
+                dry_run=dry_run,
             )
         return
 
@@ -307,4 +318,5 @@ def run_translation(
         image_dir=image_dir,
         lang_subdir=None,
         repo_url=repo_url,
+        dry_run=dry_run,
     )
