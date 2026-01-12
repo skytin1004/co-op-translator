@@ -25,7 +25,6 @@ from co_op_translator.utils.common.task_utils import worker
 from co_op_translator.utils.llm.markdown_utils import compare_line_breaks
 from co_op_translator.utils.common.metadata_utils import is_notebook_up_to_date
 from co_op_translator.config.base_config import Config
-from co_op_translator.utils.llm.token_utils import count_tokens
 
 logger = logging.getLogger(__name__)
 
@@ -93,7 +92,6 @@ class TranslationManager:
             language_codes,
             excluded_dirs,
             image_dir=image_dir,
-            lang_subdir=lang_subdir,
         )
 
     def _get_language_root(self, language_code: str) -> Path:
@@ -187,7 +185,9 @@ class TranslationManager:
                 logger.error(
                     f"Translation failed for {file_path}: Empty translation result"
                 )
-                return ""
+                raise RuntimeError(
+                    f"Markdown translation returned empty content for {file_path}"
+                )
 
             # Validate translation format and line break consistency
             if compare_line_breaks(document, translated_content):
@@ -204,7 +204,9 @@ class TranslationManager:
                     logger.error(
                         f"Retry translation failed for {file_path}: Empty translation result"
                     )
-                    return ""
+                    raise RuntimeError(
+                        f"Markdown translation retry returned empty content for {file_path}"
+                    )
 
             relative_path = file_path.relative_to(self.root_dir)
             translated_path = self._get_language_root(language_code) / relative_path
@@ -219,11 +221,11 @@ class TranslationManager:
                 return str(translated_path)
             except Exception as e:
                 logger.error(f"Failed to write translation to {translated_path}: {e}")
-                return ""
+                raise
 
         except Exception as e:
             logger.error(f"Failed to translate {file_path}: {e}")
-            return ""
+            raise
 
     async def translate_notebook(self, file_path: Path, language_code: str) -> str:
         """Translate a Jupyter notebook file to the specified language.
@@ -490,7 +492,10 @@ class TranslationManager:
                     translated_filename = generate_translated_filename(
                         image_file_path, language_code, self.root_dir
                     )
-                    translated_image_path = Path(self.image_dir) / translated_filename
+                    # New canonical path includes the language as a subdirectory
+                    translated_image_path = (
+                        Path(self.image_dir) / language_code / translated_filename
+                    )
 
                     if not update and translated_image_path.exists():
                         logger.info(
@@ -611,19 +616,20 @@ class TranslationManager:
                 rename_map = migrate_translated_image_filenames(
                     self.image_dir, self.language_codes
                 )
-                if rename_map:
-                    migrated_md = self.directory_manager.migrate_markdown_image_links(
-                        rename_map
-                    )
-                    migrated_nb = self.directory_manager.migrate_notebook_image_links(
-                        rename_map
-                    )
-                    logger.info(
-                        "Migrated %d image files and updated %d markdown and %d notebook files",
-                        len(rename_map),
-                        migrated_md,
-                        migrated_nb,
-                    )
+                # Always run link migration to rewrite legacy flattened links in content,
+                # even when no files were moved (empty rename_map)
+                migrated_md = self.directory_manager.migrate_markdown_image_links(
+                    rename_map
+                )
+                migrated_nb = self.directory_manager.migrate_notebook_image_links(
+                    rename_map
+                )
+                logger.info(
+                    "Migrated %d image files and updated %d markdown and %d notebook files",
+                    len(rename_map),
+                    migrated_md,
+                    migrated_nb,
+                )
             except Exception as e:
                 logger.warning(f"Image filename/link migration skipped: {e}")
 
@@ -782,7 +788,8 @@ class TranslationManager:
 
         except Exception as e:
             logger.error(f"Error during translation: {e}")
-            all_errors.append(str(e))
+            # Fail fast: propagate to CLI so the process exits
+            raise
 
         logger.info(f"Translation completed. Modified {total_modified} files.")
         if all_errors:
