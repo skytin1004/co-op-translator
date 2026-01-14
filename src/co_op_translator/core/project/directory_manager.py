@@ -52,6 +52,17 @@ class DirectoryManager:
             else (self.root_dir / "translated_images")
         )
 
+    def _get_language_root(self, language_code: str) -> Path:
+        """Get the root directory for a specific language's translations.
+
+        Args:
+            language_code: The target language code (e.g., 'ko', 'fr')
+
+        Returns:
+            Path to the language-specific translation directory
+        """
+        return self.translations_dir / language_code
+
     def sync_directory_structure(
         self, markdown: bool = True, images: bool = True, notebooks: bool = True
     ) -> tuple[int, int, int]:
