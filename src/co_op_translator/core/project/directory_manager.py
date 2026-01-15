@@ -9,6 +9,12 @@ from co_op_translator.utils.common.file_utils import (
 from pathlib import PurePosixPath
 from co_op_translator.utils.common.metadata_utils import (
     extract_metadata_from_content,
+    remove_image_metadata,
+)
+from co_op_translator.config.constants import (
+    SUPPORTED_MARKDOWN_EXTENSIONS,
+    SUPPORTED_NOTEBOOK_EXTENSIONS,
+    SUPPORTED_IMAGE_EXTENSIONS,
 )
 from co_op_translator.config.constants import (
     SUPPORTED_MARKDOWN_EXTENSIONS,
@@ -418,6 +424,8 @@ class DirectoryManager:
                                 logger.debug(
                                     f"Removed image with unsupported language code: {image_file}"
                                 )
+                                # Remove from central metadata file
+                                remove_image_metadata(image_file, image_dir)
                             except Exception as e:
                                 logger.warning(
                                     f"Failed to delete image with unsupported language {image_file}: {e}"
@@ -460,6 +468,8 @@ class DirectoryManager:
                                 image_file.unlink()
                                 removed_count += 1
                                 logger.debug(f"Removed orphaned image: {image_file}")
+                                # Remove from central metadata file
+                                remove_image_metadata(image_file, image_dir)
                             except Exception as e:
                                 logger.warning(
                                     f"Failed to delete orphaned image {image_file}: {e}"

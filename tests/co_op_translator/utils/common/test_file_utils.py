@@ -151,8 +151,68 @@ def test_generate_translated_filename(temp_dir):
     full_hash = get_unique_id(file_path, temp_dir)
     filename = generate_translated_filename(file_path, language_code, temp_dir)
 
-    # Basic structure checks (language is no longer part of filename)
-    assert filename.endswith(".txt")
+    # All translated images are now saved as WebP for optimal compression
+    assert filename.endswith(".webp")
+
+    parts = filename.split(".")
+    # Expect: basename, hash_prefix, ext
+    assert len(parts) >= 3
+    basename = parts[0]
+    hash_prefix = parts[-2]
+    ext = "." + parts[-1]
+
+    assert basename == "file"
+    assert ext == ".webp"  # Always WebP for translated images
+
+    # Hash prefix should be exactly 16 hex (truncated from the full 64-hex hash)
+    assert len(hash_prefix) == 16
+    assert full_hash.startswith(hash_prefix)
+
+
+def test_migrate_translated_image_filenames(temp_dir):
+    """Test migrating legacy filenames to language-subdir + 16-hex hash filenames."""
+
+    image_dir = temp_dir / "translated_images"
+    lang = "fr"
+    lang_dir = image_dir / lang
+    lang_dir.mkdir(parents=True, exist_ok=True)
+
+    # Legacy filename embedding a full 64-hex hash
+    full_hash = "a" * 64
+    legacy_name = f"logo.{full_hash}.{lang}.png"
+    legacy_path = lang_dir / legacy_name
+    legacy_path.write_text("legacy image content", encoding="utf-8")
+
+    # File that already looks truncated should not be migrated (but may be moved/renamed to drop lang segment)
+    truncated_name = f"icon.abcdef1234567890.{lang}.png"
+    (lang_dir / truncated_name).write_text("truncated image content", encoding="utf-8")
+
+    rename_map = migrate_translated_image_filenames(image_dir, [lang])
+
+    # Legacy filename should have been migrated to lang/base.hash.ext
+    assert legacy_name in rename_map
+    new_rel = rename_map[legacy_name]
+    new_path = image_dir / new_rel
+    assert new_path.exists()
+    assert not (lang_dir / legacy_name).exists()
+
+    new_name = new_path.name
+    parts = new_name.split(".")
+    assert len(parts) >= 3
+    base = parts[0]
+    hash_prefix = parts[-2]
+    extension = parts[-1]
+
+    assert base == "logo"
+    assert extension == "png"
+    assert len(hash_prefix) == 16
+    assert full_hash.startswith(hash_prefix)
+
+    # The already-truncated file should exist but without language segment if migrated
+    # It should either be kept as-is under lang dir or renamed to drop '.lang'
+    # Accept either presence under new canonical naming or original truncated name
+    truncated_new = lang_dir / ("icon.abcdef1234567890.png")
+    assert (truncated_new.exists()) or (lang_dir / truncated_name).exists()
 
     parts = filename.split(".")
     # Expect: basename, hash_prefix, ext
