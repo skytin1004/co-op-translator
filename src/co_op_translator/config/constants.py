@@ -1,5 +1,5 @@
 # Different approaches are used for RGB and RGBA images
-RGBA_IMAGE_EXTENSIONS = {".png"}
+RGBA_IMAGE_EXTENSIONS = {".png", ".gif", ".webp"}
 RGB_IMAGE_EXTENSIONS = {".jpg", ".jpeg"}
 SUPPORTED_IMAGE_EXTENSIONS = RGBA_IMAGE_EXTENSIONS.union(RGB_IMAGE_EXTENSIONS)
 

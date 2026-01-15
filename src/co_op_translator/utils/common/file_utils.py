@@ -7,6 +7,8 @@ import hashlib
 from pathlib import Path
 import re
 
+from co_op_translator.config.constants import TRANSLATABLE_IMAGE_EXTENSIONS
+
 LANG_TABLE_START = "<!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->"
 LANG_TABLE_END = "<!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->"
 OTHER_COURSES_START = "<!-- CO-OP TRANSLATOR OTHER COURSES START -->"
@@ -465,12 +467,7 @@ def migrate_translated_image_filenames(
     for image_file in image_files:
         if not image_file.is_file():
             continue
-        if image_file.suffix.lower() not in [
-            ".png",
-            ".jpg",
-            ".jpeg",
-            ".gif",
-        ]:
+        if image_file.suffix.lower() not in TRANSLATABLE_IMAGE_EXTENSIONS:
             continue
 
         rel_parts = ()
