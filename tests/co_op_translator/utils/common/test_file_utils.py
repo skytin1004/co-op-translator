@@ -15,6 +15,7 @@ from co_op_translator.utils.common.file_utils import (
     delete_translated_images_by_language_code,
     map_original_to_translated,
     migrate_translated_image_filenames,
+    migrate_images_to_webp,
 )
 
 
@@ -214,65 +215,38 @@ def test_migrate_translated_image_filenames(temp_dir):
     truncated_new = lang_dir / ("icon.abcdef1234567890.png")
     assert (truncated_new.exists()) or (lang_dir / truncated_name).exists()
 
-    parts = filename.split(".")
-    # Expect: basename, hash_prefix, ext
-    assert len(parts) >= 3
-    basename = parts[0]
-    hash_prefix = parts[-2]
-    ext = "." + parts[-1]
 
-    assert basename == "file"
-    assert ext == ".txt"
-
-    # Hash prefix should be exactly 16 hex (truncated from the full 64-hex hash)
-    assert len(hash_prefix) == 16
-    assert full_hash.startswith(hash_prefix)
-
-
-def test_migrate_translated_image_filenames(temp_dir):
-    """Test migrating legacy filenames to language-subdir + 16-hex hash filenames."""
+def test_migrate_images_to_webp_scoped_to_language_codes(temp_dir):
+    from PIL import Image
 
     image_dir = temp_dir / "translated_images"
-    lang = "fr"
-    lang_dir = image_dir / lang
-    lang_dir.mkdir(parents=True, exist_ok=True)
+    ko_dir = image_dir / "ko"
+    ja_dir = image_dir / "ja"
+    ko_dir.mkdir(parents=True, exist_ok=True)
+    ja_dir.mkdir(parents=True, exist_ok=True)
 
-    # Legacy filename embedding a full 64-hex hash
-    full_hash = "a" * 64
-    legacy_name = f"logo.{full_hash}.{lang}.png"
-    legacy_path = lang_dir / legacy_name
-    legacy_path.write_text("legacy image content", encoding="utf-8")
+    # Create simple PNG images for each language
+    img = Image.new("RGB", (10, 10), color="red")
+    ko_png = ko_dir / "sample.ko.png"
+    ja_png = ja_dir / "sample.ja.png"
+    img.save(ko_png)
+    img.save(ja_png)
 
-    # File that already looks truncated should not be migrated (but may be moved/renamed to drop lang segment)
-    truncated_name = f"icon.abcdef1234567890.{lang}.png"
-    (lang_dir / truncated_name).write_text("truncated image content", encoding="utf-8")
+    rename_map = migrate_images_to_webp(image_dir, ["ko"])
 
-    rename_map = migrate_translated_image_filenames(image_dir, [lang])
+    # ko images should be converted to WebP
+    ko_webp = ko_dir / "sample.ko.webp"
+    assert not ko_png.exists()
+    assert ko_webp.exists()
+    assert "ko/sample.ko.png" in rename_map
+    assert rename_map["ko/sample.ko.png"] == "ko/sample.ko.webp"
 
-    # Legacy filename should have been migrated to lang/base.hash.ext
-    assert legacy_name in rename_map
-    new_rel = rename_map[legacy_name]
-    new_path = image_dir / new_rel
-    assert new_path.exists()
-    assert not (lang_dir / legacy_name).exists()
-
-    new_name = new_path.name
-    parts = new_name.split(".")
-    assert len(parts) >= 3
-    base = parts[0]
-    hash_prefix = parts[-2]
-    extension = parts[-1]
-
-    assert base == "logo"
-    assert extension == "png"
-    assert len(hash_prefix) == 16
-    assert full_hash.startswith(hash_prefix)
-
-    # The already-truncated file should exist but without language segment if migrated
-    # It should either be kept as-is under lang dir or renamed to drop '.lang'
-    # Accept either presence under new canonical naming or original truncated name
-    truncated_new = lang_dir / ("icon.abcdef1234567890.png")
-    assert (truncated_new.exists()) or (lang_dir / truncated_name).exists()
+    # ja images should remain untouched
+    ja_webp = ja_dir / "sample.ja.webp"
+    assert ja_png.exists()
+    assert not ja_webp.exists()
+    assert "ja/sample.ja.png" not in rename_map
+    assert "sample.ja.png" not in rename_map
 
 
 def test_get_actual_image_path(temp_dir):

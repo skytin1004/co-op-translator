@@ -1,7 +1,7 @@
 [tool.poetry]
 
 name = "localizeflow-co-op-translator"
-version = "0.15.0+lf1"
+version = "0.15.1+lf1"
 description = "Private internal fork of Co-op Translator for Localizeflow, optimized for SaaS-based document translation automation."
 
 authors = [

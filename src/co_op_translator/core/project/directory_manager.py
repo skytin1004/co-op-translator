@@ -16,11 +16,6 @@ from co_op_translator.config.constants import (
     SUPPORTED_NOTEBOOK_EXTENSIONS,
     SUPPORTED_IMAGE_EXTENSIONS,
 )
-from co_op_translator.config.constants import (
-    SUPPORTED_MARKDOWN_EXTENSIONS,
-    SUPPORTED_NOTEBOOK_EXTENSIONS,
-    SUPPORTED_IMAGE_EXTENSIONS,
-)
 
 logger = logging.getLogger(__name__)
 
@@ -512,12 +507,17 @@ class DirectoryManager:
         updated_files = 0
 
         try:
-            md_files = [
-                path
-                for path in self.translations_dir.rglob("*")
-                if path.is_file()
-                and path.suffix.lower() in SUPPORTED_MARKDOWN_EXTENSIONS
-            ]
+            md_files: list[Path] = []
+            for lang_code in self.language_codes:
+                lang_dir = self.translations_dir / lang_code
+                if not lang_dir.exists():
+                    continue
+                for path in lang_dir.rglob("*"):
+                    if (
+                        path.is_file()
+                        and path.suffix.lower() in SUPPORTED_MARKDOWN_EXTENSIONS
+                    ):
+                        md_files.append(path)
         except Exception as e:
             logger.warning(
                 f"Error scanning markdown files for migration in {self.translations_dir}: {e}"
@@ -574,12 +574,17 @@ class DirectoryManager:
         updated_files = 0
 
         try:
-            nb_files = [
-                path
-                for path in self.translations_dir.rglob("*")
-                if path.is_file()
-                and path.suffix.lower() in SUPPORTED_NOTEBOOK_EXTENSIONS
-            ]
+            nb_files: list[Path] = []
+            for lang_code in self.language_codes:
+                lang_dir = self.translations_dir / lang_code
+                if not lang_dir.exists():
+                    continue
+                for path in lang_dir.rglob("*"):
+                    if (
+                        path.is_file()
+                        and path.suffix.lower() in SUPPORTED_NOTEBOOK_EXTENSIONS
+                    ):
+                        nb_files.append(path)
         except Exception as e:
             logger.warning(
                 f"Error scanning notebook files for migration in {self.translations_dir}: {e}"
