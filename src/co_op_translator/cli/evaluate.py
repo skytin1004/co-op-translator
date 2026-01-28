@@ -11,6 +11,7 @@ import os
 from co_op_translator.core.project.project_evaluator import ProjectEvaluator
 from co_op_translator.config.base_config import Config
 from co_op_translator.utils.common.logging_utils import setup_logging
+from co_op_translator.utils.common.lang_utils import normalize_language_code
 
 logger = logging.getLogger(__name__)
 
@@ -93,7 +94,9 @@ def evaluate_command(
         if save_logs and log_file_path is not None:
             click.echo(f"📄 Logs will be saved to: {log_file_path}")
 
-        click.echo(f"Evaluating {language_code} translations in {root_path}...")
+        # Normalize to canonical BCP 47 (accept alias input like tw/cn/br)
+        canonical_code = normalize_language_code(language_code)
+        click.echo(f"Evaluating {canonical_code} translations in {root_path}...")
 
         # Create evaluator
         # Determine evaluation mode (fast, deep or default mode)
@@ -121,7 +124,7 @@ def evaluate_command(
         evaluator = ProjectEvaluator(
             root_dir=root_path,
             translations_dir=root_path / "translations",
-            language_codes=[language_code],
+            language_codes=[canonical_code],
             excluded_dirs=["node_modules", ".git", "__pycache__", "venv"],
             use_llm=use_llm,
             use_rule=use_rule,
@@ -129,7 +132,7 @@ def evaluate_command(
 
         # Run evaluation
         total_files, issue_files, avg_confidence = asyncio.run(
-            evaluator.evaluate_project(language_code)
+            evaluator.evaluate_project(canonical_code)
         )
 
         # Display results with color highlighting
@@ -154,7 +157,7 @@ def evaluate_command(
 
         # Get low confidence translations
         low_confidence = asyncio.run(
-            evaluator.get_low_confidence_translations(language_code, min_confidence)
+            evaluator.get_low_confidence_translations(canonical_code, min_confidence)
         )
 
         if low_confidence:
@@ -175,22 +178,36 @@ def evaluate_command(
 
                     # Check if the path already contains translations/language_code
                     # to avoid duplication
-                    if rel_path.startswith(f"translations/{language_code}/"):
+                    if rel_path.startswith(f"translations/{canonical_code}/"):
                         display_path = f"./{rel_path}"
                     else:
-                        display_path = f"./translations/{language_code}/{rel_path}"
+                        display_path = f"./translations/{canonical_code}/{rel_path}"
                 except ValueError:
                     display_path = str(file_path).replace("\\", "/")
 
-                # Read file to get issues for reference
+                # Read centralized metadata to get issues for reference
                 try:
-                    with open(file_path, "r", encoding="utf-8") as f:
-                        content = f.read()
                     from co_op_translator.utils.common.metadata_utils import (
+                        read_text_metadata_for_source,
                         extract_metadata_from_content,
                     )
 
-                    metadata = extract_metadata_from_content(content)
+                    trans_path = Path(file_path)
+                    lang_dir = root_path / "translations" / canonical_code
+                    try:
+                        rel = trans_path.resolve().relative_to(lang_dir)
+                        orig_path = root_path / rel
+                    except Exception:
+                        orig_path = None
+
+                    metadata = {}
+                    if orig_path is not None:
+                        metadata = read_text_metadata_for_source(lang_dir, orig_path)
+                    if not metadata:
+                        with open(file_path, "r", encoding="utf-8") as f:
+                            content = f.read()
+                        metadata = extract_metadata_from_content(content)
+
                     issues = []
                     if metadata and "evaluation" in metadata:
                         # Only check issues field
@@ -225,7 +242,7 @@ def evaluate_command(
                 f"\n{click.style('Note:', fg='yellow')} Files with issues were found during evaluation, but none fall below the confidence threshold of {min_confidence}."
             )
             click.echo(
-                f"Consider running with a higher threshold: {click.style(f'evaluate -l {language_code} --min-confidence 0.9', bold=True)}"
+                f"Consider running with a higher threshold: {click.style(f'evaluate -l {canonical_code} --min-confidence 0.9', bold=True)}"
             )
 
         else:
@@ -233,7 +250,7 @@ def evaluate_command(
                 f"\n{click.style('✓ All translations look good!', fg='green', bold=True)}"
             )
 
-        logger.info(f"Evaluation completed for language: {language_code}")
+        logger.info(f"Evaluation completed for language: {canonical_code}")
 
     except Exception as e:
         if debug:
