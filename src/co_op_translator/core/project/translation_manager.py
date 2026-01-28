@@ -32,6 +32,7 @@ from co_op_translator.config.constants import SUPPORTED_MARKDOWN_EXTENSIONS
 from co_op_translator.core.llm.markdown_translator import MarkdownTranslator
 from co_op_translator.core.project.directory_manager import DirectoryManager
 from co_op_translator.utils.common.task_utils import worker
+from co_op_translator.core.project.language_migrator import LanguageFolderMigrator
 from co_op_translator.utils.llm.markdown_utils import compare_line_breaks
 from co_op_translator.utils.common.metadata_utils import is_notebook_up_to_date
 from co_op_translator.config.base_config import Config
@@ -651,6 +652,46 @@ class TranslationManager:
         all_errors = []
 
         try:
+            # Ensure per-language metadata files store canonical language_code values
+            try:
+                for lang in self.language_codes:
+                    # translations/<lang>/.co-op-translator.json
+                    normalize_language_codes_in_lang_metadata(
+                        self.translations_dir / lang, lang
+                    )
+                    # translated_images/<lang>/.co-op-translator.json
+                    normalize_language_codes_in_lang_metadata(
+                        self.image_dir / lang, lang
+                    )
+                    # translated_images_fast/<lang>/.co-op-translator.json (best-effort)
+                    normalize_language_codes_in_lang_metadata(
+                        self.root_dir / "translated_images_fast" / lang, lang
+                    )
+            except Exception as e:
+                logger.debug(f"Metadata normalization skipped: {e}")
+
+            # Detect and migrate alias-based language folders (tw, cn, br -> zh-TW, zh-CN, pt-BR)
+            # Run before any translation work to avoid redundant re-translation.
+            try:
+                migrator = LanguageFolderMigrator(
+                    self.root_dir,
+                    translations_dir=self.translations_dir,
+                    image_dir=self.image_dir,
+                )
+                alias_entries = migrator.detect_alias_folders()
+                if alias_entries:
+                    canon_set = set(self.language_codes)
+                    relevant = [e for e in alias_entries if e.canonical in canon_set]
+                    if relevant:
+                        plan = LanguageFolderMigrator.format_plan(relevant)
+                        logger.info("Language folder migration plan:\n%s", plan)
+                        renamed, msgs = migrator.execute(relevant, dry_run=False)
+                        logger.info("Auto-migrated %d language folder(s).", renamed)
+                        for m in msgs:
+                            logger.warning(m)
+            except Exception as e:
+                logger.warning(f"Language folder migration step skipped: {e}")
+
             # Migrate legacy translated image filenames and update markdown/notebook links
             try:
                 rename_map = migrate_translated_image_filenames(
@@ -982,7 +1023,9 @@ class TranslationManager:
             if md_file_path.suffix.lower() in SUPPORTED_MARKDOWN_EXTENSIONS:
                 for language_code in self.language_codes:
                     relative_path = md_file_path.relative_to(self.root_dir)
-                    translated_md_path = self._get_language_root(language_code) / relative_path
+                    translated_md_path = (
+                        self._get_language_root(language_code) / relative_path
+                    )
                     if not update and translated_md_path.exists():
                         continue
                     pending.append(md_file_path)
@@ -997,7 +1040,9 @@ class TranslationManager:
             notebook_file_path = notebook_file_path.resolve()
             for language_code in self.language_codes:
                 relative_path = notebook_file_path.relative_to(self.root_dir)
-                translated_notebook_path = self._get_language_root(language_code) / relative_path
+                translated_notebook_path = (
+                    self._get_language_root(language_code) / relative_path
+                )
                 if translated_notebook_path.exists() and not update:
                     if is_notebook_up_to_date(
                         notebook_file_path, translated_notebook_path
