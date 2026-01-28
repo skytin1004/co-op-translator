@@ -10,6 +10,7 @@ from co_op_translator.config.base_config import Config
 from co_op_translator.config.llm_config.config import LLMConfig
 from co_op_translator.config.vision_config.config import VisionConfig
 from co_op_translator.core.project.project_translator import ProjectTranslator
+from co_op_translator.core.project.language_migrator import LanguageFolderMigrator
 from co_op_translator.utils.common.logging_utils import setup_logging
 from co_op_translator.utils.common.file_utils import (
     update_readme_languages_table,
@@ -17,6 +18,10 @@ from co_op_translator.utils.common.file_utils import (
 )
 
 from co_op_translator.localizeflow.glossary import set_glossaries
+from co_op_translator.utils.common.metadata_utils import (
+    normalize_language_codes_in_lang_metadata,
+)
+from co_op_translator.utils.common.lang_utils import normalize_language_codes
 
 
 logger = logging.getLogger(__name__)
@@ -177,6 +182,20 @@ def run_translation(
             except (FileNotFoundError, yaml.YAMLError) as e:
                 raise RuntimeError(f"Failed to load font mappings: {str(e)}") from e
 
+        # Build normalized language list for pre-processing steps
+        if all_languages_selected:
+            try:
+                lang_list = Config.get_language_codes()
+            except Exception:
+                lang_list = [
+                    code.strip() for code in language_codes.split() if code.strip()
+                ]
+        else:
+            lang_list = [
+                code.strip() for code in language_codes.split() if code.strip()
+            ]
+        lang_list = normalize_language_codes(lang_list) if lang_list else []
+
         # Warn when update mode is enabled (non-interactive: no prompt)
         if update:
             click.echo(
@@ -187,6 +206,83 @@ def run_translation(
         # Apply glossaries (Localizeflow feature)
         if glossaries is not None:
             set_glossaries(glossaries)
+
+        # Detect and (optionally) migrate alias-based language folders BEFORE estimation
+        try:
+            # Resolve effective directories for scanning
+            effective_translations_dir = (
+                (root_path / translations_dir).resolve()
+                if translations_dir is not None
+                and not Path(translations_dir).is_absolute()
+                else (
+                    Path(translations_dir).resolve()
+                    if translations_dir is not None
+                    else (root_path / "translations")
+                )
+            )
+            effective_image_dir = (
+                (root_path / image_dir).resolve()
+                if image_dir is not None and not Path(image_dir).is_absolute()
+                else (
+                    Path(image_dir).resolve()
+                    if image_dir is not None
+                    else (root_path / "translated_images")
+                )
+            )
+
+            migrator = LanguageFolderMigrator(
+                root_path,
+                translations_dir=effective_translations_dir,
+                image_dir=effective_image_dir,
+            )
+            alias_entries = migrator.detect_alias_folders()
+            if alias_entries:
+                canon_set = set(lang_list)
+                relevant = [e for e in alias_entries if e.canonical in canon_set]
+                if relevant:
+                    plan = LanguageFolderMigrator.format_plan(relevant)
+                    logger.info("Language folder migration plan:\n%s", plan)
+                    click.echo(plan)
+                    if dry_run:
+                        click.echo("Dry run: no changes will be made.")
+                    else:
+                        renamed, msgs = migrator.execute(relevant, dry_run=False)
+                        logger.info("Auto-migrated %d language folder(s).", renamed)
+                        for m in msgs:
+                            logger.warning(m)
+        except Exception as e:  # pragma: no cover - best-effort logging only
+            logger.warning(f"Language folder migration step skipped: {e}")
+
+        # Ensure per-language metadata files store canonical language_code values BEFORE estimation
+        try:
+            for lang in lang_list:
+                # translations/<lang>/.co-op-translator.json
+                normalize_language_codes_in_lang_metadata(
+                    (
+                        effective_translations_dir
+                        if "effective_translations_dir" in locals()
+                        else (root_path / "translations")
+                    )
+                    / lang,
+                    lang,
+                )
+                # translated_images/<lang>/.co-op-translator.json
+                normalize_language_codes_in_lang_metadata(
+                    (
+                        effective_image_dir
+                        if "effective_image_dir" in locals()
+                        else (root_path / "translated_images")
+                    )
+                    / lang,
+                    lang,
+                )
+                # translated_images_fast/<lang>/.co-op-translator.json (best-effort)
+                normalize_language_codes_in_lang_metadata(
+                    root_path / "translated_images_fast" / lang,
+                    lang,
+                )
+        except Exception as e:  # pragma: no cover - best-effort logging only
+            logger.debug(f"Metadata normalization skipped: {e}")
 
         # Initialize ProjectTranslator with determined settings
         translator = ProjectTranslator(

@@ -1009,11 +1009,13 @@ class TranslationManager:
                     translated_filename = generate_translated_filename(
                         image_file_path, language_code, self.root_dir
                     )
-                    translated_image_path = Path(self.image_dir) / translated_filename
+                    translated_image_path = (
+                        Path(self.image_dir) / language_code / translated_filename
+                    )
                     if not update and translated_image_path.exists():
                         continue
                     count += 1
-        return count * 5
+        return count * 10
 
     def _gather_pending_markdown(self, update: bool) -> List[Path]:
         pending: List[Path] = []
