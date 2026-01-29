@@ -327,13 +327,6 @@ def translate_command(
                 "Consider running without --fast for the recommended behavior."
             )
 
-        # Show deprecation warning when fast image mode is enabled
-        if fast and "images" in translation_types:
-            click.echo(
-                "⚠️ Image fast mode is deprecated and may be removed in a future release. "
-                "Consider running without --fast for the recommended behavior."
-            )
-
         # Show warning and prompt if update is selected
         if update:
             click.echo(

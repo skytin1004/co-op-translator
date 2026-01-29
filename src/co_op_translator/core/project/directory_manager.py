@@ -452,7 +452,6 @@ class DirectoryManager:
                             rel_parts = image_file.relative_to(image_dir).parts
                         except Exception:
                             rel_parts = ()
-
                         lang_code = None
                         # Accept alias language folder names by normalizing to canonical
                         if len(rel_parts) >= 2:
@@ -467,20 +466,6 @@ class DirectoryManager:
                             if len(parts) < 4:
                                 continue
                             lang_code = normalize_language_code(parts[-2])
-                            path_hash_segment = parts[-3]
-                            base_name = ".".join(parts[:-3])
-
-                        lang_code = None
-                        if len(rel_parts) >= 2 and rel_parts[0] in self.language_codes:
-                            lang_code = rel_parts[0]
-                            # New format: base.hash.ext
-                            path_hash_segment = parts[-2]
-                            base_name = ".".join(parts[:-2])
-                        else:
-                            # Legacy format: base.hash.lang.ext
-                            if len(parts) < 4:
-                                continue
-                            lang_code = parts[-2]
                             path_hash_segment = parts[-3]
                             base_name = ".".join(parts[:-3])
 
