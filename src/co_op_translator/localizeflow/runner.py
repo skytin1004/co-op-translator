@@ -257,13 +257,16 @@ def run_translation(
         try:
             for lang in lang_list:
                 # translations/<lang>/.co-op-translator.json
+                lang_root = (
+                    effective_translations_dir
+                    if "effective_translations_dir" in locals()
+                    else (root_path / "translations")
+                ) / lang
+                if lang_subdir:
+                    lang_root = lang_root / lang_subdir
+                
                 normalize_language_codes_in_lang_metadata(
-                    (
-                        effective_translations_dir
-                        if "effective_translations_dir" in locals()
-                        else (root_path / "translations")
-                    )
-                    / lang,
+                    lang_root,
                     lang,
                 )
                 # translated_images/<lang>/.co-op-translator.json
@@ -283,6 +286,25 @@ def run_translation(
                 )
         except Exception as e:  # pragma: no cover - best-effort logging only
             logger.debug(f"Metadata normalization skipped: {e}")
+
+        # Update README shared sections BEFORE estimation (mirror CLI behavior)
+        readme_path = root_path / "README.md"
+        try:
+            # Always attempt to update, and personalize advisory using repo_url when provided
+            if update_readme_languages_table(readme_path, repo_url=repo_url):
+                click.echo("✅ Updated README languages table from template.")
+            else:
+                click.echo(
+                    "ℹ️ README languages table not updated (markers missing or template unavailable)."
+                )
+        except Exception as e:  # pragma: no cover - best-effort logging only
+            logger.warning(f"Failed to update README languages table: {e}")
+
+        try:
+            if update_readme_other_courses(readme_path):
+                click.echo("✅ Updated README 'Other courses' section from template.")
+        except Exception as e:  # pragma: no cover - best-effort logging only
+            logger.warning(f"Failed to update README 'Other courses': {e}")
 
         # Initialize ProjectTranslator with determined settings
         translator = ProjectTranslator(
@@ -320,25 +342,6 @@ def run_translation(
         if dry_run:
             click.echo("🧪 Dry run complete: no changes made.")
             return
-
-        # Update README shared sections BEFORE translation (mirror CLI behavior)
-        readme_path = root_path / "README.md"
-        try:
-            # Always attempt to update, and personalize advisory using repo_url when provided
-            if update_readme_languages_table(readme_path, repo_url=repo_url):
-                click.echo("✅ Updated README languages table from template.")
-            else:
-                click.echo(
-                    "ℹ️ README languages table not updated (markers missing or template unavailable)."
-                )
-        except Exception as e:  # pragma: no cover - best-effort logging only
-            logger.warning(f"Failed to update README languages table: {e}")
-
-        try:
-            if update_readme_other_courses(readme_path):
-                click.echo("✅ Updated README 'Other courses' section from template.")
-        except Exception as e:  # pragma: no cover - best-effort logging only
-            logger.warning(f"Failed to update README 'Other courses': {e}")
 
         translator.translate_project(
             update=update,

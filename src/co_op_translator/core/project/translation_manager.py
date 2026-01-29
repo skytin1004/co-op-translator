@@ -235,7 +235,7 @@ class TranslationManager:
                     f"Translated {file_path} to {language_code} and saved to {translated_path}"
                 )
                 # Save centralized text metadata for this source file in the language directory
-                lang_dir = self.translations_dir / language_code
+                lang_dir = self._get_language_root(language_code)
                 save_text_metadata_for_source(
                     lang_dir,
                     file_path,
@@ -268,7 +268,7 @@ class TranslationManager:
             document = read_input_file(file_path)
             if not document:
                 relative_path = file_path.relative_to(self.root_dir)
-                output_file = self.translations_dir / language_code / relative_path
+                output_file = self._get_language_root(language_code) / relative_path
                 handle_empty_document(file_path, output_file)
                 return str(output_file)
 
@@ -287,7 +287,7 @@ class TranslationManager:
                 return ""
 
             relative_path = file_path.relative_to(self.root_dir)
-            translated_path = self.translations_dir / language_code / relative_path
+            translated_path = self._get_language_root(language_code) / relative_path
             translated_path.parent.mkdir(parents=True, exist_ok=True)
 
             try:
@@ -297,7 +297,7 @@ class TranslationManager:
                     f"Translated {file_path} to {language_code} and saved to {translated_path}"
                 )
                 # Save centralized text metadata for this source notebook in the language directory
-                lang_dir = self.translations_dir / language_code
+                lang_dir = self._get_language_root(language_code)
                 save_text_metadata_for_source(
                     lang_dir,
                     file_path,
@@ -353,7 +353,7 @@ class TranslationManager:
             for language_code in self.language_codes:
                 relative_path = md_file_path.relative_to(self.root_dir)
                 translated_md_path = (
-                    self.translations_dir / language_code / relative_path
+                    self._get_language_root(language_code) / relative_path
                 )
 
                 if not update and translated_md_path.exists():
@@ -657,7 +657,7 @@ class TranslationManager:
                 for lang in self.language_codes:
                     # translations/<lang>/.co-op-translator.json
                     normalize_language_codes_in_lang_metadata(
-                        self.translations_dir / lang, lang
+                        self._get_language_root(lang), lang
                     )
                     # translated_images/<lang>/.co-op-translator.json
                     normalize_language_codes_in_lang_metadata(
@@ -938,7 +938,7 @@ class TranslationManager:
                 # Mirror check_outdated_files(update=True): treat all existing translations as outdated
                 files: list[tuple[Path, Path]] = []
                 for lang_code in self.language_codes:
-                    translation_dir = self.translations_dir / lang_code
+                    translation_dir = self._get_language_root(lang_code)
                     if not translation_dir.exists():
                         continue
                     trans_files: list[Path] = []
@@ -1065,7 +1065,7 @@ class TranslationManager:
         all_translation_files = []
 
         for lang_code in self.language_codes:
-            translation_dir = self.translations_dir / lang_code
+            translation_dir = self._get_language_root(lang_code)
             if not translation_dir.exists():
                 continue
             for ext in SUPPORTED_MARKDOWN_EXTENSIONS:
@@ -1080,9 +1080,8 @@ class TranslationManager:
 
         for lang_code, trans_file in all_translation_files:
             try:
-                relative_path = trans_file.relative_to(
-                    self.translations_dir / lang_code
-                )
+                lang_dir = self._get_language_root(lang_code)
+                relative_path = trans_file.relative_to(lang_dir)
                 original_file = self.root_dir / relative_path
 
                 if not original_file.exists():
@@ -1280,7 +1279,7 @@ class TranslationManager:
                 # Find the path of the translated file
                 relative_path = md_file_path.relative_to(self.root_dir)
                 translated_md_file_path = (
-                    self.translations_dir / language_code / relative_path
+                    self._get_language_root(language_code) / relative_path
                 )
 
                 if not translated_md_file_path.exists():
@@ -1439,12 +1438,27 @@ class TranslationManager:
             if translation_file.suffix.lower() in self.supported_notebook_extensions:
                 return not is_notebook_up_to_date(original_file, translation_file)
 
-            # Determine language directory from translation path
+            # Determine language directory and language code from translation path
             lang_dir = None
+            lang_code = None
             try:
-                rel = translation_file.resolve().relative_to(self.translations_dir)
-                lang_code = rel.parts[0]
-                lang_dir = self.translations_dir / lang_code
+                # Find which language this file belongs to by checking roots
+                for lc in self.language_codes:
+                    root = self._get_language_root(lc)
+                    try:
+                        # Use resolve() to handle potential symlinks or relative path complexities
+                        rel = translation_file.resolve().relative_to(root.resolve())
+                        lang_code = lc
+                        lang_dir = root
+                        break
+                    except (ValueError, IndexError):
+                        continue
+                
+                if not lang_dir:
+                    # Fallback to translations_dir / lang_code if not found in subdirs
+                    rel = translation_file.resolve().relative_to(self.translations_dir.resolve())
+                    lang_code = rel.parts[0]
+                    lang_dir = self.translations_dir / lang_code
             except Exception:
                 # Fallback: use the parent directory (may be incorrect for deeply nested paths)
                 lang_dir = translation_file.parent
@@ -1479,22 +1493,11 @@ class TranslationManager:
                         "translation_date"
                     )
 
-                # Compute language code again for save (if available)
-                language_code = None
-                try:
-                    if "rel" not in locals():
-                        rel = translation_file.resolve().relative_to(
-                            self.translations_dir
-                        )
-                    language_code = rel.parts[0]
-                except Exception:
-                    language_code = None
-
-                if language_code:
+                if lang_code:
                     save_text_metadata_for_source(
                         lang_dir,
                         original_file,
-                        language_code,
+                        lang_code,
                         root_dir=self.root_dir,
                         extra_fields=extra_fields,
                     )

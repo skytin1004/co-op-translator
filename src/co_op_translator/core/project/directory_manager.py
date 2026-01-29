@@ -34,6 +34,7 @@ class DirectoryManager:
         language_codes: list[str],
         excluded_dirs: list[str],
         image_dir: Path | None = None,
+        lang_subdir: Path | None = None,
     ):
         """Initialize directory manager with project configuration.
 
@@ -43,6 +44,7 @@ class DirectoryManager:
             language_codes: List of target language codes
             excluded_dirs: List of directories to exclude
             image_dir: Directory for translated images (flat tree, language code embedded in filename)
+            lang_subdir: Optional nested subdirectory within each language folder
         """
         self.root_dir = root_dir
         self.translations_dir = translations_dir
@@ -54,6 +56,7 @@ class DirectoryManager:
             if image_dir is not None
             else (self.root_dir / "translated_images")
         )
+        self.lang_subdir = Path(lang_subdir) if lang_subdir else None
 
     def _get_language_root(self, language_code: str) -> Path:
         """Get the root directory for a specific language's translations.
@@ -64,7 +67,10 @@ class DirectoryManager:
         Returns:
             Path to the language-specific translation directory
         """
-        return self.translations_dir / language_code
+        lang_dir = self.translations_dir / language_code
+        if self.lang_subdir:
+            lang_dir = lang_dir / self.lang_subdir
+        return lang_dir
 
     def sync_directory_structure(
         self, markdown: bool = True, images: bool = True, notebooks: bool = True
