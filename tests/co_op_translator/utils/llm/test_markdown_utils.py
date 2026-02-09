@@ -12,6 +12,7 @@ from co_op_translator.utils.llm.markdown_utils import (
     count_links_in_markdown,
     split_markdown_content,
     update_notebook_links,
+    normalize_heading_fragments,
 )
 
 
@@ -680,3 +681,39 @@ def test_update_notebook_links_fallback_to_original(tmp_path):
 
     expected_rel = os.path.relpath(nb_orig, translated_md_dir).replace(os.path.sep, "/")
     assert f"[nb]({expected_rel})" in updated
+
+
+def test_normalize_heading_fragments_updates_toc_fragments():
+    """TOC fragments should be rewritten to match translated heading slugs."""
+
+    content = (
+        "- [시나리오 1: Azure 리소스 설정](#scenario-1-set-up-azure-resources)\n"
+        "- [시나리오 2: 모델 미세 조정](#scenario-2-fine-tune)\n\n"
+        "## 시나리오 1: Azure 리소스 설정\n"
+        "상세 설명\n\n"
+        "## 시나리오 2: 모델 미세 조정\n"
+        "추가 설명\n"
+    )
+
+    updated = normalize_heading_fragments(content)
+
+    assert "#시나리오-1-azure-리소스-설정" in updated
+    assert "#시나리오-2-모델-미세-조정" in updated
+
+
+def test_normalize_heading_fragments_handles_duplicate_headings():
+    """Duplicate headings should map to incremented slugs (e.g., slug and slug-1)."""
+
+    content = (
+        "- [준비 단계](#prep-section)\n"
+        "- [준비 단계](#prep-section-duplicate)\n\n"
+        "### 준비 단계\n"
+        "내용 A\n\n"
+        "### 준비 단계\n"
+        "내용 B\n"
+    )
+
+    updated = normalize_heading_fragments(content)
+
+    assert "#준비-단계" in updated
+    assert "#준비-단계-1" in updated

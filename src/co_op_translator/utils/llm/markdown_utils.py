@@ -362,6 +362,9 @@ def update_links(
         markdown_string, language_code, translations_dir
     )
 
+    # Normalize table-of-contents style fragments so they match the translated headings
+    markdown_string = normalize_heading_fragments(markdown_string)
+
     return markdown_string
 
 
@@ -893,6 +896,12 @@ def update_untranslated_file_links(
             continue
 
         path = parsed_url.path
+
+        # Skip pure fragment links (e.g., #section) so they can be normalized later
+        if not path and parsed_url.fragment:
+            logger.debug(f"Skipping fragment-only link: {link}")
+            continue
+
         original_filename, file_ext = get_filename_and_extension(path)
 
         if file_ext in SUPPORTED_IMAGE_EXTENSIONS:
@@ -1003,6 +1012,120 @@ def update_readme_translation_links(
     markdown_string = re.sub(translation_link_pattern, replace_link, markdown_string)
 
     return markdown_string
+
+
+def normalize_heading_fragments(markdown_string: str) -> str:
+    """Ensure in-page markdown links (e.g., Table of Contents) match translated headings."""
+
+    heading_slug_sequences = _collect_heading_slug_sequences(markdown_string)
+    if not heading_slug_sequences:
+        return markdown_string
+
+    link_pattern = re.compile(
+        r"\[(?P<text>[^\]]+)\]\((?P<link>#[^\s)]+)(?P<tail>[^)]*)\)",
+        flags=re.MULTILINE,
+    )
+
+    usage_counts: dict[str, int] = {}
+    changed = False
+
+    def _replace_link(match: re.Match) -> str:
+        nonlocal changed
+        link = match.group("link")
+        if not link.startswith("#"):
+            return match.group(0)
+
+        fragment = link[1:]
+        if not fragment:
+            return match.group(0)
+
+        link_text = match.group("text").strip()
+        if not link_text:
+            return match.group(0)
+
+        base = _slugify_heading_text(link_text)
+        if not base:
+            return match.group(0)
+
+        possible_slugs = heading_slug_sequences.get(base)
+        if not possible_slugs:
+            return match.group(0)
+
+        idx = usage_counts.get(base, 0)
+        usage_counts[base] = idx + 1
+        if idx >= len(possible_slugs):
+            return match.group(0)
+
+        desired_fragment = possible_slugs[idx]
+
+        if desired_fragment == fragment:
+            return match.group(0)
+
+        changed = True
+        tail = match.group("tail") or ""
+        return f"[{match.group('text')}](#{desired_fragment}{tail})"
+
+    updated_markdown = link_pattern.sub(_replace_link, markdown_string)
+
+    return updated_markdown if changed else markdown_string
+
+
+def _collect_heading_slug_sequences(markdown_string: str) -> dict[str, list[str]]:
+    """Parse markdown headings and return slug sequences grouped by slug base."""
+
+    md = MarkdownIt("commonmark")
+    tokens = md.parse(markdown_string)
+
+    slug_counts: dict[str, int] = {}
+    slug_sequences: dict[str, list[str]] = {}
+
+    for index, token in enumerate(tokens):
+        if token.type != "heading_open":
+            continue
+
+        if index + 1 >= len(tokens):
+            continue
+
+        inline_token = tokens[index + 1]
+        if inline_token.type != "inline":
+            continue
+
+        heading_text = inline_token.content.strip()
+        if not heading_text:
+            continue
+
+        base = _slugify_heading_text(heading_text)
+        if not base:
+            continue
+
+        count = slug_counts.get(base, 0)
+        slug_counts[base] = count + 1
+        slug = base if count == 0 else f"{base}-{count}"
+
+        slug_sequences.setdefault(base, []).append(slug)
+
+    return slug_sequences
+
+
+def _slugify_heading_text(text: str) -> str:
+    """Best-effort GitHub-style slug generator that preserves unicode letters."""
+
+    cleaned = text.strip().lower()
+    if not cleaned:
+        return ""
+
+    slug_chars: list[str] = []
+    for char in cleaned:
+        if char.isalnum():
+            slug_chars.append(char)
+        elif char in {" ", "-"}:
+            slug_chars.append("-")
+        else:
+            continue
+
+    slug = "".join(slug_chars)
+    slug = re.sub(r"-+", "-", slug).strip("-")
+    return slug or "section"
 
 
 def compare_line_breaks(original_text, translated_text):
