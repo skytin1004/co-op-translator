@@ -659,100 +659,65 @@ class TranslationManager:
         all_errors = []
 
         try:
-            # Ensure per-language metadata files store canonical language_code values
-            try:
-                for lang in self.language_codes:
-                    # translations/<lang>/.co-op-translator.json
-                    normalize_language_codes_in_lang_metadata(
-                        self._get_language_root(lang), lang
+            if "images" in self.translation_types:
+                # Migrate legacy translated image filenames and update markdown/notebook links
+                rename_map: dict[str, str] = {}
+                migrated_image_count = 0
+
+                try:
+                    rename_map = migrate_translated_image_filenames(
+                        self.image_dir, self.language_codes
                     )
-                    # translated_images/<lang>/.co-op-translator.json
-                    normalize_language_codes_in_lang_metadata(
-                        self.image_dir / lang, lang
+                    migrated_image_count += len(rename_map)
+                except Exception as e:
+                    logger.warning(f"Image filename migration skipped: {e}")
+                    rename_map = {}
+
+                try:
+                    webp_rename_map = migrate_images_to_webp(
+                        self.image_dir, self.language_codes
                     )
-                    # translated_images_fast/<lang>/.co-op-translator.json (best-effort)
-                    normalize_language_codes_in_lang_metadata(
-                        self.root_dir / "translated_images_fast" / lang, lang
+                except Exception as e:
+                    logger.warning(f"WebP migration skipped: {e}")
+                else:
+                    rename_map.update(webp_rename_map)
+                    migrated_image_count += len(webp_rename_map)
+
+                try:
+                    # Always run link migration to rewrite legacy flattened links in content,
+                    # even when no files were moved (empty rename_map)
+                    migrated_md = self.directory_manager.migrate_markdown_image_links(
+                        rename_map
                     )
-            except Exception as e:
-                logger.debug(f"Metadata normalization skipped: {e}")
-
-            # Detect and migrate alias-based language folders (tw, cn, br -> zh-TW, zh-CN, pt-BR)
-            # Run before any translation work to avoid redundant re-translation.
-            try:
-                migrator = LanguageFolderMigrator(
-                    self.root_dir,
-                    translations_dir=self.translations_dir,
-                    image_dir=self.image_dir,
-                )
-                alias_entries = migrator.detect_alias_folders()
-                if alias_entries:
-                    canon_set = set(self.language_codes)
-                    relevant = [e for e in alias_entries if e.canonical in canon_set]
-                    if relevant:
-                        plan = LanguageFolderMigrator.format_plan(relevant)
-                        logger.info("Language folder migration plan:\n%s", plan)
-                        renamed, msgs = migrator.execute(relevant, dry_run=False)
-                        logger.info("Auto-migrated %d language folder(s).", renamed)
-                        for m in msgs:
-                            logger.warning(m)
-            except Exception as e:
-                logger.warning(f"Language folder migration step skipped: {e}")
-
-            # Migrate legacy translated image filenames and update markdown/notebook links
-            rename_map: dict[str, str] = {}
-            migrated_image_count = 0
-
-            try:
-                rename_map = migrate_translated_image_filenames(
-                    self.image_dir, self.language_codes
-                )
-                migrated_image_count += len(rename_map)
-            except Exception as e:
-                logger.warning(f"Image filename migration skipped: {e}")
-                rename_map = {}
-
-            try:
-                webp_rename_map = migrate_images_to_webp(
-                    self.image_dir, self.language_codes
-                )
-            except Exception as e:
-                logger.warning(f"WebP migration skipped: {e}")
-            else:
-                rename_map.update(webp_rename_map)
-                migrated_image_count += len(webp_rename_map)
-
-            try:
-                # Always run link migration to rewrite legacy flattened links in content,
-                # even when no files were moved (empty rename_map)
-                migrated_md = self.directory_manager.migrate_markdown_image_links(
-                    rename_map
-                )
-                migrated_nb = self.directory_manager.migrate_notebook_image_links(
-                    rename_map
-                )
-                logger.info(
-                    "Migrated %d image files and updated %d markdown and %d notebook files",
-                    migrated_image_count,
-                    migrated_md,
-                    migrated_nb,
-                )
-            except Exception as e:
-                logger.warning(f"Image link migration skipped: {e}")
-
-            # As a safety net, canonicalize any remaining alias-based language dir segments in links
-            try:
-                md_fix, nb_fix = canonicalize_image_links_in_translations(
-                    self.translations_dir, self.image_dir
-                )
-                if md_fix or nb_fix:
+                    migrated_nb = self.directory_manager.migrate_notebook_image_links(
+                        rename_map
+                    )
                     logger.info(
-                        "Canonicalized image links in %d markdown and %d notebooks",
-                        md_fix,
-                        nb_fix,
+                        "Migrated %d image files and updated %d markdown and %d notebook files",
+                        migrated_image_count,
+                        migrated_md,
+                        migrated_nb,
                     )
-            except Exception as e:
-                logger.warning(f"Image link canonicalization skipped: {e}")
+                except Exception as e:
+                    logger.warning(f"Image link migration skipped: {e}")
+
+                # As a safety net, canonicalize any remaining alias-based language dir segments in links
+                try:
+                    md_fix, nb_fix = canonicalize_image_links_in_translations(
+                        self.translations_dir, self.image_dir
+                    )
+                    if md_fix or nb_fix:
+                        logger.info(
+                            "Canonicalized image links in %d markdown and %d notebooks",
+                            md_fix,
+                            nb_fix,
+                        )
+                except Exception as e:
+                    logger.warning(f"Image link canonicalization skipped: {e}")
+            else:
+                logger.info(
+                    "Skipping translated image migration because image translation is disabled"
+                )
 
             # Clean up files no longer needed in target directories
             logger.info("Removing orphaned files...")
