@@ -35,7 +35,10 @@ from co_op_translator.core.llm.markdown_translator import MarkdownTranslator
 from co_op_translator.core.project.directory_manager import DirectoryManager
 from co_op_translator.utils.common.task_utils import worker
 from co_op_translator.core.project.language_migrator import LanguageFolderMigrator
-from co_op_translator.utils.llm.markdown_utils import compare_line_breaks, update_image_links
+from co_op_translator.utils.llm.markdown_utils import (
+    compare_line_breaks,
+    update_image_links,
+)
 from co_op_translator.utils.common.metadata_utils import is_notebook_up_to_date
 from co_op_translator.config.base_config import Config
 from co_op_translator.utils.common.file_utils import (
@@ -1504,10 +1507,12 @@ class TranslationManager:
                         break
                     except (ValueError, IndexError):
                         continue
-                
+
                 if not lang_dir:
                     # Fallback to translations_dir / lang_code if not found in subdirs
-                    rel = translation_file.resolve().relative_to(self.translations_dir.resolve())
+                    rel = translation_file.resolve().relative_to(
+                        self.translations_dir.resolve()
+                    )
                     lang_code = rel.parts[0]
                     lang_dir = self.translations_dir / lang_code
             except Exception:

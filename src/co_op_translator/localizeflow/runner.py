@@ -18,6 +18,9 @@ from co_op_translator.utils.common.file_utils import (
 )
 
 from co_op_translator.localizeflow.glossary import set_glossaries
+from co_op_translator.localizeflow.frontmatter import (
+    ensure_localizeflow_frontmatter_parser,
+)
 from co_op_translator.utils.common.metadata_utils import (
     normalize_language_codes_in_lang_metadata,
 )
@@ -93,6 +96,7 @@ def run_translation(
     ) -> None:
         # Validate configuration
         Config.check_configuration()
+        ensure_localizeflow_frontmatter_parser()
 
         # Build translation types list
         translation_types: list[str] = []
@@ -264,7 +268,7 @@ def run_translation(
                 ) / lang
                 if lang_subdir:
                     lang_root = lang_root / lang_subdir
-                
+
                 normalize_language_codes_in_lang_metadata(
                     lang_root,
                     lang,
