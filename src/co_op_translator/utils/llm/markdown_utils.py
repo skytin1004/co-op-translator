@@ -205,7 +205,69 @@ def split_markdown_content(content: str, max_tokens: int, tokenizer) -> list:
     if current_chunk:
         chunks.append("".join(current_chunk))
 
-    return chunks
+    return _align_chunk_boundaries_to_list_item_end(content=content, chunks=chunks)
+
+
+def _align_chunk_boundaries_to_list_item_end(
+    content: str, chunks: list[str]
+) -> list[str]:
+    """If a chunk boundary lands inside a list item, move it to that list item's end."""
+    if len(chunks) <= 1:
+        return chunks
+
+    list_item_spans = _get_list_item_char_spans(content)
+    if not list_item_spans:
+        return chunks
+
+    # Original chunk boundaries by absolute character offsets.
+    boundaries: list[int] = []
+    consumed_chars = 0
+    for chunk in chunks[:-1]:
+        consumed_chars += len(chunk)
+        boundaries.append(consumed_chars)
+
+    adjusted_boundaries: list[int] = []
+    prev_boundary = 0
+    for boundary in boundaries:
+        adjusted = boundary
+        for start_char, end_char in list_item_spans:
+            if start_char < boundary < end_char:
+                adjusted = end_char
+                break
+
+        # Keep boundaries strictly increasing and within document length.
+        adjusted = max(adjusted, prev_boundary + 1)
+        adjusted = min(adjusted, len(content) - 1)
+        adjusted_boundaries.append(adjusted)
+        prev_boundary = adjusted
+
+    rebuilt_chunks: list[str] = []
+    cursor = 0
+    for boundary in adjusted_boundaries:
+        rebuilt_chunks.append(content[cursor:boundary])
+        cursor = boundary
+    rebuilt_chunks.append(content[cursor:])
+
+    return [chunk for chunk in rebuilt_chunks if chunk]
+
+
+def _get_list_item_char_spans(content: str) -> list[tuple[int, int]]:
+    """Return character spans for list items detected by markdown-it-py."""
+    md = MarkdownIt("commonmark")
+    tokens = md.parse(content)
+
+    lines = content.splitlines(keepends=True)
+    offsets = [0]
+    for ln in lines:
+        offsets.append(offsets[-1] + len(ln))
+
+    spans: list[tuple[int, int]] = []
+    for tok in tokens:
+        if tok.type == "list_item_open" and tok.map:
+            start_line, end_line = tok.map
+            spans.append((offsets[start_line], offsets[end_line]))
+
+    return spans
 
 
 def process_markdown(

@@ -175,6 +175,57 @@ def test_split_markdown_content():
     assert all(isinstance(chunk, str) for chunk in chunks)
 
 
+def test_split_markdown_content_keeps_list_item_with_fenced_code_together():
+    """Chunk boundaries should not split a list item that contains a fenced code block."""
+    content = (
+        "# Intro\n\n"
+        "- First item with fenced code:\n"
+        "\n"
+        "  ```python\n"
+        "  print('hello')\n"
+        "  ```\n"
+        "\n"
+        "- Second item\n"
+    )
+
+    class MockTokenizer:
+        def encode(self, text):
+            return [0] * len(text)
+
+    # Force chunking pressure so the splitter would normally break mid-list-item
+    chunks = split_markdown_content(content, 35, MockTokenizer())
+
+    # Ensure fenced code opening/closing are in the same chunk.
+    for chunk in chunks:
+        has_open = "```python" in chunk
+        fence_count = chunk.count("```")
+        if has_open:
+            assert fence_count >= 2
+
+
+def test_split_markdown_content_boundary_moves_to_list_item_end():
+    """If split point lands in a list item, boundary should move to list-item end."""
+    content = (
+        "# Intro\n\n"
+        "- First item with fenced code:\n"
+        "\n"
+        "  ```python\n" + "  print('hello world')\n" * 10 + "  ```\n"
+        "\n"
+        "- Second item\n"
+        "After list\n"
+    )
+
+    class MockTokenizer:
+        def encode(self, text):
+            return [0] * len(text)
+
+    chunks = split_markdown_content(content, 60, MockTokenizer())
+
+    first_chunk = chunks[0]
+    assert "```python" in first_chunk
+    assert "- Second item" in first_chunk
+
+
 @pytest.fixture
 def complex_dir_structure(tmp_path):
     """Create a more complex directory structure for testing nested paths."""
