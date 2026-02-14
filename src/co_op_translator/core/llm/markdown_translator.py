@@ -153,7 +153,9 @@ class MarkdownTranslator(ABC):
             for chunk in document_chunks
         ]
         results = await self._run_prompts_sequentially(prompts, md_file_path)
-        translated_content = "\n".join(results)
+        # Chunks are contiguous slices of the source markdown, so recombine without
+        # inserting separators to avoid adding synthetic blank lines at boundaries.
+        translated_content = "".join(results)
 
         # Step 4: Restore the code blocks and inline code from placeholders
         translated_content = restore_code_blocks(translated_content, placeholder_map)

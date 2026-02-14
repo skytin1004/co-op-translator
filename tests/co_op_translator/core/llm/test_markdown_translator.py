@@ -308,3 +308,28 @@ async def test_translate_markdown_full_integration(real_markdown_translator, tmp
     assert (
         "[Default Translation]" in result
     ), "Expected the default translation text in the output."
+
+
+@pytest.mark.asyncio
+async def test_translate_markdown_does_not_inject_newline_between_chunks(
+    real_markdown_translator, tmp_path
+):
+    """Chunk recombination should not add synthetic newlines between chunks."""
+    test_file = tmp_path / "example_boundaries.md"
+    test_file.write_text("dummy")
+
+    with patch(
+        "co_op_translator.core.llm.markdown_translator.process_markdown",
+        return_value=["A", "B"],
+    ):
+        with patch.object(
+            real_markdown_translator, "_run_prompt", new_callable=AsyncMock
+        ) as mock_run_prompt:
+            mock_run_prompt.side_effect = ["X", "Y"]
+
+            result = await real_markdown_translator.translate_markdown(
+                document="AB", language_code="es", md_file_path=test_file
+            )
+
+    assert "XY" in result
+    assert "X\nY" not in result
