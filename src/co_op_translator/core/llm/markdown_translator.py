@@ -153,7 +153,10 @@ class MarkdownTranslator(ABC):
             for chunk in document_chunks
         ]
         results = await self._run_prompts_sequentially(prompts, md_file_path)
-        translated_content = "\n".join(results)
+        results = self._preserve_chunk_boundary_whitespace(document_chunks, results)
+        # Chunks are contiguous slices of the source markdown, so recombine without
+        # inserting separators to avoid adding synthetic blank lines at boundaries.
+        translated_content = "".join(results)
 
         # Step 4: Restore the code blocks and inline code from placeholders
         translated_content = restore_code_blocks(translated_content, placeholder_map)
@@ -220,6 +223,44 @@ class MarkdownTranslator(ABC):
                     f"Markdown translation failed for chunk {index + 1} of '{md_file_path.name}': {e}"
                 ) from e
         return results
+
+    def _preserve_chunk_boundary_whitespace(
+        self, source_chunks: list[str], translated_chunks: list[str]
+    ) -> list[str]:
+        """Conservatively preserve chunk-edge whitespace from source to translation.
+
+        This mitigates model-side whitespace drift (leading/trailing spaces/newlines)
+        without modifying the translated core text.
+        """
+        if len(source_chunks) != len(translated_chunks):
+            logger.warning(
+                "Skipping chunk boundary whitespace correction due to chunk count mismatch: "
+                f"source={len(source_chunks)}, translated={len(translated_chunks)}"
+            )
+            return translated_chunks
+
+        corrected_chunks: list[str] = []
+        for source, translated in zip(source_chunks, translated_chunks):
+            source_leading = re.match(r"^\s*", source).group(0)
+            source_trailing = re.search(r"\s*$", source).group(0)
+
+            # Keep all-whitespace chunks exactly as source.
+            if source.strip() == "":
+                corrected_chunks.append(source)
+                continue
+
+            translated_leading = re.match(r"^\s*", translated).group(0)
+            translated_trailing = re.search(r"\s*$", translated).group(0)
+
+            core_start = len(translated_leading)
+            core_end = len(translated) - len(translated_trailing)
+            translated_core = translated[core_start:core_end]
+
+            corrected_chunks.append(
+                f"{source_leading}{translated_core}{source_trailing}"
+            )
+
+        return corrected_chunks
 
     @abstractmethod
     async def _run_prompt(self, prompt: str, index: int, total: int) -> str:
