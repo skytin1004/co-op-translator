@@ -205,13 +205,27 @@ def split_markdown_content(content: str, max_tokens: int, tokenizer) -> list:
     if current_chunk:
         chunks.append("".join(current_chunk))
 
-    return _align_chunk_boundaries_to_list_item_end(content=content, chunks=chunks)
+    return _align_chunk_boundaries_to_list_item_end(
+        content=content,
+        chunks=chunks,
+        max_tokens=max_tokens,
+        tokenizer=tokenizer,
+    )
 
 
 def _align_chunk_boundaries_to_list_item_end(
-    content: str, chunks: list[str]
+    content: str,
+    chunks: list[str],
+    max_tokens: int,
+    tokenizer,
 ) -> list[str]:
-    """If a chunk boundary lands inside a list item, move it to that list item's end."""
+    """Align boundaries for list items while enforcing token caps.
+
+    Preferred strategy when a boundary falls inside a list item:
+    1) Move boundary to list-item end if resulting chunk stays within max_tokens.
+    2) Otherwise move boundary to list-item start if that stays within max_tokens.
+    3) Otherwise keep chunk under cap by finding a nearby newline boundary.
+    """
     if len(chunks) <= 1:
         return chunks
 
@@ -228,16 +242,62 @@ def _align_chunk_boundaries_to_list_item_end(
 
     adjusted_boundaries: list[int] = []
     prev_boundary = 0
+
+    def _tokens(start: int, end: int) -> int:
+        return count_tokens(content[start:end], tokenizer)
+
+    def _find_last_newline_within_cap(start: int, end: int) -> int | None:
+        """Return rightmost newline boundary within (start, end) that satisfies max_tokens."""
+        search_pos = end
+        while True:
+            newline_pos = content.rfind("\n", start + 1, search_pos)
+            if newline_pos == -1:
+                return None
+
+            candidate = newline_pos + 1
+            if _tokens(start, candidate) <= max_tokens:
+                return candidate
+
+            search_pos = newline_pos
+
     for boundary in boundaries:
         adjusted = boundary
         for start_char, end_char in list_item_spans:
             if start_char < boundary < end_char:
-                adjusted = end_char
+                # Prefer keeping the whole list item together.
+                if _tokens(prev_boundary, end_char) <= max_tokens:
+                    adjusted = end_char
+                # Otherwise, move boundary before the list item if possible.
+                elif (
+                    start_char > prev_boundary
+                    and _tokens(prev_boundary, start_char) <= max_tokens
+                ):
+                    adjusted = start_char
+                else:
+                    # Hard cap fallback: keep this chunk under max token budget.
+                    newline_boundary = _find_last_newline_within_cap(
+                        prev_boundary, end_char
+                    )
+                    if newline_boundary is not None:
+                        adjusted = newline_boundary
                 break
 
         # Keep boundaries strictly increasing and within document length.
         adjusted = max(adjusted, prev_boundary + 1)
         adjusted = min(adjusted, len(content) - 1)
+
+        # Final safety net for token cap (covers non-list scenarios too).
+        if _tokens(prev_boundary, adjusted) > max_tokens:
+            newline_boundary = _find_last_newline_within_cap(prev_boundary, adjusted)
+            if newline_boundary is not None and newline_boundary > prev_boundary:
+                adjusted = newline_boundary
+
+        if _tokens(prev_boundary, adjusted) > max_tokens:
+            logger.warning(
+                "Chunk token cap could not be strictly enforced for a boundary; "
+                f"chunk has {_tokens(prev_boundary, adjusted)} tokens (max={max_tokens})."
+            )
+
         adjusted_boundaries.append(adjusted)
         prev_boundary = adjusted
 

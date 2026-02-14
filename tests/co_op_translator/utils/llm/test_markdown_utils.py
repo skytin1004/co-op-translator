@@ -226,6 +226,27 @@ def test_split_markdown_content_boundary_moves_to_list_item_end():
     assert "- Second item" in first_chunk
 
 
+def test_split_markdown_content_keeps_token_cap_when_list_item_is_large():
+    """List-aware boundary adjustment should not create oversized chunks."""
+    content = (
+        "# Intro\n\n"
+        "Before list line\n"
+        "- Large item\n"
+        + "  paragraph line for large list item\n" * 30
+        + "After list\n"
+    )
+
+    class MockTokenizer:
+        def encode(self, text):
+            return [0] * len(text)
+
+    max_tokens = 120
+    chunks = split_markdown_content(content, max_tokens, MockTokenizer())
+
+    assert len(chunks) > 1
+    assert all(len(chunk) <= max_tokens for chunk in chunks)
+
+
 @pytest.fixture
 def complex_dir_structure(tmp_path):
     """Create a more complex directory structure for testing nested paths."""
