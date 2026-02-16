@@ -160,3 +160,90 @@ async def test_run_translation_with_groups(tmp_path):
         for call in project_translator_class.call_args_list
     }
     assert called == {(str(root1), str(out1)), (str(root2), str(out2))}
+
+
+@pytest.mark.asyncio
+async def test_run_translation_dry_run_groups_shows_single_aggregated_estimate(
+    tmp_path,
+):
+    root1 = tmp_path / "content1"
+    root2 = tmp_path / "content2"
+    out1 = tmp_path / "out1"
+    out2 = tmp_path / "out2"
+    root1.mkdir()
+    root2.mkdir()
+    out1.mkdir()
+    out2.mkdir()
+
+    runner.Config.check_configuration = MagicMock(return_value=None)
+    runner.LLMConfig.validate_connectivity = MagicMock(return_value=None)
+    runner.setup_logging = MagicMock(return_value=None)
+
+    translator_1 = MagicMock()
+    translator_2 = MagicMock()
+    runner.ProjectTranslator = MagicMock(side_effect=[translator_1, translator_2])
+
+    runner.estimate_translation_tokens = MagicMock(
+        side_effect=[
+            {
+                "markdown": 65,
+                "notebook": 0,
+                "images": 0,
+                "outdated": 0,
+                "total": 65,
+            },
+            {
+                "markdown": 65,
+                "notebook": 0,
+                "images": 0,
+                "outdated": 0,
+                "total": 65,
+            },
+        ]
+    )
+    runner.estimate_translation_words = MagicMock(
+        side_effect=[
+            {
+                "markdown": 40,
+                "notebook": 0,
+                "images": 0,
+                "outdated": 0,
+                "total": 40,
+            },
+            {
+                "markdown": 40,
+                "notebook": 0,
+                "images": 0,
+                "outdated": 0,
+                "total": 40,
+            },
+        ]
+    )
+
+    echo_mock = MagicMock()
+    runner.click.echo = echo_mock
+
+    groups = [
+        (str(root1), str(out1)),
+        (str(root2), str(out2)),
+    ]
+
+    runner.run_translation(
+        language_codes="ko",
+        markdown=True,
+        groups=groups,
+        dry_run=True,
+    )
+
+    estimate_lines = [
+        call.args[0]
+        for call in echo_mock.call_args_list
+        if call.args
+        and "Estimated translation volume before translation" in call.args[0]
+    ]
+    assert len(estimate_lines) == 1
+    assert (
+        estimate_lines[0]
+        == "📊 Estimated translation volume before translation: 80 words (≈ 130 tokens) "
+        "(breakdown: markdown: 130)"
+    )

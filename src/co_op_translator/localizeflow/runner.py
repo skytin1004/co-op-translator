@@ -25,6 +25,8 @@ from co_op_translator.utils.common.metadata_utils import (
     normalize_language_codes_in_lang_metadata,
 )
 from co_op_translator.utils.common.lang_utils import normalize_language_codes
+from co_op_translator.localizeflow.utils.token_utils import estimate_translation_tokens
+from co_op_translator.localizeflow.utils.words_utils import estimate_translation_words
 
 
 logger = logging.getLogger(__name__)
@@ -93,7 +95,8 @@ def run_translation(
         lang_subdir: str | None,
         repo_url: str | None,
         dry_run: bool,
-    ) -> None:
+        emit_estimate: bool = True,
+    ) -> dict[str, int]:
         # Validate configuration
         Config.check_configuration()
         ensure_localizeflow_frontmatter_parser()
@@ -321,9 +324,33 @@ def run_translation(
             lang_subdir=lang_subdir,
         )
 
-        # Estimate tokens before running translation and print a concise summary
+        estimated_tokens: dict[str, int] = {
+            "markdown": 0,
+            "notebook": 0,
+            "images": 0,
+            "outdated": 0,
+            "total": 0,
+        }
+        estimated_words: dict[str, int] = {
+            "markdown": 0,
+            "notebook": 0,
+            "images": 0,
+            "outdated": 0,
+            "total": 0,
+        }
         try:
-            est = translator.translation_manager.estimate_tokens(update=update)
+            est = estimate_translation_tokens(
+                translator.translation_manager, update=update
+            )
+            for key in estimated_tokens:
+                estimated_tokens[key] = int(est.get(key, 0) or 0)
+
+            words_est = estimate_translation_words(
+                translator.translation_manager, update=update
+            )
+            for key in estimated_words:
+                estimated_words[key] = int(words_est.get(key, 0) or 0)
+
             parts: list[str] = []
             if "markdown" in translation_types and est.get("markdown", 0):
                 parts.append(f"markdown: {est['markdown']:,}")
@@ -336,25 +363,87 @@ def run_translation(
             ) and est.get("outdated", 0):
                 parts.append(f"retranslation: {est['outdated']:,}")
             breakdown = ", ".join(parts) if parts else "none"
-            click.echo(
-                f"📊 Estimated tokens before translation: {est.get('total', 0):,} (breakdown: {breakdown})"
-            )
+            if emit_estimate:
+                click.echo(
+                    "📊 Estimated translation volume before translation: "
+                    f"{estimated_words['total']:,} words (≈ {estimated_tokens['total']:,} tokens) "
+                    f"(breakdown: {breakdown})"
+                )
         except Exception as e:  # pragma: no cover - best-effort logging only
             logger.debug(f"Failed to compute estimated tokens: {e}")
 
-        # If dry-run, stop after estimation without making any changes
         if dry_run:
             click.echo("🧪 Dry run complete: no changes made.")
-            return
+            return {
+                **estimated_tokens,
+                "words": estimated_words["total"],
+            }
 
         translator.translate_project(
             update=update,
         )
 
         logger.info(f"Project translation completed for languages: {language_codes}")
+        return {
+            **estimated_tokens,
+            "words": estimated_words["total"],
+        }
+
+    def _merge_estimates(
+        current: dict[str, int],
+        incoming: dict[str, int],
+    ) -> dict[str, int]:
+        merged = dict(current)
+        for key in ("markdown", "notebook", "images", "outdated", "total", "words"):
+            merged[key] = int(merged.get(key, 0)) + int(incoming.get(key, 0))
+        return merged
+
+    def _echo_estimate_summary(
+        est: dict[str, int],
+        translation_types: list[str],
+    ) -> None:
+        parts: list[str] = []
+        if "markdown" in translation_types and est.get("markdown", 0):
+            parts.append(f"markdown: {est['markdown']:,}")
+        if "notebook" in translation_types and est.get("notebook", 0):
+            parts.append(f"notebook: {est['notebook']:,}")
+        if "images" in translation_types and est.get("images", 0):
+            parts.append(f"images: {est['images']:,}")
+        if (
+            "markdown" in translation_types or "notebook" in translation_types
+        ) and est.get("outdated", 0):
+            parts.append(f"retranslation: {est['outdated']:,}")
+        breakdown = ", ".join(parts) if parts else "none"
+        click.echo(
+            "📊 Estimated translation volume before translation: "
+            f"{est.get('words', 0):,} words (≈ {est.get('total', 0):,} tokens) "
+            f"(breakdown: {breakdown})"
+        )
+
+    aggregate_template = {
+        "markdown": 0,
+        "notebook": 0,
+        "images": 0,
+        "outdated": 0,
+        "total": 0,
+        "words": 0,
+    }
+    translation_types_for_summary: list[str] = []
+    if markdown:
+        translation_types_for_summary.append("markdown")
+    if images:
+        translation_types_for_summary.append("images")
+    if notebook:
+        translation_types_for_summary.append("notebook")
+    if not translation_types_for_summary:
+        translation_types_for_summary = ["markdown", "notebook", "images"]
 
     if groups is not None:
-        for per_root, per_translations in groups:
+        groups_list = list(groups)
+        emit_per_group_estimate = not (dry_run and len(groups_list) > 1)
+        aggregated_estimate = dict(aggregate_template)
+
+        for per_root, per_translations in groups_list:
             per_translations_dir: str | None = per_translations
             per_lang_subdir: str | None = None
 
@@ -363,7 +452,7 @@ def run_translation(
                 per_translations_dir = base_part or None
                 per_lang_subdir = suffix
 
-            _run_single_group(
+            per_group_estimate = _run_single_group(
                 language_codes=language_codes,
                 root_dir=per_root,
                 update=update,
@@ -380,12 +469,25 @@ def run_translation(
                 lang_subdir=per_lang_subdir,
                 repo_url=repo_url,
                 dry_run=dry_run,
+                emit_estimate=emit_per_group_estimate,
             )
+
+            if dry_run and len(groups_list) > 1:
+                aggregated_estimate = _merge_estimates(
+                    aggregated_estimate, per_group_estimate
+                )
+
+        if dry_run and len(groups_list) > 1:
+            _echo_estimate_summary(aggregated_estimate, translation_types_for_summary)
         return
 
     if root_dirs is not None:
-        for per_root in root_dirs:
-            _run_single_group(
+        root_dirs_list = list(root_dirs)
+        emit_per_root_estimate = not (dry_run and len(root_dirs_list) > 1)
+        aggregated_estimate = dict(aggregate_template)
+
+        for per_root in root_dirs_list:
+            per_root_estimate = _run_single_group(
                 language_codes=language_codes,
                 root_dir=per_root,
                 update=update,
@@ -402,7 +504,16 @@ def run_translation(
                 lang_subdir=None,
                 repo_url=repo_url,
                 dry_run=dry_run,
+                emit_estimate=emit_per_root_estimate,
             )
+
+            if dry_run and len(root_dirs_list) > 1:
+                aggregated_estimate = _merge_estimates(
+                    aggregated_estimate, per_root_estimate
+                )
+
+        if dry_run and len(root_dirs_list) > 1:
+            _echo_estimate_summary(aggregated_estimate, translation_types_for_summary)
         return
 
     _run_single_group(
@@ -422,4 +533,5 @@ def run_translation(
         lang_subdir=None,
         repo_url=repo_url,
         dry_run=dry_run,
+        emit_estimate=True,
     )
