@@ -328,6 +328,9 @@ def run_translation(
             "markdown": 0,
             "notebook": 0,
             "images": 0,
+            "outdated_markdown": 0,
+            "outdated_notebook": 0,
+            "outdated_images": 0,
             "outdated": 0,
             "total": 0,
         }
@@ -351,18 +354,38 @@ def run_translation(
             for key in estimated_words:
                 estimated_words[key] = int(words_est.get(key, 0) or 0)
 
-            parts: list[str] = []
-            if "markdown" in translation_types and est.get("markdown", 0):
-                parts.append(f"markdown: {est['markdown']:,}")
-            if "notebook" in translation_types and est.get("notebook", 0):
-                parts.append(f"notebook: {est['notebook']:,}")
-            if "images" in translation_types and est.get("images", 0):
-                parts.append(f"images: {est['images']:,}")
-            if (
-                "markdown" in translation_types or "notebook" in translation_types
-            ) and est.get("outdated", 0):
-                parts.append(f"retranslation: {est['outdated']:,}")
-            breakdown = ", ".join(parts) if parts else "none"
+            translation_parts: list[str] = []
+            if "markdown" in translation_types:
+                translation_parts.append(f"markdown: {est.get('markdown', 0):,}")
+            if "notebook" in translation_types:
+                translation_parts.append(f"notebook: {est.get('notebook', 0):,}")
+            if "images" in translation_types:
+                translation_parts.append(f"images: {est.get('images', 0):,}")
+
+            retranslation_parts: list[str] = []
+            if "markdown" in translation_types:
+                retranslation_parts.append(
+                    f"outdated markdowns: {est.get('outdated_markdown', 0):,}"
+                )
+            if "notebook" in translation_types:
+                retranslation_parts.append(
+                    f"outdated notebooks: {est.get('outdated_notebook', 0):,}"
+                )
+            if "images" in translation_types:
+                retranslation_parts.append(
+                    f"outdated images: {est.get('outdated_images', 0):,}"
+                )
+
+            breakdown_sections: list[str] = []
+            if translation_parts:
+                breakdown_sections.append(
+                    f"translation: {'; '.join(translation_parts)}"
+                )
+            if retranslation_parts:
+                breakdown_sections.append(
+                    f"retranslation: {'; '.join(retranslation_parts)}"
+                )
+            breakdown = " | ".join(breakdown_sections) if breakdown_sections else "none"
             if emit_estimate:
                 click.echo(
                     "📊 Estimated translation volume before translation: "
@@ -394,7 +417,17 @@ def run_translation(
         incoming: dict[str, int],
     ) -> dict[str, int]:
         merged = dict(current)
-        for key in ("markdown", "notebook", "images", "outdated", "total", "words"):
+        for key in (
+            "markdown",
+            "notebook",
+            "images",
+            "outdated_markdown",
+            "outdated_notebook",
+            "outdated_images",
+            "outdated",
+            "total",
+            "words",
+        ):
             merged[key] = int(merged.get(key, 0)) + int(incoming.get(key, 0))
         return merged
 
@@ -402,18 +435,36 @@ def run_translation(
         est: dict[str, int],
         translation_types: list[str],
     ) -> None:
-        parts: list[str] = []
-        if "markdown" in translation_types and est.get("markdown", 0):
-            parts.append(f"markdown: {est['markdown']:,}")
-        if "notebook" in translation_types and est.get("notebook", 0):
-            parts.append(f"notebook: {est['notebook']:,}")
-        if "images" in translation_types and est.get("images", 0):
-            parts.append(f"images: {est['images']:,}")
-        if (
-            "markdown" in translation_types or "notebook" in translation_types
-        ) and est.get("outdated", 0):
-            parts.append(f"retranslation: {est['outdated']:,}")
-        breakdown = ", ".join(parts) if parts else "none"
+        translation_parts: list[str] = []
+        if "markdown" in translation_types:
+            translation_parts.append(f"markdown: {est.get('markdown', 0):,}")
+        if "notebook" in translation_types:
+            translation_parts.append(f"notebook: {est.get('notebook', 0):,}")
+        if "images" in translation_types:
+            translation_parts.append(f"images: {est.get('images', 0):,}")
+
+        retranslation_parts: list[str] = []
+        if "markdown" in translation_types:
+            retranslation_parts.append(
+                f"outdated markdowns: {est.get('outdated_markdown', 0):,}"
+            )
+        if "notebook" in translation_types:
+            retranslation_parts.append(
+                f"outdated notebooks: {est.get('outdated_notebook', 0):,}"
+            )
+        if "images" in translation_types:
+            retranslation_parts.append(
+                f"outdated images: {est.get('outdated_images', 0):,}"
+            )
+
+        breakdown_sections: list[str] = []
+        if translation_parts:
+            breakdown_sections.append(f"translation: {'; '.join(translation_parts)}")
+        if retranslation_parts:
+            breakdown_sections.append(
+                f"retranslation: {'; '.join(retranslation_parts)}"
+            )
+        breakdown = " | ".join(breakdown_sections) if breakdown_sections else "none"
         click.echo(
             "📊 Estimated translation volume before translation: "
             f"{est.get('words', 0):,} words (≈ {est.get('total', 0):,} tokens) "
@@ -424,6 +475,9 @@ def run_translation(
         "markdown": 0,
         "notebook": 0,
         "images": 0,
+        "outdated_markdown": 0,
+        "outdated_notebook": 0,
+        "outdated_images": 0,
         "outdated": 0,
         "total": 0,
         "words": 0,

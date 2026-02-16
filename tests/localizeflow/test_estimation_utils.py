@@ -11,14 +11,8 @@ class DummyManager:
         self.language_codes = ["ko"]
         self.supported_notebook_extensions = [".ipynb"]
 
-    def estimate_tokens(self, update: bool = False):
-        return {
-            "markdown": 10,
-            "notebook": 0,
-            "images": 0,
-            "outdated": 0,
-            "total": 10,
-        }
+    def get_outdated_images(self):
+        return []
 
     def get_outdated_translations(self):
         return []
@@ -31,17 +25,20 @@ class DummyManager:
 
 
 def test_estimate_translation_tokens_normalizes_breakdown(tmp_path: Path):
+    readme = tmp_path / "README.md"
+    readme.write_text("token estimation baseline", encoding="utf-8")
     manager = DummyManager(tmp_path)
 
     est = estimate_translation_tokens(manager)
 
-    assert est == {
-        "markdown": 10,
-        "notebook": 0,
-        "images": 0,
-        "outdated": 0,
-        "total": 10,
-    }
+    assert est["markdown"] > 0
+    assert est["notebook"] == 0
+    assert est["images"] == 0
+    assert est["outdated_markdown"] == 0
+    assert est["outdated_notebook"] == 0
+    assert est["outdated_images"] == 0
+    assert est["outdated"] == 0
+    assert est["total"] == est["markdown"]
 
 
 def test_estimate_translation_words_counts_source_words(tmp_path: Path):

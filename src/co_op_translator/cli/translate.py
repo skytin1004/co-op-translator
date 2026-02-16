@@ -356,20 +356,38 @@ def translate_command(
         # Estimate tokens before running translation and print a concise summary
         try:
             est = translator.translation_manager.estimate_tokens(update=update)
-            # Build breakdown for enabled categories with non-zero values
-            parts = []
-            if "markdown" in translation_types and est.get("markdown", 0):
-                parts.append(f"markdown: {est['markdown']:,}")
-            if "notebook" in translation_types and est.get("notebook", 0):
-                parts.append(f"notebook: {est['notebook']:,}")
-            if "images" in translation_types and est.get("images", 0):
-                parts.append(f"images: {est['images']:,}")
-            # Outdated is only applicable when md/nb are enabled
-            if (
-                "markdown" in translation_types or "notebook" in translation_types
-            ) and est.get("outdated", 0):
-                parts.append(f"retranslation: {est['outdated']:,}")
-            breakdown = ", ".join(parts) if parts else "none"
+            translation_parts = []
+            if "markdown" in translation_types:
+                translation_parts.append(f"markdown: {est.get('markdown', 0):,}")
+            if "notebook" in translation_types:
+                translation_parts.append(f"notebook: {est.get('notebook', 0):,}")
+            if "images" in translation_types:
+                translation_parts.append(f"images: {est.get('images', 0):,}")
+
+            retranslation_parts = []
+            if "markdown" in translation_types:
+                retranslation_parts.append(
+                    f"outdated markdowns: {est.get('outdated_markdown', 0):,}"
+                )
+            if "notebook" in translation_types:
+                retranslation_parts.append(
+                    f"outdated notebooks: {est.get('outdated_notebook', 0):,}"
+                )
+            if "images" in translation_types:
+                retranslation_parts.append(
+                    f"outdated images: {est.get('outdated_images', 0):,}"
+                )
+
+            breakdown_sections = []
+            if translation_parts:
+                breakdown_sections.append(
+                    f"translation: {'; '.join(translation_parts)}"
+                )
+            if retranslation_parts:
+                breakdown_sections.append(
+                    f"retranslation: {'; '.join(retranslation_parts)}"
+                )
+            breakdown = " | ".join(breakdown_sections) if breakdown_sections else "none"
             click.echo(
                 f"📊 Estimated tokens before translation: {est.get('total', 0):,} (breakdown: {breakdown})"
             )

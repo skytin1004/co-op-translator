@@ -29,7 +29,6 @@ from co_op_translator.utils.common.metadata_utils import (
     extract_content_without_metadata,
     normalize_language_codes_in_lang_metadata,
 )
-from co_op_translator.utils.llm.token_utils import count_tokens
 from co_op_translator.config.constants import SUPPORTED_MARKDOWN_EXTENSIONS
 from co_op_translator.core.llm.markdown_translator import MarkdownTranslator
 from co_op_translator.core.project.directory_manager import DirectoryManager
@@ -793,7 +792,19 @@ class TranslationManager:
 
                 if outdated_files:
                     try:
-                        est_tokens = self._estimate_tokens_for_outdated(outdated_files)
+                        from co_op_translator.localizeflow.utils.token_utils import (
+                            estimate_tokens_for_outdated,
+                        )
+
+                        est_tokens = estimate_tokens_for_outdated(
+                            self,
+                            outdated_files,
+                            content_type="markdown",
+                        ) + estimate_tokens_for_outdated(
+                            self,
+                            outdated_files,
+                            content_type="notebook",
+                        )
                         logger.info(
                             f"Estimated tokens for selected retranslation targets: {est_tokens:,}"
                         )
@@ -829,7 +840,11 @@ class TranslationManager:
             if "markdown" in self.translation_types:
                 try:
                     md_pending = self._gather_pending_markdown(update=update)
-                    md_tokens = self._estimate_tokens_for_sources(md_pending)
+                    from co_op_translator.localizeflow.utils.token_utils import (
+                        estimate_tokens_for_sources,
+                    )
+
+                    md_tokens = estimate_tokens_for_sources(md_pending)
                     logger.info(
                         f"Estimated tokens for markdown translations: {md_tokens:,} (files: {len(md_pending)})"
                     )
@@ -844,7 +859,11 @@ class TranslationManager:
             if "notebook" in self.translation_types:
                 try:
                     nb_pending = self._gather_pending_notebooks(update=update)
-                    nb_tokens = self._estimate_tokens_for_sources(nb_pending)
+                    from co_op_translator.localizeflow.utils.token_utils import (
+                        estimate_tokens_for_sources,
+                    )
+
+                    nb_tokens = estimate_tokens_for_sources(nb_pending)
                     logger.info(
                         f"Estimated tokens for notebook translations: {nb_tokens:,} (files: {len(nb_pending)})"
                     )
@@ -925,97 +944,14 @@ class TranslationManager:
     def estimate_tokens(self, update: bool = False) -> dict:
         """Estimate tokens for the upcoming translation run.
 
-        Returns a dict: { 'outdated': int, 'markdown': int, 'notebook': int, 'total': int }
-        Only includes categories enabled by `translation_types`.
+        Backward-compatible shim that delegates token-estimation breakdown
+        calculation to localizeflow utilities.
         """
-        breakdown = {"outdated": 0, "markdown": 0, "notebook": 0, "images": 0}
+        from co_op_translator.localizeflow.utils.token_utils import (
+            estimate_translation_tokens,
+        )
 
-        # Outdated retranslation set (when md/nb enabled)
-        if ("markdown" in self.translation_types) or (
-            "notebook" in self.translation_types
-        ):
-            if update:
-                # Mirror check_outdated_files(update=True): treat all existing translations as outdated
-                files: list[tuple[Path, Path]] = []
-                for lang_code in self.language_codes:
-                    translation_dir = self._get_language_root(lang_code)
-                    if not translation_dir.exists():
-                        continue
-                    trans_files: list[Path] = []
-                    for ext in SUPPORTED_MARKDOWN_EXTENSIONS:
-                        trans_files.extend(translation_dir.rglob(f"*{ext}"))
-                    for ext in self.supported_notebook_extensions:
-                        trans_files.extend(translation_dir.rglob(f"*{ext}"))
-
-                    for trans_file in trans_files:
-                        try:
-                            rel = trans_file.relative_to(translation_dir)
-                            original = self.root_dir / rel
-                            if original.exists():
-                                files.append((original, trans_file))
-                        except Exception:
-                            continue
-                outdated = files
-            else:
-                outdated = self.get_outdated_translations()
-            if outdated:
-                breakdown["outdated"] = self._estimate_tokens_for_outdated(outdated)
-
-        # Markdown new/updated set
-        if "markdown" in self.translation_types:
-            md_pending = self._gather_pending_markdown(update=update)
-            if md_pending:
-                breakdown["markdown"] = self._estimate_tokens_for_sources(md_pending)
-
-        # Notebook new/updated set
-        if "notebook" in self.translation_types:
-            nb_pending = self._gather_pending_notebooks(update=update)
-            if nb_pending:
-                breakdown["notebook"] = self._estimate_tokens_for_sources(nb_pending)
-
-        if "images" in self.translation_types:
-            try:
-                breakdown["images"] = self._estimate_tokens_for_images(update=update)
-            except Exception:
-                breakdown["images"] = 0
-
-        total = sum(breakdown.values())
-        return {**breakdown, "total": total}
-
-    def _estimate_tokens_for_sources(self, files: List[Path]) -> int:
-        total = 0
-        for f in files:
-            try:
-                text = read_input_file(f)
-                total += count_tokens(text)
-            except Exception:
-                continue
-        return total
-
-    def _estimate_tokens_for_outdated(
-        self, outdated_files: List[tuple[Path, Path]]
-    ) -> int:
-        sources = [orig for orig, _ in outdated_files]
-        return self._estimate_tokens_for_sources(sources)
-
-    def _estimate_tokens_for_images(self, update: bool) -> int:
-        count = 0
-        image_files = filter_files(self.root_dir, self.excluded_dirs)
-        for image_file_path in image_files:
-            image_file_path = Path(image_file_path).resolve()
-            base, ext = get_filename_and_extension(image_file_path)
-            if ext in self.supported_image_extensions:
-                for language_code in self.language_codes:
-                    translated_filename = generate_translated_filename(
-                        image_file_path, language_code, self.root_dir
-                    )
-                    translated_image_path = (
-                        Path(self.image_dir) / language_code / translated_filename
-                    )
-                    if not update and translated_image_path.exists():
-                        continue
-                    count += 1
-        return count * 10
+        return estimate_translation_tokens(self, update=update)
 
     def _gather_pending_markdown(self, update: bool) -> List[Path]:
         pending: List[Path] = []

@@ -22,7 +22,7 @@ from co_op_translator.utils.common.lang_utils import (
 
 from .directory_manager import DirectoryManager
 from .translation_manager import TranslationManager
-from co_op_translator.utils.llm.token_utils import count_tokens
+from co_op_translator.localizeflow.utils.token_utils import count_tokens
 from co_op_translator.utils.common.file_utils import read_input_file
 
 logger = logging.getLogger(__name__)
