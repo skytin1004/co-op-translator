@@ -244,6 +244,6 @@ async def test_run_translation_dry_run_groups_shows_single_aggregated_estimate(
     assert len(estimate_lines) == 1
     assert (
         estimate_lines[0]
-        == "📊 Estimated translation volume before translation: 80 words (≈ 130 tokens) "
+        == "📊 Estimated translation volume before translation: 130 tokens (80 words) "
         "(breakdown: translation: markdown: 130 | retranslation: outdated markdowns: 0)"
     )

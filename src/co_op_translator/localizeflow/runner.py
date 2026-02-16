@@ -389,7 +389,7 @@ def run_translation(
             if emit_estimate:
                 click.echo(
                     "📊 Estimated translation volume before translation: "
-                    f"{estimated_words['total']:,} words (≈ {estimated_tokens['total']:,} tokens) "
+                    f"{estimated_tokens['total']:,} tokens ({estimated_words['total']:,} words) "
                     f"(breakdown: {breakdown})"
                 )
         except Exception as e:  # pragma: no cover - best-effort logging only
@@ -467,7 +467,7 @@ def run_translation(
         breakdown = " | ".join(breakdown_sections) if breakdown_sections else "none"
         click.echo(
             "📊 Estimated translation volume before translation: "
-            f"{est.get('words', 0):,} words (≈ {est.get('total', 0):,} tokens) "
+            f"{est.get('total', 0):,} tokens ({est.get('words', 0):,} words) "
             f"(breakdown: {breakdown})"
         )
 
