@@ -2,6 +2,8 @@ import logging
 from pathlib import Path
 from typing import Iterable
 import importlib.resources
+import os
+from contextlib import contextmanager
 
 import click
 import yaml
@@ -443,6 +445,22 @@ def run_translation(
             "words": int(words_est.get("total", 0) or 0),
         }
 
+    @contextmanager
+    def _tqdm_disabled(disabled: bool):
+        if not disabled:
+            yield
+            return
+
+        previous = os.environ.get("TQDM_DISABLE")
+        os.environ["TQDM_DISABLE"] = "1"
+        try:
+            yield
+        finally:
+            if previous is None:
+                os.environ.pop("TQDM_DISABLE", None)
+            else:
+                os.environ["TQDM_DISABLE"] = previous
+
     aggregate_template = {
         "markdown": 0,
         "notebook": 0,
@@ -482,40 +500,41 @@ def run_translation(
 
     aggregated_estimate = dict(aggregate_template)
     for per_root, per_translations_dir, per_lang_subdir in execution_targets:
-        aggregated_estimate = _merge_estimates(
-            aggregated_estimate,
-            _compute_estimate_for_group(
-                language_codes=language_codes,
-                root_dir=per_root,
-                update=update,
-                markdown=markdown,
-                images=images,
-                notebook=notebook,
-                add_disclaimer=add_disclaimer,
-                translations_dir=per_translations_dir,
-                image_dir=image_dir,
-                lang_subdir=per_lang_subdir,
-            ),
-        )
-
-    _echo_estimate_summary(aggregated_estimate, translation_types_for_summary)
-
-    for per_root, per_translations_dir, per_lang_subdir in execution_targets:
-        _run_single_group(
+        group_estimate = _compute_estimate_for_group(
             language_codes=language_codes,
             root_dir=per_root,
             update=update,
-            images=images,
             markdown=markdown,
+            images=images,
             notebook=notebook,
-            debug=debug,
-            save_logs=save_logs,
-            yes=yes,
-            glossaries=glossaries,
             add_disclaimer=add_disclaimer,
             translations_dir=per_translations_dir,
             image_dir=image_dir,
             lang_subdir=per_lang_subdir,
-            repo_url=repo_url,
-            dry_run=dry_run,
         )
+        aggregated_estimate = _merge_estimates(aggregated_estimate, group_estimate)
+
+    _echo_estimate_summary(aggregated_estimate, translation_types_for_summary)
+
+    multi_group_mode = len(execution_targets) > 1
+
+    for per_root, per_translations_dir, per_lang_subdir in execution_targets:
+        with _tqdm_disabled(multi_group_mode):
+            _run_single_group(
+                language_codes=language_codes,
+                root_dir=per_root,
+                update=update,
+                images=images,
+                markdown=markdown,
+                notebook=notebook,
+                debug=debug,
+                save_logs=save_logs,
+                yes=yes,
+                glossaries=glossaries,
+                add_disclaimer=add_disclaimer,
+                translations_dir=per_translations_dir,
+                image_dir=image_dir,
+                lang_subdir=per_lang_subdir,
+                repo_url=repo_url,
+                dry_run=dry_run,
+            )

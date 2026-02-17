@@ -243,6 +243,12 @@ async def test_run_translation_dry_run_groups_shows_single_aggregated_estimate(
         and "Estimated translation volume before translation" in call.args[0]
     ]
     assert len(estimate_lines) == 1
+    grouped_progress_lines = [
+        call.args[0]
+        for call in echo_mock.call_args_list
+        if call.args and "Translating all groups" in call.args[0]
+    ]
+    assert grouped_progress_lines == []
     assert (
         estimate_lines[0]
         == "📊 Estimated translation volume before translation: 130 tokens (80 words) "
