@@ -95,8 +95,7 @@ def run_translation(
         lang_subdir: str | None,
         repo_url: str | None,
         dry_run: bool,
-        emit_estimate: bool = True,
-    ) -> dict[str, int]:
+    ) -> None:
         # Validate configuration
         Config.check_configuration()
         ensure_localizeflow_frontmatter_parser()
@@ -324,93 +323,15 @@ def run_translation(
             lang_subdir=lang_subdir,
         )
 
-        estimated_tokens: dict[str, int] = {
-            "markdown": 0,
-            "notebook": 0,
-            "images": 0,
-            "outdated_markdown": 0,
-            "outdated_notebook": 0,
-            "outdated_images": 0,
-            "outdated": 0,
-            "total": 0,
-        }
-        estimated_words: dict[str, int] = {
-            "markdown": 0,
-            "notebook": 0,
-            "images": 0,
-            "outdated": 0,
-            "total": 0,
-        }
-        try:
-            est = estimate_translation_tokens(
-                translator.translation_manager, update=update
-            )
-            for key in estimated_tokens:
-                estimated_tokens[key] = int(est.get(key, 0) or 0)
-
-            words_est = estimate_translation_words(
-                translator.translation_manager, update=update
-            )
-            for key in estimated_words:
-                estimated_words[key] = int(words_est.get(key, 0) or 0)
-
-            translation_parts: list[str] = []
-            if "markdown" in translation_types:
-                translation_parts.append(f"markdown: {est.get('markdown', 0):,}")
-            if "notebook" in translation_types:
-                translation_parts.append(f"notebook: {est.get('notebook', 0):,}")
-            if "images" in translation_types:
-                translation_parts.append(f"images: {est.get('images', 0):,}")
-
-            retranslation_parts: list[str] = []
-            if "markdown" in translation_types:
-                retranslation_parts.append(
-                    f"outdated markdowns: {est.get('outdated_markdown', 0):,}"
-                )
-            if "notebook" in translation_types:
-                retranslation_parts.append(
-                    f"outdated notebooks: {est.get('outdated_notebook', 0):,}"
-                )
-            if "images" in translation_types:
-                retranslation_parts.append(
-                    f"outdated images: {est.get('outdated_images', 0):,}"
-                )
-
-            breakdown_sections: list[str] = []
-            if translation_parts:
-                breakdown_sections.append(
-                    f"translation: {'; '.join(translation_parts)}"
-                )
-            if retranslation_parts:
-                breakdown_sections.append(
-                    f"retranslation: {'; '.join(retranslation_parts)}"
-                )
-            breakdown = " | ".join(breakdown_sections) if breakdown_sections else "none"
-            if emit_estimate:
-                click.echo(
-                    "📊 Estimated translation volume before translation: "
-                    f"{estimated_tokens['total']:,} tokens ({estimated_words['total']:,} words) "
-                    f"(breakdown: {breakdown})"
-                )
-        except Exception as e:  # pragma: no cover - best-effort logging only
-            logger.debug(f"Failed to compute estimated tokens: {e}")
-
         if dry_run:
             click.echo("🧪 Dry run complete: no changes made.")
-            return {
-                **estimated_tokens,
-                "words": estimated_words["total"],
-            }
+            return
 
         translator.translate_project(
             update=update,
         )
 
         logger.info(f"Project translation completed for languages: {language_codes}")
-        return {
-            **estimated_tokens,
-            "words": estimated_words["total"],
-        }
 
     def _merge_estimates(
         current: dict[str, int],
@@ -471,6 +392,57 @@ def run_translation(
             f"(breakdown: {breakdown})"
         )
 
+    def _compute_estimate_for_group(
+        *,
+        language_codes: str,
+        root_dir: str,
+        update: bool,
+        markdown: bool,
+        images: bool,
+        notebook: bool,
+        add_disclaimer: bool,
+        translations_dir: str | None,
+        image_dir: str | None,
+        lang_subdir: str | None,
+    ) -> dict[str, int]:
+        translation_types: list[str] = []
+        if markdown:
+            translation_types.append("markdown")
+        if images:
+            translation_types.append("images")
+        if notebook:
+            translation_types.append("notebook")
+        if not translation_types:
+            translation_types = ["markdown", "notebook", "images"]
+
+        translator = ProjectTranslator(
+            language_codes,
+            root_dir,
+            translation_types=translation_types,
+            add_disclaimer=add_disclaimer,
+            translations_dir=translations_dir,
+            image_dir=image_dir,
+            lang_subdir=lang_subdir,
+        )
+
+        est = estimate_translation_tokens(translator.translation_manager, update=update)
+        words_est = estimate_translation_words(
+            translator.translation_manager,
+            update=update,
+        )
+
+        return {
+            "markdown": int(est.get("markdown", 0) or 0),
+            "notebook": int(est.get("notebook", 0) or 0),
+            "images": int(est.get("images", 0) or 0),
+            "outdated_markdown": int(est.get("outdated_markdown", 0) or 0),
+            "outdated_notebook": int(est.get("outdated_notebook", 0) or 0),
+            "outdated_images": int(est.get("outdated_images", 0) or 0),
+            "outdated": int(est.get("outdated", 0) or 0),
+            "total": int(est.get("total", 0) or 0),
+            "words": int(words_est.get("total", 0) or 0),
+        }
+
     aggregate_template = {
         "markdown": 0,
         "notebook": 0,
@@ -492,100 +464,58 @@ def run_translation(
     if not translation_types_for_summary:
         translation_types_for_summary = ["markdown", "notebook", "images"]
 
+    execution_targets: list[tuple[str, str | None, str | None]] = []
     if groups is not None:
-        groups_list = list(groups)
-        emit_per_group_estimate = not (dry_run and len(groups_list) > 1)
-        aggregated_estimate = dict(aggregate_template)
-
-        for per_root, per_translations in groups_list:
+        for per_root, per_translations in list(groups):
             per_translations_dir: str | None = per_translations
             per_lang_subdir: str | None = None
-
             if per_translations is not None:
                 base_part, suffix = _split_lang_placeholder(per_translations)
                 per_translations_dir = base_part or None
                 per_lang_subdir = suffix
+            execution_targets.append((per_root, per_translations_dir, per_lang_subdir))
+    elif root_dirs is not None:
+        for per_root in list(root_dirs):
+            execution_targets.append((per_root, translations_dir, None))
+    else:
+        execution_targets.append((root_dir, translations_dir, None))
 
-            per_group_estimate = _run_single_group(
+    aggregated_estimate = dict(aggregate_template)
+    for per_root, per_translations_dir, per_lang_subdir in execution_targets:
+        aggregated_estimate = _merge_estimates(
+            aggregated_estimate,
+            _compute_estimate_for_group(
                 language_codes=language_codes,
                 root_dir=per_root,
                 update=update,
-                images=images,
                 markdown=markdown,
+                images=images,
                 notebook=notebook,
-                debug=debug,
-                save_logs=save_logs,
-                yes=yes,
-                glossaries=glossaries,
                 add_disclaimer=add_disclaimer,
                 translations_dir=per_translations_dir,
                 image_dir=image_dir,
                 lang_subdir=per_lang_subdir,
-                repo_url=repo_url,
-                dry_run=dry_run,
-                emit_estimate=emit_per_group_estimate,
-            )
+            ),
+        )
 
-            if dry_run and len(groups_list) > 1:
-                aggregated_estimate = _merge_estimates(
-                    aggregated_estimate, per_group_estimate
-                )
+    _echo_estimate_summary(aggregated_estimate, translation_types_for_summary)
 
-        if dry_run and len(groups_list) > 1:
-            _echo_estimate_summary(aggregated_estimate, translation_types_for_summary)
-        return
-
-    if root_dirs is not None:
-        root_dirs_list = list(root_dirs)
-        emit_per_root_estimate = not (dry_run and len(root_dirs_list) > 1)
-        aggregated_estimate = dict(aggregate_template)
-
-        for per_root in root_dirs_list:
-            per_root_estimate = _run_single_group(
-                language_codes=language_codes,
-                root_dir=per_root,
-                update=update,
-                images=images,
-                markdown=markdown,
-                notebook=notebook,
-                debug=debug,
-                save_logs=save_logs,
-                yes=yes,
-                glossaries=glossaries,
-                add_disclaimer=add_disclaimer,
-                translations_dir=translations_dir,
-                image_dir=image_dir,
-                lang_subdir=None,
-                repo_url=repo_url,
-                dry_run=dry_run,
-                emit_estimate=emit_per_root_estimate,
-            )
-
-            if dry_run and len(root_dirs_list) > 1:
-                aggregated_estimate = _merge_estimates(
-                    aggregated_estimate, per_root_estimate
-                )
-
-        if dry_run and len(root_dirs_list) > 1:
-            _echo_estimate_summary(aggregated_estimate, translation_types_for_summary)
-        return
-
-    _run_single_group(
-        language_codes=language_codes,
-        root_dir=root_dir,
-        update=update,
-        images=images,
-        markdown=markdown,
-        notebook=notebook,
-        debug=debug,
-        save_logs=save_logs,
-        yes=yes,
-        glossaries=glossaries,
-        add_disclaimer=add_disclaimer,
-        translations_dir=translations_dir,
-        image_dir=image_dir,
-        lang_subdir=None,
-        repo_url=repo_url,
-        dry_run=dry_run,
-        emit_estimate=True,
-    )
+    for per_root, per_translations_dir, per_lang_subdir in execution_targets:
+        _run_single_group(
+            language_codes=language_codes,
+            root_dir=per_root,
+            update=update,
+            images=images,
+            markdown=markdown,
+            notebook=notebook,
+            debug=debug,
+            save_logs=save_logs,
+            yes=yes,
+            glossaries=glossaries,
+            add_disclaimer=add_disclaimer,
+            translations_dir=per_translations_dir,
+            image_dir=image_dir,
+            lang_subdir=per_lang_subdir,
+            repo_url=repo_url,
+            dry_run=dry_run,
+        )

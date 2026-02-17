@@ -52,7 +52,8 @@ async def test_run_translation_calls_project_translator_and_sets_glossaries(tmp_
     # ProjectTranslator should be constructed with language codes, root_dir, and
     # translation_types matching the CLI semantics (markdown-only here), with
     # disclaimers disabled for Localizeflow and default output dirs.
-    project_translator_class.assert_called_once_with(
+    assert project_translator_class.call_count == 2
+    project_translator_class.assert_any_call(
         "ko ja",
         str(root_dir),
         translation_types=["markdown"],
@@ -62,7 +63,7 @@ async def test_run_translation_calls_project_translator_and_sets_glossaries(tmp_
         lang_subdir=None,
     )
 
-    # And translate_project should be invoked once with the update flag
+    # translate_project should run once (the preflight estimator instance is not executed)
     project_translator_instance.translate_project.assert_called_once_with(
         update=False,
     )
@@ -87,7 +88,8 @@ async def test_run_translation_with_disclaimer_flag(tmp_path):
         add_disclaimer=True,
     )
 
-    project_translator_class.assert_called_once_with(
+    assert project_translator_class.call_count == 2
+    project_translator_class.assert_any_call(
         "ko",
         str(root_dir),
         translation_types=["markdown"],
@@ -119,7 +121,7 @@ async def test_run_translation_with_multiple_root_dirs(tmp_path):
         root_dirs=[str(root1), str(root2)],
     )
 
-    assert project_translator_class.call_count == 2
+    assert project_translator_class.call_count == 4
     called_roots = {call.args[1] for call in project_translator_class.call_args_list}
     assert called_roots == {str(root1), str(root2)}
 
@@ -154,7 +156,7 @@ async def test_run_translation_with_groups(tmp_path):
         groups=groups,
     )
 
-    assert project_translator_class.call_count == 2
+    assert project_translator_class.call_count == 4
     called = {
         (call.args[1], call.kwargs["translations_dir"])
         for call in project_translator_class.call_args_list
@@ -179,9 +181,8 @@ async def test_run_translation_dry_run_groups_shows_single_aggregated_estimate(
     runner.LLMConfig.validate_connectivity = MagicMock(return_value=None)
     runner.setup_logging = MagicMock(return_value=None)
 
-    translator_1 = MagicMock()
-    translator_2 = MagicMock()
-    runner.ProjectTranslator = MagicMock(side_effect=[translator_1, translator_2])
+    translators = [MagicMock() for _ in range(4)]
+    runner.ProjectTranslator = MagicMock(side_effect=translators)
 
     runner.estimate_translation_tokens = MagicMock(
         side_effect=[
