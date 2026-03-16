@@ -85,6 +85,27 @@ async def test_generate_disclaimer_includes_markdown_safety_rules(real_markdown_
     assert len(captured_prompts) == 1
     assert "Preserve Markdown syntax and tokens exactly as written" in captured_prompts[0]
     assert "keep Markdown link structure [text](URL)" in captured_prompts[0]
+    assert "Japanese mode: preserve Markdown tokens strictly." in captured_prompts[0]
+    assert "NEVER rewrite links as plain text" in captured_prompts[0]
+
+
+@pytest.mark.asyncio
+async def test_generate_disclaimer_normalizes_japanese_style_link(real_markdown_translator):
+    """Disclaimer output should normalize Co-op Translator link to markdown syntax."""
+
+    with patch.object(
+        real_markdown_translator, "_run_prompt", new_callable=AsyncMock
+    ) as mock_run_prompt:
+        mock_run_prompt.return_value = (
+            "**免責事項**：\n"
+            "本書類はAI翻訳サービス「Co-op Translator」"
+            "（https://github.com/Azure/co-op-translator）を使用して翻訳されました。"
+        )
+
+        result = await real_markdown_translator.generate_disclaimer("ja")
+
+    assert "[Co-op Translator](https://github.com/Azure/co-op-translator)" in result
+    assert "「Co-op Translator」（https://github.com/Azure/co-op-translator）" not in result
 
 
 @pytest.mark.asyncio

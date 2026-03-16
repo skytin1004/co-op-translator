@@ -9,6 +9,7 @@ from co_op_translator.utils.llm.markdown_utils import (
     process_markdown,
     update_links,
     generate_prompt_template,
+    _read_language_prompt_template,
     replace_code_blocks,
     restore_code_blocks,
     SPLIT_DELIMITER,
@@ -257,6 +258,9 @@ class MarkdownTranslator(ABC):
             "Preserve Markdown syntax and tokens exactly as written; "
             "if links are present, keep Markdown link structure [text](URL) and do not rewrite links as plain text."
         )
+        language_template = _read_language_prompt_template(output_lang)
+        if language_template:
+            system_text += f"\n\n{language_template}"
         user_text = template_text
         disclaimer_prompt = system_text + SPLIT_DELIMITER + user_text
 
@@ -270,7 +274,25 @@ class MarkdownTranslator(ABC):
             )
             return ""
 
-        return disclaimer
+        return self._normalize_disclaimer_links(disclaimer)
+
+    @staticmethod
+    def _normalize_disclaimer_links(disclaimer: str) -> str:
+        """Normalize known Co-op Translator links to Markdown format.
+
+        Some model outputs localize punctuation around the project name and URL,
+        for example: 「Co-op Translator」（https://github.com/Azure/co-op-translator）.
+        Convert these variants back to the expected Markdown link format.
+        """
+
+        if not disclaimer:
+            return disclaimer
+
+        pattern = re.compile(
+            r"(?:「|『|\")?Co-op Translator(?:」|』|\")?\s*[（(]\s*"
+            r"(https?://github\.com/Azure/co-op-translator)\s*[)）]"
+        )
+        return pattern.sub(r"[Co-op Translator](\1)", disclaimer)
 
     def _read_disclaimer_template_inner(self) -> str:
         """Read the packaged disclaimer template and return inner content between markers.
