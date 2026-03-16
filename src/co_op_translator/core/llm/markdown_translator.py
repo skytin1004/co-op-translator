@@ -9,8 +9,10 @@ from co_op_translator.utils.llm.markdown_utils import (
     process_markdown,
     update_links,
     generate_prompt_template,
+    _read_language_prompt_template,
     replace_code_blocks,
     restore_code_blocks,
+    normalize_cjk_emphasis_markers,
     SPLIT_DELIMITER,
 )
 from co_op_translator.utils.llm.code_comment_translator import (
@@ -155,7 +157,12 @@ class MarkdownTranslator(ABC):
         results = await self._run_prompts_sequentially(prompts, md_file_path)
         translated_content = "\n".join(results)
 
-        # Step 4: Restore the code blocks and inline code from placeholders
+        # Step 4: Normalize emphasis markers for CJK scripts to improve renderer compatibility
+        translated_content = normalize_cjk_emphasis_markers(
+            translated_content, language_code=language_code
+        )
+
+        # Step 4.5: Restore the code blocks and inline code from placeholders
         translated_content = restore_code_blocks(translated_content, placeholder_map)
 
         # Step 5: Update links
@@ -253,8 +260,13 @@ class MarkdownTranslator(ABC):
 
         language_name = self.font_config.get_language_name(output_lang)
         system_text = (
-            f"Translate the following text to {language_name} ({output_lang})."
+            f"Translate the following text to {language_name} ({output_lang}). "
+            "Preserve Markdown syntax and tokens exactly as written; "
+            "if links are present, keep Markdown link structure [text](URL) and do not rewrite links as plain text."
         )
+        language_template = _read_language_prompt_template(output_lang)
+        if language_template:
+            system_text += f"\n\n{language_template}"
         user_text = template_text
         disclaimer_prompt = system_text + SPLIT_DELIMITER + user_text
 

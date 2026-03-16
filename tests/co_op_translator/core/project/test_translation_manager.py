@@ -245,6 +245,32 @@ def test_is_translation_outdated_walks_up_to_lang_dir(tmp_path):
     assert "lesson-1/README.md" in data
 
 
+def test_migrate_legacy_inline_text_metadata_skips_files_without_legacy_block(tmp_path):
+    root_dir = tmp_path
+    translations_dir = root_dir / "translations"
+    lang_dir = translations_dir / "ko"
+
+    source_file = root_dir / "guide.md"
+    source_file.write_text("# Source\n", encoding="utf-8")
+
+    translated_file = lang_dir / "guide.md"
+    translated_file.parent.mkdir(parents=True, exist_ok=True)
+    translated_file.write_text("# Manual translated content\n", encoding="utf-8")
+
+    manager = MagicMock()
+    manager.root_dir = root_dir
+    manager.translations_dir = translations_dir
+    manager.language_codes = ["ko"]
+    manager._migrate_legacy_inline_text_metadata = (
+        TranslationManager._migrate_legacy_inline_text_metadata.__get__(manager)
+    )
+
+    migrated = manager._migrate_legacy_inline_text_metadata()
+
+    assert migrated == 0
+    assert not (lang_dir / ".co-op-translator.json").exists()
+
+
 @pytest.mark.asyncio
 async def test_retranslate_outdated_files(mock_translation_manager, temp_project_dir):
     """Tests retranslation of outdated files."""
@@ -334,6 +360,55 @@ async def test_translate_project_async_with_outdated(
     mock_translation_manager.get_outdated_translations.assert_called_once()
     mock_translation_manager.retranslate_outdated_files.assert_called_once()
     mock_translation_manager.translate_all_markdown_files.assert_called_once()
+
+
+@pytest.mark.asyncio
+async def test_translate_project_runs_link_migration_when_no_images(
+    mock_translation_manager, temp_project_dir, monkeypatch
+):
+    """Even when no image files are migrated, markdown/notebook link rewrites should run."""
+
+    # Force migration helpers to return empty rename maps
+    monkeypatch.setattr(
+        "co_op_translator.core.project.translation_manager.migrate_translated_image_filenames",
+        lambda *args, **kwargs: {},
+    )
+    monkeypatch.setattr(
+        "co_op_translator.core.project.translation_manager.migrate_images_to_webp",
+        lambda *args, **kwargs: {},
+    )
+    monkeypatch.setattr(
+        "co_op_translator.core.project.translation_manager.canonicalize_image_links_in_translations",
+        lambda *args, **kwargs: (0, 0),
+    )
+
+    mock_translation_manager.translation_types = ["markdown"]
+    mock_translation_manager.directory_manager = MagicMock()
+    mock_translation_manager.directory_manager.cleanup_orphaned_translations = (
+        MagicMock(return_value=0)
+    )
+    mock_translation_manager.directory_manager.sync_directory_structure = MagicMock(
+        return_value=(0, 0, [])
+    )
+    mock_translation_manager.directory_manager.migrate_markdown_image_links = MagicMock(
+        return_value=0
+    )
+    mock_translation_manager.directory_manager.migrate_notebook_image_links = MagicMock(
+        return_value=0
+    )
+
+    mock_translation_manager.get_outdated_translations = MagicMock(return_value=[])
+    mock_translation_manager.translate_all_markdown_files = AsyncMock(
+        return_value=(0, [])
+    )
+    mock_translation_manager.translate_project_async = (
+        TranslationManager.translate_project_async.__get__(mock_translation_manager)
+    )
+
+    await mock_translation_manager.translate_project_async()
+
+    mock_translation_manager.directory_manager.migrate_markdown_image_links.assert_called_once()
+    mock_translation_manager.directory_manager.migrate_notebook_image_links.assert_called_once()
 
 
 # ============================================================================

@@ -1,6 +1,6 @@
 # Co-op Translator
 
-_Easily automate the translation of your educational GitHub content into multiple languages to reach a global audience._
+_Easily automate and maintain translations for your educational GitHub content across multiple languages as your project evolves._
 
 ![Python 3.10–3.12](https://img.shields.io/badge/python-3.10--3.12-blue)
 [![Python package](https://img.shields.io/pypi/v/co-op-translator?color=4BA3FF)](https://pypi.org/project/co-op-translator/)
@@ -49,6 +49,27 @@ When you update your Markdown files, images, or notebooks, translations stay aut
 Example of how translated content is organized:
 
 ![Example](./imgs/translation-ex.png)
+
+## How translation state is managed
+
+Co-op Translator manages translated content as **versioned software artifacts**,  
+not as static files.
+
+The tool tracks the state of translated Markdown, images, and notebooks
+using **language-scoped metadata**.
+
+This design allows Co-op Translator to:
+
+- Reliably detect outdated translations
+- Treat Markdown, images, and notebooks consistently
+- Scale safely across large, fast-moving, multi-language repositories
+
+By modeling translations as managed artifacts,
+translation workflows align naturally with modern
+software dependency and artifact management practices.
+
+→ [How translation state is managed](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/rethinking-documentation-translation-treating-translations-as-versioned-software/4491755)
+
 
 ## Quick start
 
@@ -143,6 +164,7 @@ Join us in revolutionizing how educational content is shared globally! Give [Co-
 
 ### Explore Microsoft educational content in your language
 
+- [LangChain4j-for-Beginners](https://github.com/microsoft/LangChain4j-for-Beginners)
 - [AZD for Beginners](https://github.com/microsoft/AZD-for-beginners)
 - [Edge AI for Beginners](https://github.com/microsoft/edgeai-for-beginners)
 - [Model Context Protocol (MCP) For Beginners](https://github.com/microsoft/mcp-for-beginners)
