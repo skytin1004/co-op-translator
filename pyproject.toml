@@ -1,7 +1,7 @@
 [tool.poetry]
 
 name = "localizeflow-co-op-translator"
-version = "0.16.8+lf2"
+version = "0.17.0+lf1"
 description = "Private internal fork of Co-op Translator for Localizeflow, optimized for SaaS-based document translation automation."
 
 authors = [
@@ -15,8 +15,8 @@ license = "MIT"
 readme = "README.md"
 keywords = ["translator", "translation","azure", "openai", "gpt"]
 packages = [{ include = "co_op_translator", from = "src" }]
-include = ["src/co_op_translator/fonts/*", "src/co_op_translator/templates/*", "src/co_op_translator/config/*.yml"]
-documentation = "https://github.com/localizeflow/localizeflow-co-op-translator/tree/main/getting_started"
+include = ["src/co_op_translator/fonts/*", "src/co_op_translator/templates/**/*"]
+documentation = "https://github.com/Azure/co-op-translator/tree/main/getting_started"
 
 [tool.poetry.scripts]
 translate = "co_op_translator.__main__:main"

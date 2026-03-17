@@ -661,10 +661,11 @@ class TranslationManager:
         all_errors = []
 
         try:
+            rename_map: dict[str, str] = {}
+            migrated_image_count = 0
+
             if "images" in self.translation_types:
                 # Migrate legacy translated image filenames and update markdown/notebook links
-                rename_map: dict[str, str] = {}
-                migrated_image_count = 0
 
                 try:
                     rename_map = migrate_translated_image_filenames(
