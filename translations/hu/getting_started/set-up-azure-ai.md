@@ -1,120 +1,121 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b58d7c3cb4210697a073d20eb3064945",
-  "translation_date": "2025-06-12T11:57:18+00:00",
-  "source_file": "getting_started/set-up-azure-ai.md",
-  "language_code": "hu"
-}
--->
-# Azure AI beállítása Co-op Translatorhoz (Azure OpenAI & Azure AI Vision)
+# Azure AI beállítása a Co-op Translatorhoz (Azure OpneAI és Azure AI Vision)
 
-Ez az útmutató végigvezet az Azure OpenAI nyelvi fordításhoz, valamint az Azure Computer Vision képtartalom elemzéséhez (amely később képalapú fordításra is használható) történő beállításán az Azure AI Foundry környezetében.
+Ez az útmutató végigvezeti Önt az Azure OpenAI nyelvi fordításhoz és az Azure Computer Vision képtartalom elemzéshez (amelyet képalapú fordításhoz lehet használni) történő beállításán az Azure AI Foundry-n belül.
 
 **Előfeltételek:**
-- Egy Azure fiók aktív előfizetéssel.
-- Megfelelő jogosultságok az erőforrások és telepítések létrehozásához az Azure előfizetésedben.
+- Azure-fiók aktív előfizetéssel.
+- Elégséges jogosultságok az erőforrások és telepítések létrehozásához az Azure-előfizetésében.
 
 ## Azure AI projekt létrehozása
 
-Először hozz létre egy Azure AI projektet, amely központi helyként szolgál az AI erőforrásaid kezeléséhez.
+Először hozzon létre egy Azure AI projektet, amely központi helyet biztosít az AI erőforrások kezeléséhez.
 
-1. Lépj a [https://ai.azure.com](https://ai.azure.com) oldalra, és jelentkezz be Azure fiókoddal.
+1. Lépjen a [https://ai.azure.com](https://ai.azure.com) oldalra, és jelentkezzen be Azure-fiókjával.
 
-1. Válaszd a **+Create** lehetőséget egy új projekt létrehozásához.
+1. Válassza az **+Create** lehetőséget egy új projekt létrehozásához.
 
-1. Hajtsd végre az alábbi lépéseket:
-   - Írd be a **Project name**-et (pl. `CoopTranslator-Project`).
-   - Válaszd ki az **AI hub**-ot (pl. `CoopTranslator-Hub`) (ha szükséges, hozz létre újat).
+1. Végezze el a következő feladatokat:
+   - Adja meg a **Project name**-t (pl. `CoopTranslator-Project`).
+   - Válassza ki az **AI hub**-ot (pl. `CoopTranslator-Hub`) (Szükség esetén hozzon létre újat).
 
-1. Kattints a "**Review and Create**" gombra a projekt létrehozásához. Ekkor a projekt áttekintő oldalára kerülsz.
+1. Kattintson a "**Review and Create**" gombra a projekt létrehozásához. A projekt áttekintő oldalára kerül.
 
 ## Azure OpenAI beállítása nyelvi fordításhoz
 
-A projekteden belül telepíts egy Azure OpenAI modellt, amely a szövegfordítás háttérrendszerét fogja szolgáltatni.
+A projektjén belül telepít egy Azure OpenAI modellt, amely a szövegfordítás backendjeként szolgál.
 
 ### Navigálás a projekthez
 
-Ha még nem vagy ott, nyisd meg az újonnan létrehozott projektedet (pl. `CoopTranslator-Project`) az Azure AI Foundry-ban.
+Ha még nem lenne nyitva, nyissa meg az imént létrehozott projektjét (pl. `CoopTranslator-Project`) az Azure AI Foundry-ban.
 
 ### OpenAI modell telepítése
 
-1. A projekt bal oldali menüjében, a "My assets" alatt válaszd a "**Models + endpoints**" menüpontot.
+1. A projekt bal oldali menüjében, a "My assets" alatt válassza a "**Models + endpoints**" menüpontot.
 
-1. Kattints a **+ Deploy model** gombra.
+1. Válassza a **+ Deploy model** lehetőséget.
 
-1. Válaszd a **Deploy Base Model** lehetőséget.
+1. Válassza a **Deploy Base Model** opciót.
 
-1. Megjelenik a rendelkezésre álló modellek listája. Szűrj vagy keress egy megfelelő GPT modellt. Ajánljuk a `gpt-4o` modellt.
+1. Megjelenik egy lista elérhető modellekről. Szűrjön vagy keressen egy megfelelő GPT modellt. Ajánlott például a `gpt-4o`.
 
-1. Válaszd ki a kívánt modellt, majd kattints a **Confirm** gombra.
+1. Válassza ki a kívánt modellt, majd kattintson a **Confirm** gombra.
 
-1. Kattints a **Deploy** gombra.
+1. Válassza a **Deploy** opciót.
 
 ### Azure OpenAI konfiguráció
 
-A telepítés után a "**Models + endpoints**" oldalon kiválaszthatod a telepítést, ahol megtalálod a **REST endpoint URL**-t, **Kulcsot**, **Deployment name**-et, **Model name**-et és az **API verziót**. Ezekre szükséged lesz a fordító modell alkalmazásba való integrálásához.
+A telepítés után kiválaszthatja a telepítést a "**Models + endpoints**" oldalon, hogy megtekintse annak **REST endpoint URL**-jét, **kulcsát**, **telepítés nevét**, **modell nevét** és **API verzióját**. Ezekre szüksége lesz, hogy beépítse a fordító modellt az alkalmazásába.
 
 > [!NOTE]
-> Az API verziókat a [API version deprecation](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation) oldalon választhatod ki az igényeid szerint. Fontos, hogy az **API verzió** eltér a **Model verziótól**, amely az Azure AI Foundry "**Models + endpoints**" oldalán látható.
+> Az API verziókat az [API version deprecation](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation) oldalon választhatja ki igényei szerint. Vegye figyelembe, hogy az **API verzió** különbözik az Azure AI Foundry "**Models + endpoints**" oldalán megjelenő **Model verziótól**.
 
-## Azure Computer Vision beállítása képfordításhoz
+## Azure Computer Vision beállítása képalapú fordításhoz
 
-Ahhoz, hogy képeken lévő szöveget fordíthass, meg kell szerezned az Azure AI Service API kulcsát és végpontját.
+A képekben található szövegek fordításának engedélyezéséhez meg kell találni az Azure AI Service API kulcsát és végpontját.
 
-1. Navigálj az Azure AI projektedhez (pl. `CoopTranslator-Project`). Győződj meg róla, hogy a projekt áttekintő oldalán vagy.
+1. Navigáljon az Azure AI projektjéhez (pl. `CoopTranslator-Project`). Győződjön meg róla, hogy a projekt áttekintő oldalán van.
 
 ### Azure AI Service konfiguráció
 
-Keresd meg az API kulcsot és a végpontot az Azure AI Service fülön.
+Keresse meg az API kulcsot és a végpontot az Azure AI Service fülön.
 
-1. Navigálj az Azure AI projektedhez (pl. `CoopTranslator-Project`). Győződj meg róla, hogy a projekt áttekintő oldalán vagy.
+1. Navigáljon az Azure AI projektjéhez (pl. `CoopTranslator-Project`). Győződjön meg róla, hogy a projekt áttekintő oldalán van.
 
-1. Keresd meg az **API Key**-t és az **Endpoint**-ot az Azure AI Service fülön.
+1. Keresse meg az **API Key** és **Endpoint** értékeket az Azure AI Service fülön.
 
-    ![Find API Key and Endpoint](../../../translated_images/find-azure-ai-info.60f8299be786dd67e61e2c79b4b9ea1f7694e6c0923f17a90bc6abf9d5f1dbd7.hu.png)
+    ![Find API Key and Endpoint](../../../translated_images/hu/find-azure-ai-info.0e00140419c12517.webp)
 
-Ez a kapcsolat lehetővé teszi, hogy a kapcsolódó Azure AI Services erőforrás (beleértve a képelemzést is) képességei elérhetővé váljanak az AI Foundry projekted számára. Ezt követően használhatod ezt a kapcsolatot jegyzetfüzeteidben vagy alkalmazásaidban a képekből történő szövegkinyeréshez, amelyet aztán továbbíthatsz az Azure OpenAI modellhez fordításra.
+Ez a kapcsolat elérhetővé teszi a kapcsolt Azure AI Service erőforrás képességeit (beleértve a képelemzést) az AI Foundry projektje számára. Ezt a kapcsolatot használhatja jegyzetfüzeteiben vagy alkalmazásaiban képekből szöveg kinyerésére, melyeket később az Azure OpenAI modellhez küldhet fordításra.
 
-## Hitelesítő adatok összegzése
+## Hitelesítő adatainak összesítése
 
-Eddigre összegyűjtötted a következőket:
+Eddigre az alábbiakat kell összegyűjtenie:
 
-**Azure OpenAI-hoz (szövegfordításhoz):**
+**Azure OpenAI (szövegfordítás) esetén:**
 - Azure OpenAI végpont
 - Azure OpenAI API kulcs
 - Azure OpenAI modell neve (pl. `gpt-4o`)
 - Azure OpenAI telepítés neve (pl. `cooptranslator-gpt4o`)
 - Azure OpenAI API verzió
 
-**Azure AI Services-hez (kép szövegkinyeréshez Vision segítségével):**
+**Azure AI Services (képszöveg kinyerés Vision által):**
 - Azure AI Service végpont
 - Azure AI Service API kulcs
 
-### Példa: Környezeti változók beállítása (előnézet)
+### Példa: Környezeti változó beállítás (előzetes)
 
-Később, amikor az alkalmazásodat építed, valószínűleg ezekkel a hitelesítő adatokkal konfigurálod majd. Például így állíthatod be környezeti változóként:
+Később, az alkalmazás építésekor ezekkel az összegyűjtött hitelesítő adatokkal fogja valószínűleg konfigurálni azt. Például így állíthatja be környezeti változóként:
 
 ```bash
-# Azure AI Service Credentials (Required for image translation)
-AZURE_AI_SERVICE_API_KEY="your_azure_ai_service_api_key" # e.g., 21xasd...
+# Azure AI szolgáltatás hitelesítő adatok (szükséges a képfordításhoz)
+AZURE_AI_SERVICE_API_KEY="your_azure_ai_service_api_key" # pl., 21xasd...
 AZURE_AI_SERVICE_ENDPOINT="https://your_azure_ai_service_endpoint.cognitiveservices.azure.com/"
 
-# Azure OpenAI Credentials (Required for text translation)
-AZURE_OPENAI_API_KEY="your_azure_openai_api_key" # e.g., 21xasd...
+# Opcionális tartalék készletek: ismétlődő változók _1/_2 utótaggal (ugyanaz az index az összes változónál a készletben)
+AZURE_AI_SERVICE_API_KEY_1="your_azure_ai_service_api_key_1"
+AZURE_AI_SERVICE_ENDPOINT_1="https://your_azure_ai_service_endpoint_1.cognitiveservices.azure.com/"
+
+# Azure OpenAI hitelesítő adatok (szükséges a szövegfordításhoz)
+AZURE_OPENAI_API_KEY="your_azure_openai_api_key" # pl., 21xasd...
 AZURE_OPENAI_ENDPOINT="https://your_azure_openai_endpoint.openai.azure.com/"
-AZURE_OPENAI_MODEL_NAME="your_model_name" # e.g., gpt-4o
-AZURE_OPENAI_CHAT_DEPLOYMENT_NAME="your_deployment_name" # e.g., cooptranslator-gpt4o
-AZURE_OPENAI_API_VERSION="your_api_version" # e.g., 2024-12-01-preview
+AZURE_OPENAI_MODEL_NAME="your_model_name" # pl., gpt-4o
+AZURE_OPENAI_CHAT_DEPLOYMENT_NAME="your_deployment_name" # pl., cooptranslator-gpt4o
+AZURE_OPENAI_API_VERSION="your_api_version" # pl., 2024-12-01-preview
+
+# Opcionális tartalék készletek: ismételje meg az egész AZURE_OPENAI_* készletet _1/_2 utótaggal (ugyanaz az index az összes változónál)
 ```
 
 ---
 
 ### További olvasnivaló
 
-- [Hogyan hozz létre projektet az Azure AI Foundry-ban](https://learn.microsoft.com/azure/ai-foundry/how-to/create-projects?tabs=ai-studio)
-- [Hogyan hozz létre Azure AI erőforrásokat](https://learn.microsoft.com/azure/ai-foundry/how-to/create-azure-ai-resource?tabs=portal)
-- [Hogyan telepíts OpenAI modelleket az Azure AI Foundry-ban](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/deploy-models-openai)
+- [Hogyan hozzunk létre projektet az Azure AI Foundry-ban](https://learn.microsoft.com/azure/ai-foundry/how-to/create-projects?tabs=ai-studio)
+- [Hogyan hozzunk létre Azure AI erőforrásokat](https://learn.microsoft.com/azure/ai-foundry/how-to/create-azure-ai-resource?tabs=portal)
+- [Hogyan telepítsünk OpenAI modelleket az Azure AI Foundry-ban](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/deploy-models-openai)
 
-**Nyilatkozat**:  
-Ezt a dokumentumot az AI fordító szolgáltatás, a [Co-op Translator](https://github.com/Azure/co-op-translator) segítségével fordítottuk le. Bár a pontosságra törekszünk, kérjük, vegye figyelembe, hogy az automatikus fordítások hibákat vagy pontatlanságokat tartalmazhatnak. Az eredeti dokumentum az anyanyelvén tekintendő hivatalos forrásnak. Fontos információk esetén szakmai, emberi fordítást javaslunk. Nem vállalunk felelősséget az ebből a fordításból eredő félreértésekért vagy téves értelmezésekért.
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Felelősségkizárás**:  
+Ez a dokumentum az AI fordítási szolgáltatás, a [Co-op Translator](https://github.com/Azure/co-op-translator) segítségével került lefordításra. Bár igyekszünk a pontosságra, kérjük, vegye figyelembe, hogy az automatikus fordítások hibákat vagy pontatlanságokat tartalmazhatnak. Az eredeti dokumentum anyanyelvű változatát kell tekinteni hivatalos forrásnak. Kritikus információk esetén szakmai emberi fordítás használata ajánlott. Nem vállalunk felelősséget a fordítás használatából eredő félreértésekért vagy téves értelmezésekért.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

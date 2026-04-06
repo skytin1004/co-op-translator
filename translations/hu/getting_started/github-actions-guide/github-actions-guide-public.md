@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T03:50:20+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "hu"
-}
--->
 # A Co-op Translator GitHub Action használata (Nyilvános beállítás)
 
 **Célközönség:** Ez az útmutató azoknak szól, akik nyilvános vagy privát repókban dolgoznak, ahol a szokásos GitHub Actions jogosultságok elegendőek. A beépített `GITHUB_TOKEN`-t használja.
@@ -53,7 +44,7 @@ Csak az **AI szolgáltatás hitelesítő adataidat** kell titkosított titokkén
 2.  Menj a **Settings** > **Secrets and variables** > **Actions** menüpontra.
 3.  A **Repository secrets** alatt kattints a **New repository secret** gombra minden szükséges AI szolgáltatás titokhoz az alábbiak közül.
 
-    <img src="../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.hu.png" alt="Select setting action"> *(Kép: Itt tudsz titkokat hozzáadni)*
+    <img src="../../../../translated_images/hu/select-setting-action.3b95c915d6031159.webp" alt="Select setting action"> *(Kép: Itt tudsz titkokat hozzáadni)*
 
 **Szükséges AI szolgáltatás titkok (Add hozzá mindet, ami az előfeltételeid alapján kell):**
 
@@ -81,7 +72,7 @@ A GitHub Actionnek jogosultságot kell adni a `GITHUB_TOKEN`-on keresztül, hogy
 4.  Győződj meg róla, hogy a **Allow GitHub Actions to create and approve pull requests** jelölőnégyzet **be van pipálva**.
 5.  Kattints a **Save** gombra.
 
-<img src="../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.hu.png" alt="Permission setting">
+<img src="../../../../translated_images/hu/permission-setting.ae2f02748b0579e7.webp" alt="Permission setting">
 
 ### 4. lépés: Workflow fájl létrehozása
 

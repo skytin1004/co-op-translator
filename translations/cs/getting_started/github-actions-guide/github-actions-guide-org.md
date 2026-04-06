@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9fac847815936ef6e6c8bfde6d191571",
-  "translation_date": "2025-10-15T03:52:59+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-org.md",
-  "language_code": "cs"
-}
--->
 # Použití Co-op Translator GitHub Action (Organizační příručka)
 
 **Cílová skupina:** Tato příručka je určena pro **interní uživatele Microsoftu** nebo **týmy, které mají přístup k potřebným přihlašovacím údajům pro předpřipravenou Co-op Translator GitHub App** nebo si mohou vytvořit vlastní GitHub App.
@@ -56,11 +47,11 @@ Workflow používá autentizaci přes GitHub App pro bezpečnou interakci s vaš
 
 1. Zvolte **Install** a vyberte účet nebo organizaci, kde se nachází váš cílový repozitář.
 
-    ![Instalace aplikace](../../../../translated_images/install-app.d0f0a24cbb1d6c93f293f002eb34e633f7bc8f5caaba46b97806ba7bdc958f27.cs.png)
+    ![Instalace aplikace](../../../../translated_images/cs/install-app.d0f0a24cbb1d6c93.webp)
 
 1. Zvolte **Only select repositories** a vyberte svůj cílový repozitář (např. `PhiCookBook`). Klikněte na **Install**. Můžete být požádáni o ověření.
 
-    ![Instalace autorizace](../../../../translated_images/install-authorize.29df6238c3eb8f707e7fc6f97a946cb654b328530c4aeddce28b874693f076a0.cs.png)
+    ![Instalace autorizace](../../../../translated_images/cs/install-authorize.29df6238c3eb8f70.webp)
 
 1. **Získání přihlašovacích údajů aplikace (vyžadován interní proces):** Aby workflow mohl autentizovat jako aplikace, potřebujete dvě informace od týmu Co-op Translator:
   - **App ID:** Jedinečný identifikátor Co-op Translator aplikace. App ID je: `1164076`.
@@ -82,7 +73,7 @@ Musíte přidat přihlašovací údaje GitHub App a vaše AI služby jako šifro
 
 1. V sekci **Repository secrets** klikněte na **New repository secret** pro každé tajemství uvedené níže.
 
-   ![Výběr nastavení akce](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.cs.png)
+   ![Výběr nastavení akce](../../../../translated_images/cs/select-setting-action.3b95c915d6031159.webp)
 
 **Povinná tajemství (pro GitHub App autentizaci):**
 
@@ -107,7 +98,7 @@ Musíte přidat přihlašovací údaje GitHub App a vaše AI služby jako šifro
 | `OPENAI_CHAT_MODEL_ID`               | Konkrétní OpenAI model ID                      | OpenAI Platform                |
 | `OPENAI_BASE_URL`                    | Vlastní OpenAI API Base URL                    | OpenAI Platform                |
 
-![Zadání názvu proměnné prostředí](../../../../translated_images/add-secrets-done.444861ce6956d5cb20781ead1237fcc12805078349bb0d4e95bb9540ee192227.cs.png)
+![Zadání názvu proměnné prostředí](../../../../translated_images/cs/add-secrets-done.444861ce6956d5cb.webp)
 
 ### Krok 3: Vytvoření workflow souboru
 

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9fac847815936ef6e6c8bfde6d191571",
-  "translation_date": "2025-10-15T03:49:55+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-org.md",
-  "language_code": "hu"
-}
--->
 # A Co-op Translator GitHub Action használata (Szervezeti útmutató)
 
 **Célközönség:** Ez az útmutató **Microsoft belső felhasználóknak** vagy olyan csapatoknak szól, akik hozzáférnek a Co-op Translator előre elkészített GitHub App hitelesítő adataihoz, vagy saját egyedi GitHub Appot tudnak létrehozni.
@@ -56,11 +47,11 @@ A workflow GitHub App hitelesítést használ, hogy biztonságosan tudjon művel
 
 1. Kattints az **Install** gombra, majd válaszd ki azt a fiókot vagy szervezetet, ahol a cél repository található.
 
-    <img src="../../../../translated_images/install-app.d0f0a24cbb1d6c93f293f002eb34e633f7bc8f5caaba46b97806ba7bdc958f27.hu.png" alt="Install app">
+    <img src="../../../../translated_images/hu/install-app.d0f0a24cbb1d6c93.webp" alt="Install app">
 
 1. Válaszd az **Only select repositories** lehetőséget, majd jelöld ki a cél repositoryt (pl. `PhiCookBook`). Kattints az **Install** gombra. Előfordulhat, hogy hitelesítened kell magad.
 
-    <img src="../../../../translated_images/install-authorize.29df6238c3eb8f707e7fc6f97a946cb654b328530c4aeddce28b874693f076a0.hu.png" alt="Install authorize">
+    <img src="../../../../translated_images/hu/install-authorize.29df6238c3eb8f70.webp" alt="Install authorize">
 
 1. **App hitelesítő adatok beszerzése (belső folyamat szükséges):** Ahhoz, hogy a workflow az app nevében tudjon hitelesíteni, két információra lesz szükséged, amit a Co-op Translator csapat biztosít:
   - **App ID:** A Co-op Translator app egyedi azonosítója. Az App ID: `1164076`.
@@ -82,7 +73,7 @@ A GitHub App hitelesítő adatokat és az AI szolgáltatás hitelesítő adatoka
 
 1. A **Repository secrets** alatt kattints a **New repository secret** gombra minden egyes titkos adatnál az alábbiak közül.
 
-   <img src="../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.hu.png" alt="Select setting action">
+   <img src="../../../../translated_images/hu/select-setting-action.3b95c915d6031159.webp" alt="Select setting action">
 
 **Szükséges titkos adatok (GitHub App hitelesítéshez):**
 
@@ -107,7 +98,7 @@ A GitHub App hitelesítő adatokat és az AI szolgáltatás hitelesítő adatoka
 | `OPENAI_CHAT_MODEL_ID`              | OpenAI modell azonosítója             | OpenAI Platform            |
 | `OPENAI_BASE_URL`                   | Egyedi OpenAI API Base URL            | OpenAI Platform            |
 
-<img src="../../../../translated_images/add-secrets-done.444861ce6956d5cb20781ead1237fcc12805078349bb0d4e95bb9540ee192227.hu.png" alt="Enter environment variable name">
+<img src="../../../../translated_images/hu/add-secrets-done.444861ce6956d5cb.webp" alt="Enter environment variable name">
 
 ### 3. lépés: Workflow fájl létrehozása
 

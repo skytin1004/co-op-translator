@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T03:47:03+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "sw"
-}
--->
 # Kutumia Co-op Translator GitHub Action (Usanidi wa Umma)
 
 **Walengwa:** Mwongozo huu umeandaliwa kwa watumiaji wa miradi ya umma au binafsi ambapo ruhusa za kawaida za GitHub Actions zinatosha. Unatumia `GITHUB_TOKEN` iliyojengwa ndani.
@@ -53,7 +44,7 @@ Unachotakiwa ni kuongeza **taarifa zako za huduma ya AI** kama siri zilizofichwa
 2.  Nenda kwenye **Settings** > **Secrets and variables** > **Actions**.
 3.  Chini ya **Repository secrets**, bonyeza **New repository secret** kwa kila siri ya huduma ya AI inayohitajika kama ilivyoorodheshwa hapa chini.
 
-    ![Chagua sehemu ya settings](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.sw.png) *(Marejeo ya Picha: Inaonyesha mahali pa kuongeza siri)*
+    ![Chagua sehemu ya settings](../../../../translated_images/sw/select-setting-action.3b95c915d6031159.webp) *(Marejeo ya Picha: Inaonyesha mahali pa kuongeza siri)*
 
 **Siri za Huduma ya AI Zinazohitajika (Ongeza ZOTE zinazohusika kulingana na Mahitaji yako):**
 
@@ -81,7 +72,7 @@ GitHub Action inahitaji ruhusa kupitia `GITHUB_TOKEN` ili kuchukua code na kuund
 4.  Hakikisha kisanduku cha **Allow GitHub Actions to create and approve pull requests** kimewekwa alama ya tiki.
 5.  Bonyeza **Save**.
 
-![Mpangilio wa ruhusa](../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.sw.png)
+![Mpangilio wa ruhusa](../../../../translated_images/sw/permission-setting.ae2f02748b0579e7.webp)
 
 ### Hatua ya 4: Tengeneza Faili la Workflow
 

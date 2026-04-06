@@ -1,16 +1,8 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "dac6bc281667816537df51f724a0ff2c",
-  "translation_date": "2025-11-30T12:00:21+00:00",
-  "source_file": "README.md",
-  "language_code": "sw"
-}
--->
-# Mtafsiri wa Co-op
+# Co-op Translator
 
-_Rahisi kuendesha mchakato wa kutafsiri maudhui yako ya elimu ya GitHub katika lugha nyingi ili kufikia hadhira ya kimataifa._
+_Kwa urahisi otomati na kudumisha tafsiri za maudhui yako ya elimu ya GitHub katika lugha nyingi kadri mradi wako unavyobadilika._
 
+![Python 3.10–3.12](https://img.shields.io/badge/python-3.10--3.12-blue)
 [![Python package](https://img.shields.io/pypi/v/co-op-translator?color=4BA3FF)](https://pypi.org/project/co-op-translator/)
 [![License: MIT](https://img.shields.io/github/license/azure/co-op-translator?color=4BA3FF)](https://github.com/azure/co-op-translator/blob/main/LICENSE)
 [![Downloads](https://static.pepy.tech/badge/co-op-translator)](https://pepy.tech/project/co-op-translator)
@@ -28,7 +20,27 @@ _Rahisi kuendesha mchakato wa kutafsiri maudhui yako ya elimu ya GitHub katika l
 #### Inasaidiwa na [Co-op Translator](https://github.com/Azure/Co-op-Translator)
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
-[Kiarabu](../ar/README.md) | [Kibengali](../bn/README.md) | [Kibulgaria](../bg/README.md) | [Kiburma (Myanmar)](../my/README.md) | [Kichina (Rahisi)](../zh/README.md) | [Kichina (Kiasili, Hong Kong)](../hk/README.md) | [Kichina (Kiasili, Macau)](../mo/README.md) | [Kichina (Kiasili, Taiwan)](../tw/README.md) | [Kikroeshia](../hr/README.md) | [Kicheki](../cs/README.md) | [Kidenmaki](../da/README.md) | [Kiholanzi](../nl/README.md) | [Kiestonia](../et/README.md) | [Kifini](../fi/README.md) | [Kifaransa](../fr/README.md) | [Kijerumani](../de/README.md) | [Kigiriki](../el/README.md) | [Kiebrania](../he/README.md) | [Kihindi](../hi/README.md) | [Kihungari](../hu/README.md) | [Kiindonesia](../id/README.md) | [Kiitaliano](../it/README.md) | [Kijapani](../ja/README.md) | [Kikannada](../kn/README.md) | [Kikorea](../ko/README.md) | [Kilithuania](../lt/README.md) | [Kimalay](../ms/README.md) | [Kimalayalam](../ml/README.md) | [Kimarathi](../mr/README.md) | [Kinepali](../ne/README.md) | [Kipidgin cha Nigeria](../pcm/README.md) | [Kinorwe](../no/README.md) | [Kiajemi (Farsi)](../fa/README.md) | [Kipolandi](../pl/README.md) | [Kireno (Brazil)](../br/README.md) | [Kireno (Portugal)](../pt/README.md) | [Kipunabi (Gurmukhi)](../pa/README.md) | [Kiromania](../ro/README.md) | [Kirusi](../ru/README.md) | [Kiserbia (Cyrillic)](../sr/README.md) | [Kislovakia](../sk/README.md) | [Kislovenia](../sl/README.md) | [Kihispania](../es/README.md) | [Kiswahili](./README.md) | [Kiswidi](../sv/README.md) | [Kitagalog (Kifilipino)](../tl/README.md) | [Kitamili](../ta/README.md) | [Kitelugu](../te/README.md) | [Kithai](../th/README.md) | [Kituruki](../tr/README.md) | [Kiukraini](../uk/README.md) | [Kiurdu](../ur/README.md) | [Kivietinamu](../vi/README.md)
+[Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh-CN/README.md) | [Chinese (Traditional, Hong Kong)](../zh-HK/README.md) | [Chinese (Traditional, Macau)](../zh-MO/README.md) | [Chinese (Traditional, Taiwan)](../zh-TW/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Kannada](../kn/README.md) | [Khmer](../km/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Malayalam](../ml/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../pt-BR/README.md) | [Portuguese (Portugal)](../pt-PT/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](./README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
+
+> **Unapendelea Kuiga Kwenye eneo lako?**
+>
+> Hifadhi hii ina tafsiri zaidi ya 50 za lugha ambazo huongeza kiasi cha kupakua kwa kiasi kikubwa. Ili kuiga bila tafsiri, tumia sparse checkout:
+>
+> **Bash / macOS / Linux:**
+> ```bash
+> git clone --filter=blob:none --sparse https://github.com/skytin1004/co-op-translator.git
+> cd co-op-translator
+> git sparse-checkout set --no-cone '/*' '!translations' '!translated_images'
+> ```
+>
+> **CMD (Windows):**
+> ```cmd
+> git clone --filter=blob:none --sparse https://github.com/skytin1004/co-op-translator.git
+> cd co-op-translator
+> git sparse-checkout set --no-cone "/*" "!translations" "!translated_images"
+> ```
+>
+> Hii inakupa kila unachohitaji kumaliza kozi kwa kasi zaidi ya kupakua.
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
 [![GitHub watchers](https://img.shields.io/github/watchers/azure/co-op-translator.svg?style=social&label=Watch)](https://GitHub.com/azure/co-op-translator/watchers/)
@@ -41,17 +53,38 @@ _Rahisi kuendesha mchakato wa kutafsiri maudhui yako ya elimu ya GitHub katika l
 
 ## Muhtasari
 
-**Co-op Translator** inakusaidia kuweka maudhui yako ya elimu ya GitHub katika lugha nyingi kwa urahisi.
-Unapobadilisha faili zako za Markdown, picha, au daftari za maelezo, tafsiri zinaendeshwa moja kwa moja, kuhakikisha maudhui yako yanabaki sahihi na ya kisasa kwa wanafunzi duniani kote.
+**Co-op Translator** inakusaidia kuweka maudhui yako ya elimu ya GitHub katika lugha nyingi kwa urahisi.  
+Unapoboresha mafaili yako ya Markdown, picha, au daftari, tafsiri zinabaki ziko sawa moja kwa moja, zikihakikisha maudhui yako ni sahihi na ya kisasa kwa wanafunzi duniani kote.
 
 Mfano wa jinsi maudhui yaliyotafsiriwa yanavyopangwa:
 
-![Mfano](../../translated_images/translation-ex.0c8aa6a7ee0aad2b35cddcc110c719baf0afc640e8c5a45540e6c166b9907d91.sw.png)
+![Example](../../translated_images/sw/translation-ex.0c8aa6a7ee0aad2b.webp)
 
-## Anza Haraka
+## Jinsi hali ya tafsiri inavyosimamiwa
+
+Co-op Translator inasimamia maudhui yaliyotafsiriwa kama **vitu vya programu vilivyo na toleo**,  
+sio kama mafaili tulivu.
+
+Zana hii inafuatilia hali ya Markdown, picha, na daftari yaliyotafsiriwa  
+kwa kutumia **metadata iliyobainishwa kwa lugha**.
+
+Muundo huu unaruhusu Co-op Translator:
+
+- Kugundua tafsiri zilizozidiwa kuwa za zamani kwa uhakika  
+- Kutendea Markdown, picha, na daftari kwa njia sawa  
+- Kupanua kwa usalama katika hazina kubwa, zinazobadilika haraka, zenye lugha nyingi
+
+Kwa kufanikisha tafsiri kama vitu vinavyosimamiwa,  
+mchakato wa tafsiri unaendana kwa asili na  
+masharti ya kisasa ya usimamizi wa utegemezi wa programu na vitu.
+
+→ [Jinsi hali ya tafsiri inavyosimamiwa](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/rethinking-documentation-translation-treating-translations-as-versioned-software/4491755)
+
+
+## Maanzo ya haraka
 
 ```bash
-# Unda na wezesha mazingira pepe (inapendekezwa)
+# Unda na wezesha mazingira ya mtandaoni (inayopendekezwa)
 python -m venv .venv
 # Windows
 .venv\Scripts\activate
@@ -68,22 +101,24 @@ Docker:
 ```bash
 # Vuta picha ya umma kutoka GHCR
 docker pull ghcr.io/azure/co-op-translator:latest
-# Endesha na folda ya sasa imeunganishwa na .env imewekwa (Bash/Zsh)
+# Endesha ukifanya folda ya sasa ikiwa imewekwa na .env ikitolewa (Bash/Zsh)
 docker run --rm -it --env-file .env -v "${PWD}:/work" ghcr.io/azure/co-op-translator:latest -l "ko ja fr" -md
 ```
 
-## Usanidi wa Msingi
+## Usanidi wa chini kabisa
 
-1. Tengeneza faili `.env` ukitumia kiolezo: [.env.template](../../.env.template)
-2. Sanidi mtoa huduma mmoja wa LLM (Azure OpenAI au OpenAI)
-3. (Hiari) Kwa tafsiri ya picha (`-img`), sanidi Azure AI Vision
-4. (Inapendekezwa) Safisha tafsiri za awali ili kuepuka migongano (mfano, `translations/`)
-5. (Inapendekezwa) Ongeza sehemu ya tafsiri kwenye README yako ukitumia [kiolezo cha lugha za README](./getting_started/README_languages_template.md)
-6. Angalia: [Sanidi Azure AI](./getting_started/set-up-azure-ai.md)
+1. Thibitisha kuwa una toleo la Python linalosaidiwa (kwa sasa 3.10-3.12). Katika poetry (pyproject.toml) hili linashughulikiwa kwa otomatiki.  
+2. Unda faili la `.env` kwa kutumia templeti: [.env.template](../../.env.template)  
+3. Sanidi mtoa huduma mmoja wa LLM (Azure OpenAI au OpenAI)  
+4. (Hiari) Kwa tafsiri ya picha (`-img`), sanidi Azure AI Vision  
+5. (Hiari) Unaweza kusanidi seti nyingi za kibali kwa kurudia mabadiliko na viambishi kama `_1`, `_2`, nk. Vigezo vyote katika seti lazima vyawe na kiambishi sawa.  
+6. (Inapendekezwa) Safisha tafsiri za awali ili kuepuka migongano (kwa mfano, `translations/`)  
+7. (Inapendekezwa) Ongeza sehemu ya tafsiri kwa README yako kwa kutumia [README languages template](./getting_started/README_languages_template.md)  
+8. Tazama: [Sanidi Azure AI](./getting_started/set-up-azure-ai.md)
 
 ## Matumizi
 
-Tafsiri aina zote zinazotegemewa:
+Tafsiri aina zote zinazosaidiwa:
 
 ```bash
 translate -l "ko ja"
@@ -111,100 +146,104 @@ Bendera zaidi: [Marejeleo ya amri](./getting_started/command-reference.md)
 
 ## Sifa
 
-- Tafsiri ya moja kwa moja kwa Markdown, daftari, na picha
-- Hufanya tafsiri ziendane na mabadiliko ya chanzo
-- Inafanya kazi kwa ndani (CLI) au katika CI (GitHub Actions)
-- Inatumia Azure OpenAI au OpenAI; hiari Azure AI Vision kwa picha
-- Huhifadhi muundo na mpangilio wa Markdown
+- Tafsiri za otomatiki kwa Markdown, daftari, na picha  
+- Inahakikisha tafsiri zinakuwa sawa na mabadiliko ya chanzo  
+- Inafanya kazi kwa ndani (CLI) au katika CI (GitHub Actions)  
+- Inatumia Azure OpenAI au OpenAI; hiari Azure AI Vision kwa picha  
+- Inahifadhi muundo na mpangilio wa Markdown
 
 ## Nyaraka
 
-- [Mwongozo wa amri za mstari wa amri](./getting_started/command-line-guide/command-line-guide.md)
-- [Mwongozo wa GitHub Actions (Hifadhidata za umma & siri za kawaida)](./getting_started/github-actions-guide/github-actions-guide-public.md)
-- [Mwongozo wa GitHub Actions (Hifadhidata za shirika la Microsoft & usanidi wa ngazi ya shirika)](./getting_started/github-actions-guide/github-actions-guide-org.md)
-- [Kiolezo cha lugha za README](./getting_started/README_languages_template.md)
-- [Lugha zinazotegemewa](./getting_started/supported-languages.md)
+- [Mwongozo wa mstari wa amri](./getting_started/command-line-guide/command-line-guide.md)
+- [Mwongozo wa GitHub Actions (Hazina za umma & siri za kawaida)](./getting_started/github-actions-guide/github-actions-guide-public.md)
+- [Mwongozo wa GitHub Actions (Hazina za shirika la Microsoft & usanidi wa ngazi ya shirika)](./getting_started/github-actions-guide/github-actions-guide-org.md)
+- [Templeti ya lugha za README](./getting_started/README_languages_template.md)
+- [Lugha zinazosaidiwa](./getting_started/supported-languages.md)
 - [Kushiriki](./CONTRIBUTING.md)
 - [Kutatua matatizo](./getting_started/troubleshooting.md)
 
-### Mwongozo maalum wa Microsoft
+### Mwongozo wa Microsoft maalum
 > [!NOTE]
-> Kwa watunzaji wa hifadhidata za Microsoft “Kwa Waanzilishi” pekee.
+> Kwa watunzaji wa hazina za Microsoft “Kwa Waanzilishi” tu.
 
-- [Kusasisha orodha ya “kozi nyingine” (kwa hifadhidata za MS Beginners pekee)](./getting_started/update-other-courses.md)
+- [Kusasa orodha ya “kozi zingine” (kwa hazina za MS Beginners tu)](./getting_started/update-other-courses.md)
 
-## Tusaidie na kuendeleza elimu ya kimataifa
+## Tuunge mkono na kuendeleza kujifunza duniani kote
 
-Jiunge nasi katika mapinduzi ya jinsi maudhui ya elimu yanavyoshirikiwa duniani kote! Toa [Co-op Translator](https://github.com/azure/co-op-translator) nyota ⭐ kwenye GitHub na saidia dhamira yetu ya kuvunja vizuizi vya lugha katika kujifunza na teknolojia. Shauku na michango yako ina athari kubwa! Michango ya msimbo na mapendekezo ya vipengele daima yanakaribishwa.
+Jiunge nasi katika mapinduzi ya jinsi maudhui ya elimu yanavyoshirikishwa duniani! Piga sasa [Co-op Translator](https://github.com/azure/co-op-translator) ⭐ kwenye GitHub na saidia azma yetu ya kuvunja kizuizi cha lugha katika kujifunza na teknolojia. Wasiwasi na michango yako yana athari kubwa! Michango ya msimbo na mapendekezo ya vipengele daima yanakubaliwa.
 
-### Chunguza maudhui ya elimu ya Microsoft kwa lugha yako
+### Gunduzi maudhui ya elimu ya Microsoft kwa lugha yako
 
-- [AZD kwa Waanzilishi](https://github.com/microsoft/AZD-for-beginners)
-- [Edge AI kwa Waanzilishi](https://github.com/microsoft/edgeai-for-beginners)
-- [Itifaki ya Muktadha wa Mfano (MCP) Kwa Waanzilishi](https://github.com/microsoft/mcp-for-beginners)
-- [Wakala wa AI kwa Waanzilishi](https://github.com/microsoft/ai-agents-for-beginners)
-- [AI ya Kizazi kwa Waanzilishi kwa kutumia .NET](https://github.com/microsoft/Generative-AI-for-beginners-dotnet)
-- [AI ya Kizazi kwa Waanzilishi](https://github.com/microsoft/generative-ai-for-beginners)
-- [AI ya Kizazi kwa Waanzilishi kwa kutumia Java](https://github.com/microsoft/generative-ai-for-beginners-java)
-- [ML kwa Waanzilishi](https://aka.ms/ml-beginners)
-- [Sayansi ya Data kwa Waanzilishi](https://aka.ms/datascience-beginners)
-- [AI kwa Waanzilishi](https://aka.ms/ai-beginners)
-- [Usalama wa Mtandao kwa Waanzilishi](https://github.com/microsoft/Security-101)
-- [Uendelezaji wa Wavuti kwa Waanzilishi](https://aka.ms/webdev-beginners)
-- [IoT kwa Waanzilishi](https://aka.ms/iot-beginners)
+- [LangChain4j-for-Beginners](https://github.com/microsoft/LangChain4j-for-Beginners)
+- [AZD for Beginners](https://github.com/microsoft/AZD-for-beginners)
+- [Edge AI for Beginners](https://github.com/microsoft/edgeai-for-beginners)
+- [Model Context Protocol (MCP) For Beginners](https://github.com/microsoft/mcp-for-beginners)
+- [AI Agents for Beginners](https://github.com/microsoft/ai-agents-for-beginners)
+- [Generative AI for Beginners using .NET](https://github.com/microsoft/Generative-AI-for-beginners-dotnet)
+- [Generative AI for Beginners](https://github.com/microsoft/generative-ai-for-beginners)
+- [Generative AI for Beginners using Java](https://github.com/microsoft/generative-ai-for-beginners-java)
+- [ML for Beginners](https://aka.ms/ml-beginners)
+- [Data Science for Beginners](https://aka.ms/datascience-beginners)
+- [AI for Beginners](https://aka.ms/ai-beginners)
+- [Cybersecurity for Beginners](https://github.com/microsoft/Security-101)
+- [Web Dev for Beginners](https://aka.ms/webdev-beginners)
+- [IoT for Beginners](https://aka.ms/iot-beginners)
 - [PhiCookBook](https://github.com/microsoft/PhiCookBook)
 
-## Maonyesho ya Video
+## Uwasilishaji wa video
 
 👉 Bonyeza picha hapa chini kutazama kwenye YouTube.
 
-- **Open at Microsoft**: Utangulizi mfupi wa dakika 18 na mwongozo wa haraka jinsi ya kutumia Co-op Translator.
+- **Open at Microsoft**: Utangulizi mfupi wa dakika 18 na mwongozo wa haraka wa kutumia Co-op Translator.
 
-  [![Open at Microsoft](../../translated_images/open-ms-thumbnail.946b356b89bc5f0e33dcebb852f7926b98c33f54c1a49ce01c36ae7f35e2443a.sw.jpg)](https://www.youtube.com/watch?v=jX_swfH_KNU)
+  [![Open at Microsoft](../../translated_images/sw/open-ms-thumbnail.946b356b89bc5f0e.webp)](https://www.youtube.com/watch?v=jX_swfH_KNU)
 
 ## Kushiriki
 
-Mradi huu unakaribisha michango na mapendekezo. Unavutiwa kushiriki katika Azure Co-op Translator? Tafadhali angalia [CONTRIBUTING.md](./CONTRIBUTING.md) kwa miongozo ya jinsi unavyoweza kusaidia kufanya Co-op Translator ipatikane kwa urahisi zaidi.
+Mradi huu unakaribisha michango na mapendekezo. Unavutiwa kuchangia Azure Co-op Translator? Tafadhali angalia [CONTRIBUTING.md](./CONTRIBUTING.md) kwa miongozo ya jinsi unavyoweza kusaidia kufanya Co-op Translator ipatikane zaidi.
 
 ## Washiriki
-
 [![co-op-translator contributors](https://contrib.rocks/image?repo=Azure/co-op-translator)](https://github.com/Azure/co-op-translator/graphs/contributors)
 
-## Kanuni ya Maadili
+## Kanuni za Maadili
 
-Mradi huu umechukua [Kanuni ya Maadili ya Chanzo Huria ya Microsoft](https://opensource.microsoft.com/codeofconduct/).
-Kwa maelezo zaidi angalia [Maswali Yanayoulizwa Mara kwa Mara kuhusu Kanuni ya Maadili](https://opensource.microsoft.com/codeofconduct/faq/) au
+Mradi huu umechukua [Kanuni za Maadili za Chanzo Huru za Microsoft](https://opensource.microsoft.com/codeofconduct/).
+Kwa maelezo zaidi tazama [Maswali Yanayoulizwa Mara kwa Mara kuhusu Kanuni za Maadili](https://opensource.microsoft.com/codeofconduct/faq/) au
 wasiliana na [opencode@microsoft.com](mailto:opencode@microsoft.com) kwa maswali au maoni zaidi.
 
-## AI Inayohusika
+## AI ya Kuwajibika
 
-Microsoft imejizatiti kusaidia wateja wetu kutumia bidhaa zetu za AI kwa uwajibikaji, kushiriki mafunzo yetu, na kujenga ushirikiano unaotegemea uaminifu kupitia zana kama Vidokezo vya Uwajibikaji na Tathmini za Athari. Rasilimali nyingi za aina hii zinaweza kupatikana kwenye [https://aka.ms/RAI](https://aka.ms/RAI).
-Mbinu ya Microsoft kwa AI inayohusika inatokana na kanuni zetu za AI za haki, kuaminika na usalama, faragha na usalama, ujumuishaji, uwazi, na uwajibikaji.
+Microsoft imejitolea kusaidia wateja wetu kutumia bidhaa zetu za AI kwa uwajibikaji, kushiriki miongozo yetu, na kujenga ushirikiano unaotegemea imani kupitia zana kama Vidokezo vya Uwajibikaji na Tathmini za Athari. Rasilimali nyingi za aina hii zinaweza kupatikana kwenye [https://aka.ms/RAI](https://aka.ms/RAI).
+Njia ya Microsoft kwa AI inayowajibika inatokana na kanuni zetu za AI za usawa, kuaminika na usalama, faragha na usalama, ujumuishaji, uwazi, na uwajibikaji.
 
-Mifano mikubwa ya lugha asilia, picha, na sauti - kama ile inayotumika katika sampuli hii - inaweza kuonyesha tabia zisizo za haki, zisizo za kuaminika, au za kuudhi, na kusababisha madhara. Tafadhali rejelea [Kumbukumbu ya Uwajibikaji ya Huduma ya Azure OpenAI](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) ili ujue kuhusu hatari na vikwazo.
-Njia inayopendekezwa kupunguza hatari hizi ni kujumuisha mfumo wa usalama katika usanifu wako ambao unaweza kugundua na kuzuia tabia hatarishi. <a href="https://learn.microsoft.com/azure/ai-services/content-safety/overview">Azure AI Content Safety</a> hutoa tabaka huru la ulinzi, linaloweza kugundua maudhui hatarishi yanayotengenezwa na watumiaji na AI katika programu na huduma. Azure AI Content Safety inajumuisha API za maandishi na picha zinazokuwezesha kugundua nyenzo hatarishi. Pia tuna <i>Content Safety Studio</i> ya mwingiliano inayokuwezesha kuona, kuchunguza na kujaribu mifano ya msimbo wa kugundua maudhui hatarishi katika aina mbalimbali. Hati ifuatayo ya <a href="https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest">mwongozo wa kuanza haraka</a> itakuongoza jinsi ya kutuma maombi kwa huduma hiyo.
+Modeli kubwa za lugha ya asili, picha, na hotuba - kama zile zinazotumika katika sampuli hii - zinaweza kuonyesha tabia zisizokuwa za haki, zisizoaminika, au zenye kuudhi, na kusababisha madhara. Tafadhali kusoma [kidokezo cha uwazi cha huduma ya Azure OpenAI](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) ili kufahamishwa kuhusu hatari na mipaka.
 
-Jambo lingine la kuzingatia ni utendaji wa jumla wa programu. Kwa programu zenye modaliti nyingi na mifano mingi, tunachukulia utendaji kuwa mfumo unafanya kazi kama unavyotarajia wewe na watumiaji wako, ikiwa ni pamoja na kutotengeneza matokeo hatarishi. Ni muhimu kutathmini utendaji wa programu yako kwa kutumia <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in">viwango vya ubora wa uzalishaji na hatari na usalama</a>.
+Njia inayopendekezwa ya kupunguza hatari hizi ni kujumuisha mfumo wa usalama katika usanifu wako unaoweza kugundua na kuzuia tabia zenye madhara. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) hutoa tabaka huru la ulinzi, linaloweza kugundua maudhui yenye madhara yaliyotokana na watumiaji na AI katika programu na huduma. Azure AI Content Safety inajumuisha API za maandishi na picha zinazokuwezesha kugundua nyenzo zenye madhara. Pia tuna Studio la Usalama wa Maudhui linaloingiliana ambalo linakuwezesha kuona, kuchunguza na kujaribu mifano ya msimbo wa kugundua maudhui yenye madhara katika aina tofauti. Hati ya [mwongozo wa haraka](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) inakuongoza katika kuomba huduma hii.
 
-Unaweza kutathmini programu yako ya AI katika mazingira yako ya maendeleo kwa kutumia <a href="https://microsoft.github.io/promptflow/index.html">prompt flow SDK</a>. Ukiwa na seti ya data ya majaribio au lengo, uzalishaji wa programu yako ya AI ya kizazi hupimwa kwa kiasi kwa kutumia wachambuzi waliopo au wachambuzi maalum wa chaguo lako. Ili kuanza kutumia prompt flow SDK kutathmini mfumo wako, unaweza kufuata <a href="https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk">mwongozo wa kuanza haraka</a>. Mara tu unapokamilisha mtihani wa tathmini, unaweza <a href="https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results">kuonyesha matokeo katika Azure AI Studio</a>.
+Jambo lingine la kuzingatia ni utendaji wa jumla wa programu. Kwa programu za modal nyingi na modeli nyingi, tunachukulia utendaji kama mfumo unavyofanya kazi kama unavyotarajiwa na wewe na watumiaji wako, ikiwa ni pamoja na kutotengeneza matokeo yenye madhara. Ni muhimu kutathmini utendaji wa programu yako kwa kutumia [vipimo vya ubora wa uzalishaji na hatari na usalama](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
 
-## Alama za Biashara
+Unaweza kutathmini programu yako ya AI katika mazingira yako ya maendeleo kwa kutumia [prompt flow SDK](https://microsoft.github.io/promptflow/index.html). Ikiwa una seti ya data ya majaribio au lengo, uzalishaji wa programu yako ya AI unapangiliwa kwa kiasi kwa kutumia watazamaji waliomo au watu binafsi waliyochagua. Ili kuanza na prompt flow sdk kutathmini mfumo wako, unaweza kufuata [mwongozo wa haraka](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). Baada ya kuendesha tathmini, unaweza [kuwaonesha matokeo katika Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
 
-Mradi huu unaweza kuwa na alama za biashara au nembo za miradi, bidhaa, au huduma. Matumizi yaliyoruhusiwa ya alama za biashara au nembo za Microsoft yanategemea na lazima yafuatilie <a href="https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general">Miongozo ya Alama za Biashara na Brand za Microsoft</a>. Matumizi ya alama za biashara au nembo za Microsoft katika matoleo yaliyobadilishwa ya mradi huu hayapaswi kusababisha mkanganyiko au kuashiria udhamini wa Microsoft. Matumizi yoyote ya alama za biashara au nembo za wahusika wengine yanategemea sera za wahusika hao.
+## Hati miliki
+
+Mradi huu unaweza kuwa na hati miliki au nembo za miradi, bidhaa, au huduma. Matumizi halali ya hati miliki au nembo za Microsoft yanahitaji kufuata
+[Mwongozo wa Hati Miliki & Brand za Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
+Matumizi ya hati miliki au nembo za Microsoft katika matoleo yaliyorekebishwa ya mradi huu yasibainishe mkanganyiko au kuonyesha kuwa Microsoft inahusiana.
+Matumizi yoyote ya hati miliki au nembo za wachambuzi wa tatu yanatii sera za wahusika hao.
 
 ## Kupata Msaada
 
-Kama utakumbwa na changamoto au una maswali kuhusu ujenzi wa programu za AI, jiunge na:
+Kama utakamatwa au una maswali kuhusu kujenga programu za AI, jiunge:
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
-Kama una maoni kuhusu bidhaa au makosa wakati wa ujenzi, tembelea:
+Kama una maoni ya bidhaa au makosa wakati wa kujenga tembelea:
 
 [![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Kiarifa cha Kukataa**:
-Hati hii imetafsiriwa kwa kutumia huduma ya tafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kwa usahihi, tafadhali fahamu kuwa tafsiri za kiotomatiki zinaweza kuwa na makosa au upungufu wa usahihi. Hati ya asili katika lugha yake ya asili inapaswa kuzingatiwa kama chanzo cha mamlaka. Kwa taarifa muhimu, tafsiri ya kitaalamu ya binadamu inapendekezwa. Hatubebei dhamana kwa kutoelewana au tafsiri potofu zinazotokana na matumizi ya tafsiri hii.
+**Kubainisha**:  
+Hati hii imetafsiriwa kwa kutumia huduma ya kutafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Wakati tunajitahidi kwa usahihi, tafadhali fahamu kwamba tafsiri za kiotomatiki zinaweza kuwa na makosa au kutokukamilika. Hati ya asili katika lugha yake ya asili inapaswa kuchukuliwa kama chanzo cha mamlaka. Kwa taarifa muhimu, tafsiri ya kitaalamu ya binadamu inashauriwa. Hatuwajibiki kwa maelezo potofu au kutoelewana kunakotokana na matumizi ya tafsiri hii.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
