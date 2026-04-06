@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T02:51:46+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "mr"
-}
--->
 # Co-op Translator GitHub Action वापरणे (सार्वजनिक सेटअप)
 
 **लक्ष्य वाचक:** हे मार्गदर्शन बहुतेक सार्वजनिक किंवा खाजगी रेपॉजिटरीसाठी आहे जिथे GitHub Actions ची सामान्य परवानगी पुरेशी आहे. यात अंगभूत `GITHUB_TOKEN` वापरले जाते.
@@ -53,7 +44,7 @@ GitHub Action मध्ये Co-op Translator सेटअप करण्य�
 2.  **Settings** > **Secrets and variables** > **Actions** येथे जा.
 3.  **Repository secrets** अंतर्गत, प्रत्येक आवश्यक AI सेवा साठी खालीलप्रमाणे **New repository secret** वर क्लिक करा.
 
-    ![Select setting action](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.mr.png) *(प्रतिमा संदर्भ: Secrets कुठे जोडायचे ते दाखवते)*
+    ![Select setting action](../../../../translated_images/mr/select-setting-action.3b95c915d6031159.webp) *(प्रतिमा संदर्भ: Secrets कुठे जोडायचे ते दाखवते)*
 
 **आवश्यक AI सेवा Secrets (पूर्वतयारीनुसार लागू असलेले सर्व जोडा):**
 
@@ -81,7 +72,7 @@ GitHub Action ला `GITHUB_TOKEN` द्वारे कोड checkout आण
 4.  **Allow GitHub Actions to create and approve pull requests** या चेकबॉक्सला **चेक** करा.
 5.  **Save** निवडा.
 
-![Permission setting](../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.mr.png)
+![Permission setting](../../../../translated_images/mr/permission-setting.ae2f02748b0579e7.webp)
 
 ### Step 4: Workflow फाइल तयार करा
 

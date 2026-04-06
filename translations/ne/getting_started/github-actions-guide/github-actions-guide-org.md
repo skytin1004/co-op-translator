@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9fac847815936ef6e6c8bfde6d191571",
-  "translation_date": "2025-10-15T02:54:22+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-org.md",
-  "language_code": "ne"
-}
--->
 # Co-op Translator GitHub Action प्रयोग गर्ने तरिका (संस्थागत मार्गदर्शन)
 
 **लक्ष्य समूह:** यो मार्गदर्शन **Microsoft आन्तरिक प्रयोगकर्ता** वा **त्यस्ता टिमहरू**का लागि हो जससँग तयार Co-op Translator GitHub App को आवश्यक प्रमाणपत्रहरू छन् वा आफैंले आफ्नो कस्टम GitHub App बनाउन सक्छन्।
@@ -55,11 +46,11 @@ Workflow ले GitHub App authentication प्रयोग गरेर तप
 
 १. **Install** छान्नुहोस् र आफ्नो अकाउन्ट वा संस्था छान्नुहोस् जहाँ तपाईंको लक्षित रिपोजिटरी छ।
 
-    <img src="../../../../translated_images/install-app.d0f0a24cbb1d6c93f293f002eb34e633f7bc8f5caaba46b97806ba7bdc958f27.ne.png" alt="Install app">
+    <img src="../../../../translated_images/ne/install-app.d0f0a24cbb1d6c93.webp" alt="Install app">
 
 १. **Only select repositories** छान्नुहोस् र आफ्नो लक्षित रिपोजिटरी (जस्तै `PhiCookBook`) छान्नुहोस्। **Install** क्लिक गर्नुहोस्। तपाईंलाई प्रमाणिकरण गर्न भनिन सक्छ।
 
-    <img src="../../../../translated_images/install-authorize.29df6238c3eb8f707e7fc6f97a946cb654b328530c4aeddce28b874693f076a0.ne.png" alt="Install authorize">
+    <img src="../../../../translated_images/ne/install-authorize.29df6238c3eb8f70.webp" alt="Install authorize">
 
 १. **App प्रमाणपत्र प्राप्त गर्नुहोस् (आन्तरिक प्रक्रिया आवश्यक):** Workflow लाई app को रूपमा प्रमाणिकरण गर्न, तपाईंलाई Co-op Translator टिमले दुई कुरा दिनुपर्छ:
   - **App ID:** Co-op Translator app को अद्वितीय पहिचानकर्ता। App ID हो: `1164076`।
@@ -81,7 +72,7 @@ GitHub App प्रमाणपत्र र AI सेवा प्रमाण
 
 १. **Repository secrets** अन्तर्गत, तलका प्रत्येक secret का लागि **New repository secret** क्लिक गर्नुहोस्।
 
-   <img src="../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.ne.png" alt="Select setting action">
+   <img src="../../../../translated_images/ne/select-setting-action.3b95c915d6031159.webp" alt="Select setting action">
 
 **GitHub App Authentication का लागि आवश्यक Secrets:**
 
@@ -106,7 +97,7 @@ GitHub App प्रमाणपत्र र AI सेवा प्रमाण
 | `OPENAI_CHAT_MODEL_ID`              | OpenAI को Specific model ID           | OpenAI Platform           |
 | `OPENAI_BASE_URL`                   | OpenAI को Custom API Base URL         | OpenAI Platform           |
 
-<img src="../../../../translated_images/add-secrets-done.444861ce6956d5cb20781ead1237fcc12805078349bb0d4e95bb9540ee192227.ne.png" alt="Enter environment variable name">
+<img src="../../../../translated_images/ne/add-secrets-done.444861ce6956d5cb.webp" alt="Enter environment variable name">
 
 ### चरण ३: Workflow फाइल बनाउनुहोस्
 

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "758ca1c5ae0d32c52d2dd59132dcfbf0",
-  "translation_date": "2025-11-30T10:34:25+00:00",
-  "source_file": "CONTRIBUTING.md",
-  "language_code": "bn"
-}
--->
 # কো-অপ ট্রান্সলেটরে অবদান রাখা
 
 এই প্রকল্পে অবদান এবং পরামর্শ স্বাগত। বেশিরভাগ অবদানের জন্য আপনাকে একটি Contributor License Agreement (CLA) এ সম্মত হতে হবে, যা ঘোষণা করে যে আপনার অবদান ব্যবহারের জন্য আমাদের কাছে যথাযথ অধিকার রয়েছে। বিস্তারিত জানতে https://cla.opensource.microsoft.com দেখুন।

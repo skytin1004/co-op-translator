@@ -1,21 +1,16 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "e8b14f0e66db374a2ada46e25fac88ae",
-  "translation_date": "2025-06-12T09:19:41+00:00",
-  "source_file": "CODE_OF_CONDUCT.md",
-  "language_code": "bn"
-}
--->
-# Microsoft ওপেন সোর্স আচরণবিধি
+# Microsoft Open Source আচরণবিধি
 
-এই প্রকল্পে [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) গ্রহণ করা হয়েছে।
+এই প্রকল্পটি [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) গ্রহণ করেছে।
 
-সাধনসমূহ:
+সম্পদসমূহ:
 
 - [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/)
 - [Microsoft Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/)
-- প্রশ্ন বা উদ্বেগের জন্য যোগাযোগ করুন [opencode@microsoft.com](mailto:opencode@microsoft.com)
+- প্রশ্ন বা উদ্বেগের জন্য [opencode@microsoft.com](mailto:opencode@microsoft.com) এ যোগাযোগ করুন
 
-**অস্বীকৃতি**:  
-এই নথিটি AI অনুবাদ সেবা [Co-op Translator](https://github.com/Azure/co-op-translator) ব্যবহার করে অনূদিত হয়েছে। আমরা যথাসাধ্য সঠিকতার চেষ্টা করি, তবে স্বয়ংক্রিয় অনুবাদে ত্রুটি বা অসঙ্গতি থাকতে পারে। মূল নথিটি তার নিজ ভাষায় সর্বোত্তম এবং কর্তৃত্বপূর্ণ উৎস হিসেবে বিবেচনা করা উচিত। গুরুত্বপূর্ণ তথ্যের জন্য পেশাদার মানব অনুবাদ প্রয়োজন। এই অনুবাদের ব্যবহার থেকে উদ্ভূত কোনো ভুল বোঝাবুঝি বা ভুল ব্যাখ্যার জন্য আমরা দায়বদ্ধ নয়।
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**অস্বীকৃতি**:
+এই দস্তাবেজটি AI অনুবাদ সেবা [Co-op Translator](https://github.com/Azure/co-op-translator) দ্বারা অনূদিত হয়েছে। আমরা যথাসম্ভব সঠিকতার জন্য কাজ করি, তবুও স্বয়ংক্রিয় অনুবাদে বিষয়বস্তুতে ভুল বা অসঙ্গতি থাকতে পারে। মূল ভাষায় থাকা মূল দস্তাবেজটিকে কর্তৃত্বমূলক উৎস হিসেবে বিবেচনা করা উচিত। গুরুত্বপূর্ণ তথ্যের জন্য পেশাদার মানব অনুবাদের পরামর্শ দেওয়া হয়। এই অনুবাদ ব্যবহারের ফলে যে কোনও ভুল বোঝাবুঝি বা ভুল ব্যাখ্যার জন্য আমরা দায়বদ্ধ নয়।
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
