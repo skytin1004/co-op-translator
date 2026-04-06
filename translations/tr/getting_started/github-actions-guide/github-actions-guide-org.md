@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9fac847815936ef6e6c8bfde6d191571",
-  "translation_date": "2025-10-15T03:11:39+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-org.md",
-  "language_code": "tr"
-}
--->
 # Co-op Translator GitHub Action Kullanımı (Organizasyon Rehberi)
 
 **Hedef Kitle:** Bu rehber, **Microsoft iç kullanıcıları** veya **önceden oluşturulmuş Co-op Translator GitHub Uygulamasına gerekli kimlik bilgilerine erişimi olan ekipler** ya da kendi özel GitHub Uygulamasını oluşturabilenler içindir.
@@ -56,11 +47,11 @@ Co-op Translator GitHub Action'ı deponuzda yapılandırmak için aşağıdaki a
 
 1. **Install** seçeneğine tıklayın ve hedef deponuzun bulunduğu hesabı veya organizasyonu seçin.
 
-    ![Uygulamayı kur](../../../../translated_images/install-app.d0f0a24cbb1d6c93f293f002eb34e633f7bc8f5caaba46b97806ba7bdc958f27.tr.png)
+    ![Uygulamayı kur](../../../../translated_images/tr/install-app.d0f0a24cbb1d6c93.webp)
 
 1. **Only select repositories** seçeneğini işaretleyin ve hedef deponuzu seçin (ör. `PhiCookBook`). **Install**'a tıklayın. Kimlik doğrulamanız istenebilir.
 
-    ![Kurulum yetkilendir](../../../../translated_images/install-authorize.29df6238c3eb8f707e7fc6f97a946cb654b328530c4aeddce28b874693f076a0.tr.png)
+    ![Kurulum yetkilendir](../../../../translated_images/tr/install-authorize.29df6238c3eb8f70.webp)
 
 1. **Uygulama Kimlik Bilgilerini Alın (İç Süreç Gerekli):** İş akışının uygulama olarak kimlik doğrulaması yapabilmesi için Co-op Translator ekibi tarafından sağlanan iki bilgiye ihtiyacınız var:
    - **App ID:** Co-op Translator uygulamasının benzersiz kimliği. App ID: `1164076`.
@@ -82,7 +73,7 @@ GitHub App kimlik bilgilerini ve AI servis kimlik bilgilerinizi deponuzun ayarla
 
 1. **Repository secrets** altında, aşağıda listelenen her bir secret için **New repository secret**'a tıklayın.
 
-   ![Ayarlar actions seç](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.tr.png)
+   ![Ayarlar actions seç](../../../../translated_images/tr/select-setting-action.3b95c915d6031159.webp)
 
 **Gerekli Sırlar (GitHub App Kimlik Doğrulaması için):**
 
@@ -107,7 +98,7 @@ GitHub App kimlik bilgilerini ve AI servis kimlik bilgilerinizi deponuzun ayarla
 | `OPENAI_CHAT_MODEL_ID`              | Belirli OpenAI model kimliği             | OpenAI Platformu               |
 | `OPENAI_BASE_URL`                   | Özel OpenAI API Base URL                 | OpenAI Platformu               |
 
-![Ortam değişkeni adını girin](../../../../translated_images/add-secrets-done.444861ce6956d5cb20781ead1237fcc12805078349bb0d4e95bb9540ee192227.tr.png)
+![Ortam değişkeni adını girin](../../../../translated_images/tr/add-secrets-done.444861ce6956d5cb.webp)
 
 ### Adım 3: Workflow Dosyasını Oluşturun
 

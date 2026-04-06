@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "62fe65c1d8e3796c01aa1e3c89666cba",
-  "translation_date": "2025-06-12T11:17:39+00:00",
-  "source_file": "SUPPORT.md",
-  "language_code": "tr"
-}
--->
 # TODO: Bu repoyu yöneten kişi henüz bu dosyayı düzenlemedi
 
 **REPO SAHİBİ**: Bu ürün/proje için Müşteri Hizmetleri ve Destek (CSS) desteği ister misiniz?

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T03:06:23+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "it"
-}
--->
 # Utilizzo della GitHub Action Co-op Translator (Configurazione Pubblica)
 
 **Destinatari:** Questa guida è pensata per utenti nella maggior parte dei repository pubblici o privati dove le autorizzazioni standard di GitHub Actions sono sufficienti. Utilizza il `GITHUB_TOKEN` integrato.
@@ -53,7 +44,7 @@ Devi solo aggiungere le **credenziali del servizio AI** come segreti criptati ne
 2.  Vai su **Settings** > **Secrets and variables** > **Actions**.
 3.  Sotto **Repository secrets**, clicca su **New repository secret** per ogni segreto richiesto elencato qui sotto.
 
-    ![Seleziona impostazione action](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.it.png) *(Riferimento immagine: mostra dove aggiungere i segreti)*
+    ![Seleziona impostazione action](../../../../translated_images/it/select-setting-action.3b95c915d6031159.webp) *(Riferimento immagine: mostra dove aggiungere i segreti)*
 
 **Segreti richiesti per i servizi AI (Aggiungi TUTTI quelli che servono in base ai tuoi Prerequisiti):**
 
@@ -81,7 +72,7 @@ La GitHub Action necessita dei permessi concessi tramite il `GITHUB_TOKEN` per e
 4.  Assicurati che la casella **Allow GitHub Actions to create and approve pull requests** sia **selezionata**.
 5.  Clicca su **Save**.
 
-![Impostazione permessi](../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.it.png)
+![Impostazione permessi](../../../../translated_images/it/permission-setting.ae2f02748b0579e7.webp)
 
 ### Passo 4: Crea il File del Workflow
 

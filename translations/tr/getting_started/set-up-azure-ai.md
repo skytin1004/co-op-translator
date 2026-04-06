@@ -1,66 +1,57 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b58d7c3cb4210697a073d20eb3064945",
-  "translation_date": "2025-06-12T11:52:31+00:00",
-  "source_file": "getting_started/set-up-azure-ai.md",
-  "language_code": "tr"
-}
--->
-# Azure AI Co-op Translator (Azure OpenAI & Azure AI Vision) Kurulumu
+# Co-op Translator için Azure AI Kurulumu (Azure OpenAI & Azure AI Vision)
 
-Bu rehber, Azure AI Foundry içinde dil çevirisi için Azure OpenAI ve görüntü tabanlı çeviri için Azure Computer Vision kurulumunu adım adım anlatır.
+Bu kılavuz, Azure AI Foundry içinde dil çevirisi için Azure OpenAI'yi ve görüntü tabanlı çeviri için kullanılabilecek Azure Bilgisayarlı Görü için görüntü içerik analizini kurmanıza yardımcı olur.
 
-**Gereksinimler:**
-- Aktif aboneliğe sahip bir Azure hesabı.
-- Azure aboneliğinizde kaynak ve dağıtım oluşturma yetkisi.
+**Önkoşullar:**
+- Aktif aboneliği olan bir Azure hesabı.
+- Azure aboneliğinizde kaynaklar ve dağıtımlar oluşturmak için yeterli izinler.
 
 ## Azure AI Projesi Oluşturma
 
-AI kaynaklarınızı yönetmek için merkezi bir yer olan Azure AI Projesi oluşturmayla başlayacaksınız.
+AI kaynaklarınızı yönetmek için merkezi bir yer olarak işlev gören Azure AI Projesi oluşturarak başlayacaksınız.
 
 1. [https://ai.azure.com](https://ai.azure.com) adresine gidin ve Azure hesabınızla giriş yapın.
 
 1. Yeni bir proje oluşturmak için **+Create** seçeneğini tıklayın.
 
-1. Aşağıdaki adımları gerçekleştirin:
-   - Bir **Proje adı** girin (örneğin `CoopTranslator-Project`).
-   - **AI hub** seçin (örneğin `CoopTranslator-Hub`) (Gerekirse yenisini oluşturun).
+1. Aşağıdaki görevleri yapın:
+   - Bir **Proje adı** girin (örneğin, `CoopTranslator-Project`).
+   - **AI hub** seçin (örneğin, `CoopTranslator-Hub`) (Gerekirse yenisini oluşturun).
 
-1. Projenizi oluşturmak için "**Review and Create**" seçeneğine tıklayın. Projenizin genel bakış sayfasına yönlendirileceksiniz.
+1. Projenizi kurmak için "**Review and Create**" tıklayın. Projenizin genel bakış sayfasına yönlendirileceksiniz.
 
 ## Dil Çevirisi için Azure OpenAI Kurulumu
 
-Projeniz içinde, metin çevirisi için arka uç görevi görecek bir Azure OpenAI modeli dağıtacaksınız.
+Projeniz içinde, metin çevirisi arka ucu olarak hizmet verecek bir Azure OpenAI modeli dağıtacaksınız.
 
-### Projenize Gitme
+### Projenize Gidin
 
-Henüz açmadıysanız, Azure AI Foundry’de yeni oluşturduğunuz projeyi (örneğin `CoopTranslator-Project`) açın.
+Henüz yapmadıysanız, yeni oluşturduğunuz projeyi (örneğin `CoopTranslator-Project`) Azure AI Foundry içinde açın.
 
-### OpenAI Modeli Dağıtma
+### Bir OpenAI Modeli Dağıtın
 
 1. Projenizin sol menüsünde, "My assets" altında "**Models + endpoints**" seçeneğini seçin.
 
-1. **+ Deploy model** seçeneğine tıklayın.
+1. **+ Deploy model** seçeneğini seçin.
 
 1. **Deploy Base Model** seçeneğini seçin.
 
-1. Karşınıza çıkan modeller listesinden uygun bir GPT modeli bulun. Biz `gpt-4o` modelini öneriyoruz.
+1. Kullanılabilir modellerin listesi gösterilecektir. Uygun bir GPT modeli filtreleyin veya arayın. `gpt-4o` modelini öneriyoruz.
 
-1. İstediğiniz modeli seçin ve **Confirm** butonuna tıklayın.
+1. İstediğiniz modeli seçin ve **Confirm** tıklayın.
 
-1. **Deploy** seçeneğini tıklayarak dağıtımı başlatın.
+1. **Deploy** seçeneğini seçin.
 
 ### Azure OpenAI yapılandırması
 
-Model dağıtıldıktan sonra, "**Models + endpoints**" sayfasından dağıtımı seçerek **REST endpoint URL**, **Anahtar**, **Dağıtım adı**, **Model adı** ve **API sürümü** bilgilerini bulabilirsiniz. Bu bilgiler, çeviri modelini uygulamanıza entegre etmek için gereklidir.
+Dağıtıldıktan sonra, "**Models + endpoints**" sayfasından dağıtımınızı seçerek **REST endpoint URL'si**, **Anahtar**, **Dağıtım adı**, **Model adı** ve **API sürümü** gibi bilgileri görebilirsiniz. Bunlar çeviri modelini uygulamanıza entegre etmek için gereklidir.
 
 > [!NOTE]
-> Gereksinimlerinize göre API sürümlerini [API version deprecation](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation) sayfasından seçebilirsiniz. Dikkat edin, **API sürümü** Azure AI Foundry’daki "**Models + endpoints**" sayfasında görünen **Model sürümü**nden farklıdır.
+> Gereksinimlerinize bağlı olarak API sürümlerini [API version deprecation](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation) sayfasından seçebilirsiniz. **API sürümü**'nün Azure AI Foundry'deki "**Models + endpoints**" sayfasında gösterilen **Model sürümü**nden farklı olduğunu unutmayın.
 
-## Görüntü Çevirisi için Azure Computer Vision Kurulumu
+## Görüntü Çevirisi için Azure Bilgisayarlı Görü Kurulumu
 
-Görüntülerdeki metni çevirebilmek için Azure AI Hizmeti API Anahtarı ve Uç Noktasını bulmanız gerekir.
+Görüntülerdeki metnin çevirisini etkinleştirmek için Azure AI Hizmeti API Anahtarı ve Uç Noktası'nı bulmanız gerekir.
 
 1. Azure AI Projenize (örneğin `CoopTranslator-Project`) gidin. Proje genel bakış sayfasında olduğunuzdan emin olun.
 
@@ -70,51 +61,61 @@ Azure AI Hizmeti sekmesinden API Anahtarı ve Uç Noktayı bulun.
 
 1. Azure AI Projenize (örneğin `CoopTranslator-Project`) gidin. Proje genel bakış sayfasında olduğunuzdan emin olun.
 
-1. Azure AI Hizmeti sekmesinden **API Key** ve **Endpoint** bilgilerini bulun.
+1. Azure AI Hizmeti sekmesinden **API Key** ve **Endpoint** bulun.
 
-    ![API Key ve Endpoint Bulma](../../../translated_images/find-azure-ai-info.60f8299be786dd67e61e2c79b4b9ea1f7694e6c0923f17a90bc6abf9d5f1dbd7.tr.png)
+    ![Find API Key and Endpoint](../../../translated_images/tr/find-azure-ai-info.0e00140419c12517.webp)
 
-Bu bağlantı, bağlı Azure AI Hizmetleri kaynağının (görüntü analizi dahil) yeteneklerini AI Foundry projenize açar. Ardından, bu bağlantıyı not defterlerinizde veya uygulamalarınızda kullanarak görüntülerden metin çıkarabilir ve bu metni Azure OpenAI modeline çeviri için gönderebilirsiniz.
+Bu bağlantı, ilişkilendirilen Azure AI Hizmetleri kaynağının özelliklerini (görüntü analizi dahil) AI Foundry projenizde kullanılabilir hale getirir. Ardından, not defterlerinizde veya uygulamalarınızda bu bağlantıyı kullanarak görüntülerden metin çıkarabilir ve bu metni sonrasında Azure OpenAI modeline çeviri için gönderebilirsiniz.
 
-## Kimlik Bilgilerinizi Toparlama
+## Kimlik Bilgilerinizi Konsolide Etme
 
-Şu ana kadar aşağıdaki bilgileri toplamış olmalısınız:
+Şimdiye kadar aşağıdakileri toplamanız gerekir:
 
-**Azure OpenAI (Metin Çevirisi) için:**
+**Azure OpenAI için (Metin Çevirisi):**
 - Azure OpenAI Uç Noktası
 - Azure OpenAI API Anahtarı
-- Azure OpenAI Model Adı (örneğin `gpt-4o`)
-- Azure OpenAI Dağıtım Adı (örneğin `cooptranslator-gpt4o`)
+- Azure OpenAI Model Adı (örneğin, `gpt-4o`)
+- Azure OpenAI Dağıtım Adı (örneğin, `cooptranslator-gpt4o`)
 - Azure OpenAI API Sürümü
 
-**Azure AI Hizmetleri (Görüntüden Metin Çıkarma için Vision):**
+**Azure AI Hizmetleri için (Vision ile Görüntü Metni Çıkarımı):**
 - Azure AI Hizmeti Uç Noktası
 - Azure AI Hizmeti API Anahtarı
 
 ### Örnek: Ortam Değişkeni Yapılandırması (Önizleme)
 
-Uygulamanızı geliştirirken, bu topladığınız kimlik bilgilerini ortam değişkeni olarak yapılandırmanız muhtemeldir. Örneğin, şu şekilde ayarlayabilirsiniz:
+Daha sonra uygulamanızı oluştururken, muhtemelen topladığınız bu kimlik bilgilerini kullanarak yapılandıracaksınız. Örneğin, aşağıdaki gibi ortam değişkenleri ayarlayabilirsiniz:
 
 ```bash
-# Azure AI Service Credentials (Required for image translation)
-AZURE_AI_SERVICE_API_KEY="your_azure_ai_service_api_key" # e.g., 21xasd...
+# Azure AI Hizmet Kimlik Bilgileri (Görüntü çevirisi için gereklidir)
+AZURE_AI_SERVICE_API_KEY="your_azure_ai_service_api_key" # Örneğin, 21xasd...
 AZURE_AI_SERVICE_ENDPOINT="https://your_azure_ai_service_endpoint.cognitiveservices.azure.com/"
 
-# Azure OpenAI Credentials (Required for text translation)
-AZURE_OPENAI_API_KEY="your_azure_openai_api_key" # e.g., 21xasd...
+# İsteğe bağlı yedek setler: "_1/_2" son ekiyle çift değişkenler (tüm değişkenler için aynı indeksle)
+AZURE_AI_SERVICE_API_KEY_1="your_azure_ai_service_api_key_1"
+AZURE_AI_SERVICE_ENDPOINT_1="https://your_azure_ai_service_endpoint_1.cognitiveservices.azure.com/"
+
+# Azure OpenAI Kimlik Bilgileri (Metin çevirisi için gereklidir)
+AZURE_OPENAI_API_KEY="your_azure_openai_api_key" # Örneğin, 21xasd...
 AZURE_OPENAI_ENDPOINT="https://your_azure_openai_endpoint.openai.azure.com/"
-AZURE_OPENAI_MODEL_NAME="your_model_name" # e.g., gpt-4o
-AZURE_OPENAI_CHAT_DEPLOYMENT_NAME="your_deployment_name" # e.g., cooptranslator-gpt4o
-AZURE_OPENAI_API_VERSION="your_api_version" # e.g., 2024-12-01-preview
+AZURE_OPENAI_MODEL_NAME="your_model_name" # Örneğin, gpt-4o
+AZURE_OPENAI_CHAT_DEPLOYMENT_NAME="your_deployment_name" # Örneğin, cooptranslator-gpt4o
+AZURE_OPENAI_API_VERSION="your_api_version" # Örneğin, 2024-12-01-preview
+
+# İsteğe bağlı yedek setler: AZURE_OPENAI_* setinin tamamını "_1/_2" son ekiyle çoğaltın (tüm değişkenler için aynı indeks)
 ```
 
 ---
 
 ### Daha Fazla Okuma
 
-- [Azure AI Foundry’de Proje Oluşturma](https://learn.microsoft.com/azure/ai-foundry/how-to/create-projects?tabs=ai-studio)
-- [Azure AI Kaynakları Oluşturma](https://learn.microsoft.com/azure/ai-foundry/how-to/create-azure-ai-resource?tabs=portal)
-- [Azure AI Foundry’de OpenAI Modelleri Dağıtma](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/deploy-models-openai)
+- [Azure AI Foundry'de proje oluşturma](https://learn.microsoft.com/azure/ai-foundry/how-to/create-projects?tabs=ai-studio)
+- [Azure AI kaynakları oluşturma](https://learn.microsoft.com/azure/ai-foundry/how-to/create-azure-ai-resource?tabs=portal)
+- [Azure AI Foundry'de OpenAI modellerini dağıtma](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/deploy-models-openai)
 
-**Feragatname**:  
-Bu belge, AI çeviri servisi [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba göstersek de, otomatik çevirilerin hatalar veya yanlışlıklar içerebileceğini lütfen unutmayınız. Orijinal belge, kendi dilinde yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımı sonucu oluşabilecek herhangi bir yanlış anlama veya yanlış yorumlamadan sorumlu değiliz.
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Feragat**:  
+Bu belge, AI çeviri servisi [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba göstersek de, otomatik çevirilerin hata veya yanlışlık içerebileceğini lütfen unutmayın. Orijinal belge, kendi dilinde yetkili kaynak olarak kabul edilmelidir. Önemli bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımından doğabilecek herhangi bir yanlış anlama veya yanlış yorumdan sorumlu değiliz.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
