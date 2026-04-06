@@ -1,15 +1,6 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "d11fe2b5308a8752a994869658751533",
-  "translation_date": "2025-11-30T13:12:50+00:00",
-  "source_file": "getting_started/supported-languages.md",
-  "language_code": "te"
-}
--->
 # మద్దతు పొందిన భాషలు
 
-కింద ఇచ్చిన పట్టికలో **Co-op Translator** ప్రస్తుతం మద్దతు ఇస్తున్న భాషలు ఉన్నాయి. ఇందులో భాషా కోడ్లు, భాషా పేర్లు, మరియు ప్రతి భాషకు సంబంధించిన తెలిసిన సమస్యలు ఉన్నాయి. మీరు కొత్త భాషకు మద్దతు ఇవ్వాలనుకుంటే, దయచేసి `src/co_op_translator/fonts/` లో ఉన్న `font_language_mappings.yml` ఫైల్‌లో సంబంధిత భాషా కోడ్, పేరు, మరియు సరైన ఫాంట్‌ను జోడించి, పరీక్షించిన తర్వాత పుల్ రిక్వెస్ట్ సమర్పించండి.
+క్రింది పట్టికలో **Co-op Translator** ప్రస్తుతం మద్దతు ఇచ్చే భాషలు చూపించబడ్డాయి. ఇందులో భాషా కోడులు, భాషా పేర్లు మరియు ప్రతి భాషకు సంబంధించి తెలిసిన సమస్యలు ఉన్నాయి. మీరు కొత్త భాషకు మద్దతు ఇవ్వాలని భావిస్తే, దయచేసి `src/co_op_translator/fonts/` లో ఉన్న `font_language_mappings.yml` ఫైల్‌లో సంబంధిత భాషా కోడ్, పేరు, మరియు సరైన ఫాంట్‌ను జోడించి, పరీక్షించి తరువాత pull request పంపండి.
 
 | Language Code | Language Name        | Font                              | RTL Support | Known Issues |
 |---------------|----------------------|-----------------------------------|-------------|--------------|
@@ -21,10 +12,10 @@ CO_OP_TRANSLATOR_METADATA:
 | ar            | Arabic               | NotoSansArabic-Medium.ttf         | Yes         | No           |
 | fa            | Persian (Farsi)      | NotoSansArabic-Medium.ttf         | Yes         | No           |
 | ur            | Urdu                 | NotoSansArabic-Medium.ttf         | Yes         | No           |
-| zh            | Chinese (Simplified) | NotoSansCJK-Medium.ttc            | No          | No           |
-| mo            | Chinese (Traditional, Macau) | NotoSansCJK-Medium.ttc    | No          | No           |
-| hk            | Chinese (Traditional, Hong Kong) | NotoSansCJK-Medium.ttc| No          | No           |
-| tw            | Chinese (Traditional, Taiwan) | NotoSansCJK-Medium.ttc   | No          | No           |
+| zh-CN         | Chinese (Simplified) | NotoSansCJK-Medium.ttc            | No          | No           |
+| zh-MO         | Chinese (Traditional, Macau) | NotoSansCJK-Medium.ttc    | No          | No           |
+| zh-HK         | Chinese (Traditional, Hong Kong) | NotoSansCJK-Medium.ttc| No          | No           |
+| zh-TW         | Chinese (Traditional, Taiwan) | NotoSansCJK-Medium.ttc   | No          | No           |
 | ja            | Japanese             | NotoSansCJK-Medium.ttc            | No          | No           |
 | ko            | Korean               | NotoSansCJK-Medium.ttc            | No          | No           |
 | hi            | Hindi                | NotoSansDevanagari-Medium.ttf     | No          | No           |
@@ -32,8 +23,8 @@ CO_OP_TRANSLATOR_METADATA:
 | mr            | Marathi              | NotoSansDevanagari-Medium.ttf     | No          | No           |
 | ne            | Nepali               | NotoSansDevanagari-Medium.ttf     | No          | No           |
 | pa            | Punjabi (Gurmukhi)   | NotoSansGurmukhi-Medium.ttf       | No          | No           |
-| pt            | Portuguese (Portugal)| NotoSans-Medium.ttf               | No          | No           |
-| br            | Portuguese (Brazil)  | NotoSans-Medium.ttf               | No          | No           |
+| pt-PT         | Portuguese (Portugal)| NotoSans-Medium.ttf               | No          | No           |
+| pt-BR         | Portuguese (Brazil)  | NotoSans-Medium.ttf               | No          | No           |
 | it            | Italian              | NotoSans-Medium.ttf               | No          | No           |
 | lt            | Lithuanian           | NotoSans-Medium.ttf               | No          | No           |
 | pl            | Polish               | NotoSans-Medium.ttf               | No          | No           |
@@ -67,16 +58,17 @@ CO_OP_TRANSLATOR_METADATA:
 | te            | Telugu               | NotoSans-Medium.ttf               | No          | No           |
 | ml            | Malayalam            | NotoSans-Medium.ttf               | No          | No           |
 | kn            | Kannada              | NotoSans-Medium.ttf               | No          | No           |
+| km            | Khmer                | NotoSansKhmer-Medium.ttf          | No          | No           |
 
-## కొత్త భాషను జోడించడం
+## కొత్త భాష జోడించడం
 
-కొత్త భాషను జోడించాలనుకుంటున్నారా? దయచేసి కింది సహకార మార్గదర్శకాన్ని అనుసరించండి:
+కొత్త భాష జోడించడానికి ఆసక్తి ఉన్నారా? దయచేసి కాంట్రిబ్యూషన్ గైడ్‌ని అనుసరించండి:
 
-- Contributing చూడండి: [కొత్త భాషను జోడించండి](../CONTRIBUTING.md#contribute-a-new-language)
+- See Contributing: [Contribute a new language](../CONTRIBUTING.md#contribute-a-new-language)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**అస్పష్టత**:  
-ఈ పత్రాన్ని AI అనువాద సేవ [Co-op Translator](https://github.com/Azure/co-op-translator) ఉపయోగించి అనువదించబడింది. మేము ఖచ్చితత్వానికి ప్రయత్నించినప్పటికీ, ఆటోమేటెడ్ అనువాదాల్లో పొరపాట్లు లేదా తప్పిదాలు ఉండవచ్చు. మూల పత్రం దాని స్వదేశీ భాషలో అధికారిక మూలంగా పరిగణించాలి. ముఖ్యమైన సమాచారానికి, ప్రొఫెషనల్ మానవ అనువాదం సిఫార్సు చేయబడుతుంది. ఈ అనువాదం వాడకం వల్ల కలిగే ఏవైనా అపార్థాలు లేదా తప్పుదారితీసే అర్థాలు కోసం మేము బాధ్యత వహించము.
+**హేతుబద్ధత ప్రకటణ**:  
+ఈ డాక్యుమెంట్ [Co-op Translator](https://github.com/Azure/co-op-translator) AI అనువాద సేవను ఉపయోగించి అనువదించబడింది. మనం ఖచ్చితత్వానికి ప్రయత్నించినప్పటికీ, ఆప్టోమేటెడ్ అనువాదాల్లో తప్పులు లేదా అసత్యత ఉండడం సాధ్యమే. మూల డాక్యుమెంట్ యొక్క మాతృభాష కాన్సిప్ట్ అధికారం గల మూలం అని పరిగణించాలి. ముఖ్యమైన సమాచారం కోసం ప్రొఫెషనల్ మానవ అనువాదం సిఫార్సు చేయబడుతుంది. ఈ అనువాదం ఉపయోగం వల్ల వచ్చే ఏవైనా అపవాదాలు లేదా అనేక మంచి అర్థం తప్పులు లభించినా మేము బాధ్యులు కాళ్లం కాదు.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

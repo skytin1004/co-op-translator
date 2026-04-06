@@ -1,16 +1,8 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "dac6bc281667816537df51f724a0ff2c",
-  "translation_date": "2025-11-30T13:19:39+00:00",
-  "source_file": "README.md",
-  "language_code": "kn"
-}
--->
-# ಸಹಕಾರ ಅನುವಾದಕ
+# Co-op Translator
 
-_ನಿಮ್ಮ ಶೈಕ್ಷಣಿಕ GitHub ವಿಷಯವನ್ನು ಬಹುಭಾಷೆಗಳಲ್ಲಿ ಸುಲಭವಾಗಿ ಅನುವಾದಿಸಿ, ಜಾಗತಿಕ ಪ್ರೇಕ್ಷಕರಿಗೆ ತಲುಪಿಸಿ._
+_ನಿಮ್ಮ ಶೈಕ್ಷಣಿಕ GitHub ವಿಷಯಕ್ಕಾಗಿ ಅನೇಕ ಭಾಷೆಗಳಲ್ಲಿ ಅನುವಾದಗಳನ್ನು ಸುಲಭವಾಗಿ ಸ್ವಯಂಚಾಲಿತಗೊಳಿಸಿ ಮತ್ತು ನಿರ್ವಹಿಸಿ, ನಿಮ್ಮ ಯೋಜನೆ ಬೆಳೆಯುತ್ತಿರುವಂತೆ._
 
+![Python 3.10–3.12](https://img.shields.io/badge/python-3.10--3.12-blue)
 [![Python package](https://img.shields.io/pypi/v/co-op-translator?color=4BA3FF)](https://pypi.org/project/co-op-translator/)
 [![License: MIT](https://img.shields.io/github/license/azure/co-op-translator?color=4BA3FF)](https://github.com/azure/co-op-translator/blob/main/LICENSE)
 [![Downloads](https://static.pepy.tech/badge/co-op-translator)](https://pepy.tech/project/co-op-translator)
@@ -25,15 +17,35 @@ _ನಿಮ್ಮ ಶೈಕ್ಷಣಿಕ GitHub ವಿಷಯವನ್ನು ಬ
 
 ### 🌐 ಬಹುಭಾಷಾ ಬೆಂಬಲ
 
-#### [Co-op Translator](https://github.com/Azure/Co-op-Translator) ಮೂಲಕ ಬೆಂಬಲಿತ
+#### [Co-op Translator](https://github.com/Azure/Co-op-Translator) ಈ ಮೂಲಕ ಬೆಂಬಲಿತವಾಗಿದೆ
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
-[ಅರೇಬಿಕ್](../ar/README.md) | [ಬಂಗಾಳಿ](../bn/README.md) | [ಬಲ್ಗೇರಿಯನ್](../bg/README.md) | [ಬರ್ಮೀಸ್ (ಮಯನ್ಮಾರ್)](../my/README.md) | [ಚೈನೀಸ್ (ಸರಳೀಕೃತ)](../zh/README.md) | [ಚೈನೀಸ್ (ಪಾರಂಪರಿಕ, ಹಾಂಗ್ ಕಾಂಗ್)](../hk/README.md) | [ಚೈನೀಸ್ (ಪಾರಂಪರಿಕ, ಮಕಾವು)](../mo/README.md) | [ಚೈನೀಸ್ (ಪಾರಂಪರಿಕ, ತೈವಾನ್)](../tw/README.md) | [ಕ್ರೊಯೇಷಿಯನ್](../hr/README.md) | [ಚೆಕ್](../cs/README.md) | [ಡ್ಯಾನಿಷ್](../da/README.md) | [ಡಚ್](../nl/README.md) | [ಎಸ್ಟೋನಿಯನ್](../et/README.md) | [ಫಿನ್ನಿಷ್](../fi/README.md) | [ಫ್ರೆಂಚ್](../fr/README.md) | [ಜರ್ಮನ್](../de/README.md) | [ಗ್ರೀಕ್](../el/README.md) | [ಹೆಬ್ರೂ](../he/README.md) | [ಹಿಂದಿ](../hi/README.md) | [ಹಂಗೇರಿಯನ್](../hu/README.md) | [ಇಂಡೋನೇಶಿಯನ್](../id/README.md) | [ಇಟಾಲಿಯನ್](../it/README.md) | [ಜಪಾನೀಸ್](../ja/README.md) | [ಕನ್ನಡ](./README.md) | [ಕೊರಿಯನ್](../ko/README.md) | [ಲಿಥುವೇನಿಯನ್](../lt/README.md) | [ಮಲಯ್](../ms/README.md) | [ಮಲಯಾಳಂ](../ml/README.md) | [ಮರಾಠಿ](../mr/README.md) | [ನೇಪಾಳಿ](../ne/README.md) | [ನೈಜೀರಿಯನ್ ಪಿಡ್ಗಿನ್](../pcm/README.md) | [ನಾರ್ವೇಜಿಯನ್](../no/README.md) | [ಪರ್ಶಿಯನ್ (ಫಾರ್ಸಿ)](../fa/README.md) | [ಪೋಲಿಷ್](../pl/README.md) | [ಪೋರ್ಚುಗೀಸ್ (ಬ್ರೆಜಿಲ್)](../br/README.md) | [ಪೋರ್ಚುಗೀಸ್ (ಪೋರ್ಚುಗಲ್)](../pt/README.md) | [ಪಂಜಾಬಿ (ಗುರ್ಮುಖಿ)](../pa/README.md) | [ರೋಮೇನಿಯನ್](../ro/README.md) | [ರಷ್ಯನ್](../ru/README.md) | [ಸರ್ಬಿಯನ್ (ಸಿರಿಲಿಕ್)](../sr/README.md) | [ಸ್ಲೋವಾಕ್](../sk/README.md) | [ಸ್ಲೋವೇನಿಯನ್](../sl/README.md) | [ಸ್ಪ್ಯಾನಿಷ್](../es/README.md) | [ಸ್ವಾಹಿಲಿ](../sw/README.md) | [ಸ್ವೀಡಿಷ್](../sv/README.md) | [ಟಾಗಾಲೋಗ್ (ಫಿಲಿಪಿನೋ)](../tl/README.md) | [ತಮಿಳು](../ta/README.md) | [ತೆಲುಗು](../te/README.md) | [ಥಾಯ್](../th/README.md) | [ಟರ್ಕಿಷ್](../tr/README.md) | [ಉಕ್ರೇನಿಯನ್](../uk/README.md) | [ಉರ್ದು](../ur/README.md) | [ವಿಯೆಟ್ನಾಮೀಸ್](../vi/README.md)
+[Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh-CN/README.md) | [Chinese (Traditional, Hong Kong)](../zh-HK/README.md) | [Chinese (Traditional, Macau)](../zh-MO/README.md) | [Chinese (Traditional, Taiwan)](../zh-TW/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Kannada](./README.md) | [Khmer](../km/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Malayalam](../ml/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../pt-BR/README.md) | [Portuguese (Portugal)](../pt-PT/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
+
+> **ನುಡಿಸಲಾಗಿ ಸ್ಥಳೀಯ ನಕಲಿಸಲು ಇಚ್ಛಿಸುವಿರಾ?**
+>
+> ಈ ಸಂಗ್ರಹಣೆ 50ಕ್ಕೂ ಹೆಚ್ಚು ಭಾಷಾ ಅನುವಾದಗಳನ್ನು ಒಳಗೊಂಡಿದ್ದು, ಡೌನ್ಲೋಡ್ ಗಾತ್ರವನ್ನು ಗಾಢವಾಗಿ ಹೆಚ್ಚಿಸುತ್ತದೆ. ಅನುವಾದಗಳನ್ನು ಕೊಡದೆ ಕ್ಲೋನ್ ಮಾಡಲು, ಸ್ಪಾರ್ಸ್ ಚೆಕ್ಔಟ್ ಬಳಸಿರಿ:
+>
+> **Bash / macOS / Linux:**
+> ```bash
+> git clone --filter=blob:none --sparse https://github.com/skytin1004/co-op-translator.git
+> cd co-op-translator
+> git sparse-checkout set --no-cone '/*' '!translations' '!translated_images'
+> ```
+>
+> **CMD (Windows):**
+> ```cmd
+> git clone --filter=blob:none --sparse https://github.com/skytin1004/co-op-translator.git
+> cd co-op-translator
+> git sparse-checkout set --no-cone "/*" "!translations" "!translated_images"
+> ```
+>
+> ಇದರಿಂದ ನೀವು ಕೋರ್ಸ್ ಅನ್ನು ತುಂಬಾ ವೇಗವಾಗಿ ಡೌನ್ಲೋಡ್ ಮಾಡಿ ಪೂರ್ಣಗೊಳಿಸಲು ಬೇಕಾದ ಎಲ್ಲವನ್ನೂ ಪಡೆಯಬಹುದು.
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
 [![GitHub watchers](https://img.shields.io/github/watchers/azure/co-op-translator.svg?style=social&label=Watch)](https://GitHub.com/azure/co-op-translator/watchers/)
 [![GitHub forks](https://img.shields.io/github/forks/azure/co-op-translator.svg?style=social&label=Fork)](https://GitHub.com/azure/co-op-translator/network/)
-[![GitHub stars](https://img.shields.io/github/stars/azure/co-op-translator?style=social&label=Star)](https://GitHub.com/azure/co-op-translator/stargazers/)
+[![GitHub stars](https://img.shields.io/github/stars/azure/co-op-translator.svg?style=social&label=Star)](https://GitHub.com/azure/co-op-translator/stargazers/)
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
@@ -41,22 +53,43 @@ _ನಿಮ್ಮ ಶೈಕ್ಷಣಿಕ GitHub ವಿಷಯವನ್ನು ಬ
 
 ## ಅವಲೋಕನ
 
-**Co-op Translator** ನಿಮ್ಮ ಶೈಕ್ಷಣಿಕ GitHub ವಿಷಯವನ್ನು ಬಹುಭಾಷೆಗಳಲ್ಲಿ ಸುಲಭವಾಗಿ ಸ್ಥಳೀಯಗೊಳಿಸಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ. ನೀವು ನಿಮ್ಮ Markdown ಫೈಲ್‌ಗಳು, ಚಿತ್ರಗಳು ಅಥವಾ ನೋಟ್ಬುಕ್‌ಗಳನ್ನು ನವೀಕರಿಸಿದಾಗ, ಅನುವಾದಗಳು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಸಮನ್ವಯಗೊಳ್ಳುತ್ತವೆ, ಇದರಿಂದ ನಿಮ್ಮ ವಿಷಯವು ಜಾಗತಿಕವಾಗಿ ಕಲಿಯುವವರಿಗೆ ನಿಖರ ಮತ್ತು ನವೀಕರಿಸಿದ ಸ್ಥಿತಿಯಲ್ಲಿ ಇರುತ್ತದೆ.
+**Co-op Translator** ನಿಮಗೆ ನಿಮ್ಮ ಶೈಕ್ಷಣಿಕ GitHub ವಿಷಯಗಳನ್ನು ಅನೇಕ ಭಾಷೆಗಳ into ಸುಲಭವಾಗಿ ಸ್ಥಳೀಯಗೊಳಿಸಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ.
+ನೀವು-Markdown ಕಡತಗಳು, ಚಿತ್ರಗಳು ಅಥವಾ ನೋಟ್‌ಬುಕ್‌ಗಳನ್ನು ನವೀಕರಿಸುವಾಗ, ಅನುವಾದಗಳು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಸಮನ್ವಯವಾಗಿದ್ದು, ваше ವಿಷಯವನ್ನು ವಿಶ್ವದಾದ್ಯಾಂತ ಕಲಿಯುವವರಿಗೆ ತಕ್ಕದರಂತೆ ಮತ್ತು ಮುಂಭಾಗದಂತೆ ಇಡುತ್ತದೆ.
 
-ಅನುವಾದಿತ ವಿಷಯವನ್ನು ಹೇಗೆ ಸಂಘಟಿಸಲಾಗುತ್ತದೆ ಎಂಬ ಉದಾಹರಣೆ:
+ಅನುವಾದಿತ ವಿಷಯವನ್ನು ಹೇಗೆ ಸಂಘಟಿಸಲಾಗಿದೆ ಉದಾಹರಣೆ:
 
-![ಉದಾಹರಣೆ](../../translated_images/translation-ex.0c8aa6a7ee0aad2b35cddcc110c719baf0afc640e8c5a45540e6c166b9907d91.kn.png)
+![Example](../../translated_images/kn/translation-ex.0c8aa6a7ee0aad2b.webp)
 
-## ತ್ವರಿತ ಪ್ರಾರಂಭ
+## ಅನುವಾದ ಸ್ಥಿತಿಯನ್ನು ಹೇಗೆ ನಿರ್ವಹಿಸಲಾಗುತ್ತದೆ
+
+Co-op Translator ಅನುವಾದಿತ ವಿಷಯಗಳನ್ನು **ಆವೃತ್ತಿ ಸಾಫ್ಟ್‌ವೇರ್ ಕಲೆಗಳಾಗಿ** ನಿರ್ವಹಿಸುತ್ತದೆ,  
+ಸ್ಥಿತಿಗತ ಫೈಲ್‌ಗಳಾಗಿ ಅಲ್ಲ.
+
+ಕಾರಣವಾಚಕ ಸಾಧನವು ಅನುವಾದಿತ Markdown, ಚಿತ್ರಗಳು ಮತ್ತು ನೋಟ್‌ಬುಕ್‌ಗಳ ಸ್ಥಿತಿಯನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡುತ್ತದೆ  
+**ಭಾಷಾ ವ್ಯಾಪಿತ ಮೆಟಾಡೇಟಾ** ಬಳಸಿ.
+
+ಈ ವಿನ್ಯಾಸ Co-op Translator ಗೆ ಅನುಮತಿಸುತ್ತದೆ:
+
+- ಹಳೆಯಾದ ಅನುವಾದಗಳನ್ನು ವಿಶ್ವಾಸಾರ್ಹವಾಗಿ ಪತ್ತೆ ಹಚ್ಚಲು
+- Markdown, ಚಿತ್ರಗಳು ಮತ್ತು ನೋಟ್‌ಬುಕ್‌ಗಳನ್ನು ಸಮನಾಗಿ ಮديةತಿಗೆ ವ್ಯವಸ್ಥೆ ಮಾಡಲು
+- ದೊಡ್ಡ, ವೇಗವಾಗಿ ಚಲಿಸುವ ಬಹುಭಾಷಾ ಸಂಗ್ರಹಗಳ ಮೇಲ್ವಿಚಾರಣೆಯನ್ನು ಸುರಕ್ಷಿತವಾಗಿ ವಿಸ್ತರಿಸಲು
+
+ಅನುವಾದಗಳನ್ನು ನಿರ್ವಹಿತ ಕಲೆಗಳಾಗಿ ಮಾದರಿಯಾಗಿ,  
+ಅನುವಾದ ಕಾರ್ಯಪಟುತೆಗಳು ನವೀನ ಸಾಫ್ಟ್‌ವೇರ್ ನಿರ್ಬಂಧ և ಕಲೆ ನಿರ್ವಹಣಾ ಅಭ್ಯಾಸಗಳಿಗೆ ಸಹಜವಾಗಿ ಹೊಂದಿಕೊಳ್ಳುತ್ತವೆ.
+
+→ [ಅನುವಾದ ಸ್ಥಿತಿಯನ್ನು ಹೇಗೆ ನಿರ್ವಹಿಸಲಾಗುತ್ತದೆ](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/rethinking-documentation-translation-treating-translations-as-versioned-software/4491755)
+
+
+## ವೇಗವಂತ ಆರಂಭ
 
 ```bash
-# ವರ್ಚುವಲ್ ಪರಿಸರವನ್ನು ರಚಿಸಿ ಮತ್ತು ಸಕ್ರಿಯಗೊಳಿಸಿ (ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ)
+# ವರ್ಚುವಲ್ ವಾತಾವರಣವನ್ನು ರಚಿಸಿ ಮತ್ತು ಸಕ್ರಿಯಗೊಳಿಸಿ (ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ)
 python -m venv .venv
 # ವಿಂಡೋಸ್
 .venv\Scripts\activate
-# ಮ್ಯಾಕ್‌ಒಎಸ್/ಲಿನಕ್ಸ್ನಲ್ಲಿ
+# ಮ್ಯಾಕ್OS/ಲಿನಕ್ಸ್
 source .venv/bin/activate
-# ಪ್ಯಾಕೇಜ್ ಅನ್ನು ಸ್ಥಾಪಿಸಿ
+# ಪ್ಯಾಕೇಜ್ ಅನ್ನು ಅಳವಡಿಸಿ
 pip install co-op-translator
 # ಅನುವಾದಿಸಿ
 translate -l "ko ja fr" -md
@@ -65,30 +98,32 @@ translate -l "ko ja fr" -md
 ಡೋಕರ್:
 
 ```bash
-# GHCR ನಿಂದ ಸಾರ್ವಜನಿಕ ಚಿತ್ರವನ್ನು ಎಳೆಯಿರಿ
+# GHCR ನಿಂದ ಸಾರ್ವಜನಿಕ ಚಿತ್ರವನ್ನು ತೆಗೆಯಿರಿ
 docker pull ghcr.io/azure/co-op-translator:latest
-# ಪ್ರಸ್ತುತ ಫೋಲ್ಡರ್ ಅನ್ನು ಮೌಂಟ್ ಮಾಡಿ ಮತ್ತು .env ಅನ್ನು ಒದಗಿಸಿ (Bash/Zsh)
+# ಈಗಿನ ಫೋಲ್ಡರ್ ಅನ್ನು ಮೌಂಟ್ ಮಾಡಿ ಮತ್ತು .env ಒದಗಿಸಿ (Bash/Zsh) ನಲ್ಲಿ ಚಲಾಯಿಸಿ
 docker run --rm -it --env-file .env -v "${PWD}:/work" ghcr.io/azure/co-op-translator:latest -l "ko ja fr" -md
 ```
 
-## ಕನಿಷ್ಠ ಸೆಟಪ್
+## ಕನಿಷ್ಟ ಸಜ್ಜು ಮಾಡುವುದು
 
-1. ಟೆಂಪ್ಲೇಟ್ನಿಂದ `.env` ಫೈಲ್ ರಚಿಸಿ: [.env.template](../../.env.template)
-2. ಒಂದು LLM ಪೂರೈಕೆದಾರರನ್ನು ಸಂರಚಿಸಿ (Azure OpenAI ಅಥವಾ OpenAI)
-3. (ಐಚ್ಛಿಕ) ಚಿತ್ರ ಅನುವಾದಕ್ಕಾಗಿ (`-img`), Azure AI Vision ಅನ್ನು ಸಂರಚಿಸಿ
-4. (ಶಿಫಾರಸು) ಯಾವುದೇ ಹಳೆಯ ಅನುವಾದಗಳನ್ನು Conflict ತಪ್ಪಿಸಲು ತೆರವುಗೊಳಿಸಿ (ಉದಾ: `translations/`)
-5. (ಶಿಫಾರಸು) ನಿಮ್ಮ README ಗೆ ಅನುವಾದ ವಿಭಾಗವನ್ನು ಸೇರಿಸಿ [README languages template](./getting_started/README_languages_template.md) ಬಳಸಿ
-6. ನೋಡಿ: [Azure AI ಸೆಟಪ್](./getting_started/set-up-azure-ai.md)
+1. ನೀವು ಬೆಂಬಲಿತ Python ಆವೃತ್ತಿಯನ್ನು ಹೊಂದಿದ್ದೇವೆ ಎಂದು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ (ಪ್ರಸ್ತುತ 3.10-3.12). ಪોઈಟ್ರಿಯಲ್ಲಿ (pyproject.toml) ಇದು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ನಿರ್ವಹಣೆ ಮಾಡಲಾಗುತ್ತದೆ.
+2. ಟೆಂಪ್ಲೇಟನ್ನು ಬಳಸಿಕೊಂಡು `.env` ಫೈಲ್ ಅನ್ನು ರಚಿಸಿ: [.env.template](../../.env.template)
+3. ಒಂದು LLM ಒದಗಿಸುವವರನ್ನು ಸಂರಚಿಸಿ (Azure OpenAI ಅಥವಾ OpenAI)
+4. (ಐಚ್ಛಿಕ) ಚಿತ್ರ ಅನುವಾದಕ್ಕಾಗಿ (`-img`), Azure AI Vision ಅನ್ನು ಸಂರಚಿಸಿ
+5. (ಐಚ್ಛಿಕ) ನೀವು ವಿಭಿನ್ನ ಗುರುತುಗಳೊಂದಿಗೆ `_1`, `_2` ಮುಂತಾದ ಸೂಫಿಕ್ಸ್ ಗಳನ್ನು ನಕಲಿಸಿ ಬಹು ಕ್ರೆಡೆಂಚಿಯಲ್ ಸೆಟ್‌ಗಳನ್ನು ಸಂರಚಿಸಬಹುದು. ಸೆಟ್‌ನ ಎಲ್ಲಾ ಚರಗಳನ್ನು ಒಂದೇ ಸೂಫಿಕ್ಸ್ ಹಂಚಿಕೊಳ್ಳಬೇಕು.
+6. (ಶಿಫಾರಸು) ಯಾರು ಹಳೆಯ ಅನುವಾದಗಳನ್ನು Conflict ತಪ್ಪಿಸಲು ಅಳಿಸಿ (ಉದಾ: `translations/`)
+7. (ಶಿಫಾರಸು) ನಿಮ್ಮ README ಗೆ ಅನುವಾದ ವಿಭಾಗ ಸೇರಿಸಿ [README languages template](./getting_started/README_languages_template.md) ಬಳಸಿ
+8. ನೋಡಿ: [Azure AI ಅನ್ನು ಸಜ್ಜು ಮಾಡುವುದು](./getting_started/set-up-azure-ai.md)
 
 ## ಬಳಕೆ
 
-ಎಲ್ಲಾ ಬೆಂಬಲಿತ ಪ್ರಕಾರಗಳನ್ನು ಅನುವಾದಿಸಿ:
+ಬೆಂಬಲಿತ ಎಲ್ಲಾ ರೀತಿಗಳನ್ನು ಅನುವಾದಿಸಿ:
 
 ```bash
 translate -l "ko ja"
 ```
 
-Markdown ಮಾತ್ರ:
+ಕೆवल Markdown:
 
 ```bash
 translate -l "de" -md
@@ -100,51 +135,52 @@ Markdown + ಚಿತ್ರಗಳು:
 translate -l "pt" -md -img
 ```
 
-ನೋಟ್ಬುಕ್‌ಗಳು ಮಾತ್ರ:
+ಕೇವಲ ನೋಟ್ಬುಕ್‌ಗಳು:
 
 ```bash
 translate -l "zh" -nb
 ```
 
-ಹೆಚ್ಚಿನ ಫ್ಲಾಗ್‌ಗಳು: [ಕಮಾಂಡ್ ರೆಫರೆನ್ಸ್](./getting_started/command-reference.md)
+ಹೆಚ್ಚು ಧ್ವಜಗಳು: [ಕಮಾಂಡ್ ಪರಿಚಯ](./getting_started/command-reference.md)
 
 ## ವೈಶಿಷ್ಟ್ಯಗಳು
 
-- Markdown, ನೋಟ್ಬುಕ್‌ಗಳು ಮತ್ತು ಚಿತ್ರಗಳ ಸ್ವಯಂಚಾಲಿತ ಅನುವಾದ
-- ಮೂಲ ಬದಲಾವಣೆಗಳೊಂದಿಗೆ ಅನುವಾದಗಳನ್ನು ಸಮನ್ವಯಗೊಳಿಸುತ್ತದೆ
-- ಸ್ಥಳೀಯ (CLI) ಅಥವಾ CI (GitHub Actions) ನಲ್ಲಿ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ
-- Azure OpenAI ಅಥವಾ OpenAI ಬಳಕೆ; ಚಿತ್ರಗಳಿಗೆ ಐಚ್ಛಿಕವಾಗಿ Azure AI Vision
-- Markdown ಫಾರ್ಮ್ಯಾಟಿಂಗ್ ಮತ್ತು ರಚನೆಯನ್ನು ಉಳಿಸುತ್ತದೆ
+- Markdown, ನೋಟ್‌ಬುಕ್ ಮತ್ತು ಚಿತ್ರಗಳಿಗಾಗಿ ಸ್ವಯಂಚಾಲಿತ ಅನುವಾದ
+- ಮೂಲ ಬದಲಾವಣೆಗಳೊಂದಿಗೆ ಅನುವಾದಗಳನ್ನು ಸಮನ್ವಯದಲ್ಲಿಡುತ್ತದೆ
+- ಲೊಕಲ್ (CLI) ಅಥವಾ CI (GitHub ಕ್ರಿಯೆಗಳು) ಯಲ್ಲಿ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ
+- Azure OpenAI ಅಥವಾ OpenAI ಉಪಯೋಗಿಸುತ್ತದೆ; ಚಿತ್ರಗಳಿಗೆ ಐಚ್ಛಿಕವಾಗಿ Azure AI Vision
+- Markdown ಫಾರ್ಮ್ಯಾಟ್ ಮತ್ತು ರಚನೆಯನ್ನು ಕಾಯ್ದುಕೊಳ್ಳುತ್ತದೆ
 
-## ಡಾಕ್ಯುಮೆಂಟೇಶನ್
+## ಡಾಕ್ಸ್
 
-- [ಕಮಾಂಡ್-ಲೈನ್ ಮಾರ್ಗದರ್ಶಿ](./getting_started/command-line-guide/command-line-guide.md)
-- [GitHub Actions ಮಾರ್ಗದರ್ಶಿ (ಸಾರ್ವಜನಿಕ ರೆಪೊಗಳು ಮತ್ತು ಸ್ಟ್ಯಾಂಡರ್ಡ್ ಸೀಕ್ರೆಟ್ಸ್)](./getting_started/github-actions-guide/github-actions-guide-public.md)
-- [GitHub Actions ಮಾರ್ಗದರ್ಶಿ (Microsoft ಸಂಸ್ಥೆಯ ರೆಪೊಗಳು ಮತ್ತು ಸಂಸ್ಥಾ ಮಟ್ಟದ ಸೆಟಪ್‌ಗಳು)](./getting_started/github-actions-guide/github-actions-guide-org.md)
-- [README ಭಾಷೆಗಳ ಟೆಂಪ್ಲೇಟು](./getting_started/README_languages_template.md)
+- [ಕಮಾಂಡ್-ಲೇಖನ ಮಾರ್ಗದರ್ಶಿ](./getting_started/command-line-guide/command-line-guide.md)
+- [GitHub ಕ್ರಿಯೆಗಳ ಮಾರ್ಗದರ್ಶಿ (ಸಾರ್ವಜನಿಕ ಸಂಗ್ರಹಣೆ & ಪ್ರಾಮಾಣಿಕ ಗುಪ್ತಪದಗಳು)](./getting_started/github-actions-guide/github-actions-guide-public.md)
+- [GitHub ಕ್ರಿಯೆಗಳ ಮಾರ್ಗದರ್ಶಿ (Microsoft ಸಂಸ್ಥೆ ಸಂಗ್ರಹಣೆ & ಸಂಸ್ಥೆ ಮಟ್ಟದ ಸಜ್ಜುಗಳು)](./getting_started/github-actions-guide/github-actions-guide-org.md)
+- [README ಭಾಷೆಗಳ ಟೆಂಪ್ಲೇಟ್](./getting_started/README_languages_template.md)
 - [ಬೆಂಬಲಿತ ಭಾಷೆಗಳು](./getting_started/supported-languages.md)
-- [ಸಹಾಯ](./CONTRIBUTING.md)
-- [ಸಮಸ್ಯೆ ಪರಿಹಾರ](./getting_started/troubleshooting.md)
+- [ತದಾರ್ಶಕತೆ](./CONTRIBUTING.md)
+- [ಸಮಸ್ಯೆಗಳ ಪರಿಹಾರ](./getting_started/troubleshooting.md)
 
-### Microsoft-ನ ವಿಶೇಷ ಮಾರ್ಗದರ್ಶಿ
+### Microsoft-ನ ವಿಶೇಷ ಮಾರ್ಗದರ್ಶಿ
 > [!NOTE]
-> Microsoft “For Beginners” ರೆಪೊಗಳ ನಿರ್ವಹಕರಿಗಾಗಿ ಮಾತ್ರ.
+> Microsoft “ಹೊಸಬರು” ಸಂಗ್ರಹಣೆ ನಿರ್ವಹಣೆದಾರರಿಗೆ ಮಾತ್ರ.
 
-- [“ಇತರೆ ಕೋರ್ಸುಗಳು” ಪಟ್ಟಿಯನ್ನು ನವೀಕರಿಸುವುದು (MS Beginners ರೆಪೊಗಳಿಗೆ ಮಾತ್ರ)](./getting_started/update-other-courses.md)
+- [“ಇತರೆ ಕೋರ್ಸ್‌ಗಳು” ಪಟ್ಟಿ ನವೀಕರಣ (ಮಾತ್ರ MS ಹೊಸಬರು ಸಂಗ್ರಹಣೆಗಳಿಗೆ)](./getting_started/update-other-courses.md)
 
-## ನಮಗೆ ಬೆಂಬಲ ನೀಡಿ ಮತ್ತು ಜಾಗತಿಕ ಕಲಿಕೆಯನ್ನು ಉತ್ತೇಜಿಸಿ
+## ನಮಗೆ ಬೆಂಬಲ ನೀಡಿ ಮತ್ತು ಜಾಗತಿಕ ಕಲಿಕೆಯನ್ನು ಹಮ್ಮಿಕೊಳ್ಳಿ
 
-ಶೈಕ್ಷಣಿಕ ವಿಷಯವನ್ನು ಜಾಗತಿಕವಾಗಿ ಹಂಚುವ ವಿಧಾನವನ್ನು ಕ್ರಾಂತಿಕಾರಿಯಾಗಿ ಬದಲಾಯಿಸಲು ನಮ್ಮೊಂದಿಗೆ ಸೇರಿ! [Co-op Translator](https://github.com/azure/co-op-translator) ಗೆ GitHub ನಲ್ಲಿ ⭐ ನೀಡಿ ಮತ್ತು ಕಲಿಕೆ ಮತ್ತು ತಂತ್ರಜ್ಞಾನದಲ್ಲಿ ಭಾಷಾ ಅಡ್ಡಿ ಮುರಿಯುವ ನಮ್ಮ ಗುರಿಯನ್ನು ಬೆಂಬಲಿಸಿ. ನಿಮ್ಮ ಆಸಕ್ತಿ ಮತ್ತು ಕೊಡುಗೆಗಳು ಮಹತ್ವದ ಪರಿಣಾಮ ಬೀರುತ್ತವೆ! ಕೋಡ್ ಕೊಡುಗೆಗಳು ಮತ್ತು ವೈಶಿಷ್ಟ್ಯ ಸಲಹೆಗಳು ಯಾವಾಗಲೂ ಸ್ವಾಗತಾರ್ಹ.
+ಶೈಕ್ಷಣಿಕ ವಿಷಯವನ್ನು ಜಾಗತಿಕವಾಗಿ ಹಂಚಿಕೊಳ್ಳುವ ರೀತಿಯಲ್ಲಿ ಕ್ರಾಂತಿ ಮೂಡಿಸಲು ನಮಗೆ ಸೇರಿರಿ! [Co-op Translator](https://github.com/azure/co-op-translator) ಯಲ್ಲಿ ಗಿಥಬ್ ನಲ್ಲಿ ⭐ ನೀಡಿ ಮತ್ತು ಭಾಷಾ ಅಡ್ಡಿ ಕಡಿತ ಮಾಡುವ ಕಾರ್ಯವನ್ನು ಬೆಂಬಲಿಸಿ. ನಿಮ್ಮ ಆಸಕ್ತಿ ಮತ್ತು ಕೊಡುಗೆಗಳು ಮಹತ್ತರ ಪರಿಣಾಮವನ್ನು ಮೂಡಿಸುತ್ತವೆ! ಕೋಡ್ ಕೊಡುಗೆಗಳು ಮತ್ತು ವೈಶಿಷ್ಟ್ಯ ಸಲಹೆಗಳು ಸದಾ ಸ್ವಾಗತಾರ್ಹ.
 
-### ನಿಮ್ಮ ಭಾಷೆಯಲ್ಲಿ Microsoft ಶೈಕ್ಷಣಿಕ ವಿಷಯವನ್ನು ಅನ್ವೇಷಿಸಿ
+### ನಿಮ್ಮ ಭಾಷೆಯಲ್ಲಿ Microsoft ಶೈಕ್ಷಣಿಕ ವಿಷಯ ಅನ್ವೇಷಿಸಿ
 
+- [LangChain4j-for-Beginners](https://github.com/microsoft/LangChain4j-for-Beginners)
 - [AZD for Beginners](https://github.com/microsoft/AZD-for-beginners)
 - [Edge AI for Beginners](https://github.com/microsoft/edgeai-for-beginners)
 - [Model Context Protocol (MCP) For Beginners](https://github.com/microsoft/mcp-for-beginners)
 - [AI Agents for Beginners](https://github.com/microsoft/ai-agents-for-beginners)
-- [.NET ಬಳಸಿ Generative AI for Beginners](https://github.com/microsoft/Generative-AI-for-beginners-dotnet)
+- [Generative AI for Beginners using .NET](https://github.com/microsoft/Generative-AI-for-beginners-dotnet)
 - [Generative AI for Beginners](https://github.com/microsoft/generative-ai-for-beginners)
-- [Java ಬಳಸಿ Generative AI for Beginners](https://github.com/microsoft/generative-ai-for-beginners-java)
+- [Generative AI for Beginners using Java](https://github.com/microsoft/generative-ai-for-beginners-java)
 - [ML for Beginners](https://aka.ms/ml-beginners)
 - [Data Science for Beginners](https://aka.ms/datascience-beginners)
 - [AI for Beginners](https://aka.ms/ai-beginners)
@@ -153,56 +189,58 @@ translate -l "zh" -nb
 - [IoT for Beginners](https://aka.ms/iot-beginners)
 - [PhiCookBook](https://github.com/microsoft/PhiCookBook)
 
-## ವೀಡಿಯೊ ಪ್ರಸ್ತುತಿಗಳು
+## ವೀಡಿಯೋ ಪ್ರಸ್ತುತಿ
 
 👉 YouTube ನಲ್ಲಿ ವೀಕ್ಷಿಸಲು ಕೆಳಗಿನ ಚಿತ್ರವನ್ನು ಕ್ಲಿಕ್ ಮಾಡಿ.
 
-- **Microsoft ನಲ್ಲಿ ಓಪನ್**: Co-op Translator ಅನ್ನು ಹೇಗೆ ಬಳಸುವುದು ಎಂಬ 18 ನಿಮಿಷಗಳ ಸಂಕ್ಷಿಪ್ತ ಪರಿಚಯ ಮತ್ತು ತ್ವರಿತ ಮಾರ್ಗದರ್ಶಿ.
+- **Microsoft ನಲ್ಲಿ ತೆರೆದು**: Co-op Translator ಅನ್ನು ಹೇಗೆ ಬಳಸುವುದು ಎಂಬ 18 ನಿಮಿಷಗಳ ಸಂಕ್ಷಿಪ್ತ ಪರಿಚಯ.
 
-  [![Microsoft ನಲ್ಲಿ ಓಪನ್](../../translated_images/open-ms-thumbnail.946b356b89bc5f0e33dcebb852f7926b98c33f54c1a49ce01c36ae7f35e2443a.kn.jpg)](https://www.youtube.com/watch?v=jX_swfH_KNU)
+  [![Open at Microsoft](../../translated_images/kn/open-ms-thumbnail.946b356b89bc5f0e.webp)](https://www.youtube.com/watch?v=jX_swfH_KNU)
 
-## ಕೊಡುಗೆ ನೀಡುವುದು
+## ಕೊಡುಗೆ ಸಲ್ಲಿಕೆ
 
-ಈ ಯೋಜನೆಗೆ ಕೊಡುಗೆಗಳು ಮತ್ತು ಸಲಹೆಗಳು ಸ್ವಾಗತಾರ್ಹ. Azure Co-op Translator ಗೆ ಕೊಡುಗೆ ನೀಡಲು ಆಸಕ್ತಿ ಇದ್ದರೆ, ದಯವಿಟ್ಟು ನಮ್ಮ [CONTRIBUTING.md](./CONTRIBUTING.md) ನೋಡಿ, Co-op Translator ಅನ್ನು ಇನ್ನಷ್ಟು ಸುಲಭವಾಗಿ ಬಳಸಲು ನೀವು ಹೇಗೆ ಸಹಾಯ ಮಾಡಬಹುದು ಎಂಬ ಮಾರ್ಗದರ್ಶನಕ್ಕಾಗಿ.
+ಈ ಯೋಜನೆ ಕೊಡುಗೆಗಳನ್ನೂ ಸಲಹೆಗಳನ್ನೂ ಸ್ವಾಗತಿಸುತ್ತದೆ. Azure Co-op Translator ಗೆ ಕೊಡುಗೆ ನೀಡಲು ಆಸಕ್ತಿ ಇದ್ದರೆ, ದಯವಿಟ್ಟು ನಮ್ಮ [CONTRIBUTING.md](./CONTRIBUTING.md) ನೋಡಿ, ನೀವು Co-op Translator ಅನ್ನು ಇನ್ನಷ್ಟು ತಲುಪುವಂತೆ ಮಾಡಲು ಹೇಗೆ ಸಹಾಯ ಮಾಡಬಹುದೆಂಬ ನಿದರ್ಶನವನ್ನು ಪಡೆಯಿರಿ.
 
-## ಕೊಡುಗೆದಾರರು
-
+## ಕೊಡುಗುದಾರರು
 [![co-op-translator contributors](https://contrib.rocks/image?repo=Azure/co-op-translator)](https://github.com/Azure/co-op-translator/graphs/contributors)
 
-## ನಡವಳಿಕೆ ನಿಯಮಾವಳಿ
+## ನಿರ್ವಹಣಾ ನಿಬಂಧನೆ
 
-ಈ ಯೋಜನೆ [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) ಅನ್ನು ಅನುಸರಿಸುತ್ತದೆ.
-ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) ನೋಡಿ ಅಥವಾ ಯಾವುದೇ ಪ್ರಶ್ನೆಗಳು ಅಥವಾ ಟಿಪ್ಪಣಿಗಳಿಗಾಗಿ [opencode@microsoft.com](mailto:opencode@microsoft.com) ಗೆ ಸಂಪರ್ಕಿಸಿ.
+ಈ ಯೋಜನೆ [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) ಅನ್ನು ಅಳವಡಿಸಿಕೊಂಡಿದೆ.  
+ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) ಅನ್ನು ನೋಡಿ ಅಥವಾ ಯಾವುದೇ ಹೆಚ್ಚುವರಿ ಪ್ರಶ್ನೆಗಳು ಅಥವಾ ಅಭಿಪ್ರಾಯಗಳಿಗಾಗಿ [opencode@microsoft.com](mailto:opencode@microsoft.com)ನ್ನು ಸಂಪರ್ಕಿಸಿ.
 
-## ಜವಾಬ್ದಾರಿಯುತ AI
+## ಹೊಣೆಗಾರಿಕೆಯ AI
 
-Microsoft ನಮ್ಮ ಗ್ರಾಹಕರು ನಮ್ಮ AI ಉತ್ಪನ್ನಗಳನ್ನು ಜವಾಬ್ದಾರಿಯುತವಾಗಿ ಬಳಸಲು ಸಹಾಯ ಮಾಡುವುದಕ್ಕೆ ಬದ್ಧವಾಗಿದೆ, ನಮ್ಮ ಕಲಿತ ಪಾಠಗಳನ್ನು ಹಂಚಿಕೊಳ್ಳುತ್ತದೆ ಮತ್ತು Transparency Notes ಮತ್ತು Impact Assessments ಮುಂತಾದ ಸಾಧನಗಳ ಮೂಲಕ ನಂಬಿಕೆ ಆಧಾರಿತ ಸಹಕಾರಗಳನ್ನು ನಿರ್ಮಿಸುತ್ತದೆ. ಈ ಸಂಪನ್ಮೂಲಗಳ ಬಹುತೇಕವನ್ನು [https://aka.ms/RAI](https://aka.ms/RAI) ನಲ್ಲಿ ಕಾಣಬಹುದು.
-Microsoft ನ ಜವಾಬ್ದಾರಿಯುತ AI ದೃಷ್ಟಿಕೋನವು ನ್ಯಾಯ, ನಂಬಿಕೆ ಮತ್ತು ಸುರಕ್ಷತೆ, ಗೌಪ್ಯತೆ ಮತ್ತು ಭದ್ರತೆ, ಒಳಗೊಂಡಿಕೆ, ಪಾರದರ್ಶಕತೆ ಮತ್ತು ಹೊಣೆಗಾರಿಕೆ ಎಂಬ AI ತತ್ವಗಳ ಮೇಲೆ ಆಧಾರಿತವಾಗಿದೆ.
+Microsoft ನಮ್ಮ ಗ್ರಾಹಕರು ನಮ್ಮ AI ಉತ್ಪನ್ನಗಳನ್ನು ಜವಾಬ್ದಾರಿಯಿಂದ ಬಳಕೆ ಮಾಡಲು, ನಮ್ಮ ಅಧ್ಯಯನಗಳನ್ನು ಹಂಚಿಕೊಳ್ಳಲು ಮತ್ತು Transparency Notes ಮತ್ತು Impact Assessments പോലಿನ ಸಾಧನಗಳ ಮೂಲಕ ನಂಬಿಕೆ ಆಧಾರಿತ ಸಹಕಾರಗಳನ್ನು ನಿರ್ಮಿಸಲು ಬದ್ಧವಾಗಿದೆ. ಈ ಸಂಪನ್ಮೂಲಗಳ ಬಹುರೂಪಗಳನ್ನ [https://aka.ms/RAI](https://aka.ms/RAI) ನಲ್ಲಿ ಕಂಡುಹಿಡಿಯಬಹುದು.  
+Microsoft ನ ಹೊಣೆಗಾರಿಕೆಯ AIಗೆ ಹೊಂದಿದ ದೃಷ್ಟಿಕೋನವು ಸ್ಥಳೀಯತೆಯ, ನಂಬಕತೆ ಮತ್ತು ಸುರಕ್ಷತೆ, ಗೌಪ್ಯತೆ ಮತ್ತು ಭದ್ರತೆ, ಒಳಗೊಂಡಿಕೆ, ಪಾರದರ್ಶಕತೆ ಮತ್ತು ಉತ್ತರದಾಯಿತ್ವದ AI ತತ್ವಗಳ ಮೇಲೆ ಆಧರಿಸಿದೆ.
 
-ಈ ಉದಾಹರಣೆಯಲ್ಲಿ ಬಳಸಲಾದ ದೊಡ್ಡ ಪ್ರಮಾಣದ ನೈಸರ್ಗಿಕ ಭಾಷೆ, ಚಿತ್ರ ಮತ್ತು ಧ್ವನಿ ಮಾದರಿಗಳು ಅನ್ಯಾಯಕರ, ನಂಬಲಾರದ ಅಥವಾ ಅಪಮಾನಕಾರಿಯಾದ ವರ್ತನೆಗಳನ್ನು ತೋರಿಸಬಹುದು, ಇದರಿಂದ ಹಾನಿ ಸಂಭವಿಸಬಹುದು. ದಯವಿಟ್ಟು ಅಪಾಯಗಳು ಮತ್ತು ಮಿತಿಗಳನ್ನು ತಿಳಿದುಕೊಳ್ಳಲು [Azure OpenAI ಸೇವೆಯ Transparency note](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) ಅನ್ನು ಪರಿಶೀಲಿಸಿ.
-ಈ ಅಪಾಯಗಳನ್ನು ತಗ್ಗಿಸುವ ಶಿಫಾರಸು ಮಾಡಲಾದ ವಿಧಾನವೆಂದರೆ ನಿಮ್ಮ ವಾಸ್ತುಶಿಲ್ಪದಲ್ಲಿ ಹಾನಿಕಾರಕ ವರ್ತನೆಯನ್ನು ಪತ್ತೆಹಚ್ಚಿ ತಡೆಯುವ ಸುರಕ್ಷತಾ ವ್ಯವಸ್ಥೆಯನ್ನು ಸೇರಿಸುವುದು. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) ಸ್ವತಂತ್ರ ರಕ್ಷಣಾ ಪದರವನ್ನು ಒದಗಿಸುತ್ತದೆ, ಇದು ಅಪ್ಲಿಕೇಶನ್‌ಗಳು ಮತ್ತು ಸೇವೆಗಳಲ್ಲಿ ಹಾನಿಕಾರಕ ಬಳಕೆದಾರ-ಉತ್ಪನ್ನ ಮತ್ತು AI-ಉತ್ಪನ್ನ ವಿಷಯವನ್ನು ಪತ್ತೆಹಚ್ಚಲು ಸಾಧ್ಯವಾಗುತ್ತದೆ. Azure AI Content Safety ನಲ್ಲಿ ಪಠ್ಯ ಮತ್ತು ಚಿತ್ರ API ಗಳು ಸೇರಿವೆ, ಅವು ಹಾನಿಕಾರಕ ವಿಷಯವನ್ನು ಪತ್ತೆಹಚ್ಚಲು ಸಹಾಯ ಮಾಡುತ್ತವೆ. ನಾವು ಹಾನಿಕಾರಕ ವಿಷಯವನ್ನು ವಿವಿಧ ಮಾದರಿಗಳಲ್ಲಿ ಪತ್ತೆಹಚ್ಚಲು ಮಾದರಿ ಕೋಡ್ ಅನ್ನು ವೀಕ್ಷಿಸಲು, ಅನ್ವೇಷಿಸಲು ಮತ್ತು ಪ್ರಯತ್ನಿಸಲು ಅನುಮತಿಸುವ ಇಂಟರಾಕ್ಟಿವ್ Content Safety Studio ಕೂಡ ಹೊಂದಿದ್ದೇವೆ. ಕೆಳಗಿನ [ತ್ವರಿತ ಪ್ರಾರಂಭ ಡಾಕ್ಯುಮೆಂಟೇಶನ್](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) ಸೇವೆಗೆ ವಿನಂತಿಗಳನ್ನು ಮಾಡುವುದನ್ನು ನಿಮಗೆ ಮಾರ್ಗದರ್ಶನ ಮಾಡುತ್ತದೆ.
+ಈ ಮಾದರಿಯಲ್ಲಿರುವ ದೊಡ್ಡ ಪ್ರಮಾಣದ ನೈಸರ್ಗಿಕ ಭಾಷೆ, ಚಿತ್ರ ಮತ್ತು ಶಬ್ದ ಮಾದರಿಗಳು ಅನ್ಯಾಯ, ಅನಿರೀಕ್ಷಿತ ಅಥವಾ ಅಪಮಾನಕ ಮಾರ್ಗದಲ್ಲಿ ವರ್ತಿಸಬಹುದಾಗಿದ್ದು, ಪರಿಣಾಮವಾಗಿ ಹಾನಿಯನ್ನು ಉಂಟುಮಾಡಬಹುದು. ಅಪಾಯಗಳ ಮತ್ತು ಮಿತಿ ಗಳು ಕುರಿತು ತಿಳಿಯಲು ದಯವಿಟ್ಟು [Azure OpenAI service Transparency note](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) ಅನ್ನು ಸಂಬೋಧಿಸಿ.
 
-ಮತ್ತೊಂದು ಪರಿಗಣಿಸಬೇಕಾದ ಅಂಶವೆಂದರೆ ಒಟ್ಟು ಅಪ್ಲಿಕೇಶನ್ ಕಾರ್ಯಕ್ಷಮತೆ. ಬಹು-ಮಾದರಿ ಮತ್ತು ಬಹು-ಮಾದರಿಯ ಅಪ್ಲಿಕೇಶನ್‌ಗಳೊಂದಿಗೆ, ಕಾರ್ಯಕ್ಷಮತೆ ಎಂದರೆ ನೀವು ಮತ್ತು ನಿಮ್ಮ ಬಳಕೆದಾರರು ನಿರೀಕ್ಷಿಸುವಂತೆ ವ್ಯವಸ್ಥೆ ಕಾರ್ಯನಿರ್ವಹಿಸುವುದು, ಹಾನಿಕಾರಕ ಔಟ್‌ಪುಟ್‌ಗಳನ್ನು ಉತ್ಪಾದಿಸದಿರುವುದೂ ಸೇರಿದೆ. ನಿಮ್ಮ ಒಟ್ಟು ಅಪ್ಲಿಕೇಶನ್ ಕಾರ್ಯಕ್ಷಮತೆಯನ್ನು [ಉತ್ಪಾದನಾ ಗುಣಮಟ್ಟ ಮತ್ತು ಅಪಾಯ ಮತ್ತು ಸುರಕ್ಷತಾ ಮೌಲ್ಯಮಾಪನಗಳು](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in) ಬಳಸಿ ಅಳೆಯುವುದು ಮುಖ್ಯ.
+ಈ ಅಪಾಯಗಳನ್ನು ತಡೆಯಲು ಶಿಫಾರಸು ಮಾಡಲಾದ ವಿಧಾನವೆಂದರೆ ನಿಮ್ಮ ವಿನ್ಯಾಸದಲ್ಲಿ ಹಾನಿಕಾರಕ ವರ್ತನೆಯನ್ನು ಗುರುತಿಸಿ ತಡೆಯಲು ಸುರಕ್ಷತಾ ವ್ಯವಸ್ಥೆಯನ್ನು ಹೊಂದಿಸುವುದು. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) ಸ್ವತಂತ್ರವಾಗಿ ರಕ್ಷಣೆ ನೀಡುವ ಸ್ಥರವಾಗಿದ್ದು, ಅಪ್ಲಿಕೇಶನ್ಗಳು ಮತ್ತು ಸೇವೆಗಳಲ್ಲಿ ಹಾನಿಕಾರಕ ಬಳಕೆದಾರ-ನಿರ್ಮಿತ ಮತ್ತು AI-ನಿರ್ಮಿತ ವಿಷಯಗಳನ್ನು ಗುರುತಿಸಲು ಸಾಧ್ಯವಾಗುತ್ತದೆ. Azure AI Content Safety ನಲ್ಲಿ ಪಠ್ಯ ಮತ್ತು ಚಿತ್ರ APIಗಳಿವೆ, ಅವುಗಳು ಹಾನಿಕಾರಕ ವಿಷಯವನ್ನು ಗುರುತಿಸಲು ನೆರವಾಗುತ್ತವೆ. ನಾವು ಒಂದು ಪರಸ್ಪರಕ್ರಿಯಾತ್ಮಕ Content Safety Studio ಕೂಡ ಹೊಂದಿದ್ದೇವೆ, ಇದು ವಿವಿಧ ಮಾಧ್ಯಮಗಳಲ್ಲಿ ಹಾನಿಕಾರಕ ವಿಷಯವನ್ನು ಪತ್ತೆಮಾಡಲು ಮಾದರಿ ಕೋಡ್ ಅನ್ನು ವೀಕ್ಷಿಸಲು, ಅನ್ವೇಷಿಸಲು ಮತ್ತು ಪ್ರಯತ್ನಿಸಲು ಸಾಧ್ಯವಾಗುತ್ತದೆ. ಈ ಕೆಳಗಿನ [ತ್ವರಿತ ಪ್ರಾರಂಭ ದಾಖಲೆ](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) ಸೇವೆಗೆ ವಿನಂತಿಗಳನ್ನು ಹೇಗೆ ಮಾಡುವುದು ಎಂಬುದನ್ನು ಮಾರ್ಗದರ್ಶಿಸುತ್ತದೆ.
 
-ನೀವು ನಿಮ್ಮ AI ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ನಿಮ್ಮ ಅಭಿವೃದ್ಧಿ ಪರಿಸರದಲ್ಲಿ [prompt flow SDK](https://microsoft.github.io/promptflow/index.html) ಬಳಸಿ ಮೌಲ್ಯಮಾಪನ ಮಾಡಬಹುದು. ಪರೀಕ್ಷಾ ಡೇಟಾಸೆಟ್ ಅಥವಾ ಗುರಿಯನ್ನು ನೀಡಿದರೆ, ನಿಮ್ಮ ಜನರೇಟಿವ್ AI ಅಪ್ಲಿಕೇಶನ್ ಉತ್ಪಾದನೆಗಳನ್ನು ಒಳಗೊಂಡ ಮೌಲ್ಯಮಾಪಕಗಳು ಅಥವಾ ನಿಮ್ಮ ಆಯ್ಕೆಯ ಕಸ್ಟಮ್ ಮೌಲ್ಯಮಾಪಕಗಳೊಂದಿಗೆ ಪ್ರಮಾಣಾತ್ಮಕವಾಗಿ ಅಳೆಯಲಾಗುತ್ತದೆ. ನಿಮ್ಮ ವ್ಯವಸ್ಥೆಯನ್ನು ಮೌಲ್ಯಮಾಪನ ಮಾಡಲು prompt flow sdk ನೊಂದಿಗೆ ಪ್ರಾರಂಭಿಸಲು, ನೀವು [ತ್ವರಿತ ಪ್ರಾರಂಭ ಮಾರ್ಗದರ್ಶಿಯನ್ನು](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk) ಅನುಸರಿಸಬಹುದು. ಮೌಲ್ಯಮಾಪನ ರನ್ ಅನ್ನು ನಿರ್ವಹಿಸಿದ ನಂತರ, ನೀವು [Azure AI Studio ನಲ್ಲಿ ಫಲಿತಾಂಶಗಳನ್ನು ದೃಶ್ಯೀಕರಿಸಬಹುದು](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
+മറ്റൊരു കണ്ടുമുട്ടേണ്ട ಅಂಶವೇಂದರೆ ಒಟ್ಟು ಅಪ್ಲಿಕೇಶನ್ ಕಾರ್ಯಕ್ಷಮತೆ. ಮಲ್ಟಿ-ಮೋಡಲ್ ಮತ್ತು ಮಲ್ಟಿ-ಮಾಡೆಲ್ ಅಪ್ಲಿಕೇಶನ್ ಗಳಲ್ಲಿ, ನಾವು ಕಾರ್ಯಕ್ಷಮತೆಯನ್ನು ಎಂದರೆ ನಿಮ್ಮ ಮತ್ತು ನಿಮ್ಮ ಬಳಕೆದಾರರು ನಿರೀಕ್ಷಿಸುವಂತೆ ವ್ಯವಸ್ಥೆ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ, ಹಾನಿಕಾರಕ ಫಲಿತಾಂಶಗಳನ್ನು ಉತ್ಪಾದಿಸದು ಎಂದು ಅರ್ಥಮಾಡಿಕೊಳ್ಳುತ್ತೇವೆ. ನಿಮ್ಮ ಒಟ್ಟು ಅಪ್ಲಿಕೇಶನಿನ ಕಾರ್ಯಕ್ಷಮತೆಯನ್ನು [ಉತ್ಪಾದನೆ ಗುಣಮಟ್ಟ ಮತ್ತು ಅಪಾಯ ಮತ್ತು ಸುರಕ್ಷತಾ ಮೆಟ್ರಿಕ್ಸ್](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in) ಉಪಯೋಗಿಸಿ ಮೌಲ್ಯಮಾಪನ ಮಾಡುವುದು ಮುಖ್ಯ.
 
-## ಟ್ರೇಡ್‌ಮಾರ್ಕ್‌ಗಳು
+ನೀವು ನಿಮ್ಮ AI ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ನಿಮ್ಮ ಅಭಿವೃದ್ಧಿ ಪರಿಸರದಲ್ಲಿ [prompt flow SDK](https://microsoft.github.io/promptflow/index.html) ಉಪಯೋಗಿಸಿ ಮೌಲ್ಯಮಾಪನ ಮಾಡಬಹುದು. ಪರೀಕ್ಷಾ ಡೇಟಾಸೆಟ್ ಅಥವಾ ಗುರಿ ಇದ್ದರೆ, ನಿಮ್ಮ ಜನರೇಟೀವ್ AI ಅಪ್ಲಿಕೇಶನ್ ಉತ್ಪಾದನೆಗಳನ್ನು ಡಿಫಾಲ್ಟ್ ಅಥವಾ ಕಸ್ಟಮ್ ಮೌಲ್ಯಮಾಪಕರುಗಳೊಂದಿಗೆ ಪ್ರಮಾಣಚಿತ್ತವಾಗಿ ಅಳೆಯಲಾಗುತ್ತದೆ. ನಿಮ್ಮ ವ್ಯವಸ್ಥೆಯನ್ನು ಮೌಲ್ಯಮಾಪನ ಮಾಡಲು prompt flow sdk ಯೊಂದಿಗೆ ಪ್ರಾರಂಭಿಸಲು, [ತ್ವರಿತ ಮಾರ್ಗದರ್ಶಿ](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk) ಅನ್ನು ಅನುಸರಿಸಬಹುದು. ಮೌಲ್ಯಮಾಪನಾ ಓಟವನ್ನು ಕಾರ್ಯಗತಗೊಳಿಸಿದ ಮೇಲೆ, ನೀವು [Azure AI Studio ನಲ್ಲಿ ಫಲಿತಾಂಶಗಳನ್ನು ವೀಕ್ಷಿಸಬಹುದು](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
 
-ಈ ಯೋಜನೆಯಲ್ಲಿ ಯೋಜನೆಗಳು, ಉತ್ಪನ್ನಗಳು ಅಥವಾ ಸೇವೆಗಳ ಟ್ರೇಡ್‌ಮಾರ್ಕ್‌ಗಳು ಅಥವಾ ಲೋಗೋಗಳು ಇರಬಹುದು. Microsoft ಟ್ರೇಡ್‌ಮಾರ್ಕ್‌ಗಳು ಅಥವಾ ಲೋಗೋಗಳ ಅಧಿಕೃತ ಬಳಕೆ [Microsoft ಟ್ರೇಡ್‌ಮಾರ್ಕ್ ಮತ್ತು ಬ್ರ್ಯಾಂಡ್ ಮಾರ್ಗಸೂಚಿಗಳು](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general) ಅನುಸರಿಸಬೇಕು. ಈ ಯೋಜನೆಯ ತಿದ್ದುಪಡಿ ಆವೃತ್ತಿಗಳಲ್ಲಿ Microsoft ಟ್ರೇಡ್‌ಮಾರ್ಕ್‌ಗಳು ಅಥವಾ ಲೋಗೋಗಳ ಬಳಕೆ Microsoft ಪ್ರಾಯೋಜಕತ್ವವನ್ನು ಗೊಂದಲಕ್ಕೆ ಅಥವಾ ಸೂಚಿಸಲು ಬಿಡಬಾರದು. ಮೂರನೇ ಪಕ್ಷದ ಟ್ರೇಡ್‌ಮಾರ್ಕ್‌ಗಳು ಅಥವಾ ಲೋಗೋಗಳ ಯಾವುದೇ ಬಳಕೆ ಆ ಮೂರನೇ ಪಕ್ಷದ ನೀತಿಗಳ ಅಧೀನದಲ್ಲಿದೆ.
+## ಟ್ರೇಡ್ಮಾರ್ಕ್‌ಗಳು
+
+ಈ ಯೋಜನೆ ಯೋಜನೆಗಳು, ಉತ್ಪನ್ನಗಳು ಅಥವಾ ಸೇವೆಗಳ ಟ್ರೇಡ್ಮಾರ್ಕ್‌ಗಳು ಅಥವಾ ಲೋಗೋಗಳನ್ನು ಹೊಂದಿರಬಹುದು. Microsoft ಟ್ರೇಡ್ಮಾರ್ಕ್‌ಗಳ ಅಥವಾ ಲೋಗೋಗಳ ಅಧಿಕೃತ ಬಳಕೆ [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general) ಕ್ರಮ ಪಾಲನೆ ಮಾಡಿರಬೇಕಾಗಿದೆ.  
+ಈ ಯೋಜನೆಯ ತಿದ್ದುಪಡಿನ ಆವೃತ್ತಿಗಳಲ್ಲಿ Microsoft ಟ್ರೇಡ್ಮಾರ್ಕ್‌ಗಳು ಅಥವಾ ಲೋಗೋಗಳ ಬಳಕೆ Microsoft ಸ್ಪಾನ್ಸರ್‌‌ಶಿಪ್ ಎಂದರ್ಥ ಕೊಡುವಂತಿರಬಾರದು ಅಥವಾ ಗೊಂದಲ ಉಂಟುಮಾಡಬಾರದು.  
+ಮೂರನೇ ಪಕ್ಷದ ಟ್ರೇಡ್ಮಾರ್ಕ್‌ಗಳು ಅಥವಾ ಲೋಗೋಗಳ ಯಾವುದೇ ಬಳಕೆ ಆ ಮೂರನೇ ಪಕ್ಷದ ನೀತಿಗಳ ಅಧೀನದಲ್ಲಿದೆ.
 
 ## ಸಹಾಯ ಪಡೆಯುವುದು
 
-ನೀವು ಅಡಚಣೆಗೆ ಸಿಲುಕಿದರೆ ಅಥವಾ AI ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು ನಿರ್ಮಿಸುವ ಬಗ್ಗೆ ಯಾವುದೇ ಪ್ರಶ್ನೆಗಳಿದ್ದರೆ, ಸೇರಿ:
+ನೀವು ಅಡ್ಡಿಪಡಿಸಿದರೆ ಅಥವಾ AI ಆ್ಯಪ್‌ಗಳನ್ನು ನಿರ್ಮಿಸುವ ಬಗ್ಗೆ ಯಾವುದೇ ಪ್ರಶ್ನೆಗಳಿದ್ದರೆ, ಸೇರಿಕೊಳ್ಳಿ:
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
-ನೀವು ಉತ್ಪನ್ನ ಪ್ರತಿಕ್ರಿಯೆ ಅಥವಾ ದೋಷಗಳನ್ನು ಹೊಂದಿದ್ದರೆ, ಭೇಟಿ ನೀಡಿ:
+ಉತ್ಪನ್ನ ಪ್ರತಿಕ್ರಿಯೆ ಅಥವಾ ದೋಷಗಳಿದ್ದರೆ, ಬಿಲ್ಡಿಂಗ್ ಸಮಯದಲ್ಲಿ ಭೇಟಿ ನೀಡಿ:
 
 [![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**ಅಸ್ವೀಕಾರ**:  
-ಈ ದಸ್ತಾವೇಜು AI ಅನುವಾದ ಸೇವೆ [Co-op Translator](https://github.com/Azure/co-op-translator) ಬಳಸಿ ಅನುವಾದಿಸಲಾಗಿದೆ. ನಾವು ನಿಖರತೆಯಿಗಾಗಿ ಪ್ರಯತ್ನಿಸುತ್ತಿದ್ದರೂ, ಸ್ವಯಂಚಾಲಿತ ಅನುವಾದಗಳಲ್ಲಿ ತಪ್ಪುಗಳು ಅಥವಾ ಅಸತ್ಯತೆಗಳು ಇರಬಹುದು ಎಂದು ದಯವಿಟ್ಟು ಗಮನಿಸಿ. ಮೂಲ ಭಾಷೆಯಲ್ಲಿರುವ ಮೂಲ ದಸ್ತಾವೇಜನ್ನು ಅಧಿಕೃತ ಮೂಲವೆಂದು ಪರಿಗಣಿಸಬೇಕು. ಪ್ರಮುಖ ಮಾಹಿತಿಗಾಗಿ, ವೃತ್ತಿಪರ ಮಾನವ ಅನುವಾದವನ್ನು ಶಿಫಾರಸು ಮಾಡಲಾಗುತ್ತದೆ. ಈ ಅನುವಾದ ಬಳಕೆಯಿಂದ ಉಂಟಾಗುವ ಯಾವುದೇ ತಪ್ಪು ಅರ್ಥಮಾಡಿಕೊಳ್ಳುವಿಕೆ ಅಥವಾ ತಪ್ಪು ವಿವರಣೆಗಳಿಗೆ ನಾವು ಹೊಣೆಗಾರರಾಗುವುದಿಲ್ಲ.
+**ಜಾಣಿಕೆ**:  
+ಈ ದಾಖಲೆ [Co-op Translator](https://github.com/Azure/co-op-translator) ಎಂಬ AI ಅನುವಾದ ಸೇವೆಯನ್ನು ಬಳಸಿ ಅನುವಾದಿಸಲಾಗಿದೆ. ನಾವು ಶುದ್ದತೆಗಾಗಿ ಪ್ರಯತ್ನಿಸುತ್ತಿದ್ದರೂ, ಸ್ವಯಂಚಾಲಿತ ಅನುವಾದಗಳಲ್ಲಿ ದೋಷಗಳು ಅಥವಾ ತಪ್ಪುಗಳಿರಬಹುದು ಎಂಬುದನ್ನು ದಯವಿಟ್ಟು ಗಮನಿಸಿ. ಮೂಲ ಭಾಷೆಯಲ್ಲಿ ಇರುವ ಮೂಲ ದಾಖಲೆ ಪ್ರಾಧಿಕಾರಿಕ ಮೂಲವೆಂದು ಪರಿಗಣಿಸಬೇಕು. ವಿನಾಶಕಾರಿ ಮಾಹಿತಿಗಾಗಿ, ವೃತ್ತಿಪರ ಮಾನವ ಅನುವಾದವನ್ನು ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ. ಈ ಅನುವಾದ ಬಳಕೆಯಿಂದ ಉಂಟಾಗಿರುವ ಯಾವುದೇ ತಪ್ಪುಗುರುತುಗಳು ಅಥವಾ ತಪ್ಪು ಅರ್ಥ ಮಾಡುವಿಕೆಗೆ ನಾವು ಜವಾಬ್ದಾರಿಯಲ್ಲ.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

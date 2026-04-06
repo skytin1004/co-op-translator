@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "3fd2055f97f093b6fe102ea24df4458b",
-  "translation_date": "2025-11-24T06:33:38+00:00",
-  "source_file": "AGENTS.md",
-  "language_code": "kn"
-}
--->
 # AGENTS.md
 
 ## ಯೋಜನೆಯ ಅವಲೋಕನ

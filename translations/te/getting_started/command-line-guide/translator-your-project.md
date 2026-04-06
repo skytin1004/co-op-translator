@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "20943a46b11c6d74814f41a817a6db4c",
-  "translation_date": "2025-11-22T06:00:19+00:00",
-  "source_file": "getting_started/command-line-guide/translator-your-project.md",
-  "language_code": "te"
-}
--->
 # మీ ప్రాజెక్ట్‌ను Co-op Translator ఉపయోగించి అనువదించండి
 
 **Co-op Translator** అనేది కమాండ్-లైన్ ఇంటర్‌ఫేస్ (CLI) సాధనం, ఇది మీ ప్రాజెక్ట్‌లోని మార్క్‌డౌన్ మరియు చిత్ర ఫైళ్లను అనేక భాషలలోకి అనువదించడంలో సహాయపడుతుంది. ఈ విభాగం సాధనాన్ని ఎలా ఉపయోగించాలో, వివిధ CLI ఎంపికలను, మరియు వివిధ ఉపయోగ సందర్భాలకు ఉదాహరణలను వివరిస్తుంది.
