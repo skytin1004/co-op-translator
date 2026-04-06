@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T02:42:21+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "ko"
-}
--->
 # Co-op Translator GitHub Action 사용하기 (공개 설정)
 
 **대상 독자:** 이 가이드는 대부분의 공개 또는 비공개 저장소에서 표준 GitHub Actions 권한으로 충분한 사용자를 위한 것입니다. 내장된 `GITHUB_TOKEN`을 사용합니다.
@@ -53,7 +44,7 @@ GitHub Action을 설정하기 전에 필요한 AI 서비스 자격 증명을 준
 2.  **Settings** > **Secrets and variables** > **Actions**로 이동합니다.
 3.  **Repository secrets**에서 아래에 나열된 각 AI 서비스 시크릿마다 **New repository secret**을 클릭합니다.
 
-    <img src="../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.ko.png" alt="Select setting action"> *(이미지 참고: 시크릿 추가 위치)*
+    <img src="../../../../translated_images/ko/select-setting-action.3b95c915d6031159.webp" alt="Select setting action"> *(이미지 참고: 시크릿 추가 위치)*
 
 **필수 AI 서비스 시크릿 (사전 준비에 따라 모두 추가):**
 
@@ -81,7 +72,7 @@ GitHub Action이 코드 체크아웃 및 풀 리퀘스트 생성을 위해 `GITH
 4.  **Allow GitHub Actions to create and approve pull requests** 체크박스가 **체크**되어 있는지 확인합니다.
 5.  **Save**를 선택합니다.
 
-<img src="../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.ko.png" alt="Permission setting">
+<img src="../../../../translated_images/ko/permission-setting.ae2f02748b0579e7.webp" alt="Permission setting">
 
 ### 4단계: 워크플로우 파일 생성
 

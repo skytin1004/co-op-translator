@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "3fd2055f97f093b6fe102ea24df4458b",
-  "translation_date": "2025-10-15T04:23:17+00:00",
-  "source_file": "AGENTS.md",
-  "language_code": "ko"
-}
--->
 ## 프로젝트 개요
 
 Co‑op Translator는 마크다운 파일, 주피터 노트북, 이미지 내 텍스트를 여러 언어로 번역하는 Python 명령줄 도구이자 GitHub Actions 워크플로우입니다. 번역 결과는 언어별 폴더에 정리되며, 원본과 동기화 상태를 유지합니다. 이 프로젝트는 Poetry로 관리되는 라이브러리 구조와 CLI 진입점을 갖추고 있습니다.

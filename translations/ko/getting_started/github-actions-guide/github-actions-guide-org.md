@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9fac847815936ef6e6c8bfde6d191571",
-  "translation_date": "2025-10-15T02:42:01+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-org.md",
-  "language_code": "ko"
-}
--->
 # Co-op Translator GitHub Action 사용 가이드 (조직용)
 
 **대상:** 이 가이드는 **Microsoft 내부 사용자** 또는 **사전 구축된 Co-op Translator GitHub App에 필요한 자격 증명에 접근할 수 있는 팀** 혹은 자체 GitHub App을 만들 수 있는 팀을 위한 것입니다.
@@ -56,11 +47,11 @@ GitHub Action을 설정하기 전에 필요한 AI 서비스 자격 증명을 준
 
 1. **Install**을 선택하고, 대상 저장소가 있는 계정 또는 조직을 선택합니다.
 
-    ![앱 설치](../../../../translated_images/install-app.d0f0a24cbb1d6c93f293f002eb34e633f7bc8f5caaba46b97806ba7bdc958f27.ko.png)
+    ![앱 설치](../../../../translated_images/ko/install-app.d0f0a24cbb1d6c93.webp)
 
 1. **Only select repositories**를 선택한 후, 대상 저장소(예: `PhiCookBook`)를 선택하고 **Install**을 클릭합니다. 인증을 요구할 수 있습니다.
 
-    ![설치 인증](../../../../translated_images/install-authorize.29df6238c3eb8f707e7fc6f97a946cb654b328530c4aeddce28b874693f076a0.ko.png)
+    ![설치 인증](../../../../translated_images/ko/install-authorize.29df6238c3eb8f70.webp)
 
 1. **앱 자격 증명 획득(내부 프로세스 필요):** 워크플로우가 앱으로 인증할 수 있도록 Co-op Translator 팀에서 제공하는 두 가지 정보가 필요합니다:
   - **App ID:** Co-op Translator 앱의 고유 식별자. App ID는 `1164076`입니다.
@@ -82,7 +73,7 @@ GitHub App 자격 증명과 AI 서비스 자격 증명을 저장소의 암호화
 
 1. **Repository secrets**에서 아래 목록의 각 시크릿마다 **New repository secret**을 클릭합니다.
 
-   ![액션 시크릿 설정 선택](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.ko.png)
+   ![액션 시크릿 설정 선택](../../../../translated_images/ko/select-setting-action.3b95c915d6031159.webp)
 
 **필수 시크릿(GitHub App 인증용):**
 
@@ -107,7 +98,7 @@ GitHub App 자격 증명과 AI 서비스 자격 증명을 저장소의 암호화
 | `OPENAI_CHAT_MODEL_ID`              | 특정 OpenAI 모델 ID                           | OpenAI Platform                 |
 | `OPENAI_BASE_URL`                   | 커스텀 OpenAI API Base URL                    | OpenAI Platform                 |
 
-![환경 변수 이름 입력](../../../../translated_images/add-secrets-done.444861ce6956d5cb20781ead1237fcc12805078349bb0d4e95bb9540ee192227.ko.png)
+![환경 변수 이름 입력](../../../../translated_images/ko/add-secrets-done.444861ce6956d5cb.webp)
 
 ### 3단계: 워크플로우 파일 생성
 
