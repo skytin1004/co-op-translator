@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T02:14:11+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "de"
-}
--->
 # Verwendung der Co-op Translator GitHub Action (Öffentliche Einrichtung)
 
 **Zielgruppe:** Diese Anleitung richtet sich an Nutzer in den meisten öffentlichen oder privaten Repositories, bei denen die Standardberechtigungen von GitHub Actions ausreichen. Sie verwendet das integrierte `GITHUB_TOKEN`.
@@ -53,7 +44,7 @@ Sie müssen lediglich Ihre **KI-Dienst-Zugangsdaten** als verschlüsselte Secret
 2.  Gehen Sie zu **Settings** > **Secrets and variables** > **Actions**.
 3.  Unter **Repository secrets** klicken Sie für jedes benötigte KI-Service-Secret unten auf **New repository secret**.
 
-    ![Select setting action](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.de.png) *(Bildreferenz: Zeigt, wo Secrets hinzugefügt werden)*
+    ![Select setting action](../../../../translated_images/de/select-setting-action.3b95c915d6031159.webp) *(Bildreferenz: Zeigt, wo Secrets hinzugefügt werden)*
 
 **Erforderliche KI-Service-Secrets (Fügen Sie ALLE hinzu, die laut Voraussetzungen benötigt werden):**
 
@@ -81,7 +72,7 @@ Die GitHub Action benötigt Berechtigungen, die über das `GITHUB_TOKEN` gewähr
 4.  Stellen Sie sicher, dass das Kontrollkästchen **Allow GitHub Actions to create and approve pull requests** **aktiviert** ist.
 5.  Klicken Sie auf **Save**.
 
-![Permission setting](../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.de.png)
+![Permission setting](../../../../translated_images/de/permission-setting.ae2f02748b0579e7.webp)
 
 ### Schritt 4: Workflow-Datei erstellen
 

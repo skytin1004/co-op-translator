@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T02:19:22+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "ar"
-}
--->
 # استخدام إجراء Co-op Translator في GitHub (إعداد عام)
 
 **الجمهور المستهدف:** هذا الدليل موجه للمستخدمين في معظم المستودعات العامة أو الخاصة حيث تكون أذونات GitHub Actions القياسية كافية. يعتمد على الرمز المدمج `GITHUB_TOKEN`.
@@ -53,7 +44,7 @@ CO_OP_TRANSLATOR_METADATA:
 2.  اذهب إلى **الإعدادات** > **الأسرار والمتغيرات** > **الإجراءات**.
 3.  ضمن **أسرار المستودع**، اضغط على **سر مستودع جديد** لكل سر مطلوب من أسرار خدمات الذكاء الاصطناعي المدرجة أدناه.
 
-    ![اختيار إعداد الإجراء](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.ar.png) *(مرجع الصورة: يوضح مكان إضافة الأسرار)*
+    ![اختيار إعداد الإجراء](../../../../translated_images/ar/select-setting-action.3b95c915d6031159.webp) *(مرجع الصورة: يوضح مكان إضافة الأسرار)*
 
 **أسرار خدمات الذكاء الاصطناعي المطلوبة (أضف كل ما ينطبق حسب متطلباتك):**
 
@@ -81,7 +72,7 @@ CO_OP_TRANSLATOR_METADATA:
 4.  تأكد من تفعيل خيار **السماح لـ GitHub Actions بإنشاء والموافقة على طلبات السحب**.
 5.  اضغط على **حفظ**.
 
-![إعداد الأذونات](../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.ar.png)
+![إعداد الأذونات](../../../../translated_images/ar/permission-setting.ae2f02748b0579e7.webp)
 
 ### الخطوة 4: إنشاء ملف المسار
 

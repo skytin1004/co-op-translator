@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9fac847815936ef6e6c8bfde6d191571",
-  "translation_date": "2025-10-15T02:18:55+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-org.md",
-  "language_code": "ar"
-}
--->
 # استخدام إجراء Co-op Translator في GitHub (دليل المؤسسات)
 
 **الجمهور المستهدف:** هذا الدليل مخصص **لموظفي Microsoft الداخليين** أو **الفرق التي لديها صلاحية الوصول إلى بيانات اعتماد تطبيق Co-op Translator GitHub الجاهز** أو يمكنهم إنشاء تطبيق GitHub مخصص خاص بهم.
@@ -56,11 +47,11 @@ CO_OP_TRANSLATOR_METADATA:
 
 1. اختر **تثبيت** وحدد الحساب أو المؤسسة التي يوجد بها مستودعك المستهدف.
 
-    ![تثبيت التطبيق](../../../../translated_images/install-app.d0f0a24cbb1d6c93f293f002eb34e633f7bc8f5caaba46b97806ba7bdc958f27.ar.png)
+    ![تثبيت التطبيق](../../../../translated_images/ar/install-app.d0f0a24cbb1d6c93.webp)
 
 1. اختر **تحديد مستودعات فقط** وحدد مستودعك المستهدف (مثلاً: `PhiCookBook`). اضغط **تثبيت**. قد يُطلب منك المصادقة.
 
-    ![تثبيت التفويض](../../../../translated_images/install-authorize.29df6238c3eb8f707e7fc6f97a946cb654b328530c4aeddce28b874693f076a0.ar.png)
+    ![تثبيت التفويض](../../../../translated_images/ar/install-authorize.29df6238c3eb8f70.webp)
 
 1. **الحصول على بيانات اعتماد التطبيق (يتطلب إجراء داخلي):** للسماح لسير العمل بالمصادقة كتطبيق، تحتاج إلى معلومتين توفرهما لك فريق Co-op Translator:
   - **معرّف التطبيق (App ID):** المعرف الفريد لتطبيق Co-op Translator. معرّف التطبيق هو: `1164076`.
@@ -82,7 +73,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 1. ضمن **أسرار المستودع**، اضغط **سر مستودع جديد** لكل سر من الأسرار المدرجة أدناه.
 
-   ![تحديد إعداد الإجراء](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.ar.png)
+   ![تحديد إعداد الإجراء](../../../../translated_images/ar/select-setting-action.3b95c915d6031159.webp)
 
 **الأسرار المطلوبة (لمصادقة تطبيق GitHub):**
 
@@ -107,7 +98,7 @@ CO_OP_TRANSLATOR_METADATA:
 | `OPENAI_CHAT_MODEL_ID`              | معرف نموذج OpenAI المحدد                       | منصة OpenAI                     |
 | `OPENAI_BASE_URL`                   | عنوان قاعدة API مخصص لـ OpenAI                 | منصة OpenAI                     |
 
-![إدخال اسم متغير البيئة](../../../../translated_images/add-secrets-done.444861ce6956d5cb20781ead1237fcc12805078349bb0d4e95bb9540ee192227.ar.png)
+![إدخال اسم متغير البيئة](../../../../translated_images/ar/add-secrets-done.444861ce6956d5cb.webp)
 
 ### الخطوة 3: إنشاء ملف سير العمل
 

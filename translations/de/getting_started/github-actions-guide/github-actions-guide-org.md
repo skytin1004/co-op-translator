@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9fac847815936ef6e6c8bfde6d191571",
-  "translation_date": "2025-10-15T02:13:53+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-org.md",
-  "language_code": "de"
-}
--->
 # Verwendung der Co-op Translator GitHub Action (Organisationsanleitung)
 
 **Zielgruppe:** Diese Anleitung richtet sich an **interne Microsoft-Nutzer** oder **Teams, die Zugang zu den erforderlichen Zugangsdaten für die vorgefertigte Co-op Translator GitHub App haben** oder ihre eigene GitHub App erstellen können.
@@ -56,11 +47,11 @@ Der Workflow verwendet die Authentifizierung über eine GitHub App, um sicher mi
 
 1. Wählen Sie **Installieren** und dann das Konto oder die Organisation, in der sich Ihr Ziel-Repository befindet.
 
-    ![App installieren](../../../../translated_images/install-app.d0f0a24cbb1d6c93f293f002eb34e633f7bc8f5caaba46b97806ba7bdc958f27.de.png)
+    ![App installieren](../../../../translated_images/de/install-app.d0f0a24cbb1d6c93.webp)
 
 1. Wählen Sie **Nur ausgewählte Repositories** und dann Ihr Ziel-Repository (z. B. `PhiCookBook`). Klicken Sie auf **Installieren**. Möglicherweise müssen Sie sich authentifizieren.
 
-    ![Installation autorisieren](../../../../translated_images/install-authorize.29df6238c3eb8f707e7fc6f97a946cb654b328530c4aeddce28b874693f076a0.de.png)
+    ![Installation autorisieren](../../../../translated_images/de/install-authorize.29df6238c3eb8f70.webp)
 
 1. **App-Zugangsdaten erhalten (interner Prozess erforderlich):** Damit der Workflow sich als App authentifizieren kann, benötigen Sie zwei Informationen vom Co-op Translator Team:
   - **App ID:** Die eindeutige Kennung der Co-op Translator App. Die App ID lautet: `1164076`.
@@ -82,7 +73,7 @@ Sie müssen die GitHub App-Zugangsdaten und Ihre KI-Dienst-Zugangsdaten als vers
 
 1. Unter **Repository secrets** klicken Sie für jedes unten aufgeführte Secret auf **New repository secret**.
 
-   ![Einstellung für Actions auswählen](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.de.png)
+   ![Einstellung für Actions auswählen](../../../../translated_images/de/select-setting-action.3b95c915d6031159.webp)
 
 **Erforderliche Secrets (für GitHub App-Authentifizierung):**
 
@@ -107,7 +98,7 @@ Sie müssen die GitHub App-Zugangsdaten und Ihre KI-Dienst-Zugangsdaten als vers
 | `OPENAI_CHAT_MODEL_ID`              | Spezifische OpenAI Modell-ID               | OpenAI Platform                   |
 | `OPENAI_BASE_URL`                   | Benutzerdefinierte OpenAI API Base URL     | OpenAI Platform                   |
 
-![Name der Umgebungsvariable eingeben](../../../../translated_images/add-secrets-done.444861ce6956d5cb20781ead1237fcc12805078349bb0d4e95bb9540ee192227.de.png)
+![Name der Umgebungsvariable eingeben](../../../../translated_images/de/add-secrets-done.444861ce6956d5cb.webp)
 
 ### Schritt 3: Workflow-Datei erstellen
 
