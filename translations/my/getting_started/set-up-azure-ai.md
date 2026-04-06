@@ -1,120 +1,121 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b58d7c3cb4210697a073d20eb3064945",
-  "translation_date": "2025-06-12T18:24:34+00:00",
-  "source_file": "getting_started/set-up-azure-ai.md",
-  "language_code": "my"
-}
--->
-# Azure AI ကို Co-op Translator (Azure OpenAI & Azure AI Vision) အတွက် ပြင်ဆင်ခြင်း
+# Co-op Translator အတွက် Azure AI ကို စတင်တပ်ဆင်ခြင်း (Azure OpneAI & Azure AI Vision)
 
-ဤလမ်းညွှန်မှာ Azure AI Foundry အတွင်း Azure OpenAI ကို ဘာသာပြန်မှုအတွက်နှင့် Azure Computer Vision ကို ပုံများအကြောင်းအရာခွဲခြမ်းစိတ်ဖြာမှုအတွက် (ထို့နောက် ပုံအခြေပြု ဘာသာပြန်မှုအတွက် အသုံးပြုနိုင်သည်) ပြင်ဆင်နည်းကို လမ်းညွှန်ပေးထားသည်။
+ဒီလမ်းညွှန်မှာ Azure AI Foundry အတွင်းမှာ ဘာသာပြန်ခြင်းအတွက် Azure OpenAI နဲ့ ပုံရိပ်အကြောင်းအရာ ခွဲခြမ်းစိတ်ဖြာခြင်းအတွက် Azure Computer Vision ကို စတင်တပ်ဆင်ခြင်းကို အဆင့်ဆင့် လမ်းပြပေးထားပါတယ် (ဒါနဲ့ပုံအခြေပြု ဘာသာပြန်မှုကိုလည်း အသုံးပြုနိုင်ပါတယ်)။
 
 **လိုအပ်ချက်များ:**
-- အသုံးပြုနေသော subscription ပါရှိသည့် Azure အကောင့်တစ်ခု။
-- Azure subscription တွင် အရင်းအမြစ်များနှင့် deployment များဖန်တီးခွင့်ရှိမှု။
+- အက်တစ်ဘ်သော တွဲဖက်စရင်းပါရှိသော Azure အကောင့်။
+- Azure သင့်တွဲဖက်စရင်းတွင် အရင်းအမြစ်များနှင့် တပ်ဆင်မှုများ ဖန်တီးခွင့်ရှိခြင်း။
 
-## Azure AI Project တစ်ခု ဖန်တီးခြင်း
+## Azure AI Project တစ်ခု ဖန်တီးပါ
 
-AI အရင်းအမြစ်များကို စီမံခန့်ခွဲရန် အဓိကနေရာအဖြစ် အသုံးပြုမည့် Azure AI Project တစ်ခုကို ဖန်တီးခြင်းဖြင့် စတင်ပါမည်။
+သင်၏ AI အရင်းအမြစ်များကို စီမံခန့်ခွဲရန် ဗဟိုနေရာအဖြစ် ဆောင်ရွက်မယ့် Azure AI Project တစ်ခု ဖန်တီးခြင်းဖြင့် စတင်ပါမယ်။
 
-1. [https://ai.azure.com](https://ai.azure.com) သို့သွား၍ သင့် Azure အကောင့်ဖြင့် လက်မှတ်ထိုးဝင်ပါ။
+1. [https://ai.azure.com](https://ai.azure.com) သို့သွားပြီး သင်၏ Azure အကောင့်ဖြင့် လက်မှတ်ထိုးဝင်ပါ။
 
-1. **+Create** ကိုရွေးပြီး ပရောဂျက်အသစ်တစ်ခု ဖန်တီးပါ။
+1. **+Create** ကိုရွေးပြီး Project အသစ် တစ်ခု ဖန်တီးပါ။
 
-1. အောက်ပါအချက်များကို ပြုလုပ်ပါ-
-   - **Project name** ထည့်ပါ (ဥပမာ - `CoopTranslator-Project`)။
-   - **AI hub** ကိုရွေးပါ (ဥပမာ - `CoopTranslator-Hub`) (လိုအပ်လျှင် အသစ်ဖန်တီးနိုင်သည်)။
+1. အောက်ပါ လုပ်ဆောင်ချက်များကို ပြုလုပ်ပါ။
+   - **Project name** ထည့်ပါ (ဥပမာ `CoopTranslator-Project`)။
+   - **AI hub** ကို ရွေးချယ်ပါ (ဥပမာ `CoopTranslator-Hub`) (လိုအပ်ပါက အသစ်ဖန်တီးပါ)။
 
-1. "**Review and Create**" ကိုနှိပ်၍ ပရောဂျက်ကို ပြင်ဆင်ပါ။ ပြီးလျှင် ပရောဂျက်၏ အကျဉ်းချုပ်စာမျက်နှာသို့ သွားပါလိမ့်မည်။
+1. "**Review and Create**" ကိုနှိပ်ပြီး Project ကို စတင်တပ်ဆင်ပါ။ သင်၏ Project အကျဉ်းပြချက် စာမျက်နှာသို့ ရွှေ့မည်။
 
-## ဘာသာပြန်မှုအတွက် Azure OpenAI ကို ပြင်ဆင်ခြင်း
+## ဘာသာပြန်ခြင်းအတွက် Azure OpenAI ကို တပ်ဆင်ခြင်း
 
-သင့်ပရောဂျက်အတွင်းတွင် စာသားဘာသာပြန်မှုအတွက် backend အဖြစ် အသုံးပြုမည့် Azure OpenAI မော်ဒယ်တစ်ခုကို တပ်ဆင်မည်ဖြစ်သည်။
+သင်၏ Project အတွင်း၌ စာသားဘာသာပြန်မှု အဖြစ် အသုံးပြုမယ့် Azure OpenAI မော်ဒယ်တစ်ခု ကို ဖြန့်ချိပါမယ်။
 
-### သင့်ပရောဂျက်သို့ သွားပါ
+### သင့် Project သို့ သွားပါ
 
-မရှိသေးလျှင် Azure AI Foundry တွင် သင့်ဖန်တီးထားသည့် ပရောဂျက် (ဥပမာ - `CoopTranslator-Project`) ကို ဖွင့်ပါ။
+မတိုင်ခင်ကမရှိသေးလျှင် သင်ဖန်တီးထားသော Project (ဥပမာ `CoopTranslator-Project`) ကို Azure AI Foundry တွင်ဖွင့်ပါ။
 
-### OpenAI မော်ဒယ် တပ်ဆင်ခြင်း
+### OpenAI မော်ဒယ် တပ်ဆင်ပါ
 
-1. ပရောဂျက်၏ ဘယ်ဘက် မီနူးမှ "My assets" အောက်ရှိ "**Models + endpoints**" ကို ရွေးပါ။
+1. သင့် Project ၏ ဘယ်ဖက်မီနူးအောက်ရှိ "My assets" ထဲမှ "**Models + endpoints**" ကိုရွေးချယ်ပါ။
 
-1. **+ Deploy model** ကို ရွေးချယ်ပါ။
+1. **+ Deploy model** ကိုရွေးပါ။
 
-1. **Deploy Base Model** ကို ရွေးပါ။
+1. **Deploy Base Model** ကိုရွေးချယ်ပါ။
 
-1. ရနိုင်သော မော်ဒယ်များစာရင်းတစ်ခုကို ပြသပါမည်။ သင့်လိုအပ်ချက်နှင့် ကိုက်ညီသော GPT မော်ဒယ်တစ်ခုကို ရှာဖွေ စစ်ထုတ်ပါ။ ကျွန်ုပ်တို့က `gpt-4o` ကို အကြံပြုပါသည်။
+1. ရနိုင်သည့် မော်ဒယ်များစာရင်းကို မြင်ရပါမည်။ သင့်လိုအပ်မှုအတွက် သင့်တော်တဲ့ GPT မော်ဒယ္ကို စစ်ဆေးဖော်ထုတ်ပါ။ ကျွန်ုပ်တို့က `gpt-4o` ကို 추천합니다။
 
 1. မော်ဒယ်ကို ရွေးပြီး **Confirm** ကိုနှိပ်ပါ။
 
-1. **Deploy** ကိုနှိပ်ပါ။
+1. **Deploy** ကိုရွေးချယ်ပါ။
 
-### Azure OpenAI ဆက်တင်များ
+### Azure OpenAI အဆင့်တင် ပြင်ဆင်မှု
 
-တပ်ဆင်ပြီးပါက "**Models + endpoints**" စာမျက်နှာမှ တပ်ဆင်မှုကို ရွေးပြီး **REST endpoint URL**, **Key**, **Deployment name**, **Model name** နှင့် **API version** များကို ရှာနိုင်သည်။ ဤအချက်အလက်များကို သင့်လျှောက်လွှာတွင် ဘာသာပြန်မော်ဒယ်နှင့် ပေါင်းစည်းရန် လိုအပ်မည်ဖြစ်သည်။
+တပ်ဆင်ပြီးလျှင် "**Models + endpoints**" စာမျက်နှာမှ အတပ်ဆင်မှုကို ရွေးပြီး **REST endpoint URL**, **Key**, **Deployment name**, **Model name** နဲ့ **API version** ကို တွေ့နိုင်ပါသည်။ ဤအချက်အလက်များသည် သင့်အပလီကေးရှင်းထဲသို့ ဘာသာပြန်မော်ဒယ်ကို ပေါင်းစည်းရန် လိုအပ်ပါသည်။
 
 > [!NOTE]
-> သင့်လိုအပ်ချက်အရ [API version deprecation](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation) စာမျက်နှာမှ API version များကို ရွေးချယ်နိုင်သည်။ **API version** သည် Azure AI Foundry ၏ "**Models + endpoints**" စာမျက်နှာတွင် ပြသထားသော **Model version** နှင့် ကွာခြားသည်ကို သတိပြုပါ။
+> သင်လိုအပ်ချက်အရ [API version deprecation](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation) စာမျက်နှာမှ API version များကို ရွေးချယ်နိုင်ပါသည်။ **API version** သည် Azure AI Foundry ၏ "**Models + endpoints**" စာမျက်နှာတွင် ပြသသော **Model version** နှင့် ကွာခြားသည်ကို သတိပြုပါ။
 
-## ပုံဘာသာပြန်မှုအတွက် Azure Computer Vision ကို ပြင်ဆင်ခြင်း
+## ပုံအတွက် ဘာသာပြန်ခြင်းအတွက် Azure Computer Vision ကို တပ်ဆင်ခြင်း
 
-ပုံအတွင်း စာသားများ ဘာသာပြန်နိုင်ရန် Azure AI Service ၏ API Key နှင့် Endpoint ကို ရှာဖွေရမည်ဖြစ်သည်။
+ပုံအတွင်းရှိစာသားဘာသာပြန်ရန်အတွက် Azure AI Service API Key နဲ့ Endpoint ကို ရှာဖွေရပါမယ်။
 
-1. သင့် Azure AI Project (ဥပမာ - `CoopTranslator-Project`) သို့ သွားပါ။ ပရောဂျက်အကျဉ်းချုပ်စာမျက်နှာတွင် ရှိကြောင်း သေချာပါစေ။
+1. သင့် Azure AI Project (ဥပမာ `CoopTranslator-Project`) ကိုသွားပါ။ Project အကျဉ်း စာမျက်နှာပေါ်မှာ ရှိနေခြင်းကို သေချာစေပါ။
 
-### Azure AI Service ဆက်တင်များ
+### Azure AI Service ပြင်ဆင်မှု
 
-Azure AI Service မှ API Key နှင့် Endpoint ကို ရှာဖွေပါ။
+Azure AI Service မှ API Key နဲ့ Endpoint ကို ရှာပါ။
 
-1. သင့် Azure AI Project (ဥပမာ - `CoopTranslator-Project`) သို့ သွားပါ။ ပရောဂျက်အကျဉ်းချုပ်စာမျက်နှာတွင် ရှိကြောင်း သေချာပါစေ။
+1. သင့် Azure AI Project (ဥပမာ `CoopTranslator-Project`) ကိုသွားပါ။ Project အကျဉ်း စာမျက်နှာပေါ်မှာ ရှိနေခြင်းကို သေချာစေပါ။
 
-1. Azure AI Service tab မှ **API Key** နှင့် **Endpoint** ကို ရှာပါ။
+1. Azure AI Service အတန်းမှ **API Key** နှင့် **Endpoint** ကို ရှာဖွေပါ။
 
-    ![Find API Key and Endpoint](../../../translated_images/find-azure-ai-info.60f8299be786dd67e61e2c79b4b9ea1f7694e6c0923f17a90bc6abf9d5f1dbd7.my.png)
+    ![Find API Key and Endpoint](../../../translated_images/my/find-azure-ai-info.0e00140419c12517.webp)
 
-ဤဆက်သွယ်မှုက Azure AI Services အရင်းအမြစ်များ (ပုံခွဲခြမ်းစိတ်ဖြာမှုအပါအဝင်) ၏ စွမ်းဆောင်ရည်များကို သင့် AI Foundry ပရောဂျက်တွင် အသုံးပြုနိုင်စေသည်။ ထို့နောက် ဤဆက်သွယ်မှုကို သင့် notebook များ သို့မဟုတ် လျှောက်လွှာများတွင် အသုံးပြု၍ ပုံများမှ စာသားများကို ရယူနိုင်ပြီး Azure OpenAI မော်ဒယ်သို့ ပို့ပေး၍ ဘာသာပြန်နိုင်ပါသည်။
+ဒီဆက်တင်သည် ဆက်သွယ်ထားသော Azure AI Services အရင်းအမြစ် ၏ စွမ်းဆောင်ရည်များ (ပုံခွဲခြမ်းစိတ်ဖြာမှုအပါအဝင်) ကို သင့် AI Foundry Project သို့ အသုံးပြုနိုင်စေသည်။ သင်၏ notebook သို့မဟုတ် အပလီကေးရှင်းများတွင် ဤဆက်တင်ကို အသုံးပြုပြီး ပုံထဲမှ စာသားများကို လွှတ်ယူနိုင်ပြီး မလွဲမှားဘဲ Azure OpenAI မော်ဒယ်သို့ ဖြတ်သန်း၍ ဘာသာပြန်မှုအတွက် ပို့ဆောင်နိုင်ပါသည်။
 
-## သင့်လက်မှတ်အချက်အလက်များ စုစည်းခြင်း
+## သင့်လက်မှတ်များကို စုပေါင်းခြင်း
 
-ယခုအချိန်တွင် အောက်ပါအချက်အလက်များကို စုဆောင်းပြီးဖြစ်ရမည်-
+ယခုအထိ သင်စုဆောင်းထားသည့် အချက်အလက်များမှာ -
 
-**Azure OpenAI (စာသားဘာသာပြန်မှု) အတွက်:**
+**Azure OpenAI (စာသားဘာသာပြန်ခြင်း) အတွက်:**
 - Azure OpenAI Endpoint
 - Azure OpenAI API Key
-- Azure OpenAI Model Name (ဥပမာ - `gpt-4o`)
-- Azure OpenAI Deployment Name (ဥပမာ - `cooptranslator-gpt4o`)
+- Azure OpenAI Model Name (ဥပမာ `gpt-4o`)
+- Azure OpenAI Deployment Name (ဥပမာ `cooptranslator-gpt4o`)
 - Azure OpenAI API Version
 
-**Azure AI Services (Vision မှ စာသားထုတ်ယူခြင်း) အတွက်:**
+**Azure AI Services (Vision ဖြင့် ပုံအတွင်း စာသားထုတ်ယူခြင်း) အတွက်:**
 - Azure AI Service Endpoint
 - Azure AI Service API Key
 
-### ဥပမာ- ပတ်ဝန်းကျင် အပြောင်းအလဲ ဆက်တင် (Preview)
+### ဥပမာ - ပတ်ဝန်းကျင် ပြောင်းလဲသတ်မှတ်မှု (အစမ်း)
 
-နောက်ပိုင်းတွင် သင့်လျှောက်လွှာကို တည်ဆောက်ရာတွင် ဤစုဆောင်းထားသည့် လက်မှတ်အချက်အလက်များဖြင့် ပတ်ဝန်းကျင် အပြောင်းအလဲများအဖြစ် ပြင်ဆင်နိုင်ပါသည်။ ဥပမာ-
+နောက်ပိုင်း သင်၏ အပလီကေးရှင်း တည်ဆောက်ရာတွင် စုဆောင်းထားသည့် လက်မှတ်များဖြင့် ပတ်ဝန်းကျင် ပြောင်းလဲသတ်မှတ်ချက်များ ကို ဆောင်ရွက်မည် ဖြစ်ပြီး ဥပမာ အနေဖြင့် အောက်ပါအတိုင်း သတ်မှတ်နိုင်ပါသည်။
 
 ```bash
-# Azure AI Service Credentials (Required for image translation)
-AZURE_AI_SERVICE_API_KEY="your_azure_ai_service_api_key" # e.g., 21xasd...
+# Azure AI ဝန်ဆောင်မှု အချက်အလက်များ (ပုံဘာသာပြန်ရန်လိုအပ်သည်)
+AZURE_AI_SERVICE_API_KEY="your_azure_ai_service_api_key" # ဥပမာ၊ 21xasd...
 AZURE_AI_SERVICE_ENDPOINT="https://your_azure_ai_service_endpoint.cognitiveservices.azure.com/"
 
-# Azure OpenAI Credentials (Required for text translation)
-AZURE_OPENAI_API_KEY="your_azure_openai_api_key" # e.g., 21xasd...
+# ရွေးချယ်နိုင်သော fallback စနစ်များ- suffix _1/_2 ဖြင့် ပြန်လည်ထပ်ရိုက်ထားသော အမျိုးအစားများ (အုပ်စုအတွင်း Variableတိုင်းအတွက် ဒေတာညီတူ)
+AZURE_AI_SERVICE_API_KEY_1="your_azure_ai_service_api_key_1"
+AZURE_AI_SERVICE_ENDPOINT_1="https://your_azure_ai_service_endpoint_1.cognitiveservices.azure.com/"
+
+# Azure OpenAI အချက်အလက်များ (စာသားဘာသာပြန်ရန်လိုအပ်သည်)
+AZURE_OPENAI_API_KEY="your_azure_openai_api_key" # ဥပမာ၊ 21xasd...
 AZURE_OPENAI_ENDPOINT="https://your_azure_openai_endpoint.openai.azure.com/"
-AZURE_OPENAI_MODEL_NAME="your_model_name" # e.g., gpt-4o
-AZURE_OPENAI_CHAT_DEPLOYMENT_NAME="your_deployment_name" # e.g., cooptranslator-gpt4o
-AZURE_OPENAI_API_VERSION="your_api_version" # e.g., 2024-12-01-preview
+AZURE_OPENAI_MODEL_NAME="your_model_name" # ဥပမာ၊ gpt-4o
+AZURE_OPENAI_CHAT_DEPLOYMENT_NAME="your_deployment_name" # ဥပမာ၊ cooptranslator-gpt4o
+AZURE_OPENAI_API_VERSION="your_api_version" # ဥပမာ၊ 2024-12-01-preview
+
+# ရွေးချယ်နိုင်သော fallback စနစ်များ- AZURE_OPENAI_* အစုံတစ်ပါတ်ကို suffix _1/_2 ဖြင့် ပြန်လည်ထပ်ရိုက်ထားသော (Variable အားလုံးအတွက် ဒေတာညီတူ)
 ```
 
 ---
 
-### နောက်ထပ် ဖတ်ရှုရန်
+### နောက်ထပ်ဖတ်ရှုရန်
 
-- [Azure AI Foundry တွင် ပရောဂျက် ဖန်တီးနည်း](https://learn.microsoft.com/azure/ai-foundry/how-to/create-projects?tabs=ai-studio)
+- [Azure AI Foundry တွင် Project တစ်ခု ဖန်တီးနည်း](https://learn.microsoft.com/azure/ai-foundry/how-to/create-projects?tabs=ai-studio)
 - [Azure AI အရင်းအမြစ်များ ဖန်တီးနည်း](https://learn.microsoft.com/azure/ai-foundry/how-to/create-azure-ai-resource?tabs=portal)
-- [Azure AI Foundry တွင် OpenAI မော်ဒယ်များ တပ်ဆင်နည်း](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/deploy-models-openai)
+- [Azure AI Foundry တွင် OpenAI မော်ဒယ်များ Deploy နည်း](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/deploy-models-openai)
 
-**အကြောင်းကြားချက်**  
-ဤစာတမ်းကို AI ဘာသာပြန်စနစ်ဖြစ်သော [Co-op Translator](https://github.com/Azure/co-op-translator) ဖြင့် ဘာသာပြန်ထားပါသည်။ ကျွန်ုပ်တို့သည် တိကျမှန်ကန်မှုအတွက် ကြိုးစားသည်ဖြစ်သော်လည်း၊ အလိုအလျောက် ဘာသာပြန်ခြင်းများတွင် အမှားများ သို့မဟုတ် မှန်ကန်မှုမရှိမှုများ ဖြစ်ပေါ်နိုင်ကြောင်း သတိပြုပါရန် အသိပေးအပ်ပါသည်။ မူရင်းစာတမ်းကို မူလဘာသာဖြင့်သာ ယုံကြည်စိတ်ချရသော အချက်အလက်အဖြစ် သတ်မှတ်ရမည် ဖြစ်ပါသည်။ အရေးကြီးသော အချက်အလက်များအတွက် လူ့ဘာသာပြန်ပညာရှင်မှ ဘာသာပြန်ခြင်းကို အကြံပြုပါသည်။ ဤဘာသာပြန်ချက်ကို အသုံးပြုခြင်းမှ ဖြစ်ပေါ်နိုင်သည့် နားလည်မှုမှားယွင်းမှုများအတွက် ကျွန်ုပ်တို့ တာဝန်မယူပါ။
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**ကန့်သတ်ချက်**။  
+ဤစာတမ်းကို AI ဘာသာပြန်မှုဝန်ဆောင်မှု [Co-op Translator](https://github.com/Azure/co-op-translator) ကိုအသုံးပြု၍ ဘာသာပြန်ထားပါသည်။ ကျွန်ုပ်တို့သည် တိကျမှန်ကန်မှုပိုမိုရရှိစေရန် ကြိုးပမ်းပါသော်လည်း၊ အော်တိုမေတက်ဘာသာပြန်မှုတွင် အမှားအယွင်းများ သို့မဟုတ် မှားယွင်းချက်များ ပါဝင်နိုင်ကြောင်း သတိပြုပါ။ မူရင်းစာတမ်းကို၎င်း၏ မူလဘာသာဖြင့် အာဏာရှိသော အရင်းအမြစ်အဖြစ် သတ်မှတ်လေ့ရှိသည်။ အရေးကြီးသော သတင်းအချက်အလက်များအတွက် လူကြီးမင်းသည် professional လူသား ဘာသာပြန်မှုကို အသုံးပြုရန် အကြံပြုပါသည်။ ဤဘာသာပြန်မှုကို အသုံးပြုခြင်းကြောင့် ဖြစ်ပေါ်သည့် နားလည်မှု ခြေရာခံမှားခြင်းများအတွက် ကျွနု်ပ္တို့မှာ တာဝန်မရှိပါ။
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

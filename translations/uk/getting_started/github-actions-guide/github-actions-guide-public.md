@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T04:18:21+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "uk"
-}
--->
 # Використання Co-op Translator GitHub Action (Публічне налаштування)
 
 **Цільова аудиторія:** Цей посібник призначений для користувачів у більшості публічних або приватних репозиторіїв, де стандартних дозволів GitHub Actions достатньо. Використовується вбудований `GITHUB_TOKEN`.
@@ -53,7 +44,7 @@ CO_OP_TRANSLATOR_METADATA:
 2.  Відкрийте **Settings** > **Secrets and variables** > **Actions**.
 3.  У розділі **Repository secrets** натисніть **New repository secret** для кожного потрібного секрету AI-сервісу зі списку нижче.
 
-    ![Вибір налаштування дії](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.uk.png) *(Зображення: показує, де додавати секрети)*
+    ![Вибір налаштування дії](../../../../translated_images/uk/select-setting-action.3b95c915d6031159.webp) *(Зображення: показує, де додавати секрети)*
 
 **Обов’язкові секрети AI-сервісу (Додайте ВСІ, які відповідають вашим умовам):**
 
@@ -81,7 +72,7 @@ GitHub Action потребує дозволів через `GITHUB_TOKEN` для
 4.  Переконайтеся, що прапорець **Allow GitHub Actions to create and approve pull requests** **встановлений**.
 5.  Натисніть **Save**.
 
-![Налаштування дозволів](../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.uk.png)
+![Налаштування дозволів](../../../../translated_images/uk/permission-setting.ae2f02748b0579e7.webp)
 
 ### Крок 4: Створіть файл workflow
 

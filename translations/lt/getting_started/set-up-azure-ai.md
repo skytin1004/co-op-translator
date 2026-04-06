@@ -1,116 +1,113 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b58d7c3cb4210697a073d20eb3064945",
-  "translation_date": "2025-10-15T04:47:23+00:00",
-  "source_file": "getting_started/set-up-azure-ai.md",
-  "language_code": "lt"
-}
--->
-# Azure AI paruošimas Co-op Translator (Azure OpenAI & Azure AI Vision)
+# Azure AI nustatymas Co-op Translator (Azure OpneAI ir Azure AI Vision)
 
-Šiame vadove rasite, kaip paruošti Azure OpenAI kalbų vertimui ir Azure Computer Vision vaizdų turinio analizei (tai leidžia versti tekstą iš paveikslėlių) naudojant Azure AI Foundry.
+Šis vadovas padės jums sukurti Azure OpenAI kalbų vertimui ir Azure Kompiuterinį Regėjimą vaizdų turinio analizei (kuris vėliau gali būti naudojamas vaizdų vertimui) Azure AI Foundry aplinkoje.
 
-**Reikalavimai:**
+**Prieš pradedant:**
 - Azure paskyra su aktyvia prenumerata.
 - Pakankamos teisės kurti išteklius ir diegimus jūsų Azure prenumeratoje.
 
 ## Sukurkite Azure AI projektą
 
-Pradėkite nuo Azure AI projekto sukūrimo – tai bus pagrindinė vieta, kur valdysite visus AI išteklius.
+Pradėsite kurdami Azure AI projektą, kuris veikia kaip centrinė vieta valdyti jūsų AI išteklius.
 
 1. Eikite į [https://ai.azure.com](https://ai.azure.com) ir prisijunkite su savo Azure paskyra.
 
-1. Pasirinkite **+Sukurti** naujam projektui sukurti.
+1. Pasirinkite **+Create** norėdami sukurti naują projektą.
 
-1. Atlikite šiuos veiksmus:
+1. Atlikite šias užduotis:
    - Įveskite **Projekto pavadinimą** (pvz., `CoopTranslator-Project`).
-   - Pasirinkite **AI centrą** (pvz., `CoopTranslator-Hub`) (prireikus sukurkite naują).
+   - Pasirinkite **AI hub** (pvz., `CoopTranslator-Hub`) (sukurkite naują, jei reikia).
 
-1. Spauskite "**Peržiūrėti ir sukurti**", kad užbaigtumėte projekto kūrimą. Būsite nukreipti į projekto apžvalgos puslapį.
+1. Spustelėkite "**Review and Create**", kad sukurtumėte savo projektą. Būsite nukreipti į projekto apžvalgos puslapį.
 
-## Azure OpenAI paruošimas kalbų vertimui
+## Azure OpenAI nustatymas kalbų vertimui
 
-Projekte diegsite Azure OpenAI modelį, kuris bus naudojamas tekstų vertimui.
+Projekte įdiegsite Azure OpenAI modelį, kuris veiks kaip tekstų vertimo pagrindas.
 
 ### Eikite į savo projektą
 
-Jei dar nesate, atsidarykite naujai sukurtą projektą (pvz., `CoopTranslator-Project`) Azure AI Foundry.
+Jei dar nesate, atidarykite ką tik sukurtą projektą (pvz., `CoopTranslator-Project`) Azure AI Foundry.
 
-### Diegti OpenAI modelį
+### Įdiekite OpenAI modelį
 
-1. Kairiajame projekto meniu, skiltyje "Mano ištekliai", pasirinkite "**Modeliai + galiniai taškai**".
+1. Nuo projekto kairės pusės meniu, skiltyje "My assets", pasirinkite "**Models + endpoints**".
 
-1. Pasirinkite **+ Diegti modelį**.
+1. Pasirinkite **+ Deploy model**.
 
-1. Pasirinkite **Diegti bazinį modelį**.
+1. Pasirinkite **Deploy Base Model**.
 
-1. Pamatysite galimų modelių sąrašą. Filtruokite arba ieškokite tinkamo GPT modelio. Rekomenduojame `gpt-4o`.
+1. Bus pateiktas galimų modelių sąrašas. Filtruokite arba ieškokite tinkamo GPT modelio. Rekomenduojame `gpt-4o`.
 
-1. Pasirinkite norimą modelį ir spauskite **Patvirtinti**.
+1. Pasirinkite norimą modelį ir spustelėkite **Confirm**.
 
-1. Pasirinkite **Diegti**.
+1. Pasirinkite **Deploy**.
 
 ### Azure OpenAI konfigūracija
 
-Kai modelis bus įdiegtas, galite pasirinkti diegimą iš "**Modeliai + galiniai taškai**" puslapio ir rasti **REST galinio taško URL**, **Raktą**, **Diegimo pavadinimą**, **Modelio pavadinimą** ir **API versiją**. Šių duomenų reikės, kad integruotumėte vertimo modelį į savo programą.
+Įdiegę, galite pasirinkti diegimą iš "**Models + endpoints**" puslapio, kad rastumėte jo **REST endpoint URL**, **Key**, **Deployment name**, **Model name** ir **API version**. Šie duomenys reikalingi integruojant vertimo modelį į jūsų programą.
 
 > [!NOTE]
-> API versijas galite pasirinkti iš [API versijų nutraukimo](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation) puslapio pagal savo poreikius. Atkreipkite dėmesį, kad **API versija** skiriasi nuo **Modelio versijos**, kuri rodoma **Modeliai + galiniai taškai** puslapyje Azure AI Foundry.
+> API versijas galite pasirinkti pagal savo poreikius iš [API version deprecation](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation) puslapio. Atkreipkite dėmesį, kad **API versija** skiriasi nuo **Modelio versijos**, rodytos **Models + endpoints** puslapyje Azure AI Foundry.
 
-## Azure Computer Vision paruošimas vaizdų vertimui
+## Azure Kompiuterinio Regėjimo nustatymas vaizdų vertimui
 
-Norėdami versti tekstą iš paveikslėlių, turite rasti Azure AI Service API raktą ir galinio taško adresą.
+Norėdami įgalinti tekstų vertimą iš vaizdų, turite surasti Azure AI Service API raktą ir galinį tašką.
 
 1. Eikite į savo Azure AI projektą (pvz., `CoopTranslator-Project`). Įsitikinkite, kad esate projekto apžvalgos puslapyje.
 
 ### Azure AI Service konfigūracija
 
-Raskite API raktą ir galinio taško adresą Azure AI Service.
+Suraskite API raktą ir galinį tašką Azure AI Service.
 
 1. Eikite į savo Azure AI projektą (pvz., `CoopTranslator-Project`). Įsitikinkite, kad esate projekto apžvalgos puslapyje.
 
-1. Suraskite **API raktą** ir **Galinio taško adresą** Azure AI Service skiltyje.
+1. Suraskite **API Key** ir **Endpoint** Azure AI Service skirtuke.
 
-    <img src="../../../translated_images/find-azure-ai-info.0e00140419c12517d2011ecdde3fafb9306d379b29d2c04a0d18063e56983559.lt.png" alt="Raskite API raktą ir galinio taško adresą">
+    ![Find API Key and Endpoint](../../../translated_images/lt/find-azure-ai-info.0e00140419c12517.webp)
 
-Šis ryšys leidžia jūsų AI Foundry projektui naudotis susietų Azure AI Services galimybėmis (įskaitant vaizdų analizę). Tuomet šį ryšį galite naudoti savo užrašuose ar programose, kad išgautumėte tekstą iš paveikslėlių ir perduotumėte jį Azure OpenAI modeliui vertimui.
+Šis ryšys suteikia galimybę susietam Azure AI Services ištekliui (įskaitant vaizdų analizę) būti prieinamam jūsų AI Foundry projektui. Tuomet galite naudoti šį ryšį savo užrašinėse arba programose tekstui iš vaizdų išgauti, o vėliau tą tekstą siųsti Azure OpenAI modeliui vertimui.
 
-## Kredencialų sujungimas
+## Jūsų kredencialų konsolidavimas
 
-Šiuo metu turėtumėte būti surinkę šiuos duomenis:
+Iki šiol turėtumėte surinkti šiuos duomenis:
 
-**Azure OpenAI (teksto vertimui):**
-- Azure OpenAI galinio taško adresas
+**Azure OpenAI (Teksto vertimui):**
+- Azure OpenAI endpoint
 - Azure OpenAI API raktas
 - Azure OpenAI modelio pavadinimas (pvz., `gpt-4o`)
 - Azure OpenAI diegimo pavadinimas (pvz., `cooptranslator-gpt4o`)
 - Azure OpenAI API versija
 
-**Azure AI Services (vaizdo teksto išgavimui per Vision):**
-- Azure AI Service galinio taško adresas
+**Azure AI Services (Teksto išgavimui iš vaizdų per Vision):**
+- Azure AI Service endpoint
 - Azure AI Service API raktas
 
-### Pavyzdys: Aplinkos kintamųjų konfigūracija (Preview)
+### Pavyzdys: Aplinkos kintamųjų konfigūracija (Peržiūra)
 
-Vėliau, kurdami programą, greičiausiai naudosite šiuos kredencialus konfigūruodami aplinkos kintamuosius, pavyzdžiui:
+Vėliau, kuriant programą, greičiausiai naudosite surinktus kredencialus kaip aplinkos kintamuosius, pvz.:
 
 ```bash
-# Azure AI Service Credentials (Required for image translation)
-AZURE_AI_SERVICE_API_KEY="your_azure_ai_service_api_key" # e.g., 21xasd...
+# Azure AI paslaugų prisijungimo kredencialai (privaloma vaizdo vertimui)
+AZURE_AI_SERVICE_API_KEY="your_azure_ai_service_api_key" # pvz., 21xasd...
 AZURE_AI_SERVICE_ENDPOINT="https://your_azure_ai_service_endpoint.cognitiveservices.azure.com/"
 
-# Azure OpenAI Credentials (Required for text translation)
-AZURE_OPENAI_API_KEY="your_azure_openai_api_key" # e.g., 21xasd...
+# Pasirinktiniai atsarginiai rinkiniai: dublikatai kintamųjų su priesaga _1/_2 (tas pats indeksas visiems rinkinio kintamiesiems)
+AZURE_AI_SERVICE_API_KEY_1="your_azure_ai_service_api_key_1"
+AZURE_AI_SERVICE_ENDPOINT_1="https://your_azure_ai_service_endpoint_1.cognitiveservices.azure.com/"
+
+# Azure OpenAI prisijungimo kredencialai (privaloma teksto vertimui)
+AZURE_OPENAI_API_KEY="your_azure_openai_api_key" # pvz., 21xasd...
 AZURE_OPENAI_ENDPOINT="https://your_azure_openai_endpoint.openai.azure.com/"
-AZURE_OPENAI_MODEL_NAME="your_model_name" # e.g., gpt-4o
-AZURE_OPENAI_CHAT_DEPLOYMENT_NAME="your_deployment_name" # e.g., cooptranslator-gpt4o
-AZURE_OPENAI_API_VERSION="your_api_version" # e.g., 2024-12-01-preview
+AZURE_OPENAI_MODEL_NAME="your_model_name" # pvz., gpt-4o
+AZURE_OPENAI_CHAT_DEPLOYMENT_NAME="your_deployment_name" # pvz., cooptranslator-gpt4o
+AZURE_OPENAI_API_VERSION="your_api_version" # pvz., 2024-12-01-preview
+
+# Pasirinktiniai atsarginiai rinkiniai: dublikuokite visą AZURE_OPENAI_* rinkinį su priesaga _1/_2 (tas pats indeksas visiems kintamiesiems)
 ```
 
 ---
 
-### Daugiau informacijos
+### Tolimesnis skaitymas
 
 - [Kaip sukurti projektą Azure AI Foundry](https://learn.microsoft.com/azure/ai-foundry/how-to/create-projects?tabs=ai-studio)
 - [Kaip sukurti Azure AI išteklius](https://learn.microsoft.com/azure/ai-foundry/how-to/create-azure-ai-resource?tabs=portal)
@@ -118,5 +115,7 @@ AZURE_OPENAI_API_VERSION="your_api_version" # e.g., 2024-12-01-preview
 
 ---
 
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Atsakomybės atsisakymas**:  
-Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba turėtų būti laikomas autoritetingu šaltiniu. Kritinei informacijai rekomenduojame profesionalų žmogaus vertimą. Mes neatsakome už nesusipratimus ar neteisingą interpretavimą, kilusį dėl šio vertimo naudojimo.
+Šis dokumentas buvo išverstas naudojant AI vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome atkreipti dėmesį, kad automatizuoti vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas gimtąja kalba turėtų būti laikomas autoritetingu šaltiniu. Dėl svarbios informacijos rekomenduojama pasitelkti profesionalų žmogaus vertimą. Mes neprisiimame atsakomybės už bet kokius nesusipratimus ar neteisingą vertimo interpretaciją.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

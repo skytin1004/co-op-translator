@@ -1,18 +1,12 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "ab4ff653cd1228f8b3f363a4768e2057",
-  "translation_date": "2025-11-30T13:33:08+00:00",
-  "source_file": "getting_started/README_languages_template.md",
-  "language_code": "my"
-}
--->
-# 🌐 ဘာသာစကားစုံထောက်ပံ့မှု (ပုံစံ)
+# 🌐 မျိုးစုံဘာသာစကားပံ့ပိုးမှု (Template)
 
-ထိန်းသိမ်းသူများ: အောက်ပါအပိုင်းမှာ Co‑op Translator မှ စီမံခန့်ခွဲသော "ဘာသာစကားအားလုံး" ဥပမာဖြစ်သည်။
+ပြုပြင်ထိန်းသိမ်းသူများ: အောက်တွင်ဖော်ပြထားသည်မှာ Co-op Translator မှ စီမံခန့်ခွဲသော "ဘာသာစကားအားလုံး" ဥပမာဖြစ် ပါသည်။
 
-- `translate -l "all"` ကို အသုံးပြုသောအခါ Co‑op Translator သည် ဤစာရင်းကို အလိုအလျောက် အပြည့်အစုံနောက်ဆုံးပေါ်ထားရန်လိုလျှင် မှတ်ချက်အမှတ်နှစ်ခုကို မပြောင်းလဲဘဲထားပါ။
-- ဘာသာစကားအချို့သာ ပြသလိုပါက မှတ်ချက်အမှတ်နှစ်ခုကို ဖျက်ပြီး မလိုအပ်သောဘာသာစကားများကို ဖယ်ရှားပါ။ မှတ်ချက်အမှတ်များ ဖျက်ပြီးနောက် Co‑op Translator သည် ဤအပိုင်းကို အလိုအလျောက် မပြောင်းလဲတော့ပါ။
+- သင်သည် Co-op Translator ကို `translate` ကိုယ်တိုင် run လုပ်သောအခါ (ဘာသာစကားရွေးချယ်မှု မည်မျှဖြစ်ပါစေ) ဤစာရင်းကို အပြည့်အစုံအလိုအလျောက်နောက်ဆုံးထိန်းသိမ်းဖို့လိုပါက အဆိုပါ comment marker နှစ်ခုကို မပြောင်းလဲဘဲထားရှိပါ။
+- သင်သည် ဘာသာစကားတချို့သာ ပြသချင်ပါက comment marker နှစ်ခုကို ဖျက်ပြီး မလိုအပ်သော ဘာသာစကားများကို ဖယ်ရှားပါ။ marker များဖျက်ပြီးနောက် Co-op Translator သည် ဤအပိုင်းကို အလိုအလျောက် အစားထိုးမည် မဟုတ်တော့ပါ။
+
+- ယခု အပိုင်းတွင် "တိုက်ရိုက် Clone လုပ်ရန် စိတ်ဝင်စားပါသလား?" ဟူသော အကြံပြုချက်ပါရှိပြီး အသုံးပြုသူများအား ဘာသာပြန်ဆို စာရွက်များ ပါဝင်မှု ကြီးမားမှုမရှိဘဲ clone လုပ်ရန် ကူညီပေးပါသည်။ သင်၏ repository URL ဖြင့် ကိုယ်ပိုင်လုပ်ဆောင်လိုပါက ဥပမာအားဖြင့် အောက်ပါအတိုင်း ပြုလုပ်နိုင်ပါသည်။
+  - `translate -l "ko" --repo-url "https://github.com/org/repo.git"`
 
 ```markdown
 
@@ -21,7 +15,17 @@ CO_OP_TRANSLATOR_METADATA:
 #### Supported by [Co-op Translator](https://github.com/Azure/Co-op-Translator)
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
-[Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](./README.md) | [Chinese (Simplified)](../zh/README.md) | [Chinese (Traditional, Hong Kong)](../hk/README.md) | [Chinese (Traditional, Macau)](../mo/README.md) | [Chinese (Traditional, Taiwan)](../tw/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../br/README.md) | [Portuguese (Portugal)](../pt/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
+[Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](./README.md) | [Chinese (Simplified)](../zh-CN/README.md) | [Chinese (Traditional, Hong Kong)](../zh-HK/README.md) | [Chinese (Traditional, Macau)](../zh-MO/README.md) | [Chinese (Traditional, Taiwan)](../zh-TW/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Khmer](../km/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../pt-BR/README.md) | [Portuguese (Portugal)](../pt-PT/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
+> **Prefer to Clone Locally?**
+>
+> This repository includes 50+ language translations which significantly increases the download size. To clone without translations, use sparse checkout:
+> ```bash
+> git clone --filter=blob:none --sparse https://github.com/*****.git
+> cd *****
+> git sparse-checkout set --no-cone '/*' '!translations' '!translated_images'
+> ```
+> This gives you everything you need to complete the course with a much faster download.
+
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
 ```
@@ -29,6 +33,6 @@ CO_OP_TRANSLATOR_METADATA:
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**အကြောင်းကြားချက်**  
-ဤစာတမ်းကို AI ဘာသာပြန်ဝန်ဆောင်မှု [Co-op Translator](https://github.com/Azure/co-op-translator) ဖြင့် ဘာသာပြန်ထားပါသည်။ ကျွန်ုပ်တို့သည် တိကျမှန်ကန်မှုအတွက် ကြိုးစားပေမယ့် အလိုအလျောက် ဘာသာပြန်မှုများတွင် အမှားများ သို့မဟုတ် မှားယွင်းချက်များ ပါဝင်နိုင်ကြောင်း သတိပြုပါရန် မေတ္တာရပ်ခံအပ်ပါသည်။ မူရင်းစာတမ်းကို မိမိဘာသာစကားဖြင့်သာ တရားဝင်အရင်းအမြစ်အဖြစ် သတ်မှတ်စဉ်းစားသင့်ပါသည်။ အရေးကြီးသော အချက်အလက်များအတွက် လူ့ပညာရှင်များ၏ ဘာသာပြန်မှုကို အကြံပြုပါသည်။ ဤဘာသာပြန်မှုကို အသုံးပြုမှုကြောင့် ဖြစ်ပေါ်လာနိုင်သည့် နားလည်မှုမှားယွင်းမှုများအတွက် ကျွန်ုပ်တို့ တာဝန်မယူပါ။
+**စာကြောင်းတောင်းပန်ချက်**:  
+ဤစာတမ်းကို AI ဘာသာပြန် خدمت [Co-op Translator](https://github.com/Azure/co-op-translator) ဖြင့် ဘာသာပြန်ထားခြင်းဖြစ်သည်။ ကျနော်တို့သည် တိကျမှုအတွက် ကြိုးစားပေမယ့်၊ အလိုအလျောက်ဘာသာပြန်မှုများတွင် အမှားများ သို့မဟုတ် မှားယွင်းချက်များ ပါရှိနိုင်ပါသဖြင့် သတိပြုပါရန် လိုအပ်ပါသည်။ မူရင်းစာတမ်းကို မူလဘာသာဖြင့်သာ ယုံကြည်အပ်ပါသည်။ အရေးပါသော သတင်းအချက်အလက်များအတွက် ဆရာ/မသူများဖြင့် လက်မှတ်ရ လူအာရုံဘာသာပြန်မှုကို အကြံပြုပါသည်။ ဤဘာသာပြန်မှုကို အသုံးပြုခြင်းကြောင့် ဖြစ်ပေါ်နိုင်သည့် လွဲမှားမှုများ သို့မဟုတ် မှားနားစွာဖော်ပြမှုများအတွက် ကျွန်ုပ်တို့၏ တာဝန်မရှိပါ။
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

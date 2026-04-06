@@ -1,18 +1,12 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "ab4ff653cd1228f8b3f363a4768e2057",
-  "translation_date": "2025-11-30T13:33:40+00:00",
-  "source_file": "getting_started/README_languages_template.md",
-  "language_code": "lt"
-}
--->
-# 🌐 Daugiakalbė palaikymas (šablonas)
+# 🌐 Daugiakalbė palaikymas (Šablonas)
 
-Prižiūrėtojai: žemiau esantis blokas yra „visų kalbų“ pavyzdys, kurį valdo Co‑op Translator.
+Prižiūrėtojai: žemiau esantis blokas yra „visų kalbų“ pavyzdys, valdomas Co-op Translator.
 
-- Jei norite, kad Co‑op Translator automatiškai atnaujintų šį sąrašą kiekvieną kartą paleidus `translate -l "all"`, palikite abu komentarų žymeklius nepakitus.
-- Jei norite rodyti tik dalį kalbų, ištrinkite abu komentarų žymeklius ir pašalinkite kalbas, kurių nenorite rodyti. Pašalinus žymeklius, Co‑op Translator nebeautomatiškai keis šią dalį.
+- Jei norite, kad Co-op Translator automatiškai nuolat atnaujintų šį sąrašą vykdant komandą `translate` (pasirinkus bet kurią kalbą), palikite du komentarų žymeklius nepakitus.
+- Jei norite rodyti tik kai kurias kalbas, ištrinkite du komentarų žymeklius ir pašalinkite tas kalbas, kurių nenorite įtraukti. Pašalinus žymeklius, Co-op Translator nebebus automatiškai keičiantis šio skyriaus.
+
+- Šis skyrius dabar apima patarimą „Ar norite kopijuoti lokaliai?“, kuris padeda vartotojams klonuoti be didelio vertimų kiekio. Galite suasmeninti šią pastabą savo saugyklos URL, pavyzdžiui, vykdydami:
+  - `translate -l "ko" --repo-url "https://github.com/org/repo.git"`
 
 ```markdown
 
@@ -21,7 +15,17 @@ Prižiūrėtojai: žemiau esantis blokas yra „visų kalbų“ pavyzdys, kurį 
 #### Supported by [Co-op Translator](https://github.com/Azure/Co-op-Translator)
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
-[Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh/README.md) | [Chinese (Traditional, Hong Kong)](../hk/README.md) | [Chinese (Traditional, Macau)](../mo/README.md) | [Chinese (Traditional, Taiwan)](../tw/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Korean](../ko/README.md) | [Lithuanian](./README.md) | [Malay](../ms/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../br/README.md) | [Portuguese (Portugal)](../pt/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
+[Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh-CN/README.md) | [Chinese (Traditional, Hong Kong)](../zh-HK/README.md) | [Chinese (Traditional, Macau)](../zh-MO/README.md) | [Chinese (Traditional, Taiwan)](../zh-TW/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Khmer](../km/README.md) | [Korean](../ko/README.md) | [Lithuanian](./README.md) | [Malay](../ms/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../pt-BR/README.md) | [Portuguese (Portugal)](../pt-PT/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
+> **Prefer to Clone Locally?**
+>
+> This repository includes 50+ language translations which significantly increases the download size. To clone without translations, use sparse checkout:
+> ```bash
+> git clone --filter=blob:none --sparse https://github.com/*****.git
+> cd *****
+> git sparse-checkout set --no-cone '/*' '!translations' '!translated_images'
+> ```
+> This gives you everything you need to complete the course with a much faster download.
+
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
 ```
@@ -30,5 +34,5 @@ Prižiūrėtojai: žemiau esantis blokas yra „visų kalbų“ pavyzdys, kurį 
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Atsakomybės apribojimas**:  
-Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors stengiamės užtikrinti tikslumą, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas gimtąja kalba turėtų būti laikomas autoritetingu šaltiniu. Svarbiai informacijai rekomenduojamas profesionalus žmogaus vertimas. Mes neatsakome už bet kokius nesusipratimus ar neteisingus aiškinimus, kilusius dėl šio vertimo naudojimo.
+Šis dokumentas buvo išverstas naudojant AI vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome atkreipti dėmesį, kad automatiniai vertimai gali turėti klaidų arba netikslumų. Originalus dokumentas gimtąja kalba turėtų būti laikomas autoritetingu šaltiniu. Svarbios informacijos atveju rekomenduojama naudoti profesionalų žmogiškąjį vertimą. Mes neatsakome už jokias nesusipratimus ar neteisingus aiškinimus, kylančius dėl šio vertimo naudojimo.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

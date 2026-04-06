@@ -1,25 +1,16 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "93a7150216aa3c2d191135358fa6dd21",
-  "translation_date": "2025-11-30T13:52:25+00:00",
-  "source_file": "getting_started/update-other-courses.md",
-  "language_code": "my"
-}
--->
-# "အခြားသင်တန်းများ" အပိုင်းကို အပ်ဒိတ်လုပ်ခြင်း (Microsoft Beginners repos)
+# "Other Courses" ဌာနကို အပ်ဒိတ်လုပ်ပါ (Microsoft Beginners repos)
 
-ဤလမ်းညွှန်သည် "အခြားသင်တန်းများ" အပိုင်းကို Co‑op Translator ဖြင့် အလိုအလျောက် đồng bộ လုပ်နည်းနှင့် အားလုံးသော repos များအတွက် ကမ္ဘာလုံးဆိုင်ရာ template ကို မည်သို့ အပ်ဒိတ်လုပ်ရမည်ကို ရှင်းပြသည်။
+ဤလမ်းညွှန်သည် "Other Courses" ဌာနကို Co‑op Translator ဖြင့် အော်တို-စင့်တင်စနစ်ဖြင့် synchronize လုပ်မည်၊ နှင့် အားလုံးသော repos များအတွက် global template ကို မည်သို့အပ်ဒိတ်လုပ်မည်ကို ရှင်းပြသည်။
 
-- သက်ဆိုင်မှု: Microsoft Beginners repositories များအတွက်သာ
+- သက်ဆိုင်မှု: Microsoft Beginners repositories သာ
 - အသုံးပြုမှု: Co‑op Translator CLI နှင့် GitHub Actions နှင့်အတူ
-- Template အရင်းအမြစ်: [src/co_op_translator/templates/other_courses.md](../src/co_op_translator/templates/other_courses.md)
+- Template များရင်းမြစ်: [src/co_op_translator/templates/other_courses.md](../src/co_op_translator/templates/other_courses.md)
 
 ---
 
-## အမြန်စတင်ခြင်း: သင့် repo တွင် အလိုအလျောက် đồng bộ ကို ဖွင့်ပါ
+## အမြန်စတင်ခြင်း: သင့် repo တွင် auto-sync ကို ဖွင့်ပါ
 
-သင့် README တွင် "အခြားသင်တန်းများ" အပိုင်းကို အောက်ပါ အမှတ်အသားများဖြင့် ဝိုင်းပတ်ပါ။ Co‑op Translator သည် အမှတ်အသားများအကြားရှိ အရာအားလုံးကို run တစ်ကြိမ်တိုင်း ပြောင်းလဲပေးပါမည်။
+သင့် README တွင် "Other Courses" ဌာနအနားတွင် အောက်ပါ markers များထည့်ပါ။ Co‑op Translator သည် အဆိုပါ markers များအကြားရှိ အရာအားလုံးကို run တစ်ကြိမ်တိုင်းတွင် အစားထိုးမည်ဖြစ်သည်။
 
 ```markdown
 <!-- CO-OP TRANSLATOR OTHER COURSES START -->
@@ -27,27 +18,43 @@ CO_OP_TRANSLATOR_METADATA:
 <!-- CO-OP TRANSLATOR OTHER COURSES END -->
 ```
 
-Co‑op Translator သည် CLI (ဥပမာ `translate -l "<language codes>"`) သို့မဟုတ် GitHub Actions မှတဆင့် run တစ်ကြိမ်တိုင်း "အခြားသင်တန်းများ" အပိုင်းကို အမှတ်အသားများဖြင့် ဝိုင်းပတ်ထားသော အပိုင်းကို အလိုအလျောက် အပ်ဒိတ်လုပ်ပေးပါသည်။
+Co‑op Translator run တိုင်တိုင်း (CLI ဖြင့် `translate -l "<language codes>"` သို့မဟုတ် GitHub Actions မှတစ်ဆင့်) သည် ဒီ markers များဖြင့် ပတ်ဝန်းကျင် သတ်မှတ်ထားသော "Other Courses" ဌာနကို အလိုအလျောက် update လုပ်ပေးလိမ့်မည်။
 
 > [!NOTE]
-> သင့်တွင် ရှိပြီးသားစာရင်းရှိပါက အဲဒီစာရင်းကို အမှတ်အသားများဖြင့် ဝိုင်းပတ်ပေးလိုက်ပါ။ နောက်တစ်ကြိမ် run တုန်းက အဆင့်မြင့်ပြီး စံပြအကြောင်းအရာဖြင့် အစားထိုးပေးပါလိမ့်မည်။
+> သင်မှာ ရှိပြီးသားစာရင်းရှိပါက၊ အဲဒီစာရင်းကို အတူတူ markers များဖြင့်သာ ဝတ်စားပါ။ နောက်တစ်ကြိမ် run တစ်ခါမှာ မူလစာရင်းကို နောက်ဆုံးပေါ်စံနှုန်းစာချုပ်ဖြင့် အစားထိုးပေးလိမ့်မည်။
 
 ---
 
-## ကမ္ဘာလုံးဆိုင်ရာ အကြောင်းအရာကို မည်သို့ ပြောင်းလဲမည်နည်း
+## Global content ကို မည်သို့ပြောင်းလဲမည်လဲ
 
-Beginners repos အားလုံးတွင် ပြသမည့် စံပြအကြောင်းအရာကို အပ်ဒိတ်လုပ်လိုပါက -
+Beginners repos အားလုံးတွင် ပြသမည့် စံနှုန်းကောင်း content ကို အပ်ဒိတ်လုပ်လိုပါက -
 
-1. Template ကို ပြင်ဆင်ပါ: [src/co_op_translator/templates/other_courses.md](../src/co_op_translator/templates/other_courses.md)
-2. ပြင်ဆင်မှုများနှင့်အတူ Co-op Translator repo သို့ pull request တင်ပါ
-3. PR ပေါင်းစည်းပြီးနောက် Co‑op Translator ဗားရှင်းကို အပ်ဒိတ်လုပ်ပါမည်
-4. နောက်တစ်ကြိမ် Co‑op Translator (CLI သို့မဟုတ် GitHub Action) သည် ရည်ရွယ်ထားသော repo တွင် run တုန်းက အပ်ဒိတ်လုပ်ထားသော အပိုင်းကို အလိုအလျောက် đồng bộ လုပ်ပေးပါမည်
+1. Template ကို ဘာသာပြန်ပါ - [src/co_op_translator/templates/other_courses.md](../src/co_op_translator/templates/other_courses.md)
+2. ပြင်ဆင်မှုများဖြင့် Co-op Translator repo သို့ pull request တစ်ခု ဖွင့်ပါ
+3. PR ပေါင်းသင်းပြီးနောက် Co‑op Translator ဗားရှင်းကို အပ်ဒိတ်လုပ်မည်
+4. နောက်တစ်ကြိမ် Co‑op Translator (CLI သို့မဟုတ် GitHub Action) run မည့် target repo တွင် ပြင်ဆင်ချက်များ ပါဝင်သော အပိုင်းကို အလိုအလျောက် sync လုပ်ပေးမည်
 
-ဤနည်းဖြင့် Beginners repositories အားလုံးတွင် "အခြားသင်တန်းများ" အကြောင်းအရာအတွက် တစ်ခုတည်းသော မှန်ကန်သော အရင်းအမြစ်ကို သေချာစေပါသည်။
+ဒီလိုဖြင့် "Other Courses" content အတွက် Beginners repo အားလုံးတွင် တစ်ခုတည်းသော အချက်အလက် ရင်းမြစ်တစ်ခု ရရှိစေပါသည်။
+
+## Repo စာမူအရွယ်အစားများ
+
+ဘာသာစကားများ များပြားစွာ ဘာသာပြန်ပေးထားသောကြောင့် repo တွေ များကြီးလာနိုင်ပြီး အသုံးပြုသူများ Clone - Sparse ကို အသုံးပြု၍ လိုအပ်သော ဘာသာစကားများကိုသာ Clone လုပ်ပြီး အားလုံးကို မလိုအပ်ပဲ အသုံးပြုနိုင်ရန် လမ်းညွှန်ချက်ပေးရန် ရည်ရွယ်ပါသည်။
+
+```
+> **Prefer to Clone Locally?**
+>
+> This repository includes 50+ language translations which significantly increases the download size. To clone without translations, use sparse checkout:
+> ```bash
+> git clone --filter=blob:none --sparse https://github.com/*****.git
+> cd *****
+> git sparse-checkout set --no-cone '/*' '!translations' '!translated_images'
+> ```
+> This gives you everything you need to complete the course with a much faster download.
+```
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**အကြောင်းကြားချက်**  
-ဤစာတမ်းကို AI ဘာသာပြန်ဝန်ဆောင်မှု [Co-op Translator](https://github.com/Azure/co-op-translator) ဖြင့် ဘာသာပြန်ထားပါသည်။ ကျွန်ုပ်တို့သည် တိကျမှန်ကန်မှုအတွက် ကြိုးစားသော်လည်း အလိုအလျောက် ဘာသာပြန်ခြင်းတွင် အမှားများ သို့မဟုတ် မှားယွင်းချက်များ ပါဝင်နိုင်ကြောင်း သတိပြုပါရန် မေတ္တာရပ်ခံအပ်ပါသည်။ မူရင်းစာတမ်းကို မိမိဘာသာစကားဖြင့်သာ တရားဝင်အရင်းအမြစ်အဖြစ် ယူဆသင့်ပါသည်။ အရေးကြီးသော အချက်အလက်များအတွက် လူ့ပညာရှင်များ၏ ဘာသာပြန်ခြင်းကို အကြံပြုပါသည်။ ဤဘာသာပြန်ချက်ကို အသုံးပြုရာမှ ဖြစ်ပေါ်လာနိုင်သည့် နားလည်မှုမှားယွင်းမှုများအတွက် ကျွန်ုပ်တို့သည် တာဝန်မယူပါ။
+**တာဝန်မခံခြင်း**:  
+ဤစာရွက်စာတမ်းကို AI ဘာသာပြန်ဝန်ဆောင်မှု [Co-op Translator](https://github.com/Azure/co-op-translator) အသုံးပြု၍ ဘာသာပြန်ထားသည်။ ကျွန်ုပ်တို့သည် မှန်ကန်မှုအတွက် ကြိုးစားပေမယ့် အလိုအလျောက် ဘာသာပြန်မှုများတွင် အမှားများ သို့မဟုတ် မှားယွင်းချက်များ ပါဝင်နိုင်ကြောင်း သတိပြုပါရန် ဖိတ်ခေါ်ပါသည်။ မူရင်းစာရွက်စာတမ်းသည် ၎င်း၏မူလဘာသာဖြင့် တရားဝင်အရင်းအမြစ်အဖြစ် သတ်မှတ်သင့်သည်။ အရေးကြီးသော အချက်အလက်များအတွက် လူ့ပရော်ဖက်ရှင်နယ် ဘာသာပြန်မှုကို အကြံပြုပါသည်။ ဤဘာသာပြန်မှု အသုံးပြုမှုမှ ဖြစ်ပေါ်လာသော နားလည်မှုမှားယွင်းမှုများ အတွက် ကျွန်ုပ်တို့သည် တာဝန်မခံပါ။
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

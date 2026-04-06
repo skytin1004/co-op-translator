@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9fac847815936ef6e6c8bfde6d191571",
-  "translation_date": "2025-10-15T05:01:18+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-org.md",
-  "language_code": "lt"
-}
--->
 # Co-op Translator GitHub Action naudojimas (organizacijos vadovas)
 
 **Tikslinė auditorija:** Šis vadovas skirtas **Microsoft vidiniams naudotojams** arba **komandoms, turinčioms prieigą prie iš anksto paruoštos Co-op Translator GitHub programėlės kredencialų** arba galinčioms susikurti savo GitHub programėlę.
@@ -56,11 +47,11 @@ Darbo eiga naudoja GitHub App autentifikaciją, kad saugiai galėtų veikti jūs
 
 1. Pasirinkite **Install** ir pasirinkite paskyrą ar organizaciją, kurioje yra jūsų repozitorija.
 
-    ![Install app](../../../../translated_images/install-app.d0f0a24cbb1d6c93f293f002eb34e633f7bc8f5caaba46b97806ba7bdc958f27.lt.png)
+    ![Install app](../../../../translated_images/lt/install-app.d0f0a24cbb1d6c93.webp)
 
 1. Pasirinkite **Only select repositories** ir pažymėkite savo repozitoriją (pvz., `PhiCookBook`). Spauskite **Install**. Gali tekti patvirtinti tapatybę.
 
-    ![Install authorize](../../../../translated_images/install-authorize.29df6238c3eb8f707e7fc6f97a946cb654b328530c4aeddce28b874693f076a0.lt.png)
+    ![Install authorize](../../../../translated_images/lt/install-authorize.29df6238c3eb8f70.webp)
 
 1. **Gaukite programėlės kredencialus (vidinis procesas):** Kad darbo eiga galėtų autentifikuotis kaip programėlė, jums reikės dviejų duomenų, kuriuos suteikia Co-op Translator komanda:
   - **App ID:** Unikalus Co-op Translator programėlės identifikatorius. App ID yra: `1164076`.
@@ -82,7 +73,7 @@ Turite pridėti GitHub programėlės kredencialus ir AI paslaugų kredencialus k
 
 1. Skiltyje **Repository secrets** spauskite **New repository secret** kiekvienai žemiau nurodytai paslapčiai.
 
-   ![Select setting action](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.lt.png)
+   ![Select setting action](../../../../translated_images/lt/select-setting-action.3b95c915d6031159.webp)
 
 **Privalomos paslaptys (GitHub programėlės autentifikacijai):**
 
@@ -107,7 +98,7 @@ Turite pridėti GitHub programėlės kredencialus ir AI paslaugų kredencialus k
 | `OPENAI_CHAT_MODEL_ID`              | Konkretus OpenAI modelio ID                | OpenAI Platform                    |
 | `OPENAI_BASE_URL`                   | OpenAI API bazinis URL                     | OpenAI Platform                    |
 
-![Enter environment variable name](../../../../translated_images/add-secrets-done.444861ce6956d5cb20781ead1237fcc12805078349bb0d4e95bb9540ee192227.lt.png)
+![Enter environment variable name](../../../../translated_images/lt/add-secrets-done.444861ce6956d5cb.webp)
 
 ### 3 žingsnis: Sukurkite darbo eigos failą
 

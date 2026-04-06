@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T05:02:38+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "lt"
-}
--->
 # Co-op Translator GitHub Action naudojimas (Viešas nustatymas)
 
 **Kam skirta:** Šis vadovas skirtas naudotojams daugumoje viešų ar privačių repozitorijų, kur pakanka standartinių GitHub Actions leidimų. Naudojamas integruotas `GITHUB_TOKEN`.
@@ -53,7 +44,7 @@ Jums tereikia pridėti savo **AI paslaugų prisijungimo duomenis** kaip užšifr
 2.  Pasirinkite **Settings** > **Secrets and variables** > **Actions**.
 3.  Skiltyje **Repository secrets** spauskite **New repository secret** kiekvienam reikiamam AI paslaugos slaptažodžiui, nurodytam žemiau.
 
-    ![Pasirinkite nustatymų veiksmą](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.lt.png) *(Paveikslėlio nuoroda: Parodo, kur pridėti slaptus duomenis)*
+    ![Pasirinkite nustatymų veiksmą](../../../../translated_images/lt/select-setting-action.3b95c915d6031159.webp) *(Paveikslėlio nuoroda: Parodo, kur pridėti slaptus duomenis)*
 
 **Reikalingi AI paslaugų slaptažodžiai (pridėkite VISUS, kurie tinka pagal jūsų Prieš pradedant):**
 
@@ -81,7 +72,7 @@ GitHub Action reikia leidimų, suteikiamų per `GITHUB_TOKEN`, kad galėtų pasi
 4.  Įsitikinkite, kad pažymėta **Allow GitHub Actions to create and approve pull requests**.
 5.  Spauskite **Save**.
 
-![Leidimų nustatymas](../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.lt.png)
+![Leidimų nustatymas](../../../../translated_images/lt/permission-setting.ae2f02748b0579e7.webp)
 
 ### 4 žingsnis: Sukurkite darbo eigos failą
 
