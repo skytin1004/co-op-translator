@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T02:09:22+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "fr"
-}
--->
 # Utiliser l’action GitHub Co-op Translator (Configuration publique)
 
 **Public visé :** Ce guide s’adresse aux utilisateurs de la plupart des dépôts publics ou privés où les autorisations standard des GitHub Actions suffisent. Il utilise le `GITHUB_TOKEN` intégré.
@@ -53,7 +44,7 @@ Vous devez simplement ajouter vos **identifiants de service IA** comme secrets c
 2.  Allez dans **Settings** > **Secrets and variables** > **Actions**.
 3.  Sous **Repository secrets**, cliquez sur **New repository secret** pour chaque secret de service IA requis listé ci-dessous.
 
-    <img src="../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.fr.png" alt="Sélectionner l’action de paramétrage"> *(Référence image : montre où ajouter les secrets)*
+    <img src="../../../../translated_images/fr/select-setting-action.3b95c915d6031159.webp" alt="Sélectionner l’action de paramétrage"> *(Référence image : montre où ajouter les secrets)*
 
 **Secrets de service IA requis (Ajoutez TOUS ceux qui correspondent à vos prérequis) :**
 
@@ -81,7 +72,7 @@ L’action GitHub a besoin d’autorisations via le `GITHUB_TOKEN` pour cloner l
 4.  Vérifiez que la case **Allow GitHub Actions to create and approve pull requests** est **cochée**.
 5.  Cliquez sur **Save**.
 
-<img src="../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.fr.png" alt="Paramétrage des autorisations">
+<img src="../../../../translated_images/fr/permission-setting.ae2f02748b0579e7.webp" alt="Paramétrage des autorisations">
 
 ### Étape 4 : Créer le fichier de workflow
 

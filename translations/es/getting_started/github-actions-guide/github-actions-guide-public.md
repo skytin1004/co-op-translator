@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T02:11:43+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "es"
-}
--->
 # Uso de la Acción de GitHub Co-op Translator (Configuración Pública)
 
 **Público objetivo:** Esta guía está dirigida a usuarios de la mayoría de los repositorios públicos o privados donde los permisos estándar de GitHub Actions son suficientes. Utiliza el `GITHUB_TOKEN` integrado.
@@ -53,7 +44,7 @@ Solo necesitas agregar tus **credenciales del servicio de IA** como secretos cif
 2.  Dirígete a **Settings** > **Secrets and variables** > **Actions**.
 3.  En **Repository secrets**, haz clic en **New repository secret** para cada secreto de servicio de IA requerido que se indica abajo.
 
-    ![Seleccionar acción de configuración](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.es.png) *(Referencia de imagen: muestra dónde agregar secretos)*
+    ![Seleccionar acción de configuración](../../../../translated_images/es/select-setting-action.3b95c915d6031159.webp) *(Referencia de imagen: muestra dónde agregar secretos)*
 
 **Secretos requeridos del servicio de IA (Agrega TODOS los que correspondan según tus requisitos previos):**
 
@@ -81,7 +72,7 @@ La Acción de GitHub necesita permisos otorgados mediante el `GITHUB_TOKEN` para
 4.  Asegúrate de que la casilla **Allow GitHub Actions to create and approve pull requests** esté **marcada**.
 5.  Haz clic en **Save**.
 
-![Configuración de permisos](../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.es.png)
+![Configuración de permisos](../../../../translated_images/es/permission-setting.ae2f02748b0579e7.webp)
 
 ### Paso 4: Crear el archivo de flujo de trabajo
 

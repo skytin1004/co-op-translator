@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9fac847815936ef6e6c8bfde6d191571",
-  "translation_date": "2025-10-15T02:06:42+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-org.md",
-  "language_code": "en"
-}
--->
 # Using the Co-op Translator GitHub Action (Organization Guide)
 
 **Target Audience:** This guide is for **Microsoft internal users** or **teams who have access to the necessary credentials for the pre-built Co-op Translator GitHub App** or can create their own custom GitHub App.
@@ -56,11 +47,11 @@ The workflow uses GitHub App authentication to securely interact with your repos
 
 1. Click **Install** and select the account or organization where your target repository is located.
 
-    <img src="../../../../translated_images/install-app.d0f0a24cbb1d6c93f293f002eb34e633f7bc8f5caaba46b97806ba7bdc958f27.en.png" alt="Install app">
+    <img src="../../../../translated_images/en/install-app.d0f0a24cbb1d6c93.webp" alt="Install app">
 
 1. Choose **Only select repositories** and select your target repository (for example, `PhiCookBook`). Click **Install**. You may be asked to authenticate.
 
-    <img src="../../../../translated_images/install-authorize.29df6238c3eb8f707e7fc6f97a946cb654b328530c4aeddce28b874693f076a0.en.png" alt="Install authorize">
+    <img src="../../../../translated_images/en/install-authorize.29df6238c3eb8f70.webp" alt="Install authorize">
 
 1. **Get App Credentials (Internal Process Required):** To let the workflow authenticate as the app, you need two pieces of information from the Co-op Translator team:
   - **App ID:** The unique identifier for the Co-op Translator app. The App ID is: `1164076`.
@@ -82,7 +73,7 @@ You need to add the GitHub App credentials and your AI service credentials as en
 
 1. Under **Repository secrets**, click **New repository secret** for each secret listed below.
 
-   <img src="../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.en.png" alt="Select setting action">
+   <img src="../../../../translated_images/en/select-setting-action.3b95c915d6031159.webp" alt="Select setting action">
 
 **Required Secrets (for GitHub App Authentication):**
 
@@ -107,7 +98,7 @@ You need to add the GitHub App credentials and your AI service credentials as en
 | `OPENAI_CHAT_MODEL_ID`              | Specific OpenAI model ID                  | OpenAI Platform                    |
 | `OPENAI_BASE_URL`                   | Custom OpenAI API Base URL                | OpenAI Platform                    |
 
-<img src="../../../../translated_images/add-secrets-done.444861ce6956d5cb20781ead1237fcc12805078349bb0d4e95bb9540ee192227.en.png" alt="Enter environment variable name">
+<img src="../../../../translated_images/en/add-secrets-done.444861ce6956d5cb.webp" alt="Enter environment variable name">
 
 ### Step 3: Create the Workflow File
 
