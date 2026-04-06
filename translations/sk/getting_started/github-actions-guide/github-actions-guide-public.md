@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T03:56:20+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "sk"
-}
--->
 # Použitie Co-op Translator GitHub Action (Verejné nastavenie)
 
 **Cieľová skupina:** Táto príručka je určená pre používateľov vo väčšine verejných alebo súkromných repozitárov, kde sú štandardné oprávnenia GitHub Actions postačujúce. Využíva zabudovaný `GITHUB_TOKEN`.
@@ -53,7 +44,7 @@ Stačí pridať **prihlasovacie údaje k AI službe** ako šifrované tajomstvá
 2.  Choďte na **Settings** > **Secrets and variables** > **Actions**.
 3.  V sekcii **Repository secrets** kliknite na **New repository secret** pre každé potrebné tajomstvo AI služby uvedené nižšie.
 
-    ![Select setting action](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.sk.png) *(Referenčný obrázok: Ukazuje, kde pridať tajomstvá)*
+    ![Select setting action](../../../../translated_images/sk/select-setting-action.3b95c915d6031159.webp) *(Referenčný obrázok: Ukazuje, kde pridať tajomstvá)*
 
 **Povinné tajomstvá AI služby (Pridajte VŠETKY, ktoré sa vás týkajú podľa predpokladov):**
 
@@ -81,7 +72,7 @@ GitHub Action potrebuje oprávnenia udelené cez `GITHUB_TOKEN` na checkout kód
 4.  Uistite sa, že je zaškrtnuté políčko **Allow GitHub Actions to create and approve pull requests**.
 5.  Kliknite na **Save**.
 
-![Permission setting](../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.sk.png)
+![Permission setting](../../../../translated_images/sk/permission-setting.ae2f02748b0579e7.webp)
 
 ### Krok 4: Vytvorenie workflow súboru
 

@@ -1,120 +1,121 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b58d7c3cb4210697a073d20eb3064945",
-  "translation_date": "2025-06-12T11:58:22+00:00",
-  "source_file": "getting_started/set-up-azure-ai.md",
-  "language_code": "ro"
-}
--->
-# Configurarea Azure AI pentru Co-op Translator (Azure OpenAI & Azure AI Vision)
+# Configurați Azure AI pentru Co-op Translator (Azure OpneAI & Azure AI Vision)
 
-Acest ghid te ajută să configurezi Azure OpenAI pentru traducerea limbajului și Azure Computer Vision pentru analiza conținutului imaginilor (care poate fi folosită apoi pentru traducerea bazată pe imagini) în cadrul Azure AI Foundry.
+Acest ghid vă ghidează prin configurarea Azure OpenAI pentru traducerea limbajului și Azure Computer Vision pentru analiza conținutului imaginii (care poate fi apoi folosită pentru traducerea bazată pe imagini) în Azure AI Foundry.
 
 **Precondiții:**
 - Un cont Azure cu un abonament activ.
-- Permisiuni suficiente pentru a crea resurse și implementări în abonamentul tău Azure.
+- Permisiuni suficiente pentru a crea resurse și implementări în abonamentul dvs. Azure.
 
-## Creează un Proiect Azure AI
+## Creați un Proiect Azure AI
 
-Începi prin a crea un Proiect Azure AI, care servește ca un punct central pentru gestionarea resurselor tale AI.
+Veți începe prin a crea un Proiect Azure AI, care acționează ca un loc central pentru gestionarea resurselor AI.
 
-1. Accesează [https://ai.azure.com](https://ai.azure.com) și autentifică-te cu contul tău Azure.
+1. Accesați [https://ai.azure.com](https://ai.azure.com) și conectați-vă cu contul dvs. Azure.
 
-1. Selectează **+Create** pentru a crea un proiect nou.
+1. Selectați **+Create** pentru a crea un proiect nou.
 
-1. Efectuează următoarele:
-   - Introdu un **Nume proiect** (de ex., `CoopTranslator-Project`).
-   - Selectează **AI hub** (de ex., `CoopTranslator-Hub`) (creează unul nou dacă este necesar).
+1. Efectuați următoarele activități:
+   - Introduceți un **Nume de proiect** (de exemplu, `CoopTranslator-Project`).
+   - Selectați **AI hub** (de exemplu, `CoopTranslator-Hub`) (Creați unul nou dacă este necesar).
 
-1. Apasă "**Review and Create**" pentru a configura proiectul. Vei fi redirecționat către pagina de prezentare a proiectului.
+1. Faceți clic pe "**Review and Create**" pentru a configura proiectul. Veți fi direcționat către pagina de prezentare generală a proiectului.
 
-## Configurează Azure OpenAI pentru traducerea limbajului
+## Configurați Azure OpenAI pentru traducerea limbajului
 
-În cadrul proiectului tău, vei implementa un model Azure OpenAI care va servi ca backend pentru traducerea textului.
+În cadrul proiectului dvs., veți implementa un model Azure OpenAI care să servească drept backend pentru traducerea textului.
 
-### Navighează la Proiectul Tău
+### Navigați la Proiectul Dvs.
 
-Dacă nu ești deja acolo, deschide proiectul creat (de ex., `CoopTranslator-Project`) în Azure AI Foundry.
+Dacă nu sunteți deja acolo, deschideți proiectul dvs. nou creat (de exemplu, `CoopTranslator-Project`) în Azure AI Foundry.
 
-### Implementează un model OpenAI
+### Implementați un Model OpenAI
 
-1. Din meniul din stânga al proiectului, sub "My assets", selectează "**Models + endpoints**".
+1. Din meniul din stânga al proiectului, sub „My assets”, selectați "**Models + endpoints**".
 
-1. Selectează **+ Deploy model**.
+1. Selectați **+ Deploy model**.
 
-1. Selectează **Deploy Base Model**.
+1. Selectați **Deploy Base Model**.
 
-1. Vei vedea o listă cu modelele disponibile. Filtrează sau caută un model GPT potrivit. Recomandăm `gpt-4o`.
+1. Vi se va afișa o listă cu modelele disponibile. Filtrați sau căutați un model GPT potrivit. Recomandăm `gpt-4o`.
 
-1. Selectează modelul dorit și apasă **Confirm**.
+1. Selectați modelul dorit și faceți clic pe **Confirm**.
 
-1. Apasă **Deploy**.
+1. Selectați **Deploy**.
 
 ### Configurarea Azure OpenAI
 
-După implementare, poți selecta implementarea din pagina "**Models + endpoints**" pentru a găsi **REST endpoint URL**, **Key**, **Deployment name**, **Model name** și **API version**. Acestea vor fi necesare pentru a integra modelul de traducere în aplicația ta.
+După implementare, puteți selecta implementarea din pagina "**Models + endpoints**" pentru a găsi **URL-ul endpoint-ului REST**, **Cheia**, **Numele implementării**, **Numele modelului** și **Versiunea API**. Acestea vor fi necesare pentru a integra modelul de traducere în aplicația dvs.
 
 > [!NOTE]
-> Poți selecta versiunile API din pagina [API version deprecation](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation) în funcție de nevoile tale. Reține că **versiunea API** este diferită de **versiunea modelului** afișată pe pagina **Models + endpoints** în Azure AI Foundry.
+> Puteți selecta versiunile API de pe pagina [API version deprecation](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation) în funcție de cerințele dvs. Rețineți că **versiunea API** este diferită de **versiunea modelului** afișată pe pagina **Models + endpoints** în Azure AI Foundry.
 
-## Configurează Azure Computer Vision pentru traducerea imaginilor
+## Configurați Azure Computer Vision pentru traducerea imaginilor
 
-Pentru a permite traducerea textului din imagini, trebuie să găsești cheia API și endpoint-ul serviciului Azure AI.
+Pentru a activa traducerea textului din imagini, trebuie să găsiți cheia API și endpoint-ul serviciului Azure AI.
 
-1. Navighează la Proiectul tău Azure AI (de ex., `CoopTranslator-Project`). Asigură-te că ești pe pagina de prezentare a proiectului.
+1. Accesați Proiectul dvs. Azure AI (de exemplu, `CoopTranslator-Project`). Asigurați-vă că vă aflați în pagina de prezentare generală a proiectului.
 
 ### Configurarea serviciului Azure AI
 
-Găsește cheia API și endpoint-ul din serviciul Azure AI.
+Găsiți cheia API și endpoint-ul din serviciul Azure AI.
 
-1. Navighează la Proiectul tău Azure AI (de ex., `CoopTranslator-Project`). Asigură-te că ești pe pagina de prezentare a proiectului.
+1. Accesați Proiectul dvs. Azure AI (de exemplu, `CoopTranslator-Project`). Asigurați-vă că vă aflați în pagina de prezentare generală a proiectului.
 
-1. Găsește **API Key** și **Endpoint** în fila Azure AI Service.
+1. Găsiți **Cheia API** și **Endpoint** din fila serviciului Azure AI.
 
-    ![Find API Key and Endpoint](../../../translated_images/find-azure-ai-info.60f8299be786dd67e61e2c79b4b9ea1f7694e6c0923f17a90bc6abf9d5f1dbd7.ro.png)
+    ![Find API Key and Endpoint](../../../translated_images/ro/find-azure-ai-info.0e00140419c12517.webp)
 
-Această conexiune face capabilitățile resursei Azure AI Services asociate (inclusiv analiza imaginilor) disponibile pentru proiectul tău AI Foundry. Poți folosi această conexiune în notebook-uri sau aplicații pentru a extrage text din imagini, care poate fi apoi trimis către modelul Azure OpenAI pentru traducere.
+Această conexiune face ca funcționalitățile resursei Azure AI Services conectate (inclusiv analiza imaginii) să fie disponibile în proiectul dvs. AI Foundry. Puteți apoi folosi această conexiune în caietele dvs. ori aplicații pentru a extrage text din imagini, care poate fi trimis ulterior către modelul Azure OpenAI pentru traducere.
 
-## Consolidarea acreditărilor tale
+## Consolidarea acreditărilor dvs.
 
-Până acum, ar trebui să ai următoarele informații:
+Până acum, ar trebui să fi colectat următoarele:
 
-**Pentru Azure OpenAI (Traducere text):**
-- Azure OpenAI Endpoint
-- Azure OpenAI API Key
-- Numele modelului Azure OpenAI (de ex., `gpt-4o`)
-- Numele implementării Azure OpenAI (de ex., `cooptranslator-gpt4o`)
+**Pentru Azure OpenAI (Traducere de text):**
+- Endpoint Azure OpenAI
+- Cheia API Azure OpenAI
+- Numele modelului Azure OpenAI (de exemplu, `gpt-4o`)
+- Numele implementării Azure OpenAI (de exemplu, `cooptranslator-gpt4o`)
 - Versiunea API Azure OpenAI
 
-**Pentru Azure AI Services (Extracția textului din imagini prin Vision):**
-- Endpoint Azure AI Service
-- Cheia API Azure AI Service
+**Pentru serviciile Azure AI (Extracția textului din imagini prin Vision):**
+- Endpoint serviciu Azure AI
+- Cheia API serviciu Azure AI
 
 ### Exemplu: Configurarea variabilelor de mediu (Previzualizare)
 
-Ulterior, când vei construi aplicația, probabil vei configura aceste acreditări ca variabile de mediu astfel:
+Ulterior, când veți construi aplicația dvs., cel mai probabil veți configura folosind aceste acreditări colectate. De exemplu, le puteți seta ca variabile de mediu astfel:
 
 ```bash
-# Azure AI Service Credentials (Required for image translation)
-AZURE_AI_SERVICE_API_KEY="your_azure_ai_service_api_key" # e.g., 21xasd...
+# Credentiale serviciu Azure AI (Necesare pentru traducerea imaginilor)
+AZURE_AI_SERVICE_API_KEY="your_azure_ai_service_api_key" # de exemplu, 21xasd...
 AZURE_AI_SERVICE_ENDPOINT="https://your_azure_ai_service_endpoint.cognitiveservices.azure.com/"
 
-# Azure OpenAI Credentials (Required for text translation)
-AZURE_OPENAI_API_KEY="your_azure_openai_api_key" # e.g., 21xasd...
+# Seturi de rezervă opționale: variabile duplicate cu sufixul _1/_2 (același index pentru toate variabilele din set)
+AZURE_AI_SERVICE_API_KEY_1="your_azure_ai_service_api_key_1"
+AZURE_AI_SERVICE_ENDPOINT_1="https://your_azure_ai_service_endpoint_1.cognitiveservices.azure.com/"
+
+# Credentiale Azure OpenAI (Necesare pentru traducerea textului)
+AZURE_OPENAI_API_KEY="your_azure_openai_api_key" # de exemplu, 21xasd...
 AZURE_OPENAI_ENDPOINT="https://your_azure_openai_endpoint.openai.azure.com/"
-AZURE_OPENAI_MODEL_NAME="your_model_name" # e.g., gpt-4o
-AZURE_OPENAI_CHAT_DEPLOYMENT_NAME="your_deployment_name" # e.g., cooptranslator-gpt4o
-AZURE_OPENAI_API_VERSION="your_api_version" # e.g., 2024-12-01-preview
+AZURE_OPENAI_MODEL_NAME="your_model_name" # de exemplu, gpt-4o
+AZURE_OPENAI_CHAT_DEPLOYMENT_NAME="your_deployment_name" # de exemplu, cooptranslator-gpt4o
+AZURE_OPENAI_API_VERSION="your_api_version" # de exemplu, 2024-12-01-preview
+
+# Seturi de rezervă opționale: dublați întregul set AZURE_OPENAI_* cu sufixul _1/_2 (același index pentru toate variabilele)
 ```
 
 ---
 
 ### Lecturi suplimentare
 
-- [Cum să creezi un proiect în Azure AI Foundry](https://learn.microsoft.com/azure/ai-foundry/how-to/create-projects?tabs=ai-studio)
-- [Cum să creezi resurse Azure AI](https://learn.microsoft.com/azure/ai-foundry/how-to/create-azure-ai-resource?tabs=portal)
-- [Cum să implementezi modele OpenAI în Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/deploy-models-openai)
+- [Cum să creați un proiect în Azure AI Foundry](https://learn.microsoft.com/azure/ai-foundry/how-to/create-projects?tabs=ai-studio)
+- [Cum să creați resurse Azure AI](https://learn.microsoft.com/azure/ai-foundry/how-to/create-azure-ai-resource?tabs=portal)
+- [Cum să implementați modele OpenAI în Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/deploy-models-openai)
 
-**Declinare a responsabilității**:  
-Acest document a fost tradus folosind serviciul de traducere AI [Co-op Translator](https://github.com/Azure/co-op-translator). Deși ne străduim pentru acuratețe, vă rugăm să rețineți că traducerile automate pot conține erori sau inexactități. Documentul original în limba sa nativă trebuie considerat sursa autorizată. Pentru informații critice, se recomandă traducerea profesională realizată de un traducător uman. Nu ne asumăm responsabilitatea pentru eventualele neînțelegeri sau interpretări greșite rezultate din utilizarea acestei traduceri.
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Declinare a responsabilității**:
+Acest document a fost tradus folosind serviciul de traducere AI [Co-op Translator](https://github.com/Azure/co-op-translator). Deși ne străduim pentru acuratețe, vă rugăm să fiți conștienți că traducerile automate pot conține erori sau inexactități. Documentul original în limba sa nativă trebuie considerat sursa autorizată. Pentru informații critice, se recomandă traducerea profesională realizată de un specialist uman. Nu ne asumăm răspunderea pentru eventualele neînțelegeri sau interpretări greșite rezultate din utilizarea acestei traduceri.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

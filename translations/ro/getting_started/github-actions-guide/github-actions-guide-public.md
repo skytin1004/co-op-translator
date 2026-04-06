@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T03:59:01+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "ro"
-}
--->
 # Utilizarea acțiunii Co-op Translator pe GitHub (Configurare Publică)
 
 **Public țintă:** Acest ghid se adresează utilizatorilor din majoritatea depozitelor publice sau private unde permisiunile standard GitHub Actions sunt suficiente. Folosește `GITHUB_TOKEN` integrat.
@@ -53,7 +44,7 @@ Trebuie doar să adaugi **credențialele serviciului AI** ca secrete criptate î
 2.  Mergi la **Settings** > **Secrets and variables** > **Actions**.
 3.  Sub **Repository secrets**, apasă **New repository secret** pentru fiecare secret AI necesar din lista de mai jos.
 
-    ![Select setting action](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.ro.png) *(Referință imagine: Arată unde se adaugă secretele)*
+    ![Select setting action](../../../../translated_images/ro/select-setting-action.3b95c915d6031159.webp) *(Referință imagine: Arată unde se adaugă secretele)*
 
 **Secrete AI necesare (Adaugă TOATE care se aplică în funcție de cerințele tale):**
 
@@ -81,7 +72,7 @@ Acțiunea GitHub are nevoie de permisiuni acordate prin `GITHUB_TOKEN` pentru a 
 4.  Asigură-te că bifezi **Allow GitHub Actions to create and approve pull requests**.
 5.  Apasă **Save**.
 
-![Permission setting](../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.ro.png)
+![Permission setting](../../../../translated_images/ro/permission-setting.ae2f02748b0579e7.webp)
 
 ### Pasul 4: Creează fișierul workflow
 

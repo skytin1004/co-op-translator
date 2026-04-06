@@ -1,16 +1,8 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "dac6bc281667816537df51f724a0ff2c",
-  "translation_date": "2025-11-30T12:13:16+00:00",
-  "source_file": "README.md",
-  "language_code": "sk"
-}
--->
 # Co-op Translator
 
-_Ľahko automatizujte preklad vášho vzdelávacieho obsahu na GitHube do viacerých jazykov a oslovte tak globálne publikum._
+_Ľahko automatizujte a udržiavajte preklady vášho vzdelávacieho obsahu na GitHube v niekoľkých jazykoch počas vývoja vášho projektu._
 
+![Python 3.10–3.12](https://img.shields.io/badge/python-3.10--3.12-blue)
 [![Python package](https://img.shields.io/pypi/v/co-op-translator?color=4BA3FF)](https://pypi.org/project/co-op-translator/)
 [![License: MIT](https://img.shields.io/github/license/azure/co-op-translator?color=4BA3FF)](https://github.com/azure/co-op-translator/blob/main/LICENSE)
 [![Downloads](https://static.pepy.tech/badge/co-op-translator)](https://pepy.tech/project/co-op-translator)
@@ -28,12 +20,32 @@ _Ľahko automatizujte preklad vášho vzdelávacieho obsahu na GitHube do viacer
 #### Podporované [Co-op Translator](https://github.com/Azure/Co-op-Translator)
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
-[Arabčina](../ar/README.md) | [Bengálčina](../bn/README.md) | [Bulharčina](../bg/README.md) | [Barmčina (Myanmar)](../my/README.md) | [Čínština (zjednodušená)](../zh/README.md) | [Čínština (tradičná, Hongkong)](../hk/README.md) | [Čínština (tradičná, Macau)](../mo/README.md) | [Čínština (tradičná, Taiwan)](../tw/README.md) | [Chorvátčina](../hr/README.md) | [Čeština](../cs/README.md) | [Dánčina](../da/README.md) | [Holandčina](../nl/README.md) | [Estónčina](../et/README.md) | [Fínčina](../fi/README.md) | [Francúzština](../fr/README.md) | [Nemčina](../de/README.md) | [Gréčtina](../el/README.md) | [Hebrejčina](../he/README.md) | [Hindčina](../hi/README.md) | [Maďarčina](../hu/README.md) | [Indonézština](../id/README.md) | [Taliančina](../it/README.md) | [Japončina](../ja/README.md) | [Kannadčina](../kn/README.md) | [Kórejčina](../ko/README.md) | [Litovčina](../lt/README.md) | [Malajčina](../ms/README.md) | [Malajálamčina](../ml/README.md) | [Maráthčina](../mr/README.md) | [Nepálčina](../ne/README.md) | [Nigérijská pidžinčina](../pcm/README.md) | [Nórčina](../no/README.md) | [Perzština (Farsi)](../fa/README.md) | [Poľština](../pl/README.md) | [Portugalčina (Brazília)](../br/README.md) | [Portugalčina (Portugalsko)](../pt/README.md) | [Pandžábčina (Gurmukhi)](../pa/README.md) | [Rumunčina](../ro/README.md) | [Ruština](../ru/README.md) | [Srbčina (cyrilika)](../sr/README.md) | [Slovenčina](./README.md) | [Slovinčina](../sl/README.md) | [Španielčina](../es/README.md) | [Svahilčina](../sw/README.md) | [Švédčina](../sv/README.md) | [Tagalog (Filipínčina)](../tl/README.md) | [Tamilčina](../ta/README.md) | [Telugčina](../te/README.md) | [Thajčina](../th/README.md) | [Turečtina](../tr/README.md) | [Ukrajinčina](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamčina](../vi/README.md)
+[Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh-CN/README.md) | [Chinese (Traditional, Hong Kong)](../zh-HK/README.md) | [Chinese (Traditional, Macau)](../zh-MO/README.md) | [Chinese (Traditional, Taiwan)](../zh-TW/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Kannada](../kn/README.md) | [Khmer](../km/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Malayalam](../ml/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../pt-BR/README.md) | [Portuguese (Portugal)](../pt-PT/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](./README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
+
+> **Uprednostňujete lokálne klonovanie?**
+>
+> Tento repozitár obsahuje viac ako 50 jazykových prekladov, čo výrazne zväčšuje veľkosť sťahovania. Ak chcete klonovať bez prekladov, použite sparse checkout:
+>
+> **Bash / macOS / Linux:**
+> ```bash
+> git clone --filter=blob:none --sparse https://github.com/skytin1004/co-op-translator.git
+> cd co-op-translator
+> git sparse-checkout set --no-cone '/*' '!translations' '!translated_images'
+> ```
+>
+> **CMD (Windows):**
+> ```cmd
+> git clone --filter=blob:none --sparse https://github.com/skytin1004/co-op-translator.git
+> cd co-op-translator
+> git sparse-checkout set --no-cone "/*" "!translations" "!translated_images"
+> ```
+>
+> Tento spôsob vám poskytne všetko potrebné na dokončenie kurzu s oveľa rýchlejším sťahovaním.
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
 [![GitHub watchers](https://img.shields.io/github/watchers/azure/co-op-translator.svg?style=social&label=Watch)](https://GitHub.com/azure/co-op-translator/watchers/)
 [![GitHub forks](https://img.shields.io/github/forks/azure/co-op-translator.svg?style=social&label=Fork)](https://GitHub.com/azure/co-op-translator/network/)
-[![GitHub stars](https://img.shields.io/github/stars/azure/co-op-translator?style=social&label=Star)](https://GitHub.com/azure/co-op-translator/stargazers/)
+[![GitHub stars](https://img.shields.io/github/stars/azure/co-op-translator.svg?style=social&label=Star)](https://GitHub.com/azure/co-op-translator/stargazers/)
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
@@ -41,12 +53,33 @@ _Ľahko automatizujte preklad vášho vzdelávacieho obsahu na GitHube do viacer
 
 ## Prehľad
 
-**Co-op Translator** vám pomáha jednoducho lokalizovať váš vzdelávací obsah na GitHube do viacerých jazykov.
-Keď aktualizujete svoje Markdown súbory, obrázky alebo notebooky, preklady sa automaticky synchronizujú, čím zabezpečujú, že váš obsah zostane presný a aktuálny pre študentov po celom svete.
+**Co-op Translator** vám pomáha lokalizovať váš vzdelávací obsah na GitHube do viacerých jazykov bez námahy.  
+Keď aktualizujete svoje Markdown súbory, obrázky alebo notebooky, preklady sa automaticky synchronizujú, čím zabezpečujú, že váš obsah zostáva presný a aktuálny pre študentov po celom svete.
 
-Príklad, ako je preložený obsah usporiadaný:
+Príklad organizácie preloženého obsahu:
 
-![Príklad](../../translated_images/translation-ex.0c8aa6a7ee0aad2b35cddcc110c719baf0afc640e8c5a45540e6c166b9907d91.sk.png)
+![Example](../../translated_images/sk/translation-ex.0c8aa6a7ee0aad2b.webp)
+
+## Ako sa spravuje stav prekladu
+
+Co-op Translator spravuje preložený obsah ako **verzionované softvérové artefakty**,  
+nie ako statické súbory.
+
+Nástroj sleduje stav preložených Markdownov, obrázkov a notebookov  
+pomocou **metadát s rozsahom podľa jazyka**.
+
+Takýto dizajn umožňuje Co-op Translator:
+
+- Spoľahlivo detekovať zastarané preklady  
+- Jednotne spravovať Markdown, obrázky a notebooky  
+- Bezpečne škálovať v rozsiahlych, rýchlo sa meniacich, viacjazyčných repozitároch  
+
+Modelovaním prekladov ako spravovaných artefaktov  
+sa pracovné postupy prekladu prirodzene prispôsobujú moderným  
+praktikám správy závislostí a artefaktov v softvéri.
+
+→ [Ako sa spravuje stav prekladu](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/rethinking-documentation-translation-treating-translations-as-versioned-software/4491755)
+
 
 ## Rýchly štart
 
@@ -66,20 +99,22 @@ translate -l "ko ja fr" -md
 Docker:
 
 ```bash
-# Stiahnite verejný obraz z GHCR
+# Stiahnuť verejný obraz z GHCR
 docker pull ghcr.io/azure/co-op-translator:latest
-# Spustite s pripojenou aktuálnou zložkou a poskytnutým .env (Bash/Zsh)
+# Spustiť s pripojeným aktuálnym priečinkom a poskytnutým súborom .env (Bash/Zsh)
 docker run --rm -it --env-file .env -v "${PWD}:/work" ghcr.io/azure/co-op-translator:latest -l "ko ja fr" -md
 ```
 
 ## Minimálne nastavenie
 
-1. Vytvorte súbor `.env` podľa šablóny: [.env.template](../../.env.template)
-2. Nakonfigurujte jedného poskytovateľa LLM (Azure OpenAI alebo OpenAI)
-3. (Voliteľné) Pre preklad obrázkov (`-img`) nastavte Azure AI Vision
-4. (Odporúčané) Vyčistite predchádzajúce preklady, aby ste predišli konfliktom (napr. `translations/`)
-5. (Odporúčané) Pridajte sekciu pre preklady do vášho README pomocou [README languages template](./getting_started/README_languages_template.md)
-6. Pozrite si: [Nastavenie Azure AI](./getting_started/set-up-azure-ai.md)
+1. Overte, že máte podporovanú verziu Pythonu (momentálne 3.10-3.12). V poetry (pyproject.toml) sa to rieši automaticky.  
+2. Vytvorte súbor `.env` podľa šablóny: [.env.template](../../.env.template)  
+3. Nakonfigurujte jedného poskytovateľa LLM (Azure OpenAI alebo OpenAI)  
+4. (Voliteľné) Pre preklad obrázkov (`-img`) nakonfigurujte Azure AI Vision  
+5. (Voliteľné) Môžete nakonfigurovať viacero sád prihlasovacích údajov zdvojovaním premenných s príponami ako `_1`, `_2` atď. Všetky premenné v sade musia mať rovnakú príponu.  
+6. (Odporúčané) Vyčistite všetky predchádzajúce preklady, aby ste sa vyhli konfliktom (napr. `translations/`)  
+7. (Odporúčané) Pridajte sekciu prekladov do vášho README pomocou [README languages template](./getting_started/README_languages_template.md)  
+8. Pozrite: [Nastavenie Azure AI](./getting_started/set-up-azure-ai.md)  
 
 ## Použitie
 
@@ -89,7 +124,7 @@ Preložte všetky podporované typy:
 translate -l "ko ja"
 ```
 
-Iba Markdown:
+Len Markdown:
 
 ```bash
 translate -l "de" -md
@@ -101,110 +136,114 @@ Markdown + obrázky:
 translate -l "pt" -md -img
 ```
 
-Iba notebooky:
+Len notebooky:
 
 ```bash
 translate -l "zh" -nb
 ```
 
-Viac príznakov: [Referenčný manuál príkazov](./getting_started/command-reference.md)
+Viac prepínačov: [Referenčný príkaz](./getting_started/command-reference.md)
 
 ## Funkcie
 
-- Automatický preklad Markdown, notebookov a obrázkov
-- Udržiava preklady synchronizované so zdrojovými zmenami
-- Funguje lokálne (CLI) alebo v CI (GitHub Actions)
-- Používa Azure OpenAI alebo OpenAI; voliteľne Azure AI Vision pre obrázky
-- Zachováva formátovanie a štruktúru Markdown
+- Automatizovaný preklad Markdown, notebookov a obrázkov  
+- Udržiava preklady synchronizované so zmenami zdroja  
+- Funguje lokálne (CLI) alebo v CI (GitHub Actions)  
+- Používa Azure OpenAI alebo OpenAI; voliteľne Azure AI Vision pre obrázky  
+- Zachováva formátovanie a štruktúru Markdownu  
 
 ## Dokumentácia
 
-- [Príručka príkazového riadku](./getting_started/command-line-guide/command-line-guide.md)
-- [Príručka GitHub Actions (verejné repozitáre a štandardné tajomstvá)](./getting_started/github-actions-guide/github-actions-guide-public.md)
-- [Príručka GitHub Actions (Microsoft organizácie a nastavenia na úrovni organizácie)](./getting_started/github-actions-guide/github-actions-guide-org.md)
-- [Šablóna jazykov README](./getting_started/README_languages_template.md)
-- [Podporované jazyky](./getting_started/supported-languages.md)
-- [Príspevky](./CONTRIBUTING.md)
-- [Riešenie problémov](./getting_started/troubleshooting.md)
+- [Príručka príkazového riadku](./getting_started/command-line-guide/command-line-guide.md)  
+- [Príručka GitHub Actions (verejné repozitáre & štandardné tajomstvá)](./getting_started/github-actions-guide/github-actions-guide-public.md)  
+- [Príručka GitHub Actions (Microsoft organizácie & nastavenia na úrovni organizácie)](./getting_started/github-actions-guide/github-actions-guide-org.md)  
+- [README languages template](./getting_started/README_languages_template.md)  
+- [Podporované jazyky](./getting_started/supported-languages.md)  
+- [Príspevky](./CONTRIBUTING.md)  
+- [Riešenie problémov](./getting_started/troubleshooting.md)  
 
-### Microsoft špecifický sprievodca
+### Microsoft špecifická príručka
 > [!NOTE]
-> Len pre správcov repozitárov Microsoft „Pre začiatočníkov“.
+> Len pre udržiavateľov repozitárov Microsoft „For Beginners“.
 
-- [Aktualizácia zoznamu „iných kurzov“ (len pre MS Beginners repozitáre)](./getting_started/update-other-courses.md)
+- [Aktualizácia zoznamu „other courses“ (len pre MS Beginners repozitáre)](./getting_started/update-other-courses.md)
 
-## Podporte nás a podporte globálne vzdelávanie
+## Podporte nás a podporujte globálne vzdelávanie
 
-Pridajte sa k nám v revolúcii zdieľania vzdelávacieho obsahu po celom svete! Dajte [Co-op Translator](https://github.com/azure/co-op-translator) ⭐ na GitHube a podporte našu misiu prekonávať jazykové bariéry vo vzdelávaní a technológiách. Váš záujem a príspevky majú veľký význam! Kódové príspevky a návrhy funkcií sú vždy vítané.
+Pridajte sa k nám v revolúcii, ako sa vzdelávací obsah globálne zdieľa! Dajte [Co-op Translator](https://github.com/azure/co-op-translator) na GitHube ⭐ a podporte našu misiu prekonávať jazykové bariéry vo vzdelávaní a technológiách. Váš záujem a príspevky majú významný dopad! Kódové príspevky a návrhy funkcií sú vždy vítané.
 
-### Preskúmajte vzdelávací obsah Microsoftu vo vašom jazyku
+### Preskúmajte vzdelávací obsah Microsoftu vo svojom jazyku
 
-- [AZD pre začiatočníkov](https://github.com/microsoft/AZD-for-beginners)
-- [Edge AI pre začiatočníkov](https://github.com/microsoft/edgeai-for-beginners)
-- [Model Context Protocol (MCP) pre začiatočníkov](https://github.com/microsoft/mcp-for-beginners)
-- [AI Agenti pre začiatočníkov](https://github.com/microsoft/ai-agents-for-beginners)
-- [Generatívna AI pre začiatočníkov pomocou .NET](https://github.com/microsoft/Generative-AI-for-beginners-dotnet)
-- [Generatívna AI pre začiatočníkov](https://github.com/microsoft/generative-ai-for-beginners)
-- [Generatívna AI pre začiatočníkov pomocou Java](https://github.com/microsoft/generative-ai-for-beginners-java)
-- [Strojové učenie pre začiatočníkov](https://aka.ms/ml-beginners)
-- [Dátová veda pre začiatočníkov](https://aka.ms/datascience-beginners)
-- [AI pre začiatočníkov](https://aka.ms/ai-beginners)
-- [Kybernetická bezpečnosť pre začiatočníkov](https://github.com/microsoft/Security-101)
-- [Webový vývoj pre začiatočníkov](https://aka.ms/webdev-beginners)
-- [IoT pre začiatočníkov](https://aka.ms/iot-beginners)
-- [PhiCookBook](https://github.com/microsoft/PhiCookBook)
+- [LangChain4j-for-Beginners](https://github.com/microsoft/LangChain4j-for-Beginners)  
+- [AZD for Beginners](https://github.com/microsoft/AZD-for-beginners)  
+- [Edge AI for Beginners](https://github.com/microsoft/edgeai-for-beginners)  
+- [Model Context Protocol (MCP) For Beginners](https://github.com/microsoft/mcp-for-beginners)  
+- [AI Agents for Beginners](https://github.com/microsoft/ai-agents-for-beginners)  
+- [Generative AI for Beginners using .NET](https://github.com/microsoft/Generative-AI-for-beginners-dotnet)  
+- [Generative AI for Beginners](https://github.com/microsoft/generative-ai-for-beginners)  
+- [Generative AI for Beginners using Java](https://github.com/microsoft/generative-ai-for-beginners-java)  
+- [ML for Beginners](https://aka.ms/ml-beginners)  
+- [Data Science for Beginners](https://aka.ms/datascience-beginners)  
+- [AI for Beginners](https://aka.ms/ai-beginners)  
+- [Cybersecurity for Beginners](https://github.com/microsoft/Security-101)  
+- [Web Dev for Beginners](https://aka.ms/webdev-beginners)  
+- [IoT for Beginners](https://aka.ms/iot-beginners)  
+- [PhiCookBook](https://github.com/microsoft/PhiCookBook)  
 
-## Video prezentácie
+## Videoprezentácie
 
 👉 Kliknite na obrázok nižšie pre sledovanie na YouTube.
 
-- **Open at Microsoft**: Krátka 18-minútová úvodná prezentácia a rýchly návod, ako používať Co-op Translator.
+- **Open at Microsoft**: Krátke 18-minútové predstavenie a rýchly návod, ako používať Co-op Translator.
 
-  [![Open at Microsoft](../../translated_images/open-ms-thumbnail.946b356b89bc5f0e33dcebb852f7926b98c33f54c1a49ce01c36ae7f35e2443a.sk.jpg)](https://www.youtube.com/watch?v=jX_swfH_KNU)
+  [![Open at Microsoft](../../translated_images/sk/open-ms-thumbnail.946b356b89bc5f0e.webp)](https://www.youtube.com/watch?v=jX_swfH_KNU)
 
-## Príspevky
+## Prispievanie
 
-Tento projekt vítá príspevky a návrhy. Máte záujem prispieť do Azure Co-op Translator? Pozrite si prosím náš [CONTRIBUTING.md](./CONTRIBUTING.md) pre pokyny, ako môžete pomôcť sprístupniť Co-op Translator širšiemu publiku.
+Tento projekt víta príspevky a návrhy. Máte záujem prispieť do Azure Co-op Translator? Prosím, pozrite si náš [CONTRIBUTING.md](./CONTRIBUTING.md) pre pokyny, ako môžete pomôcť sprístupniť Co-op Translator širšiemu publiku.
 
 ## Prispievatelia
-
 [![co-op-translator contributors](https://contrib.rocks/image?repo=Azure/co-op-translator)](https://github.com/Azure/co-op-translator/graphs/contributors)
 
-## Kód správania
+## Kódex správania
 
 Tento projekt prijal [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-Pre viac informácií si pozrite [Často kladené otázky o Kóde správania](https://opensource.microsoft.com/codeofconduct/faq/) alebo
-kontaktujte [opencode@microsoft.com](mailto:opencode@microsoft.com) s akýmikoľvek ďalšími otázkami či pripomienkami.
+Pre viac informácií si pozrite [Často kladené otázky ku Kódexu správania](https://opensource.microsoft.com/codeofconduct/faq/) alebo
+kontaktujte [opencode@microsoft.com](mailto:opencode@microsoft.com) s ďalšími otázkami či komentármi.
 
 ## Zodpovedná AI
 
-Microsoft sa zaväzuje pomáhať svojim zákazníkom používať naše AI produkty zodpovedne, zdieľať naše poznatky a budovať dôveru prostredníctvom nástrojov ako Transparency Notes a Impact Assessments. Mnohé z týchto zdrojov nájdete na [https://aka.ms/RAI](https://aka.ms/RAI).
-Prístup Microsoftu k zodpovednej AI je založený na princípoch spravodlivosti, spoľahlivosti a bezpečnosti, ochrany súkromia a bezpečnosti, inkluzívnosti, transparentnosti a zodpovednosti.
+Microsoft sa zaväzuje pomáhať našim zákazníkom používať naše AI produkty zodpovedne, zdieľať naše poznatky a budovať dôverné partnerstvá prostredníctvom nástrojov ako Transparency Notes a Impact Assessments. Mnohé z týchto zdrojov nájdete na [https://aka.ms/RAI](https://aka.ms/RAI).
+Prístup Microsoftu k zodpovednej AI je založený na našich princípoch AI: spravodlivosť, spoľahlivosť a bezpečnosť, súkromie a bezpečnosť, inkluzívnosť, transparentnosť a zodpovednosť.
 
-Veľké modely pre spracovanie prirodzeného jazyka, obrázkov a reči – ako tie použité v tomto príklade – môžu potenciálne vykazovať správanie, ktoré je nespravodlivé, nespoľahlivé alebo urážlivé, čo môže viesť k škodám. Prosím, prečítajte si [Transparency note služby Azure OpenAI](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text), aby ste boli informovaní o rizikách a obmedzeniach.
-Odporúčaným prístupom na zmiernenie týchto rizík je zahrnúť do vašej architektúry bezpečnostný systém, ktorý dokáže detegovať a zabrániť škodlivému správaniu. <a href="https://learn.microsoft.com/azure/ai-services/content-safety/overview">Azure AI Content Safety</a> poskytuje nezávislú ochrannú vrstvu, schopnú detegovať škodlivý obsah vytvorený používateľmi aj AI v aplikáciách a službách. Azure AI Content Safety zahŕňa textové a obrazové API, ktoré vám umožňujú detegovať škodlivý materiál. Máme tiež interaktívne Content Safety Studio, ktoré vám umožňuje prezerať, skúmať a vyskúšať ukážkový kód na detekciu škodlivého obsahu v rôznych modalitách. Nasledujúca <a href="https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest">rýchla príručka</a> vás prevedie vytváraním požiadaviek na službu.
+Veľkorozsiahle modely prirodzeného jazyka, obrazu a reči - ako tie použité v tomto príklade - môžu potenciálne vykazovať správanie, ktoré je nespravodlivé, nespoľahlivé alebo urážlivé, čo môže spôsobovať škody. Prosím, konzultujte [Azure OpenAI service Transparency note](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) pre informácie o rizikách a obmedzeniach.
 
-Ďalším aspektom, ktorý treba zvážiť, je celkový výkon aplikácie. Pri multimodálnych a multimodelových aplikáciách považujeme výkon za to, že systém funguje tak, ako vy a vaši používatelia očakávate, vrátane toho, že nevytvára škodlivé výstupy. Je dôležité vyhodnotiť výkon vašej celkovej aplikácie pomocou <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in">metrik kvality generovania a rizika a bezpečnosti</a>.
+Odporúčaným prístupom na zmiernenie týchto rizík je zahrnúť do vašej architektúry bezpečnostný systém, ktorý dokáže detekovať a zabrániť škodlivému správaniu. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) poskytuje nezávislú vrstvu ochrany, schopnú detegovať škodlivý obsah vytváraný používateľmi aj AI v aplikáciách a službách. Azure AI Content Safety obsahuje API pre text a obrázky, ktoré vám umožňujú detegovať škodlivý materiál. Máme tiež interaktívne Content Safety Studio, ktoré vám umožní prezerať, skúmať a vyskúšať ukážkový kód na detekciu škodlivého obsahu v rôznych modalitách. Nasledujúca [dokumentácia quickstart](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) vás prevedie procesom posielania požiadaviek na službu.
 
-Vašu AI aplikáciu môžete vyhodnotiť vo vašom vývojovom prostredí pomocou <a href="https://microsoft.github.io/promptflow/index.html">prompt flow SDK</a>. Na základe testovacej dátovej sady alebo cieľa sú generácie vašej generatívnej AI aplikácie kvantitatívne merané pomocou vstavaných alebo vlastných hodnotiteľov podľa vášho výberu. Ak chcete začať s prompt flow SDK na vyhodnotenie vášho systému, môžete sledovať <a href="https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk">rýchlu príručku</a>. Po vykonaní hodnotiaceho behu môžete <a href="https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results">vizualizovať výsledky v Azure AI Studio</a>.
+Ďalším aspektom, ktorý treba zvážiť, je celkový výkon aplikácie. Pri multimodálnych a multi-modelových aplikáciách považujeme výkon za to, že systém funguje tak, ako vy a vaši používatelia očakávate, vrátane toho, že nevytvára škodlivé výstupy. Je dôležité posúdiť výkon vašej celkovej aplikácie pomocou [metrík kvality generovania a rizika a bezpečnosti](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
+
+Svoju AI aplikáciu môžete vyhodnotiť vo vývojovom prostredí pomocou [prompt flow SDK](https://microsoft.github.io/promptflow/index.html). Ak máte testovaciu dátovú množinu alebo cieľ, vaše generatívne AI výstupy sú kvantitatívne merané pomocou vstavaných alebo vlastných hodnotiacich nástrojov podľa vášho výberu. Ak chcete začať s prompt flow SDK na vyhodnotenie vášho systému, môžete sledovať [rýchly návod](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). Po vykonaní hodnotiaceho behu môžete [vizualizovať výsledky v Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
 
 ## Ochranné známky
 
-Tento projekt môže obsahovať ochranné známky alebo logá projektov, produktov alebo služieb. Autorizované používanie ochranných známok alebo log Microsoftu podlieha a musí dodržiavať <a href="https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general">Pravidlá používania ochranných známok a značiek Microsoftu</a>. Použitie ochranných známok alebo log Microsoftu v upravených verziách tohto projektu nesmie spôsobovať zmätok ani naznačovať sponzorstvo Microsoftom. Akékoľvek použitie ochranných známok alebo log tretích strán podlieha pravidlám týchto tretích strán.
+Tento projekt môže obsahovať ochranné známky alebo logá projektov, produktov alebo služieb. Autorizované používanie ochranných známok alebo log Microsoftu podlieha a musí dodržiavať
+[smery Microsoft pre ochranné známky a značky](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
+Používanie ochranných známok alebo log Microsoftu v upravených verziách tohto projektu nesmie spôsobovať zmätok ani naznačovať sponzorstvo Microsoftom.
+Akékoľvek používanie ochranných známok alebo log tretích strán podlieha pravidlám daných tretích strán.
 
-## Získanie pomoci
+## Ako získať pomoc
 
-Ak sa zaseknete alebo máte otázky ohľadom tvorby AI aplikácií, pripojte sa:
+Ak máte problém alebo otázky ohľadom tvorby AI aplikácií, pripojte sa:
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
-Ak máte spätnú väzbu k produktu alebo narazíte na chyby počas vývoja, navštívte:
+Ak máte spätnú väzbu k produktu alebo chyby počas tvorby navštívte:
 
 [![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Zrieknutie sa zodpovednosti**:
-Tento dokument bol preložený pomocou AI prekladateľskej služby [Co-op Translator](https://github.com/Azure/co-op-translator). Aj keď sa snažíme o presnosť, majte prosím na pamäti, že automatizované preklady môžu obsahovať chyby alebo nepresnosti. Originálny dokument v jeho pôvodnom jazyku by mal byť považovaný za autoritatívny zdroj. Pre kritické informácie sa odporúča profesionálny ľudský preklad. Nie sme zodpovední za akékoľvek nedorozumenia alebo nesprávne interpretácie vyplývajúce z použitia tohto prekladu.
+**Vylúčenie zodpovednosti**:  
+Tento dokument bol preložený pomocou AI prekladateľskej služby [Co-op Translator](https://github.com/Azure/co-op-translator). Hoci sa snažíme o presnosť, vezmite prosím na vedomie, že automatizované preklady môžu obsahovať chyby alebo nepresnosti. Pôvodný dokument v jeho pôvodnom jazyku by mal byť považovaný za autoritatívny zdroj. Pre kritické informácie sa odporúča profesionálny ľudský preklad. Nie sme zodpovední za akékoľvek nedorozumenia alebo nesprávne výklady vyplývajúce z použitia tohto prekladu.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

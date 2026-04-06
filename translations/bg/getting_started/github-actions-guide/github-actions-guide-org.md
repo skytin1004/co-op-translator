@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9fac847815936ef6e6c8bfde6d191571",
-  "translation_date": "2025-10-15T04:01:23+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-org.md",
-  "language_code": "bg"
-}
--->
 # Използване на Co-op Translator GitHub Action (Ръководство за организации)
 
 **Целева аудитория:** Това ръководство е предназначено за **вътрешни потребители на Microsoft** или **екипи, които имат достъп до необходимите идентификационни данни за предварително изградения Co-op Translator GitHub App** или могат да създадат собствен GitHub App.
@@ -56,11 +47,11 @@ CO_OP_TRANSLATOR_METADATA:
 
 1. Изберете **Install** и изберете акаунта или организацията, в която се намира вашето хранилище.
 
-    ![Инсталиране на приложението](../../../../translated_images/install-app.d0f0a24cbb1d6c93f293f002eb34e633f7bc8f5caaba46b97806ba7bdc958f27.bg.png)
+    ![Инсталиране на приложението](../../../../translated_images/bg/install-app.d0f0a24cbb1d6c93.webp)
 
 1. Изберете **Only select repositories** и изберете вашето хранилище (например `PhiCookBook`). Натиснете **Install**. Може да бъдете помолени да се удостоверите.
 
-    ![Инсталиране и оторизация](../../../../translated_images/install-authorize.29df6238c3eb8f707e7fc6f97a946cb654b328530c4aeddce28b874693f076a0.bg.png)
+    ![Инсталиране и оторизация](../../../../translated_images/bg/install-authorize.29df6238c3eb8f70.webp)
 
 1. **Получете идентификационни данни за приложението (необходим е вътрешен процес):** За да позволите на работния процес да се удостоверява като приложението, са ви необходими две неща, предоставени от екипа на Co-op Translator:
   - **App ID:** Уникалният идентификатор на Co-op Translator приложението. App ID е: `1164076`.
@@ -82,7 +73,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 1. Под **Repository secrets** натиснете **New repository secret** за всеки от секретите по-долу.
 
-   ![Избор на настройка за действия](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.bg.png)
+   ![Избор на настройка за действия](../../../../translated_images/bg/select-setting-action.3b95c915d6031159.webp)
 
 **Задължителни секрети (за удостоверяване с GitHub App):**
 
@@ -107,7 +98,7 @@ CO_OP_TRANSLATOR_METADATA:
 | `OPENAI_CHAT_MODEL_ID`              | Конкретен OpenAI model ID                  | OpenAI Platform                |
 | `OPENAI_BASE_URL`                   | Персонализиран OpenAI API Base URL         | OpenAI Platform                |
 
-![Въвеждане на име на променлива на средата](../../../../translated_images/add-secrets-done.444861ce6956d5cb20781ead1237fcc12805078349bb0d4e95bb9540ee192227.bg.png)
+![Въвеждане на име на променлива на средата](../../../../translated_images/bg/add-secrets-done.444861ce6956d5cb.webp)
 
 ### Стъпка 3: Създайте файла за работния процес
 

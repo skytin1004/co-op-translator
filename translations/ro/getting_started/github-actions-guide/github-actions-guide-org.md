@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9fac847815936ef6e6c8bfde6d191571",
-  "translation_date": "2025-10-15T03:58:39+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-org.md",
-  "language_code": "ro"
-}
--->
 # Utilizarea acțiunii GitHub Co-op Translator (Ghid pentru organizații)
 
 **Public țintă:** Acest ghid este destinat **utilizatorilor interni Microsoft** sau **echipelor care au acces la acreditările necesare pentru aplicația GitHub Co-op Translator preconfigurată** sau pot crea propria lor aplicație GitHub personalizată.
@@ -56,11 +47,11 @@ Workflow-ul folosește autentificarea cu GitHub App pentru a interacționa în s
 
 1. Selectează **Install** și alege contul sau organizația unde se află repository-ul țintă.
 
-    ![Instalează aplicația](../../../../translated_images/install-app.d0f0a24cbb1d6c93f293f002eb34e633f7bc8f5caaba46b97806ba7bdc958f27.ro.png)
+    ![Instalează aplicația](../../../../translated_images/ro/install-app.d0f0a24cbb1d6c93.webp)
 
 1. Alege **Only select repositories** și selectează repository-ul țintă (ex: `PhiCookBook`). Apasă **Install**. Este posibil să ți se ceară autentificarea.
 
-    ![Autorizare instalare](../../../../translated_images/install-authorize.29df6238c3eb8f707e7fc6f97a946cb654b328530c4aeddce28b874693f076a0.ro.png)
+    ![Autorizare instalare](../../../../translated_images/ro/install-authorize.29df6238c3eb8f70.webp)
 
 1. **Obține acreditările aplicației (proces intern necesar):** Pentru ca workflow-ul să se poată autentifica ca aplicație, ai nevoie de două informații furnizate de echipa Co-op Translator:
   - **App ID:** Identificatorul unic al aplicației Co-op Translator. App ID-ul este: `1164076`.
@@ -82,7 +73,7 @@ Trebuie să adaugi acreditările aplicației GitHub și acreditările serviciulu
 
 1. Sub **Repository secrets**, apasă **New repository secret** pentru fiecare secret din lista de mai jos.
 
-   ![Selectează setarea action](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.ro.png)
+   ![Selectează setarea action](../../../../translated_images/ro/select-setting-action.3b95c915d6031159.webp)
 
 **Secrete necesare (pentru autentificarea cu GitHub App):**
 
@@ -107,7 +98,7 @@ Trebuie să adaugi acreditările aplicației GitHub și acreditările serviciulu
 | `OPENAI_CHAT_MODEL_ID`              | ID-ul modelului OpenAI specific         | OpenAI Platform                   |
 | `OPENAI_BASE_URL`                   | URL de bază personalizat pentru OpenAI  | OpenAI Platform                   |
 
-![Introdu numele variabilei de mediu](../../../../translated_images/add-secrets-done.444861ce6956d5cb20781ead1237fcc12805078349bb0d4e95bb9540ee192227.ro.png)
+![Introdu numele variabilei de mediu](../../../../translated_images/ro/add-secrets-done.444861ce6956d5cb.webp)
 
 ### Pasul 3: Creează fișierul workflow
 
