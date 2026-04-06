@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9fac847815936ef6e6c8bfde6d191571",
-  "translation_date": "2025-10-15T03:28:16+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-org.md",
-  "language_code": "fi"
-}
--->
 # Co-op Translator GitHub Actionin käyttö (Organisaation opas)
 
 **Kohderyhmä:** Tämä opas on tarkoitettu **Microsoftin sisäisille käyttäjille** tai **tiimeille, joilla on pääsy valmiiksi rakennettuun Co-op Translator GitHub Appiin** tai jotka voivat luoda oman mukautetun GitHub Appin.
@@ -56,11 +47,11 @@ Työnkulku käyttää GitHub App -autentikointia, jotta se voi turvallisesti toi
 
 1. Valitse **Install** ja valitse tili tai organisaatio, jossa kohderepositoriosi sijaitsee.
 
-    <img src="../../../../translated_images/install-app.d0f0a24cbb1d6c93f293f002eb34e633f7bc8f5caaba46b97806ba7bdc958f27.fi.png" alt="Asenna sovellus">
+    <img src="../../../../translated_images/fi/install-app.d0f0a24cbb1d6c93.webp" alt="Asenna sovellus">
 
 1. Valitse **Only select repositories** ja valitse kohderepositoriosi (esim. `PhiCookBook`). Klikkaa **Install**. Sinua voidaan pyytää tunnistautumaan.
 
-    <img src="../../../../translated_images/install-authorize.29df6238c3eb8f707e7fc6f97a946cb654b328530c4aeddce28b874693f076a0.fi.png" alt="Asenna valtuutus">
+    <img src="../../../../translated_images/fi/install-authorize.29df6238c3eb8f70.webp" alt="Asenna valtuutus">
 
 1. **Hanki App-tunnukset (sisäinen prosessi):** Jotta työnkulku voi tunnistautua sovelluksena, tarvitset kaksi Co-op Translator -tiimin antamaa tietoa:
   - **App ID:** Co-op Translator -sovelluksen yksilöllinen tunniste. App ID on: `1164076`.
@@ -82,7 +73,7 @@ Sinun tulee lisätä GitHub Appin tunnukset ja AI-palvelun tunnukset salattuina 
 
 1. **Repository secrets** -kohdassa klikkaa **New repository secret** jokaiselle alla listatulle salaisuudelle.
 
-   <img src="../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.fi.png" alt="Valitse asetustoiminto">
+   <img src="../../../../translated_images/fi/select-setting-action.3b95c915d6031159.webp" alt="Valitse asetustoiminto">
 
 **Pakolliset salaisuudet (GitHub App -autentikointiin):**
 
@@ -107,7 +98,7 @@ Sinun tulee lisätä GitHub Appin tunnukset ja AI-palvelun tunnukset salattuina 
 | `OPENAI_CHAT_MODEL_ID`               | OpenAI-mallin ID                          | OpenAI Platform              |
 | `OPENAI_BASE_URL`                    | Mukautettu OpenAI API Base URL            | OpenAI Platform              |
 
-<img src="../../../../translated_images/add-secrets-done.444861ce6956d5cb20781ead1237fcc12805078349bb0d4e95bb9540ee192227.fi.png" alt="Syötä ympäristömuuttujan nimi">
+<img src="../../../../translated_images/fi/add-secrets-done.444861ce6956d5cb.webp" alt="Syötä ympäristömuuttujan nimi">
 
 ### Vaihe 3: Luo työnkulun tiedosto
 

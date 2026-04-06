@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T03:23:10+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "da"
-}
--->
 # Brug af Co-op Translator GitHub Action (Offentlig Opsætning)
 
 **Målgruppe:** Denne vejledning er til brugere i de fleste offentlige eller private repositories, hvor standard GitHub Actions-tilladelser er tilstrækkelige. Den bruger den indbyggede `GITHUB_TOKEN`.
@@ -53,7 +44,7 @@ Du skal kun tilføje dine **AI-tjenesteoplysninger** som krypterede secrets i re
 2.  Gå til **Settings** > **Secrets and variables** > **Actions**.
 3.  Under **Repository secrets**, klik på **New repository secret** for hver nødvendig AI-tjeneste secret, der er listet nedenfor.
 
-    ![Vælg indstilling action](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.da.png) *(Billedreference: Viser hvor du tilføjer secrets)*
+    ![Vælg indstilling action](../../../../translated_images/da/select-setting-action.3b95c915d6031159.webp) *(Billedreference: Viser hvor du tilføjer secrets)*
 
 **Nødvendige AI-tjeneste secrets (Tilføj ALLE der er relevante ud fra dine forudsætninger):**
 
@@ -81,7 +72,7 @@ GitHub Action skal have tilladelser via `GITHUB_TOKEN` til at tjekke kode ud og 
 4.  Sørg for at afkrydsningsfeltet **Allow GitHub Actions to create and approve pull requests** er **markeret**.
 5.  Klik på **Save**.
 
-![Tilladelsesindstilling](../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.da.png)
+![Tilladelsesindstilling](../../../../translated_images/da/permission-setting.ae2f02748b0579e7.webp)
 
 ### Trin 4: Opret workflow-filen
 

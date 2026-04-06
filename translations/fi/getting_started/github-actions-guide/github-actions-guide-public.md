@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T03:28:37+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "fi"
-}
--->
 # Co-op Translator GitHub Actionin käyttö (Julkinen käyttöönotto)
 
 **Kohderyhmä:** Tämä ohje on tarkoitettu käyttäjille useimmissa julkisissa tai yksityisissä repositorioissa, joissa GitHub Actionsin oletusoikeudet riittävät. Se hyödyntää sisäänrakennettua `GITHUB_TOKEN`-tunnusta.
@@ -53,7 +44,7 @@ Sinun tarvitsee lisätä vain **AI-palvelun tunnukset** salattuina salaisuuksina
 2.  Mene kohtaan **Settings** > **Secrets and variables** > **Actions**.
 3.  **Repository secrets** -kohdassa klikkaa **New repository secret** jokaiselle alla listatulle AI-palvelun salaisuudelle.
 
-    ![Valitse asetus actionille](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.fi.png) *(Kuvaviite: Näyttää, mistä salaisuudet lisätään)*
+    ![Valitse asetus actionille](../../../../translated_images/fi/select-setting-action.3b95c915d6031159.webp) *(Kuvaviite: Näyttää, mistä salaisuudet lisätään)*
 
 **Tarvittavat AI-palvelun salaisuudet (Lisää KAIKKI, jotka koskevat esivaatimuksiasi):**
 
@@ -81,7 +72,7 @@ GitHub Action tarvitsee `GITHUB_TOKEN`-tunnuksen kautta oikeudet koodin noutamis
 4.  Varmista, että **Allow GitHub Actions to create and approve pull requests** -valintaruutu on **valittuna**.
 5.  Valitse **Save**.
 
-![Oikeusasetukset](../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.fi.png)
+![Oikeusasetukset](../../../../translated_images/fi/permission-setting.ae2f02748b0579e7.webp)
 
 ### Vaihe 4: Luo työnkulun tiedosto
 

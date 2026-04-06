@@ -1,120 +1,121 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b58d7c3cb4210697a073d20eb3064945",
-  "translation_date": "2025-06-12T11:54:39+00:00",
-  "source_file": "getting_started/set-up-azure-ai.md",
-  "language_code": "fi"
-}
--->
-# Azure AI:n käyttöönotto Co-op Translatorille (Azure OpenAI & Azure AI Vision)
+# Aseta Azure AI Co-op Translatorille (Azure OpenAI & Azure AI Vision)
 
-Tässä ohjeessa käydään läpi, miten otat käyttöön Azure OpenAI -kielenkääntämiseen ja Azure Computer Vision -kuvasisällön analysointiin (jota voidaan käyttää kuvapohjaiseen käännökseen) Azure AI Foundryn sisällä.
+Tämä opas opastaa sinut Azure OpenAI:n käyttöönottoon kielenkääntämistä varten ja Azure Computer Visionin käyttöönottoon kuvasisällön analysointia varten (jota voidaan sitten käyttää kuvapohjaiseen kääntämiseen) Azure AI Foundryssa.
 
 **Esivaatimukset:**
-- Azure-tili, jossa on aktiivinen tilaus.
-- Riittävät oikeudet resurssien ja käyttöönottojen luomiseen Azure-tilauksessasi.
+- Azure-tili aktiivisella tilauksella.
+- Riittävät oikeudet resurssien ja käyttöönottojen luomiseen Azure-tililläsi.
 
 ## Luo Azure AI -projekti
 
-Aloitat luomalla Azure AI -projektin, joka toimii keskeisenä paikkana AI-resurssiesi hallintaan.
+Aloitat luomalla Azure AI -projektin, joka toimii keskuspaikkana AI-resurssiesi hallintaan.
 
 1. Siirry osoitteeseen [https://ai.azure.com](https://ai.azure.com) ja kirjaudu sisään Azure-tililläsi.
 
 1. Valitse **+Create** luodaksesi uuden projektin.
 
-1. Suorita seuraavat toimenpiteet:
-   - Anna **Project name** (esim. `CoopTranslator-Project`).
-   - Valitse **AI hub** (esim. `CoopTranslator-Hub`) (luo uusi tarvittaessa).
+1. Suorita seuraavat tehtävät:
+   - Syötä **Projektin nimi** (esim. `CoopTranslator-Project`).
+   - Valitse **AI-hubi** (esim. `CoopTranslator-Hub`) (Luo uusi tarvittaessa).
 
-1. Klikkaa "**Review and Create**" luodaksesi projektisi. Sinut ohjataan projektin yleiskatsaus-sivulle.
+1. Napsauta "**Review and Create**" asettaaksesi projektisi. Sinut ohjataan projektisi yleiskatsaus-sivulle.
 
-## Ota Azure OpenAI käyttöön kielenkääntämiseen
+## Aseta Azure OpenAI kielenkääntämiseen
 
-Projektissasi otat käyttöön Azure OpenAI -mallin, joka toimii tekstin käännöksen taustapalveluna.
+Projektisi sisällä otat käyttöön Azure OpenAI -mallin, joka toimii tekstikäännösten taustapalvelimena.
 
 ### Siirry projektiisi
 
-Jos et ole jo siellä, avaa juuri luomasi projekti (esim. `CoopTranslator-Project`) Azure AI Foundrystä.
+Jos et ole siellä jo, avaa juuri luomasi projekti (esim. `CoopTranslator-Project`) Azure AI Foundryssa.
 
-### Ota OpenAI-malli käyttöön
+### Ota käyttöön OpenAI-malli
 
-1. Projektisi vasemman reunan valikosta, kohdasta "My assets", valitse "**Models + endpoints**".
+1. Projektisi vasemman reunan valikosta, "My assets" -kohdan alta, valitse "**Models + endpoints**".
 
 1. Valitse **+ Deploy model**.
 
 1. Valitse **Deploy Base Model**.
 
-1. Näet listan saatavilla olevista malleista. Suodata tai etsi sopiva GPT-malli. Suosittelemme `gpt-4o`.
+1. Näet listan saatavilla olevista malleista. Suodata tai hae sopiva GPT-malli. Suosittelemme `gpt-4o`:ta.
 
-1. Valitse haluamasi malli ja klikkaa **Confirm**.
+1. Valitse haluamasi malli ja napsauta **Confirm**.
 
 1. Valitse **Deploy**.
 
-### Azure OpenAI -asetukset
+### Azure OpenAI -konfiguraatio
 
-Kun käyttöönotto on valmis, voit valita käyttöönoton "**Models + endpoints**" -sivulta ja löytää sieltä **REST endpoint URL:n**, **Avain**, **Deployment name** -nimen, **Model name** -nimen sekä **API version** -version. Näitä tarvitaan, kun liität käännösmallin sovellukseesi.
+Kun käyttöönotto on tehty, voit valita käyttöönoton "**Models + endpoints**" -sivulta nähdäksesi sen **REST-päätepisteen URL-osoitteen**, **Avaimen**, **Käyttöönoton nimen**, **Mallin nimen** ja **API-version**. Näitä tarvitaan käännösmallin integroimiseksi sovellukseesi.
 
 > [!NOTE]
-> Voit valita API-versioita [API version deprecation](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation) -sivulta tarpeidesi mukaan. Huomaa, että **API version** eroaa **Model version** -versiosta, joka näkyy **Models + endpoints** -sivulla Azure AI Foundryssä.
+> Voit valita API-versioita [API version deprecation](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation) -sivulta vaatimustesi mukaan. Huomioi, että **API-versio** eroaa Azure AI Foundryn "**Models + endpoints**" sivulla näkyvästä **Malliversiosta**.
 
-## Ota Azure Computer Vision käyttöön kuvakäännöstä varten
+## Aseta Azure Computer Vision kuvakäännöstä varten
 
-Jotta voit kääntää kuvan tekstisisältöä, sinun täytyy löytää Azure AI Service API Key ja Endpoint.
-
-1. Siirry Azure AI -projektiisi (esim. `CoopTranslator-Project`). Varmista, että olet projektin yleiskatsaus-sivulla.
-
-### Azure AI Service -asetukset
-
-Löydä API Key ja Endpoint Azure AI Service -välilehdeltä.
+Kuvissa olevan tekstin kääntämisen mahdollistamiseksi tarvitset Azure AI Service API -avaimen ja päätepisteen.
 
 1. Siirry Azure AI -projektiisi (esim. `CoopTranslator-Project`). Varmista, että olet projektin yleiskatsaus-sivulla.
 
-1. Etsi **API Key** ja **Endpoint** Azure AI Service -välilehdeltä.
+### Azure AI Service -konfiguraatio
 
-    ![Find API Key and Endpoint](../../../translated_images/find-azure-ai-info.60f8299be786dd67e61e2c79b4b9ea1f7694e6c0923f17a90bc6abf9d5f1dbd7.fi.png)
+Löydä API-avain ja päätepiste Azure AI Service -välilehdeltä.
 
-Tämä yhteys tekee linkitetyn Azure AI Services -resurssin ominaisuudet (mukaan lukien kuvan analysoinnin) saataville AI Foundry -projektiisi. Voit käyttää tätä yhteyttä muistiinpanoissasi tai sovelluksissasi tekstin poimimiseen kuvista, jonka jälkeen teksti voidaan lähettää Azure OpenAI -mallille käännettäväksi.
+1. Siirry Azure AI -projektiisi (esim. `CoopTranslator-Project`). Varmista, että olet projektin yleiskatsaus-sivulla.
 
-## Tietojen kokoaminen yhteen
+1. Löydä **API-avain** ja **Päätepiste** Azure AI Service -välilehdeltä.
 
-Nyt sinulla pitäisi olla kerättynä seuraavat tiedot:
+    ![Find API Key and Endpoint](../../../translated_images/fi/find-azure-ai-info.0e00140419c12517.webp)
 
-**Azure OpenAI:lle (tekstin kääntäminen):**
-- Azure OpenAI Endpoint
-- Azure OpenAI API Key
-- Azure OpenAI Model Name (esim. `gpt-4o`)
-- Azure OpenAI Deployment Name (esim. `cooptranslator-gpt4o`)
-- Azure OpenAI API Version
+Tämä yhteys tekee linkitetyn Azure AI Services -resurssin ominaisuudet (mukaan lukien kuvan analysointi) käytettäviksi AI Foundry -projektissasi. Voit sitten käyttää tätä yhteyttä muistikirjoissasi tai sovelluksissasi kuvan tekstin poimimiseen, jonka voi myöhemmin lähettää Azure OpenAI -mallille käännettäväksi.
 
-**Azure AI Servicesille (kuvatekstin poiminta Visionin kautta):**
-- Azure AI Service Endpoint
-- Azure AI Service API Key
+## Vahvista tunnistetietosi
 
-### Esimerkki: Ympäristömuuttujien asetukset (esikatselu)
+Nyt sinulla tulisi olla seuraavat tunnistetiedot:
 
-Myöhemmin sovellustasi rakentaessasi todennäköisesti määrität nämä kerätyt tiedot ympäristömuuttujina esimerkiksi näin:
+**Azure OpenAI (tekstikäännös):**
+- Azure OpenAI -päätepiste
+- Azure OpenAI API-avain
+- Azure OpenAI -mallin nimi (esim. `gpt-4o`)
+- Azure OpenAI käyttöönoton nimi (esim. `cooptranslator-gpt4o`)
+- Azure OpenAI API-versio
+
+**Azure AI Services (kuvatekstin poiminta Vision avulla):**
+- Azure AI Service -päätepiste
+- Azure AI Service API-avain
+
+### Esimerkki: Ympäristömuuttujien konfigurointi (Preview)
+
+Myöhemmin sovellusta rakentaessasi määrität todennäköisesti nämä kerätyt tunnistetiedot ympäristömuuttujina esimerkiksi näin:
 
 ```bash
-# Azure AI Service Credentials (Required for image translation)
-AZURE_AI_SERVICE_API_KEY="your_azure_ai_service_api_key" # e.g., 21xasd...
+# Azure AI -palvelun tunnistetiedot (vaaditaan kuvan kääntämiseen)
+AZURE_AI_SERVICE_API_KEY="your_azure_ai_service_api_key" # esim. 21xasd...
 AZURE_AI_SERVICE_ENDPOINT="https://your_azure_ai_service_endpoint.cognitiveservices.azure.com/"
 
-# Azure OpenAI Credentials (Required for text translation)
-AZURE_OPENAI_API_KEY="your_azure_openai_api_key" # e.g., 21xasd...
+# Valinnaiset varajoukot: kopioi muuttujat liitteellä _1/_2 (sama indeksi kaikille joukon muuttujille)
+AZURE_AI_SERVICE_API_KEY_1="your_azure_ai_service_api_key_1"
+AZURE_AI_SERVICE_ENDPOINT_1="https://your_azure_ai_service_endpoint_1.cognitiveservices.azure.com/"
+
+# Azure OpenAI -tunnistetiedot (vaaditaan tekstin kääntämiseen)
+AZURE_OPENAI_API_KEY="your_azure_openai_api_key" # esim. 21xasd...
 AZURE_OPENAI_ENDPOINT="https://your_azure_openai_endpoint.openai.azure.com/"
-AZURE_OPENAI_MODEL_NAME="your_model_name" # e.g., gpt-4o
-AZURE_OPENAI_CHAT_DEPLOYMENT_NAME="your_deployment_name" # e.g., cooptranslator-gpt4o
-AZURE_OPENAI_API_VERSION="your_api_version" # e.g., 2024-12-01-preview
+AZURE_OPENAI_MODEL_NAME="your_model_name" # esim. gpt-4o
+AZURE_OPENAI_CHAT_DEPLOYMENT_NAME="your_deployment_name" # esim. cooptranslator-gpt4o
+AZURE_OPENAI_API_VERSION="your_api_version" # esim. 2024-12-01-preview
+
+# Valinnaiset varajoukot: kopioi koko AZURE_OPENAI_* -sarja liitteellä _1/_2 (sama indeksi kaikille muuttujille)
 ```
 
 ---
 
 ### Lisälukemista
 
-- [How to Create a project in Azure AI Foundry](https://learn.microsoft.com/azure/ai-foundry/how-to/create-projects?tabs=ai-studio)
-- [How to Create Azure AI resources](https://learn.microsoft.com/azure/ai-foundry/how-to/create-azure-ai-resource?tabs=portal)
-- [How to Deploy OpenAI models in Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/deploy-models-openai)
+- [Kuinka luoda projekti Azure AI Foundryssa](https://learn.microsoft.com/azure/ai-foundry/how-to/create-projects?tabs=ai-studio)
+- [Kuinka luoda Azure AI -resursseja](https://learn.microsoft.com/azure/ai-foundry/how-to/create-azure-ai-resource?tabs=portal)
+- [Kuinka ottaa käyttöön OpenAI-malleja Azure AI Foundryssa](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/deploy-models-openai)
 
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Vastuuvapauslauseke**:  
-Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, ole hyvä ja huomioi, että automaattikäännöksissä saattaa esiintyä virheitä tai epätarkkuuksia. Alkuperäistä asiakirjaa sen alkuperäiskielellä tulee pitää virallisena lähteenä. Tärkeissä tiedoissa suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa tämän käännöksen käytöstä aiheutuvista väärinymmärryksistä tai virhetulkinnoista.
+Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Pyrimme tarkkuuteen, mutta huomioithan, että automaattisissa käännöksissä saattaa esiintyä virheitä tai epätarkkuuksia. Alkuperäinen asiakirja sen alkuperäiskielellä katsotaan viralliseksi lähteeksi. Tärkeissä asioissa suositellaan ammattimaista ihmiskääntäjää. Emme ole vastuussa tämän käännöksen käytöstä johtuvista väärinymmärryksistä tai tulkinnoista.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

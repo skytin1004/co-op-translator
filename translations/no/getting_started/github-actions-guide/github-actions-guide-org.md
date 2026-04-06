@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9fac847815936ef6e6c8bfde6d191571",
-  "translation_date": "2025-10-15T03:25:22+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-org.md",
-  "language_code": "no"
-}
--->
 # Bruke Co-op Translator GitHub Action (Organisasjonsveiledning)
 
 **Målgruppe:** Denne veiledningen er for **interne Microsoft-brukere** eller **team som har tilgang til nødvendige legitimasjoner for den forhåndsbygde Co-op Translator GitHub-appen** eller kan opprette sin egen tilpassede GitHub-app.
@@ -56,11 +47,11 @@ Workflowen bruker GitHub App-autentisering for å samhandle sikkert med reposito
 
 1. Velg **Install** og velg kontoen eller organisasjonen der repositoryet ditt ligger.
 
-    ![Installer app](../../../../translated_images/install-app.d0f0a24cbb1d6c93f293f002eb34e633f7bc8f5caaba46b97806ba7bdc958f27.no.png)
+    ![Installer app](../../../../translated_images/no/install-app.d0f0a24cbb1d6c93.webp)
 
 1. Velg **Only select repositories** og velg repositoryet ditt (f.eks. `PhiCookBook`). Klikk **Install**. Du kan bli bedt om å autentisere.
 
-    ![Installer autorisasjon](../../../../translated_images/install-authorize.29df6238c3eb8f707e7fc6f97a946cb654b328530c4aeddce28b874693f076a0.no.png)
+    ![Installer autorisasjon](../../../../translated_images/no/install-authorize.29df6238c3eb8f70.webp)
 
 1. **Skaff app-legitimasjon (intern prosess kreves):** For at workflowen skal kunne autentisere som appen, trenger du to opplysninger fra Co-op Translator-teamet:
   - **App ID:** Den unike identifikatoren for Co-op Translator-appen. App ID er: `1164076`.
@@ -82,7 +73,7 @@ Du må legge til GitHub App-legitimasjon og AI-tjenestelegitimasjon som kryptert
 
 1. Under **Repository secrets**, klikk **New repository secret** for hver secret som er listet opp nedenfor.
 
-   ![Velg innstilling action](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.no.png)
+   ![Velg innstilling action](../../../../translated_images/no/select-setting-action.3b95c915d6031159.webp)
 
 **Påkrevde secrets (for GitHub App-autentisering):**
 
@@ -107,7 +98,7 @@ Du må legge til GitHub App-legitimasjon og AI-tjenestelegitimasjon som kryptert
 | `OPENAI_CHAT_MODEL_ID`              | Spesifikk OpenAI-modell-ID                  | OpenAI Platform                    |
 | `OPENAI_BASE_URL`                   | Tilpasset OpenAI API Base URL                | OpenAI Platform                    |
 
-![Skriv inn miljøvariabelnavn](../../../../translated_images/add-secrets-done.444861ce6956d5cb20781ead1237fcc12805078349bb0d4e95bb9540ee192227.no.png)
+![Skriv inn miljøvariabelnavn](../../../../translated_images/no/add-secrets-done.444861ce6956d5cb.webp)
 
 ### Steg 3: Opprett workflow-filen
 

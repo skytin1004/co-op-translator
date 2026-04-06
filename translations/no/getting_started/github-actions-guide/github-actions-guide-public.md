@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T03:25:43+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "no"
-}
--->
 # Bruke Co-op Translator GitHub Action (Offentlig Oppsett)
 
 **Målgruppe:** Denne veiledningen er for brukere i de fleste offentlige eller private repositorier hvor standard GitHub Actions-tillatelser er tilstrekkelige. Den bruker den innebygde `GITHUB_TOKEN`.
@@ -53,7 +44,7 @@ Du trenger kun å legge til **AI-tjenestelegitimasjonen** din som krypterte secr
 2.  Gå til **Settings** > **Secrets and variables** > **Actions**.
 3.  Under **Repository secrets**, klikk **New repository secret** for hver nødvendige AI-tjeneste secret som er listet under.
 
-    <img src="../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.no.png" alt="Velg innstilling action"> *(Bildehenvisning: Viser hvor du legger til secrets)*
+    <img src="../../../../translated_images/no/select-setting-action.3b95c915d6031159.webp" alt="Velg innstilling action"> *(Bildehenvisning: Viser hvor du legger til secrets)*
 
 **Nødvendige AI-tjeneste secrets (Legg til ALLE som gjelder ut fra dine forutsetninger):**
 
@@ -81,7 +72,7 @@ GitHub Action trenger tillatelser via `GITHUB_TOKEN` for å sjekke ut kode og op
 4.  Sørg for at boksen for **Allow GitHub Actions to create and approve pull requests** er **huk av**.
 5.  Klikk **Save**.
 
-<img src="../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.no.png" alt="Tillatelsesinnstilling">
+<img src="../../../../translated_images/no/permission-setting.ae2f02748b0579e7.webp" alt="Tillatelsesinnstilling">
 
 ### Steg 4: Opprett workflow-filen
 

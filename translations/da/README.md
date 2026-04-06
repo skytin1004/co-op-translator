@@ -1,16 +1,8 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "dac6bc281667816537df51f724a0ff2c",
-  "translation_date": "2025-11-30T11:24:22+00:00",
-  "source_file": "README.md",
-  "language_code": "da"
-}
--->
 # Co-op Translator
 
-_Automatiser nemt oversættelsen af dit uddannelsesindhold på GitHub til flere sprog for at nå et globalt publikum._
+_Let nemt automatisere og vedligeholde oversættelser for dit uddannelsesindhold på GitHub på tværs af flere sprog, mens dit projekt udvikler sig._
 
+![Python 3.10–3.12](https://img.shields.io/badge/python-3.10--3.12-blue)
 [![Python package](https://img.shields.io/pypi/v/co-op-translator?color=4BA3FF)](https://pypi.org/project/co-op-translator/)
 [![License: MIT](https://img.shields.io/github/license/azure/co-op-translator?color=4BA3FF)](https://github.com/azure/co-op-translator/blob/main/LICENSE)
 [![Downloads](https://static.pepy.tech/badge/co-op-translator)](https://pepy.tech/project/co-op-translator)
@@ -23,17 +15,37 @@ _Automatiser nemt oversættelsen af dit uddannelsesindhold på GitHub til flere 
 [![GitHub pull-requests](https://img.shields.io/github/issues-pr/azure/co-op-translator.svg)](https://GitHub.com/azure/co-op-translator/pulls/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-### 🌐 Understøttelse af flere sprog
+### 🌐 Fler-sprogs support
 
 #### Understøttet af [Co-op Translator](https://github.com/Azure/Co-op-Translator)
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
-[Arabisk](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarsk](../bg/README.md) | [Burmesisk (Myanmar)](../my/README.md) | [Kinesisk (forenklet)](../zh/README.md) | [Kinesisk (traditionelt, Hong Kong)](../hk/README.md) | [Kinesisk (traditionelt, Macau)](../mo/README.md) | [Kinesisk (traditionelt, Taiwan)](../tw/README.md) | [Kroatisk](../hr/README.md) | [Tjekkisk](../cs/README.md) | [Dansk](./README.md) | [Hollandsk](../nl/README.md) | [Estisk](../et/README.md) | [Finsk](../fi/README.md) | [Fransk](../fr/README.md) | [Tysk](../de/README.md) | [Græsk](../el/README.md) | [Hebraisk](../he/README.md) | [Hindi](../hi/README.md) | [Ungarsk](../hu/README.md) | [Indonesisk](../id/README.md) | [Italiensk](../it/README.md) | [Japansk](../ja/README.md) | [Kannada](../kn/README.md) | [Koreansk](../ko/README.md) | [Litauisk](../lt/README.md) | [Malayisk](../ms/README.md) | [Malayalam](../ml/README.md) | [Marathi](../mr/README.md) | [Nepalesisk](../ne/README.md) | [Nigeriansk Pidgin](../pcm/README.md) | [Norsk](../no/README.md) | [Persisk (Farsi)](../fa/README.md) | [Polsk](../pl/README.md) | [Portugisisk (Brasilien)](../br/README.md) | [Portugisisk (Portugal)](../pt/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Rumænsk](../ro/README.md) | [Russisk](../ru/README.md) | [Serbisk (kyrillisk)](../sr/README.md) | [Slovakisk](../sk/README.md) | [Slovensk](../sl/README.md) | [Spansk](../es/README.md) | [Swahili](../sw/README.md) | [Svensk](../sv/README.md) | [Tagalog (Filippinsk)](../tl/README.md) | [Tamil](../ta/README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Tyrkisk](../tr/README.md) | [Ukrainsk](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamesisk](../vi/README.md)
+[Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh-CN/README.md) | [Chinese (Traditional, Hong Kong)](../zh-HK/README.md) | [Chinese (Traditional, Macau)](../zh-MO/README.md) | [Chinese (Traditional, Taiwan)](../zh-TW/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](./README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Kannada](../kn/README.md) | [Khmer](../km/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Malayalam](../ml/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../pt-BR/README.md) | [Portuguese (Portugal)](../pt-PT/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
+
+> **Foretrækker du at klone lokalt?**
+>
+> Dette repository indeholder 50+ sprogoversættelser, som betydeligt øger downloadstørrelsen. For at klone uden oversættelser, brug sparse checkout:
+>
+> **Bash / macOS / Linux:**
+> ```bash
+> git clone --filter=blob:none --sparse https://github.com/skytin1004/co-op-translator.git
+> cd co-op-translator
+> git sparse-checkout set --no-cone '/*' '!translations' '!translated_images'
+> ```
+>
+> **CMD (Windows):**
+> ```cmd
+> git clone --filter=blob:none --sparse https://github.com/skytin1004/co-op-translator.git
+> cd co-op-translator
+> git sparse-checkout set --no-cone "/*" "!translations" "!translated_images"
+> ```
+>
+> Dette giver dig alt hvad du behøver for at gennemføre kurset med en meget hurtigere download.
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
 [![GitHub watchers](https://img.shields.io/github/watchers/azure/co-op-translator.svg?style=social&label=Watch)](https://GitHub.com/azure/co-op-translator/watchers/)
 [![GitHub forks](https://img.shields.io/github/forks/azure/co-op-translator.svg?style=social&label=Fork)](https://GitHub.com/azure/co-op-translator/network/)
-[![GitHub stars](https://img.shields.io/github/stars/azure/co-op-translator?style=social&label=Star)](https://GitHub.com/azure/co-op-translator/stargazers/)
+[![GitHub stars](https://img.shields.io/github/stars/azure/co-op-translator.svg?style=social&label=Star)](https://GitHub.com/azure/co-op-translator/stargazers/)
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
@@ -41,16 +53,38 @@ _Automatiser nemt oversættelsen af dit uddannelsesindhold på GitHub til flere 
 
 ## Oversigt
 
-**Co-op Translator** hjælper dig med nemt at lokalisere dit uddannelsesindhold på GitHub til flere sprog. Når du opdaterer dine Markdown-filer, billeder eller notebooks, holdes oversættelserne automatisk synkroniserede, så dit indhold forbliver præcist og opdateret for lærende verden over.
+**Co-op Translator** hjælper dig med at lokaliser dit uddannelsesindhold på GitHub til flere sprog uden besvær.  
+Når du opdaterer dine Markdown-filer, billeder eller notebooks, forbliver oversættelserne automatisk synkroniserede, hvilket sikrer, at dit indhold forbliver præcist og opdateret for lærende verden over.
 
-Eksempel på, hvordan oversat indhold er organiseret:
+Eksempel på hvordan oversat indhold er organiseret:
 
-![Example](../../translated_images/translation-ex.0c8aa6a7ee0aad2b35cddcc110c719baf0afc640e8c5a45540e6c166b9907d91.da.png)
+![Example](../../translated_images/da/translation-ex.0c8aa6a7ee0aad2b.webp)
 
-## Kom godt i gang
+## Hvordan oversættelsestilstanden styres
+
+Co-op Translator håndterer oversat indhold som **versionerede softwareartefakter**,  
+ikke som statiske filer.
+
+Værktøjet sporer tilstanden af oversat Markdown, billeder og notebooks  
+ved hjælp af **sprogspecifik metadata**.
+
+Dette design tillader Co-op Translator at:
+
+- Pålideligt opdage forældede oversættelser  
+- Behandle Markdown, billeder og notebooks konsistent  
+- Skalere sikkert på tværs af store, hurtigt bevægende, flersprogede repositories
+
+Ved at modellere oversættelser som styrede artefakter,  
+tilpasser oversættelsesarbejdsgange sig naturligt med moderne  
+softwareafhængigheds- og artefaktstyringsmetoder.
+
+→ [Hvordan oversættelsestilstanden styres](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/rethinking-documentation-translation-treating-translations-as-versioned-software/4491755)
+
+
+## Hurtig start
 
 ```bash
-# Opret og aktiver et virtuelt miljø (anbefalet)
+# Opret og aktivér et virtuelt miljø (anbefalet)
 python -m venv .venv
 # Windows
 .venv\Scripts\activate
@@ -73,12 +107,14 @@ docker run --rm -it --env-file .env -v "${PWD}:/work" ghcr.io/azure/co-op-transl
 
 ## Minimal opsætning
 
-1. Opret en `.env`-fil ved hjælp af skabelonen: [.env.template](../../.env.template)
-2. Konfigurer en LLM-udbyder (Azure OpenAI eller OpenAI)
-3. (Valgfrit) For billedoversættelse (`-img`), konfigurer Azure AI Vision
-4. (Anbefalet) Ryd op i tidligere oversættelser for at undgå konflikter (f.eks. `translations/`)
-5. (Anbefalet) Tilføj en oversættelsessektion til din README ved hjælp af [README sprogskabelon](./getting_started/README_languages_template.md)
-6. Se: [Opsæt Azure AI](./getting_started/set-up-azure-ai.md)
+1. Sørg for, at du har en understøttet Python-version (aktuelt 3.10-3.12). I poetry (pyproject.toml) håndteres dette automatisk.  
+2. Opret en `.env`-fil ved hjælp af skabelonen: [.env.template](../../.env.template)  
+3. Konfigurer en LLM-udbyder (Azure OpenAI eller OpenAI)  
+4. (Valgfrit) For billedoversættelse (`-img`), konfigurer Azure AI Vision  
+5. (Valgfrit) Du kan konfigurere flere legitimationssæt ved at duplikere variabler med suffikser som `_1`, `_2` osv. Alle variabler i et sæt skal have samme suffiks.  
+6. (Anbefalet) Ryd op i eventuelle tidligere oversættelser for at undgå konflikter (f.eks. `translations/`)  
+7. (Anbefalet) Tilføj en oversættelsessektion til din README ved hjælp af [README languages template](./getting_started/README_languages_template.md)  
+8. Se: [Opsæt Azure AI](./getting_started/set-up-azure-ai.md)
 
 ## Brug
 
@@ -106,38 +142,39 @@ Kun notebooks:
 translate -l "zh" -nb
 ```
 
-Flere flag: [Kommando-reference](./getting_started/command-reference.md)
+Flere flag: [Kommando reference](./getting_started/command-reference.md)
 
 ## Funktioner
 
-- Automatisk oversættelse af Markdown, notebooks og billeder
-- Holder oversættelser synkroniserede med kildeforandringer
-- Fungerer lokalt (CLI) eller i CI (GitHub Actions)
-- Bruger Azure OpenAI eller OpenAI; valgfri Azure AI Vision til billeder
-- Bevarer Markdown-format og struktur
+- Automatiseret oversættelse for Markdown, notebooks og billeder  
+- Holder oversættelser synkroniseret med kildens ændringer  
+- Virker lokalt (CLI) eller i CI (GitHub Actions)  
+- Bruger Azure OpenAI eller OpenAI; valgfrit Azure AI Vision til billeder  
+- Bevarer Markdown-formattering og struktur
 
 ## Dokumentation
 
-- [Kommando-linje guide](./getting_started/command-line-guide/command-line-guide.md)
-- [GitHub Actions guide (offentlige repositories & standard secrets)](./getting_started/github-actions-guide/github-actions-guide-public.md)
-- [GitHub Actions guide (Microsoft organisationsrepositories & org-niveau opsætninger)](./getting_started/github-actions-guide/github-actions-guide-org.md)
-- [README sprogskabelon](./getting_started/README_languages_template.md)
-- [Understøttede sprog](./getting_started/supported-languages.md)
-- [Bidrag](./CONTRIBUTING.md)
+- [Kommando-linje guide](./getting_started/command-line-guide/command-line-guide.md)  
+- [GitHub Actions guide (offentlige repositories & standardhemmeligheder)](./getting_started/github-actions-guide/github-actions-guide-public.md)  
+- [GitHub Actions guide (Microsoft organisations repositories & org-niveau opsætninger)](./getting_started/github-actions-guide/github-actions-guide-org.md)  
+- [README languages template](./getting_started/README_languages_template.md)  
+- [Understøttede sprog](./getting_started/supported-languages.md)  
+- [Bidrag](./CONTRIBUTING.md)  
 - [Fejlfinding](./getting_started/troubleshooting.md)
 
 ### Microsoft-specifik guide
 > [!NOTE]
-> Kun for vedligeholdere af Microsoft “For Beginners” repositories.
+> Kun for vedligeholdere af Microsofts “For Beginners” repositories.
 
-- [Opdatering af listen over “andre kurser” (kun for MS Beginners repositories)](./getting_started/update-other-courses.md)
+- [Opdatering af listen “andre kurser” (kun for MS Beginners repositories)](./getting_started/update-other-courses.md)
 
-## Støt os og frem læring globalt
+## Støt os og styrk global læring
 
-Vær med til at revolutionere, hvordan uddannelsesindhold deles globalt! Giv [Co-op Translator](https://github.com/azure/co-op-translator) en ⭐ på GitHub og støt vores mission om at nedbryde sprogbarrierer inden for læring og teknologi. Din interesse og dine bidrag gør en stor forskel! Kodebidrag og forslag til funktioner er altid velkomne.
+Deltag i revolutionen for, hvordan uddannelsesindhold deles globalt! Giv [Co-op Translator](https://github.com/azure/co-op-translator) en ⭐ på GitHub og støt vores mission om at nedbryde sprogbarrierer i læring og teknologi. Din interesse og dine bidrag gør en stor forskel! Kodebidrag og forslag til funktioner er altid velkomne.
 
-### Udforsk Microsofts uddannelsesindhold på dit sprog
+### Udforsk Microsoft uddannelsesindhold på dit sprog
 
+- [LangChain4j-for-Beginners](https://github.com/microsoft/LangChain4j-for-Beginners)
 - [AZD for Beginners](https://github.com/microsoft/AZD-for-beginners)
 - [Edge AI for Beginners](https://github.com/microsoft/edgeai-for-beginners)
 - [Model Context Protocol (MCP) For Beginners](https://github.com/microsoft/mcp-for-beginners)
@@ -153,47 +190,51 @@ Vær med til at revolutionere, hvordan uddannelsesindhold deles globalt! Giv [Co
 - [IoT for Beginners](https://aka.ms/iot-beginners)
 - [PhiCookBook](https://github.com/microsoft/PhiCookBook)
 
-## Video-præsentationer
+## Video præsentationer
 
 👉 Klik på billedet nedenfor for at se på YouTube.
 
 - **Open at Microsoft**: En kort 18-minutters introduktion og hurtig guide til, hvordan man bruger Co-op Translator.
 
-  [![Open at Microsoft](../../translated_images/open-ms-thumbnail.946b356b89bc5f0e33dcebb852f7926b98c33f54c1a49ce01c36ae7f35e2443a.da.jpg)](https://www.youtube.com/watch?v=jX_swfH_KNU)
+  [![Open at Microsoft](../../translated_images/da/open-ms-thumbnail.946b356b89bc5f0e.webp)](https://www.youtube.com/watch?v=jX_swfH_KNU)
 
 ## Bidrag
 
-Dette projekt byder velkommen til bidrag og forslag. Er du interesseret i at bidrage til Azure Co-op Translator? Se venligst vores [CONTRIBUTING.md](./CONTRIBUTING.md) for retningslinjer om, hvordan du kan hjælpe med at gøre Co-op Translator mere tilgængelig.
+Dette projekt byder velkommen til bidrag og forslag. Er du interesseret i at bidrage til Azure Co-op Translator? Se venligst vores [CONTRIBUTING.md](./CONTRIBUTING.md) for retningslinjer for, hvordan du kan hjælpe med at gøre Co-op Translator mere tilgængelig.
 
-## Bidragydere
-
+## Bidragsydere
 [![co-op-translator contributors](https://contrib.rocks/image?repo=Azure/co-op-translator)](https://github.com/Azure/co-op-translator/graphs/contributors)
 
 ## Adfærdskodeks
 
 Dette projekt har vedtaget [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For mere information se [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) eller
+For flere informationer se [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) eller
 kontakt [opencode@microsoft.com](mailto:opencode@microsoft.com) med eventuelle yderligere spørgsmål eller kommentarer.
 
 ## Ansvarlig AI
 
-Microsoft er engageret i at hjælpe vores kunder med at bruge vores AI-produkter ansvarligt, dele vores erfaringer og opbygge tillidsbaserede partnerskaber gennem værktøjer som Transparency Notes og Impact Assessments. Mange af disse ressourcer findes på [https://aka.ms/RAI](https://aka.ms/RAI).
+Microsoft er forpligtet til at hjælpe vores kunder med at bruge vores AI-produkter ansvarligt, dele vores erfaringer og opbygge tillidsbaserede partnerskaber gennem værktøjer som Transparency Notes og Impact Assessments. Mange af disse ressourcer kan findes på [https://aka.ms/RAI](https://aka.ms/RAI).
 Microsofts tilgang til ansvarlig AI er baseret på vores AI-principper om retfærdighed, pålidelighed og sikkerhed, privatliv og sikkerhed, inklusivitet, gennemsigtighed og ansvarlighed.
 
-Storskala modeller for naturligt sprog, billeder og tale – som dem, der bruges i dette eksempel – kan potentielt opføre sig på måder, der er uretfærdige, upålidelige eller stødende, hvilket kan forårsage skade. Se venligst [Azure OpenAI service Transparency note](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) for at blive informeret om risici og begrænsninger.
-Den anbefalede tilgang til at mindske disse risici er at inkludere et sikkerhedssystem i din arkitektur, som kan opdage og forhindre skadelig adfærd. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) tilbyder et uafhængigt beskyttelseslag, der kan opdage skadeligt bruger- og AI-genereret indhold i applikationer og tjenester. Azure AI Content Safety inkluderer tekst- og billed-API'er, som gør det muligt at opdage skadeligt materiale. Vi har også et interaktivt Content Safety Studio, der giver dig mulighed for at se, udforske og prøve eksempelkode til at opdage skadeligt indhold på tværs af forskellige modaliteter. Følgende [quickstart-dokumentation](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) guider dig gennem, hvordan du laver forespørgsler til tjenesten.
+Store sprog-, billed- og tale-modeller – som dem, der bruges i dette eksempel – kan potentielt opføre sig på måder, der er uretfærdige, upålidelige eller stødende, hvilket kan forårsage skade. Se venligst [Azure OpenAI service Transparency note](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) for at blive informeret om risici og begrænsninger.
 
-En anden faktor, der skal tages i betragtning, er den samlede applikationsydelse. Med multimodale og multimodel-applikationer betragter vi ydelse som, at systemet fungerer som du og dine brugere forventer, herunder ikke at generere skadelige output. Det er vigtigt at vurdere ydelsen af din samlede applikation ved hjælp af [genereringskvalitet samt risik- og sikkerhedsmålinger](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
+Den anbefalede tilgang til at mindske disse risici er at inkludere et sikkerhedssystem i din arkitektur, som kan opdage og forhindre skadelig adfærd. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) leverer et selvstændigt beskyttelseslag, der kan opdage skadeligt bruger- og AI-genereret indhold i applikationer og tjenester. Azure AI Content Safety inkluderer tekst- og billed-API’er, der gør det muligt at detektere skadeligt materiale. Vi har også et interaktivt Content Safety Studio, som tillader dig at se, udforske og prøve eksempel-kode til at opdage skadeligt indhold på tværs af forskellige modaliteter. Følgende [quickstart dokumentation](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) guider dig gennem processen med at foretage forespørgsler til tjenesten.
 
-Du kan evaluere din AI-applikation i dit udviklingsmiljø ved hjælp af [prompt flow SDK](https://microsoft.github.io/promptflow/index.html). Givet enten et testdatasæt eller et mål, bliver dine generative AI-applikationsgenereringer kvantitativt målt med indbyggede evaluatorer eller brugerdefinerede evaluatorer efter eget valg. For at komme i gang med prompt flow SDK til at evaluere dit system kan du følge [quickstart-guiden](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). Når du har kørt en evaluering, kan du [visualisere resultaterne i Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
+En anden vigtig faktor er den samlede applikationsydelse. Med multimodale og multi-modeller applikationer, betragter vi ydelse som, at systemet præsterer som dig og dine brugere forventer, inklusive ikke at generere skadelige output. Det er vigtigt at vurdere ydelsen af din samlede applikation ved at bruge [quality and risk and safety metrics](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
+
+Du kan evaluere din AI-applikation i dit udviklingsmiljø ved hjælp af [prompt flow SDK](https://microsoft.github.io/promptflow/index.html). Med enten et testdatasæt eller et mål, bliver dine genererende AI-resultater kvantitativt målt med indbyggede evalueringer eller brugerdefinerede evalueringer efter eget valg. For at komme i gang med prompt flow sdk til at evaluere dit system, kan du følge [quickstart-guiden](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). Når du har kørt en evaluering, kan du [visualisere resultaterne i Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
 
 ## Varemærker
 
-Dette projekt kan indeholde varemærker eller logoer for projekter, produkter eller tjenester. Autoriseret brug af Microsofts varemærker eller logoer er underlagt og skal følge [Microsofts retningslinjer for varemærker og branding](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general). Brug af Microsofts varemærker eller logoer i modificerede versioner af dette projekt må ikke skabe forvirring eller antyde Microsoft-sponsorering. Enhver brug af tredjeparts varemærker eller logoer er underlagt disse tredjeparts politikker.
+Dette projekt kan indeholde varemærker eller logoer for projekter, produkter eller tjenester. Autoriseret brug af Microsofts
+varemærker eller logoer er underlagt og skal følge
+[Microsofts Varemærke- & Brandretningslinjer](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
+Brug af Microsofts varemærker eller logoer i modificerede versioner af dette projekt må ikke skabe forvirring eller antyde Microsofts sponsorskab.
+Enhver brug af tredjepartsvaremærker eller logoer er underlagt de pågældende tredjeparts retningslinjer.
 
 ## Få hjælp
 
-Hvis du sidder fast eller har spørgsmål om at bygge AI-apps, så deltag i:
+Hvis du sidder fast eller har spørgsmål om at bygge AI-apps, så tilslut dig:
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
@@ -204,6 +245,6 @@ Hvis du har produktfeedback eller oplever fejl under udvikling, besøg:
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Ansvarsfraskrivelse**:
-Dette dokument er blevet oversat ved hjælp af AI-oversættelsestjenesten [Co-op Translator](https://github.com/Azure/co-op-translator). Selvom vi bestræber os på nøjagtighed, bedes du være opmærksom på, at automatiserede oversættelser kan indeholde fejl eller unøjagtigheder. Det oprindelige dokument på dets modersmål bør betragtes som den autoritative kilde. For kritisk information anbefales professionel menneskelig oversættelse. Vi påtager os intet ansvar for misforståelser eller fejltolkninger, der opstår som følge af brugen af denne oversættelse.
+**Ansvarsfraskrivelse**:  
+Dette dokument er blevet oversat ved hjælp af AI-oversættelsesservicen [Co-op Translator](https://github.com/Azure/co-op-translator). Selvom vi bestræber os på nøjagtighed, skal du være opmærksom på, at automatiserede oversættelser kan indeholde fejl eller unøjagtigheder. Det oprindelige dokument på dets modersmål bør betragtes som den autoritative kilde. For kritisk information anbefales professionel menneskelig oversættelse. Vi påtager os intet ansvar for misforståelser eller fejltolkninger, der opstår som følge af brugen af denne oversættelse.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
