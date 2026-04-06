@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "758ca1c5ae0d32c52d2dd59132dcfbf0",
-  "translation_date": "2025-11-30T11:19:49+00:00",
-  "source_file": "CONTRIBUTING.md",
-  "language_code": "sv"
-}
--->
 # Bidra till Co-op Translator
 
 Det här projektet välkomnar bidrag och förslag. De flesta bidrag kräver att du godkänner ett Contributor License Agreement (CLA) som intygar att du har rätt att, och faktiskt gör det, ge oss rättigheter att använda ditt bidrag. För detaljer, besök https://cla.opensource.microsoft.com.

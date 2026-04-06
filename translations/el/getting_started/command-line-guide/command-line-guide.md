@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c64ba65e091e5d87385490fa63a8f574",
-  "translation_date": "2025-06-12T12:35:18+00:00",
-  "source_file": "getting_started/command-line-guide/command-line-guide.md",
-  "language_code": "el"
-}
--->
 # Πώς να χρησιμοποιήσετε το περιβάλλον γραμμής εντολών (CLI) του Co-op Translator
 
 ## Προαπαιτούμενα

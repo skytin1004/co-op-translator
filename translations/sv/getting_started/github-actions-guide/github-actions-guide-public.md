@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T03:20:30+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "sv"
-}
--->
 # Använda Co-op Translator GitHub Action (Offentlig installation)
 
 **Målgrupp:** Den här guiden är avsedd för användare i de flesta offentliga eller privata arkiv där standardbehörigheter för GitHub Actions räcker. Den använder den inbyggda `GITHUB_TOKEN`.
@@ -53,7 +44,7 @@ Du behöver bara lägga till dina **AI-tjänstuppgifter** som krypterade hemligh
 2.  Gå till **Settings** > **Secrets and variables** > **Actions**.
 3.  Under **Repository secrets**, klicka på **New repository secret** för varje nödvändig AI-tjänsthemlighet nedan.
 
-    <img src="../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.sv.png" alt="Select setting action"> *(Bildreferens: Visar var du lägger till hemligheter)*
+    <img src="../../../../translated_images/sv/select-setting-action.3b95c915d6031159.webp" alt="Select setting action"> *(Bildreferens: Visar var du lägger till hemligheter)*
 
 **Nödvändiga AI-tjänsthemligheter (lägg till ALLA som gäller enligt dina förutsättningar):**
 
@@ -81,7 +72,7 @@ GitHub Action behöver rättigheter via `GITHUB_TOKEN` för att checka ut kod oc
 4.  Se till att kryssrutan **Allow GitHub Actions to create and approve pull requests** är **ikryssad**.
 5.  Klicka på **Save**.
 
-<img src="../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.sv.png" alt="Permission setting">
+<img src="../../../../translated_images/sv/permission-setting.ae2f02748b0579e7.webp" alt="Permission setting">
 
 ### Steg 4: Skapa arbetsflödesfilen
 

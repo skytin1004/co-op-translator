@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T03:15:09+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "el"
-}
--->
 # Χρήση του Co-op Translator GitHub Action (Δημόσια Ρύθμιση)
 
 **Απευθύνεται σε:** Αυτός ο οδηγός προορίζεται για χρήστες σε δημόσια ή ιδιωτικά αποθετήρια όπου τα τυπικά δικαιώματα GitHub Actions είναι επαρκή. Χρησιμοποιεί το ενσωματωμένο `GITHUB_TOKEN`.
@@ -53,7 +44,7 @@ CO_OP_TRANSLATOR_METADATA:
 2.  Επιλέξτε **Settings** > **Secrets and variables** > **Actions**.
 3.  Στην ενότητα **Repository secrets**, κάντε κλικ στο **New repository secret** για κάθε απαραίτητο μυστικό υπηρεσίας AI που αναφέρεται παρακάτω.
 
-    <img src="../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.el.png" alt="Επιλογή ρύθμισης action"> *(Αναφορά εικόνας: Δείχνει πού προσθέτετε τα μυστικά)*
+    <img src="../../../../translated_images/el/select-setting-action.3b95c915d6031159.webp" alt="Επιλογή ρύθμισης action"> *(Αναφορά εικόνας: Δείχνει πού προσθέτετε τα μυστικά)*
 
 **Απαραίτητα Μυστικά Υπηρεσίας AI (Προσθέστε ΟΛΑ όσα ισχύουν σύμφωνα με τα Προαπαιτούμενα):**
 
@@ -81,7 +72,7 @@ CO_OP_TRANSLATOR_METADATA:
 4.  Βεβαιωθείτε ότι το checkbox για **Allow GitHub Actions to create and approve pull requests** είναι **επιλεγμένο**.
 5.  Πατήστε **Save**.
 
-<img src="../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.el.png" alt="Ρύθμιση δικαιωμάτων">
+<img src="../../../../translated_images/el/permission-setting.ae2f02748b0579e7.webp" alt="Ρύθμιση δικαιωμάτων">
 
 ### Βήμα 4: Δημιουργία Αρχείου Workflow
 

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T03:17:56+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "th"
-}
--->
 # การใช้งาน Co-op Translator GitHub Action (การตั้งค่าสำหรับสาธารณะ)
 
 **กลุ่มเป้าหมาย:** คู่มือนี้เหมาะสำหรับผู้ใช้ใน repository สาธารณะหรือส่วนตัวส่วนใหญ่ที่สิทธิ์ GitHub Actions มาตรฐานเพียงพอ โดยใช้ `GITHUB_TOKEN` ที่มีมาให้
@@ -53,7 +44,7 @@ Workflow นี้ใช้ `GITHUB_TOKEN` ที่ GitHub Actions ให้ม
 2.  ไปที่ **Settings** > **Secrets and variables** > **Actions**
 3.  ใต้ **Repository secrets** คลิก **New repository secret** สำหรับแต่ละ secret ของบริการ AI ที่จำเป็นตามรายการด้านล่าง
 
-    <img src="../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.th.png" alt="Select setting action"> *(อ้างอิงภาพ: ตำแหน่งที่เพิ่ม secrets)*
+    <img src="../../../../translated_images/th/select-setting-action.3b95c915d6031159.webp" alt="Select setting action"> *(อ้างอิงภาพ: ตำแหน่งที่เพิ่ม secrets)*
 
 **AI Service Secrets ที่จำเป็น (เพิ่มทุกตัวที่เกี่ยวข้องตามข้อกำหนดเบื้องต้น):**
 
@@ -81,7 +72,7 @@ GitHub Action ต้องการสิทธิ์ผ่าน `GITHUB_TOKEN`
 4.  ตรวจสอบให้แน่ใจว่าได้ติ๊กถูกที่ **Allow GitHub Actions to create and approve pull requests**
 5.  กด **Save**
 
-<img src="../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.th.png" alt="Permission setting">
+<img src="../../../../translated_images/th/permission-setting.ae2f02748b0579e7.webp" alt="Permission setting">
 
 ### ขั้นตอนที่ 4: สร้าง Workflow File
 

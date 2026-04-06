@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9fac847815936ef6e6c8bfde6d191571",
-  "translation_date": "2025-10-15T03:14:39+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-org.md",
-  "language_code": "el"
-}
--->
 # Χρήση του Co-op Translator GitHub Action (Οδηγός για Οργανισμούς)
 
 **Απευθύνεται σε:** Αυτός ο οδηγός προορίζεται για **εσωτερικούς χρήστες της Microsoft** ή **ομάδες που έχουν πρόσβαση στα απαραίτητα διαπιστευτήρια για την προεγκατεστημένη εφαρμογή Co-op Translator GitHub App** ή μπορούν να δημιουργήσουν τη δική τους προσαρμοσμένη GitHub App.
@@ -56,11 +47,11 @@ CO_OP_TRANSLATOR_METADATA:
 
 1. Επιλέξτε **Install** και διαλέξτε τον λογαριασμό ή τον οργανισμό όπου βρίσκεται το αποθετήριό σας.
 
-    ![Εγκατάσταση εφαρμογής](../../../../translated_images/install-app.d0f0a24cbb1d6c93f293f002eb34e633f7bc8f5caaba46b97806ba7bdc958f27.el.png)
+    ![Εγκατάσταση εφαρμογής](../../../../translated_images/el/install-app.d0f0a24cbb1d6c93.webp)
 
 1. Επιλέξτε **Only select repositories** και διαλέξτε το αποθετήριό σας (π.χ. `PhiCookBook`). Κάντε κλικ στο **Install**. Ίσως σας ζητηθεί να επαληθεύσετε την ταυτότητά σας.
 
-    ![Εξουσιοδότηση εγκατάστασης](../../../../translated_images/install-authorize.29df6238c3eb8f707e7fc6f97a946cb654b328530c4aeddce28b874693f076a0.el.png)
+    ![Εξουσιοδότηση εγκατάστασης](../../../../translated_images/el/install-authorize.29df6238c3eb8f70.webp)
 
 1. **Λήψη Διαπιστευτηρίων App (Απαιτείται Εσωτερική Διαδικασία):** Για να επιτρέψετε στο workflow να επαληθευτεί ως η εφαρμογή, χρειάζεστε δύο στοιχεία που παρέχονται από την ομάδα Co-op Translator:
   - **App ID:** Ο μοναδικός αναγνωριστικός αριθμός της εφαρμογής Co-op Translator. Το App ID είναι: `1164076`.
@@ -82,7 +73,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 1. Κάτω από **Repository secrets**, κάντε κλικ στο **New repository secret** για κάθε secret που αναφέρεται παρακάτω.
 
-   ![Επιλογή ρυθμίσεων actions](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.el.png)
+   ![Επιλογή ρυθμίσεων actions](../../../../translated_images/el/select-setting-action.3b95c915d6031159.webp)
 
 **Απαραίτητα Secrets (για Επαλήθευση GitHub App):**
 
@@ -107,7 +98,7 @@ CO_OP_TRANSLATOR_METADATA:
 | `OPENAI_CHAT_MODEL_ID`              | Συγκεκριμένο OpenAI model ID              | OpenAI Platform                    |
 | `OPENAI_BASE_URL`                   | Προσαρμοσμένο OpenAI API Base URL         | OpenAI Platform                    |
 
-![Εισαγωγή ονόματος μεταβλητής περιβάλλοντος](../../../../translated_images/add-secrets-done.444861ce6956d5cb20781ead1237fcc12805078349bb0d4e95bb9540ee192227.el.png)
+![Εισαγωγή ονόματος μεταβλητής περιβάλλοντος](../../../../translated_images/el/add-secrets-done.444861ce6956d5cb.webp)
 
 ### Βήμα 3: Δημιουργία του Αρχείου Workflow
 
