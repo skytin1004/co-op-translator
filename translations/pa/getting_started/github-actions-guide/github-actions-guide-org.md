@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9fac847815936ef6e6c8bfde6d191571",
-  "translation_date": "2025-10-15T02:58:18+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-org.md",
-  "language_code": "pa"
-}
--->
 # ਕੋ-ਓਪ ਟ੍ਰਾਂਸਲੇਟਰ GitHub ਐਕਸ਼ਨ ਦੀ ਵਰਤੋਂ (ਸੰਗਠਨ ਲਈ ਗਾਈਡ)
 
 **ਲਕੜੀ ਦਰਸ਼ਕ:** ਇਹ ਗਾਈਡ **Microsoft ਦੇ ਅੰਦਰੂਨੀ ਯੂਜ਼ਰਾਂ** ਜਾਂ **ਟੀਮਾਂ** ਲਈ ਹੈ, ਜਿਨ੍ਹਾਂ ਕੋਲ ਪਹਿਲਾਂ ਤੋਂ ਬਣੀ ਹੋਈ Co-op Translator GitHub App ਲਈ ਲਾਜ਼ਮੀ credentials ਹਨ ਜਾਂ ਆਪਣੀ custom GitHub App ਬਣਾਉਣ ਦੀ ਸਮਰੱਥਾ ਹੈ।
@@ -56,11 +47,11 @@ Workflow ਤੁਹਾਡੇ ਰਿਪੋਜ਼ਿਟਰੀ ਨਾਲ securely in
 
 1. **Install** ਚੁਣੋ ਅਤੇ ਉਹ account ਜਾਂ organization ਚੁਣੋ ਜਿੱਥੇ ਤੁਹਾਡਾ target repository ਹੈ।
 
-    ![Install app](../../../../translated_images/install-app.d0f0a24cbb1d6c93f293f002eb34e633f7bc8f5caaba46b97806ba7bdc958f27.pa.png)
+    ![Install app](../../../../translated_images/pa/install-app.d0f0a24cbb1d6c93.webp)
 
 1. **Only select repositories** ਚੁਣੋ ਅਤੇ ਆਪਣਾ target repository (ਜਿਵੇਂ `PhiCookBook`) ਚੁਣੋ। **Install** 'ਤੇ ਕਲਿੱਕ ਕਰੋ। ਤੁਹਾਨੂੰ authenticate ਕਰਨ ਲਈ ਕਿਹਾ ਜਾ ਸਕਦਾ ਹੈ।
 
-    ![Install authorize](../../../../translated_images/install-authorize.29df6238c3eb8f707e7fc6f97a946cb654b328530c4aeddce28b874693f076a0.pa.png)
+    ![Install authorize](../../../../translated_images/pa/install-authorize.29df6238c3eb8f70.webp)
 
 1. **App Credentials ਲਵੋ (ਅੰਦਰੂਨੀ ਪ੍ਰਕਿਰਿਆ ਲਾਜ਼ਮੀ):** Workflow ਨੂੰ app ਵਜੋਂ authenticate ਕਰਨ ਲਈ ਤੁਹਾਨੂੰ Co-op Translator ਟੀਮ ਵਲੋਂ ਦੋ ਚੀਜ਼ਾਂ ਲੈਣੀਆਂ ਪੈਣਗੀਆਂ:
   - **App ID:** Co-op Translator app ਲਈ unique identifier। App ID ਹੈ: `1164076`।
@@ -82,7 +73,7 @@ GitHub App credentials ਅਤੇ ਆਪਣੇ AI service credentials ਨੂੰ e
 
 1. **Repository secrets** ਹੇਠਾਂ, ਹਰੇਕ secret ਲਈ **New repository secret** 'ਤੇ ਕਲਿੱਕ ਕਰੋ।
 
-   ![Select setting action](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.pa.png)
+   ![Select setting action](../../../../translated_images/pa/select-setting-action.3b95c915d6031159.webp)
 
 **ਲਾਜ਼ਮੀ Secrets (GitHub App Authentication ਲਈ):**
 
@@ -107,7 +98,7 @@ GitHub App credentials ਅਤੇ ਆਪਣੇ AI service credentials ਨੂੰ e
 | `OPENAI_CHAT_MODEL_ID`              | ਖਾਸ OpenAI model ID                       | OpenAI Platform                    |
 | `OPENAI_BASE_URL`                   | Custom OpenAI API Base URL                | OpenAI Platform                    |
 
-![Enter environment variable name](../../../../translated_images/add-secrets-done.444861ce6956d5cb20781ead1237fcc12805078349bb0d4e95bb9540ee192227.pa.png)
+![Enter environment variable name](../../../../translated_images/pa/add-secrets-done.444861ce6956d5cb.webp)
 
 ### ਕਦਮ 3: Workflow ਫਾਈਲ ਬਣਾਓ
 

@@ -1,82 +1,74 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "d11fe2b5308a8752a994869658751533",
-  "translation_date": "2025-11-30T10:50:11+00:00",
-  "source_file": "getting_started/supported-languages.md",
-  "language_code": "pa"
-}
--->
-# ਸਮਰਥਿਤ ਭਾਸ਼ਾਵਾਂ
+# Supported languages
 
-ਹੇਠਾਂ ਦਿੱਤੀ ਟੇਬਲ ਵਿੱਚ ਉਹ ਭਾਸ਼ਾਵਾਂ ਦਿੱਤੀਆਂ ਗਈਆਂ ਹਨ ਜੋ ਇਸ ਸਮੇਂ **Co-op Translator** ਦੁਆਰਾ ਸਮਰਥਿਤ ਹਨ। ਇਸ ਵਿੱਚ ਭਾਸ਼ਾ ਕੋਡ, ਭਾਸ਼ਾ ਦੇ ਨਾਮ ਅਤੇ ਹਰ ਭਾਸ਼ਾ ਨਾਲ ਜੁੜੀਆਂ ਜਾਣੀਆਂ ਸਮੱਸਿਆਵਾਂ ਸ਼ਾਮਲ ਹਨ। ਜੇ ਤੁਸੀਂ ਕਿਸੇ ਨਵੀਂ ਭਾਸ਼ਾ ਲਈ ਸਮਰਥਨ ਸ਼ਾਮਲ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ, ਤਾਂ ਕਿਰਪਾ ਕਰਕੇ `src/co_op_translator/fonts/` ਵਿੱਚ ਮੌਜੂਦ `font_language_mappings.yml` ਫਾਇਲ ਵਿੱਚ ਸੰਬੰਧਿਤ ਭਾਸ਼ਾ ਕੋਡ, ਨਾਮ ਅਤੇ ਉਚਿਤ ਫੋਂਟ ਸ਼ਾਮਲ ਕਰੋ ਅਤੇ ਟੈਸਟ ਕਰਨ ਤੋਂ ਬਾਅਦ ਪੁਲ ਰਿਕਵੇਸਟ ਭੇਜੋ।
+The table below lists the languages currently supported by **Co-op Translator**. It includes language codes, language names, and any known issues associated with each language. If you would like to add support for a new language, please add the corresponding language code, name, and appropriate font in the `font_language_mappings.yml` file located at `src/co_op_translator/fonts/` and submit a pull request after testing.
 
-| ਭਾਸ਼ਾ ਕੋਡ | ਭਾਸ਼ਾ ਦਾ ਨਾਮ          | ਫੋਂਟ                              | RTL ਸਮਰਥਨ | ਜਾਣੀਆਂ ਸਮੱਸਿਆਵਾਂ |
-|-----------|-----------------------|----------------------------------|------------|--------------------|
-| en        | ਅੰਗਰੇਜ਼ੀ              | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| fr        | ਫ੍ਰੈਂਚ                | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| es        | ਸਪੇਨੀ                | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| de        | ਜਰਮਨ                 | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| ru        | ਰੂਸੀ                  | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| ar        | ਅਰਬੀ                  | NotoSansArabic-Medium.ttf        | ਹਾਂ        | ਨਹੀਂ               |
-| fa        | ਫਾਰਸੀ (ਪੇਰਸ਼ੀਅਨ)     | NotoSansArabic-Medium.ttf        | ਹਾਂ        | ਨਹੀਂ               |
-| ur        | ਉਰਦੂ                  | NotoSansArabic-Medium.ttf        | ਹਾਂ        | ਨਹੀਂ               |
-| zh        | ਚੀਨੀ (ਸਰਲ)           | NotoSansCJK-Medium.ttc           | ਨਹੀਂ       | ਨਹੀਂ               |
-| mo        | ਚੀਨੀ (ਪਾਰੰਪਰਿਕ, ਮਕਾਉ) | NotoSansCJK-Medium.ttc          | ਨਹੀਂ       | ਨਹੀਂ               |
-| hk        | ਚੀਨੀ (ਪਾਰੰਪਰਿਕ, ਹੋਂਗ ਕੋਂਗ) | NotoSansCJK-Medium.ttc       | ਨਹੀਂ       | ਨਹੀਂ               |
-| tw        | ਚੀਨੀ (ਪਾਰੰਪਰਿਕ, ਤਾਈਵਾਨ) | NotoSansCJK-Medium.ttc         | ਨਹੀਂ       | ਨਹੀਂ               |
-| ja        | ਜਪਾਨੀ                 | NotoSansCJK-Medium.ttc           | ਨਹੀਂ       | ਨਹੀਂ               |
-| ko        | ਕੋਰੀਆਈ               | NotoSansCJK-Medium.ttc           | ਨਹੀਂ       | ਨਹੀਂ               |
-| hi        | ਹਿੰਦੀ                  | NotoSansDevanagari-Medium.ttf    | ਨਹੀਂ       | ਨਹੀਂ               |
-| bn        | ਬੰਗਾਲੀ                | NotoSansBengali-Medium.ttf       | ਨਹੀਂ       | ਨਹੀਂ               |
-| mr        | ਮਰਾਠੀ                 | NotoSansDevanagari-Medium.ttf    | ਨਹੀਂ       | ਨਹੀਂ               |
-| ne        | ਨੇਪਾਲੀ                | NotoSansDevanagari-Medium.ttf    | ਨਹੀਂ       | ਨਹੀਂ               |
-| pa        | ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ)      | NotoSansGurmukhi-Medium.ttf      | ਨਹੀਂ       | ਨਹੀਂ               |
-| pt        | ਪੁਰਤਗਾਲੀ (ਪੁਰਤਗਾਲ)   | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| br        | ਪੁਰਤਗਾਲੀ (ਬ੍ਰਾਜ਼ੀਲ)  | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| it        | ਇਟਾਲੀਅਨ               | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| lt        | ਲਿਥੁਆਨੀਆਈ            | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| pl        | ਪੋਲਿਸ਼                 | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| tr        | ਤੁਰਕੀ                  | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| el        | ਗ੍ਰੀਕ                  | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| th        | ਥਾਈ                   | NotoSansThai-Medium.ttf          | ਨਹੀਂ       | ਨਹੀਂ               |
-| sv        | ਸਵੀਡਿਸ਼                | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| da        | ਡੈਨਿਸ਼                 | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| no        | ਨਾਰਵੇਜੀਅਨ             | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| fi        | ਫਿਨਿਸ਼                  | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| nl        | ਡੱਚ                   | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| he        | ਹਿਬਰੂ                  | NotoSansHebrew-Medium.ttf        | ਹਾਂ        | ਨਹੀਂ               |
-| vi        | ਵਿਆਤਨਾਮੀ              | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| id        | ਇੰਡੋਨੇਸ਼ੀਆਈ           | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| ms        | ਮਲੇਸ਼ੀਆਈ              | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| tl        | ਤਾਗਾਲੋਗ (ਫਿਲੀਪੀਨੋ)   | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| sw        | ਸਵਾਹਿਲੀ                | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| hu        | ਹੰਗੇਰੀਆਈ             | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| cs        | ਚੈਕ                   | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| sk        | ਸਲੋਵਾਕ                 | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| ro        | ਰੋਮਾਨੀਆਈ              | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| bg        | ਬੁਲਗਾਰੀਆਈ            | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| sr        | ਸੇਰਬੀਆਈ (ਸਿਰਿਲਿਕ)    | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| hr        | ਕਰੋਏਸ਼ੀਆਈ             | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| sl        | ਸਲੋਵੇਨੀਆਈ            | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| uk        | ਯੂਕਰੇਨੀਅਨ             | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| my        | ਬਰਮੀ (ਮਿਆਨਮਾਰ)       | NotoSansMyanmar-Medium.ttf       | ਨਹੀਂ       | ਨਹੀਂ               |
-| ta        | ਤਮਿਲ                  | NotoSansTamil-Medium.ttf         | ਨਹੀਂ       | ਨਹੀਂ               |
-| et        | ਐਸਟੋਨੀਅਨ             | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| pcm       | ਨਾਈਜੀਰੀਅਨ ਪਿਡਜਿਨ      | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| te        | ਤੇਲੁਗੂ                 | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| ml        | ਮਲਯਾਲਮ                | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
-| kn        | ਕਨੜ                   | NotoSans-Medium.ttf              | ਨਹੀਂ       | ਨਹੀਂ               |
+| Language Code | Language Name        | Font                              | RTL Support | Known Issues |
+|---------------|----------------------|-----------------------------------|-------------|--------------|
+| en            | English              | NotoSans-Medium.ttf               | No          | No           |
+| fr            | French               | NotoSans-Medium.ttf               | No          | No           |
+| es            | Spanish              | NotoSans-Medium.ttf               | No          | No           |
+| de            | German               | NotoSans-Medium.ttf               | No          | No           |
+| ru            | Russian              | NotoSans-Medium.ttf               | No          | No           |
+| ar            | Arabic               | NotoSansArabic-Medium.ttf         | Yes         | No           |
+| fa            | Persian (Farsi)      | NotoSansArabic-Medium.ttf         | Yes         | No           |
+| ur            | Urdu                 | NotoSansArabic-Medium.ttf         | Yes         | No           |
+| zh-CN         | Chinese (Simplified) | NotoSansCJK-Medium.ttc            | No          | No           |
+| zh-MO         | Chinese (Traditional, Macau) | NotoSansCJK-Medium.ttc    | No          | No           |
+| zh-HK         | Chinese (Traditional, Hong Kong) | NotoSansCJK-Medium.ttc| No          | No           |
+| zh-TW         | Chinese (Traditional, Taiwan) | NotoSansCJK-Medium.ttc   | No          | No           |
+| ja            | Japanese             | NotoSansCJK-Medium.ttc            | No          | No           |
+| ko            | Korean               | NotoSansCJK-Medium.ttc            | No          | No           |
+| hi            | Hindi                | NotoSansDevanagari-Medium.ttf     | No          | No           |
+| bn            | Bengali              | NotoSansBengali-Medium.ttf        | No          | No           |
+| mr            | Marathi              | NotoSansDevanagari-Medium.ttf     | No          | No           |
+| ne            | Nepali               | NotoSansDevanagari-Medium.ttf     | No          | No           |
+| pa            | Punjabi (Gurmukhi)   | NotoSansGurmukhi-Medium.ttf       | No          | No           |
+| pt-PT         | Portuguese (Portugal)| NotoSans-Medium.ttf               | No          | No           |
+| pt-BR         | Portuguese (Brazil)  | NotoSans-Medium.ttf               | No          | No           |
+| it            | Italian              | NotoSans-Medium.ttf               | No          | No           |
+| lt            | Lithuanian           | NotoSans-Medium.ttf               | No          | No           |
+| pl            | Polish               | NotoSans-Medium.ttf               | No          | No           |
+| tr            | Turkish              | NotoSans-Medium.ttf               | No          | No           |
+| el            | Greek                | NotoSans-Medium.ttf               | No          | No           |
+| th            | Thai                 | NotoSansThai-Medium.ttf           | No          | No           |
+| sv            | Swedish              | NotoSans-Medium.ttf               | No          | No           |
+| da            | Danish               | NotoSans-Medium.ttf               | No          | No           |
+| no            | Norwegian            | NotoSans-Medium.ttf               | No          | No           |
+| fi            | Finnish              | NotoSans-Medium.ttf               | No          | No           |
+| nl            | Dutch                | NotoSans-Medium.ttf               | No          | No           |
+| he            | Hebrew               | NotoSansHebrew-Medium.ttf         | Yes         | No           |
+| vi            | Vietnamese           | NotoSans-Medium.ttf               | No          | No           |
+| id            | Indonesian           | NotoSans-Medium.ttf               | No          | No           |
+| ms            | Malay                | NotoSans-Medium.ttf               | No          | No           |
+| tl            | Tagalog (Filipino)   | NotoSans-Medium.ttf               | No          | No           |
+| sw            | Swahili              | NotoSans-Medium.ttf               | No          | No           |
+| hu            | Hungarian            | NotoSans-Medium.ttf               | No          | No           |
+| cs            | Czech                | NotoSans-Medium.ttf               | No          | No           |
+| sk            | Slovak               | NotoSans-Medium.ttf               | No          | No           |
+| ro            | Romanian             | NotoSans-Medium.ttf               | No          | No           |
+| bg            | Bulgarian            | NotoSans-Medium.ttf               | No          | No           |
+| sr            | Serbian (Cyrillic)   | NotoSans-Medium.ttf               | No          | No           |
+| hr            | Croatian             | NotoSans-Medium.ttf               | No          | No           |
+| sl            | Slovenian            | NotoSans-Medium.ttf               | No          | No           |
+| uk            | Ukrainian            | NotoSans-Medium.ttf               | No          | No           |
+| my            | Burmese (Myanmar)    | NotoSansMyanmar-Medium.ttf        | No          | No           |
+| ta            | Tamil                | NotoSansTamil-Medium.ttf          | No          | No           |
+| et            | Estonian             | NotoSans-Medium.ttf               | No          | No           |
+| pcm           | Nigerian Pidgin      | NotoSans-Medium.ttf               | No          | No           |
+| te            | Telugu               | NotoSans-Medium.ttf               | No          | No           |
+| ml            | Malayalam            | NotoSans-Medium.ttf               | No          | No           |
+| kn            | Kannada              | NotoSans-Medium.ttf               | No          | No           |
+| km            | Khmer                | NotoSansKhmer-Medium.ttf          | No          | No           |
 
-## ਨਵੀਂ ਭਾਸ਼ਾ ਸ਼ਾਮਲ ਕਰਨਾ
+## Adding a new language
 
-ਨਵੀਂ ਭਾਸ਼ਾ ਸ਼ਾਮਲ ਕਰਨ ਵਿੱਚ ਰੁਚੀ ਰੱਖਦੇ ਹੋ? ਕਿਰਪਾ ਕਰਕੇ ਯੋਗਦਾਨ ਦਿਓ ਗਾਈਡ ਦੀ ਪਾਲਣਾ ਕਰੋ:
+Interested in adding a new language? Please follow the contribution guide:
 
-- ਵੇਖੋ ਯੋਗਦਾਨ: [ਨਵੀਂ ਭਾਸ਼ਾ ਸ਼ਾਮਲ ਕਰੋ](../CONTRIBUTING.md#contribute-a-new-language)
+- See Contributing: [Contribute a new language](../CONTRIBUTING.md#contribute-a-new-language)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**ਅਸਵੀਕਾਰੋਪੱਤਰ**:  
-ਇਹ ਦਸਤਾਵੇਜ਼ AI ਅਨੁਵਾਦ ਸੇਵਾ [Co-op Translator](https://github.com/Azure/co-op-translator) ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਅਨੁਵਾਦ ਕੀਤਾ ਗਿਆ ਹੈ। ਜਦੋਂ ਕਿ ਅਸੀਂ ਸਹੀਤਾ ਲਈ ਕੋਸ਼ਿਸ਼ ਕਰਦੇ ਹਾਂ, ਕਿਰਪਾ ਕਰਕੇ ਧਿਆਨ ਵਿੱਚ ਰੱਖੋ ਕਿ ਸਵੈਚਾਲਿਤ ਅਨੁਵਾਦਾਂ ਵਿੱਚ ਗਲਤੀਆਂ ਜਾਂ ਅਸਮਰਥਤਾਵਾਂ ਹੋ ਸਕਦੀਆਂ ਹਨ। ਮੂਲ ਦਸਤਾਵੇਜ਼ ਆਪਣੀ ਮੂਲ ਭਾਸ਼ਾ ਵਿੱਚ ਪ੍ਰਮਾਣਿਕ ਸਰੋਤ ਮੰਨਿਆ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ। ਮਹੱਤਵਪੂਰਨ ਜਾਣਕਾਰੀ ਲਈ, ਪੇਸ਼ੇਵਰ ਮਨੁੱਖੀ ਅਨੁਵਾਦ ਦੀ ਸਿਫਾਰਸ਼ ਕੀਤੀ ਜਾਂਦੀ ਹੈ। ਅਸੀਂ ਇਸ ਅਨੁਵਾਦ ਦੀ ਵਰਤੋਂ ਤੋਂ ਉਤਪੰਨ ਕਿਸੇ ਵੀ ਗਲਤਫਹਿਮੀ ਜਾਂ ਗਲਤ ਵਿਆਖਿਆ ਲਈ ਜ਼ਿੰਮੇਵਾਰ ਨਹੀਂ ਹਾਂ।
+**ਇਨਕਾਰਨਾਮਾ**:  
+ਇਸ ਦਸਤਾਵੇਜ਼ ਦਾ ਅਨੁਵਾਦ AI ਅਨੁਵਾਦ ਸੇਵਾ [Co-op Translator](https://github.com/Azure/co-op-translator) ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਕੀਤਾ ਗਿਆ ਹੈ। ਜਦੋਂ ਕਿ ਅਸੀਂ ਸਹੀਤਾ ਲਈ ਯਤਨਸ਼ੀਲ ਹਾਂ, ਕਿਰਪਾ ਕਰਕੇ ਜਾਣੋ ਕਿ ਸਵੈਚਾਲਿਤ ਅਨੁਵਾਦਾਂ ਵਿੱਚ ਗਲਤੀਆਂ ਜਾਂ ਅਸਰਦਾਰੀਆਂ ਹੋ ਸਕਦੀਆਂ ਹਨ। ਅਸਲੀ ਦਸਤਾਵੇਜ਼ ਆਪਣੇ ਮੂਲ ਭਾਸ਼ਾ ਵਿੱਚ ਹੀ ਪ੍ਰਮਾਣਿਕ ਸਰੋਤ ਮੰਨਿਆ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ। ਗੰਭੀਰ ਜਾਣਕਾਰੀ ਲਈ, ਵਿਸ਼ੇਸ਼ਗਿਆਨ ਜਾਂ ਪ੍ਰੋਫੈਸ਼ਨਲ ਮਨੁੱਖੀ ਅਨੁਵਾਦ ਦੀ ਸਿਫਾਰਸ਼ ਕੀਤੀ ਜਾਂਦੀ ਹੈ। ਅਸੀਂ ਇਸ ਅਨੁਵਾਦ ਦੀ ਵਰਤੋਂ ਨਾਲ ਹੋਣ ਵਾਲੀਆਂ ਕਿਸੇ ਵੀ ਗਲਤਫਹਮੀਆਂ ਜਾਂ ਮਿਸਅਰਥ ਦਾ ਜ਼ਿੰਮੇਵਾਰ ਨਹੀਂ ਹਾਂ।
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

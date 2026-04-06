@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "758ca1c5ae0d32c52d2dd59132dcfbf0",
-  "translation_date": "2025-11-30T10:45:55+00:00",
-  "source_file": "CONTRIBUTING.md",
-  "language_code": "pa"
-}
--->
 # ਕੋ-ਆਪ ਟ੍ਰਾਂਸਲੇਟਰ ਵਿੱਚ ਯੋਗਦਾਨ ਪਾਉਣਾ
 
 ਇਹ ਪ੍ਰੋਜੈਕਟ ਯੋਗਦਾਨ ਅਤੇ ਸੁਝਾਵਾਂ ਦਾ ਸਵਾਗਤ ਕਰਦਾ ਹੈ। ਜ਼ਿਆਦਾਤਰ ਯੋਗਦਾਨਾਂ ਲਈ ਤੁਹਾਨੂੰ ਇੱਕ Contributor License Agreement (CLA) ਨਾਲ ਸਹਿਮਤ ਹੋਣਾ ਪੈਂਦਾ ਹੈ, ਜਿਸ ਵਿੱਚ ਤੁਸੀਂ ਇਹ ਘੋਸ਼ਣਾ ਕਰਦੇ ਹੋ ਕਿ ਤੁਹਾਡੇ ਕੋਲ ਆਪਣੇ ਯੋਗਦਾਨ ਦੇ ਉਪਯੋਗ ਦੇ ਹੱਕ ਹਨ ਅਤੇ ਤੁਸੀਂ ਸਾਨੂੰ ਉਹ ਹੱਕ ਦਿੰਦੇ ਹੋ। ਵਿਸਥਾਰ ਲਈ, https://cla.opensource.microsoft.com ਵੇਖੋ।
