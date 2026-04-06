@@ -1,0 +1,110 @@
+{
+  "add-secrets-done.444861ce6956d5cb.webp": {
+    "original_hash": "58fbc2b2b9ac8c4097af4fc6ed4b6e39",
+    "translation_date": "2026-04-06T18:13:32+00:00",
+    "source_file": "getting_started/github-actions-guide/imgs/add-secrets-done.png",
+    "language_code": "zh-TW"
+  },
+  "architecture_241019.441572b69458c412.webp": {
+    "original_hash": "ed5806f58ace0940e10d4cf555fe337d",
+    "translation_date": "2026-04-06T18:09:53+00:00",
+    "source_file": "imgs/architecture_241019.png",
+    "language_code": "zh-TW"
+  },
+  "co-op-translator-example.d0bbac28b9d4a2a3.webp": {
+    "original_hash": "c73e1156b31d9f7e16032dfaf2d68f1c",
+    "translation_date": "2026-04-06T18:10:49+00:00",
+    "source_file": "imgs/co-op-translator-example.png",
+    "language_code": "zh-TW"
+  },
+  "find-azure-ai-info.0e00140419c12517.webp": {
+    "original_hash": "1d9e4a8eb09bff125d54a09cfb186d10",
+    "translation_date": "2026-04-06T18:12:05+00:00",
+    "source_file": "getting_started/imgs/find-azure-ai-info.png",
+    "language_code": "zh-TW"
+  },
+  "generate-private-key.b756274d65562fd5.webp": {
+    "original_hash": "edb431c091edea5a138d240875f5052d",
+    "translation_date": "2026-04-06T18:13:38+00:00",
+    "source_file": "getting_started/github-actions-guide/imgs/generate-private-key.png",
+    "language_code": "zh-TW"
+  },
+  "install-app.d0f0a24cbb1d6c93.webp": {
+    "original_hash": "909ef1d45b2f495a9c2b5609150ffe06",
+    "translation_date": "2026-04-06T18:12:46+00:00",
+    "source_file": "getting_started/github-actions-guide/imgs/install-app.png",
+    "language_code": "zh-TW"
+  },
+  "install-authorize.29df6238c3eb8f70.webp": {
+    "original_hash": "0417472c22633f0e7fd954517406e387",
+    "translation_date": "2026-04-06T18:13:54+00:00",
+    "source_file": "getting_started/github-actions-guide/imgs/install-authorize.png",
+    "language_code": "zh-TW"
+  },
+  "logo.ee7f731b6571885a.webp": {
+    "original_hash": "d6338964ff4dc774e8f19a0c98b42b91",
+    "translation_date": "2026-04-06T18:11:28+00:00",
+    "source_file": "imgs/logo.png",
+    "language_code": "zh-TW"
+  },
+  "logo_v.dbda2b4524348860.webp": {
+    "original_hash": "4012201421d7129005b54fd842a92cf3",
+    "translation_date": "2026-04-06T18:08:59+00:00",
+    "source_file": "imgs/logo_v.png",
+    "language_code": "zh-TW"
+  },
+  "multi-language-support.920258250a79e90c.webp": {
+    "original_hash": "e0932e6d1057535a5de48f05a4561f76",
+    "translation_date": "2026-04-06T18:11:06+00:00",
+    "source_file": "imgs/multi-language-support.png",
+    "language_code": "zh-TW"
+  },
+  "open-ms-thumbnail.946b356b89bc5f0e.webp": {
+    "original_hash": "0295af024f2b303b5c59f563388ccce7",
+    "translation_date": "2026-04-06T18:09:08+00:00",
+    "source_file": "imgs/open-ms-thumbnail.jpg",
+    "language_code": "zh-TW"
+  },
+  "permission-setting.ae2f02748b0579e7.webp": {
+    "original_hash": "08c8e78e4cfab9e5fdfd469e31770a2f",
+    "translation_date": "2026-04-06T18:12:32+00:00",
+    "source_file": "getting_started/github-actions-guide/imgs/permission-setting.png",
+    "language_code": "zh-TW"
+  },
+  "phi-3cookbook-folders.33c88cf9d597e7fb.webp": {
+    "original_hash": "6c3d224209821bdbe880eeb9d03180b3",
+    "translation_date": "2026-04-06T18:10:16+00:00",
+    "source_file": "imgs/phi-3cookbook-folders.png",
+    "language_code": "zh-TW"
+  },
+  "reactor-thumbnail.e883b13d74e59f9e.webp": {
+    "original_hash": "3936f59f6ba8cbb332adee7ba7de9dbe",
+    "translation_date": "2026-04-06T18:09:16+00:00",
+    "source_file": "imgs/reactor-thumbnail.jpg",
+    "language_code": "zh-TW"
+  },
+  "select-azureopenai-security-type.6a185c1b0f79286e.webp": {
+    "original_hash": "4624e4fd337fb1a87ae267f66a689ec9",
+    "translation_date": "2026-04-06T18:11:19+00:00",
+    "source_file": "imgs/select-azureopenai-security-type.png",
+    "language_code": "zh-TW"
+  },
+  "select-setting-action.3b95c915d6031159.webp": {
+    "original_hash": "38f8636f2ad3ef3411f027f8a56b3caf",
+    "translation_date": "2026-04-06T18:13:07+00:00",
+    "source_file": "getting_started/github-actions-guide/imgs/select-setting-action.png",
+    "language_code": "zh-TW"
+  },
+  "translated-phi-3-cookbook-ko.261d9206dc049ded.webp": {
+    "original_hash": "eed1cb427296493a11ced638f246834d",
+    "translation_date": "2026-04-06T18:09:37+00:00",
+    "source_file": "imgs/translated-phi-3-cookbook-ko.png",
+    "language_code": "zh-TW"
+  },
+  "translation-ex.0c8aa6a7ee0aad2b.webp": {
+    "original_hash": "7a4691c9071d35d20c58c9a9e8dbb6d3",
+    "translation_date": "2026-04-06T18:11:53+00:00",
+    "source_file": "imgs/translation-ex.png",
+    "language_code": "zh-TW"
+  }
+}
