@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9fac847815936ef6e6c8bfde6d191571",
-  "translation_date": "2025-10-15T03:30:47+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-org.md",
-  "language_code": "nl"
-}
--->
 # De Co-op Translator GitHub Action gebruiken (Organisatiehandleiding)
 
 **Doelgroep:** Deze handleiding is bedoeld voor **interne Microsoft-gebruikers** of **teams die toegang hebben tot de benodigde inloggegevens voor de vooraf gebouwde Co-op Translator GitHub App** of hun eigen aangepaste GitHub App kunnen aanmaken.
@@ -56,11 +47,11 @@ De workflow gebruikt GitHub App-authenticatie om veilig namens jou met je reposi
 
 1. Klik op **Installeren** en selecteer het account of de organisatie waar je doelrepository zich bevindt.
 
-    ![App installeren](../../../../translated_images/install-app.d0f0a24cbb1d6c93f293f002eb34e633f7bc8f5caaba46b97806ba7bdc958f27.nl.png)
+    ![App installeren](../../../../translated_images/nl/install-app.d0f0a24cbb1d6c93.webp)
 
 1. Kies **Alleen geselecteerde repositories** en selecteer je doelrepository (bijvoorbeeld `PhiCookBook`). Klik op **Installeren**. Je moet mogelijk inloggen.
 
-    ![Installatie autoriseren](../../../../translated_images/install-authorize.29df6238c3eb8f707e7fc6f97a946cb654b328530c4aeddce28b874693f076a0.nl.png)
+    ![Installatie autoriseren](../../../../translated_images/nl/install-authorize.29df6238c3eb8f70.webp)
 
 1. **Verkrijg App-inloggegevens (intern proces vereist):** Om de workflow als de app te laten authenticeren, heb je twee gegevens nodig van het Co-op Translator-team:
   - **App ID:** De unieke identificatie van de Co-op Translator app. De App ID is: `1164076`.
@@ -82,7 +73,7 @@ Je moet de GitHub App-inloggegevens en je AI-service-inloggegevens toevoegen als
 
 1. Klik onder **Repository secrets** op **Nieuw repository secret** voor elk secret hieronder.
 
-   ![Selecteer setting action](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.nl.png)
+   ![Selecteer setting action](../../../../translated_images/nl/select-setting-action.3b95c915d6031159.webp)
 
 **Vereiste secrets (voor GitHub App-authenticatie):**
 
@@ -107,7 +98,7 @@ Je moet de GitHub App-inloggegevens en je AI-service-inloggegevens toevoegen als
 | `OPENAI_CHAT_MODEL_ID`              | Specifieke OpenAI model-ID                   | OpenAI Platform                 |
 | `OPENAI_BASE_URL`                   | Aangepaste OpenAI API Base URL               | OpenAI Platform                 |
 
-![Voer omgevingsvariabelenaam in](../../../../translated_images/add-secrets-done.444861ce6956d5cb20781ead1237fcc12805078349bb0d4e95bb9540ee192227.nl.png)
+![Voer omgevingsvariabelenaam in](../../../../translated_images/nl/add-secrets-done.444861ce6956d5cb.webp)
 
 ### Stap 3: Maak het workflowbestand aan
 

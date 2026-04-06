@@ -1,16 +1,8 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "dac6bc281667816537df51f724a0ff2c",
-  "translation_date": "2025-11-30T11:40:29+00:00",
-  "source_file": "README.md",
-  "language_code": "he"
-}
--->
-# מתרגם Co-op
+# Co-op Translator
 
-_אוטומציה קלה של תרגום התוכן החינוכי שלך ב-GitHub לשפות רבות כדי להגיע לקהל עולמי._
+_האוטומציה והתחזוקה הקלות של תרגומים עבור התוכן החינוכי שלך ב-GitHub במגוון שפות ככל שהפרויקט שלך מתפתח._
 
+![Python 3.10–3.12](https://img.shields.io/badge/python-3.10--3.12-blue)
 [![Python package](https://img.shields.io/pypi/v/co-op-translator?color=4BA3FF)](https://pypi.org/project/co-op-translator/)
 [![License: MIT](https://img.shields.io/github/license/azure/co-op-translator?color=4BA3FF)](https://github.com/azure/co-op-translator/blob/main/LICENSE)
 [![Downloads](https://static.pepy.tech/badge/co-op-translator)](https://pepy.tech/project/co-op-translator)
@@ -23,17 +15,37 @@ _אוטומציה קלה של תרגום התוכן החינוכי שלך ב-Git
 [![GitHub pull-requests](https://img.shields.io/github/issues-pr/azure/co-op-translator.svg)](https://GitHub.com/azure/co-op-translator/pulls/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-### 🌐 תמיכה בריבוי שפות
+### 🌐 תמיכה מרובת שפות
 
 #### נתמך על ידי [Co-op Translator](https://github.com/Azure/Co-op-Translator)
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
-[ערבית](../ar/README.md) | [בנגלית](../bn/README.md) | [בולגרית](../bg/README.md) | [בורמזית (מיאנמר)](../my/README.md) | [סינית (מפושטת)](../zh/README.md) | [סינית (מסורתית, הונג קונג)](../hk/README.md) | [סינית (מסורתית, מקאו)](../mo/README.md) | [סינית (מסורתית, טייוואן)](../tw/README.md) | [קרואטית](../hr/README.md) | [צ'כית](../cs/README.md) | [דנית](../da/README.md) | [הולנדית](../nl/README.md) | [אסטונית](../et/README.md) | [פינית](../fi/README.md) | [צרפתית](../fr/README.md) | [גרמנית](../de/README.md) | [יוונית](../el/README.md) | [עברית](./README.md) | [הינדי](../hi/README.md) | [הונגרית](../hu/README.md) | [אינדונזית](../id/README.md) | [איטלקית](../it/README.md) | [יפנית](../ja/README.md) | [קנדה](../kn/README.md) | [קוריאנית](../ko/README.md) | [ליטאית](../lt/README.md) | [מלאית](../ms/README.md) | [מלאיאלאם](../ml/README.md) | [מרטהי](../mr/README.md) | [נפאלית](../ne/README.md) | [פידג'ין ניגרי](../pcm/README.md) | [נורווגית](../no/README.md) | [פרסית (פרסי)](../fa/README.md) | [פולנית](../pl/README.md) | [פורטוגזית (ברזיל)](../br/README.md) | [פורטוגזית (פורטוגל)](../pt/README.md) | [פונג'אבית (גורמוכי)](../pa/README.md) | [רומנית](../ro/README.md) | [רוסית](../ru/README.md) | [סרבית (קירילית)](../sr/README.md) | [סלובקית](../sk/README.md) | [סלובנית](../sl/README.md) | [ספרדית](../es/README.md) | [סווהילית](../sw/README.md) | [שוודית](../sv/README.md) | [טגלוג (פיליפינית)](../tl/README.md) | [טמילית](../ta/README.md) | [טלוגו](../te/README.md) | [תאית](../th/README.md) | [טורקית](../tr/README.md) | [אוקראינית](../uk/README.md) | [אורדו](../ur/README.md) | [וייטנאמית](../vi/README.md)
+[Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh-CN/README.md) | [Chinese (Traditional, Hong Kong)](../zh-HK/README.md) | [Chinese (Traditional, Macau)](../zh-MO/README.md) | [Chinese (Traditional, Taiwan)](../zh-TW/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](./README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Kannada](../kn/README.md) | [Khmer](../km/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Malayalam](../ml/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../pt-BR/README.md) | [Portuguese (Portugal)](../pt-PT/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
+
+> **מעדיפים לשכפל מקומית?**
+>
+> מאגר זה כולל למעלה מ-50 תרגומים בשפות שונות, מה שמגדיל משמעותית את גודל ההורדה. לשכפל ללא התרגומים, השתמשו ב-sparse checkout:
+>
+> **Bash / macOS / Linux:**
+> ```bash
+> git clone --filter=blob:none --sparse https://github.com/skytin1004/co-op-translator.git
+> cd co-op-translator
+> git sparse-checkout set --no-cone '/*' '!translations' '!translated_images'
+> ```
+>
+> **CMD (Windows):**
+> ```cmd
+> git clone --filter=blob:none --sparse https://github.com/skytin1004/co-op-translator.git
+> cd co-op-translator
+> git sparse-checkout set --no-cone "/*" "!translations" "!translated_images"
+> ```
+>
+> כך תקבלו את כל מה שצריך כדי להשלים את הקורס עם הורדה הרבה יותר מהירה.
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
 [![GitHub watchers](https://img.shields.io/github/watchers/azure/co-op-translator.svg?style=social&label=Watch)](https://GitHub.com/azure/co-op-translator/watchers/)
 [![GitHub forks](https://img.shields.io/github/forks/azure/co-op-translator.svg?style=social&label=Fork)](https://GitHub.com/azure/co-op-translator/network/)
-[![GitHub stars](https://img.shields.io/github/stars/azure/co-op-translator?style=social&label=Star)](https://GitHub.com/azure/co-op-translator/stargazers/)
+[![GitHub stars](https://img.shields.io/github/stars/azure/co-op-translator.svg?style=social&label=Star)](https://GitHub.com/azure/co-op-translator/stargazers/)
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
@@ -41,12 +53,33 @@ _אוטומציה קלה של תרגום התוכן החינוכי שלך ב-Git
 
 ## סקירה כללית
 
-**Co-op Translator** עוזר לך לתרגם את התוכן החינוכי שלך ב-GitHub לשפות רבות בקלות.
-כשאתה מעדכן את קבצי Markdown, תמונות או מחברות, התרגומים מתעדכנים אוטומטית, ומבטיחים שהתוכן שלך נשאר מדויק ועדכני ללומדים ברחבי העולם.
+**Co-op Translator** עוזר לך ללוקלז את התוכן החינוכי שלך ב-GitHub למספר שפות בקלות.
+כאשר אתה מעדכן את קבצי ה-Markdown, התמונות או המחברות, התרגומים נשמרים מסונכרנים אוטומטית, ומבטיחים שהתוכן שלך מדויק ומעודכן עבור לומדים ברחבי העולם.
 
-דוגמה לאופן ארגון התוכן המתורגם:
+דוגמה לאופן שבו תוכן מתורגם מאורגן:
 
-![Example](../../translated_images/translation-ex.0c8aa6a7ee0aad2b35cddcc110c719baf0afc640e8c5a45540e6c166b9907d91.he.png)
+![Example](../../translated_images/he/translation-ex.0c8aa6a7ee0aad2b.webp)
+
+## כיצד מנוהל מצב התרגום
+
+Co-op Translator מנהל תוכן מתורגם כ**רכיבי תוכנה בעלות גרסאות**,  
+ולא כקבצים סטטיים.
+
+הכלי עוקב אחר מצב ה-Markdown, תמונות והמחברות המתורגמות
+באמצעות **מטא-נתונים בטווח שפה**.
+
+עיצוב זה מאפשר ל-Co-op Translator ל:
+
+- לזהות בביטחון תרגומים מיושנים
+- לטפל בקבצי Markdown, בתמונות ובמחברות בעקביות
+- להרחיב בבטחה במאגרים מרובי שפות שנעים במהירות
+
+על ידי דגם של תרגומים כרכיבים מנוהלים,
+זרימות עבודה של תרגום מתיישרות באופן טבעי עם
+שיטות ניהול תלות ורכיבים מודרניים בתוכנה.
+
+→ [כיצד מנוהל מצב התרגום](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/rethinking-documentation-translation-treating-translations-as-versioned-software/4491755)
+
 
 ## התחלה מהירה
 
@@ -68,22 +101,24 @@ Docker:
 ```bash
 # משוך את התמונה הציבורית מ-GHCR
 docker pull ghcr.io/azure/co-op-translator:latest
-# הרץ עם התיקייה הנוכחית מותקנת ו-.env מסופק (Bash/Zsh)
+# הרץ עם התיקיה הנוכחית מותקנת וקובץ .env שסופק (Bash/Zsh)
 docker run --rm -it --env-file .env -v "${PWD}:/work" ghcr.io/azure/co-op-translator:latest -l "ko ja fr" -md
 ```
 
 ## הגדרה מינימלית
 
-1. צור קובץ `.env` באמצעות התבנית: [.env.template](../../.env.template)
-2. הגדר ספק LLM אחד (Azure OpenAI או OpenAI)
-3. (אופציונלי) לתרגום תמונות (`-img`), הגדר Azure AI Vision
-4. (מומלץ) נקה תרגומים קודמים כדי למנוע התנגשויות (למשל, `translations/`)
-5. (מומלץ) הוסף קטע תרגום ל-README שלך באמצעות [תבנית שפות ל-README](./getting_started/README_languages_template.md)
-6. ראה: [הגדרת Azure AI](./getting_started/set-up-azure-ai.md)
+1. וודא שיש לך גרסת Python נתמכת (כעת 3.10-3.12). ב-poetry (pyproject.toml) זה מטופל אוטומטית.
+2. צור קובץ `.env` באמצעות התבנית: [.env.template](../../.env.template)
+3. הגדר ספק LLM אחד (Azure OpenAI או OpenAI)
+4. (אופציונלי) לתרגום תמונות (`-img`), הגדר Azure AI Vision
+5. (אופציונלי) ניתן להגדיר מערכי אישורים מרובים על ידי שכפול משתנים עם סיומות כגון `_1`, `_2` וכו'. כל המשתנים במערך חייבים לשתף את אותה סיומת.
+6. (מומלץ) נקה תרגומים קודמים כדי למנוע קונפליקטים (לדוגמה, `translations/`)
+7. (מומלץ) הוסף חלק תרגום ל-README שלך באמצעות תבנית [README languages template](./getting_started/README_languages_template.md)
+8. ראה: [הגדרת Azure AI](./getting_started/set-up-azure-ai.md)
 
 ## שימוש
 
-תרגם את כל סוגי הקבצים הנתמכים:
+תרגם את כל הסוגים הנתמכים:
 
 ```bash
 translate -l "ko ja"
@@ -107,12 +142,12 @@ translate -l "pt" -md -img
 translate -l "zh" -nb
 ```
 
-עוד דגלים: [הפניה לפקודות](./getting_started/command-reference.md)
+דגלים נוספים: [Command reference](./getting_started/command-reference.md)
 
 ## תכונות
 
 - תרגום אוטומטי ל-Markdown, מחברות ותמונות
-- שומר על סינכרון התרגומים עם שינויים במקור
+- שומר על סנכרון תרגומים עם שינויים במקור
 - פועל מקומית (CLI) או ב-CI (GitHub Actions)
 - משתמש ב-Azure OpenAI או OpenAI; אופציונלי Azure AI Vision לתמונות
 - שומר על פורמט ומבנה Markdown
@@ -121,90 +156,93 @@ translate -l "zh" -nb
 
 - [מדריך שורת פקודה](./getting_started/command-line-guide/command-line-guide.md)
 - [מדריך GitHub Actions (מאגרי ציבור וסודות סטנדרטיים)](./getting_started/github-actions-guide/github-actions-guide-public.md)
-- [מדריך GitHub Actions (מאגרי ארגון Microsoft והגדרות ארגוניות)](./getting_started/github-actions-guide/github-actions-guide-org.md)
-- [תבנית שפות ל-README](./getting_started/README_languages_template.md)
+- [מדריך GitHub Actions (מאגרי ארגון Microsoft והגדרות ברמת הארגון)](./getting_started/github-actions-guide/github-actions-guide-org.md)
+- [תבנית שפות README](./getting_started/README_languages_template.md)
 - [שפות נתמכות](./getting_started/supported-languages.md)
-- [תרומה לפרויקט](./CONTRIBUTING.md)
+- [תרומה](./CONTRIBUTING.md)
 - [פתרון תקלות](./getting_started/troubleshooting.md)
 
-### מדריך ספציפי ל-Microsoft
+### מדריך ייחודי ל-Microsoft
 > [!NOTE]
-> מיועד למתחזקים של מאגרי "למתחילים" של Microsoft בלבד.
+> רק למנהלי מאגרי "עבור מתחילים" של Microsoft.
 
 - [עדכון רשימת "קורסים אחרים" (רק למאגרי MS Beginners)](./getting_started/update-other-courses.md)
 
 ## תמכו בנו וקידמו למידה עולמית
 
-הצטרפו אלינו במהפכה של שיתוף תוכן חינוכי ברחבי העולם! תנו ל-[Co-op Translator](https://github.com/azure/co-op-translator) ⭐ ב-GitHub ותמכו במשימה שלנו לפרוץ מחסומי שפה בלמידה וטכנולוגיה. ההתעניינות והתרומות שלכם משפיעות משמעותית! תרומות קוד והצעות לתכונות תמיד מתקבלות בברכה.
+הצטרפו אלינו במהפכה של שיתוף תוכן חינוכי ברחבי העולם! תנו ל-[Co-op Translator](https://github.com/azure/co-op-translator) כוכב ⭐ ב-GitHub ותמכו במשימה שלנו לפרוץ מחסומי שפה בלמידה וטכנולוגיה. ההתעניינות והתרומות שלכם יוצרות השפעה משמעותית! תרומות קוד והצעות לתכונות מתקבלות בברכה תמיד.
 
 ### גלו תוכן חינוכי של Microsoft בשפתכם
 
-- [AZD למתחילים](https://github.com/microsoft/AZD-for-beginners)
-- [Edge AI למתחילים](https://github.com/microsoft/edgeai-for-beginners)
-- [פרוטוקול הקשר מודל (MCP) למתחילים](https://github.com/microsoft/mcp-for-beginners)
-- [סוכני AI למתחילים](https://github.com/microsoft/ai-agents-for-beginners)
-- [AI גנרטיבי למתחילים עם .NET](https://github.com/microsoft/Generative-AI-for-beginners-dotnet)
-- [AI גנרטיבי למתחילים](https://github.com/microsoft/generative-ai-for-beginners)
-- [AI גנרטיבי למתחילים עם Java](https://github.com/microsoft/generative-ai-for-beginners-java)
-- [למידת מכונה למתחילים](https://aka.ms/ml-beginners)
-- [מדעי הנתונים למתחילים](https://aka.ms/datascience-beginners)
-- [AI למתחילים](https://aka.ms/ai-beginners)
-- [סייברסקיוריטי למתחילים](https://github.com/microsoft/Security-101)
-- [פיתוח ווב למתחילים](https://aka.ms/webdev-beginners)
-- [IoT למתחילים](https://aka.ms/iot-beginners)
+- [LangChain4j-for-Beginners](https://github.com/microsoft/LangChain4j-for-Beginners)
+- [AZD for Beginners](https://github.com/microsoft/AZD-for-beginners)
+- [Edge AI for Beginners](https://github.com/microsoft/edgeai-for-beginners)
+- [Model Context Protocol (MCP) For Beginners](https://github.com/microsoft/mcp-for-beginners)
+- [AI Agents for Beginners](https://github.com/microsoft/ai-agents-for-beginners)
+- [Generative AI for Beginners using .NET](https://github.com/microsoft/Generative-AI-for-beginners-dotnet)
+- [Generative AI for Beginners](https://github.com/microsoft/generative-ai-for-beginners)
+- [Generative AI for Beginners using Java](https://github.com/microsoft/generative-ai-for-beginners-java)
+- [ML for Beginners](https://aka.ms/ml-beginners)
+- [Data Science for Beginners](https://aka.ms/datascience-beginners)
+- [AI for Beginners](https://aka.ms/ai-beginners)
+- [Cybersecurity for Beginners](https://github.com/microsoft/Security-101)
+- [Web Dev for Beginners](https://aka.ms/webdev-beginners)
+- [IoT for Beginners](https://aka.ms/iot-beginners)
 - [PhiCookBook](https://github.com/microsoft/PhiCookBook)
 
 ## מצגות וידאו
 
-👉 לחצו על התמונה למטה לצפייה ב-YouTube.
+👉 לחץ על התמונה למטה לצפייה ב-YouTube.
 
 - **Open at Microsoft**: מבוא קצר של 18 דקות ומדריך מהיר לשימוש ב-Co-op Translator.
 
-  [![Open at Microsoft](../../translated_images/open-ms-thumbnail.946b356b89bc5f0e33dcebb852f7926b98c33f54c1a49ce01c36ae7f35e2443a.he.jpg)](https://www.youtube.com/watch?v=jX_swfH_KNU)
+  [![Open at Microsoft](../../translated_images/he/open-ms-thumbnail.946b356b89bc5f0e.webp)](https://www.youtube.com/watch?v=jX_swfH_KNU)
 
-## תרומה לפרויקט
+## תרומה
 
-הפרויקט מקבל בברכה תרומות והצעות. מעוניינים לתרום ל-Azure Co-op Translator? אנא עיינו ב-[CONTRIBUTING.md](./CONTRIBUTING.md) לקבלת הנחיות כיצד תוכלו לעזור להפוך את Co-op Translator לנגיש יותר.
+הפרויקט מקבל בברכה תרומות והצעות. מעוניין לתרום ל-Azure Co-op Translator? אנא עיין ב-[CONTRIBUTING.md](./CONTRIBUTING.md) להנחיות כיצד תוכל לעזור להפוך את Co-op Translator לנגיש יותר.
 
 ## תורמים
-
 [![co-op-translator contributors](https://contrib.rocks/image?repo=Azure/co-op-translator)](https://github.com/Azure/co-op-translator/graphs/contributors)
 
 ## קוד התנהגות
 
-הפרויקט אימץ את [קוד ההתנהגות של Microsoft בקוד פתוח](https://opensource.microsoft.com/codeofconduct/).
-למידע נוסף ראו את [שאלות נפוצות על קוד ההתנהגות](https://opensource.microsoft.com/codeofconduct/faq/) או
-צרו קשר ב-[opencode@microsoft.com](mailto:opencode@microsoft.com) עם שאלות או הערות נוספות.
+הפרויקט הזה אימץ את [קוד ההתנהגות בקוד פתוח של מיקרוסופט](https://opensource.microsoft.com/codeofconduct/).
+למידע נוסף ראו את [שאלות נפוצות על קוד ההתנהגות](https://opensource.microsoft.com/codeofconduct/faq/) או צרו קשר ב-[opencode@microsoft.com](mailto:opencode@microsoft.com) בכל שאלה או הערה נוספת.
 
 ## בינה מלאכותית אחראית
 
-Microsoft מחויבת לסייע ללקוחותיה להשתמש במוצרי ה-AI שלנו באחריות, לשתף את הידע שצברנו ולבנות שותפויות מבוססות אמון באמצעות כלים כמו Transparency Notes ו-Impact Assessments. משאבים רבים זמינים ב-[https://aka.ms/RAI](https://aka.ms/RAI).
-הגישה של Microsoft לבינה מלאכותית אחראית מבוססת על עקרונות ה-AI שלנו: הוגנות, אמינות ובטיחות, פרטיות ואבטחה, הכללה, שקיפות ואחריות.
+מיקרוסופט מחויבת לסייע ללקוחותינו להשתמש במוצרי ה-AI שלנו באחריות, לשתף את הלקחים שלנו, ולבנות שותפויות מבוססות אמון באמצעות כלים כמו הערות שקיפות והערכות השפעה. ניתן למצוא משאבים רבים ב-[https://aka.ms/RAI](https://aka.ms/RAI).
+הגישה של מיקרוסופט לבינה מלאכותית אחראית מבוססת על עקרונות ה-AI שלנו הכוללים צדק, אמינות ובטיחות, פרטיות ואבטחה, הכללה, שקיפות ואחריות.
 
-מודלים רחבי היקף של שפה טבעית, תמונות ודיבור - כמו אלה שבדוגמה זו - עלולים להתנהג באופן לא הוגן, לא אמין או פוגעני, ולגרום לנזקים. אנא עיינו ב-[הערת השקיפות של שירות Azure OpenAI](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) כדי להתעדכן בסיכונים ובמגבלות.
-הגישה המומלצת להפחתת סיכונים אלה היא לכלול במבנה שלך מערכת בטיחות שיכולה לזהות ולמנוע התנהגות מזיקה. <a href="https://learn.microsoft.com/azure/ai-services/content-safety/overview">Azure AI Content Safety</a> מספק שכבת הגנה עצמאית, המסוגלת לזהות תוכן מזיק שנוצר על ידי משתמשים או על ידי AI באפליקציות ובשירותים. Azure AI Content Safety כוללת ממשקי API לטקסט ולתמונות שמאפשרים לך לזהות חומר מזיק. בנוסף, יש לנו סטודיו אינטראקטיבי ל-Content Safety שמאפשר לך לצפות, לחקור ולנסות קוד לדוגמה לזיהוי תוכן מזיק במגוון מודאליות. <a href="https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest">תיעוד ההתחלה המהירה הבא</a> ינחה אותך כיצד לבצע בקשות לשירות.
+מודלים רחבי היקף לשפה טבעית, תמונה ודיבור – כמו אלו המשמשים בדוגמה זו – עלולים להתנהג בדרכים לא צודקות, לא אמינות, או פוגעניות, מה שעלול לגרום לנזקים. אנא העיפו מבט ב-[הערת השקיפות של שירות Azure OpenAI](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) כדי להתעדכן לגבי סיכונים ומגבלות.
 
-היבט נוסף שיש לקחת בחשבון הוא ביצועי האפליקציה הכוללים. באפליקציות רב-מודאליות ורב-מודליות, אנו מתייחסים לביצועים כאל כך שהמערכת פועלת כפי שאתה והמשתמשים שלך מצפים, כולל אי יצירת פלטים מזיקים. חשוב להעריך את ביצועי האפליקציה הכוללים שלך באמצעות <a href="https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in">מדדי איכות יצירה וסיכון ובטיחות</a>.
+הגישה המומלצת למזעור סיכונים אלה היא לכלול מערכת בטיחות בארכיטקטורה שלכם שיכולה לזהות ולמנוע התנהגות מזיקה. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) מספק שכבה עצמאית של הגנה, המסוגלת לזהות תוכן מזיק שנוצר על ידי משתמש או על ידי AI ביישומים ובשירותים. Azure AI Content Safety כולל ממשקי API לטקסט ולתמונה שמאפשרים לזהות חומרות מזיקות. יש לנו גם סטודיו אינטראקטיבי של Content Safety שמאפשר לכם לצפות, לחקור ולנסות קוד דוגמה לזיהוי תוכן מזיק במולטימודלים שונים. התיעוד הבא ל[התחלה מהירה](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) מאתחל אתכם לבצע בקשות לשירות.
 
-אתה יכול להעריך את אפליקציית ה-AI שלך בסביבת הפיתוח שלך באמצעות <a href="https://microsoft.github.io/promptflow/index.html">prompt flow SDK</a>. בהתבסס על מערך נתונים לבחינה או מטרה, יצירות ה-AI הגנרטיביות שלך נמדדות כמותית עם מעריכים מובנים או מעריכים מותאמים אישית לפי בחירתך. כדי להתחיל עם ה-prompt flow sdk להערכת המערכת שלך, תוכל לעקוב אחרי <a href="https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk">מדריך ההתחלה המהירה</a>. לאחר ביצוע ריצת הערכה, תוכל <a href="https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results">להציג את התוצאות ב-Azure AI Studio</a>.
+היבט נוסף שיש לקחת בחשבון הוא ביצועי היישום הכוללים. עם יישומים מרובי מודאליות ומרובי מודלים, אנו מתייחסים לביצועים במשמעות שהמערכת פועלת כמצופה על ידכם ועל ידי המשתמשים שלכם, כולל אי יצירת פלט מזיק. חשוב להעריך את ביצועי היישום הכולל שלכם באמצעות [מדדי איכות ייצור וסיכון ובטיחות](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
+
+ניתן להעריך את יישום ה-AI שלכם בסביבת הפיתוח שלכם באמצעות [prompt flow SDK](https://microsoft.github.io/promptflow/index.html). בין אם בבסיס נתוני בדיקה או ביעד, דורגות יישומי ה-AI ההולכים שלכם נמדדות כמותית באמצעות מעריכים מובנים או מותאמים אישית לבחירתכם. כדי להתחיל עם prompt flow SDK להערכת המערכת שלכם, תוכלו לעקוב אחרי [מדריך התחלה מהירה](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). לאחר שתבצעו ריצה של הערכה, תוכלו [לראות את התוצאות ב-Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
 
 ## סימני מסחר
 
-פרויקט זה עשוי להכיל סימני מסחר או לוגואים של פרויקטים, מוצרים או שירותים. שימוש מורשה בסימני המסחר או בלוגואים של Microsoft כפוף וצריך לעמוד ב-[הנחיות סימני המסחר והמותג של Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general). שימוש בסימני המסחר או בלוגואים של Microsoft בגרסאות מותאמות של פרויקט זה לא יגרום לבלבול או ייצור רושם של חסות מצד Microsoft. כל שימוש בסימני מסחר או לוגואים של צדדים שלישיים כפוף למדיניות של אותם צדדים שלישיים.
+פרויקט זה עשוי להכיל סימני מסחר או לוגואים של פרויקטים, מוצרים או שירותים. השימוש המורשה בסימני מסחר או לוגואים של מיקרוסופט כפוף וצריך לעמוד ב-
+[הנחיות סימני המסחר והמותג של מיקרוסופט](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
+שימוש בסימני מסחר או לוגואים של מיקרוסופט בגרסאות מותאמות של פרויקט זה לא יגרום לבלבול או יביע חסות של מיקרוסופט.
+כל שימוש בסימני מסחר או לוגואים של צד שלישי כפוף למדיניות אותם צדדים שלישיים.
 
 ## קבלת עזרה
 
-אם נתקעת או יש לך שאלות לגבי בניית אפליקציות AI, הצטרף ל:
+אם אתם נתקעים או יש לכם שאלות לגבי בניית אפליקציות AI, הצטרפו אל:
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
-אם יש לך משוב על המוצר או שגיאות במהלך הבנייה, בקר ב:
+אם יש לכם משוב על מוצר או שגיאות בבנייה, בקרו ב:
 
 [![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**כתב ויתור**:  
-מסמך זה תורגם באמצעות שירות תרגום מבוסס בינה מלאכותית [Co-op Translator](https://github.com/Azure/co-op-translator). למרות שאנו שואפים לדיוק, יש לקחת בחשבון כי תרגומים אוטומטיים עלולים להכיל שגיאות או אי-דיוקים. המסמך המקורי בשפתו המקורית נחשב למקור הסמכותי. למידע קריטי מומלץ להשתמש בתרגום מקצועי על ידי אדם. אנו לא נושאים באחריות לכל אי-הבנה או פרשנות שגויה הנובעת משימוש בתרגום זה.
+**כתב ויתור אחריות**:  
+מסמך זה תורגם באמצעות שירות תרגום אוטומטי [Co-op Translator](https://github.com/Azure/co-op-translator). בעוד שאנו שואפים לדייק, יש לקחת בחשבון כי תרגומים אוטומטיים עלולים להכיל שגיאות או אי-דיוקים. יש להתייחס למסמך המקורי בשפתו המקורית כמקור הסמכות. למידע קריטי מומלץ להיעזר בתרגום מקצועי אנושי. אנו לא אחראים לכל אי-הבנה או פרשנות שגויה הנובעת מהשימוש בתרגום זה.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

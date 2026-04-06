@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9fac847815936ef6e6c8bfde6d191571",
-  "translation_date": "2025-10-15T03:33:37+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-org.md",
-  "language_code": "he"
-}
--->
 # שימוש ב-GitHub Action של Co-op Translator (מדריך לארגונים)
 
 **קהל יעד:** מדריך זה מיועד ל**משתמשים פנימיים של Microsoft** או **צוותים שיש להם גישה לאישורים הנדרשים עבור Co-op Translator GitHub App המובנה** או שיכולים ליצור GitHub App מותאם אישית משלהם.
@@ -56,11 +47,11 @@ CO_OP_TRANSLATOR_METADATA:
 
 1. בחרו **Install** ובחרו את החשבון או הארגון שבו נמצא המאגר שלכם.
 
-    ![התקנת האפליקציה](../../../../translated_images/install-app.d0f0a24cbb1d6c93f293f002eb34e633f7bc8f5caaba46b97806ba7bdc958f27.he.png)
+    ![התקנת האפליקציה](../../../../translated_images/he/install-app.d0f0a24cbb1d6c93.webp)
 
 1. בחרו **Only select repositories** ובחרו את המאגר הרלוונטי (למשל, `PhiCookBook`). לחצו **Install**. ייתכן שתידרשו לאימות.
 
-    ![אישור התקנה](../../../../translated_images/install-authorize.29df6238c3eb8f707e7fc6f97a946cb654b328530c4aeddce28b874693f076a0.he.png)
+    ![אישור התקנה](../../../../translated_images/he/install-authorize.29df6238c3eb8f70.webp)
 
 1. **קבלת אישורי האפליקציה (נדרש תהליך פנימי):** כדי לאפשר ל-Workflow להזדהות כאפליקציה, תצטרכו שני פרטים מהצוות של Co-op Translator:
   - **App ID:** מזהה ייחודי של האפליקציה. ה-App ID הוא: `1164076`.
@@ -82,7 +73,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 1. תחת **Repository secrets**, לחצו **New repository secret** עבור כל Secret מהרשימה למטה.
 
-   ![בחירת הגדרות Action](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.he.png)
+   ![בחירת הגדרות Action](../../../../translated_images/he/select-setting-action.3b95c915d6031159.webp)
 
 **Secrets נדרשים (לאימות GitHub App):**
 
@@ -107,7 +98,7 @@ CO_OP_TRANSLATOR_METADATA:
 | `OPENAI_CHAT_MODEL_ID`              | מזהה מודל OpenAI מסוים                    | OpenAI Platform                  |
 | `OPENAI_BASE_URL`                   | כתובת בסיס מותאמת ל-OpenAI API            | OpenAI Platform                  |
 
-![הזנת שם משתנה סביבה](../../../../translated_images/add-secrets-done.444861ce6956d5cb20781ead1237fcc12805078349bb0d4e95bb9540ee192227.he.png)
+![הזנת שם משתנה סביבה](../../../../translated_images/he/add-secrets-done.444861ce6956d5cb.webp)
 
 ### שלב 3: יצירת קובץ Workflow
 

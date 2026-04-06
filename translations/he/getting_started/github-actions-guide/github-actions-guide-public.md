@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T03:34:09+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "he"
-}
--->
 # שימוש ב-GitHub Action של Co-op Translator (הגדרה ציבורית)
 
 **קהל יעד:** מדריך זה מיועד למשתמשים ברוב הריפוזיטוריות הציבוריות או הפרטיות שבהן הרשאות GitHub Actions הסטנדרטיות מספיקות. הוא עושה שימוש ב-`GITHUB_TOKEN` המובנה.
@@ -53,7 +44,7 @@ CO_OP_TRANSLATOR_METADATA:
 2.  גשו ל-**Settings** > **Secrets and variables** > **Actions**.
 3.  תחת **Repository secrets**, לחצו על **New repository secret** עבור כל Secret נדרש מהרשימה למטה.
 
-    ![Select setting action](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.he.png) *(הפניה לתמונה: מראה איפה להוסיף Secrets)*
+    ![Select setting action](../../../../translated_images/he/select-setting-action.3b95c915d6031159.webp) *(הפניה לתמונה: מראה איפה להוסיף Secrets)*
 
 **Secrets נדרשים לשירותי AI (הוסיפו את כל מה שרלוונטי לפי הדרישות המוקדמות):**
 
@@ -81,7 +72,7 @@ CO_OP_TRANSLATOR_METADATA:
 4.  ודאו שהאפשרות **Allow GitHub Actions to create and approve pull requests** מסומנת.
 5.  לחצו על **Save**.
 
-![Permission setting](../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.he.png)
+![Permission setting](../../../../translated_images/he/permission-setting.ae2f02748b0579e7.webp)
 
 ### שלב 4: יצירת קובץ Workflow
 

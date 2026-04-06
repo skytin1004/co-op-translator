@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T03:31:11+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "nl"
-}
--->
 # De Co-op Translator GitHub Action gebruiken (Openbare Setup)
 
 **Doelgroep:** Deze handleiding is bedoeld voor gebruikers in de meeste openbare of privé-repositories waar standaard GitHub Actions-machtigingen voldoende zijn. Er wordt gebruikgemaakt van de ingebouwde `GITHUB_TOKEN`.
@@ -53,7 +44,7 @@ Je hoeft alleen je **AI-servicegegevens** toe te voegen als versleutelde secrets
 2.  Ga naar **Settings** > **Secrets and variables** > **Actions**.
 3.  Onder **Repository secrets** klik je voor elk benodigde AI-service secret hieronder op **New repository secret**.
 
-    <img src="../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.nl.png" alt="Select setting action"> *(Afbeeldingsreferentie: toont waar je secrets toevoegt)*
+    <img src="../../../../translated_images/nl/select-setting-action.3b95c915d6031159.webp" alt="Select setting action"> *(Afbeeldingsreferentie: toont waar je secrets toevoegt)*
 
 **Benodigde AI Service Secrets (voeg ALLES toe wat van toepassing is op basis van je vereisten):**
 
@@ -81,7 +72,7 @@ De GitHub Action heeft rechten nodig via de `GITHUB_TOKEN` om code te kunnen oph
 4.  Zorg dat het selectievakje bij **Allow GitHub Actions to create and approve pull requests** is **aangevinkt**.
 5.  Klik op **Save**.
 
-<img src="../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.nl.png" alt="Permission setting">
+<img src="../../../../translated_images/nl/permission-setting.ae2f02748b0579e7.webp" alt="Permission setting">
 
 ### Stap 4: Maak het Workflow-bestand aan
 

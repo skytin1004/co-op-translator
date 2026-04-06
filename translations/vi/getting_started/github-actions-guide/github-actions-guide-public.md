@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T03:36:46+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "vi"
-}
--->
 # Sử dụng Co-op Translator GitHub Action (Thiết lập công khai)
 
 **Đối tượng:** Hướng dẫn này dành cho người dùng trong hầu hết các kho công khai hoặc riêng tư, nơi quyền truy cập GitHub Actions tiêu chuẩn là đủ. Hành động này sử dụng sẵn `GITHUB_TOKEN`.
@@ -53,7 +44,7 @@ Bạn chỉ cần thêm **thông tin xác thực dịch vụ AI** dưới dạng
 2.  Vào **Settings** > **Secrets and variables** > **Actions**.
 3.  Trong **Repository secrets**, nhấn **New repository secret** cho mỗi secret dịch vụ AI cần thiết bên dưới.
 
-    ![Chọn setting action](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.vi.png) *(Tham khảo hình ảnh: Vị trí thêm secrets)*
+    ![Chọn setting action](../../../../translated_images/vi/select-setting-action.3b95c915d6031159.webp) *(Tham khảo hình ảnh: Vị trí thêm secrets)*
 
 **Các secrets dịch vụ AI cần thiết (Thêm TẤT CẢ những gì phù hợp với điều kiện tiên quyết của bạn):**
 
@@ -81,7 +72,7 @@ GitHub Action cần được cấp quyền thông qua `GITHUB_TOKEN` để check
 4.  Đảm bảo đã tích vào ô **Allow GitHub Actions to create and approve pull requests**.
 5.  Nhấn **Save**.
 
-![Thiết lập quyền](../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.vi.png)
+![Thiết lập quyền](../../../../translated_images/vi/permission-setting.ae2f02748b0579e7.webp)
 
 ### Bước 4: Tạo file Workflow
 

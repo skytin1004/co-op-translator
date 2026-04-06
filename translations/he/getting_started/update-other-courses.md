@@ -1,25 +1,16 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "93a7150216aa3c2d191135358fa6dd21",
-  "translation_date": "2025-11-30T13:46:46+00:00",
-  "source_file": "getting_started/update-other-courses.md",
-  "language_code": "he"
-}
--->
-# עדכון סעיף "קורסים נוספים" (מאגרי Microsoft Beginners)
+# עדכון סעיף "קורסים אחרים" (מאגרי Microsoft Beginners)
 
-מדריך זה מסביר כיצד לגרום לסעיף "קורסים נוספים" להתעדכן אוטומטית באמצעות Co-op Translator, וכיצד לעדכן את התבנית הגלובלית לכל המאגר.
+מדריך זה מסביר כיצד לגרום לסעיף "קורסים אחרים" להתעדכן באופן אוטומטי באמצעות Co‑op Translator, וכיצד לעדכן את התבנית הגלובלית לכל המאגר.
 
 - חל על: מאגרי Microsoft Beginners בלבד
-- עובד עם: Co-op Translator CLI ו-GitHub Actions
+- עובד עם: Co‑op Translator CLI ו-GitHub Actions
 - מקור התבנית: [src/co_op_translator/templates/other_courses.md](../src/co_op_translator/templates/other_courses.md)
 
 ---
 
-## התחלה מהירה: הפעלת סינכרון אוטומטי במאגר שלך
+## התחלה מהירה: הפעל סינכרון אוטומטי במאגר שלך
 
-הוסף את הסימנים הבאים סביב סעיף "קורסים נוספים" בקובץ README שלך. Co-op Translator יחליף את כל התוכן שבין הסימנים האלה בכל הרצה.
+הוסף את הסימנים הבאים סביב סעיף "קורסים אחרים" ב-README שלך. Co‑op Translator יחליף את כל מה שבין הסימנים האלה בכל הפעלה.
 
 ```markdown
 <!-- CO-OP TRANSLATOR OTHER COURSES START -->
@@ -27,27 +18,44 @@ CO_OP_TRANSLATOR_METADATA:
 <!-- CO-OP TRANSLATOR OTHER COURSES END -->
 ```
 
-בכל פעם ש-Co-op Translator רץ — דרך CLI (למשל, `translate -l "<language codes>"`) או GitHub Actions — הוא יעדכן אוטומטית את סעיף "קורסים נוספים" שמוקף בסימנים אלה.
+בכל פעם ש-Co‑op Translator פועל — דרך CLI (למשל, `translate -l "<language codes>"`) או GitHub Actions — הוא מעדכן אוטומטית את סעיף "קורסים אחרים" שכלול בין סימנים אלו.
 
 > [!NOTE]
-> אם יש לך רשימה קיימת, פשוט עטוף אותה באותם סימנים. ההרצה הבאה תחליף אותה בתוכן המעודכן והסטנדרטי.
+> אם יש לך רשימה קיימת, פשוט עטוף אותה באותם סימנים. ההפעלה הבאה תחליף אותה בתוכן הסטנדרטי העדכני ביותר.
 
 ---
 
 ## כיצד לשנות את התוכן הגלובלי
 
-אם ברצונך לעדכן את התוכן הסטנדרטי שמופיע בכל מאגרי Beginners:
+אם ברצונך לעדכן את התוכן הסטנדרטי המופיע בכל מאגרי Beginners:
 
 1. ערוך את התבנית: [src/co_op_translator/templates/other_courses.md](../src/co_op_translator/templates/other_courses.md)
-2. פתח בקשת משיכה (pull request) למאגר Co-op Translator עם השינויים שלך
-3. לאחר שהבקשה תתמזג, גרסת Co-op Translator תעודכן
-4. בפעם הבאה ש-Co-op Translator ירוץ (ב-CLI או GitHub Action) במאגר היעד, הוא יסנכרן אוטומטית את הסעיף המעודכן
+2. פתח pull request למאגר Co-op Translator עם השינויים שלך
+3. לאחר שה-PR מאוחזר, גרסת Co‑op Translator תעודכן
+4. בפעם הבאה ש-Co‑op Translator ירוץ (ב-CLI או GitHub Action) במאגר היעד, הסעיף המעודכן יסונכרן אוטומטית
 
-כך נשמר מקור אמת יחיד לתוכן "קורסים נוספים" בכל מאגרי Beginners.
+כך מובטח מקור אחיד של אמת לתוכן "קורסים אחרים" בכל מאגרי Beginners.
+
+
+## גדלי מאגרים
+
+המאגרים עלולים להיות גדולים עקב מספר השפות המתורגמות כדי לסייע למשתמשי קצה להשתמש ב-clone - sparse ולשכפל רק את השפות הנחוצות ולא את כל המאגר
+
+```
+> **Prefer to Clone Locally?**
+>
+> This repository includes 50+ language translations which significantly increases the download size. To clone without translations, use sparse checkout:
+> ```bash
+> git clone --filter=blob:none --sparse https://github.com/*****.git
+> cd *****
+> git sparse-checkout set --no-cone '/*' '!translations' '!translated_images'
+> ```
+> This gives you everything you need to complete the course with a much faster download.
+```
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **כתב ויתור**:  
-מסמך זה תורגם באמצעות שירות תרגום מבוסס בינה מלאכותית [Co-op Translator](https://github.com/Azure/co-op-translator). למרות שאנו שואפים לדיוק, יש לקחת בחשבון כי תרגומים אוטומטיים עלולים להכיל שגיאות או אי-דיוקים. המסמך המקורי בשפתו המקורית נחשב למקור הסמכותי. למידע קריטי מומלץ להשתמש בתרגום מקצועי על ידי אדם. אנו לא נושאים באחריות לכל אי-הבנה או פרשנות שגויה הנובעת משימוש בתרגום זה.
+מסמך זה תורגם באמצעות שירות תרגום בינה מלאכותית [Co-op Translator](https://github.com/Azure/co-op-translator). בעוד שאנו שואפים לדיוק, יש לקחת בחשבון כי תרגומים אוטומטיים עלולים להכיל שגיאות או אי דיוקים. המסמך המקורי בשפת המקור שלו נחשב למקור הסמכותי. עבור מידע קריטי, מומלץ תרגום מקצועי על ידי בני אדם. איננו אחראים לכל אי הבנה או פרשנות שגויה הנובעות משימוש בתרגום זה.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
