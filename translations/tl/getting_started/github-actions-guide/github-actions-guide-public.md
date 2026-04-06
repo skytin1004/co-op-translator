@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T03:44:18+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "tl"
-}
--->
 # Paggamit ng Co-op Translator GitHub Action (Pampublikong Setup)
 
 **Para Kanino:** Ang gabay na ito ay para sa mga gumagamit ng karamihan sa mga pampubliko o pribadong repository kung saan sapat na ang karaniwang GitHub Actions permissions. Ginagamit nito ang built-in na `GITHUB_TOKEN`.
@@ -53,7 +44,7 @@ Kailangan mo lang idagdag ang iyong **AI service credentials** bilang encrypted 
 2.  Pumunta sa **Settings** > **Secrets and variables** > **Actions**.
 3.  Sa ilalim ng **Repository secrets**, i-click ang **New repository secret** para sa bawat kinakailangang AI service secret na nakalista sa ibaba.
 
-    ![Select setting action](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.tl.png) *(Reference ng Larawan: Ipinapakita kung saan magdagdag ng secrets)*
+    ![Select setting action](../../../../translated_images/tl/select-setting-action.3b95c915d6031159.webp) *(Reference ng Larawan: Ipinapakita kung saan magdagdag ng secrets)*
 
 **Mga Kailangan na AI Service Secrets (Idagdag LAHAT ng naaangkop base sa iyong Mga Kailangan):**
 
@@ -81,7 +72,7 @@ Kailangan ng GitHub Action ng pahintulot mula sa `GITHUB_TOKEN` para mag-check o
 4.  Siguraduhing naka-check ang checkbox para sa **Allow GitHub Actions to create and approve pull requests**.
 5.  Piliin ang **Save**.
 
-![Permission setting](../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.tl.png)
+![Permission setting](../../../../translated_images/tl/permission-setting.ae2f02748b0579e7.webp)
 
 ### Hakbang 4: Gumawa ng Workflow File
 

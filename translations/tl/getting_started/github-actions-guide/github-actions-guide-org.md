@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9fac847815936ef6e6c8bfde6d191571",
-  "translation_date": "2025-10-15T03:44:00+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-org.md",
-  "language_code": "tl"
-}
--->
 # Paggamit ng Co-op Translator GitHub Action (Gabay para sa Organisasyon)
 
 **Sino ang para dito:** Ang gabay na ito ay para sa **mga Microsoft internal na user** o **mga team na may access sa kinakailangang credentials para sa pre-built Co-op Translator GitHub App** o kaya ay makakagawa ng sarili nilang custom GitHub App.
@@ -56,11 +47,11 @@ Gumagamit ang workflow ng GitHub App authentication para ligtas na makipag-inter
 
 1. Piliin ang **Install** at piliin ang account o organisasyon kung saan naroon ang iyong target repository.
 
-    ![Install app](../../../../translated_images/install-app.d0f0a24cbb1d6c93f293f002eb34e633f7bc8f5caaba46b97806ba7bdc958f27.tl.png)
+    ![Install app](../../../../translated_images/tl/install-app.d0f0a24cbb1d6c93.webp)
 
 1. Piliin ang **Only select repositories** at piliin ang iyong target repository (hal. `PhiCookBook`). I-click ang **Install**. Maaaring hingin ang iyong authentication.
 
-    ![Install authorize](../../../../translated_images/install-authorize.29df6238c3eb8f707e7fc6f97a946cb654b328530c4aeddce28b874693f076a0.tl.png)
+    ![Install authorize](../../../../translated_images/tl/install-authorize.29df6238c3eb8f70.webp)
 
 1. **Kunin ang App Credentials (Internal Process Required):** Para makapag-authenticate ang workflow bilang app, kailangan mo ng dalawang impormasyon mula sa Co-op Translator team:
   - **App ID:** Ang unique identifier para sa Co-op Translator app. Ang App ID ay: `1164076`.
@@ -82,7 +73,7 @@ Kailangan mong idagdag ang GitHub App credentials at AI service credentials bila
 
 1. Sa ilalim ng **Repository secrets**, i-click ang **New repository secret** para sa bawat secret na nakalista sa ibaba.
 
-   ![Select setting action](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.tl.png)
+   ![Select setting action](../../../../translated_images/tl/select-setting-action.3b95c915d6031159.webp)
 
 **Mga Kailangan na Secret (para sa GitHub App Authentication):**
 
@@ -107,7 +98,7 @@ Kailangan mong idagdag ang GitHub App credentials at AI service credentials bila
 | `OPENAI_CHAT_MODEL_ID`              | Specific OpenAI model ID                      | OpenAI Platform                    |
 | `OPENAI_BASE_URL`                   | Custom OpenAI API Base URL                    | OpenAI Platform                    |
 
-![Enter environment variable name](../../../../translated_images/add-secrets-done.444861ce6956d5cb20781ead1237fcc12805078349bb0d4e95bb9540ee192227.tl.png)
+![Enter environment variable name](../../../../translated_images/tl/add-secrets-done.444861ce6956d5cb.webp)
 
 ### Hakbang 3: Gumawa ng Workflow File
 

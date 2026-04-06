@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9fac847815936ef6e6c8bfde6d191571",
-  "translation_date": "2025-10-15T03:41:16+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-org.md",
-  "language_code": "ms"
-}
--->
 # Menggunakan Co-op Translator GitHub Action (Panduan Organisasi)
 
 **Sasaran Pembaca:** Panduan ini ditujukan untuk **pengguna dalaman Microsoft** atau **pasukan yang mempunyai akses kepada kelayakan yang diperlukan untuk Co-op Translator GitHub App yang telah dibina** atau boleh mencipta GitHub App tersuai mereka sendiri.
@@ -56,11 +47,11 @@ Workflow ini menggunakan pengesahan GitHub App untuk berinteraksi dengan selamat
 
 1. Pilih **Install** dan pilih akaun atau organisasi di mana repositori sasaran anda berada.
 
-    ![Install app](../../../../translated_images/install-app.d0f0a24cbb1d6c93f293f002eb34e633f7bc8f5caaba46b97806ba7bdc958f27.ms.png)
+    ![Install app](../../../../translated_images/ms/install-app.d0f0a24cbb1d6c93.webp)
 
 1. Pilih **Only select repositories** dan pilih repositori sasaran anda (cth., `PhiCookBook`). Klik **Install**. Anda mungkin diminta untuk mengesahkan.
 
-    ![Install authorize](../../../../translated_images/install-authorize.29df6238c3eb8f707e7fc6f97a946cb654b328530c4aeddce28b874693f076a0.ms.png)
+    ![Install authorize](../../../../translated_images/ms/install-authorize.29df6238c3eb8f70.webp)
 
 1. **Dapatkan Kelayakan App (Proses Dalaman Diperlukan):** Untuk membolehkan workflow mengesahkan sebagai app, anda memerlukan dua maklumat yang diberikan oleh pasukan Co-op Translator:
    - **App ID:** Pengenal unik untuk Co-op Translator app. App ID ialah: `1164076`.
@@ -82,7 +73,7 @@ Anda perlu menambah kelayakan GitHub App dan kelayakan perkhidmatan AI anda seba
 
 1. Di bawah **Repository secrets**, klik **New repository secret** untuk setiap secret yang disenaraikan di bawah.
 
-   ![Select setting action](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.ms.png)
+   ![Select setting action](../../../../translated_images/ms/select-setting-action.3b95c915d6031159.webp)
 
 **Secrets Diperlukan (untuk Pengesahan GitHub App):**
 
@@ -107,7 +98,7 @@ Anda perlu menambah kelayakan GitHub App dan kelayakan perkhidmatan AI anda seba
 | `OPENAI_CHAT_MODEL_ID`              | ID model OpenAI tertentu                  | OpenAI Platform                    |
 | `OPENAI_BASE_URL`                   | Custom OpenAI API Base URL                | OpenAI Platform                    |
 
-![Enter environment variable name](../../../../translated_images/add-secrets-done.444861ce6956d5cb20781ead1237fcc12805078349bb0d4e95bb9540ee192227.ms.png)
+![Enter environment variable name](../../../../translated_images/ms/add-secrets-done.444861ce6956d5cb.webp)
 
 ### Langkah 3: Cipta Fail Workflow
 

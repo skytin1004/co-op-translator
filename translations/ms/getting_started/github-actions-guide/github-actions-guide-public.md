@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T03:41:37+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "ms"
-}
--->
 # Menggunakan Co-op Translator GitHub Action (Tetapan Awam)
 
 **Sasaran Pengguna:** Panduan ini ditujukan untuk pengguna di kebanyakan repositori awam atau peribadi di mana kebenaran GitHub Actions standard sudah mencukupi. Ia menggunakan `GITHUB_TOKEN` terbina dalam.
@@ -53,7 +44,7 @@ Anda hanya perlu menambah **kelayakan perkhidmatan AI** anda sebagai secrets yan
 2.  Pergi ke **Settings** > **Secrets and variables** > **Actions**.
 3.  Di bawah **Repository secrets**, klik **New repository secret** untuk setiap secret perkhidmatan AI yang diperlukan seperti di bawah.
 
-    <img src="../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.ms.png" alt="Pilih tetapan action"> *(Rujukan Imej: Menunjukkan lokasi untuk menambah secrets)*
+    <img src="../../../../translated_images/ms/select-setting-action.3b95c915d6031159.webp" alt="Pilih tetapan action"> *(Rujukan Imej: Menunjukkan lokasi untuk menambah secrets)*
 
 **Secrets Perkhidmatan AI Wajib (Tambah SEMUA yang berkaitan mengikut Prasyarat):**
 
@@ -81,7 +72,7 @@ GitHub Action memerlukan kebenaran melalui `GITHUB_TOKEN` untuk checkout kod dan
 4.  Pastikan kotak **Allow GitHub Actions to create and approve pull requests** **ditandakan**.
 5.  Klik **Save**.
 
-<img src="../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.ms.png" alt="Tetapan kebenaran">
+<img src="../../../../translated_images/ms/permission-setting.ae2f02748b0579e7.webp" alt="Tetapan kebenaran">
 
 ### Langkah 4: Cipta Fail Workflow
 

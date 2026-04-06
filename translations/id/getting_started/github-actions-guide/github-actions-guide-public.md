@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T03:39:10+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "id"
-}
--->
 # Menggunakan Co-op Translator GitHub Action (Pengaturan Publik)
 
 **Target Pengguna:** Panduan ini ditujukan untuk pengguna di sebagian besar repositori publik atau privat di mana izin standar GitHub Actions sudah cukup. Panduan ini menggunakan `GITHUB_TOKEN` bawaan.
@@ -53,7 +44,7 @@ Anda hanya perlu menambahkan **kredensial layanan AI** sebagai secrets terenkrip
 2.  Masuk ke **Settings** > **Secrets and variables** > **Actions**.
 3.  Di bawah **Repository secrets**, klik **New repository secret** untuk setiap secret layanan AI yang diperlukan di bawah ini.
 
-    <img src="../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.id.png" alt="Select setting action"> *(Referensi Gambar: Menunjukkan lokasi penambahan secrets)*
+    <img src="../../../../translated_images/id/select-setting-action.3b95c915d6031159.webp" alt="Select setting action"> *(Referensi Gambar: Menunjukkan lokasi penambahan secrets)*
 
 **Secrets Layanan AI yang Diperlukan (Tambahkan SEMUA yang sesuai dengan Prasyarat Anda):**
 
@@ -81,7 +72,7 @@ GitHub Action membutuhkan izin yang diberikan melalui `GITHUB_TOKEN` untuk check
 4.  Pastikan kotak **Allow GitHub Actions to create and approve pull requests** sudah **dicentang**.
 5.  Klik **Save**.
 
-<img src="../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.id.png" alt="Permission setting">
+<img src="../../../../translated_images/id/permission-setting.ae2f02748b0579e7.webp" alt="Permission setting">
 
 ### Langkah 4: Buat File Workflow
 
