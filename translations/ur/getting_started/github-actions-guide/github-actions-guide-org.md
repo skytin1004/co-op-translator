@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9fac847815936ef6e6c8bfde6d191571",
-  "translation_date": "2025-10-15T02:25:08+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-org.md",
-  "language_code": "ur"
-}
--->
 # کو-آپ ٹرانسلیٹر گِٹ ہب ایکشن کا استعمال (ادارے کے لیے رہنمائی)
 
 **ہدف سامعین:** یہ رہنمائی **مائیکروسافٹ کے اندرونی صارفین** یا **ان ٹیموں** کے لیے ہے جن کے پاس پہلے سے بنے ہوئے کو-آپ ٹرانسلیٹر گِٹ ہب ایپ کے لیے ضروری اسناد تک رسائی ہے یا وہ اپنی مرضی کی گِٹ ہب ایپ بنا سکتے ہیں۔
@@ -56,11 +47,11 @@ CO_OP_TRANSLATOR_METADATA:
 
 1. **Install** منتخب کریں اور وہ اکاؤنٹ یا آرگنائزیشن منتخب کریں جہاں آپ کی مطلوبہ ریپوزٹری ہے۔
 
-    ![ایپ انسٹال کریں](../../../../translated_images/install-app.d0f0a24cbb1d6c93f293f002eb34e633f7bc8f5caaba46b97806ba7bdc958f27.ur.png)
+    ![ایپ انسٹال کریں](../../../../translated_images/ur/install-app.d0f0a24cbb1d6c93.webp)
 
 1. **Only select repositories** منتخب کریں اور اپنی مطلوبہ ریپوزٹری (مثلاً `PhiCookBook`) منتخب کریں۔ **Install** پر کلک کریں۔ آپ سے آتھنٹیکیشن مانگی جا سکتی ہے۔
 
-    ![انسٹال آتھرائز کریں](../../../../translated_images/install-authorize.29df6238c3eb8f707e7fc6f97a946cb654b328530c4aeddce28b874693f076a0.ur.png)
+    ![انسٹال آتھرائز کریں](../../../../translated_images/ur/install-authorize.29df6238c3eb8f70.webp)
 
 1. **ایپ کی اسناد حاصل کریں (اندرونی پراسیس درکار):** ورک فلو کو ایپ کے طور پر آتھنٹیکیٹ کرنے کے لیے آپ کو کو-آپ ٹرانسلیٹر ٹیم سے دو چیزیں درکار ہوں گی:
   - **App ID:** کو-آپ ٹرانسلیٹر ایپ کا منفرد شناختی نمبر۔ App ID ہے: `1164076`۔
@@ -82,7 +73,7 @@ CO_OP_TRANSLATOR_METADATA:
 
 1. **Repository secrets** کے تحت، نیچے دیے گئے ہر سیکرٹ کے لیے **New repository secret** پر کلک کریں۔
 
-   ![سیٹنگ ایکشن منتخب کریں](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.ur.png)
+   ![سیٹنگ ایکشن منتخب کریں](../../../../translated_images/ur/select-setting-action.3b95c915d6031159.webp)
 
 **لازمی سیکرٹس (گِٹ ہب ایپ آتھنٹیکیشن کے لیے):**
 
@@ -107,7 +98,7 @@ CO_OP_TRANSLATOR_METADATA:
 | `OPENAI_CHAT_MODEL_ID`              | مخصوص OpenAI ماڈل آئی ڈی                  | OpenAI Platform                 |
 | `OPENAI_BASE_URL`                   | کسٹم OpenAI API بیس یو آر ایل              | OpenAI Platform                 |
 
-![انوائرمنٹ ویری ایبل کا نام درج کریں](../../../../translated_images/add-secrets-done.444861ce6956d5cb20781ead1237fcc12805078349bb0d4e95bb9540ee192227.ur.png)
+![انوائرمنٹ ویری ایبل کا نام درج کریں](../../../../translated_images/ur/add-secrets-done.444861ce6956d5cb.webp)
 
 ### مرحلہ 3: ورک فلو فائل بنائیں
 

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "20943a46b11c6d74814f41a817a6db4c",
-  "translation_date": "2025-10-15T02:24:49+00:00",
-  "source_file": "getting_started/command-line-guide/translator-your-project.md",
-  "language_code": "ur"
-}
--->
 # اپنے پروجیکٹ کا ترجمہ Co-op Translator کے ذریعے کریں
 
 **Co-op Translator** ایک کمانڈ لائن انٹرفیس (CLI) ٹول ہے جو آپ کو اپنے پروجیکٹ میں موجود مارک ڈاؤن اور امیج فائلز کو مختلف زبانوں میں ترجمہ کرنے میں مدد دیتا ہے۔ اس سیکشن میں اس ٹول کے استعمال کا طریقہ، مختلف CLI آپشنز کی وضاحت اور مختلف استعمال کی مثالیں دی گئی ہیں۔

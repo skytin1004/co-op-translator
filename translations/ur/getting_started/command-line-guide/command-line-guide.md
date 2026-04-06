@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c64ba65e091e5d87385490fa63a8f574",
-  "translation_date": "2025-06-12T12:33:04+00:00",
-  "source_file": "getting_started/command-line-guide/command-line-guide.md",
-  "language_code": "ur"
-}
--->
 # Co-op Translator کمانڈ لائن انٹرفیس (CLI) کو کیسے استعمال کریں
 
 ## ضروریات

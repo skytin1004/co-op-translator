@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T02:22:14+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "fa"
-}
--->
 # استفاده از اکشن Co-op Translator در گیت‌هاب (راه‌اندازی عمومی)
 
 **مخاطبان هدف:** این راهنما برای کاربران اکثر مخازن عمومی یا خصوصی مناسب است که مجوزهای استاندارد GitHub Actions کافی هستند. این راه‌اندازی از `GITHUB_TOKEN` داخلی استفاده می‌کند.
@@ -53,7 +44,7 @@ CO_OP_TRANSLATOR_METADATA:
 ۲.  به **Settings** > **Secrets and variables** > **Actions** بروید.
 ۳.  زیر بخش **Repository secrets**، برای هر سرویس هوش مصنوعی موردنیاز، روی **New repository secret** کلیک کنید.
 
-    <img src="../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.fa.png" alt="Select setting action"> *(مرجع تصویر: محل افزودن اسرار را نشان می‌دهد)*
+    <img src="../../../../translated_images/fa/select-setting-action.3b95c915d6031159.webp" alt="Select setting action"> *(مرجع تصویر: محل افزودن اسرار را نشان می‌دهد)*
 
 **اسرار موردنیاز سرویس هوش مصنوعی (همه موارد مرتبط با پیش‌نیازها را اضافه کنید):**
 
@@ -81,7 +72,7 @@ CO_OP_TRANSLATOR_METADATA:
 ۴.  مطمئن شوید که گزینه **Allow GitHub Actions to create and approve pull requests** فعال باشد.
 ۵.  روی **Save** کلیک کنید.
 
-<img src="../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.fa.png" alt="Permission setting">
+<img src="../../../../translated_images/fa/permission-setting.ae2f02748b0579e7.webp" alt="Permission setting">
 
 ### مرحله ۴: ساخت فایل گردش‌کار
 
