@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9fac847815936ef6e6c8bfde6d191571",
-  "translation_date": "2025-10-15T04:07:31+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-org.md",
-  "language_code": "hr"
-}
--->
 # Korištenje Co-op Translator GitHub Actiona (Vodič za organizacije)
 
 **Ciljana publika:** Ovaj vodič namijenjen je **Microsoftovim internim korisnicima** ili **timovima koji imaju pristup potrebnim vjerodajnicama za unaprijed pripremljenu Co-op Translator GitHub aplikaciju** ili mogu kreirati vlastitu prilagođenu GitHub aplikaciju.
@@ -56,11 +47,11 @@ Workflow koristi GitHub App autentikaciju za sigurno povezivanje s vašim repozi
 
 1. Odaberite **Install** i odaberite račun ili organizaciju gdje se nalazi vaš ciljani repozitorij.
 
-    <img src="../../../../translated_images/install-app.d0f0a24cbb1d6c93f293f002eb34e633f7bc8f5caaba46b97806ba7bdc958f27.hr.png" alt="Instaliraj aplikaciju">
+    <img src="../../../../translated_images/hr/install-app.d0f0a24cbb1d6c93.webp" alt="Instaliraj aplikaciju">
 
 1. Odaberite **Only select repositories** i odaberite vaš ciljani repozitorij (npr. `PhiCookBook`). Kliknite **Install**. Možda ćete morati potvrditi identitet.
 
-    <img src="../../../../translated_images/install-authorize.29df6238c3eb8f707e7fc6f97a946cb654b328530c4aeddce28b874693f076a0.hr.png" alt="Autoriziraj instalaciju">
+    <img src="../../../../translated_images/hr/install-authorize.29df6238c3eb8f70.webp" alt="Autoriziraj instalaciju">
 
 1. **Dobavite vjerodajnice aplikacije (potreban interni proces):** Da biste omogućili workflowu autentikaciju kao aplikacija, trebate dvije informacije koje daje Co-op Translator tim:
   - **App ID:** Jedinstveni identifikator za Co-op Translator aplikaciju. App ID je: `1164076`.
@@ -82,7 +73,7 @@ Morate dodati vjerodajnice GitHub aplikacije i AI servisa kao enkriptirane tajne
 
 1. Pod **Repository secrets**, kliknite **New repository secret** za svaku tajnu s popisa dolje.
 
-   <img src="../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.hr.png" alt="Odaberi postavke actiona">
+   <img src="../../../../translated_images/hr/select-setting-action.3b95c915d6031159.webp" alt="Odaberi postavke actiona">
 
 **Obavezne tajne (za GitHub App autentikaciju):**
 
@@ -107,7 +98,7 @@ Morate dodati vjerodajnice GitHub aplikacije i AI servisa kao enkriptirane tajne
 | `OPENAI_CHAT_MODEL_ID`              | ID specifičnog OpenAI modela           | OpenAI Platform                    |
 | `OPENAI_BASE_URL`                   | Prilagođeni OpenAI API Base URL        | OpenAI Platform                    |
 
-<img src="../../../../translated_images/add-secrets-done.444861ce6956d5cb20781ead1237fcc12805078349bb0d4e95bb9540ee192227.hr.png" alt="Unesi naziv varijable okruženja">
+<img src="../../../../translated_images/hr/add-secrets-done.444861ce6956d5cb.webp" alt="Unesi naziv varijable okruženja">
 
 ### Korak 3: Kreirajte workflow datoteku
 

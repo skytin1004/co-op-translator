@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9fac847815936ef6e6c8bfde6d191571",
-  "translation_date": "2025-10-15T04:10:24+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-org.md",
-  "language_code": "sl"
-}
--->
 # Uporaba Co-op Translator GitHub Action (Organizacijski vodič)
 
 **Ciljna skupina:** Ta vodič je namenjen **internim uporabnikom Microsofta** ali **ekipam, ki imajo dostop do potrebnih poverilnic za vnaprej pripravljeno Co-op Translator GitHub aplikacijo** ali si lahko ustvarijo svojo lastno GitHub aplikacijo.
@@ -56,11 +47,11 @@ Potek dela uporablja avtentikacijo GitHub aplikacije za varno interakcijo z vaš
 
 1. Izberite **Install** in izberite račun ali organizacijo, kjer se nahaja vaš ciljni repozitorij.
 
-    <img src="../../../../translated_images/install-app.d0f0a24cbb1d6c93f293f002eb34e633f7bc8f5caaba46b97806ba7bdc958f27.sl.png" alt="Namestitev aplikacije">
+    <img src="../../../../translated_images/sl/install-app.d0f0a24cbb1d6c93.webp" alt="Namestitev aplikacije">
 
 1. Izberite **Only select repositories** in izberite svoj ciljni repozitorij (npr. `PhiCookBook`). Kliknite **Install**. Morda boste morali potrditi svojo identiteto.
 
-    <img src="../../../../translated_images/install-authorize.29df6238c3eb8f707e7fc6f97a946cb654b328530c4aeddce28b874693f076a0.sl.png" alt="Avtorizacija namestitve">
+    <img src="../../../../translated_images/sl/install-authorize.29df6238c3eb8f70.webp" alt="Avtorizacija namestitve">
 
 1. **Pridobite poverilnice aplikacije (interni postopek):** Da omogočite avtentikacijo poteka dela kot aplikacija, potrebujete dve informaciji, ki ju zagotovi ekipa Co-op Translator:
   - **App ID:** Edinstveni identifikator za Co-op Translator aplikacijo. App ID je: `1164076`.
@@ -82,7 +73,7 @@ Dodati morate poverilnice GitHub aplikacije in poverilnice AI storitev kot šifr
 
 1. Pod **Repository secrets** kliknite **New repository secret** za vsako spodaj navedeno skrivnost.
 
-   <img src="../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.sl.png" alt="Izbira nastavitve akcije">
+   <img src="../../../../translated_images/sl/select-setting-action.3b95c915d6031159.webp" alt="Izbira nastavitve akcije">
 
 **Obvezne skrivnosti (za avtentikacijo GitHub aplikacije):**
 
@@ -107,7 +98,7 @@ Dodati morate poverilnice GitHub aplikacije in poverilnice AI storitev kot šifr
 | `OPENAI_CHAT_MODEL_ID`                | Specifičen OpenAI model ID              | OpenAI Platform                |
 | `OPENAI_BASE_URL`                     | Custom OpenAI API Base URL              | OpenAI Platform                |
 
-<img src="../../../../translated_images/add-secrets-done.444861ce6956d5cb20781ead1237fcc12805078349bb0d4e95bb9540ee192227.sl.png" alt="Vnos imena okoljske spremenljivke">
+<img src="../../../../translated_images/sl/add-secrets-done.444861ce6956d5cb.webp" alt="Vnos imena okoljske spremenljivke">
 
 ### Korak 3: Ustvarite datoteko poteka dela
 

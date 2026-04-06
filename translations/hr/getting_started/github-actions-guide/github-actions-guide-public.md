@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T04:07:54+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "hr"
-}
--->
 # Korištenje Co-op Translator GitHub Actiona (Javna postava)
 
 **Ciljana publika:** Ovaj vodič namijenjen je korisnicima u većini javnih ili privatnih repozitorija gdje su standardne GitHub Actions dozvole dovoljne. Koristi ugrađeni `GITHUB_TOKEN`.
@@ -53,7 +44,7 @@ Potrebno je dodati samo **vjerodajnice AI servisa** kao šifrirane tajne u posta
 2.  Idite na **Settings** > **Secrets and variables** > **Actions**.
 3.  Pod **Repository secrets**, kliknite **New repository secret** za svaku potrebnu AI tajnu navedenu dolje.
 
-    <img src="../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.hr.png" alt="Odabir postavke akcije"> *(Referenca slike: Prikazuje gdje dodati tajne)*
+    <img src="../../../../translated_images/hr/select-setting-action.3b95c915d6031159.webp" alt="Odabir postavke akcije"> *(Referenca slike: Prikazuje gdje dodati tajne)*
 
 **Potrebne AI tajne (Dodajte SVE koje su relevantne prema vašim preduvjetima):**
 
@@ -81,7 +72,7 @@ GitHub Actionu su potrebne dozvole putem `GITHUB_TOKEN` za preuzimanje koda i kr
 4.  Provjerite da je kvačica na **Allow GitHub Actions to create and approve pull requests** **uključena**.
 5.  Kliknite **Save**.
 
-<img src="../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.hr.png" alt="Postavka dozvola">
+<img src="../../../../translated_images/hr/permission-setting.ae2f02748b0579e7.webp" alt="Postavka dozvola">
 
 ### Korak 4: Kreirajte workflow datoteku
 

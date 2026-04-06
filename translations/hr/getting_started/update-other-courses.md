@@ -1,17 +1,8 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "93a7150216aa3c2d191135358fa6dd21",
-  "translation_date": "2025-11-30T13:51:36+00:00",
-  "source_file": "getting_started/update-other-courses.md",
-  "language_code": "hr"
-}
--->
 # Ažurirajte odjeljak "Ostali tečajevi" (Microsoft Beginners repozitoriji)
 
 Ovaj vodič objašnjava kako automatski sinkronizirati odjeljak "Ostali tečajevi" pomoću Co-op Translatora i kako ažurirati globalni predložak za sve repozitorije.
 
-- Primjenjuje se na: samo Microsoft Beginners repozitorije
+- Odnosi se na: samo Microsoft Beginners repozitorije
 - Radi s: Co-op Translator CLI i GitHub Actions
 - Izvor predloška: [src/co_op_translator/templates/other_courses.md](../src/co_op_translator/templates/other_courses.md)
 
@@ -19,7 +10,7 @@ Ovaj vodič objašnjava kako automatski sinkronizirati odjeljak "Ostali tečajev
 
 ## Brzi početak: Omogućite automatsku sinkronizaciju u svom repozitoriju
 
-Dodajte sljedeće oznake oko odjeljka "Ostali tečajevi" u vašem README-u. Co-op Translator će pri svakom pokretanju zamijeniti sve između ovih oznaka.
+Dodajte sljedeće oznake oko odjeljka "Ostali tečajevi" u vašem README-u. Co-op Translator će zamijeniti sve između ovih oznaka svaki put kad se pokrene.
 
 ```markdown
 <!-- CO-OP TRANSLATOR OTHER COURSES START -->
@@ -27,10 +18,10 @@ Dodajte sljedeće oznake oko odjeljka "Ostali tečajevi" u vašem README-u. Co-o
 <!-- CO-OP TRANSLATOR OTHER COURSES END -->
 ```
 
-Svaki put kad se Co-op Translator pokrene — putem CLI-ja (npr. `translate -l "<language codes>"`) ili GitHub Actions — automatski ažurira odjeljak "Ostali tečajevi" koji je obuhvaćen ovim oznakama.
+Svaki put kad se Co-op Translator pokrene—putem CLI-ja (npr. `translate -l "<language codes>"`) ili GitHub Actions—ažurira automatski odjeljak "Ostali tečajevi" omotan ovim oznakama.
 
 > [!NOTE]
-> Ako već imate postojeću listu, samo je omotajte istim oznakama. Sljedeće pokretanje će je zamijeniti najnovijim standardiziranim sadržajem.
+> Ako imate postojeću listu, samo je omotajte istim oznakama. Sljedeće pokretanje će je zamijeniti najnovijim standardiziranim sadržajem.
 
 ---
 
@@ -45,9 +36,26 @@ Ako želite ažurirati standardizirani sadržaj koji se pojavljuje u svim Beginn
 
 Ovo osigurava jedinstveni izvor istine za sadržaj "Ostali tečajevi" u svim Beginners repozitorijima.
 
+
+## Veličine repozitorija
+
+Repozitoriji mogu postati veliki zbog broja prevedenih jezika kako bi se krajnjim korisnicima pružile upute o tome kako koristiti clone - sparse za kloniranje samo potrebnih jezika, a ne cijelog repozitorija
+
+```
+> **Prefer to Clone Locally?**
+>
+> This repository includes 50+ language translations which significantly increases the download size. To clone without translations, use sparse checkout:
+> ```bash
+> git clone --filter=blob:none --sparse https://github.com/*****.git
+> cd *****
+> git sparse-checkout set --no-cone '/*' '!translations' '!translated_images'
+> ```
+> This gives you everything you need to complete the course with a much faster download.
+```
+
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Odricanje od odgovornosti**:
-Ovaj dokument preveden je pomoću AI usluge za prevođenje [Co-op Translator](https://github.com/Azure/co-op-translator). Iako nastojimo postići točnost, imajte na umu da automatski prijevodi mogu sadržavati pogreške ili netočnosti. Izvorni dokument na izvornom jeziku treba smatrati autoritativnim izvorom. Za kritične informacije preporučuje se profesionalni ljudski prijevod. Ne snosimo odgovornost za bilo kakva nesporazumevanja ili pogrešna tumačenja koja proizlaze iz korištenja ovog prijevoda.
+Ovaj dokument preveden je pomoću AI usluge za prijevod [Co-op Translator](https://github.com/Azure/co-op-translator). Iako težimo točnosti, imajte na umu da automatski prijevodi mogu sadržavati pogreške ili netočnosti. Izvorni dokument na izvornom jeziku treba smatrati službenim izvorom. Za kritične informacije preporučuje se profesionalni ljudski prijevod. Ne snosimo odgovornost za bilo kakva nesporazuma ili kriva tumačenja nastala uporabom ovog prijevoda.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

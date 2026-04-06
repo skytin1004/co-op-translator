@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "20943a46b11c6d74814f41a817a6db4c",
-  "translation_date": "2025-10-15T04:07:02+00:00",
-  "source_file": "getting_started/command-line-guide/translator-your-project.md",
-  "language_code": "hr"
-}
--->
 # Prevedite svoj projekt pomoću Co-op Translatora
 
 **Co-op Translator** je alat za naredbeni redak (CLI) koji vam pomaže prevesti markdown i slikovne datoteke u vašem projektu na više jezika. Ovaj odjeljak objašnjava kako koristiti alat, opisuje različite CLI opcije i daje primjere za razne scenarije korištenja.

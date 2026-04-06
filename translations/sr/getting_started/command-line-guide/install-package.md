@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "510827ad22a2031a50838919c3594828",
-  "translation_date": "2025-10-15T04:03:55+00:00",
-  "source_file": "getting_started/command-line-guide/install-package.md",
-  "language_code": "sr"
-}
--->
 # Инсталирајте Co-op Translator пакет
 
 **Co-op Translator** је алатка за командну линију (CLI) направљена да вам помогне да преведете све markdown фајлове и слике у вашем пројекту на више језика. Овај водич ће вас провести кроз подешавање преводиоца и његово коришћење за различите сценарије.

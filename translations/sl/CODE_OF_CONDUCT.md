@@ -1,21 +1,16 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "e8b14f0e66db374a2ada46e25fac88ae",
-  "translation_date": "2025-06-12T09:22:59+00:00",
-  "source_file": "CODE_OF_CONDUCT.md",
-  "language_code": "sl"
-}
--->
-# Microsoft Open Source Code of Conduct
+# Microsoft kodeks ravnanja za odprtokodno kodo
 
-Ee proyekt ne [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) apnaayo ahe.
+Ta projekt je sprejel [Microsoft kodeks ravnanja za odprtokodno kodo](https://opensource.microsoft.com/codeofconduct/).
 
-Resources:
+Viri:
 
-- [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/)
-- [Microsoft Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/)
-- Sawal ya fikar la contact karo [opencode@microsoft.com](mailto:opencode@microsoft.com)
+- [Microsoft kodeks ravnanja za odprtokodno kodo](https://opensource.microsoft.com/codeofconduct/)
+- [Pogosta vprašanja o Microsoft kodeksu ravnanja](https://opensource.microsoft.com/codeofconduct/faq/)
+- V primeru vprašanj ali pomislekov se obrnite na [opencode@microsoft.com](mailto:opencode@microsoft.com)
 
-**Opozorilo**:  
-Ta dokument je bil preveden z uporabo AI prevajalske storitve [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, vas opozarjamo, da lahko avtomatizirani prevodi vsebujejo napake ali netočnosti. Izvirni dokument v njegovem izvirnem jeziku velja za avtoritativni vir. Za ključne informacije priporočamo strokovni človeški prevod. Za morebitne nesporazume ali napačne interpretacije, ki izhajajo iz uporabe tega prevoda, ne odgovarjamo.
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Omejitev odgovornosti**:
+Ta dokument je bil preveden z uporabo storitve za prevajanje z umetno inteligenco [Co-op Translator](https://github.com/Azure/co-op-translator). Čeprav si prizadevamo za natančnost, prosimo, upoštevajte, da lahko avtomatizirani prevodi vsebujejo napake ali netočnosti. Izvirni dokument v njegovi izvorni jezikovni različici velja za avtoritativni vir. Za kritične informacije priporočamo strokovni človeški prevod. Ne odgovarjamo za morebitna nesporazume ali napačne interpretacije, ki izhajajo iz uporabe tega prevoda.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T04:04:53+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "sr"
-}
--->
 # Коришћење Co-op Translator GitHub Action (Јавно подешавање)
 
 **Циљна публика:** Ово упутство је намењено корисницима у већини јавних или приватних репозиторијума где су стандардне GitHub Actions дозволе довољне. Користи уграђени `GITHUB_TOKEN`.
@@ -53,7 +44,7 @@ CO_OP_TRANSLATOR_METADATA:
 2.  Идите на **Settings** > **Secrets and variables** > **Actions**.
 3.  Под **Repository secrets**, кликните на **New repository secret** за сваку потребну AI тајну са листе испод.
 
-    <img src="../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.sr.png" alt="Select setting action"> *(Референца слике: Приказује где се додају тајне)*
+    <img src="../../../../translated_images/sr/select-setting-action.3b95c915d6031159.webp" alt="Select setting action"> *(Референца слике: Приказује где се додају тајне)*
 
 **Потребне AI сервис тајне (Додајте СВЕ које важе на основу ваших предуслова):**
 
@@ -81,7 +72,7 @@ GitHub Action-у су потребне дозволе преко `GITHUB_TOKEN` 
 4.  Уверите се да је поље **Allow GitHub Actions to create and approve pull requests** **штиклирано**.
 5.  Кликните на **Save**.
 
-<img src="../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.sr.png" alt="Permission setting">
+<img src="../../../../translated_images/sr/permission-setting.ae2f02748b0579e7.webp" alt="Permission setting">
 
 ### Корак 4: Креирајте workflow фајл
 

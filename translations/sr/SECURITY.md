@@ -1,49 +1,44 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cc205495d4eace1fabcdee963024069f",
-  "translation_date": "2025-06-12T11:12:59+00:00",
-  "source_file": "SECURITY.md",
-  "language_code": "sr"
-}
--->
 ## Безбедност
 
-Microsoft озбиљно приступа безбедности наших софтверских производа и услуга, што укључује све репозиторијуме изворног кода које управљамо кроз наше GitHub организације, укључујући [Microsoft](https://github.com/Microsoft), [Azure](https://github.com/Azure), [DotNet](https://github.com/dotnet), [AspNet](https://github.com/aspnet) и [Xamarin](https://github.com/xamarin).
+Microsoft озбиљно схвата безбедност наших софтверских производа и услуга, што укључује све репозиторијуме изворног кода којима се управља преко наших GitHub организација, међу којима су [Microsoft](https://github.com/Microsoft), [Azure](https://github.com/Azure), [DotNet](https://github.com/dotnet), [AspNet](https://github.com/aspnet) и [Xamarin](https://github.com/xamarin).
 
-Ако сматрате да сте пронашли безбедносну рањивост у било ком Microsoft-овом репозиторијуму која испуњава [Microsoft-ову дефиницију безбедносне рањивости](https://aka.ms/security.md/definition), молимо вас да нам је пријавите како је описано у наставку.
+Ако верујете да сте пронашли безбедносну рањивост у било ком Microsoft власничком репозиторијуму која испуњава [Microsoft-ову дефиницију безбедносне рањивости](https://aka.ms/security.md/definition), молимо вас да нам је пријавите као што је описано у наставку.
 
 ## Пријављивање безбедносних проблема
 
-**Молимо вас да не пријављујете безбедносне рањивости преко јавних GitHub issue-а.**
+**Молимо вас да не пријављујете безбедносне рањивости преко јавних GitHub issues.**
 
-Уместо тога, пријавите их Microsoft Security Response Center (MSRC) на адреси [https://msrc.microsoft.com/create-report](https://aka.ms/security.md/msrc/create-report).
+Уместо тога, пријавите их Microsoft Security Response Center-у (MSRC) на [https://msrc.microsoft.com/create-report](https://aka.ms/security.md/msrc/create-report).
 
-Ако више волите да пријавите без пријављивања, пошаљите имејл на [secure@microsoft.com](mailto:secure@microsoft.com). Ако је могуће, шифрујте поруку нашим PGP кључем; можете га преузети са странице [Microsoft Security Response Center PGP Key](https://aka.ms/security.md/msrc/pgp).
+Ако више волите да пошаљете пријаву без пријављивања, пошаљите е-поруку на [secure@microsoft.com](mailto:secure@microsoft.com). Ако је могуће, шифрујте вашу поруку помоћу нашег PGP кључа; молимо преузмите га са [странице Microsoft Security Response Center PGP Key](https://aka.ms/security.md/msrc/pgp).
 
-Одговор бисте требали добити у року од 24 сата. Ако из неког разлога не добијете одговор, молимо вас да нас контактирате путем имејла како бисмо били сигурни да смо примили вашу оригиналну поруку. Додатне информације можете пронаћи на [microsoft.com/msrc](https://www.microsoft.com/msrc).
+Треба да добијете одговор у року од 24 сата. Ако из неког разлога не добијете, молимо вас да пратите путем е-поште како бисмо били сигурни да смо примили вашу оригиналну поруку. Додатне информације можете пронаћи на [microsoft.com/msrc](https://www.microsoft.com/msrc).
 
-Молимо вас да укључите тражене информације наведене у наставку (што више можете да пружите) како бисмо боље разумели природу и обим могућег проблема:
+Молимо вас да укључите захтеване информације наведене у наставку (колико год је могуће) како бисмо боље разумели природу и обим могућег проблема:
 
-  * Тип проблема (нпр. buffer overflow, SQL injection, cross-site scripting и сл.)
-  * Пуне путање изворних фајлова повезаних са појавом проблема
-  * Локација погођеног изворног кода (tag/branch/commit или директан URL)
+  * Врста проблема (нпр. препливавање бафера, SQL инјекција, прекид скрипти са стране, итд.)
+  * Пун пут до изворног(их) фајла(ова) повезаног са манифестацијом проблема
+  * Локација погођеног изворног кода (таг/грана/комит или директан URL)
   * Било каква посебна конфигурација потребна за репродукцију проблема
-  * Корак по корак упутства за репродукцију проблема
-  * Proof-of-concept или exploit код (ако је могуће)
-  * Утицај проблема, укључујући како нападач може искористити ту рањивост
+  * Корак-по-корак упутства за репродуковање проблема
+  * Доказ-концепт или експлоит код (ако је могуће)
+  * Утицај проблема, укључујући како би нападач могао да искористи проблем
 
 Ове информације ће нам помоћи да брже обрадимо вашу пријаву.
 
-Ако пријављујете у оквиру bug bounty програма, детаљније пријаве могу довести до веће награде. За више информација о нашим активним програмима посетите [Microsoft Bug Bounty Program](https://aka.ms/security.md/msrc/bounty).
+Ако пријављујете проблем у оквиру програма награђивања за грешке (bug bounty), детаљнији извештаји могу допринети већој новчаној награди. Молимо посетите нашу страницу [Microsoft Bug Bounty Program](https://aka.ms/security.md/msrc/bounty) за више детаља о нашим активним програмима.
 
 ## Преферирани језици
 
-Све комуникације преферирамо на енглеском језику.
+Пожељно је да сва комуникација буде на енглеском језику.
 
 ## Политика
 
-Microsoft се придржава принципа [Coordinated Vulnerability Disclosure](https://aka.ms/security.md/cvd).
+Microsoft се придржава принципа [Координсаног откривања рањивости](https://aka.ms/security.md/cvd).
 
-**Odricanje od odgovornosti**:  
-Ovaj dokument je preveden korišćenjem AI prevodilačke usluge [Co-op Translator](https://github.com/Azure/co-op-translator). Iako težimo tačnosti, imajte na umu da automatski prevodi mogu sadržati greške ili netačnosti. Originalni dokument na izvornom jeziku treba smatrati autoritativnim izvorom. Za kritične informacije preporučuje se profesionalni ljudski prevod. Ne snosimo odgovornost za bilo kakve nesporazume ili pogrešna tumačenja koja proisteknu iz korišćenja ovog prevoda.
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Ограничење одговорности**:
+Овај документ је преведен коришћењем AI услуге за превођење [Co-op Translator](https://github.com/Azure/co-op-translator). Иако се трудимо да превод буде тачан, имајте у виду да аутоматизовани преводи могу садржати грешке или нетачности. Оригинални документ на његовом изворном језику треба сматрати ауторитетним извором. За критичне информације препоручује се професионални људски превод. Нисмо одговорни за било каква неразумевања или погрешне тумачења настала коришћењем овог превода.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

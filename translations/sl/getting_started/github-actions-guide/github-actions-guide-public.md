@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T04:10:50+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "sl"
-}
--->
 # Uporaba Co-op Translator GitHub Action (Javna nastavitev)
 
 **Ciljna skupina:** Ta vodič je namenjen uporabnikom v večini javnih ali zasebnih repozitorijev, kjer so standardna dovoljenja GitHub Actions zadostna. Uporablja vgrajeni `GITHUB_TOKEN`.
@@ -53,7 +44,7 @@ Dodati morate le **podatke za AI storitve** kot šifrirane skrivnosti v nastavit
 2.  Pojdite na **Settings** > **Secrets and variables** > **Actions**.
 3.  Pod **Repository secrets** kliknite **New repository secret** za vsako zahtevano skrivnost AI storitve, navedeno spodaj.
 
-    ![Izbira nastavitve action](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.sl.png) *(Referenca slike: prikazuje, kje dodati skrivnosti)*
+    ![Izbira nastavitve action](../../../../translated_images/sl/select-setting-action.3b95c915d6031159.webp) *(Referenca slike: prikazuje, kje dodati skrivnosti)*
 
 **Zahtevane skrivnosti za AI storitve (dodajte VSE, ki jih potrebujete glede na predpogoje):**
 
@@ -81,7 +72,7 @@ GitHub Action potrebuje dovoljenja, ki jih omogoča `GITHUB_TOKEN`, za prenos ko
 4.  Prepričajte se, da je potrjeno polje **Allow GitHub Actions to create and approve pull requests**.
 5.  Kliknite **Save**.
 
-![Nastavitev dovoljenj](../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.sl.png)
+![Nastavitev dovoljenj](../../../../translated_images/sl/permission-setting.ae2f02748b0579e7.webp)
 
 ### 4. korak: Ustvarite datoteko poteka dela
 

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "510827ad22a2031a50838919c3594828",
-  "translation_date": "2025-10-15T04:09:54+00:00",
-  "source_file": "getting_started/command-line-guide/install-package.md",
-  "language_code": "sl"
-}
--->
 # Namestitev paketa Co-op Translator
 
 **Co-op Translator** je orodje za ukazno vrstico (CLI), namenjeno prevajanju vseh markdown datotek in slik v vašem projektu v več jezikov. Ta vodič vas bo popeljal skozi nastavitev prevajalnika in njegovo uporabo v različnih primerih.
