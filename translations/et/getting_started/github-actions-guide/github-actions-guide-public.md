@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T05:03:23+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "et"
-}
--->
 # Co-op Translator GitHub Actioni kasutamine (avalik seadistus)
 
 **Sihtgrupp:** See juhend on mõeldud kasutajatele, kes töötavad enamikes avalikes või privaatsetes repositooriumites, kus piisab GitHub Actionsi tavapärastest õigustest. Kasutatakse sisseehitatud `GITHUB_TOKEN`-it.
@@ -53,7 +44,7 @@ Sul tuleb lisada ainult oma **AI-teenuse mandaadid** repositooriumi seadetes kr�
 2.  Mine **Settings** > **Secrets and variables** > **Actions**.
 3.  **Repository secrets** all klõpsa iga vajaliku AI-teenuse saladuse jaoks **New repository secret**.
 
-    <img src="../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.et.png" alt="Vali seadistuse action" /> *(Pildiviide: Näitab, kuhu saladusi lisada)*
+    <img src="../../../../translated_images/et/select-setting-action.3b95c915d6031159.webp" alt="Vali seadistuse action" /> *(Pildiviide: Näitab, kuhu saladusi lisada)*
 
 **Vajalikud AI-teenuse saladused (Lisa KÕIK, mis vastavad su eeldustele):**
 
@@ -81,7 +72,7 @@ GitHub Action vajab õigusi, mis antakse `GITHUB_TOKEN` kaudu, et koodi välja v
 4.  Veendu, et **Allow GitHub Actions to create and approve pull requests** on **märgitud**.
 5.  Vali **Save**.
 
-<img src="../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.et.png" alt="Õiguste seadistus" />
+<img src="../../../../translated_images/et/permission-setting.ae2f02748b0579e7.webp" alt="Õiguste seadistus" />
 
 ### Samm 4: Workflow faili loomine
 

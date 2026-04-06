@@ -1,41 +1,32 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cc205495d4eace1fabcdee963024069f",
-  "translation_date": "2025-10-15T04:45:53+00:00",
-  "source_file": "SECURITY.md",
-  "language_code": "et"
-}
--->
 ## Turvalisus
 
-Microsoft võtab oma tarkvaratoodete ja -teenuste turvalisust väga tõsiselt, mis hõlmab kõiki lähtekoodirepositsioone, mida hallatakse meie GitHubi organisatsioonide kaudu, sealhulgas [Microsoft](https://github.com/Microsoft), [Azure](https://github.com/Azure), [DotNet](https://github.com/dotnet), [AspNet](https://github.com/aspnet) ja [Xamarin](https://github.com/xamarin).
+Microsoft võtab oma tarkvaratoodete ja -teenuste turvalisust tõsiselt, mis hõlmab kõiki lähtekoodirepositooriume, mida haldame läbi meie GitHub organisatsioonide, mis hõlmavad [Microsoft](https://github.com/Microsoft), [Azure](https://github.com/Azure), [DotNet](https://github.com/dotnet), [AspNet](https://github.com/aspnet) ja [Xamarin](https://github.com/xamarin).
 
-Kui arvad, et oled leidnud turvaaugu mõnes Microsoftile kuuluvas repositooriumis, mis vastab [Microsofti turvaaugu definitsioonile](https://aka.ms/security.md/definition), siis palun anna sellest teada allpool kirjeldatud viisil.
+Kui usute, et olete leidnud turvaaugu Microsoftile kuuluvas repositooriumis, mis vastab [Microsofti turvaaugu definitsioonile](https://aka.ms/security.md/definition), palun teatage sellest meile allpool kirjeldatud viisil.
 
-## Turvaprobleemidest teatamine
+## Turvaintsidentide raportimine
 
-**Palun ära teata turvaaukudest avalike GitHubi probleemide kaudu.**
+**Palun ärge teatage turvaaugust avaliku GitHubi issue kaudu.**
 
-Selle asemel anna neist teada Microsoft Security Response Centerile (MSRC) aadressil [https://msrc.microsoft.com/create-report](https://aka.ms/security.md/msrc/create-report).
+Selle asemel teatage sellest Microsoft Security Response Centerile (MSRC) aadressil [https://msrc.microsoft.com/create-report](https://aka.ms/security.md/msrc/create-report).
 
-Kui eelistad teavitada ilma sisse logimata, saada e-kiri aadressile [secure@microsoft.com](mailto:secure@microsoft.com). Kui võimalik, krüpteeri oma sõnum meie PGP võtmega; laadi see alla [Microsoft Security Response Center PGP Key page](https://aka.ms/security.md/msrc/pgp) lehelt.
+Kui soovite esitada teate ilma sisse logimata, saatke e-kiri aadressile [secure@microsoft.com](mailto:secure@microsoft.com). Kui võimalik, krüptige oma sõnum meie PGP võtmega; palun laadige see alla [Microsoft Security Response Center PGP võtmepoolt](https://aka.ms/security.md/msrc/pgp).
 
-Vastuse peaksid saama 24 tunni jooksul. Kui mingil põhjusel vastust ei tule, võta palun uuesti e-posti teel ühendust, et veenduda, et sinu algne sõnum jõudis kohale. Lisainfot leiad aadressilt [microsoft.com/msrc](https://www.microsoft.com/msrc).
+Te peaksite saama vastuse 24 tunni jooksul. Kui mingil põhjusel ei saa, palun saatke meile järgnev teavitus e-posti teel, et olla kindel meie algse sõnumi kättesaamises. Lisateavet leiate aadressilt [microsoft.com/msrc](https://www.microsoft.com/msrc).
 
-Palun lisa allpool loetletud info (nii palju kui võimalik), et saaksime paremini mõista võimaliku probleemi olemust ja ulatust:
+Palun lisage allpool loetletud vajalik info (nii palju kui võimalik), et aidata meil paremini mõista võimaliku probleemi olemust ja ulatust:
 
-  * Probleemi tüüp (nt puhvri ületäitumine, SQL süstimine, XSS jne)
-  * Lähtekoodifailide täielikud rajad, mis on seotud probleemi ilmnemisega
+  * Probleemi tüüp (nt. puhveri ülevool, SQL-i süstimine, rist-skripti käivitamine jne)
+  * Täielik tee lähtefailidele, mis on seotud probleemi ilmnemisega
   * Mõjutatud lähtekoodi asukoht (silt/haru/commit või otsene URL)
-  * Erikonfiguratsioonid, mis on vajalikud probleemi taastekitamiseks
-  * Samm-sammult juhised probleemi taastekitamiseks
-  * Proof-of-concept või eksploitkood (kui võimalik)
-  * Probleemi mõju, sh kuidas ründaja võiks seda ära kasutada
+  * Kõik spetsiaalsed konfiguratsioonid, mis on vajalikud probleemi kordamiseks
+  * Samm-sammult juhised probleemi kordamiseks
+  * Kontseptsiooni tõend või ekspluateerimiskood (kui võimalik)
+  * Probleemi mõju, sealhulgas kuidas ründaja võiks seda ära kasutada
 
-See info aitab meil sinu raporti kiiremini läbi vaadata.
+See info aitab meil teie teate kiiremini läbi vaadata.
 
-Kui teavitad veaotsimise preemia saamiseks, siis põhjalikumad raportid võivad kaasa tuua suurema preemia. Vaata lisainfot meie [Microsoft Bug Bounty Program](https://aka.ms/security.md/msrc/bounty) lehelt, kus on kirjas aktiivsed programmid.
+Kui teete aruande veaparanduspreemia jaoks, võivad põhjalikumad aruanded aidata kätte saada suuremat preemiat. Palun vaadake meie [Microsoft Bug Bounty Programmi](https://aka.ms/security.md/msrc/bounty) lehte, et saada rohkem infot meie aktiivsete programmide kohta.
 
 ## Eelistatud keeled
 
@@ -43,9 +34,11 @@ Eelistame kogu suhtlust inglise keeles.
 
 ## Poliitika
 
-Microsoft järgib [Koordineeritud haavatavuse avalikustamise](https://aka.ms/security.md/cvd) põhimõtet.
+Microsoft järgib põhimõtet [Koordineeritud turvaaukude avalikustamine](https://aka.ms/security.md/cvd).
 
 ---
 
-**Vastutusest loobumine**:  
-See dokument on tõlgitud tehisintellekti tõlketeenuse [Co-op Translator](https://github.com/Azure/co-op-translator) abil. Kuigi püüame tagada täpsust, palume arvestada, et automaatsed tõlked võivad sisaldada vigu või ebatäpsusi. Originaaldokumenti selle algses keeles tuleks pidada autoriteetseks allikaks. Kriitilise teabe puhul soovitame kasutada professionaalset inimtõlget. Me ei vastuta selle tõlke kasutamisest tulenevate arusaamatuste või valesti tõlgendamise eest.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Vastutusest loobumine**:
+See dokument on tõlgitud kasutades AI tõlketeenust [Co-op Translator](https://github.com/Azure/co-op-translator). Kuigi me püüame täpsust, palun pidage meeles, et automatiseeritud tõlked võivad sisaldada vigu või ebatäpsusi. Originaaldokument selle emakeeles tuleks pidada autoriteetseks allikaks. Olulise teabe puhul soovitatakse kasutada professionaalset inimtõlget. Me ei vastuta selle tõlke kasutamisest tulenevate valesti mõistmiste või valesti tõlgenduste eest.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

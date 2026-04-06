@@ -1,23 +1,16 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "e8b14f0e66db374a2ada46e25fac88ae",
-  "translation_date": "2025-10-15T04:37:43+00:00",
-  "source_file": "CODE_OF_CONDUCT.md",
-  "language_code": "ta"
-}
--->
-# Microsoft திறந்த மூலக் குறியீட்டு நடத்தை விதிகள்
+# Microsoft Open Source நடத்தைக் குறியீடு
 
-இந்த திட்டம் [Microsoft திறந்த மூலக் குறியீட்டு நடத்தை விதிகள்](https://opensource.microsoft.com/codeofconduct/) என்பதைக் கடைபிடிக்கிறது.
+இந்த திட்டம் [Microsoft Open Source நடத்தைக் குறியீடு](https://opensource.microsoft.com/codeofconduct/) ஐ தழுவியுள்ளது.
 
 வளங்கள்:
 
-- [Microsoft திறந்த மூலக் குறியீட்டு நடத்தை விதிகள்](https://opensource.microsoft.com/codeofconduct/)
-- [Microsoft நடத்தை விதிகள் தொடர்பான கேள்விகள்](https://opensource.microsoft.com/codeofconduct/faq/)
-- கேள்விகள் அல்லது கவலைகளுக்கு [opencode@microsoft.com](mailto:opencode@microsoft.com) என்ற முகவரியில் தொடர்பு கொள்ளவும்
+- [Microsoft Open Source நடத்தைக் குறியீடு](https://opensource.microsoft.com/codeofconduct/)
+- [Microsoft நடத்தைக் குறியீடு FAQ](https://opensource.microsoft.com/codeofconduct/faq/)
+- கேள்விகள் அல்லது கவலைகளுக்கு [opencode@microsoft.com](mailto:opencode@microsoft.com) முகவரியை தொடர்பு கொள்ளவும்
 
 ---
 
-**பொறுப்புத்துறப்பு**:
-இந்த ஆவணம் AI மொழிபெயர்ப்பு சேவையான [Co-op Translator](https://github.com/Azure/co-op-translator) மூலம் மொழிபெயர்க்கப்பட்டுள்ளது. நாங்கள் துல்லியத்திற்காக முயற்சி செய்தாலும், தானாக மொழிபெயர்க்கப்படும் மொழிபெயர்ப்புகளில் பிழைகள் அல்லது தவறுகள் இருக்கலாம் என்பதை தயவுசெய்து கவனிக்கவும். மூல ஆவணம் அதன் சொந்த மொழியில் அதிகாரப்பூர்வ ஆதாரமாக கருதப்பட வேண்டும். முக்கியமான தகவல்களுக்கு, தொழில்முறை மனித மொழிபெயர்ப்பு பரிந்துரைக்கப்படுகிறது. இந்த மொழிபெயர்ப்பைப் பயன்படுத்துவதால் ஏற்படும் எந்தவொரு தவறான புரிதல் அல்லது தவறான விளக்கத்திற்கு நாங்கள் பொறுப்பல்ல.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**அறிவித்தல்**:  
+இந்த ஆவணம் AI மொழிபெயர்ப்பு சேவை [Co-op Translator](https://github.com/Azure/co-op-translator) பயன்படுத்தி மொழிபெயர்க்கப்பட்டுள்ளது. நாம் துல்லியத்தன்மைக்கு முயலும் போது, தானியக்க மொழிபெயர்ப்புகளில் பிழைகள் அல்லது தவறான தகவல்கள் இருக்கலாம் என்பதை தயவுசெய்து கவனத்தில் கொள்ளவும். அசல் ஆவணி யெ native மொழியில் அங்கீகாரம் பெற்ற மூலமாக கருதப்பட வேண்டும். முக்கியமான தகவல்களுக்கு, தொழில்முனை மனித மொழிபெயர்ப்பு பரிந்துரைக்கப்படுகிறது. இந்த மொழிபெயர்ப்பைப் பயன்படுத்தியதற்காக ஏற்படும் தவறான புரிதல்கள் அல்லது தவறான விளக்கங்களுக்கு நாம் பொறுப்பேற்க மாட்டோம்.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

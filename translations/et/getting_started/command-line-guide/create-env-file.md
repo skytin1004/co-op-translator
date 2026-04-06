@@ -1,33 +1,24 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "66029e3b67a3eb980ab8740367e91283",
-  "translation_date": "2025-10-15T04:59:38+00:00",
-  "source_file": "getting_started/command-line-guide/create-env-file.md",
-  "language_code": "et"
-}
--->
-# Loo *.env* fail juurkataloogi
+# Loo juurkausta faili *.env*
 
-Selles juhendis näitame, kuidas seadistada oma keskkonnamuutujad Azure teenuste jaoks kasutades *.env* faili. Keskkonnamuutujad võimaldavad sul turvaliselt hallata tundlikke andmeid, nagu API võtmed, ilma et peaksid neid otse koodi sisse kirjutama.
+Selles juhendis juhendame sind Azure teenuste keskkonnamuutujate seadistamisel kasutades faili *.env*. Keskkonnamuutujad võimaldavad sul turvaliselt hallata tundlikke mandaate, nagu API võtmed, ilma neid koodibaasi kõvaks koodimiseks.
 
 > [!IMPORTANT]
-> - Vaja on seadistada ainult üks keelemudeli teenus (Azure OpenAI või OpenAI). Täida keskkonnamuutujad oma eelistatud teenuse jaoks. Kui mitme keelemudeli keskkonnamuutujad on määratud, valib co-op tõlkija ühe vastavalt prioriteedile.
-> - Kui Computer Visioni keskkonnamuutujad pole määratud, lülitub tõlkija automaatselt [ainult Markdown režiimi](./markdown-only-mode.md).
+> - Ainult üks keelemudelite teenus (Azure OpenAI või OpenAI) peab olema seadistatud. Täida keskkonnamuutujad oma eelistatud teenuse jaoks. Kui mitme keelemudeli keskkonnamuutujaid on seatud, valib co-op translator ühe prioriteedi alusel.
+> - Kui Computer Visioni keskkonnamuutujaid ei ole seatud, lülitub tõlk automaatselt üle [ainult Markdown režiimile](./markdown-only-mode.md).
 
 > [!NOTE]
-> See juhend keskendub peamiselt Azure teenustele, kuid võid valida ükskõik millise toetatud keelemudeli [toetatud mudelite ja teenuste nimekirjast](../README.md#-supported-models-and-services).
+> See juhend keskendub peamiselt Azure teenustele, kuid võid valida mis tahes toetatud keelemudeli [toetatud mudelite ja teenuste nimekirjast](../README.md#-supported-models-and-services).
 
 ## Loo *.env* fail
 
-Loo oma projekti juurkataloogi fail nimega *.env*. Selles failis hoitakse kõiki sinu keskkonnamuutujaid lihtsas vormingus.
+Loo oma projekti juurkaustas fail nimega *.env*. See fail hoiab kõiki sinu keskkonnamuutujaid lihtsas vormingus.
 
 > [!WARNING]
-> Ära lisa oma *.env* faili versioonihaldussüsteemi nagu Git. Lisa *.env* oma .gitignore faili, et vältida kogemata üleslaadimist.
+> Ära lisa oma *.env* faili versioonihaldussüsteemi nagu Git. Lisa *.env* oma .gitignore faili, et vältida juhuslikke commit'e.
 
-1. Liigu oma projekti juurkataloogi.
+1. Liigu oma projekti juurkausta.
 
-1. Loo *.env* fail oma projekti juurkataloogi.
+1. Loo oma projekti juurkausta fail *.env*.
 
 1. Ava *.env* fail ja kleebi sinna järgmine mall:
 
@@ -36,6 +27,10 @@ Loo oma projekti juurkataloogi fail nimega *.env*. Selles failis hoitakse kõiki
     AZURE_AI_SERVICE_API_KEY="your_azure_ai_service_api_key"
     AZURE_AI_SERVICE_ENDPOINT="https://your_azure_ai_service_endpoint"
 
+    # Optional fallback set example (index 1)
+    AZURE_AI_SERVICE_API_KEY_1="your_azure_ai_service_api_key_1"
+    AZURE_AI_SERVICE_ENDPOINT_1="https://your_azure_ai_service_endpoint_1"
+
     # Azure OpenAI Credentials
     AZURE_OPENAI_API_KEY="your_azure_openai_api_key"
     AZURE_OPENAI_ENDPOINT="https://your_azure_openai_endpoint"
@@ -43,17 +38,23 @@ Loo oma projekti juurkataloogi fail nimega *.env*. Selles failis hoitakse kõiki
     AZURE_OPENAI_CHAT_DEPLOYMENT_NAME="your_deployment_name"
     AZURE_OPENAI_API_VERSION="your_api_version"
 
+    # Optional fallback sets: duplicate the full AZURE_OPENAI_* set with suffix _1/_2 (same index for all variables)
+
     # OpenAI Credentials
     OPENAI_API_KEY="your_openai_api_key"
     OPENAI_ORG_ID="your_openai_org_id"
     OPENAI_CHAT_MODEL_ID="your_chat_model_id(ex. gpt-4o)"
     OPENAI_BASE_URL="https://api.openai.com/v1 (If you don't have a custom base URL, you can delete this lin, then it will use the default base URL)"
+
+    # Optional fallback sets: duplicate the full OPENAI_* set with suffix _1/_2 (same index for all variables)
     ```
 
 > [!NOTE]
-> Kui soovid leida oma API võtmeid ja lõpp-punkte, vaata [set-up-azure-ai.md](../set-up-azure-ai.md).
+> Kui soovid leida oma API võtmeid ja lõpp-punkte, võid viidata juhisele [set-up-azure-ai.md](../set-up-azure-ai.md).
 
 ---
 
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Vastutusest loobumine**:  
-See dokument on tõlgitud tehisintellekti tõlketeenuse [Co-op Translator](https://github.com/Azure/co-op-translator) abil. Kuigi püüame tagada täpsust, tuleb arvestada, et automaatsed tõlked võivad sisaldada vigu või ebatäpsusi. Originaaldokumenti selle algses keeles tuleks pidada autoriteetseks allikaks. Kriitilise teabe puhul soovitame kasutada professionaalset inimtõlget. Me ei vastuta selle tõlke kasutamisest tulenevate arusaamatuste või valesti tõlgendamise eest.
+See dokument on tõlgitud kasutades tehisintellektil põhinevat tõlketeenust [Co-op Translator](https://github.com/Azure/co-op-translator). Kuigi püüame täpsust, tuleb arvestada, et automaatsed tõlked võivad sisaldada vigu või ebatäpsusi. Originaaldokument selle emakeeles peaks olema autoriteetne allikas. Olulise teabe puhul soovitatakse professionaalset inimtõlget. Me ei vastuta tõlke kasutamisest tingitud arusaamatuste ega valesti mõistmiste eest.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

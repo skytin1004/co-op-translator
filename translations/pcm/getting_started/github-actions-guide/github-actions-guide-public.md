@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-11-06T17:32:31+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "pcm"
-}
--->
 # How to Use Co-op Translator GitHub Action (Public Setup)
 
 **Who fit use am:** Dis guide na for people wey dey use public or private repositories wey GitHub Actions permissions dey okay. E dey use di built-in `GITHUB_TOKEN`.
@@ -53,7 +44,7 @@ You only need to add your **AI service credentials** as encrypted secrets for yo
 2.  Go **Settings** > **Secrets and variables** > **Actions**.
 3.  Under **Repository secrets**, click **New repository secret** for each AI service secret wey you need.
 
-    ![Select setting action](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.pcm.png) *(Image Reference: E dey show where you go add secrets)*
+    ![Select setting action](../../../../translated_images/pcm/select-setting-action.3b95c915d6031159.webp) *(Image Reference: E dey show where you go add secrets)*
 
 **AI Service Secrets We You Need (Add ALL wey dey apply based on wetin you need):**
 
@@ -81,7 +72,7 @@ Di GitHub Action go need permissions wey di `GITHUB_TOKEN` go give am to check o
 4.  Make sure say di checkbox for **Allow GitHub Actions to create and approve pull requests** dey **checked**.
 5.  Click **Save**.
 
-![Permission setting](../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.pcm.png)
+![Permission setting](../../../../translated_images/pcm/permission-setting.ae2f02748b0579e7.webp)
 
 ### Step 4: Create di Workflow File
 

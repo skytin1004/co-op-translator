@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "510827ad22a2031a50838919c3594828",
-  "translation_date": "2025-11-06T17:31:49+00:00",
-  "source_file": "getting_started/command-line-guide/install-package.md",
-  "language_code": "pcm"
-}
--->
 # Install di Co-op translator package
 
 Di **Co-op Translator** na command-line interface (CLI) tool wey go help you translate all di markdown files and images wey dey your project into plenty languages. Dis tutorial go show you how you go fit configure di translator and use am for different cases.
