@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "20943a46b11c6d74814f41a817a6db4c",
-  "translation_date": "2025-10-15T05:00:56+00:00",
-  "source_file": "getting_started/command-line-guide/translator-your-project.md",
-  "language_code": "et"
-}
--->
 # Tõlgi oma projekt Co-op Translatoriga
 
 **Co-op Translator** on käsurea tööriist (CLI), mis aitab sul tõlkida oma projekti markdown- ja pildifaile mitmesse keelde. Selles jaotises selgitatakse, kuidas tööriista kasutada, tutvustatakse erinevaid CLI valikuid ning tuuakse näiteid erinevate kasutusjuhtude kohta.

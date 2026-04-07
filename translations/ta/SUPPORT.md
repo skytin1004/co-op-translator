@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "62fe65c1d8e3796c01aa1e3c89666cba",
-  "translation_date": "2025-10-15T04:46:12+00:00",
-  "source_file": "SUPPORT.md",
-  "language_code": "ta"
-}
--->
 # TODO: இந்த கோப்பை இந்த நிரல்பதிவகத்தின் பராமரிப்பாளர் இன்னும் திருத்தவில்லை
 
 **REPO OWNER**: இந்த தயாரிப்பு/திட்டத்திற்கு Customer Service & Support (CSS) ஆதரவு வேண்டுமா?

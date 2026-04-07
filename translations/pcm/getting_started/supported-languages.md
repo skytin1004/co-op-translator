@@ -1,15 +1,6 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "d11fe2b5308a8752a994869658751533",
-  "translation_date": "2025-11-30T13:08:38+00:00",
-  "source_file": "getting_started/supported-languages.md",
-  "language_code": "pcm"
-}
--->
 # Supported languages
 
-Di table wey dey below list all di languages wey **Co-op Translator** dey support now. E get language codes, language names, plus any wahala wey dem sabi get for each language. If you wan add support for new language, abeg add di correct language code, name, plus di right font for di `font_language_mappings.yml` file wey dey for `src/co_op_translator/fonts/` and after you don test am, submit pull request.
+The table below lists di languages wey **Co-op Translator** support now. E dey show language codes, language names, plus any wahala wey dey with each language. If you wan add support for new language, abi, abeg add di correct language code, name, plus beta font for di `font_language_mappings.yml` file wey dey inside `src/co_op_translator/fonts/` then submit PR after you finish test.
 
 | Language Code | Language Name        | Font                              | RTL Support | Known Issues |
 |---------------|----------------------|-----------------------------------|-------------|--------------|
@@ -21,10 +12,10 @@ Di table wey dey below list all di languages wey **Co-op Translator** dey suppor
 | ar            | Arabic               | NotoSansArabic-Medium.ttf         | Yes         | No           |
 | fa            | Persian (Farsi)      | NotoSansArabic-Medium.ttf         | Yes         | No           |
 | ur            | Urdu                 | NotoSansArabic-Medium.ttf         | Yes         | No           |
-| zh            | Chinese (Simplified) | NotoSansCJK-Medium.ttc            | No          | No           |
-| mo            | Chinese (Traditional, Macau) | NotoSansCJK-Medium.ttc    | No          | No           |
-| hk            | Chinese (Traditional, Hong Kong) | NotoSansCJK-Medium.ttc| No          | No           |
-| tw            | Chinese (Traditional, Taiwan) | NotoSansCJK-Medium.ttc   | No          | No           |
+| zh-CN         | Chinese (Simplified) | NotoSansCJK-Medium.ttc            | No          | No           |
+| zh-MO         | Chinese (Traditional, Macau) | NotoSansCJK-Medium.ttc    | No          | No           |
+| zh-HK         | Chinese (Traditional, Hong Kong) | NotoSansCJK-Medium.ttc| No          | No           |
+| zh-TW         | Chinese (Traditional, Taiwan) | NotoSansCJK-Medium.ttc   | No          | No           |
 | ja            | Japanese             | NotoSansCJK-Medium.ttc            | No          | No           |
 | ko            | Korean               | NotoSansCJK-Medium.ttc            | No          | No           |
 | hi            | Hindi                | NotoSansDevanagari-Medium.ttf     | No          | No           |
@@ -32,8 +23,8 @@ Di table wey dey below list all di languages wey **Co-op Translator** dey suppor
 | mr            | Marathi              | NotoSansDevanagari-Medium.ttf     | No          | No           |
 | ne            | Nepali               | NotoSansDevanagari-Medium.ttf     | No          | No           |
 | pa            | Punjabi (Gurmukhi)   | NotoSansGurmukhi-Medium.ttf       | No          | No           |
-| pt            | Portuguese (Portugal)| NotoSans-Medium.ttf               | No          | No           |
-| br            | Portuguese (Brazil)  | NotoSans-Medium.ttf               | No          | No           |
+| pt-PT         | Portuguese (Portugal)| NotoSans-Medium.ttf               | No          | No           |
+| pt-BR         | Portuguese (Brazil)  | NotoSans-Medium.ttf               | No          | No           |
 | it            | Italian              | NotoSans-Medium.ttf               | No          | No           |
 | lt            | Lithuanian           | NotoSans-Medium.ttf               | No          | No           |
 | pl            | Polish               | NotoSans-Medium.ttf               | No          | No           |
@@ -67,6 +58,7 @@ Di table wey dey below list all di languages wey **Co-op Translator** dey suppor
 | te            | Telugu               | NotoSans-Medium.ttf               | No          | No           |
 | ml            | Malayalam            | NotoSans-Medium.ttf               | No          | No           |
 | kn            | Kannada              | NotoSans-Medium.ttf               | No          | No           |
+| km            | Khmer                | NotoSansKhmer-Medium.ttf          | No          | No           |
 
 ## Adding a new language
 
@@ -77,6 +69,6 @@ You wan add new language? Abeg follow di contribution guide:
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Disclaimer**:
-Dis document na AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator) wey translate am. Even though we dey try make am correct, abeg sabi say automated translation fit get some mistakes or no too correct. The original document wey e dey for im own language na im be the correct one. If na serious matter, e better make person wey sabi do professional human translation help. We no go responsible for any wahala or wrong understanding wey fit happen because of this translation.
+**Disclaimer**:  
+Dis document don translate using AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Even tho we dey try make everything correct, abeg sabi say automated translations fit get errors or wahala. The original document for e own language na the correct source. For important info, make person wey sabi do human translation do am. We no go responsible for any gbege or wrong understanding wey fit happen because of this translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
