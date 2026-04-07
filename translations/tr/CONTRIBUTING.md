@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "758ca1c5ae0d32c52d2dd59132dcfbf0",
-  "translation_date": "2025-11-30T11:05:54+00:00",
-  "source_file": "CONTRIBUTING.md",
-  "language_code": "tr"
-}
--->
 # Co-op Translator'a Katkıda Bulunma
 
 Bu proje katkılara ve önerilere açıktır. Çoğu katkı için, katkınızı kullanma haklarını bize verdiğinizi beyan eden bir Katkıda Bulunan Lisans Sözleşmesi'ni (CLA) kabul etmeniz gerekir. Detaylar için https://cla.opensource.microsoft.com adresini ziyaret edin.

@@ -1,82 +1,74 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "d11fe2b5308a8752a994869658751533",
-  "translation_date": "2025-11-30T11:09:06+00:00",
-  "source_file": "getting_started/supported-languages.md",
-  "language_code": "tr"
-}
--->
 # Desteklenen diller
 
-Aşağıdaki tablo, **Co-op Translator** tarafından şu anda desteklenen dilleri listeler. Dil kodları, dil isimleri ve her dil ile ilgili bilinen sorunlar yer almaktadır. Yeni bir dil desteği eklemek isterseniz, lütfen ilgili dil kodunu, adını ve uygun fontu `src/co_op_translator/fonts/` dizinindeki `font_language_mappings.yml` dosyasına ekleyin ve test ettikten sonra bir pull request gönderin.
+Aşağıdaki tablo, **Co-op Translator** tarafından şu anda desteklenen dilleri listeler. Dil kodları, dil isimleri ve her dil ile ilişkili bilinen sorunları içerir. Yeni bir dil desteği eklemek isterseniz, lütfen ilgili dil kodunu, ismini ve uygun fontu `src/co_op_translator/fonts/` konumundaki `font_language_mappings.yml` dosyasına ekleyin ve test ettikten sonra bir pull request gönderin.
 
-| Dil Kodu      | Dil Adı               | Font                              | RTL Desteği | Bilinen Sorunlar |
-|---------------|-----------------------|----------------------------------|-------------|------------------|
-| en            | İngilizce             | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| fr            | Fransızca             | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| es            | İspanyolca            | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| de            | Almanca               | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| ru            | Rusça                 | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| ar            | Arapça                | NotoSansArabic-Medium.ttf        | Evet        | Yok              |
-| fa            | Farsça (Persçe)       | NotoSansArabic-Medium.ttf        | Evet        | Yok              |
-| ur            | Urdu                  | NotoSansArabic-Medium.ttf        | Evet        | Yok              |
-| zh            | Çince (Basitleştirilmiş) | NotoSansCJK-Medium.ttc         | Hayır       | Yok              |
-| mo            | Çince (Geleneksel, Makao) | NotoSansCJK-Medium.ttc        | Hayır       | Yok              |
-| hk            | Çince (Geleneksel, Hong Kong) | NotoSansCJK-Medium.ttc    | Hayır       | Yok              |
-| tw            | Çince (Geleneksel, Tayvan) | NotoSansCJK-Medium.ttc       | Hayır       | Yok              |
-| ja            | Japonca               | NotoSansCJK-Medium.ttc           | Hayır       | Yok              |
-| ko            | Korece                | NotoSansCJK-Medium.ttc           | Hayır       | Yok              |
-| hi            | Hintçe                | NotoSansDevanagari-Medium.ttf    | Hayır       | Yok              |
-| bn            | Bengalce              | NotoSansBengali-Medium.ttf       | Hayır       | Yok              |
-| mr            | Marathi               | NotoSansDevanagari-Medium.ttf    | Hayır       | Yok              |
-| ne            | Nepali                | NotoSansDevanagari-Medium.ttf    | Hayır       | Yok              |
-| pa            | Pencapça (Gurmukhi)   | NotoSansGurmukhi-Medium.ttf      | Hayır       | Yok              |
-| pt            | Portekizce (Portekiz) | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| br            | Portekizce (Brezilya) | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| it            | İtalyanca             | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| lt            | Litvanca              | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| pl            | Lehçe                 | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| tr            | Türkçe                | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| el            | Yunanca               | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| th            | Tayca                 | NotoSansThai-Medium.ttf          | Hayır       | Yok              |
-| sv            | İsveççe               | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| da            | Danca                 | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| no            | Norveççe              | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| fi            | Fince                 | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| nl            | Flemenkçe             | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| he            | İbranice              | NotoSansHebrew-Medium.ttf        | Evet        | Yok              |
-| vi            | Vietnamca             | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| id            | Endonezce             | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| ms            | Malayca               | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| tl            | Tagalog (Filipince)   | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| sw            | Svahili               | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| hu            | Macarca               | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| cs            | Çekçe                 | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| sk            | Slovakça              | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| ro            | Romence               | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| bg            | Bulgarca              | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| sr            | Sırpça (Kiril)        | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| hr            | Hırvatça              | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| sl            | Slovence              | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| uk            | Ukraynaca             | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| my            | Burmaca (Myanmar)     | NotoSansMyanmar-Medium.ttf       | Hayır       | Yok              |
-| ta            | Tamilce               | NotoSansTamil-Medium.ttf         | Hayır       | Yok              |
-| et            | Estonca               | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| pcm           | Nijerya Pidgin        | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| te            | Telugu                | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| ml            | Malayalam             | NotoSans-Medium.ttf              | Hayır       | Yok              |
-| kn            | Kannada               | NotoSans-Medium.ttf              | Hayır       | Yok              |
+| Language Code | Language Name        | Font                              | RTL Support | Known Issues |
+|---------------|----------------------|-----------------------------------|-------------|--------------|
+| en            | English              | NotoSans-Medium.ttf               | No          | No           |
+| fr            | French               | NotoSans-Medium.ttf               | No          | No           |
+| es            | Spanish              | NotoSans-Medium.ttf               | No          | No           |
+| de            | German               | NotoSans-Medium.ttf               | No          | No           |
+| ru            | Russian              | NotoSans-Medium.ttf               | No          | No           |
+| ar            | Arabic               | NotoSansArabic-Medium.ttf         | Yes         | No           |
+| fa            | Persian (Farsi)      | NotoSansArabic-Medium.ttf         | Yes         | No           |
+| ur            | Urdu                 | NotoSansArabic-Medium.ttf         | Yes         | No           |
+| zh-CN         | Chinese (Simplified) | NotoSansCJK-Medium.ttc            | No          | No           |
+| zh-MO         | Chinese (Traditional, Macau) | NotoSansCJK-Medium.ttc    | No          | No           |
+| zh-HK         | Chinese (Traditional, Hong Kong) | NotoSansCJK-Medium.ttc| No          | No           |
+| zh-TW         | Chinese (Traditional, Taiwan) | NotoSansCJK-Medium.ttc   | No          | No           |
+| ja            | Japanese             | NotoSansCJK-Medium.ttc            | No          | No           |
+| ko            | Korean               | NotoSansCJK-Medium.ttc            | No          | No           |
+| hi            | Hindi                | NotoSansDevanagari-Medium.ttf     | No          | No           |
+| bn            | Bengali              | NotoSansBengali-Medium.ttf        | No          | No           |
+| mr            | Marathi              | NotoSansDevanagari-Medium.ttf     | No          | No           |
+| ne            | Nepali               | NotoSansDevanagari-Medium.ttf     | No          | No           |
+| pa            | Punjabi (Gurmukhi)   | NotoSansGurmukhi-Medium.ttf       | No          | No           |
+| pt-PT         | Portuguese (Portugal)| NotoSans-Medium.ttf               | No          | No           |
+| pt-BR         | Portuguese (Brazil)  | NotoSans-Medium.ttf               | No          | No           |
+| it            | Italian              | NotoSans-Medium.ttf               | No          | No           |
+| lt            | Lithuanian           | NotoSans-Medium.ttf               | No          | No           |
+| pl            | Polish               | NotoSans-Medium.ttf               | No          | No           |
+| tr            | Turkish              | NotoSans-Medium.ttf               | No          | No           |
+| el            | Greek                | NotoSans-Medium.ttf               | No          | No           |
+| th            | Thai                 | NotoSansThai-Medium.ttf           | No          | No           |
+| sv            | Swedish              | NotoSans-Medium.ttf               | No          | No           |
+| da            | Danish               | NotoSans-Medium.ttf               | No          | No           |
+| no            | Norwegian            | NotoSans-Medium.ttf               | No          | No           |
+| fi            | Finnish              | NotoSans-Medium.ttf               | No          | No           |
+| nl            | Dutch                | NotoSans-Medium.ttf               | No          | No           |
+| he            | Hebrew               | NotoSansHebrew-Medium.ttf         | Yes         | No           |
+| vi            | Vietnamese           | NotoSans-Medium.ttf               | No          | No           |
+| id            | Indonesian           | NotoSans-Medium.ttf               | No          | No           |
+| ms            | Malay                | NotoSans-Medium.ttf               | No          | No           |
+| tl            | Tagalog (Filipino)   | NotoSans-Medium.ttf               | No          | No           |
+| sw            | Swahili              | NotoSans-Medium.ttf               | No          | No           |
+| hu            | Hungarian            | NotoSans-Medium.ttf               | No          | No           |
+| cs            | Czech                | NotoSans-Medium.ttf               | No          | No           |
+| sk            | Slovak               | NotoSans-Medium.ttf               | No          | No           |
+| ro            | Romanian             | NotoSans-Medium.ttf               | No          | No           |
+| bg            | Bulgarian            | NotoSans-Medium.ttf               | No          | No           |
+| sr            | Serbian (Cyrillic)   | NotoSans-Medium.ttf               | No          | No           |
+| hr            | Croatian             | NotoSans-Medium.ttf               | No          | No           |
+| sl            | Slovenian            | NotoSans-Medium.ttf               | No          | No           |
+| uk            | Ukrainian            | NotoSans-Medium.ttf               | No          | No           |
+| my            | Burmese (Myanmar)    | NotoSansMyanmar-Medium.ttf        | No          | No           |
+| ta            | Tamil                | NotoSansTamil-Medium.ttf          | No          | No           |
+| et            | Estonian             | NotoSans-Medium.ttf               | No          | No           |
+| pcm           | Nigerian Pidgin      | NotoSans-Medium.ttf               | No          | No           |
+| te            | Telugu               | NotoSans-Medium.ttf               | No          | No           |
+| ml            | Malayalam            | NotoSans-Medium.ttf               | No          | No           |
+| kn            | Kannada              | NotoSans-Medium.ttf               | No          | No           |
+| km            | Khmer                | NotoSansKhmer-Medium.ttf          | No          | No           |
 
 ## Yeni bir dil eklemek
 
 Yeni bir dil eklemekle ilgileniyor musunuz? Lütfen katkı rehberini takip edin:
 
-- Katkıda Bulunma: [Yeni bir dil ekleyin](../CONTRIBUTING.md#contribute-a-new-language)
+- Bakınız Katkı: [Yeni bir dil eklemek](../CONTRIBUTING.md#contribute-a-new-language)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Feragatname**:  
-Bu belge, AI çeviri servisi [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba gösterilse de, otomatik çevirilerin hatalar veya yanlışlıklar içerebileceğini lütfen unutmayınız. Orijinal belge, kendi dilinde yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımı sonucu oluşabilecek yanlış anlamalar veya yorum hatalarından sorumlu değiliz.
+Bu belge, yapay zeka çeviri servisi [Co-op Translator](https://github.com/Azure/co-op-translator) kullanılarak çevrilmiştir. Doğruluk için çaba sarf etsek de, otomatik çevirilerin hata veya yanlışlık içerebileceğini lütfen unutmayınız. Orijinal belge, kendi dilinde yetkili kaynak olarak kabul edilmelidir. Kritik bilgiler için profesyonel insan çevirisi önerilir. Bu çevirinin kullanımı nedeniyle oluşabilecek yanlış anlaşılmalar veya yorum hatalarından sorumlu değiliz.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

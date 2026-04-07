@@ -1,17 +1,8 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "d11fe2b5308a8752a994869658751533",
-  "translation_date": "2025-11-30T11:01:16+00:00",
-  "source_file": "getting_started/supported-languages.md",
-  "language_code": "it"
-}
--->
 # Lingue supportate
 
-La tabella sottostante elenca le lingue attualmente supportate da **Co-op Translator**. Include i codici delle lingue, i nomi delle lingue e eventuali problemi noti associati a ciascuna lingua. Se desideri aggiungere il supporto per una nuova lingua, aggiungi il codice lingua corrispondente, il nome e il font appropriato nel file `font_language_mappings.yml` situato in `src/co_op_translator/fonts/` e invia una pull request dopo aver effettuato i test.
+La tabella sottostante elenca le lingue attualmente supportate da **Co-op Translator**. Include i codici delle lingue, i nomi delle lingue e eventuali problemi noti associati a ciascuna lingua. Se desideri aggiungere il supporto per una nuova lingua, aggiungi il codice della lingua corrispondente, il nome e il font appropriato nel file `font_language_mappings.yml` situato in `src/co_op_translator/fonts/` e invia una pull request dopo aver effettuato i test.
 
-| Codice lingua | Nome lingua          | Font                              | Supporto RTL | Problemi noti |
+| Language Code | Language Name        | Font                              | RTL Support | Known Issues |
 |---------------|----------------------|-----------------------------------|-------------|--------------|
 | en            | Inglese              | NotoSans-Medium.ttf               | No          | No           |
 | fr            | Francese             | NotoSans-Medium.ttf               | No          | No           |
@@ -21,19 +12,19 @@ La tabella sottostante elenca le lingue attualmente supportate da **Co-op Transl
 | ar            | Arabo                | NotoSansArabic-Medium.ttf         | Sì          | No           |
 | fa            | Persiano (Farsi)     | NotoSansArabic-Medium.ttf         | Sì          | No           |
 | ur            | Urdu                 | NotoSansArabic-Medium.ttf         | Sì          | No           |
-| zh            | Cinese (semplificato)| NotoSansCJK-Medium.ttc            | No          | No           |
-| mo            | Cinese (tradizionale, Macao) | NotoSansCJK-Medium.ttc    | No          | No           |
-| hk            | Cinese (tradizionale, Hong Kong) | NotoSansCJK-Medium.ttc| No          | No           |
-| tw            | Cinese (tradizionale, Taiwan) | NotoSansCJK-Medium.ttc   | No          | No           |
+| zh-CN         | Cinese (semplificato)| NotoSansCJK-Medium.ttc            | No          | No           |
+| zh-MO         | Cinese (tradizionale, Macao) | NotoSansCJK-Medium.ttc    | No          | No           |
+| zh-HK         | Cinese (tradizionale, Hong Kong) | NotoSansCJK-Medium.ttc| No          | No           |
+| zh-TW         | Cinese (tradizionale, Taiwan) | NotoSansCJK-Medium.ttc   | No          | No           |
 | ja            | Giapponese           | NotoSansCJK-Medium.ttc            | No          | No           |
 | ko            | Coreano              | NotoSansCJK-Medium.ttc            | No          | No           |
 | hi            | Hindi                | NotoSansDevanagari-Medium.ttf     | No          | No           |
 | bn            | Bengalese            | NotoSansBengali-Medium.ttf        | No          | No           |
 | mr            | Marathi              | NotoSansDevanagari-Medium.ttf     | No          | No           |
-| ne            | Nepali               | NotoSansDevanagari-Medium.ttf     | No          | No           |
+| ne            | Nepalese             | NotoSansDevanagari-Medium.ttf     | No          | No           |
 | pa            | Punjabi (Gurmukhi)   | NotoSansGurmukhi-Medium.ttf       | No          | No           |
-| pt            | Portoghese (Portogallo)| NotoSans-Medium.ttf             | No          | No           |
-| br            | Portoghese (Brasile) | NotoSans-Medium.ttf               | No          | No           |
+| pt-PT         | Portoghese (Portogallo) | NotoSans-Medium.ttf            | No          | No           |
+| pt-BR         | Portoghese (Brasile) | NotoSans-Medium.ttf               | No          | No           |
 | it            | Italiano             | NotoSans-Medium.ttf               | No          | No           |
 | lt            | Lituano              | NotoSans-Medium.ttf               | No          | No           |
 | pl            | Polacco              | NotoSans-Medium.ttf               | No          | No           |
@@ -63,20 +54,21 @@ La tabella sottostante elenca le lingue attualmente supportate da **Co-op Transl
 | my            | Birmano (Myanmar)    | NotoSansMyanmar-Medium.ttf        | No          | No           |
 | ta            | Tamil                | NotoSansTamil-Medium.ttf          | No          | No           |
 | et            | Estone               | NotoSans-Medium.ttf               | No          | No           |
-| pcm           | Pidgin nigeriano     | NotoSans-Medium.ttf               | No          | No           |
+| pcm           | Pidgin Nigeriano     | NotoSans-Medium.ttf               | No          | No           |
 | te            | Telugu               | NotoSans-Medium.ttf               | No          | No           |
 | ml            | Malayalam            | NotoSans-Medium.ttf               | No          | No           |
 | kn            | Kannada              | NotoSans-Medium.ttf               | No          | No           |
+| km            | Khmer                | NotoSansKhmer-Medium.ttf          | No          | No           |
 
 ## Aggiungere una nuova lingua
 
-Se sei interessato ad aggiungere una nuova lingua, segui la guida per i contributi:
+Se sei interessato ad aggiungere una nuova lingua, segui la guida alla contribuzione:
 
-- Consulta Contributing: [Contribuire con una nuova lingua](../CONTRIBUTING.md#contribute-a-new-language)
+- Vedi Contributing: [Contribuire con una nuova lingua](../CONTRIBUTING.md#contribute-a-new-language)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Disclaimer**:  
-Questo documento è stato tradotto utilizzando il servizio di traduzione automatica [Co-op Translator](https://github.com/Azure/co-op-translator). Pur impegnandoci per garantire l’accuratezza, si prega di notare che le traduzioni automatiche possono contenere errori o imprecisioni. Il documento originale nella sua lingua nativa deve essere considerato la fonte autorevole. Per informazioni critiche, si raccomanda una traduzione professionale effettuata da un traduttore umano. Non ci assumiamo alcuna responsabilità per eventuali malintesi o interpretazioni errate derivanti dall’uso di questa traduzione.
+**Disclaimer**:
+Questo documento è stato tradotto utilizzando il servizio di traduzione automatica [Co-op Translator](https://github.com/Azure/co-op-translator). Sebbene ci impegniamo per l'accuratezza, si prega di notare che le traduzioni automatiche possono contenere errori o inesattezze. Il documento originale nella sua lingua nativa deve essere considerato la fonte autorevole. Per informazioni critiche, si raccomanda una traduzione professionale effettuata da un umano. Non siamo responsabili per eventuali malintesi o interpretazioni errate derivanti dall'uso di questa traduzione.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
