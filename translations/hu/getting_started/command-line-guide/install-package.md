@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "510827ad22a2031a50838919c3594828",
-  "translation_date": "2025-10-15T03:49:25+00:00",
-  "source_file": "getting_started/command-line-guide/install-package.md",
-  "language_code": "hu"
-}
--->
 # Telepítsd a Co-op Translator csomagot
 
 A **Co-op Translator** egy parancssori eszköz (CLI), amely segít lefordítani a projekted összes markdown fájlját és képét több nyelvre. Ez az útmutató végigvezet a fordító beállításán és különböző felhasználási módokon.
