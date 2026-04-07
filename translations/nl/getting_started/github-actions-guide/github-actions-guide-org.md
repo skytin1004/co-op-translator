@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9fac847815936ef6e6c8bfde6d191571",
-  "translation_date": "2025-10-15T03:30:47+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-org.md",
-  "language_code": "nl"
-}
--->
 # De Co-op Translator GitHub Action gebruiken (Organisatiehandleiding)
 
 **Doelgroep:** Deze handleiding is bedoeld voor **interne Microsoft-gebruikers** of **teams die toegang hebben tot de benodigde inloggegevens voor de vooraf gebouwde Co-op Translator GitHub App** of hun eigen aangepaste GitHub App kunnen aanmaken.

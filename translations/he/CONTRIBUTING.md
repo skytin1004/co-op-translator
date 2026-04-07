@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "758ca1c5ae0d32c52d2dd59132dcfbf0",
-  "translation_date": "2025-11-30T11:39:43+00:00",
-  "source_file": "CONTRIBUTING.md",
-  "language_code": "he"
-}
--->
 # תרומה ל-Co-op Translator
 
 הפרויקט הזה מקבל בברכה תרומות והצעות. רוב התרומות מחייבות שתסכימו ל

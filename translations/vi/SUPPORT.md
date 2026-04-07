@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "62fe65c1d8e3796c01aa1e3c89666cba",
-  "translation_date": "2025-06-12T11:19:14+00:00",
-  "source_file": "SUPPORT.md",
-  "language_code": "vi"
-}
--->
 # TODO: Người quản lý repo này chưa chỉnh sửa file này
 
 **REPO OWNER**: Bạn có muốn nhận hỗ trợ Customer Service & Support (CSS) cho sản phẩm/dự án này không?
