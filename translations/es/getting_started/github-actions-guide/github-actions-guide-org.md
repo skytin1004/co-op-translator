@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9fac847815936ef6e6c8bfde6d191571",
-  "translation_date": "2025-10-15T02:11:23+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-org.md",
-  "language_code": "es"
-}
--->
 # Uso de la Acción de GitHub Co-op Translator (Guía para Organizaciones)
 
 **Público objetivo:** Esta guía está dirigida a **usuarios internos de Microsoft** o **equipos que tengan acceso a las credenciales necesarias para la aplicación preconstruida Co-op Translator de GitHub** o que puedan crear su propia aplicación personalizada de GitHub.
@@ -56,11 +47,11 @@ El flujo de trabajo utiliza la autenticación de App de GitHub para interactuar 
 
 1. Selecciona **Install** y elige la cuenta u organización donde está tu repositorio objetivo.
 
-    ![Instalar app](../../../../translated_images/install-app.d0f0a24cbb1d6c93f293f002eb34e633f7bc8f5caaba46b97806ba7bdc958f27.es.png)
+    ![Instalar app](../../../../translated_images/es/install-app.d0f0a24cbb1d6c93.webp)
 
 1. Elige **Only select repositories** y selecciona tu repositorio objetivo (por ejemplo, `PhiCookBook`). Haz clic en **Install**. Es posible que debas autenticarte.
 
-    ![Instalar autorizar](../../../../translated_images/install-authorize.29df6238c3eb8f707e7fc6f97a946cb654b328530c4aeddce28b874693f076a0.es.png)
+    ![Instalar autorizar](../../../../translated_images/es/install-authorize.29df6238c3eb8f70.webp)
 
 1. **Obtén las credenciales de la App (proceso interno requerido):** Para permitir que el flujo de trabajo se autentique como la app, necesitas dos datos proporcionados por el equipo de Co-op Translator:
   - **App ID:** El identificador único de la app Co-op Translator. El App ID es: `1164076`.
@@ -82,7 +73,7 @@ Debes agregar las credenciales de la App de GitHub y las credenciales de tu serv
 
 1. En **Repository secrets**, haz clic en **New repository secret** para cada secreto de la lista a continuación.
 
-   ![Seleccionar configuración de acción](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.es.png)
+   ![Seleccionar configuración de acción](../../../../translated_images/es/select-setting-action.3b95c915d6031159.webp)
 
 **Secretos requeridos (para autenticación de la App de GitHub):**
 
@@ -107,7 +98,7 @@ Debes agregar las credenciales de la App de GitHub y las credenciales de tu serv
 | `OPENAI_CHAT_MODEL_ID`                | ID específico del modelo de OpenAI            | OpenAI Platform                   |
 | `OPENAI_BASE_URL`                     | Base URL personalizada de la API de OpenAI    | OpenAI Platform                   |
 
-![Ingresar nombre de variable de entorno](../../../../translated_images/add-secrets-done.444861ce6956d5cb20781ead1237fcc12805078349bb0d4e95bb9540ee192227.es.png)
+![Ingresar nombre de variable de entorno](../../../../translated_images/es/add-secrets-done.444861ce6956d5cb.webp)
 
 ### Paso 3: Crea el archivo de flujo de trabajo
 
