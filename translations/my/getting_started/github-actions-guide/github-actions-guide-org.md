@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9fac847815936ef6e6c8bfde6d191571",
-  "translation_date": "2025-10-15T04:14:28+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-org.md",
-  "language_code": "my"
-}
--->
 # Co-op Translator GitHub Action ကို အသုံးပြုခြင်း (အဖွဲ့အစည်းအတွက် လမ်းညွှန်)
 
 **သုံးစွဲသူအမျိုးအစား:** ဒီလမ်းညွှန်ကို **Microsoft အတွင်းသားများ** သို့မဟုတ် **Co-op Translator GitHub App ကို အသုံးပြုရန် လိုအပ်သော အထောက်အထားများ ရရှိထားသူများ** သို့မဟုတ် ကိုယ်ပိုင် GitHub App တစ်ခုကို ဖန်တီးနိုင်သူများအတွက် ရည်ရွယ်ထားပါသည်။

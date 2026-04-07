@@ -1,82 +1,74 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "d11fe2b5308a8752a994869658751533",
-  "translation_date": "2025-11-30T12:44:54+00:00",
-  "source_file": "getting_started/supported-languages.md",
-  "language_code": "my"
-}
--->
-# ပံ့ပိုးထားသော ဘာသာစကားများ
+# Supported languages
 
-အောက်တွင် ဖော်ပြထားသောဇယားသည် **Co-op Translator** မှ လက်ရှိပံ့ပိုးထားသော ဘာသာစကားများကို ပြထားသည်။ ၎င်းတွင် ဘာသာစကားကုဒ်များ၊ ဘာသာစကားအမည်များနှင့် ဘာသာစကားတိုင်းနှင့်ဆိုင်သော သိရှိထားသော ပြဿနာများ ပါဝင်သည်။ ဘာသာစကားအသစ်တစ်ခုကို ပံ့ပိုးလိုပါက `src/co_op_translator/fonts/` တွင်ရှိသည့် `font_language_mappings.yml` ဖိုင်တွင် သင့်တော်သော ဘာသာစကားကုဒ်၊ အမည်နှင့် ဖောင့်ကို ထည့်သွင်းပြီး စမ်းသပ်ပြီးနောက် pull request တင်ပေးပါ။
+The table below lists the languages currently supported by **Co-op Translator**. It includes language codes, language names, and any known issues associated with each language. If you would like to add support for a new language, please add the corresponding language code, name, and appropriate font in the `font_language_mappings.yml` file located at `src/co_op_translator/fonts/` and submit a pull request after testing.
 
 | Language Code | Language Name        | Font                              | RTL Support | Known Issues |
 |---------------|----------------------|-----------------------------------|-------------|--------------|
-| en            | အင်္ဂလိပ်             | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| fr            | ပြင်သစ်              | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| es            | စပိန်                | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| de            | ဂျာမန်              | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| ru            | ရုရှား               | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| ar            | အာရဗီ               | NotoSansArabic-Medium.ttf         | ဟုတ်ပါသည်   | မရှိပါ       |
-| fa            | ပါရှန် (ဖာစီ)        | NotoSansArabic-Medium.ttf         | ဟုတ်ပါသည်   | မရှိပါ       |
-| ur            | ဥရူဒူ               | NotoSansArabic-Medium.ttf         | ဟုတ်ပါသည်   | မရှိပါ       |
-| zh            | တရုတ် (ရိုးရိုး)       | NotoSansCJK-Medium.ttc            | မဟုတ်ပါ     | မရှိပါ       |
-| mo            | တရုတ် (ရိုးရာ၊ မကာအို) | NotoSansCJK-Medium.ttc          | မဟုတ်ပါ     | မရှိပါ       |
-| hk            | တရုတ် (ရိုးရာ၊ ဟောင်ကောင်) | NotoSansCJK-Medium.ttc        | မဟုတ်ပါ     | မရှိပါ       |
-| tw            | တရုတ် (ရိုးရာ၊ တိုင်ဝမ်) | NotoSansCJK-Medium.ttc          | မဟုတ်ပါ     | မရှိပါ       |
-| ja            | ဂျပန်                | NotoSansCJK-Medium.ttc            | မဟုတ်ပါ     | မရှိပါ       |
-| ko            | ကိုရီးယား            | NotoSansCJK-Medium.ttc            | မဟုတ်ပါ     | မရှိပါ       |
-| hi            | ဟိန္ဒီ               | NotoSansDevanagari-Medium.ttf     | မဟုတ်ပါ     | မရှိပါ       |
-| bn            | ဘင်္ဂါလီ             | NotoSansBengali-Medium.ttf        | မဟုတ်ပါ     | မရှိပါ       |
-| mr            | မာရသီ               | NotoSansDevanagari-Medium.ttf     | မဟုတ်ပါ     | မရှိပါ       |
-| ne            | နီပေါ               | NotoSansDevanagari-Medium.ttf     | မဟုတ်ပါ     | မရှိပါ       |
-| pa            | ပန်ဂျာဘီ (ဂူရ်မူခီ) | NotoSansGurmukhi-Medium.ttf       | မဟုတ်ပါ     | မရှိပါ       |
-| pt            | ပေါ်တူဂီ (ပေါ်တူဂီ) | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| br            | ပေါ်တူဂီ (ဘရာဇီး)   | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| it            | အီတလီ              | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| lt            | လစ်သူအေးနီးယား       | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| pl            | ပိုလန်               | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| tr            | တူရကီ              | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| el            | ဂရိ                 | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| th            | ထိုင်း                | NotoSansThai-Medium.ttf           | မဟုတ်ပါ     | မရှိပါ       |
-| sv            | ဆွီဒင်              | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| da            | ဒိန်းမတ်             | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| no            | နော်ဝေ               | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| fi            | ဖင်လန်               | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| nl            | ဒတ်ချ်               | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| he            | ဟီဘရူး              | NotoSansHebrew-Medium.ttf         | ဟုတ်ပါသည်   | မရှိပါ       |
-| vi            | ဗီယက်နမ်            | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| id            | အင်ဒိုနီးရှား        | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| ms            | မလေး                | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| tl            | တာဂလို (ဖိလစ်ပိုင်)   | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| sw            | ဆွာဟီလီ             | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| hu            | ဟန်ဂေရီ             | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| cs            | ချက်                 | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| sk            | စလိုဗက်              | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| ro            | ရိုမေးနီးယား          | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| bg            | ဘူလ်ဂေးရီးယား        | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| sr            | ဆားဘီးယား (စီရီးလစ်) | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| hr            | ခရိုအေးရှား          | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| sl            | စလိုဗေးနီးယား         | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| uk            | ယူကရိန်း             | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| my            | မြန်မာ (မြန်မာ)       | NotoSansMyanmar-Medium.ttf        | မဟုတ်ပါ     | မရှိပါ       |
-| ta            | တမီးလ်               | NotoSansTamil-Medium.ttf          | မဟုတ်ပါ     | မရှိပါ       |
-| et            | အက်စတိုးနီးယား        | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| pcm           | နိုင်ဂျီးရီးယား ပစ်ဂင် | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| te            | တယ်လူဂူ             | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| ml            | မလေးယားလမ်           | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
-| kn            | ကန်နာဒါ              | NotoSans-Medium.ttf               | မဟုတ်ပါ     | မရှိပါ       |
+| en            | အင်္ဂလိပ်              | NotoSans-Medium.ttf               | No          | No           |
+| fr            | ပြင်သစ်                | NotoSans-Medium.ttf               | No          | No           |
+| es            | စပိန်                 | NotoSans-Medium.ttf               | No          | No           |
+| de            | ဂျာမန်                | NotoSans-Medium.ttf               | No          | No           |
+| ru            | ရုရှား                | NotoSans-Medium.ttf               | No          | No           |
+| ar            | အာရဘိ                | NotoSansArabic-Medium.ttf         | Yes         | No           |
+| fa            | ဖာဆန်း (Farsi)        | NotoSansArabic-Medium.ttf         | Yes         | No           |
+| ur            | အူရူး                 | NotoSansArabic-Medium.ttf         | Yes         | No           |
+| zh-CN         | တရုတ် (ရိုးရှင်း)       | NotoSansCJK-Medium.ttc            | No          | No           |
+| zh-MO         | တရုတ် (ရိုးရာ၊ မကာဦး)   | NotoSansCJK-Medium.ttc            | No          | No           |
+| zh-HK         | တရုတ် (ရိုးရာ၊ ဟောင်ကောင်) | NotoSansCJK-Medium.ttc            | No          | No           |
+| zh-TW         | တရုတ် (ရိုးရာ၊ တိုင်ဝမ်)  | NotoSansCJK-Medium.ttc            | No          | No           |
+| ja            | ဂျပန်                 | NotoSansCJK-Medium.ttc            | No          | No           |
+| ko            | ကိုရီးယား             | NotoSansCJK-Medium.ttc            | No          | No           |
+| hi            | ဟိန္ဒီ                | NotoSansDevanagari-Medium.ttf     | No          | No           |
+| bn            | ဗင်္ဂါလီ              | NotoSansBengali-Medium.ttf        | No          | No           |
+| mr            | မရဟာတီး             | NotoSansDevanagari-Medium.ttf     | No          | No           |
+| ne            | နီပေါ                | NotoSansDevanagari-Medium.ttf     | No          | No           |
+| pa            | ပင်ဂျာဘီ (ဂူမုခီ)     | NotoSansGurmukhi-Medium.ttf       | No          | No           |
+| pt-PT         | ပေါ်တူဂီ (ပေါ်တူဂီ)   | NotoSans-Medium.ttf               | No          | No           |
+| pt-BR         | ပေါ်တူဂီ (ဘရဇီးလ)     | NotoSans-Medium.ttf               | No          | No           |
+| it            | အီတလျံ              | NotoSans-Medium.ttf               | No          | No           |
+| lt            | လစ်သူအေးနီးယား       | NotoSans-Medium.ttf               | No          | No           |
+| pl            | ပိုလန်                | NotoSans-Medium.ttf               | No          | No           |
+| tr            | တူရကီ                | NotoSans-Medium.ttf               | No          | No           |
+| el            | ဂရိ                  | NotoSans-Medium.ttf               | No          | No           |
+| th            | ထိုင်း                 | NotoSansThai-Medium.ttf           | No          | No           |
+| sv            | ဆွီဒင်                | NotoSans-Medium.ttf               | No          | No           |
+| da            | ဒိန်းမတ်              | NotoSans-Medium.ttf               | No          | No           |
+| no            | နော်ဝေး                | NotoSans-Medium.ttf               | No          | No           |
+| fi            | ဖင်လန်                | NotoSans-Medium.ttf               | No          | No           |
+| nl            | ဒတ်ခ်                 | NotoSans-Medium.ttf               | No          | No           |
+| he            | ဟေဘရူး                | NotoSansHebrew-Medium.ttf         | Yes         | No           |
+| vi            | ဗီယက်နမ်              | NotoSans-Medium.ttf               | No          | No           |
+| id            | အင်ဒိုနီးရှား          | NotoSans-Medium.ttf               | No          | No           |
+| ms            | မလေး                | NotoSans-Medium.ttf               | No          | No           |
+| tl            | တာဂလို (ဖိလစ်ပိုင်)      | NotoSans-Medium.ttf               | No          | No           |
+| sw            | ဆွာဟာနီ              | NotoSans-Medium.ttf               | No          | No           |
+| hu            | ဟန်ဂေရီ              | NotoSans-Medium.ttf               | No          | No           |
+| cs            | ချက်                  | NotoSans-Medium.ttf               | No          | No           |
+| sk            | စလိုဗက်                | NotoSans-Medium.ttf               | No          | No           |
+| ro            | ရိုမေးন                | NotoSans-Medium.ttf               | No          | No           |
+| bg            | ဘူလ်ဂေးရီးယား         | NotoSans-Medium.ttf               | No          | No           |
+| sr            | ဆားဘီးယား (ဆိုရီလစ်)    | NotoSans-Medium.ttf               | No          | No           |
+| hr            | ခ႐ိုအေးရှီးယား           | NotoSans-Medium.ttf               | No          | No           |
+| sl            | ဆလိုဗေးနီးယား          | NotoSans-Medium.ttf               | No          | No           |
+| uk            | ယူကရိန်း              | NotoSans-Medium.ttf               | No          | No           |
+| my            | ဗမာ (မြန်မာ)            | NotoSansMyanmar-Medium.ttf        | No          | No           |
+| ta            | တမီးလ်                 | NotoSansTamil-Medium.ttf          | No          | No           |
+| et            | အက်စတိုင်း              | NotoSans-Medium.ttf               | No          | No           |
+| pcm           | နိုင်ဂျီးရီးယား ပစ်ဂျင်    | NotoSans-Medium.ttf               | No          | No           |
+| te            | တဲလုဂူး                 | NotoSans-Medium.ttf               | No          | No           |
+| ml            | မလေးယားလမ်             | NotoSans-Medium.ttf               | No          | No           |
+| kn            | ကန်နာဒါ               | NotoSans-Medium.ttf               | No          | No           |
+| km            | ချမား                 | NotoSansKhmer-Medium.ttf          | No          | No           |
 
-## ဘာသာစကားအသစ် ထည့်သွင်းခြင်း
+## Adding a new language
 
-ဘာသာစကားအသစ်တစ်ခု ထည့်သွင်းလိုပါသလား? ကျေးဇူးပြု၍ အောက်ပါ လမ်းညွှန်ချက်များကို လိုက်နာပါ-
+Interested in adding a new language? Please follow the contribution guide:
 
-- Contributing ကို ကြည့်ပါ: [ဘာသာစကားအသစ် ထည့်သွင်းခြင်း](../CONTRIBUTING.md#contribute-a-new-language)
+- See Contributing: [Contribute a new language](../CONTRIBUTING.md#contribute-a-new-language)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**အကြောင်းကြားချက်**  
-ဤစာတမ်းကို AI ဘာသာပြန်ဝန်ဆောင်မှု [Co-op Translator](https://github.com/Azure/co-op-translator) ဖြင့် ဘာသာပြန်ထားပါသည်။ ကျွန်ုပ်တို့သည် တိကျမှန်ကန်မှုအတွက် ကြိုးစားသော်လည်း အလိုအလျောက် ဘာသာပြန်ချက်များတွင် အမှားများ သို့မဟုတ် မှားယွင်းချက်များ ပါဝင်နိုင်ကြောင်း သတိပြုပါရန် မေတ္တာရပ်ခံအပ်ပါသည်။ မူရင်းစာတမ်းကို မိမိဘာသာစကားဖြင့်သာ တရားဝင်အရင်းအမြစ်အဖြစ် ယူဆသင့်ပါသည်။ အရေးကြီးသော အချက်အလက်များအတွက် လူ့ဘာသာပြန်ပညာရှင်မှ ဘာသာပြန်ခြင်းကို အကြံပြုပါသည်။ ဤဘာသာပြန်ချက်ကို အသုံးပြုရာမှ ဖြစ်ပေါ်လာနိုင်သည့် နားလည်မှုမှားယွင်းမှုများအတွက် ကျွန်ုပ်တို့သည် တာဝန်မယူပါ။
+**အသိပေးချက်**:  
+ဤစာတမ်းကို AI ဘာသာပြန်စနစ် [Co-op Translator](https://github.com/Azure/co-op-translator) ကို အသုံးပြု၍ ဘာသာပြန်ထားပါသည်။ တိကျမှန်ကန်မှုအတွက် အားထုတ်ပြီးဖြစ်သော်လည်း၊ အလိုအလျောက် ဘာသာပြန်ခြင်းတွင် အမှားများ သို့မဟုတ် တိကျမှုမရှိမှုများ ရှိနိုင်ကြောင်း သတိပြုပါရန် မေတ္တာရပ်ခံပါသည်။ မူရင်းစာတမ်းကို မိမိဘာသာစကားဖြင့်သာ အာဏာပိုင်ရင်းမြစ်အဖြစ်စဉ်းစားသင့်ပါသည်။ အရေးကြီးသော သတင်းအချက်အလက်များအတွက် ကုသမှုတွင် သိပ္ပံပညာရှင်လူ့ဘာသာပြန်မှုကို အကြံပြုပါသည်။ ဤဘာသာပြန်ချက်ကို အသုံးပြုမှုကြောင့် ဖြစ်ပေါ်လာနိုင်သည့် နားလည်မှု အမှားများ သို့မဟုတ် အဓိပ္ပာယ်မှားယွင်းမှုများအတွက် ကျနော်တို့တွင် တာဝန်မရှိပါ။
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

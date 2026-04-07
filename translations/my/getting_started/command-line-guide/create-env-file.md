@@ -1,40 +1,35 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "66029e3b67a3eb980ab8740367e91283",
-  "translation_date": "2025-06-12T18:30:06+00:00",
-  "source_file": "getting_started/command-line-guide/create-env-file.md",
-  "language_code": "my"
-}
--->
-# အခြေခံ ဒါရိုက်ထရီမှာ *.env* ဖိုင် ဖန်တီးခြင်း
+# Root directory တွင် *.env* ဖိုင်ကိုဖန်တီးပါ
 
-ဒီသင်ခန်းစာမှာ Azure ဝန်ဆောင်မှုများအတွက် သင့်ရဲ့ environment variables ကို *.env* ဖိုင်တစ်ခုဖြင့် ပြင်ဆင်နည်းကို လမ်းညွှန်ပေးပါမယ်။ Environment variables တွေက API key တွေလို sensitive credential တွေကို သင့်ကုဒ်အတွင်းမှာ မတိုက်ရိုက်ရေးသားဘဲ လုံခြုံစွာ စီမံခန့်ခွဲဖို့ အထောက်အကူပြုပါတယ်။
+ဤသင်ခန်းစာတွင် Azure ဝန်ဆောင်မှုများအတွက် သင့်ရဲ့ ပတ်ဝန်းကျင် အပြောင်းအလဲများကို *.env* ဖိုင်ဖြင့် စီမံရန် လမ်းညွှန်ပေးပါမည်။ ပတ်ဝန်းကျင် အပြောင်းအလဲများသည် API key များကဲ့သို့သော အချက်အလက် များကို မိမိကုဒ်အရင်းအမြစ်ထဲတွင် သန်းခြောက်ခြင်းမရှိပဲ လုံခြုံစွာ စီမံခန့်ခွဲနိုင်ရန်အတွက် အသုံးပြုသည်။
 
 > [!IMPORTANT]
-> - ဘာသာစကားမော်ဒယ် ဝန်ဆောင်မှုတစ်ခု (Azure OpenAI သို့မဟုတ် OpenAI) ကိုသာ ပြင်ဆင်ရပါမယ်။ သင့်နှစ်သက်ရာ ဝန်ဆောင်မှုအတွက် environment variables များဖြည့်ပါ။ ဘာသာစကားမော်ဒယ် အများအပြားအတွက် environment variables များထားရှိပါက co-op translator က ဦးစားပေးမှုအရ တစ်ခုကို ရွေးချယ်ပါလိမ့်မယ်။
-> - Computer Vision environment variables မထားရှိပါက translator က အလိုအလျောက် [Markdown-only mode](./markdown-only-mode.md) သို့ ပြောင်းလဲသွားပါလိမ့်မယ်။
+> - စာသားမော်ဒယ် ဝန်ဆောင်မှုတစ်ခု (Azure OpenAI သို့မဟုတ် OpenAI) သာ ကြိုတင်သတ်မှတ်ရန် လိုအပ်သည်။ သင်နှစ်သက်သော ဝန်ဆောင်မှုအတွက် ပတ်ဝန်းကျင်အပြောင်းအလဲများကို ဖြည့်စွက်ပါ။ စာသားမော်ဒယ်များစွာအတွက် ပတ်ဝန်းကျင်အပြောင်းအလဲများထည့်ထားပါက co-op translator သည် ဦးစားပေးမှုအပေါ် မူတည်၍ တစ်ခုကို ရွေးချယ်ပါလိမ့်မည်။
+> - Computer Vision ပတ်ဝန်းကျင်အပြောင်းအလဲများ မသတ်မှတ်ထားပါက translator သည် သက်သေပြထားသော [Markdown-only mode](./markdown-only-mode.md)သို့ အလိုအလျောက် ပြောင်းရွှေ့ပါလိမ့်မည်။
 
 > [!NOTE]
-> ဒီလမ်းညွှန်မှာ အဓိကအားဖြင့် Azure ဝန်ဆောင်မှုများကို ဦးတည်ထားပေမယ့် [supported models and services list](../README.md#-supported-models-and-services) မှ ထောက်ခံထားသော ဘာသာစကားမော်ဒယ် များကို မည်သည့်အချိန်မဆို ရွေးချယ်အသုံးပြုနိုင်ပါတယ်။
+> ဤလမ်းညွှန်သည် အဓိကအားဖြင့် Azure ဝန်ဆောင်မှုများအပေါ် အာရုံစိုက်ပါသည်၊ သို့သော် သင်သည် [supported models and services list](../README.md#-supported-models-and-services) မှ ထောက်ခံသော မော်ဒယ်များကို မည်သည့်ဟုမဆို ရွေးချယ်နိုင်ပါသည်။
 
-## *.env* ဖိုင် ဖန်တီးခြင်း
+## *.env* ဖိုင်ကိုဖန်တီးပါ
 
-သင့်ပရောဂျက်ရဲ့ အခြေခံ ဒါရိုက်ထရီမှာ *.env* ဆိုတဲ့ ဖိုင်တစ်ခု ဖန်တီးပါ။ ဒီဖိုင်မှာ သင့် environment variables အားလုံးကို ရိုးရှင်းတဲ့ ဖော်မတ်နဲ့ သိမ်းဆည်းထားမှာ ဖြစ်ပါတယ်။
+သင့်ပရောဂျက်၏ root directory တွင် *.env* ဟု အမည်ရှိသော ဖိုင်ကို ဖန်တီးပါ။ ဤဖိုင်သည် သင်၏ ပတ်ဝန်းကျင်အပြောင်းအလဲများအားလုံးကို ရိုးရှင်းသော ဖော်မတ်ဖြင့် သိမ်းဆည်းပါမည်။
 
 > [!WARNING]
-> *.env* ဖိုင်ကို Git ကဲ့သို့သော version control system များထဲ သွင်းမထားပါနှင့်။ အမှားတစ်ခုဖြစ်၍ commit မဖြစ်အောင် *.env* ကို .gitignore ဖိုင်ထဲ ထည့်သွင်းပါ။
+> *.env* ဖိုင်ကို Git ကဲ့သို့သော ဗားရှင်းထိန်းချုပ်မှု စနစ်များထဲသို့ မသွင်းရန် သတိပြုပါ။ မတော်တဆပြုလုပ်မှုများမှ ကာကွယ်ရန် *.env* ကို .gitignore ဖိုင်တွင် ထည့်သွင်းထားပါ။
 
-1. သင့်ပရောဂျက်ရဲ့ အခြေခံ ဒါရိုက်ထရီသို့ သွားပါ။
+1. သင့္ပရောဂျက်၏ root directory သို့ သွားပါ။
 
-1. အခြေခံ ဒါရိုက်ထရီမှာ *.env* ဖိုင်တစ်ခု ဖန်တီးပါ။
+1. သင့်ပရောဂျက်၏ root directory တွင် *.env* ဖိုင်ကို ဖန်တီးပါ။
 
-1. *.env* ဖိုင်ကို ဖွင့်ပြီး အောက်ပါ အကြမ်းဖျင်းကို ကူးထည့်ပါ။
+1. *.env* ဖိုင်ကို ဖွင့်၍ အောက်ပါ မှန်ပုံကို မိတ္တူကူးထည့်ပါ။
 
     ```plaintext
     # Azure Credentials
     AZURE_AI_SERVICE_API_KEY="your_azure_ai_service_api_key"
     AZURE_AI_SERVICE_ENDPOINT="https://your_azure_ai_service_endpoint"
+
+    # Optional fallback set example (index 1)
+    AZURE_AI_SERVICE_API_KEY_1="your_azure_ai_service_api_key_1"
+    AZURE_AI_SERVICE_ENDPOINT_1="https://your_azure_ai_service_endpoint_1"
 
     # Azure OpenAI Credentials
     AZURE_OPENAI_API_KEY="your_azure_openai_api_key"
@@ -43,15 +38,23 @@ CO_OP_TRANSLATOR_METADATA:
     AZURE_OPENAI_CHAT_DEPLOYMENT_NAME="your_deployment_name"
     AZURE_OPENAI_API_VERSION="your_api_version"
 
+    # Optional fallback sets: duplicate the full AZURE_OPENAI_* set with suffix _1/_2 (same index for all variables)
+
     # OpenAI Credentials
     OPENAI_API_KEY="your_openai_api_key"
     OPENAI_ORG_ID="your_openai_org_id"
     OPENAI_CHAT_MODEL_ID="your_chat_model_id(ex. gpt-4o)"
     OPENAI_BASE_URL="https://api.openai.com/v1 (If you don't have a custom base URL, you can delete this lin, then it will use the default base URL)"
+
+    # Optional fallback sets: duplicate the full OPENAI_* set with suffix _1/_2 (same index for all variables)
     ```
 
 > [!NOTE]
-> သင့် API key များနှင့် endpoint များကို ရှာဖွေချင်ပါက [set-up-azure-ai.md](../set-up-azure-ai.md) ကို ကြည့်ရှုနိုင်ပါတယ်။
+> သင်၏ API keys နှင့် endpoints များကို ရှာဖွေလိုပါက [set-up-azure-ai.md](../set-up-azure-ai.md) ကို ကိုးကားနိုင်ပါသည်။
 
-**ကန့်သတ်ချက်**  
-ဤစာတမ်းကို AI ဘာသာပြန်ဝန်ဆောင်မှု [Co-op Translator](https://github.com/Azure/co-op-translator) အသုံးပြု၍ ဘာသာပြန်ထားပါသည်။ တိကျမှုအတွက် ကြိုးပမ်းထားသော်လည်း အလိုအလျောက် ဘာသာပြန်ခြင်းများတွင် အမှားများ သို့မဟုတ် မှားယွင်းချက်များ ပါဝင်နိုင်ကြောင်း သတိပြုပါရန် လိုအပ်ပါသည်။ မူရင်းစာတမ်းကို မိမိဘာသာစကားဖြင့်သာ အတည်ပြုရမည့် အရင်းအမြစ်အဖြစ် ယူဆရမည် ဖြစ်သည်။ အရေးကြီးသော သတင်းအချက်အလက်များအတွက်တော့ လူကြီးမင်းသည် ပညာရှင်လူသား ဘာသာပြန်မှုကို အသုံးပြုရန် အကြံပြုပါသည်။ ဤဘာသာပြန်ချက်ကို အသုံးပြုခြင်းကြောင့် ဖြစ်ပေါ်လာနိုင်သည့် နားလည်မှုပြဿနာများ သို့မဟုတ် မှားယွင်းဖတ်ရှုမှုများအတွက် ကျွန်ုပ်တို့သည် တာဝန်မခံပါ။
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**အတည်မပြုချက်**၊  
+ဤစာတမ်းကို AI ဘာသာပြန်ဝန်ဆောင်မှု [Co-op Translator](https://github.com/Azure/co-op-translator) ဖြင့်ဘာသာပြန်ထားပါသည်။ ကျွန်ုပ်တို့သည်တိကျမှန်ကန်မှုအတွက် ကြိုးစားပေမယ့်၊ စက်ရုပ်ဘာသာပြန်ခြင်းကြောင့် အမှားများ သို့မဟုတ် မှားယွင်းမှုများ ပါဝင်နိုင်သည်ကို နားလည်ပေးပါရန် မေတ္တာရပ်ခံပါသည်။ မူရင်းစာတမ်းကို မိဖုရားဘာသာဖြင့်သာ တရားဝင်ကိုးကားအရင်းအမြစ်အဖြစ်ယူဆရမည် ဖြစ်ပါသည်။ အရေးကြီး သတင်းအချက်အလက်များအတွက် ပရော်ဖက်ရှင်နယ် လူသားဘာသာပြန်မှုကို အကြံပြုအပ်ပါသည်။ ဤဘာသာပြန်မှုကို အသုံးပြုမှုမှ ဖြစ်ပေါ်လာနိုင်သည့် နားမလည်မှုများ သို့မဟုတ် မှားယူမှုများအတွက် ကျွန်ုပ်တို့သည် တာဝန်မယူပါ။
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "62fe65c1d8e3796c01aa1e3c89666cba",
-  "translation_date": "2025-10-15T04:46:03+00:00",
-  "source_file": "SUPPORT.md",
-  "language_code": "lt"
-}
--->
 # TODO: Šio repo prižiūrėtojas dar nepakoregavo šio failo
 
 **REPO SAVININKAS**: Ar norite gauti Klientų aptarnavimo ir palaikymo (CSS) pagalbą šiam produktui/projektui?

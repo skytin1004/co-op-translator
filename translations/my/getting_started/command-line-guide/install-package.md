@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "510827ad22a2031a50838919c3594828",
-  "translation_date": "2025-10-15T04:13:49+00:00",
-  "source_file": "getting_started/command-line-guide/install-package.md",
-  "language_code": "my"
-}
--->
 # Co-op Translator package ကို တပ်ဆင်ခြင်း
 
 **Co-op Translator** ဆိုတာက command-line interface (CLI) tool တစ်ခုဖြစ်ပြီး၊ သင့် project ထဲမှာရှိတဲ့ markdown ဖိုင်တွေနဲ့ image တွေကို ဘာသာစကားအမျိုးမျိုးသို့ ဘာသာပြန်နိုင်အောင် အထောက်အပံ့ပေးပါတယ်။ ဒီသင်ခန်းစာမှာ Translator ကို စနစ်တကျ ပြင်ဆင်သုံးစွဲနည်းနဲ့ အသုံးပြုနည်းတွေကို လမ်းညွှန်ပေးပါမယ်။
