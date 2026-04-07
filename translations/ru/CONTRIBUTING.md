@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "758ca1c5ae0d32c52d2dd59132dcfbf0",
-  "translation_date": "2025-11-30T09:51:48+00:00",
-  "source_file": "CONTRIBUTING.md",
-  "language_code": "ru"
-}
--->
 # Вклад в Co-op Translator
 
 Этот проект приветствует вклад и предложения. Большинство вкладов требуют вашего согласия с

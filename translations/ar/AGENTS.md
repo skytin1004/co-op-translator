@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "3fd2055f97f093b6fe102ea24df4458b",
-  "translation_date": "2025-10-15T04:20:18+00:00",
-  "source_file": "AGENTS.md",
-  "language_code": "ar"
-}
--->
 ## نظرة عامة على المشروع
 
 Co‑op Translator هو أداة سطر أوامر بايثون وتدفق عمل GitHub Actions لترجمة ملفات Markdown، دفاتر Jupyter، ونصوص الصور إلى عدة لغات. ينظم المخرجات ضمن مجلدات خاصة بكل لغة ويحافظ على تزامن الترجمات مع المحتوى الأصلي. المشروع منظم كمكتبة تُدار عبر Poetry مع نقاط دخول CLI.

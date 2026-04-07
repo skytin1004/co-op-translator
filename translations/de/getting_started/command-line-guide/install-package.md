@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "510827ad22a2031a50838919c3594828",
-  "translation_date": "2025-10-15T02:13:28+00:00",
-  "source_file": "getting_started/command-line-guide/install-package.md",
-  "language_code": "de"
-}
--->
 # Installiere das Co-op Translator Paket
 
 Der **Co-op Translator** ist ein Kommandozeilen-Tool (CLI), das dir hilft, alle Markdown-Dateien und Bilder in deinem Projekt in mehrere Sprachen zu übersetzen. In dieser Anleitung erfährst du, wie du den Translator konfigurierst und für verschiedene Anwendungsfälle nutzt.

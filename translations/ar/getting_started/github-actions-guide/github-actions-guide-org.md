@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9fac847815936ef6e6c8bfde6d191571",
-  "translation_date": "2025-10-15T02:18:55+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-org.md",
-  "language_code": "ar"
-}
--->
 # استخدام إجراء Co-op Translator في GitHub (دليل المؤسسات)
 
 **الجمهور المستهدف:** هذا الدليل مخصص **لموظفي Microsoft الداخليين** أو **الفرق التي لديها صلاحية الوصول إلى بيانات اعتماد تطبيق Co-op Translator GitHub الجاهز** أو يمكنهم إنشاء تطبيق GitHub مخصص خاص بهم.

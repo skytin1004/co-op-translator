@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "20943a46b11c6d74814f41a817a6db4c",
-  "translation_date": "2025-10-15T02:18:42+00:00",
-  "source_file": "getting_started/command-line-guide/translator-your-project.md",
-  "language_code": "ar"
-}
--->
 # ترجم مشروعك باستخدام Co-op Translator
 
 **Co-op Translator** هو أداة سطر أوامر تساعدك على ترجمة ملفات الماركداون والصور في مشروعك إلى عدة لغات. يشرح هذا القسم كيفية استخدام الأداة، ويغطي خيارات سطر الأوامر المختلفة، ويقدم أمثلة لحالات الاستخدام المتنوعة.

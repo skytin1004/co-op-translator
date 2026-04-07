@@ -1,84 +1,75 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b58d7c3cb4210697a073d20eb3064945",
-  "translation_date": "2025-06-12T11:45:50+00:00",
-  "source_file": "getting_started/set-up-azure-ai.md",
-  "language_code": "ru"
-}
--->
-# Настройка Azure AI для Co-op Translator (Azure OpenAI и Azure AI Vision)
+# Настройка Azure AI для Co-op Translator (Azure OpneAI и Azure AI Vision)
 
-Это руководство поможет вам настроить Azure OpenAI для перевода текста и Azure Computer Vision для анализа содержимого изображений (который затем можно использовать для перевода на основе изображений) в рамках Azure AI Foundry.
+Это руководство проведет вас по настройке Azure OpenAI для языкового перевода и Azure Computer Vision для анализа содержимого изображений (которое затем можно использовать для перевода на основе изображения) в Azure AI Foundry.
 
 **Требования:**
-- Аккаунт Azure с активной подпиской.
-- Достаточные права для создания ресурсов и развертываний в вашей подписке Azure.
+- Учетная запись Azure с активной подпиской.
+- Достаточные разрешения для создания ресурсов и развертываний в вашей подписке Azure.
 
 ## Создание проекта Azure AI
 
-Начните с создания проекта Azure AI — центрального места для управления вашими AI-ресурсами.
+Начните с создания проекта Azure AI, который служит центральным местом для управления вашими AI-ресурсами.
 
-1. Перейдите на [https://ai.azure.com](https://ai.azure.com) и войдите в систему под своим аккаунтом Azure.
+1. Перейдите на [https://ai.azure.com](https://ai.azure.com) и войдите в систему с вашей учетной записью Azure.
 
-1. Нажмите **+Create** для создания нового проекта.
+1. Выберите **+Create**, чтобы создать новый проект.
 
 1. Выполните следующие действия:
-   - Введите **название проекта** (например, `CoopTranslator-Project`).
+   - Введите **Имя проекта** (например, `CoopTranslator-Project`).
    - Выберите **AI hub** (например, `CoopTranslator-Hub`) (создайте новый, если нужно).
 
-1. Нажмите "**Review and Create**", чтобы создать проект. Вы попадёте на страницу обзора вашего проекта.
+1. Нажмите "**Review and Create**", чтобы создать проект. Вы перейдете на страницу обзора вашего проекта.
 
-## Настройка Azure OpenAI для перевода текста
+## Настройка Azure OpenAI для языкового перевода
 
-В рамках проекта вы развернёте модель Azure OpenAI, которая будет использоваться для перевода текста.
+В вашем проекте вы развернете модель Azure OpenAI, которая будет служить бэкендом для перевода текста.
 
-### Переход к вашему проекту
+### Перейдите в ваш проект
 
-Если вы ещё не в нём, откройте недавно созданный проект (например, `CoopTranslator-Project`) в Azure AI Foundry.
+Если вы еще не там, откройте ваш недавно созданный проект (например, `CoopTranslator-Project`) в Azure AI Foundry.
 
-### Развёртывание модели OpenAI
+### Развертывание модели OpenAI
 
 1. В левом меню проекта, в разделе "My assets", выберите "**Models + endpoints**".
 
-1. Нажмите **+ Deploy model**.
+1. Выберите **+ Deploy model**.
 
 1. Выберите **Deploy Base Model**.
 
-1. Перед вами появится список доступных моделей. Отфильтруйте или найдите подходящую модель GPT. Рекомендуем `gpt-4o`.
+1. Вам будет представлен список доступных моделей. Отфильтруйте или найдите подходящую модель GPT. Мы рекомендуем `gpt-4o`.
 
-1. Выберите нужную модель и нажмите **Confirm**.
+1. Выберите желаемую модель и нажмите **Confirm**.
 
 1. Нажмите **Deploy**.
 
 ### Конфигурация Azure OpenAI
 
-После развёртывания выберите развертывание на странице "**Models + endpoints**", чтобы узнать **REST endpoint URL**, **Key**, **Deployment name**, **Model name** и **API version**. Эти данные понадобятся для интеграции модели перевода в ваше приложение.
+После развертывания вы можете выбрать развертывание на странице "**Models + endpoints**", чтобы найти его **REST endpoint URL**, **Key**, **Deployment name**, **Model name** и **API version**. Они понадобятся для интеграции модели перевода в ваше приложение.
 
 > [!NOTE]
-> Вы можете выбрать версию API на странице [API version deprecation](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation) в зависимости от ваших требований. Обратите внимание, что **API version** отличается от **Model version**, отображаемой на странице **Models + endpoints** в Azure AI Foundry.
+> Вы можете выбрать версии API на странице [API version deprecation](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation) в зависимости от ваших требований. Обратите внимание, что **версия API** отличается от **версии модели**, отображаемой на странице **Models + endpoints** в Azure AI Foundry.
 
 ## Настройка Azure Computer Vision для перевода изображений
 
-Чтобы переводить текст на изображениях, вам нужно получить API Key и Endpoint службы Azure AI.
+Чтобы включить перевод текста внутри изображений, вам нужно получить ключ API и endpoint сервиса Azure AI.
 
 1. Перейдите в ваш проект Azure AI (например, `CoopTranslator-Project`). Убедитесь, что вы находитесь на странице обзора проекта.
 
 ### Конфигурация Azure AI Service
 
-Найдите API Key и Endpoint в разделе Azure AI Service.
+Найдите ключ API и endpoint сервиса Azure AI.
 
 1. Перейдите в ваш проект Azure AI (например, `CoopTranslator-Project`). Убедитесь, что вы находитесь на странице обзора проекта.
 
 1. Найдите **API Key** и **Endpoint** на вкладке Azure AI Service.
 
-    ![Find API Key and Endpoint](../../../translated_images/find-azure-ai-info.60f8299be786dd67e61e2c79b4b9ea1f7694e6c0923f17a90bc6abf9d5f1dbd7.ru.png)
+    ![Find API Key and Endpoint](../../../getting_started/imgs/find-azure-ai-info.png)
 
-Это подключение открывает возможности связанного ресурса Azure AI Services (включая анализ изображений) для вашего проекта AI Foundry. Вы сможете использовать это подключение в ноутбуках или приложениях для извлечения текста из изображений, который затем можно отправить в модель Azure OpenAI для перевода.
+Это подключение делает возможности связанного ресурса Azure AI Services (включая анализ изображений) доступными в вашем проекте AI Foundry. Затем вы можете использовать это подключение в ваших блокнотах или приложениях для извлечения текста из изображений, который впоследствии можно отправлять в модель Azure OpenAI для перевода.
 
-## Сводка ваших учётных данных
+## Консолидация ваших учетных данных
 
-К настоящему моменту у вас должны быть собраны следующие данные:
+На данный момент вы должны иметь следующие данные:
 
 **Для Azure OpenAI (перевод текста):**
 - Endpoint Azure OpenAI
@@ -87,34 +78,44 @@ CO_OP_TRANSLATOR_METADATA:
 - Имя развертывания Azure OpenAI (например, `cooptranslator-gpt4o`)
 - Версия API Azure OpenAI
 
-**Для Azure AI Services (извлечение текста из изображений через Vision):**
+**Для Azure AI Services (извлечение текста из изображений с помощью Vision):**
 - Endpoint Azure AI Service
 - API Key Azure AI Service
 
-### Пример: настройка переменных окружения (предварительный просмотр)
+### Пример: конфигурация переменных окружения (предварительный просмотр)
 
-Позже, при создании приложения, вы, вероятно, будете настраивать его, используя собранные учётные данные. Например, можно задать их как переменные окружения следующим образом:
+Позже, при создании вашего приложения, вы, вероятно, настроите его с помощью этих собранных учетных данных. Например, вы можете установить их в виде переменных окружения следующим образом:
 
 ```bash
-# Azure AI Service Credentials (Required for image translation)
-AZURE_AI_SERVICE_API_KEY="your_azure_ai_service_api_key" # e.g., 21xasd...
+# Учетные данные Azure AI Service (требуются для перевода изображений)
+AZURE_AI_SERVICE_API_KEY="your_azure_ai_service_api_key" # например, 21xasd...
 AZURE_AI_SERVICE_ENDPOINT="https://your_azure_ai_service_endpoint.cognitiveservices.azure.com/"
 
-# Azure OpenAI Credentials (Required for text translation)
-AZURE_OPENAI_API_KEY="your_azure_openai_api_key" # e.g., 21xasd...
+# Необязательные запасные наборы: дублируйте переменные с суффиксами _1/_2 (одинаковый индекс для всех переменных в наборе)
+AZURE_AI_SERVICE_API_KEY_1="your_azure_ai_service_api_key_1"
+AZURE_AI_SERVICE_ENDPOINT_1="https://your_azure_ai_service_endpoint_1.cognitiveservices.azure.com/"
+
+# Учетные данные Azure OpenAI (требуются для перевода текста)
+AZURE_OPENAI_API_KEY="your_azure_openai_api_key" # например, 21xasd...
 AZURE_OPENAI_ENDPOINT="https://your_azure_openai_endpoint.openai.azure.com/"
-AZURE_OPENAI_MODEL_NAME="your_model_name" # e.g., gpt-4o
-AZURE_OPENAI_CHAT_DEPLOYMENT_NAME="your_deployment_name" # e.g., cooptranslator-gpt4o
-AZURE_OPENAI_API_VERSION="your_api_version" # e.g., 2024-12-01-preview
+AZURE_OPENAI_MODEL_NAME="your_model_name" # например, gpt-4o
+AZURE_OPENAI_CHAT_DEPLOYMENT_NAME="your_deployment_name" # например, cooptranslator-gpt4o
+AZURE_OPENAI_API_VERSION="your_api_version" # например, 2024-12-01-preview
+
+# Необязательные запасные наборы: дублируйте полный набор AZURE_OPENAI_* с суффиксами _1/_2 (одинаковый индекс для всех переменных)
 ```
 
 ---
 
-### Дополнительные материалы
+### Дополнительная литература
 
 - [Как создать проект в Azure AI Foundry](https://learn.microsoft.com/azure/ai-foundry/how-to/create-projects?tabs=ai-studio)
 - [Как создать ресурсы Azure AI](https://learn.microsoft.com/azure/ai-foundry/how-to/create-azure-ai-resource?tabs=portal)
 - [Как развернуть модели OpenAI в Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/deploy-models-openai)
 
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Отказ от ответственности**:  
-Этот документ был переведен с помощью сервиса автоматического перевода [Co-op Translator](https://github.com/Azure/co-op-translator). Несмотря на наши усилия обеспечить точность, пожалуйста, имейте в виду, что автоматический перевод может содержать ошибки или неточности. Оригинальный документ на его родном языке следует считать авторитетным источником. Для получения критически важной информации рекомендуется обращаться к профессиональному переводу, выполненному человеком. Мы не несем ответственности за любые недоразумения или неправильные толкования, возникшие в результате использования данного перевода.
+Этот документ был переведен с использованием автоматического сервиса перевода [Co-op Translator](https://github.com/Azure/co-op-translator). Несмотря на наши усилия обеспечить точность, имейте в виду, что автоматические переводы могут содержать ошибки или неточности. Оригинальный документ на родном языке следует считать авторитетным источником. Для критически важной информации рекомендуется профессиональный человеческий перевод. Мы не несем ответственности за любые недоразумения или неправильные толкования, возникающие в результате использования этого перевода.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
