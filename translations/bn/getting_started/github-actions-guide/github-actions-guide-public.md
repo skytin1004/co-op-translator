@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T02:48:35+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "bn"
-}
--->
 # কো-অপ ট্রান্সলেটর গিটহাব অ্যাকশন ব্যবহার করা (পাবলিক সেটআপ)
 
 **লক্ষ্য পাঠক:** এই গাইডটি বেশিরভাগ পাবলিক বা প্রাইভেট রিপোজিটরির ব্যবহারকারীদের জন্য, যেখানে সাধারণ GitHub Actions পারমিশন যথেষ্ট। এটি বিল্ট-ইন `GITHUB_TOKEN` ব্যবহার করে।
