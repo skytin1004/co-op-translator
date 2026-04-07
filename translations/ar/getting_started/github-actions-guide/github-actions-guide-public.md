@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T02:19:22+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "ar"
-}
--->
 # استخدام إجراء Co-op Translator في GitHub (إعداد عام)
 
 **الجمهور المستهدف:** هذا الدليل موجه للمستخدمين في معظم المستودعات العامة أو الخاصة حيث تكون أذونات GitHub Actions القياسية كافية. يعتمد على الرمز المدمج `GITHUB_TOKEN`.

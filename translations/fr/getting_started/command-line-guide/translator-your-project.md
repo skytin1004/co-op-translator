@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "20943a46b11c6d74814f41a817a6db4c",
-  "translation_date": "2025-10-15T02:08:47+00:00",
-  "source_file": "getting_started/command-line-guide/translator-your-project.md",
-  "language_code": "fr"
-}
--->
 # Traduisez votre projet avec Co-op Translator
 
 Le **Co-op Translator** est un outil en ligne de commande (CLI) qui vous aide à traduire les fichiers markdown et image de votre projet dans plusieurs langues. Cette section explique comment utiliser l’outil, détaille les différentes options CLI et propose des exemples pour divers cas d’utilisation.

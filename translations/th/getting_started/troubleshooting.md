@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "6e626bef5ed78a1cc55b0dbf44f01d47",
-  "translation_date": "2025-10-15T03:16:48+00:00",
-  "source_file": "getting_started/troubleshooting.md",
-  "language_code": "th"
-}
--->
 # คู่มือแก้ปัญหา Microsoft Co-op Translator
 
 ## ภาพรวม

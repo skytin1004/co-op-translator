@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "510827ad22a2031a50838919c3594828",
-  "translation_date": "2025-10-15T04:59:47+00:00",
-  "source_file": "getting_started/command-line-guide/install-package.md",
-  "language_code": "lt"
-}
--->
 # Įdiekite Co-op vertėjo paketą
 
 **Co-op Translator** yra komandinės eilutės (CLI) įrankis, skirtas padėti išversti visus jūsų projekto markdown failus ir paveikslėlius į kelias kalbas. Šiame vadove sužinosite, kaip sukonfigūruoti vertėją ir paleisti jį įvairiais atvejais.

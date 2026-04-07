@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "62fe65c1d8e3796c01aa1e3c89666cba",
-  "translation_date": "2025-06-12T11:21:33+00:00",
-  "source_file": "SUPPORT.md",
-  "language_code": "sl"
-}
--->
 # TODO: Ta vzdrževalec tega repozitorija še ni uredil te datoteke
 
 **LASTNIK REPOJA**: Ali želite podporo za Customer Service & Support (CSS) za ta izdelek/projekt?

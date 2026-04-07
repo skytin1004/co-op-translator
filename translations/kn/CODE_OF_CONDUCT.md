@@ -1,25 +1,16 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "e8b14f0e66db374a2ada46e25fac88ae",
-  "translation_date": "2025-11-30T13:18:23+00:00",
-  "source_file": "CODE_OF_CONDUCT.md",
-  "language_code": "kn"
-}
--->
-# ಮೈಕ್ರೋಸಾಫ್ಟ್ ಓಪನ್ ಸೋರ್ಸ್ ನಡವಳಿಕೆ ಸಂಹಿತೆ
+# Microsoft Open Source ನಡವಳಿಕೆ ಸಂಹಿತೆ
 
-ಈ ಯೋಜನೆ [ಮೈಕ್ರೋಸಾಫ್ಟ್ ಓಪನ್ ಸೋರ್ಸ್ ನಡವಳಿಕೆ ಸಂಹಿತೆ](https://opensource.microsoft.com/codeofconduct/) ಅನ್ನು ಅಂಗೀಕರಿಸಿದೆ.
+ಈ ಪ್ರಾಜೆಕ್ಟ್ [Microsoft Open Source ನಡವಳಿಕೆ ಸಂಹಿತೆ](https://opensource.microsoft.com/codeofconduct/) ಅನ್ನು ಅನುಸರಿಸಿದೆ.
 
 ಸಂಪನ್ಮೂಲಗಳು:
 
-- [ಮೈಕ್ರೋಸಾಫ್ಟ್ ಓಪನ್ ಸೋರ್ಸ್ ನಡವಳಿಕೆ ಸಂಹಿತೆ](https://opensource.microsoft.com/codeofconduct/)
-- [ಮೈಕ್ರೋಸಾಫ್ಟ್ ನಡವಳಿಕೆ ಸಂಹಿತೆ FAQ](https://opensource.microsoft.com/codeofconduct/faq/)
-- ಪ್ರಶ್ನೆಗಳು ಅಥವಾ ಚಿಂತೆಗಳಿದ್ದರೆ [opencode@microsoft.com](mailto:opencode@microsoft.com) ಗೆ ಸಂಪರ್ಕಿಸಿ
+- [Microsoft Open Source ನಡವಳಿಕೆ ಸಂಹಿತೆ](https://opensource.microsoft.com/codeofconduct/)
+- [Microsoft ನಡವಳಿಕೆ ಸಂಹಿತೆFAQ](https://opensource.microsoft.com/codeofconduct/faq/)
+- ಪ್ರಶ್ನೆಗಳು ಅಥವಾ ಚಿಂತೆಗಳಿಗೆ [opencode@microsoft.com](mailto:opencode@microsoft.com) ಸಂಪರ್ಕಿಸಿ
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**ಅಸ್ವೀಕರಣ**:  
-ಈ ದಸ್ತಾವೇಜು AI ಅನುವಾದ ಸೇವೆ [Co-op Translator](https://github.com/Azure/co-op-translator) ಬಳಸಿ ಅನುವಾದಿಸಲಾಗಿದೆ. ನಾವು ನಿಖರತೆಯಿಗಾಗಿ ಪ್ರಯತ್ನಿಸುತ್ತಿದ್ದರೂ, ಸ್ವಯಂಚಾಲಿತ ಅನುವಾದಗಳಲ್ಲಿ ದೋಷಗಳು ಅಥವಾ ತಪ್ಪುಗಳು ಇರಬಹುದು ಎಂದು ದಯವಿಟ್ಟು ಗಮನಿಸಿ. ಮೂಲ ಭಾಷೆಯಲ್ಲಿರುವ ಮೂಲ ದಸ್ತಾವೇಜನ್ನು ಅಧಿಕೃತ ಮೂಲವಾಗಿ ಪರಿಗಣಿಸಬೇಕು. ಮಹತ್ವದ ಮಾಹಿತಿಗಾಗಿ, ವೃತ್ತಿಪರ ಮಾನವ ಅನುವಾದವನ್ನು ಶಿಫಾರಸು ಮಾಡಲಾಗುತ್ತದೆ. ಈ ಅನುವಾದ ಬಳಕೆಯಿಂದ ಉಂಟಾಗುವ ಯಾವುದೇ ತಪ್ಪು ಅರ್ಥಮಾಡಿಕೊಳ್ಳುವಿಕೆ ಅಥವಾ ತಪ್ಪು ವಿವರಣೆಗಳಿಗೆ ನಾವು ಹೊಣೆಗಾರರಾಗುವುದಿಲ್ಲ.
+**ಪ್ರತ್ಯೇಕಿಕೆ**:  
+ಈ ದಸ್ತಾವೇಜು AI ಅನುವಾದ ಸೇವೆ [Co-op Translator](https://github.com/Azure/co-op-translator) ಬಳಸಿ ಅನುವಾದಿಸಲಾಗಿದೆ. ನಾವು ನಿಖರತೆಯನ್ನು ಸಾಧಿಸುವಂತೆ ಪ್ರಯತ್ನಿಸಿದರೂ, ಸ್ವಯಂಚಾಲಿತ ಅನುವಾದದಲ್ಲಿ ದೋಷಗಳು ಅಥವಾ ಅಸತ್ಯತೆಗಳು ಇರಬಹುದು ಎಂಬುದನ್ನು ದಯವಿಟ್ಟು ಗಮನಿಸಿ. ಮೂಲ ಭಾಷೆಯಲ್ಲಿನ ದಸ್ತಾವೇಜನ್ನು ಅಧಿಕೃತ ಮೂಲ ಎಂದು ಪರಿಗಣಿಸಬೇಕು. ಪ್ರಮುಖ ಮಾಹಿತಿಗಾಗಿ, ವೃತ್ತಿಪರ ಮಾನವರ ಅನುವಾದವನ್ನು ಶಿಫಾರಸು ಮಾಡಲಾಗುತ್ತದೆ. ಈ ಅನುವಾದವನ್ನು ಬಳಸದರಿಂದ ಉಂಟಾಗುವ ಯಾವುದೇ ತಪ್ಪು ಗ್ರಹಿಕೆಗಳು ಅಥವಾ ವ್ಯಾಖ್ಯಾನಗಳ ಬಗ್ಗೆ ನಾವು ಹೊಣೆಗಾರರಾಗಿದ್ದೇವೆ.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

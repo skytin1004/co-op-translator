@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "758ca1c5ae0d32c52d2dd59132dcfbf0",
-  "translation_date": "2025-11-30T10:03:30+00:00",
-  "source_file": "CONTRIBUTING.md",
-  "language_code": "ur"
-}
--->
 # کو-آپ ٹرانسلیٹر میں تعاون
 
 یہ پروجیکٹ تعاون اور تجاویز کا خیرمقدم کرتا ہے۔ زیادہ تر تعاون کے لیے آپ کو ایک

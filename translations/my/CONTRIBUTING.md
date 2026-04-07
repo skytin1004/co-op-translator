@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "758ca1c5ae0d32c52d2dd59132dcfbf0",
-  "translation_date": "2025-11-30T12:40:23+00:00",
-  "source_file": "CONTRIBUTING.md",
-  "language_code": "my"
-}
--->
 # Co-op Translator တွင် ပါဝင်ဆောင်ရွက်ခြင်း
 
 ဤပရောဂျက်သည် အထောက်အပံ့များနှင့် အကြံပြုချက်များကို ကြိုဆိုပါသည်။ အများဆုံး အထောက်အပံ့များအတွက် သင်သည် Contributor License Agreement (CLA) တစ်ခုကို သဘောတူရမည်ဖြစ်ပြီး၊ သင်၏ အထောက်အပံ့ကို အသုံးပြုခွင့်ရှိကြောင်းနှင့် အမှန်တကယ်ပေးအပ်ကြောင်း ကြေညာရမည်ဖြစ်သည်။ အသေးစိတ်အချက်အလက်များအတွက် https://cla.opensource.microsoft.com ကို သွားရောက်ကြည့်ရှုနိုင်ပါသည်။

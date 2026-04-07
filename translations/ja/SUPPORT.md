@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "62fe65c1d8e3796c01aa1e3c89666cba",
-  "translation_date": "2025-07-04T08:11:33+00:00",
-  "source_file": "SUPPORT.md",
-  "language_code": "ja"
-}
--->
 # TODO: このリポジトリの管理者はまだこのファイルを編集していません
 
 **リポジトリの所有者**: この製品/プロジェクトに対してカスタマーサービス＆サポート (CSS) のサポートを希望しますか？

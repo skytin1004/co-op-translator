@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9fac847815936ef6e6c8bfde6d191571",
-  "translation_date": "2025-10-15T02:58:18+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-org.md",
-  "language_code": "pa"
-}
--->
 # ਕੋ-ਓਪ ਟ੍ਰਾਂਸਲੇਟਰ GitHub ਐਕਸ਼ਨ ਦੀ ਵਰਤੋਂ (ਸੰਗਠਨ ਲਈ ਗਾਈਡ)
 
 **ਲਕੜੀ ਦਰਸ਼ਕ:** ਇਹ ਗਾਈਡ **Microsoft ਦੇ ਅੰਦਰੂਨੀ ਯੂਜ਼ਰਾਂ** ਜਾਂ **ਟੀਮਾਂ** ਲਈ ਹੈ, ਜਿਨ੍ਹਾਂ ਕੋਲ ਪਹਿਲਾਂ ਤੋਂ ਬਣੀ ਹੋਈ Co-op Translator GitHub App ਲਈ ਲਾਜ਼ਮੀ credentials ਹਨ ਜਾਂ ਆਪਣੀ custom GitHub App ਬਣਾਉਣ ਦੀ ਸਮਰੱਥਾ ਹੈ।

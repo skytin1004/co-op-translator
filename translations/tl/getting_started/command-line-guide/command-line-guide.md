@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c64ba65e091e5d87385490fa63a8f574",
-  "translation_date": "2025-06-12T12:36:45+00:00",
-  "source_file": "getting_started/command-line-guide/command-line-guide.md",
-  "language_code": "tl"
-}
--->
 # Paano gamitin ang Co-op Translator command line interface (CLI)
 
 ## Mga Kinakailangan

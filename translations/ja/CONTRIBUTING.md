@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "758ca1c5ae0d32c52d2dd59132dcfbf0",
-  "translation_date": "2025-11-30T10:23:30+00:00",
-  "source_file": "CONTRIBUTING.md",
-  "language_code": "ja"
-}
--->
 # Co-op Translatorへの貢献について
 
 このプロジェクトでは、貢献や提案を歓迎しています。ほとんどの貢献には、あなたが貢献物の使用権を当社に付与する権利を持ち、実際に付与していることを宣言するContributor License Agreement（CLA）への同意が必要です。詳細は https://cla.opensource.microsoft.com をご覧ください。

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T02:22:14+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "fa"
-}
--->
 # استفاده از اکشن Co-op Translator در گیت‌هاب (راه‌اندازی عمومی)
 
 **مخاطبان هدف:** این راهنما برای کاربران اکثر مخازن عمومی یا خصوصی مناسب است که مجوزهای استاندارد GitHub Actions کافی هستند. این راه‌اندازی از `GITHUB_TOKEN` داخلی استفاده می‌کند.

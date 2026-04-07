@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9fac847815936ef6e6c8bfde6d191571",
-  "translation_date": "2025-10-15T03:58:39+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-org.md",
-  "language_code": "ro"
-}
--->
 # Utilizarea acțiunii GitHub Co-op Translator (Ghid pentru organizații)
 
 **Public țintă:** Acest ghid este destinat **utilizatorilor interni Microsoft** sau **echipelor care au acces la acreditările necesare pentru aplicația GitHub Co-op Translator preconfigurată** sau pot crea propria lor aplicație GitHub personalizată.

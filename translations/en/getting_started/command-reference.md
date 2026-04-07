@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "822238e4451d04bb152cebb1be6f13c2",
-  "translation_date": "2025-11-30T09:39:10+00:00",
-  "source_file": "getting_started/command-reference.md",
-  "language_code": "en"
-}
--->
 # Command reference
 
 The **Co-op Translator** CLI offers several options to customize the translation process:
@@ -25,6 +16,7 @@ translate -l "language_codes" -r "root_dir"   | Specifies the root directory of 
 translate -l "language_codes" -f              | Uses fast mode for image translation (up to 3x faster plotting at a slight cost to quality and alignment).
 translate -l "language_codes" -y              | Automatically confirm all prompts (useful for CI/CD pipelines)
 translate -l "language_codes" --add-disclaimer/--no-disclaimer | Enable or disable adding a machine translation disclaimer section to translated markdown and notebooks (default: enabled).
+translate -l "language_codes" --repo-url "https://github.com/org/repo.git" | Personalize the README languages section advisory (sparse checkout) with your repository URL.
 translate -l "language_codes" --help          | help details within the CLI showing available commands
 evaluate -l "language_code"                  | Evaluates translation quality for a specific language and provides confidence scores
 evaluate -l "language_code" -c 0.8           | Evaluates translations with custom confidence threshold
@@ -77,6 +69,9 @@ migrate-links -l "all" -y                      | Process all languages and auto-
   18. Process all languages and auto-confirm:    migrate-links -l "all" -y
   19. Save logs to files for migrate-links:    migrate-links -l "ko ja" -s
 
+  20. Personalize README languages advisory with your repo URL:
+      translate -l "ko" --repo-url "https://github.com/org/repo.git"
+
 ### Evaluation Examples
 
 > [!WARNING]  
@@ -94,5 +89,5 @@ migrate-links -l "all" -y                      | Process all languages and auto-
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Disclaimer**:
-This document has been translated using the AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive for accuracy, please be aware that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations arising from the use of this translation.
+This document has been translated using AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive for accuracy, please be aware that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations arising from the use of this translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

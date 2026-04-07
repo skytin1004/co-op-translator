@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "510827ad22a2031a50838919c3594828",
-  "translation_date": "2025-10-15T02:21:26+00:00",
-  "source_file": "getting_started/command-line-guide/install-package.md",
-  "language_code": "fa"
-}
--->
 # نصب بسته Co-op Translator
 
 **Co-op Translator** یک ابزار خط فرمان (CLI) است که برای کمک به ترجمه تمام فایل‌های مارک‌داون و تصاویر پروژه شما به چندین زبان طراحی شده است. این آموزش شما را در پیکربندی مترجم و اجرای آن برای موارد استفاده مختلف راهنمایی می‌کند.

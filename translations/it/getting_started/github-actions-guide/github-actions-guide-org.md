@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9fac847815936ef6e6c8bfde6d191571",
-  "translation_date": "2025-10-15T03:06:04+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-org.md",
-  "language_code": "it"
-}
--->
 # Utilizzo dell’azione GitHub Co-op Translator (Guida per l’organizzazione)
 
 **Destinatari:** Questa guida è pensata per **utenti interni Microsoft** o **team che hanno accesso alle credenziali necessarie per l’app GitHub Co-op Translator preconfigurata** oppure che possono creare una propria app GitHub personalizzata.

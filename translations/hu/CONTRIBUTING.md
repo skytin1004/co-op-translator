@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "758ca1c5ae0d32c52d2dd59132dcfbf0",
-  "translation_date": "2025-11-30T12:03:58+00:00",
-  "source_file": "CONTRIBUTING.md",
-  "language_code": "hu"
-}
--->
 # Hozzájárulás a Co-op Translatorhoz
 
 Ez a projekt szívesen fogad hozzájárulásokat és javaslatokat. A legtöbb hozzájáruláshoz el kell fogadnod egy Contributor License Agreement (CLA) licencszerződést, amelyben kijelented, hogy jogod van a hozzájárulásod használatára, és ténylegesen meg is adod nekünk a felhasználási jogokat. Részletekért látogass el a https://cla.opensource.microsoft.com oldalra.

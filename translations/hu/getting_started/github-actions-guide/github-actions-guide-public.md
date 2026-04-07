@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T03:50:20+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "hu"
-}
--->
 # A Co-op Translator GitHub Action használata (Nyilvános beállítás)
 
 **Célközönség:** Ez az útmutató azoknak szól, akik nyilvános vagy privát repókban dolgoznak, ahol a szokásos GitHub Actions jogosultságok elegendőek. A beépített `GITHUB_TOKEN`-t használja.

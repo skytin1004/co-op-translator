@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-11-06T17:32:31+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "pcm"
-}
--->
 # How to Use Co-op Translator GitHub Action (Public Setup)
 
 **Who fit use am:** Dis guide na for people wey dey use public or private repositories wey GitHub Actions permissions dey okay. E dey use di built-in `GITHUB_TOKEN`.

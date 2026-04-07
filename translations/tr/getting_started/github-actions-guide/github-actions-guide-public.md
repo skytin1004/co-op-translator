@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T03:12:06+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "tr"
-}
--->
 # Co-op Translator GitHub Action'ı Kullanma (Genel Kurulum)
 
 **Hedef Kitle:** Bu rehber, standart GitHub Actions izinlerinin yeterli olduğu çoğu genel veya özel depoda kullanılmak üzere hazırlanmıştır. Dahili `GITHUB_TOKEN` kullanılır.

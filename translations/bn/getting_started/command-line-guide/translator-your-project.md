@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "20943a46b11c6d74814f41a817a6db4c",
-  "translation_date": "2025-10-15T02:47:48+00:00",
-  "source_file": "getting_started/command-line-guide/translator-your-project.md",
-  "language_code": "bn"
-}
--->
 # Co-op Translator দিয়ে আপনার প্রজেক্ট অনুবাদ করুন
 
 **Co-op Translator** একটি কমান্ড-লাইন ইন্টারফেস (CLI) টুল, যা আপনাকে আপনার প্রজেক্টের মার্কডাউন ও ইমেজ ফাইলগুলো একাধিক ভাষায় অনুবাদ করতে সাহায্য করে। এই অংশে টুলটি কীভাবে ব্যবহার করবেন, বিভিন্ন CLI অপশন কীভাবে কাজ করে, এবং বিভিন্ন ব্যবহারিক উদাহরণ দেওয়া হয়েছে।

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "510827ad22a2031a50838919c3594828",
-  "translation_date": "2025-10-15T03:27:41+00:00",
-  "source_file": "getting_started/command-line-guide/install-package.md",
-  "language_code": "fi"
-}
--->
 # Asenna Co-op Translator -paketti
 
 **Co-op Translator** on komentorivikäyttöliittymä (CLI) -työkalu, jonka avulla voit kääntää kaikki projektisi markdown-tiedostot ja kuvat useille kielille. Tämä opas neuvoo, miten kääntäjä konfiguroidaan ja käytetään eri tilanteissa.

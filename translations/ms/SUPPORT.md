@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "62fe65c1d8e3796c01aa1e3c89666cba",
-  "translation_date": "2025-06-12T11:19:34+00:00",
-  "source_file": "SUPPORT.md",
-  "language_code": "ms"
-}
--->
 # TODO: בעל המאגר עדיין לא ערך קובץ זה
 
 **בעל המאגר**: האם ברצונך לקבל תמיכה בשירות לקוחות ותמיכה (CSS) עבור מוצר/פרויקט זה?

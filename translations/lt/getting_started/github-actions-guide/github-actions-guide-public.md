@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T05:02:38+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "lt"
-}
--->
 # Co-op Translator GitHub Action naudojimas (Viešas nustatymas)
 
 **Kam skirta:** Šis vadovas skirtas naudotojams daugumoje viešų ar privačių repozitorijų, kur pakanka standartinių GitHub Actions leidimų. Naudojamas integruotas `GITHUB_TOKEN`.

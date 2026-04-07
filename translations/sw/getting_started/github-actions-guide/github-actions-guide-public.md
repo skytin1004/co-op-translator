@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T03:47:03+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "sw"
-}
--->
 # Kutumia Co-op Translator GitHub Action (Usanidi wa Umma)
 
 **Walengwa:** Mwongozo huu umeandaliwa kwa watumiaji wa miradi ya umma au binafsi ambapo ruhusa za kawaida za GitHub Actions zinatosha. Unatumia `GITHUB_TOKEN` iliyojengwa ndani.

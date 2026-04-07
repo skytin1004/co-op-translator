@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "758ca1c5ae0d32c52d2dd59132dcfbf0",
-  "translation_date": "2025-11-30T13:00:19+00:00",
-  "source_file": "CONTRIBUTING.md",
-  "language_code": "et"
-}
--->
 # Panustamine Co-op Translatori
 
 See projekt ootab panuseid ja ettepanekuid. Enamik panustest nõuab, et nõustuksite

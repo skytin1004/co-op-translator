@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c64ba65e091e5d87385490fa63a8f574",
-  "translation_date": "2025-07-04T08:12:55+00:00",
-  "source_file": "getting_started/command-line-guide/command-line-guide.md",
-  "language_code": "ja"
-}
--->
 # Co-op Translator コマンドラインインターフェース (CLI) の使い方
 
 ## 前提条件

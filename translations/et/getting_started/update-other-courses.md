@@ -1,25 +1,16 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "93a7150216aa3c2d191135358fa6dd21",
-  "translation_date": "2025-11-30T13:54:14+00:00",
-  "source_file": "getting_started/update-other-courses.md",
-  "language_code": "et"
-}
--->
-# Uuenda jaotist "Muud kursused" (Microsoft Beginners hoidlad)
+# Uuenda jaotist "Muud kursused" (Microsoft Beginners repositooriumid)
 
-See juhend selgitab, kuidas muuta jaotis "Muud kursused" automaatselt sünkroonitavaks Co-op Translatori abil ning kuidas uuendada globaalseid malle kõigi hoidlate jaoks.
+See juhend selgitab, kuidas muuta jaotis "Muud kursused" automaatselt sünkroonitavaks, kasutades Co-op Translatorit, ning kuidas uuendada ülemaailmset malli kõigi repositooriumide jaoks.
 
-- Kehtib ainult Microsoft Beginners hoidlatele
+- Kehtib: ainult Microsoft Beginners repositooriumide puhul
 - Töötab koos: Co-op Translator CLI ja GitHub Actions
-- Malle allikas: [src/co_op_translator/templates/other_courses.md](../src/co_op_translator/templates/other_courses.md)
+- Malli allikas: [src/co_op_translator/templates/other_courses.md](../src/co_op_translator/templates/other_courses.md)
 
 ---
 
-## Kiire algus: Luba automaatne sünkroonimine oma hoidlas
+## Kiire algus: Luba automaatne sünkroonimine oma repositooriumis
 
-Lisa oma README-s jaotise "Muud kursused" ümber järgmised märgendid. Co-op Translator asendab iga käivitusega kõik nende märgendite vahel oleva sisu.
+Lisa järgmised märgised oma README-s jaotise "Muud kursused" ümber. Co-op Translator asendab iga käivituse korral kõik nende märgiste vahele jääva sisu.
 
 ```markdown
 <!-- CO-OP TRANSLATOR OTHER COURSES START -->
@@ -27,27 +18,44 @@ Lisa oma README-s jaotise "Muud kursused" ümber järgmised märgendid. Co-op Tr
 <!-- CO-OP TRANSLATOR OTHER COURSES END -->
 ```
 
-Iga kord, kui Co-op Translator käivitatakse – kas CLI kaudu (nt `translate -l "<language codes>"`) või GitHub Actions – uuendab see automaatselt nende märgendite vahel olevat jaotist "Muud kursused".
+Iga kord, kui Co-op Translator töötab — CLI kaudu (nt `translate -l "<keelekoodid>"`) või GitHub Actionsi kaudu — uuendab see automaatselt nende märgistega ümbritsetud jaotist "Muud kursused".
 
 > [!NOTE]
-> Kui sul on juba olemas nimekiri, siis lihtsalt ümbritse see samade märgenditega. Järgmine käivitamine asendab selle uusima standardiseeritud sisuga.
+> Kui sul on olemasolev nimekiri, siis lihtsalt pane see samade märgiste vahele. Järgmine käivitamine asendab selle uusima standardiseeritud sisuga.
 
 ---
 
-## Kuidas muuta globaalseid sisu
+## Kuidas muuta ülemaailmset sisu
 
-Kui soovid uuendada standardiseeritud sisu, mis kuvatakse kõigis Beginners hoidlates:
+Kui soovid uuendada standardiseeritud sisu, mis kuvatakse kõigis Beginners repositooriumites:
 
 1. Muuda malli: [src/co_op_translator/templates/other_courses.md](../src/co_op_translator/templates/other_courses.md)
-2. Ava pull request Co-op Translatori hoidlas oma muudatustega
-3. Pärast PR-i ühendamist uuendatakse Co-op Translatori versioon
-4. Järgmine kord, kui Co-op Translator käivitatakse (CLI või GitHub Action) sihthoidlas, sünkroonib see automaatselt uuendatud jaotise
+2. Ava Co-op Translator repositooriumisse pull request oma muudatustega
+3. Pärast PR-i ühendamist värskendatakse Co-op Translatori versiooni
+4. Järgmine kord, kui Co-op Translator töötab (CLI või GitHub Action) sihtrepositooriumis, sünkroonib see automaatselt uuendatud jaotise
 
-See tagab "Muud kursused" sisu ühtse ja usaldusväärse allika kõigis Beginners hoidlates.
+See tagab ühtse tõeallika sisule "Muud kursused" kõigis Beginners repositooriumites.
+
+
+## Reposuurused
+
+Reposid võivad muutuda mahukaks tänu paljudele tõlgitud keeltele, et aidata lõppkasutajal juhenditega. Soovitame kasutada clone - sparse käsku, et kloonida ainult vajalikud keeled, mitte kogu repositooriumit.
+
+```
+> **Prefer to Clone Locally?**
+>
+> This repository includes 50+ language translations which significantly increases the download size. To clone without translations, use sparse checkout:
+> ```bash
+> git clone --filter=blob:none --sparse https://github.com/*****.git
+> cd *****
+> git sparse-checkout set --no-cone '/*' '!translations' '!translated_images'
+> ```
+> This gives you everything you need to complete the course with a much faster download.
+```
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Vastutusest loobumine**:
-See dokument on tõlgitud kasutades tehisintellektil põhinevat tõlketeenust [Co-op Translator](https://github.com/Azure/co-op-translator). Kuigi püüame tagada täpsust, palun arvestage, et automaatsed tõlked võivad sisaldada vigu või ebatäpsusi. Originaaldokument selle emakeeles tuleks pidada autoriteetseks allikaks. Olulise teabe puhul soovitatakse kasutada professionaalset inimtõlget. Me ei vastuta selle tõlke kasutamisest tulenevate arusaamatuste või valesti mõistmiste eest.
+**Vastutusest vabastamine**:  
+See dokument on tõlgitud kasutades tehisintellekti tõlketeenust [Co-op Translator](https://github.com/Azure/co-op-translator). Kuigi püüame täpsust, tuleb arvestada, et automatiseeritud tõlgetes võib esineda vigu või ebatäpsusi. Originaaldokument selle emakeeles tuleks pidada autoriteetseks allikaks. Kriitilise info puhul soovitatakse kasutada professionaalset inimtõlget. Me ei vastuta tõlke kasutamisest tingitud arusaamatuste ega valesti mõistmiste eest.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

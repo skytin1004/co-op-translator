@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "510827ad22a2031a50838919c3594828",
-  "translation_date": "2025-10-15T04:59:55+00:00",
-  "source_file": "getting_started/command-line-guide/install-package.md",
-  "language_code": "ta"
-}
--->
 # Co-op Translator தொகுப்பை நிறுவுங்கள்
 
 **Co-op Translator** என்பது ஒரு கட்டளை வரி இடைமுக (CLI) கருவி. இது உங்கள் திட்டத்தில் உள்ள அனைத்து markdown கோப்புகளையும் படங்களையும் பல மொழிகளுக்கு மொழிபெயர்க்க உதவுகிறது. இந்த பயிற்சி, மொழிபெயர்ப்பாளரை அமைப்பது மற்றும் பல்வேறு பயன்பாடுகளுக்காக இயக்குவது எப்படி என்பதை வழிகாட்டும்.
