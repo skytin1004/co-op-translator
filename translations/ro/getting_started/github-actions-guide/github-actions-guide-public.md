@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T03:59:01+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "ro"
-}
--->
 # Utilizarea acțiunii Co-op Translator pe GitHub (Configurare Publică)
 
 **Public țintă:** Acest ghid se adresează utilizatorilor din majoritatea depozitelor publice sau private unde permisiunile standard GitHub Actions sunt suficiente. Folosește `GITHUB_TOKEN` integrat.
