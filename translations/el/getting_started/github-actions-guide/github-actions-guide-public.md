@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T03:15:09+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "el"
-}
--->
 # Χρήση του Co-op Translator GitHub Action (Δημόσια Ρύθμιση)
 
 **Απευθύνεται σε:** Αυτός ο οδηγός προορίζεται για χρήστες σε δημόσια ή ιδιωτικά αποθετήρια όπου τα τυπικά δικαιώματα GitHub Actions είναι επαρκή. Χρησιμοποιεί το ενσωματωμένο `GITHUB_TOKEN`.
