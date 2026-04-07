@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "3fd2055f97f093b6fe102ea24df4458b",
-  "translation_date": "2025-10-15T04:30:56+00:00",
-  "source_file": "AGENTS.md",
-  "language_code": "id"
-}
--->
 ## Gambaran Proyek
 
 Co‑op Translator adalah alat baris perintah Python dan workflow GitHub Actions yang menerjemahkan file Markdown, notebook Jupyter, dan teks gambar ke berbagai bahasa. Hasil terjemahan diatur dalam folder khusus bahasa dan selalu sinkron dengan konten sumber. Proyek ini disusun sebagai library yang dikelola Poetry dengan titik masuk CLI.

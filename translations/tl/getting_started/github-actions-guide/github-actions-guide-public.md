@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T03:44:18+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "tl"
-}
--->
 # Paggamit ng Co-op Translator GitHub Action (Pampublikong Setup)
 
 **Para Kanino:** Ang gabay na ito ay para sa mga gumagamit ng karamihan sa mga pampubliko o pribadong repository kung saan sapat na ang karaniwang GitHub Actions permissions. Ginagamit nito ang built-in na `GITHUB_TOKEN`.

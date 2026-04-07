@@ -1,72 +1,64 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "d11fe2b5308a8752a994869658751533",
-  "translation_date": "2025-11-30T11:50:47+00:00",
-  "source_file": "getting_started/supported-languages.md",
-  "language_code": "id"
-}
--->
 # Bahasa yang Didukung
 
-Tabel di bawah ini mencantumkan bahasa-bahasa yang saat ini didukung oleh **Co-op Translator**. Tabel ini mencakup kode bahasa, nama bahasa, dan masalah yang diketahui terkait setiap bahasa. Jika Anda ingin menambahkan dukungan untuk bahasa baru, silakan tambahkan kode bahasa, nama, dan font yang sesuai di file `font_language_mappings.yml` yang terletak di `src/co_op_translator/fonts/` dan kirimkan pull request setelah melakukan pengujian.
+Tabel di bawah ini mencantumkan bahasa-bahasa yang saat ini didukung oleh **Co-op Translator**. Ini mencakup kode bahasa, nama bahasa, dan masalah yang diketahui terkait dengan setiap bahasa. Jika Anda ingin menambahkan dukungan untuk bahasa baru, silakan tambahkan kode bahasa, nama, dan font yang sesuai di file `font_language_mappings.yml` yang terletak di `src/co_op_translator/fonts/` dan kirimkan pull request setelah pengujian.
 
-| Kode Bahasa  | Nama Bahasa          | Font                              | Dukungan RTL | Masalah yang Diketahui |
-|--------------|----------------------|----------------------------------|--------------|------------------------|
-| en           | Inggris              | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| fr           | Prancis              | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| es           | Spanyol              | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| de           | Jerman               | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| ru           | Rusia                | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| ar           | Arab                 | NotoSansArabic-Medium.ttf        | Ya           | Tidak                  |
-| fa           | Persia (Farsi)       | NotoSansArabic-Medium.ttf        | Ya           | Tidak                  |
-| ur           | Urdu                 | NotoSansArabic-Medium.ttf        | Ya           | Tidak                  |
-| zh           | Cina (Sederhana)     | NotoSansCJK-Medium.ttc           | Tidak        | Tidak                  |
-| mo           | Cina (Tradisional, Makau) | NotoSansCJK-Medium.ttc      | Tidak        | Tidak                  |
-| hk           | Cina (Tradisional, Hong Kong) | NotoSansCJK-Medium.ttc | Tidak        | Tidak                  |
-| tw           | Cina (Tradisional, Taiwan) | NotoSansCJK-Medium.ttc       | Tidak        | Tidak                  |
-| ja           | Jepang               | NotoSansCJK-Medium.ttc           | Tidak        | Tidak                  |
-| ko           | Korea                | NotoSansCJK-Medium.ttc           | Tidak        | Tidak                  |
-| hi           | Hindi                | NotoSansDevanagari-Medium.ttf    | Tidak        | Tidak                  |
-| bn           | Bengali              | NotoSansBengali-Medium.ttf       | Tidak        | Tidak                  |
-| mr           | Marathi              | NotoSansDevanagari-Medium.ttf    | Tidak        | Tidak                  |
-| ne           | Nepali               | NotoSansDevanagari-Medium.ttf    | Tidak        | Tidak                  |
-| pa           | Punjabi (Gurmukhi)   | NotoSansGurmukhi-Medium.ttf      | Tidak        | Tidak                  |
-| pt           | Portugis (Portugal)  | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| br           | Portugis (Brasil)    | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| it           | Italia               | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| lt           | Lituania             | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| pl           | Polandia             | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| tr           | Turki                | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| el           | Yunani               | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| th           | Thai                 | NotoSansThai-Medium.ttf          | Tidak        | Tidak                  |
-| sv           | Swedia               | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| da           | Denmark              | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| no           | Norwegia             | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| fi           | Finlandia            | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| nl           | Belanda              | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| he           | Ibrani               | NotoSansHebrew-Medium.ttf        | Ya           | Tidak                  |
-| vi           | Vietnam              | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| id           | Indonesia            | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| ms           | Melayu               | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| tl           | Tagalog (Filipina)   | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| sw           | Swahili              | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| hu           | Hungaria             | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| cs           | Ceko                 | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| sk           | Slowakia             | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| ro           | Rumania              | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| bg           | Bulgaria             | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| sr           | Serbia (Sirilik)     | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| hr           | Kroasia              | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| sl           | Slovenia             | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| uk           | Ukraina              | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| my           | Burma (Myanmar)      | NotoSansMyanmar-Medium.ttf       | Tidak        | Tidak                  |
-| ta           | Tamil                | NotoSansTamil-Medium.ttf         | Tidak        | Tidak                  |
-| et           | Estonia              | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| pcm          | Pidgin Nigeria       | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| te           | Telugu               | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| ml           | Malayalam            | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
-| kn           | Kannada              | NotoSans-Medium.ttf              | Tidak        | Tidak                  |
+| Language Code | Language Name        | Font                              | RTL Support | Known Issues |
+|---------------|----------------------|-----------------------------------|-------------|--------------|
+| en            | Inggris              | NotoSans-Medium.ttf               | No          | No           |
+| fr            | Perancis             | NotoSans-Medium.ttf               | No          | No           |
+| es            | Spanyol              | NotoSans-Medium.ttf               | No          | No           |
+| de            | Jerman               | NotoSans-Medium.ttf               | No          | No           |
+| ru            | Rusia                | NotoSans-Medium.ttf               | No          | No           |
+| ar            | Arab                 | NotoSansArabic-Medium.ttf         | Yes         | No           |
+| fa            | Persia (Farsi)       | NotoSansArabic-Medium.ttf         | Yes         | No           |
+| ur            | Urdu                 | NotoSansArabic-Medium.ttf         | Yes         | No           |
+| zh-CN         | Cina (Sederhana)     | NotoSansCJK-Medium.ttc            | No          | No           |
+| zh-MO         | Cina (Tradisional, Makau) | NotoSansCJK-Medium.ttc    | No          | No           |
+| zh-HK         | Cina (Tradisional, Hong Kong) | NotoSansCJK-Medium.ttc| No          | No           |
+| zh-TW         | Cina (Tradisional, Taiwan) | NotoSansCJK-Medium.ttc   | No          | No           |
+| ja            | Jepang               | NotoSansCJK-Medium.ttc            | No          | No           |
+| ko            | Korea                | NotoSansCJK-Medium.ttc            | No          | No           |
+| hi            | Hindi                | NotoSansDevanagari-Medium.ttf     | No          | No           |
+| bn            | Bengali              | NotoSansBengali-Medium.ttf        | No          | No           |
+| mr            | Marathi              | NotoSansDevanagari-Medium.ttf     | No          | No           |
+| ne            | Nepali               | NotoSansDevanagari-Medium.ttf     | No          | No           |
+| pa            | Punjabi (Gurmukhi)   | NotoSansGurmukhi-Medium.ttf       | No          | No           |
+| pt-PT         | Portugis (Portugal)  | NotoSans-Medium.ttf               | No          | No           |
+| pt-BR         | Portugis (Brasil)    | NotoSans-Medium.ttf               | No          | No           |
+| it            | Italia               | NotoSans-Medium.ttf               | No          | No           |
+| lt            | Lituania             | NotoSans-Medium.ttf               | No          | No           |
+| pl            | Polandia             | NotoSans-Medium.ttf               | No          | No           |
+| tr            | Turki                | NotoSans-Medium.ttf               | No          | No           |
+| el            | Yunani               | NotoSans-Medium.ttf               | No          | No           |
+| th            | Thai                 | NotoSansThai-Medium.ttf           | No          | No           |
+| sv            | Swedia               | NotoSans-Medium.ttf               | No          | No           |
+| da            | Denmark              | NotoSans-Medium.ttf               | No          | No           |
+| no            | Norwegia             | NotoSans-Medium.ttf               | No          | No           |
+| fi            | Finlandia            | NotoSans-Medium.ttf               | No          | No           |
+| nl            | Belanda              | NotoSans-Medium.ttf               | No          | No           |
+| he            | Ibrani               | NotoSansHebrew-Medium.ttf         | Yes         | No           |
+| vi            | Vietnam              | NotoSans-Medium.ttf               | No          | No           |
+| id            | Indonesia            | NotoSans-Medium.ttf               | No          | No           |
+| ms            | Melayu               | NotoSans-Medium.ttf               | No          | No           |
+| tl            | Tagalog (Filipina)   | NotoSans-Medium.ttf               | No          | No           |
+| sw            | Swahili              | NotoSans-Medium.ttf               | No          | No           |
+| hu            | Hungaria             | NotoSans-Medium.ttf               | No          | No           |
+| cs            | Ceko                 | NotoSans-Medium.ttf               | No          | No           |
+| sk            | Slovakia             | NotoSans-Medium.ttf               | No          | No           |
+| ro            | Rumania              | NotoSans-Medium.ttf               | No          | No           |
+| bg            | Bulgaria             | NotoSans-Medium.ttf               | No          | No           |
+| sr            | Serbia (Sirilik)     | NotoSans-Medium.ttf               | No          | No           |
+| hr            | Kroasia              | NotoSans-Medium.ttf               | No          | No           |
+| sl            | Slovenia             | NotoSans-Medium.ttf               | No          | No           |
+| uk            | Ukraina              | NotoSans-Medium.ttf               | No          | No           |
+| my            | Burma (Myanmar)      | NotoSansMyanmar-Medium.ttf        | No          | No           |
+| ta            | Tamil                | NotoSansTamil-Medium.ttf          | No          | No           |
+| et            | Estonia              | NotoSans-Medium.ttf               | No          | No           |
+| pcm           | Pidgin Nigeria       | NotoSans-Medium.ttf               | No          | No           |
+| te            | Telugu               | NotoSans-Medium.ttf               | No          | No           |
+| ml            | Malayalam            | NotoSans-Medium.ttf               | No          | No           |
+| kn            | Kannada              | NotoSans-Medium.ttf               | No          | No           |
+| km            | Khmer                | NotoSansKhmer-Medium.ttf          | No          | No           |
 
 ## Menambahkan bahasa baru
 
@@ -78,5 +70,5 @@ Tertarik menambahkan bahasa baru? Silakan ikuti panduan kontribusi:
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Penafian**:  
-Dokumen ini telah diterjemahkan menggunakan layanan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Meskipun kami berupaya untuk mencapai akurasi, harap diingat bahwa terjemahan otomatis mungkin mengandung kesalahan atau ketidakakuratan. Dokumen asli dalam bahasa aslinya harus dianggap sebagai sumber yang sahih. Untuk informasi penting, disarankan menggunakan terjemahan profesional oleh manusia. Kami tidak bertanggung jawab atas kesalahpahaman atau salah tafsir yang timbul dari penggunaan terjemahan ini.
+Dokumen ini telah diterjemahkan menggunakan layanan terjemahan AI [Co-op Translator](https://github.com/Azure/co-op-translator). Meskipun kami berusaha untuk akurasi, harap diketahui bahwa terjemahan otomatis mungkin mengandung kesalahan atau ketidakakuratan. Dokumen asli dalam bahasa aslinya harus dianggap sebagai sumber yang sah. Untuk informasi penting, terjemahan manusia profesional sangat disarankan. Kami tidak bertanggung jawab atas kesalahpahaman atau kesalahan tafsir yang timbul dari penggunaan terjemahan ini.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
