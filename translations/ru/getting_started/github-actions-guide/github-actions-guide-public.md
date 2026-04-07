@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T02:16:41+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "ru"
-}
--->
 # Использование Co-op Translator GitHub Action (Публичная настройка)
 
 **Целевая аудитория:** Это руководство предназначено для пользователей большинства публичных или приватных репозиториев, где достаточно стандартных разрешений GitHub Actions. Используется встроенный `GITHUB_TOKEN`.

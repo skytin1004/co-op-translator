@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T02:51:46+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "mr"
-}
--->
 # Co-op Translator GitHub Action वापरणे (सार्वजनिक सेटअप)
 
 **लक्ष्य वाचक:** हे मार्गदर्शन बहुतेक सार्वजनिक किंवा खाजगी रेपॉजिटरीसाठी आहे जिथे GitHub Actions ची सामान्य परवानगी पुरेशी आहे. यात अंगभूत `GITHUB_TOKEN` वापरले जाते.

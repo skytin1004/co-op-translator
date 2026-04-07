@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "3fd2055f97f093b6fe102ea24df4458b",
-  "translation_date": "2025-10-15T04:34:19+00:00",
-  "source_file": "AGENTS.md",
-  "language_code": "sr"
-}
--->
 ## Преглед пројекта
 
 Co‑op Translator је Python алат за командну линију и GitHub Actions workflow који преводи Markdown фајлове, Jupyter свеске и текст са слика на више језика. Излазе организује у фасцикле специфичне за језик и одржава синхронизацију превода са изворним садржајем. Пројекат је структуриран као библиотека којом управља Poetry са CLI улазним тачкама.

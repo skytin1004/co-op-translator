@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "758ca1c5ae0d32c52d2dd59132dcfbf0",
-  "translation_date": "2025-11-30T09:58:46+00:00",
-  "source_file": "CONTRIBUTING.md",
-  "language_code": "fa"
-}
--->
 # مشارکت در Co-op Translator
 
 این پروژه از مشارکت‌ها و پیشنهادات استقبال می‌کند. بیشتر مشارکت‌ها نیازمند آن است که شما با یک توافقنامه مجوز مشارکت‌کننده (CLA) موافقت کنید که اعلام می‌کند شما حق دارید و واقعاً به ما اجازه می‌دهید از مشارکت شما استفاده کنیم. برای جزئیات بیشتر به https://cla.opensource.microsoft.com مراجعه کنید.

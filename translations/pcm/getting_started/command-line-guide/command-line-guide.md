@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c64ba65e091e5d87385490fa63a8f574",
-  "translation_date": "2025-11-06T17:31:36+00:00",
-  "source_file": "getting_started/command-line-guide/command-line-guide.md",
-  "language_code": "pcm"
-}
--->
 # How you go take use Co-op Translator command line interface (CLI)
 
 ## Wetin you go need

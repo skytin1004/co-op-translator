@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T02:58:44+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "pa"
-}
--->
 # ਕੋ-ਓਪ ਟ੍ਰਾਂਸਲੇਟਰ GitHub ਐਕਸ਼ਨ ਦੀ ਵਰਤੋਂ (ਪਬਲਿਕ ਸੈਟਅੱਪ)
 
 **ਲਕੜੀ ਦਰਸ਼ਕ:** ਇਹ ਗਾਈਡ ਜ਼ਿਆਦਾਤਰ ਪਬਲਿਕ ਜਾਂ ਪ੍ਰਾਈਵੇਟ ਰਿਪੋਜ਼ਿਟਰੀਜ਼ ਵਿੱਚ ਵਰਤੋਂਕਾਰਾਂ ਲਈ ਹੈ, ਜਿੱਥੇ ਸਧਾਰਨ GitHub Actions ਪਰਮਿਸ਼ਨਾਂ ਨਾਲ ਕੰਮ ਚੱਲ ਜਾਂਦਾ ਹੈ। ਇਹ ਵਿੱਚ-ਬਿਲਟ `GITHUB_TOKEN` ਦੀ ਵਰਤੋਂ ਕਰਦਾ ਹੈ।

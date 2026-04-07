@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "62fe65c1d8e3796c01aa1e3c89666cba",
-  "translation_date": "2025-06-12T11:18:29+00:00",
-  "source_file": "SUPPORT.md",
-  "language_code": "no"
-}
--->
 # TODO: Vedlikeholderen av dette repoet har ennå ikke redigert denne filen
 
 **REPO EIER**: Ønsker du kundeservice og support (CSS) for dette produktet/prosjektet?

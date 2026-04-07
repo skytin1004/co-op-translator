@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9fac847815936ef6e6c8bfde6d191571",
-  "translation_date": "2025-11-23T02:24:29+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-org.md",
-  "language_code": "ml"
-}
--->
 # Co-op Translator GitHub Action ഉപയോഗിച്ച് പ്രവർത്തനം (സംഘടനാ മാർഗ്ഗനിർദ്ദേശം)
 
 **ലക്ഷ്യ പ്രേക്ഷകർ:** ഈ മാർഗ്ഗനിർദ്ദേശം **Microsoft ഉള്ളിലെ ഉപയോക്താക്കൾ** അല്ലെങ്കിൽ **Co-op Translator GitHub App-ന്റെ മുൻകൂട്ടി നിർമ്മിച്ച ക്രെഡൻഷ്യലുകൾ ലഭ്യമുള്ള ടീമുകൾ** അല്ലെങ്കിൽ അവരുടെ സ്വന്തം GitHub App സൃഷ്ടിക്കാൻ കഴിവുള്ളവർക്കാണ്.

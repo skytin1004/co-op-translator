@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "758ca1c5ae0d32c52d2dd59132dcfbf0",
-  "translation_date": "2025-11-30T10:58:17+00:00",
-  "source_file": "CONTRIBUTING.md",
-  "language_code": "it"
-}
--->
 # Contribuire a Co-op Translator
 
 Questo progetto accoglie contributi e suggerimenti. La maggior parte dei contributi richiede di accettare un

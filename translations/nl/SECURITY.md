@@ -1,49 +1,48 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cc205495d4eace1fabcdee963024069f",
-  "translation_date": "2025-06-12T11:10:16+00:00",
-  "source_file": "SECURITY.md",
-  "language_code": "nl"
-}
--->
+<!-- BEGIN MICROSOFT SECURITY.MD V0.0.9 BLOCK -->
+
 ## Beveiliging
 
-Microsoft neemt de beveiliging van onze softwareproducten en -diensten serieus, inclusief alle source code repositories die worden beheerd via onze GitHub-organisaties, zoals [Microsoft](https://github.com/Microsoft), [Azure](https://github.com/Azure), [DotNet](https://github.com/dotnet), [AspNet](https://github.com/aspnet) en [Xamarin](https://github.com/xamarin).
+Microsoft neemt de beveiliging van onze softwareproducten en -diensten serieus, wat alle broncode-repositories omvat die worden beheerd via onze GitHub-organisaties, waaronder [Microsoft](https://github.com/Microsoft), [Azure](https://github.com/Azure), [DotNet](https://github.com/dotnet), [AspNet](https://github.com/aspnet) en [Xamarin](https://github.com/xamarin).
 
-Als je denkt een beveiligingslek te hebben gevonden in een repository die eigendom is van Microsoft en dat voldoet aan [Microsofts definitie van een beveiligingslek](https://aka.ms/security.md/definition), meld dit dan aan ons zoals hieronder beschreven.
+Als u denkt dat u een beveiligingslek hebt gevonden in een Microsoft-beheerde repository die voldoet aan de [definitie van een beveiligingslek van Microsoft](https://aka.ms/security.md/definition), verzoeken wij u dit aan ons te melden zoals hieronder beschreven.
 
-## Beveiligingsproblemen melden
+## Het Melden van Beveiligingsproblemen
 
-**Meld beveiligingslekken niet via openbare GitHub-issues.**
+**Gelieve beveiligingslekken niet te melden via openbare GitHub-issues.**
 
-Meld ze in plaats daarvan bij het Microsoft Security Response Center (MSRC) via [https://msrc.microsoft.com/create-report](https://aka.ms/security.md/msrc/create-report).
+Meld deze in plaats daarvan aan het Microsoft Security Response Center (MSRC) via [https://msrc.microsoft.com/create-report](https://aka.ms/security.md/msrc/create-report).
 
-Als je liever zonder inloggen een melding maakt, stuur dan een e-mail naar [secure@microsoft.com](mailto:secure@microsoft.com). Indien mogelijk, versleutel je bericht met onze PGP-sleutel; je kunt deze downloaden van de [Microsoft Security Response Center PGP Key pagina](https://aka.ms/security.md/msrc/pgp).
+Als u liever een melding doet zonder in te loggen, stuur dan een e-mail naar [secure@microsoft.com](mailto:secure@microsoft.com). Indien mogelijk, versleutel uw bericht met onze PGP-sleutel; download deze van de [Microsoft Security Response Center PGP Key pagina](https://aka.ms/security.md/msrc/pgp).
 
-Je zou binnen 24 uur een reactie moeten ontvangen. Als dat om wat voor reden dan ook niet gebeurt, neem dan per e-mail contact op om te controleren of we je oorspronkelijke bericht hebben ontvangen. Meer informatie is te vinden op [microsoft.com/msrc](https://www.microsoft.com/msrc).
+U zou binnen 24 uur een reactie moeten ontvangen. Indien dit om wat voor reden dan ook niet het geval is, verzoeken wij u per e-mail contact op te nemen om zeker te stellen dat wij uw oorspronkelijke bericht hebben ontvangen. Meer informatie vindt u op [microsoft.com/msrc](https://www.microsoft.com/msrc).
 
 Voeg alstublieft de onderstaande gevraagde informatie toe (zoveel mogelijk) om ons te helpen de aard en omvang van het mogelijke probleem beter te begrijpen:
 
   * Type probleem (bijv. buffer overflow, SQL-injectie, cross-site scripting, enz.)
-  * Volledige paden van de bronbestanden die verband houden met het optreden van het probleem
+  * Volledige paden van bronbestand(en) die verband houden met de manifestatie van het probleem
   * De locatie van de getroffen broncode (tag/branch/commit of directe URL)
-  * Eventuele speciale configuraties die nodig zijn om het probleem te reproduceren
-  * Stapsgewijze instructies om het probleem te reproduceren
-  * Proof-of-concept of exploit code (indien mogelijk)
+  * Eventuele speciale configuratie die nodig is om het probleem te reproduceren
+  * Stap-voor-stap instructies om het probleem te reproduceren
+  * Proof-of-concept of exploitcode (indien mogelijk)
   * Impact van het probleem, inclusief hoe een aanvaller het probleem zou kunnen misbruiken
 
-Deze informatie helpt ons om je melding sneller te beoordelen.
+Deze informatie helpt ons om uw melding sneller te beoordelen.
 
-Als je meldt voor een bug bounty, kunnen meer complete rapporten bijdragen aan een hogere beloning. Bezoek onze [Microsoft Bug Bounty Program](https://aka.ms/security.md/msrc/bounty) pagina voor meer details over onze lopende programma's.
+Als u een bug bounty meldt, kunnen uitgebreidere rapporten bijdragen aan een hogere bounty-uitkering. Bezoek onze [Microsoft Bug Bounty Programma](https://aka.ms/security.md/msrc/bounty) pagina voor meer details over onze actieve programma's.
 
-## Voorkeurs-talen
+## Voorkeurs Talen
 
-We geven de voorkeur aan alle communicatie in het Engels.
+Wij geven de voorkeur aan alle communicatie in het Engels.
 
 ## Beleid
 
-Microsoft volgt het principe van [Gecoördineerde Kwetsbaarheidsrapportage](https://aka.ms/security.md/cvd).
+Microsoft volgt het principe van [Gecoördijnde Kwetsbaarheidsonthulling](https://aka.ms/security.md/cvd).
 
-**Disclaimer**:  
-Dit document is vertaald met behulp van de AI-vertalingsdienst [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel we streven naar nauwkeurigheid, dient u er rekening mee te houden dat automatische vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het originele document in de oorspronkelijke taal geldt als de gezaghebbende bron. Voor cruciale informatie wordt professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.
+<!-- END MICROSOFT SECURITY.MD BLOCK -->
+
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Vruiklaring**:  
+Dit document is vertaald met behulp van de AI-vertalingsdienst [Co-op Translator](https://github.com/Azure/co-op-translator). Hoewel we streven naar nauwkeurigheid, houd er rekening mee dat automatische vertalingen fouten of onnauwkeurigheden kunnen bevatten. Het oorspronkelijke document in de oorspronkelijke taal moet worden beschouwd als de gezaghebbende bron. Voor cruciale informatie wordt professionele menselijke vertaling aanbevolen. Wij zijn niet aansprakelijk voor misverstanden of verkeerde interpretaties die voortvloeien uit het gebruik van deze vertaling.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

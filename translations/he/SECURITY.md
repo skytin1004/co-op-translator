@@ -1,49 +1,44 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "cc205495d4eace1fabcdee963024069f",
-  "translation_date": "2025-06-12T11:10:26+00:00",
-  "source_file": "SECURITY.md",
-  "language_code": "he"
-}
--->
 ## אבטחה
 
-Microsoft מתייחסת ברצינות לאבטחת מוצרי התוכנה והשירותים שלנו, כולל כל מאגרי הקוד שנמצאים תחת ניהול הארגונים שלנו ב-GitHub, הכוללים את [Microsoft](https://github.com/Microsoft), [Azure](https://github.com/Azure), [DotNet](https://github.com/dotnet), [AspNet](https://github.com/aspnet) ו-[Xamarin](https://github.com/xamarin).
+Microsoft מתייחסת ברצינות לאבטחת מוצרי התוכנה והשירותים שלנו, כולל את כל מאגרי קוד המקור המנוהלים דרך ארגוני ה-GitHub שלנו, הכוללים את [Microsoft](https://github.com/Microsoft), [Azure](https://github.com/Azure), [DotNet](https://github.com/dotnet), [AspNet](https://github.com/aspnet) ו-[Xamarin](https://github.com/xamarin).
 
-אם אתם סבורים שמצאתם פגיעות אבטחה בכל מאגר בבעלות Microsoft שעונה על [הגדרת הפגיעות של Microsoft](https://aka.ms/security.md/definition), אנא דווחו לנו בהתאם להוראות למטה.
+אם אתם סבורים שמצאתם פגיעות אבטחה בכל מאגר בבעלות Microsoft העונה על [הגדרת הפגיעות האבטחתית של Microsoft](https://aka.ms/security.md/definition), אנא דווחו לנו כפי שמתואר להלן.
 
 ## דיווח על בעיות אבטחה
 
-**אנא אל תדווחו על פגיעות אבטחה דרך נושאים פומביים ב-GitHub.**
+**אנא אל תדווחו על פגיעויות אבטחה דרך בעיות פומביות ב-GitHub.**
 
-במקום זאת, דווחו עליהן למרכז התגובה לאבטחה של Microsoft (MSRC) בכתובת [https://msrc.microsoft.com/create-report](https://aka.ms/security.md/msrc/create-report).
+במקום זאת, דווחו עליהן למרכז תגובת האבטחה של Microsoft (MSRC) בכתובת [https://msrc.microsoft.com/create-report](https://aka.ms/security.md/msrc/create-report).
 
-אם אתם מעדיפים לשלוח ללא התחברות, שלחו דוא"ל ל-[secure@microsoft.com](mailto:secure@microsoft.com). אם אפשר, הצפינו את ההודעה עם מפתח ה-PGP שלנו; ניתן להוריד אותו מדף מפתח ה-PGP של מרכז התגובה לאבטחה של Microsoft [Microsoft Security Response Center PGP Key page](https://aka.ms/security.md/msrc/pgp).
+אם אתם מעדיפים לשלוח בלי להתחבר, שלחו אימייל ל-[secure@microsoft.com](mailto:secure@microsoft.com). אם אפשר, הצפינו את ההודעה באמצעות מפתח ה-PGP שלנו; אנא הורידו אותו מעמוד מפתח ה-PGP של מרכז תגובת האבטחה של Microsoft [Microsoft Security Response Center PGP Key page](https://aka.ms/security.md/msrc/pgp).
 
-עליכם לקבל תגובה בתוך 24 שעות. אם מסיבה כלשהי לא קיבלתם, אנא המשיכו במעקב בדוא"ל כדי לוודא שקיבלנו את ההודעה המקורית שלכם. מידע נוסף זמין בכתובת [microsoft.com/msrc](https://www.microsoft.com/msrc).
+עליכם לקבל תגובה תוך 24 שעות. אם מסיבה כלשהי לא קיבלתם, אנא פנו שוב בדוא"ל כדי לוודא שקיבלנו את ההודעה המקורית שלכם. מידע נוסף זמין ב-[microsoft.com/msrc](https://www.microsoft.com/msrc).
 
-אנא כללו את המידע המבוקש להלן (ככל שניתן) כדי לעזור לנו להבין טוב יותר את טיב והיקף הבעיה האפשרית:
+אנא כללו את המידע המבוקש להלן (ככל שניתן לכם) כדי לעזור לנו להבין טוב יותר את הטבע והיקף הבעיה האפשרית:
 
-  * סוג הבעיה (למשל overflow בזיכרון, SQL injection, cross-site scripting וכו')
-  * נתיבים מלאים של קובצי המקור הקשורים להופעת הבעיה
-  * מיקום קוד המקור המושפע (תג/סניף/התחייבות או כתובת URL ישירה)
-  * כל תצורה מיוחדת הדרושה לשחזור הבעיה
-  * הוראות שלב-אחר-שלב לשחזור הבעיה
-  * קוד הוכחה או קוד ניצול (אם אפשרי)
-  * השפעת הבעיה, כולל כיצד תוקף עשוי לנצל אותה
+  * סוג הבעיה (למשל overflow של זיכרון, SQL injection, cross-site scripting וכו')
+  * הנתיבים המלאים של קבצי המקור הקשורים להתרחשות הבעיה
+  * מיקום קוד המקור שנפגע (tag/branch/commit או URL ישיר)
+  * כל הגדרה מיוחדת הנדרשת לשחזור הבעיה
+  * הוראות שלב אחר שלב לשחזור הבעיה
+  * קוד הוכחה או ניצול (אם אפשרי)
+  * השפעת הבעיה, כולל כיצד תוקף עשוי לנצל את הבעיה
 
 מידע זה יעזור לנו למיין את הדיווח שלכם במהירות רבה יותר.
 
-אם אתם מדווחים במסגרת פרס על באגים, דיווחים מפורטים יותר יכולים לתרום לפרס גבוה יותר. אנא בקרו בדף [Microsoft Bug Bounty Program](https://aka.ms/security.md/msrc/bounty) לפרטים נוספים על התוכניות הפעילות שלנו.
+אם אתם מדווחים במסגרת פרס בוג באונטי, דיווחים מלאים יותר יכולים לתרום להגדלת פרס הבוג. אנא בקרו בדף [Microsoft Bug Bounty Program](https://aka.ms/security.md/msrc/bounty) למידע נוסף על התוכניות הפעילות שלנו.
 
 ## שפות מועדפות
 
-אנו מעדיפים שכל התקשורת תתבצע באנגלית.
+אנחנו מעדיפים שכל התקשורת תהיה באנגלית.
 
 ## מדיניות
 
-Microsoft פועלת לפי העיקרון של [Coordinated Vulnerability Disclosure](https://aka.ms/security.md/cvd).
+Microsoft פועלת על פי עקרון [החשיפה המתואמת של פגיעויות](https://aka.ms/security.md/cvd).
 
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **כתב ויתור**:  
-מסמך זה תורגם באמצעות שירות תרגום מבוסס בינה מלאכותית [Co-op Translator](https://github.com/Azure/co-op-translator). למרות שאנו שואפים לדיוק, יש לקחת בחשבון כי תרגומים אוטומטיים עלולים להכיל שגיאות או אי-דיוקים. המסמך המקורי בשפת המקור שלו צריך להיחשב כמקור הסמכות. למידע קריטי מומלץ להשתמש בתרגום מקצועי על ידי אדם. אנו לא נישא באחריות לכל אי-הבנות או פרשנויות שגויות הנובעות משימוש בתרגום זה.
+מסמך זה תורגם באמצעות שירות תרגום מבוסס בינה מלאכותית [Co-op Translator](https://github.com/Azure/co-op-translator). בעוד שאנו שואפים לדיוק, יש לקחת בחשבון כי תרגומים אוטומטיים עלולים להכיל טעויות או אי-דיוקים. המסמך המקורי בשפתו המקורית צריך להיחשב כמקור הסמכותי. למידע קריטי, מומלץ לתרגום מקצועי על ידי אדם. אנו לא נושאים באחריות לכל אי-הבנות או פרשנויות מוטעות הנובעות משימוש בתרגום זה.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

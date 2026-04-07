@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "758ca1c5ae0d32c52d2dd59132dcfbf0",
-  "translation_date": "2025-11-30T12:16:42+00:00",
-  "source_file": "CONTRIBUTING.md",
-  "language_code": "ro"
-}
--->
 # Contribuții la Co-op Translator
 
 Acest proiect primește cu plăcere contribuții și sugestii. Majoritatea contribuțiilor necesită să fiți de acord cu un Acord de Licență pentru Contribuitori (CLA) prin care declarați că aveți dreptul și efectiv ne acordați drepturile de a folosi contribuția dvs. Pentru detalii, vizitați https://cla.opensource.microsoft.com.

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "758ca1c5ae0d32c52d2dd59132dcfbf0",
-  "translation_date": "2025-11-30T13:09:36+00:00",
-  "source_file": "CONTRIBUTING.md",
-  "language_code": "te"
-}
--->
 # కో-ఆప్ అనువాదకుడికి సహకరించడం
 
 ఈ ప్రాజెక్ట్ సహకారాలు మరియు సూచనలను స్వాగతిస్తుంది. చాలా సహకారాలకు మీరు ఒక

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "20943a46b11c6d74814f41a817a6db4c",
-  "translation_date": "2025-10-15T03:46:23+00:00",
-  "source_file": "getting_started/command-line-guide/translator-your-project.md",
-  "language_code": "sw"
-}
--->
 # Tafsiri mradi wako kwa kutumia Co-op Translator
 
 **Co-op Translator** ni zana ya mstari wa amri (CLI) inayokusaidia kutafsiri faili za markdown na picha kwenye mradi wako kwenda lugha mbalimbali. Sehemu hii inaelezea jinsi ya kutumia zana hii, inaeleza chaguzi mbalimbali za CLI, na inatoa mifano kwa matumizi tofauti.

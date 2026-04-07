@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "3fd2055f97f093b6fe102ea24df4458b",
-  "translation_date": "2025-10-15T04:32:01+00:00",
-  "source_file": "AGENTS.md",
-  "language_code": "sw"
-}
--->
 ## Muhtasari wa Mradi
 
 Co‑op Translator ni zana ya Python ya mstari wa amri na mtiririko wa GitHub Actions inayotafsiri faili za Markdown, daftari za Jupyter, na maandishi ya picha kwenda lugha mbalimbali. Inaweka matokeo chini ya folda maalum za lugha na inahakikisha tafsiri zinabaki sambamba na yaliyomo asili. Mradi umeundwa kama maktaba inayosimamiwa na Poetry yenye sehemu za kuingia za CLI.

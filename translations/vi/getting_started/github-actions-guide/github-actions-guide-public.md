@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T03:36:46+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "vi"
-}
--->
 # Sử dụng Co-op Translator GitHub Action (Thiết lập công khai)
 
 **Đối tượng:** Hướng dẫn này dành cho người dùng trong hầu hết các kho công khai hoặc riêng tư, nơi quyền truy cập GitHub Actions tiêu chuẩn là đủ. Hành động này sử dụng sẵn `GITHUB_TOKEN`.

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "510827ad22a2031a50838919c3594828",
-  "translation_date": "2025-10-15T02:18:35+00:00",
-  "source_file": "getting_started/command-line-guide/install-package.md",
-  "language_code": "ar"
-}
--->
 # تثبيت حزمة Co-op Translator
 
 **Co-op Translator** هو أداة سطر أوامر (CLI) مصممة لمساعدتك في ترجمة جميع ملفات الماركداون والصور في مشروعك إلى عدة لغات. سيرشدك هذا الدليل خلال إعداد المترجم وتشغيله لمختلف الحالات.

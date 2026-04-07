@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "758ca1c5ae0d32c52d2dd59132dcfbf0",
-  "translation_date": "2025-11-30T12:25:59+00:00",
-  "source_file": "CONTRIBUTING.md",
-  "language_code": "sr"
-}
--->
 # Допринoс Co-op Translator-у
 
 Овај пројекат прихвата доприносе и предлоге. Већина доприноса захтева да се сложите са Уговором о лиценци за допринос (CLA) којим изјављујете да имате право и заправо нам дајете права да користимо ваш допринос. За детаље посетите https://cla.opensource.microsoft.com.

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9fac847815936ef6e6c8bfde6d191571",
-  "translation_date": "2025-10-15T03:11:39+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-org.md",
-  "language_code": "tr"
-}
--->
 # Co-op Translator GitHub Action Kullanımı (Organizasyon Rehberi)
 
 **Hedef Kitle:** Bu rehber, **Microsoft iç kullanıcıları** veya **önceden oluşturulmuş Co-op Translator GitHub Uygulamasına gerekli kimlik bilgilerine erişimi olan ekipler** ya da kendi özel GitHub Uygulamasını oluşturabilenler içindir.

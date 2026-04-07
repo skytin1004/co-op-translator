@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c64ba65e091e5d87385490fa63a8f574",
-  "translation_date": "2025-11-23T02:22:47+00:00",
-  "source_file": "getting_started/command-line-guide/command-line-guide.md",
-  "language_code": "ml"
-}
--->
 # Co-op Translator കമാൻഡ് ലൈൻ ഇന്റർഫേസ് (CLI) ഉപയോഗിക്കുന്ന വിധം
 
 ## ആവശ്യമായ കാര്യങ്ങൾ

@@ -1,120 +1,121 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b58d7c3cb4210697a073d20eb3064945",
-  "translation_date": "2025-06-12T11:57:44+00:00",
-  "source_file": "getting_started/set-up-azure-ai.md",
-  "language_code": "cs"
-}
--->
-# Set Up Azure AI for Co-op Translator (Azure OpneAI & Azure AI Vision)
+# Nastavení Azure AI pro Co-op Translator (Azure OpneAI & Azure AI Vision)
 
-This guide explains how to set up Azure OpenAI for language translation and Azure Computer Vision for image content analysis (which can then be used for image-based translation) within Azure AI Foundry.
+Tento průvodce vás provede nastavením Azure OpenAI pro jazykový překlad a Azure Computer Vision pro analýzu obsahu obrázků (které pak lze použít pro překlad založený na obrázcích) v rámci Azure AI Foundry.
 
-**Prerequisites:**
-- An Azure account with an active subscription.
-- Sufficient permissions to create resources and deployments in your Azure subscription.
+**Požadavky:**
+- Účet Azure s aktivním předplatným.
+- Dostatečná oprávnění k vytváření zdrojů a implementací ve vašem předplatném Azure.
 
-## Create an Azure AI Project
+## Vytvoření projektu Azure AI
 
-Begin by creating an Azure AI Project, which serves as a central hub for managing your AI resources.
+Začnete vytvořením projektu Azure AI, který slouží jako centrální místo pro správu vašich AI zdrojů.
 
-1. Go to [https://ai.azure.com](https://ai.azure.com) and sign in with your Azure account.
+1. Přejděte na [https://ai.azure.com](https://ai.azure.com) a přihlaste se pomocí vašeho účtu Azure.
 
-1. Click **+Create** to start a new project.
+1. Vyberte **+Create** pro vytvoření nového projektu.
 
-1. Complete the following:
-   - Enter a **Project name** (e.g., `CoopTranslator-Project`).
-   - Choose the **AI hub** (e.g., `CoopTranslator-Hub`) (Create a new one if necessary).
+1. Proveďte následující úkoly:
+   - Zadejte **Jméno projektu** (např. `CoopTranslator-Project`).
+   - Vyberte **AI hub**  (např. `CoopTranslator-Hub`) (vytvořte nový, pokud je potřeba).
 
-1. Click "**Review and Create**" to finalize your project setup. You will be directed to the project overview page.
+1. Klikněte na "**Review and Create**" pro nastavení vašeho projektu. Budete přesměrováni na přehledovou stránku vašeho projektu.
 
-## Set up Azure OpenAI for Language Translation
+## Nastavení Azure OpenAI pro jazykový překlad
 
-Inside your project, deploy an Azure OpenAI model to handle text translation.
+V rámci vašeho projektu nasadíte model Azure OpenAI, který bude sloužit jako backend pro překlad textu.
 
-### Navigate to Your Project
+### Navigace do vašeho projektu
 
-If you’re not already there, open your newly created project (e.g., `CoopTranslator-Project`) in Azure AI Foundry.
+Pokud již nejste v projektu, otevřete svůj nově vytvořený projekt (např. `CoopTranslator-Project`) v Azure AI Foundry.
 
-### Deploy an OpenAI Model
+### Nasazení modelu OpenAI
 
-1. From the project’s left menu, under "My assets", select "**Models + endpoints**".
+1. V levém menu projektu, pod "My assets", vyberte "**Models + endpoints**".
 
-1. Click **+ Deploy model**.
+1. Vyberte **+ Deploy model**.
 
-1. Choose **Deploy Base Model**.
+1. Vyberte **Deploy Base Model**.
 
-1. A list of available models will appear. Filter or search for an appropriate GPT model. We recommend `gpt-4o`.
+1. Zobrazí se seznam dostupných modelů. Filtrovat nebo vyhledejte vhodný GPT model. Doporučujeme `gpt-4o`.
 
-1. Select your preferred model and click **Confirm**.
+1. Vyberte požadovaný model a klikněte na **Confirm**.
 
-1. Click **Deploy**.
+1. Vyberte **Deploy**.
 
-### Azure OpenAI configuration
+### Konfigurace Azure OpenAI
 
-After deployment, select the deployment from the "**Models + endpoints**" page to find its **REST endpoint URL**, **Key**, **Deployment name**, **Model name**, and **API version**. You’ll need these details to integrate the translation model into your application.
+Po nasazení můžete na stránce "**Models + endpoints**" vybrat implementaci, kde najdete **REST endpoint URL**, **Klíč**, **Jméno implementace**, **Jméno modelu** a **Verzi API**. Tyto údaje budete potřebovat pro integraci překladového modelu do vaší aplikace.
 
 > [!NOTE]
-> You can select API versions on the [API version deprecation](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation) page according to your needs. Note that the **API version** is different from the **Model version** shown on the **Models + endpoints** page in Azure AI Foundry.
+> Verze API můžete vybírat na stránce [API version deprecation](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation) podle vašich požadavků. Mějte na paměti, že **verze API** se liší od **verze modelu**, která je zobrazena na stránce **Models + endpoints** v Azure AI Foundry.
 
-## Set up Azure Computer Vision for Image Translation
+## Nastavení Azure Computer Vision pro překlad obrázků
 
-To translate text within images, locate the Azure AI Service API Key and Endpoint.
+Pro povolení překladu textu v obrázcích je potřeba získat Azure AI Service API Key a Endpoint.
 
-1. Go to your Azure AI Project (e.g., `CoopTranslator-Project`). Make sure you are on the project overview page.
+1. Přejděte do vašeho projektu Azure AI (např. `CoopTranslator-Project`). Ujistěte se, že jste na přehledové stránce projektu.
 
-### Azure AI Service configuration
+### Konfigurace Azure AI Service
 
-Retrieve the API Key and Endpoint from the Azure AI Service.
+Získejte API Key a Endpoint z Azure AI Service.
 
-1. Navigate to your Azure AI Project (e.g., `CoopTranslator-Project`). Confirm you’re on the project overview page.
+1. Přejděte do vašeho projektu Azure AI (např. `CoopTranslator-Project`). Ujistěte se, že jste na přehledové stránce projektu.
 
-1. Find the **API Key** and **Endpoint** under the Azure AI Service tab.
+1. Získejte **API Key** a **Endpoint** z karty Azure AI Service.
 
-    ![Find API Key and Endpoint](../../../translated_images/find-azure-ai-info.60f8299be786dd67e61e2c79b4b9ea1f7694e6c0923f17a90bc6abf9d5f1dbd7.cs.png)
+    ![Find API Key and Endpoint](../../../getting_started/imgs/find-azure-ai-info.png)
 
-This connection enables the features of the linked Azure AI Services resource (including image analysis) within your AI Foundry project. You can then use this connection in notebooks or applications to extract text from images, which can be forwarded to the Azure OpenAI model for translation.
+Toto propojení zpřístupňuje funkce přidruženého zdroje Azure AI Services (včetně analýzy obrázků) ve vašem projektu AI Foundry. Poté můžete toto propojení používat ve svých poznámkových blocích nebo aplikacích k extrakci textu z obrázků, který následně může být odeslán do modelu Azure OpenAI k překladu.
 
-## Consolidating Your Credentials
+## Konsolidace vašich přihlašovacích údajů
 
-At this point, you should have gathered the following:
+Nyní byste měli mít shromážděné následující údaje:
 
-**For Azure OpenAI (Text Translation):**
-- Azure OpenAI Endpoint
-- Azure OpenAI API Key
-- Azure OpenAI Model Name (e.g., `gpt-4o`)
-- Azure OpenAI Deployment Name (e.g., `cooptranslator-gpt4o`)
-- Azure OpenAI API Version
+**Pro Azure OpenAI (překlad textu):**
+- Endpoint Azure OpenAI
+- API klíč Azure OpenAI
+- Jméno modelu Azure OpenAI (např. `gpt-4o`)
+- Jméno implementace Azure OpenAI (např. `cooptranslator-gpt4o`)
+- Verze API Azure OpenAI
 
-**For Azure AI Services (Image Text Extraction via Vision):**
-- Azure AI Service Endpoint
-- Azure AI Service API Key
+**Pro Azure AI Services (extrakce textu z obrázků přes Vision):**
+- Endpoint Azure AI Service
+- API klíč Azure AI Service
 
-### Example: Environment Variable Configuration (Preview)
+### Příklad: Konfigurace prostředí proměnných (Preview)
 
-Later, when building your application, you’ll likely set these credentials as environment variables like this:
+Později při tvorbě vaší aplikace pravděpodobně nastavíte tyto shromážděné údaje jako proměnné prostředí následovně:
 
 ```bash
-# Azure AI Service Credentials (Required for image translation)
-AZURE_AI_SERVICE_API_KEY="your_azure_ai_service_api_key" # e.g., 21xasd...
+# Azure AI přihlašovací údaje (vyžadováno pro překlad obrázků)
+AZURE_AI_SERVICE_API_KEY="your_azure_ai_service_api_key" # např., 21xasd...
 AZURE_AI_SERVICE_ENDPOINT="https://your_azure_ai_service_endpoint.cognitiveservices.azure.com/"
 
-# Azure OpenAI Credentials (Required for text translation)
-AZURE_OPENAI_API_KEY="your_azure_openai_api_key" # e.g., 21xasd...
+# Volitelné náhradní sady: duplikujte proměnné s příponou _1/_2 (stejné indexy pro všechny proměnné v sadě)
+AZURE_AI_SERVICE_API_KEY_1="your_azure_ai_service_api_key_1"
+AZURE_AI_SERVICE_ENDPOINT_1="https://your_azure_ai_service_endpoint_1.cognitiveservices.azure.com/"
+
+# Azure OpenAI přihlašovací údaje (vyžadováno pro překlad textu)
+AZURE_OPENAI_API_KEY="your_azure_openai_api_key" # např., 21xasd...
 AZURE_OPENAI_ENDPOINT="https://your_azure_openai_endpoint.openai.azure.com/"
-AZURE_OPENAI_MODEL_NAME="your_model_name" # e.g., gpt-4o
-AZURE_OPENAI_CHAT_DEPLOYMENT_NAME="your_deployment_name" # e.g., cooptranslator-gpt4o
-AZURE_OPENAI_API_VERSION="your_api_version" # e.g., 2024-12-01-preview
+AZURE_OPENAI_MODEL_NAME="your_model_name" # např., gpt-4o
+AZURE_OPENAI_CHAT_DEPLOYMENT_NAME="your_deployment_name" # např., cooptranslator-gpt4o
+AZURE_OPENAI_API_VERSION="your_api_version" # např., 2024-12-01-preview
+
+# Volitelné náhradní sady: duplikujte celou sadu AZURE_OPENAI_* s příponou _1/_2 (stejné indexy pro všechny proměnné)
 ```
 
 ---
 
-### Further Reading
+### Další čtení
 
-- [How to Create a project in Azure AI Foundry](https://learn.microsoft.com/azure/ai-foundry/how-to/create-projects?tabs=ai-studio)
-- [How to Create Azure AI resources](https://learn.microsoft.com/azure/ai-foundry/how-to/create-azure-ai-resource?tabs=portal)
-- [How to Deploy OpenAI models in Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/deploy-models-openai)
+- [Jak vytvořit projekt v Azure AI Foundry](https://learn.microsoft.com/azure/ai-foundry/how-to/create-projects?tabs=ai-studio)
+- [Jak vytvořit Azure AI zdroje](https://learn.microsoft.com/azure/ai-foundry/how-to/create-azure-ai-resource?tabs=portal)
+- [Jak nasadit modely OpenAI v Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/deploy-models-openai)
 
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Prohlášení o vyloučení odpovědnosti**:  
-Tento dokument byl přeložen pomocí AI překladatelské služby [Co-op Translator](https://github.com/Azure/co-op-translator). Přestože usilujeme o přesnost, mějte prosím na paměti, že automatizované překlady mohou obsahovat chyby nebo nepřesnosti. Původní dokument v jeho mateřském jazyce by měl být považován za autoritativní zdroj. Pro důležité informace se doporučuje profesionální lidský překlad. Nejsme odpovědní za jakákoliv nedorozumění nebo chybné výklady vzniklé použitím tohoto překladu.
+Tento dokument byl přeložen pomocí služby AI pro překlad [Co-op Translator](https://github.com/Azure/co-op-translator). Ačkoli usilujeme o přesnost, mějte prosím na paměti, že automatické překlady mohou obsahovat chyby nebo nepřesnosti. Originální dokument v jeho rodném jazyce by měl být považován za autoritativní zdroj. Pro důležité informace se doporučuje využít profesionální lidský překlad. Nezodpovídáme za jakákoliv nedorozumění nebo nesprávné interpretace vyplývající z použití tohoto překladu.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

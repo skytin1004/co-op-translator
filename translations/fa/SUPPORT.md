@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "62fe65c1d8e3796c01aa1e3c89666cba",
-  "translation_date": "2025-06-12T11:14:51+00:00",
-  "source_file": "SUPPORT.md",
-  "language_code": "fa"
-}
--->
 # TODO: نگهدارنده این مخزن هنوز این فایل را ویرایش نکرده است
 
 **مالک مخزن**: آیا می‌خواهید پشتیبانی خدمات مشتری و پشتیبانی (CSS) برای این محصول/پروژه داشته باشید؟

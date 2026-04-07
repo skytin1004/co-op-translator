@@ -1,16 +1,8 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "dac6bc281667816537df51f724a0ff2c",
-  "translation_date": "2025-11-30T10:43:01+00:00",
-  "source_file": "README.md",
-  "language_code": "ne"
-}
--->
-# को-अप अनुवादक
+# Co-op Translator
 
-_आफ्नो शैक्षिक GitHub सामग्रीलाई सजिलै विभिन्न भाषाहरूमा अनुवाद गरेर विश्वव्यापी दर्शकसम्म पुग्नुहोस्।_
+_आफ्नो शैक्षिक GitHub सामग्रीलाई बहुभाषी बनाएर सजिलै अनुवाद स्वचालित र मर्मत गर्नुहोस्, जस्तै-जस्तै तपाईंको परियोजना विकास हुँदै जान्छ।_
 
+![Python 3.10–3.12](https://img.shields.io/badge/python-3.10--3.12-blue)
 [![Python package](https://img.shields.io/pypi/v/co-op-translator?color=4BA3FF)](https://pypi.org/project/co-op-translator/)
 [![License: MIT](https://img.shields.io/github/license/azure/co-op-translator?color=4BA3FF)](https://github.com/azure/co-op-translator/blob/main/LICENSE)
 [![Downloads](https://static.pepy.tech/badge/co-op-translator)](https://pepy.tech/project/co-op-translator)
@@ -23,12 +15,32 @@ _आफ्नो शैक्षिक GitHub सामग्रीलाई स
 [![GitHub pull-requests](https://img.shields.io/github/issues-pr/azure/co-op-translator.svg)](https://GitHub.com/azure/co-op-translator/pulls/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-### 🌐 बहुभाषिक समर्थन
+### 🌐 बहुभाषी समर्थन
 
-#### [Co-op Translator](https://github.com/Azure/Co-op-Translator) द्वारा समर्थित
+#### [Co-op Translator](https://github.com/Azure/Co-op-Translator) द्वारा समर्थन गरिएको
 
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
-[अरबी](../ar/README.md) | [बंगाली](../bn/README.md) | [बुल्गेरियन](../bg/README.md) | [बर्मी (म्यानमार)](../my/README.md) | [चिनी (सरलीकृत)](../zh/README.md) | [चिनी (परम्परागत, हङकङ)](../hk/README.md) | [चिनी (परम्परागत, मकाउ)](../mo/README.md) | [चिनी (परम्परागत, ताइवान)](../tw/README.md) | [क्रोएशियन](../hr/README.md) | [चेक](../cs/README.md) | [डेनिश](../da/README.md) | [डच](../nl/README.md) | [एस्टोनियन](../et/README.md) | [फिनिश](../fi/README.md) | [फ्रेन्च](../fr/README.md) | [जर्मन](../de/README.md) | [ग्रीक](../el/README.md) | [हिब्रू](../he/README.md) | [हिन्दी](../hi/README.md) | [हंगेरीयन](../hu/README.md) | [इन्डोनेशियन](../id/README.md) | [इटालियन](../it/README.md) | [जापानी](../ja/README.md) | [कन्नड](../kn/README.md) | [कोरियन](../ko/README.md) | [लिथुआनियन](../lt/README.md) | [मलय](../ms/README.md) | [मलयालम](../ml/README.md) | [मराठी](../mr/README.md) | [नेपाली](./README.md) | [नाइजेरियन पिजिन](../pcm/README.md) | [नर्वेजियन](../no/README.md) | [फारसी (पर्शियन)](../fa/README.md) | [पोलिश](../pl/README.md) | [पोर्चुगिज (ब्राजिल)](../br/README.md) | [पोर्चुगिज (पोर्चुगल)](../pt/README.md) | [पञ्जाबी (गुरुमुखी)](../pa/README.md) | [रोमानियन](../ro/README.md) | [रूसी](../ru/README.md) | [सर्बियन (सिरिलिक)](../sr/README.md) | [स्लोभाक](../sk/README.md) | [स्लोभेनियन](../sl/README.md) | [स्पेनिश](../es/README.md) | [स्वाहिली](../sw/README.md) | [स्विडिश](../sv/README.md) | [टागालोग (फिलिपिनो)](../tl/README.md) | [तमिल](../ta/README.md) | [तेलुगु](../te/README.md) | [थाई](../th/README.md) | [टर्किश](../tr/README.md) | [युक्रेनीयन](../uk/README.md) | [उर्दू](../ur/README.md) | [भियतनामी](../vi/README.md)
+[Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh-CN/README.md) | [Chinese (Traditional, Hong Kong)](../zh-HK/README.md) | [Chinese (Traditional, Macau)](../zh-MO/README.md) | [Chinese (Traditional, Taiwan)](../zh-TW/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](../he/README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Kannada](../kn/README.md) | [Khmer](../km/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Malayalam](../ml/README.md) | [Marathi](../mr/README.md) | [Nepali](./README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../pt-BR/README.md) | [Portuguese (Portugal)](../pt-PT/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
+
+> **स्थानीय रूपमा क्लोन गर्न चाहनुहुन्छ?**
+>
+> यो रिपोजिटरीमा ५०+ भाषा अनुवादहरू समावेश छन् जसले डाउनलोड साइजलाई निकै बढाउँछ। अनुवादहरू बिना क्लोन गर्न, sparse checkout प्रयोग गर्नुहोस्:
+>
+> **Bash / macOS / Linux:**
+> ```bash
+> git clone --filter=blob:none --sparse https://github.com/Azure/co-op-translator.git
+> cd co-op-translator
+> git sparse-checkout set --no-cone '/*' '!translations' '!translated_images'
+> ```
+>
+> **CMD (Windows):**
+> ```cmd
+> git clone --filter=blob:none --sparse https://github.com/Azure/co-op-translator.git
+> cd co-op-translator
+> git sparse-checkout set --no-cone "/*" "!translations" "!translated_images"
+> ```
+>
+> यसले तपाईंलाई कोर्स पूरा गर्न आवश्यक सबै कुरा कम समयमै डाउनलोड गरेर दिन्छ।
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
 [![GitHub watchers](https://img.shields.io/github/watchers/azure/co-op-translator.svg?style=social&label=Watch)](https://GitHub.com/azure/co-op-translator/watchers/)
@@ -41,17 +53,37 @@ _आफ्नो शैक्षिक GitHub सामग्रीलाई स
 
 ## अवलोकन
 
-**को-अप अनुवादक** ले तपाईंलाई सजिलै आफ्नो शैक्षिक GitHub सामग्रीलाई विभिन्न भाषाहरूमा स्थानीयकरण गर्न मद्दत गर्छ।  
-जब तपाईंले Markdown फाइलहरू, तस्बिरहरू, वा नोटबुकहरू अपडेट गर्नुहुन्छ, अनुवादहरू स्वचालित रूपमा समक्रमित रहन्छन्, जसले विश्वभरिका सिक्नेहरूका लागि तपाईंको सामग्री सही र अद्यावधिक रहन्छ।
+**Co-op Translator** ले तपाईंको शैक्षिक GitHub सामग्रीलाई सजिलै बहुभाषामा स्थानिय बनाउन मद्दत गर्दछ।  
+जब तपाईं आफ्नो Markdown फाइलहरू, तस्बिरहरू वा नोटबुकहरू अपडेट गर्नुहुन्छ, अनुवादहरू स्वचालित रूपमा समक्रमणमा रहन्छन्, जसले विश्वभरिका विद्यार्थीहरूका लागि तपाईंको सामग्री सही र अद्यावधिक रहन्छ।
 
-अनुवादित सामग्री कसरी व्यवस्थित हुन्छ भन्ने उदाहरण:
+अनुवादित सामग्री कसरी व्यवस्थित गरिएको छ भन्ने उदाहरण:
 
-![Example](../../translated_images/translation-ex.0c8aa6a7ee0aad2b35cddcc110c719baf0afc640e8c5a45540e6c166b9907d91.ne.png)
+![Example](../../imgs/translation-ex.png)
+
+## अनुवाद स्थिति कसरी व्यवस्थापन गरिन्छ
+
+Co-op Translator ले अनुवादित सामग्रीलाई **संस्करण गरिएको सफ्टवेयर वस्तुहरू (versioned software artifacts)** को रूपमा व्यवस्थापन गर्छ,  
+स्थिर फाइलहरूका रूपमा होइन।
+
+यो उपकरणले अनुवादित Markdown, तस्बिरहरू, र नोटबुकहरूको अवस्थालाई  
+**भाषा-विशिष्ट मेटाडाटा (language-scoped metadata)** प्रयोग गरेर ट्र्याक गर्छ।
+
+यो डिजाइनले Co-op Translator लाई सक्षम बनाउँछ:
+
+- अव्यवस्थित अनुवादहरू भरपर्दो रूपमा पत्ता लगाउन
+- Markdown, तस्बिर र नोटबुकलाई समान तरिकाले व्यवहार गर्न
+- ठूलो, छिटो सञ्चालित बहुभाषी रिपोजिटरीहरूमा सुरक्षित रूपमा मापन गर्न
+
+अनुवादहरूलाई व्यवस्थित वस्तुका रूपमा मोडेलिङ गरेर,  
+अनुवाद कार्यप्रवाहहरू स्वाभाविक रूपमा आधुनिक सफ्टवेयर निर्भरता र वस्तु व्यवस्थापन अभ्याससँग मेल खान्छ।
+
+→ [अनुवाद स्थिति कसरी व्यवस्थापन गरिन्छ](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/rethinking-documentation-translation-treating-translations-as-versioned-software/4491755)
+
 
 ## छिटो सुरु
 
 ```bash
-# भर्चुअल वातावरण सिर्जना गर्नुहोस् र सक्रिय गर्नुहोस् (सिफारिस गरिएको)
+# एउटा भर्चुअल वातावरण सिर्जना गर्नुहोस् र सक्रिय गर्नुहोस् (सिफारिस गरिएको)
 python -m venv .venv
 # विन्डोज
 .venv\Scripts\activate
@@ -68,18 +100,20 @@ Docker:
 ```bash
 # GHCR बाट सार्वजनिक छवि तान्नुहोस्
 docker pull ghcr.io/azure/co-op-translator:latest
-# हालको फोल्डर माउन्ट गरिएको र .env प्रदान गरिएको साथ चलाउनुहोस् (Bash/Zsh)
+# वर्तमान फोल्डर माउन्ट गरिएको र .env प्रदान गरिएको छ (Bash/Zsh) चलाउनुहोस्
 docker run --rm -it --env-file .env -v "${PWD}:/work" ghcr.io/azure/co-op-translator:latest -l "ko ja fr" -md
 ```
 
 ## न्यूनतम सेटअप
 
-1. टेम्प्लेट प्रयोग गरेर `.env` फाइल बनाउनुहोस्: [.env.template](../../.env.template)
-2. एउटा LLM प्रदायक कन्फिगर गर्नुहोस् (Azure OpenAI वा OpenAI)
-3. (वैकल्पिक) तस्बिर अनुवादको लागि (`-img`), Azure AI Vision कन्फिगर गर्नुहोस्
-4. (सिफारिस गरिएको) कुनै पनि पुराना अनुवादहरू हटाएर द्वन्द्वबाट बच्नुहोस् (जस्तै `translations/`)
-5. (सिफारिस गरिएको) आफ्नो README मा अनुवाद सेक्सन थप्नुहोस् [README भाषाहरू टेम्प्लेट](./getting_started/README_languages_template.md) प्रयोग गरेर
-6. हेर्नुहोस्: [Azure AI सेटअप](./getting_started/set-up-azure-ai.md)
+1. तपाईंले Supported Python संस्करण (हाल ३.१०-३.१२) छ कि छैन भनि सुनिश्चित गर्नुहोस्। Poetry (pyproject.toml) मा यो स्वचालित रूपमा ह्यान्डल हुन्छ।
+2. टेम्प्लेट प्रयोग गरेर `.env` फाइल सिर्जना गर्नुहोस्: [.env.template](../../.env.template)
+3. एउटा LLM प्रदायक कन्फिगर गर्नुहोस् (Azure OpenAI वा OpenAI)
+4. (वैकल्पिक) तस्बिर अनुवादको लागि (`-img`) Azure AI Vision कन्फिगर गर्नुहोस्
+5. (वैकल्पिक) तपाईं सुफिक्स जस्तै `_1`, `_2`, आदि प्रयोग गरेर धेरै क्रेडेन्सियल सेटहरू कन्फिगर गर्न सक्नुहुन्छ। एउटै सेटका सबै भेरिएबलहरूमा एउटै सुफिक्स हुनुपर्छ।
+6. (सिफारिस गरिन्छ) सञ्झ्यालहरू जस्तो `translations/` बाट कुनै पुराना अनुवाद सफा गर्नुहोस् ताकि द्वन्द्व नहोस्।
+7. (सिफारिस गरिन्छ) तपाईंको README मा अनुवाद अनुभाग थप्न [README languages template](./getting_started/README_languages_template.md) प्रयोग गर्नुहोस्।
+8. हेर्नुहोस्: [Azure AI सेटअप गर्नुहोस्](./getting_started/set-up-azure-ai.md)
 
 ## प्रयोग
 
@@ -107,45 +141,48 @@ translate -l "pt" -md -img
 translate -l "zh" -nb
 ```
 
-थप झण्डाहरू: [कमाण्ड सन्दर्भ](./getting_started/command-reference.md)
+अझै धेरै फ्ल्यागहरू: [Command reference](./getting_started/command-reference.md)
 
-## विशेषताहरू
+## सुविधाहरू
 
-- Markdown, नोटबुक, र तस्बिरहरूको स्वचालित अनुवाद
-- स्रोत परिवर्तनहरूसँग अनुवादहरू समक्रमित राख्छ
-- स्थानीय (CLI) वा CI (GitHub Actions) मा काम गर्छ
-- Azure OpenAI वा OpenAI प्रयोग गर्छ; तस्बिरहरूको लागि वैकल्पिक Azure AI Vision
-- Markdown ढाँचा र संरचना जोगाउँछ
+- Markdown, नोटबुक र तस्बिरहरूको स्वचालित अनुवाद
+- स्रोतमा भएका परिवर्तनहरूसँग अनुवादलाई समान्तर राख्छ
+- लोकलमा (CLI) वा CI मा (GitHub Actions) काम गर्दछ
+- Azure OpenAI वा OpenAI प्रयोग गर्दछ; तस्बिरहरूको लागि वैकल्पिक Azure AI Vision
+- Markdown को फर्म्याटिङ र संरचना संरक्षण गर्दछ
 
 ## कागजातहरू
 
-- [कमाण्ड-लाइन मार्गदर्शिका](./getting_started/command-line-guide/command-line-guide.md)
-- [GitHub Actions मार्गदर्शिका (सार्वजनिक रिपोजिटोरी र मानक गोप्य जानकारी)](./getting_started/github-actions-guide/github-actions-guide-public.md)
-- [GitHub Actions मार्गदर्शिका (Microsoft संगठन रिपोजिटोरी र संगठन स्तर सेटअप)](./getting_started/github-actions-guide/github-actions-guide-org.md)
-- [README भाषाहरू टेम्प्लेट](./getting_started/README_languages_template.md)
+- [कमाण्ड लाइन गाइड](./getting_started/command-line-guide/command-line-guide.md)
+- [GitHub Actions गाइड (सार्वजनिक रिपोजिटरीहरू र सामान्य सिक्रेटहरू)](./getting_started/github-actions-guide/github-actions-guide-public.md)
+- [GitHub Actions गाइड (Microsoft संस्था रिपोजिटरीहरू र संस्थागत सेटअपहरू)](./getting_started/github-actions-guide/github-actions-guide-org.md)
+- [README भाषा टेम्प्लेट](./getting_started/README_languages_template.md)
 - [समर्थित भाषाहरू](./getting_started/supported-languages.md)
-- [योगदान गर्ने तरिका](./CONTRIBUTING.md)
+- [योगदान दिनुहोस्](./CONTRIBUTING.md)
 - [समस्या समाधान](./getting_started/troubleshooting.md)
 
-### Microsoft-विशेष मार्गदर्शिका
+### Microsoft विशिष्ट गाइड
 > [!NOTE]
-> Microsoft “For Beginners” रिपोजिटोरीका मर्मतकर्ताहरूका लागि मात्र।
+> Microsoft “For Beginners” रिपोजिटरीका मर्मतकर्ताहरूका लागि मात्र।
 
-- [“अन्य कोर्सहरू” सूची अद्यावधिक गर्ने तरिका (MS Beginners रिपोजिटोरीका लागि मात्र)](./getting_started/update-other-courses.md)
+- [“other courses” सूची अद्यावधिक गर्ने (MS Beginners रिपोजिटरीहरूका लागि मात्र)](./getting_started/update-other-courses.md)
 
 ## हामीलाई समर्थन गर्नुहोस् र विश्वव्यापी सिकाइ प्रवर्द्धन गर्नुहोस्
 
-शैक्षिक सामग्री विश्वव्यापी रूपमा कसरी साझा गरिन्छ भन्ने क्रान्तिमा हामीसँग सामेल हुनुहोस्! [Co-op Translator](https://github.com/azure/co-op-translator) लाई GitHub मा ⭐ दिनुहोस् र सिकाइ र प्रविधिमा भाषा अवरोधहरू तोड्ने हाम्रो मिशनलाई समर्थन गर्नुहोस्। तपाईंको रुचि र योगदानले ठूलो प्रभाव पार्छ! कोड योगदान र नयाँ सुविधाहरूको सुझाव सधैं स्वागत छ।
+शैक्षिक सामग्री विश्वभर कसरी साझा गरिन्छ त्यसमा क्रान्ति ल्याउन हामीसँग हातेमालो गर्नुहोस्!  
+[Co-op Translator](https://github.com/azure/co-op-translator) लाई GitHub मा ⭐ दिनुहोस् र सिकाइ र प्रविधिमा भाषा बाधाहरूलाई भत्काउने हाम्रो मिशनलाई समर्थन गर्नुहोस्। तपाईंको रुचि र योगदानहरूले ठूलो प्रभाव पार्दछ!  
+कोड योगदान र सुविधासम्बन्धी सुझावहरू सधैं स्वागत छन्।
 
 ### आफ्नो भाषामा Microsoft शैक्षिक सामग्री अन्वेषण गर्नुहोस्
 
+- [LangChain4j-for-Beginners](https://github.com/microsoft/LangChain4j-for-Beginners)
 - [AZD for Beginners](https://github.com/microsoft/AZD-for-beginners)
 - [Edge AI for Beginners](https://github.com/microsoft/edgeai-for-beginners)
 - [Model Context Protocol (MCP) For Beginners](https://github.com/microsoft/mcp-for-beginners)
 - [AI Agents for Beginners](https://github.com/microsoft/ai-agents-for-beginners)
-- [.NET प्रयोग गरेर Generative AI for Beginners](https://github.com/microsoft/Generative-AI-for-beginners-dotnet)
+- [Generative AI for Beginners using .NET](https://github.com/microsoft/Generative-AI-for-beginners-dotnet)
 - [Generative AI for Beginners](https://github.com/microsoft/generative-ai-for-beginners)
-- [Java प्रयोग गरेर Generative AI for Beginners](https://github.com/microsoft/generative-ai-for-beginners-java)
+- [Generative AI for Beginners using Java](https://github.com/microsoft/generative-ai-for-beginners-java)
 - [ML for Beginners](https://aka.ms/ml-beginners)
 - [Data Science for Beginners](https://aka.ms/datascience-beginners)
 - [AI for Beginners](https://aka.ms/ai-beginners)
@@ -158,53 +195,55 @@ translate -l "zh" -nb
 
 👉 तलको तस्बिरमा क्लिक गरेर YouTube मा हेर्नुहोस्।
 
-- **Open at Microsoft**: को-अप अनुवादक कसरी प्रयोग गर्ने बारे छोटो १८ मिनेटको परिचय र छिटो मार्गदर्शिका।
+- **Open at Microsoft**: Co-op Translator कसरी प्रयोग गर्नेछ भनेर संक्षिप्त १८ मिनेटको परिचय र छिटो गाइड।
 
-  [![Open at Microsoft](../../translated_images/open-ms-thumbnail.946b356b89bc5f0e33dcebb852f7926b98c33f54c1a49ce01c36ae7f35e2443a.ne.jpg)](https://www.youtube.com/watch?v=jX_swfH_KNU)
+  [![Open at Microsoft](../../imgs/open-ms-thumbnail.jpg)](https://www.youtube.com/watch?v=jX_swfH_KNU)
 
-## योगदान
+## योगदान दिनुहोस्
 
-यो परियोजनाले योगदान र सुझावहरूलाई स्वागत गर्दछ। Azure Co-op Translator मा योगदान गर्न इच्छुक हुनुहुन्छ? कृपया हाम्रो [CONTRIBUTING.md](./CONTRIBUTING.md) हेर्नुहोस् जसले तपाईंलाई को-अप अनुवादकलाई अझ पहुँचयोग्य बनाउन कसरी मद्दत गर्न सकिन्छ भन्ने मार्गदर्शन गर्छ।
+यो परियोजनामा योगदान र सुझावहरू स्वागतयोग्य छन्। Azure Co-op Translator मा योगदान दिन इच्छुक हुनुहुन्छ? कृपया हाम्रो [CONTRIBUTING.md](./CONTRIBUTING.md) हेर्नुहोस् जसले कसरी Co-op Translator लाई झन् पहुँचयोग्य बनाउन मद्दत गर्न सकिन्छ भनेर मार्गदर्शन गर्छ।
 
 ## योगदानकर्ताहरू
-
 [![co-op-translator contributors](https://contrib.rocks/image?repo=Azure/co-op-translator)](https://github.com/Azure/co-op-translator/graphs/contributors)
 
 ## आचार संहिता
 
-यस परियोजनाले [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) अपनाएको छ।  
-थप जानकारीका लागि [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) हेर्नुहोस् वा  
-[opencode@microsoft.com](mailto:opencode@microsoft.com) मा कुनै प्रश्न वा टिप्पणीहरू पठाउनुहोस्।
+यस परियोजनाले [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) अंगिकार गरेको छ।
+थप जानकारीका लागि [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) हेर्नुहोस् वा 
+थप प्रश्न वा टिप्पणीका लागि [opencode@microsoft.com](mailto:opencode@microsoft.com) सम्पर्क गर्नुहोस्।
 
 ## जिम्मेवार AI
 
-Microsoft ले हाम्रा ग्राहकहरूलाई AI उत्पादनहरू जिम्मेवार तरिकाले प्रयोग गर्न मद्दत गर्न प्रतिबद्ध छ, हाम्रा सिकाइहरू साझा गर्छ, र Transparency Notes र Impact Assessments जस्ता उपकरणहरू मार्फत विश्वासमा आधारित साझेदारीहरू निर्माण गर्छ। यी स्रोतहरू धेरै [https://aka.ms/RAI](https://aka.ms/RAI) मा उपलब्ध छन्।  
-Microsoft को जिम्मेवार AI दृष्टिकोण हाम्रो AI सिद्धान्तहरूमा आधारित छ: न्याय, विश्वसनीयता र सुरक्षा, गोपनीयता र सुरक्षा, समावेशिता, पारदर्शिता, र जवाफदेहिता।
+Microsoft हाम्रा ग्राहकहरूलाई हाम्रा AI उत्पादनहरू जिम्मेवार तरीकाले प्रयोग गर्न सहयोग गर्ने, हाम्रो सिकाइ साझा गर्ने, र Transparency Notes र Impact Assessments जस्ता उपकरणमार्फत विश्वास-आधारित साझेदारीहरू निर्माण गर्ने प्रतिबद्ध छ। यी मध्ये धेरै स्रोतहरू [https://aka.ms/RAI](https://aka.ms/RAI) मा पाउन सकिन्छ।
+जिम्मेवार AI को लागि Microsoft को दृष्टिकोण हाम्रा AI सिद्धान्तहरूमा आधारित छ जसमा निष्पक्षता, भरपर्दोता र सुरक्षा, गोपनीयता र सुरक्षा, समावेशिता, पारदर्शिता, र जवाफदेहिता समावेश छन्।
 
-ठूला प्राकृतिक भाषा, तस्बिर, र भाषण मोडेलहरू - जस्तै यस नमूनामा प्रयोग गरिएका - सम्भावित रूपमा अन्यायपूर्ण, अविश्वसनीय, वा अपमानजनक व्यवहार गर्न सक्छन्, जसले हानि पुर्याउन सक्छ। कृपया जोखिम र सीमाहरूको जानकारीका लागि [Azure OpenAI सेवा Transparency note](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) सल्लाह लिनुहोस्।
-यी जोखिमहरूलाई कम गर्ने सिफारिस गरिएको तरिका भनेको तपाईंको आर्किटेक्चरमा एउटा सुरक्षा प्रणाली समावेश गर्नु हो जसले हानिकारक व्यवहार पत्ता लगाउन र रोक्न सक्छ। [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) ले स्वतन्त्र सुरक्षा तह प्रदान गर्दछ, जसले अनुप्रयोग र सेवाहरूमा प्रयोगकर्ताद्वारा सिर्जित र AI द्वारा सिर्जित हानिकारक सामग्री पत्ता लगाउन सक्षम छ। Azure AI Content Safety मा पाठ र छवि API हरू समावेश छन् जसले तपाईंलाई हानिकारक सामग्री पत्ता लगाउन अनुमति दिन्छ। हामीसँग एउटा अन्तरक्रियात्मक Content Safety Studio पनि छ जसले तपाईंलाई विभिन्न मोडालिटीहरूमा हानिकारक सामग्री पत्ता लगाउन नमूना कोड हेर्न, अन्वेषण गर्न र प्रयास गर्न अनुमति दिन्छ। तलको [छिटो सुरु गर्ने कागजात](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) ले तपाईंलाई सेवामा अनुरोधहरू कसरी गर्ने भनेर मार्गदर्शन गर्दछ।
+ठूला-स्तरका प्राकृतिक भाषा, चित्र, र भाषण मोडेलहरू - जसरी यस नमुनामा प्रयोग भएका छन् - सम्भावित रूपमा अनुचित, अविश्वसनीय, वा अपमानजनक व्यवहार गर्न सक्छन्, जसले हानि पुर्‍याउन सक्छ। कृपया जोखिम र सीमाहरूको बारेमा जानकारीको लागि [Azure OpenAI सेवा Transparency note](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) परामर्श गर्नुहोस्।
 
-अर्को विचार गर्नुपर्ने पक्ष भनेको समग्र अनुप्रयोग प्रदर्शन हो। बहु-मोडाल र बहु-मोडेल अनुप्रयोगहरूमा, हामी प्रदर्शनलाई यस्तो अर्थमा लिन्छौं कि प्रणाली तपाईं र तपाईंका प्रयोगकर्ताहरूले अपेक्षा गरेजस्तै काम गर्छ, जसमा हानिकारक आउटपुटहरू उत्पन्न नगर्नु पनि समावेश छ। तपाईंको समग्र अनुप्रयोगको प्रदर्शन [उत्पादन गुणस्तर र जोखिम तथा सुरक्षा मेट्रिक्स](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in) प्रयोग गरेर मूल्याङ्कन गर्नु महत्त्वपूर्ण छ।
+यी जोखिमहरू घटाउने सिफारिस गरिएको दृष्टिकोण भनेको तपाईंको वास्तुकलामा एक सुरक्षा प्रणाली समावेश गर्नु हो जसले हानिकारक व्यवहार पत्ता लगाउन र रोक्न सक्छ। [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) ले स्वतन्त्र सुरक्षा तह प्रदान गर्दछ, जुन अनुप्रयोगहरू र सेवाहरूमा नकारात्मक प्रयोगकर्ता-निर्मित र AI-निर्मित सामग्री पत्ता लगाउन सक्षम छ। Azure AI Content Safety मा text र image API हरू समावेश छन् जसले तपाईंलाई हानिकारक सामग्री पत्ता लगाउन अनुमति दिन्छ। हामीसँग एउटा अन्तरक्रियात्मक Content Safety Studio पनि छ जसले तपाईंलाई विभिन्न मोडलिटीहरूमा हानिकारक सामग्री पत्ता लगाउन नमूना कोड हेर्न, अनुसन्धान गर्न र प्रयास गर्न अनुमति दिन्छ। निम्न [quickstart डकुमेन्टेसन](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) ले तपाईंलाई सेवामा अनुरोध गर्ने क्रममा मार्गदर्शन गर्दछ।
 
-तपाईं आफ्नो विकास वातावरणमा [prompt flow SDK](https://microsoft.github.io/promptflow/index.html) प्रयोग गरेर आफ्नो AI अनुप्रयोग मूल्याङ्कन गर्न सक्नुहुन्छ। परीक्षण डेटासेट वा लक्ष्य दिइएपछि, तपाईंको जेनेरेटिभ AI अनुप्रयोगका उत्पादनहरू स्वचालित मूल्याङ्कनकर्ताहरू वा तपाईंले रोजेको अनुकूलित मूल्याङ्कनकर्ताहरूको साथ मात्रात्मक रूपमा मापन गरिन्छ। तपाईंको प्रणाली मूल्याङ्कन गर्न prompt flow SDK सँग सुरु गर्न, तपाईं [छिटो सुरु गर्ने मार्गदर्शन](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk) अनुसरण गर्न सक्नुहुन्छ। मूल्याङ्कन चलाएपछि, तपाईं [Azure AI Studio मा परिणामहरू दृश्यात्मक रूपमा हेर्न](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results) सक्नुहुन्छ।
+अर्को पक्ष हो समग्र अनुप्रयोग प्रदर्शन। बहु-मोडल र बहु-मोडेल अनुप्रयोगहरूसँग, हामी प्रदर्शनलाई त्यसरी बुझ्छौं कि प्रणाली तपाईं र तपाईंका प्रयोगकर्ताहरूले अपेक्षा गर्ने अनुसार काम गर्दछ, जसमा हानिकारक आउटपुट नउत्पन्न हुनु पर्छ। आफ्नो समग्र अनुप्रयोगको प्रदर्शन [generation quality and risk and safety metrics](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in) प्रयोग गरी मूल्यांकन गर्नु महत्त्वपूर्ण छ।
+
+तपाईं आफ्नो विकास वातावरणमा [prompt flow SDK](https://microsoft.github.io/promptflow/index.html) प्रयोग गरी आफ्नो AI अनुप्रयोगको मूल्यांकन गर्न सक्नुहुन्छ। टेस्ट डेटासेट वा लक्ष्य दिइएपछि, तपाईंको जेनेरेटिभ AI अनुप्रयोगका जेनेरेसनहरू built-in मूल्यांकक वा तपाईंको रोजाइका कस्टम मूल्यांककहरूद्वारा मात्रात्मक रूपमा मापन गरिन्छ। प्रणालीको मूल्यांकन सुरु गर्न prompt flow sdk प्रयोग गरेर, तपाईं [quickstart गाइड](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk) पछ्याउन सक्नुहुन्छ। मूल्यांकन रन सम्पन्न भएपछि, तपाईं [Azure AI Studio मा परिणामहरू देखाउन](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results) सक्नुहुन्छ।
 
 ## ट्रेडमार्कहरू
 
-यो परियोजनामा परियोजना, उत्पादन वा सेवाहरूका ट्रेडमार्क वा लोगोहरू समावेश हुन सक्छन्। Microsoft का ट्रेडमार्क वा लोगोहरूको अधिकृत प्रयोग [Microsoft को ट्रेडमार्क र ब्रान्ड दिशानिर्देशहरू](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general) अनुसार हुनुपर्छ। यस परियोजनाको संशोधित संस्करणहरूमा Microsoft ट्रेडमार्क वा लोगोहरूको प्रयोगले भ्रम सिर्जना गर्नु हुँदैन वा Microsoft को प्रायोजन संकेत गर्नु हुँदैन। तेस्रो पक्षका ट्रेडमार्क वा लोगोहरूको कुनै पनि प्रयोग तिनका नीतिहरूको अधीनमा हुन्छ।
+यस परियोजनामा परियोजना, उत्पादन, वा सेवाहरूका ट्रेडमार्क वा लोगोहरू हुन सक्छन्। Microsoft ट्रेडमार्क वा लोगोहरूको अधिकृत प्रयोग [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general) पालना गर्नुपर्नेछ।
+यो परियोजनाको परिमार्जित संस्करणहरूमा Microsoft ट्रेडमार्क वा लोगोहरूको प्रयोगले भ्रम उत्पन्न हुनु वा Microsoft को प्रायोजन संकेत गर्नु हुँदैन।
+तृतीय-पक्ष ट्रेडमार्क वा लोगोहरूको कुनै पनि प्रयोग तिनीहरूको नीतिहरूमा निर्भर गर्छ।
 
-## सहयोग प्राप्त गर्ने तरिका
+## सहायता पाउनुहोस्
 
-यदि तपाईं अड्किनुभयो वा AI अनुप्रयोगहरू निर्माण गर्दा कुनै प्रश्न छ भने, सामेल हुनुहोस्:
+यदि तपाईं अड्किएको वा AI एपहरू निर्माण गर्दा कुनै प्रश्न छ भने, सहभागी हुनुहोस्:
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
-यदि तपाईंलाई उत्पादन सम्बन्धी प्रतिक्रिया वा निर्माण गर्दा त्रुटिहरू छन् भने भ्रमण गर्नुहोस्:
+यदि तपाईंको उत्पादन प्रतिक्रिया वा निर्माण गर्दा त्रुटिहरू छन् भने यहाँ जानुहोस्:
 
 [![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**अस्वीकरण**:
-यो दस्तावेज AI अनुवाद सेवा [Co-op Translator](https://github.com/Azure/co-op-translator) प्रयोग गरी अनुवाद गरिएको हो। हामी शुद्धताका लागि प्रयासरत छौं, तर कृपया ध्यान दिनुहोस् कि स्वचालित अनुवादमा त्रुटि वा अशुद्धता हुन सक्छ। मूल दस्तावेज यसको मूल भाषामा आधिकारिक स्रोत मानिनु पर्छ। महत्वपूर्ण जानकारीका लागि व्यावसायिक मानव अनुवाद सिफारिस गरिन्छ। यस अनुवादको प्रयोगबाट उत्पन्न कुनै पनि गलतफहमी वा गलत व्याख्याका लागि हामी जिम्मेवार छैनौं।
+**अस्वीकरण**:  
+यो कागजात [Co-op Translator](https://github.com/Azure/co-op-translator) नामक एआई अनुवाद सेवाको प्रयोग गरेर अनुवाद गरिएको हो। हामी शुद्धताको लागि प्रयासरत छौं, तर कृपया जानकार हुनुहोस् कि स्वचालित अनुवादहरूमा त्रुटिहरू वा अशुद्धि हुन सक्छन्। मूल कागजात यसको मातृ भाषामा अधिकृत स्रोतमात्र मानिनुपर्छ। महत्त्वपूर्ण जानकारीको लागि व्यावसायिक मानवीय अनुवादको सिफारिश गरिन्छ। यस अनुवादको प्रयोगबाट उत्पन्न कुनै गलतफहमी वा भ्रामक व्याख्याको लागि हामी जिम्मेवार छैनौं।
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

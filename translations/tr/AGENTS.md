@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "3fd2055f97f093b6fe102ea24df4458b",
-  "translation_date": "2025-10-15T04:27:04+00:00",
-  "source_file": "AGENTS.md",
-  "language_code": "tr"
-}
--->
 ## Proje Genel Bakış
 
 Co‑op Translator, Markdown dosyalarını, Jupyter defterlerini ve görsel metinlerini birden fazla dile çeviren bir Python komut satırı aracı ve GitHub Actions iş akışıdır. Çıktıları dil‑bazlı klasörlerde düzenler ve çevirileri kaynak içerikle senkronize tutar. Proje, CLI giriş noktaları olan, Poetry ile yönetilen bir kütüphane olarak yapılandırılmıştır.

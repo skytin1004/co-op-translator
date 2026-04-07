@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T04:15:08+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "my"
-}
--->
 # Co-op Translator GitHub Action ကို အသုံးပြုခြင်း (Public Setup)
 
 **အသုံးပြုသူအတွက်:** ဒီလမ်းညွှန်ကို GitHub Actions ရဲ့ ပုံမှန်ခွင့်ပြုချက်နဲ့ အလုပ်လုပ်နိုင်တဲ့ public သို့မဟုတ် private repository များအတွက် ရည်ရွယ်ထားပါတယ်။ ဒီမှာ built-in `GITHUB_TOKEN` ကို အသုံးပြုပါတယ်။

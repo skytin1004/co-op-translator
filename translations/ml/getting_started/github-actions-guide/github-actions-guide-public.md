@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-11-23T02:25:06+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "ml"
-}
--->
 # Co-op Translator GitHub Action ഉപയോഗിച്ച് (പബ്ലിക് സെറ്റപ്പ്)
 
 **ലക്ഷ്യ പ്രേക്ഷകർ:** സാധാരണ GitHub Actions അനുമതികൾ മതിയാകുന്ന പൊതുവായ അല്ലെങ്കിൽ സ്വകാര്യ റിപോസിറ്ററികളിലെ ഉപയോക്താക്കൾക്കായി ഈ മാർഗ്ഗനിർദ്ദേശം ഉദ്ദേശിച്ചിരിക്കുന്നു. ഇത് ഉൾനിർമ്മിത `GITHUB_TOKEN` ഉപയോഗിക്കുന്നു.

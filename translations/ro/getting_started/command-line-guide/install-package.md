@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "510827ad22a2031a50838919c3594828",
-  "translation_date": "2025-10-15T03:58:17+00:00",
-  "source_file": "getting_started/command-line-guide/install-package.md",
-  "language_code": "ro"
-}
--->
 # Instalează pachetul Co-op Translator
 
 **Co-op Translator** este un instrument de tip linie de comandă (CLI) creat pentru a te ajuta să traduci toate fișierele markdown și imaginile din proiectul tău în mai multe limbi. Acest tutorial te va ghida prin configurarea translatorului și rularea lui pentru diverse scenarii.

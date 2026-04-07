@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c64ba65e091e5d87385490fa63a8f574",
-  "translation_date": "2025-08-10T12:16:21+00:00",
-  "source_file": "getting_started/command-line-guide/command-line-guide.md",
-  "language_code": "ko"
-}
--->
 # Co-op Translator 명령줄 인터페이스(CLI) 사용 방법
 
 ## 사전 준비 사항

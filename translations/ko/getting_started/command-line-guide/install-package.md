@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "510827ad22a2031a50838919c3594828",
-  "translation_date": "2025-08-10T12:16:35+00:00",
-  "source_file": "getting_started/command-line-guide/install-package.md",
-  "language_code": "ko"
-}
--->
 # Co-op 번역기 패키지 설치
 
 **Co-op 번역기**는 프로젝트 내 모든 마크다운 파일과 이미지를 여러 언어로 번역하는 데 도움을 주기 위해 설계된 명령줄 인터페이스(CLI) 도구입니다. 이 튜토리얼은 번역기를 설정하고 다양한 사용 사례에 맞게 실행하는 방법을 안내합니다.

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T02:54:44+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "ne"
-}
--->
 # Co-op Translator GitHub Action (सार्वजनिक सेटअप) प्रयोग गर्दै
 
 **लक्ष्य समूह:** यो मार्गदर्शिका अधिकांश सार्वजनिक वा निजी रिपोजिटोरीका प्रयोगकर्ताहरूका लागि हो जहाँ सामान्य GitHub Actions अनुमति पर्याप्त हुन्छ। यसमा बिल्ट-इन `GITHUB_TOKEN` प्रयोग गरिएको छ।

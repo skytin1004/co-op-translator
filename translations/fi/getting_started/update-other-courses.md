@@ -1,25 +1,16 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "93a7150216aa3c2d191135358fa6dd21",
-  "translation_date": "2025-11-30T13:46:01+00:00",
-  "source_file": "getting_started/update-other-courses.md",
-  "language_code": "fi"
-}
--->
-# Päivitä "Muut kurssit" -osio (Microsoft Beginners -repositoriot)
+# Päivitä "Other Courses" -osio (Microsoft Beginners -repositoriot)
 
-Tämä ohje selittää, miten "Muut kurssit" -osio synkronoidaan automaattisesti Co-op Translatorin avulla ja miten päivitetään globaali malli kaikille repositorioille.
+Tämä opas selittää, miten "Other Courses" -osio synkronoituu automaattisesti Co-op Translatorin avulla ja miten päivität globaalin mallipohjan kaikille repositorioille.
 
-- Soveltuu: Vain Microsoft Beginners -repositorioihin
-- Toimii: Co-op Translator CLI:n ja GitHub Actionsin kanssa
+- Soveltuu vain: Microsoft Beginners -repositorioille
+- Toimii yhdessä: Co-op Translator CLI:n ja GitHub Actionsin kanssa
 - Mallin lähde: [src/co_op_translator/templates/other_courses.md](../src/co_op_translator/templates/other_courses.md)
 
 ---
 
-## Nopeasti alkuun: Ota automaattinen synkronointi käyttöön repositoriossasi
+## Pikakäyttö: Ota automaattinen synkronointi käyttöön repossasi
 
-Lisää seuraavat merkit "Muut kurssit" -osion ympärille README-tiedostossasi. Co-op Translator korvaa kaiken näiden merkkien välissä jokaisella suorituskerralla.
+Lisää seuraavat merkit "Other Courses" -osion ympärille README-tiedostossasi. Co-op Translator korvaa nämä merkit sisältävän osion joka ajokerralla.
 
 ```markdown
 <!-- CO-OP TRANSLATOR OTHER COURSES START -->
@@ -27,27 +18,44 @@ Lisää seuraavat merkit "Muut kurssit" -osion ympärille README-tiedostossasi. 
 <!-- CO-OP TRANSLATOR OTHER COURSES END -->
 ```
 
-Joka kerta kun Co-op Translator suoritetaan — joko CLI:n kautta (esim. `translate -l "<language codes>"`) tai GitHub Actionsissa — se päivittää automaattisesti "Muut kurssit" -osion, joka on kääritty näiden merkkien sisään.
+Joka kerta, kun Co-op Translator ajetaan – joko CLI:n kautta (esim. `translate -l "<language codes>"`) tai GitHub Actionsissa – se päivittää automaattisesti "Other Courses" -osion, joka on näiden merkkien sisällä.
 
 > [!NOTE]
-> Jos sinulla on jo olemassa oleva lista, kääri se vain samoilla merkeillä. Seuraava suoritus korvaa sen uusimmalla standardoidulla sisällöllä.
+> Jos sinulla on jo olemassa oleva lista, kiedo se vain samoilla merkeillä. Seuraava ajokerta korvaa sen uusimmalla standardoidulla sisällöllä.
 
 ---
 
-## Miten muuttaa globaalia sisältöä
+## Kuinka muuttaa globaalia sisältöä
 
 Jos haluat päivittää standardoidun sisällön, joka näkyy kaikissa Beginners-repositorioissa:
 
-1. Muokkaa mallia: [src/co_op_translator/templates/other_courses.md](../src/co_op_translator/templates/other_courses.md)
-2. Avaa pull request Co-op Translator -repositorioon muutoksillasi
-3. Kun PR on yhdistetty, Co-op Translatorin versio päivittyy
-4. Seuraavan kerran kun Co-op Translator suoritetaan (CLI:llä tai GitHub Actionissa) kohderepositoriossa, se synkronoi automaattisesti päivitetyn osion
+1. Muokkaa mallipohjaa: [src/co_op_translator/templates/other_courses.md](../src/co_op_translator/templates/other_courses.md)
+2. Avaa pull request Co-op Translator -repositorioosi tekemilläsi muutoksilla
+3. Kun PR on hyväksytty, Co-op Translatorin versio päivittyy
+4. Seuraavan kerran, kun Co-op Translator ajetaan (CLI:llä tai GitHub Actionissa) kohderepossa, päivitetty osio synkronoituu automaattisesti
 
-Tämä varmistaa yhden totuuden lähteen "Muut kurssit" -sisällölle kaikissa Beginners-repositorioissa.
+Tämä varmistaa yhden totuuden lähteen "Other Courses" -sisällölle kaikissa Beginners-repositorioissa.
+
+
+## Repositorioiden koot
+
+Repositoriot voivat kasvaa suuriksi käännettyjen kielien määrän vuoksi. Tämä auttaa loppukäyttäjiä käyttämään clone - sparse -toimintoa, jolla voidaan kloonata vain tarvittavat kielet eikä koko repositorioa.
+
+```
+> **Prefer to Clone Locally?**
+>
+> This repository includes 50+ language translations which significantly increases the download size. To clone without translations, use sparse checkout:
+> ```bash
+> git clone --filter=blob:none --sparse https://github.com/*****.git
+> cd *****
+> git sparse-checkout set --no-cone '/*' '!translations' '!translated_images'
+> ```
+> This gives you everything you need to complete the course with a much faster download.
+```
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Vastuuvapauslauseke**:
-Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, otathan huomioon, että automaattikäännöksissä saattaa esiintyä virheitä tai epätarkkuuksia. Alkuperäistä asiakirjaa sen alkuperäiskielellä tulee pitää virallisena lähteenä. Tärkeissä tiedoissa suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa tämän käännöksen käytöstä aiheutuvista väärinymmärryksistä tai tulkinnoista.
+**Vastuuvapauslauseke**:  
+Tämä asiakirja on käännetty käyttämällä tekoälypohjaista käännöspalvelua [Co-op Translator](https://github.com/Azure/co-op-translator). Vaikka pyrimme tarkkuuteen, ole hyvä ja ota huomioon, että automaattikäännöksissä saattaa olla virheitä tai epätarkkuuksia. Alkuperäinen asiakirja sen alkuperäiskielellä tulee pitää virallisena lähteenä. Tärkeiden tietojen osalta suositellaan ammattimaista ihmiskäännöstä. Emme ole vastuussa mistään väärinymmärryksistä tai tulkinnoista, jotka johtuvat tämän käännöksen käytöstä.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

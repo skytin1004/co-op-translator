@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "758ca1c5ae0d32c52d2dd59132dcfbf0",
-  "translation_date": "2025-11-30T12:08:07+00:00",
-  "source_file": "CONTRIBUTING.md",
-  "language_code": "cs"
-}
--->
 # Přispívání do Co-op Translator
 
 Tento projekt vítá příspěvky a návrhy. Většina příspěvků vyžaduje, abyste souhlasili s licenční smlouvou přispěvatele (Contributor License Agreement, CLA), která potvrzuje, že máte právo a skutečně nám udělujete práva k použití vašeho příspěvku. Podrobnosti najdete na https://cla.opensource.microsoft.com.

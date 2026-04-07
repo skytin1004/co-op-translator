@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T05:03:23+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "et"
-}
--->
 # Co-op Translator GitHub Actioni kasutamine (avalik seadistus)
 
 **Sihtgrupp:** See juhend on mõeldud kasutajatele, kes töötavad enamikes avalikes või privaatsetes repositooriumites, kus piisab GitHub Actionsi tavapärastest õigustest. Kasutatakse sisseehitatud `GITHUB_TOKEN`-it.

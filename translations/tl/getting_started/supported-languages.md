@@ -1,15 +1,6 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "d11fe2b5308a8752a994869658751533",
-  "translation_date": "2025-11-30T11:58:14+00:00",
-  "source_file": "getting_started/supported-languages.md",
-  "language_code": "tl"
-}
--->
 # Mga Sinusuportahang Wika
 
-Ang talahanayan sa ibaba ay naglilista ng mga wikang kasalukuyang sinusuportahan ng **Co-op Translator**. Kasama dito ang mga code ng wika, pangalan ng wika, at anumang kilalang isyu na kaugnay ng bawat wika. Kung nais mong magdagdag ng suporta para sa isang bagong wika, pakidagdag ang kaukulang code ng wika, pangalan, at angkop na font sa `font_language_mappings.yml` na file na matatagpuan sa `src/co_op_translator/fonts/` at magsumite ng pull request pagkatapos ng pagsubok.
+Ang talaan sa ibaba ay naglilista ng mga wikang kasalukuyang sinusuportahan ng **Co-op Translator**. Kabilang dito ang mga language code, pangalan ng wika, at anumang kilalang isyu na nauugnay sa bawat wika. Kung nais mong magdagdag ng suporta para sa isang bagong wika, mangyaring idagdag ang kaukulang language code, pangalan, at angkop na font sa `font_language_mappings.yml` file na matatagpuan sa `src/co_op_translator/fonts/` at magsumite ng pull request pagkatapos ng pagsubok.
 
 | Language Code | Language Name        | Font                              | RTL Support | Known Issues |
 |---------------|----------------------|-----------------------------------|-------------|--------------|
@@ -21,10 +12,10 @@ Ang talahanayan sa ibaba ay naglilista ng mga wikang kasalukuyang sinusuportahan
 | ar            | Arabic               | NotoSansArabic-Medium.ttf         | Yes         | No           |
 | fa            | Persian (Farsi)      | NotoSansArabic-Medium.ttf         | Yes         | No           |
 | ur            | Urdu                 | NotoSansArabic-Medium.ttf         | Yes         | No           |
-| zh            | Chinese (Simplified) | NotoSansCJK-Medium.ttc            | No          | No           |
-| mo            | Chinese (Traditional, Macau) | NotoSansCJK-Medium.ttc    | No          | No           |
-| hk            | Chinese (Traditional, Hong Kong) | NotoSansCJK-Medium.ttc| No          | No           |
-| tw            | Chinese (Traditional, Taiwan) | NotoSansCJK-Medium.ttc   | No          | No           |
+| zh-CN         | Chinese (Simplified) | NotoSansCJK-Medium.ttc            | No          | No           |
+| zh-MO         | Chinese (Traditional, Macau) | NotoSansCJK-Medium.ttc    | No          | No           |
+| zh-HK         | Chinese (Traditional, Hong Kong) | NotoSansCJK-Medium.ttc| No          | No           |
+| zh-TW         | Chinese (Traditional, Taiwan) | NotoSansCJK-Medium.ttc   | No          | No           |
 | ja            | Japanese             | NotoSansCJK-Medium.ttc            | No          | No           |
 | ko            | Korean               | NotoSansCJK-Medium.ttc            | No          | No           |
 | hi            | Hindi                | NotoSansDevanagari-Medium.ttf     | No          | No           |
@@ -32,8 +23,8 @@ Ang talahanayan sa ibaba ay naglilista ng mga wikang kasalukuyang sinusuportahan
 | mr            | Marathi              | NotoSansDevanagari-Medium.ttf     | No          | No           |
 | ne            | Nepali               | NotoSansDevanagari-Medium.ttf     | No          | No           |
 | pa            | Punjabi (Gurmukhi)   | NotoSansGurmukhi-Medium.ttf       | No          | No           |
-| pt            | Portuguese (Portugal)| NotoSans-Medium.ttf               | No          | No           |
-| br            | Portuguese (Brazil)  | NotoSans-Medium.ttf               | No          | No           |
+| pt-PT         | Portuguese (Portugal)| NotoSans-Medium.ttf               | No          | No           |
+| pt-BR         | Portuguese (Brazil)  | NotoSans-Medium.ttf               | No          | No           |
 | it            | Italian              | NotoSans-Medium.ttf               | No          | No           |
 | lt            | Lithuanian           | NotoSans-Medium.ttf               | No          | No           |
 | pl            | Polish               | NotoSans-Medium.ttf               | No          | No           |
@@ -67,16 +58,17 @@ Ang talahanayan sa ibaba ay naglilista ng mga wikang kasalukuyang sinusuportahan
 | te            | Telugu               | NotoSans-Medium.ttf               | No          | No           |
 | ml            | Malayalam            | NotoSans-Medium.ttf               | No          | No           |
 | kn            | Kannada              | NotoSans-Medium.ttf               | No          | No           |
+| km            | Khmer                | NotoSansKhmer-Medium.ttf          | No          | No           |
 
 ## Pagdaragdag ng bagong wika
 
-Interesado ka bang magdagdag ng bagong wika? Sundin ang gabay sa kontribusyon:
+Interesado sa pagdaragdag ng bagong wika? Mangyaring sundin ang gabay sa kontribusyon:
 
-- Tingnan ang Contributing: [Mag-ambag ng bagong wika](../CONTRIBUTING.md#contribute-a-new-language)
+- Tingnan ang Contributing: [Contribute a new language](../CONTRIBUTING.md#contribute-a-new-language)
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Paunawa**:  
-Ang dokumentong ito ay isinalin gamit ang AI translation service na [Co-op Translator](https://github.com/Azure/co-op-translator). Bagamat nagsusumikap kami para sa katumpakan, pakatandaan na ang mga awtomatikong pagsasalin ay maaaring maglaman ng mga pagkakamali o di-tumpak na impormasyon. Ang orihinal na dokumento sa orihinal nitong wika ang dapat ituring na pangunahing sanggunian. Para sa mahahalagang impormasyon, inirerekomenda ang propesyonal na pagsasalin ng tao. Hindi kami mananagot sa anumang hindi pagkakaunawaan o maling interpretasyon na maaaring magmula sa paggamit ng pagsasaling ito.
+Ang dokumentong ito ay isinalin gamit ang AI translation service na [Co-op Translator](https://github.com/Azure/co-op-translator). Bagamat nagsisikap kami para sa katumpakan, pakatandaan na ang mga awtomatikong pagsasalin ay maaaring maglaman ng mga pagkakamali o hindi pagkakatugma. Ang orihinal na dokumento sa orihinal nitong wika ang dapat ituring na pangunahing sanggunian. Para sa mahahalagang impormasyon, hinihikayat ang propesyonal na pagsasalin ng tao. Hindi kami mananagot sa anumang hindi pagkakaintindihan o maling pag-unawa na maaaring magmula sa paggamit ng pagsasaling ito.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

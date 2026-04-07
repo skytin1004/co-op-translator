@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "20943a46b11c6d74814f41a817a6db4c",
-  "translation_date": "2025-10-15T03:52:42+00:00",
-  "source_file": "getting_started/command-line-guide/translator-your-project.md",
-  "language_code": "cs"
-}
--->
 # Překlad vašeho projektu pomocí Co-op Translatoru
 
 **Co-op Translator** je nástroj pro příkazovou řádku (CLI), který vám pomůže překládat markdown soubory a obrázky ve vašem projektu do více jazyků. Tato sekce vysvětluje, jak nástroj používat, popisuje různé možnosti CLI a uvádí příklady pro různé situace.

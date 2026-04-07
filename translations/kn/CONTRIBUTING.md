@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "758ca1c5ae0d32c52d2dd59132dcfbf0",
-  "translation_date": "2025-11-30T13:18:31+00:00",
-  "source_file": "CONTRIBUTING.md",
-  "language_code": "kn"
-}
--->
 # ಕೋ-ಆಪ್ ಅನುವಾದಕಕ್ಕೆ ಕೊಡುಗೆ ನೀಡುವುದು
 
 ಈ ಯೋಜನೆ ಕೊಡುಗೆಗಳು ಮತ್ತು ಸಲಹೆಗಳನ್ನು ಸ್ವಾಗತಿಸುತ್ತದೆ. ಬಹುತೇಕ ಕೊಡುಗೆಗಳಿಗೆ ನೀವು Contributor License Agreement (CLA) ಒಪ್ಪಿಕೊಳ್ಳಬೇಕಾಗುತ್ತದೆ, ಇದು ನೀವು ನಿಮ್ಮ ಕೊಡುಗೆಯನ್ನು ಬಳಸಲು ನಮಗೆ ಹಕ್ಕುಗಳನ್ನು ನೀಡುವ ಹಕ್ಕು ಹೊಂದಿದ್ದೀರಿ ಮತ್ತು ನಿಜವಾಗಿಯೂ ನೀಡುತ್ತಿದ್ದೀರಿ ಎಂದು ಘೋಷಿಸುತ್ತದೆ. ವಿವರಗಳಿಗೆ, https://cla.opensource.microsoft.com ಗೆ ಭೇಟಿ ನೀಡಿ.

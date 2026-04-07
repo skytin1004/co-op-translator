@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "758ca1c5ae0d32c52d2dd59132dcfbf0",
-  "translation_date": "2025-11-30T11:15:53+00:00",
-  "source_file": "CONTRIBUTING.md",
-  "language_code": "th"
-}
--->
 # การมีส่วนร่วมกับ Co-op Translator
 
 โครงการนี้ยินดีต้อนรับการมีส่วนร่วมและข้อเสนอแนะ ส่วนใหญ่การมีส่วนร่วมจะต้องให้คุณยอมรับข้อตกลง Contributor License Agreement (CLA) ซึ่งเป็นการประกาศว่าคุณมีสิทธิ์และได้ให้สิทธิ์แก่เราในการใช้ผลงานของคุณ สำหรับรายละเอียดเพิ่มเติม โปรดเยี่ยมชม https://cla.opensource.microsoft.com

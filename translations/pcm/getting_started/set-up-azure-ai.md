@@ -1,41 +1,32 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "b58d7c3cb4210697a073d20eb3064945",
-  "translation_date": "2025-11-06T17:30:49+00:00",
-  "source_file": "getting_started/set-up-azure-ai.md",
-  "language_code": "pcm"
-}
--->
 # Set Up Azure AI for Co-op Translator (Azure OpneAI & Azure AI Vision)
 
-Dis guide go show you how you fit set up Azure OpenAI for language translation and Azure Computer Vision for image content analysis (wey fit help for image-based translation) inside Azure AI Foundry.
+Dis guide go show you how to set up Azure OpenAI for language translation and Azure Computer Vision for image content analysis (wey you fit use for image-based translation) inside Azure AI Foundry.
 
-**Prerequisites:**
-- You go need Azure account wey get active subscription.
-- You go need permission wey go allow you create resources and deployments for your Azure subscription.
+**Wetin you gats before:**
+- Azure account wey get active subscription.
+- Correct permission to create resources and deployments inside your Azure subscription.
 
 ## Create Azure AI Project
 
-You go first create Azure AI Project, wey go act like central place to manage your AI resources.
+You go start by creating Azure AI Project, wey go be central place to manage your AI resources.
 
 1. Go [https://ai.azure.com](https://ai.azure.com) and sign in with your Azure account.
 
 1. Select **+Create** to create new project.
 
-1. Do dis steps:
-   - Put **Project name** (e.g., `CoopTranslator-Project`).
-   - Select **AI hub** (e.g., `CoopTranslator-Hub`) (Create new one if e no dey).
+1. Do these things:
+   - Put **Project name** (example, `CoopTranslator-Project`).
+   - Select **AI hub** (example, `CoopTranslator-Hub`) (Create new one if you need am).
 
-1. Click "**Review and Create**" to set up your project. Dem go carry you go your project overview page.
+1. Click "**Review and Create**" to set up your project. You go land for your project overview page.
 
 ## Set up Azure OpenAI for Language Translation
 
-Inside your project, you go deploy Azure OpenAI model wey go work as backend for text translation.
+Inside your project, you go deploy Azure OpenAI model wey dey serve as backend for text translation.
 
-### Navigate to Your Project
+### Go Your Project
 
-If you no dey there already, open the new project wey you create (e.g., `CoopTranslator-Project`) inside Azure AI Foundry.
+If you never reach, open your new project (example, `CoopTranslator-Project`) inside Azure AI Foundry.
 
 ### Deploy OpenAI Model
 
@@ -45,46 +36,46 @@ If you no dey there already, open the new project wey you create (e.g., `CoopTra
 
 1. Select **Deploy Base Model**.
 
-1. Dem go show you list of available models. Use filter or search find better GPT model. We recommend `gpt-4o`.
+1. You go see list of models wey dey. Filter or search for beta GPT model. We dey recommend `gpt-4o`.
 
-1. Select the model wey you want and click **Confirm**.
+1. Select your model and click **Confirm**.
 
 1. Select **Deploy**.
 
 ### Azure OpenAI configuration
 
-After you don deploy am, you fit select the deployment from "**Models + endpoints**" page to see **REST endpoint URL**, **Key**, **Deployment name**, **Model name** and **API version**. You go need all dis ones to connect the translation model to your application.
+When you don deploy, you fit select deployment from "**Models + endpoints**" page to find **REST endpoint URL**, **Key**, **Deployment name**, **Model name** and **API version**. Dem go need these things to join translation model to your app.
 
-> [!NOTE]
-> You fit select API versions from [API version deprecation](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation) page based on wetin you need. Make sure say you sabi say **API version** dey different from **Model version** wey dey show for **Models + endpoints** page inside Azure AI Foundry.
+> [!NOTE]  
+> You fit select API versions from [API version deprecation](https://learn.microsoft.com/azure/ai-services/openai/api-version-deprecation) page based on your wahala. Make you sabi say **API version** no be same wit **Model version** wey dem show for **Models + endpoints** page inside Azure AI Foundry.
 
 ## Set up Azure Computer Vision for Image Translation
 
-To make am possible to translate text wey dey inside images, you go need find Azure AI Service API Key and Endpoint.
+To fit translate text wey dey inside pictures, you gots find Azure AI Service API Key and Endpoint.
 
-1. Go your Azure AI Project (e.g., `CoopTranslator-Project`). Make sure say you dey for project overview page.
+1. Go your Azure AI Project (example, `CoopTranslator-Project`). Make sure say you dey for project overview page.
 
 ### Azure AI Service configuration
 
-Find the API Key and Endpoint from Azure AI Service.
+Find API Key and Endpoint from Azure AI Service.
 
-1. Go your Azure AI Project (e.g., `CoopTranslator-Project`). Make sure say you dey for project overview page.
+1. Go your Azure AI Project (example, `CoopTranslator-Project`). Make sure say you dey for project overview page.
 
-1. Find **API Key** and **Endpoint** from Azure AI Service tab.
+1. Find **API Key** and **Endpoint** for Azure AI Service tab.
 
-    ![Find API Key and Endpoint](../../../translated_images/find-azure-ai-info.0e00140419c12517d2011ecdde3fafb9306d379b29d2c04a0d18063e56983559.pcm.png)
+    ![Find API Key and Endpoint](../../../getting_started/imgs/find-azure-ai-info.png)
 
-Dis connection go make the features of the linked Azure AI Services resource (including image analysis) dey available for your AI Foundry project. You fit use dis connection for your notebooks or applications to extract text from images, wey you fit later send go Azure OpenAI model for translation.
+Dis connection dey give your AI Foundry project beta access to linked Azure AI Services resource (including image analysis). Then you fit use dis connection for your notebooks or apps to comot text from images, wey fit later go Azure OpenAI model for translation.
 
-## Consolidating Your Credentials
+## Collect Wetin You Gats
 
-By now, you suppose don gather dis ones:
+By now, you suppose don collect these:
 
 **For Azure OpenAI (Text Translation):**
 - Azure OpenAI Endpoint
 - Azure OpenAI API Key
-- Azure OpenAI Model Name (e.g., `gpt-4o`)
-- Azure OpenAI Deployment Name (e.g., `cooptranslator-gpt4o`)
+- Azure OpenAI Model Name (example, `gpt-4o`)
+- Azure OpenAI Deployment Name (example, `cooptranslator-gpt4o`)
 - Azure OpenAI API Version
 
 **For Azure AI Services (Image Text Extraction via Vision):**
@@ -93,30 +84,38 @@ By now, you suppose don gather dis ones:
 
 ### Example: Environment Variable Configuration (Preview)
 
-Later, when you dey build your application, you go likely configure am using dis credentials wey you gather. For example, you fit set dem as environment variables like dis:
+Later, as you dey build your app, you go set am with these credentials. For example, you fit set them as environment variables like this:
 
 ```bash
-# Azure AI Service Credentials (Required for image translation)
-AZURE_AI_SERVICE_API_KEY="your_azure_ai_service_api_key" # e.g., 21xasd...
+# Azure AI Service Credentials (Wetin you go need for image translation)
+AZURE_AI_SERVICE_API_KEY="your_azure_ai_service_api_key" # Eksampul, 21xasd...
 AZURE_AI_SERVICE_ENDPOINT="https://your_azure_ai_service_endpoint.cognitiveservices.azure.com/"
 
-# Azure OpenAI Credentials (Required for text translation)
-AZURE_OPENAI_API_KEY="your_azure_openai_api_key" # e.g., 21xasd...
+# Optional fallback sets: copy di variables dem plus _1/_2 for back (all vars get di same index for di set)
+AZURE_AI_SERVICE_API_KEY_1="your_azure_ai_service_api_key_1"
+AZURE_AI_SERVICE_ENDPOINT_1="https://your_azure_ai_service_endpoint_1.cognitiveservices.azure.com/"
+
+# Azure OpenAI Credentials (Wetin you go need for text translation)
+AZURE_OPENAI_API_KEY="your_azure_openai_api_key" # Eksampul, 21xasd...
 AZURE_OPENAI_ENDPOINT="https://your_azure_openai_endpoint.openai.azure.com/"
-AZURE_OPENAI_MODEL_NAME="your_model_name" # e.g., gpt-4o
-AZURE_OPENAI_CHAT_DEPLOYMENT_NAME="your_deployment_name" # e.g., cooptranslator-gpt4o
-AZURE_OPENAI_API_VERSION="your_api_version" # e.g., 2024-12-01-preview
+AZURE_OPENAI_MODEL_NAME="your_model_name" # Eksampul, gpt-4o
+AZURE_OPENAI_CHAT_DEPLOYMENT_NAME="your_deployment_name" # Eksampul, cooptranslator-gpt4o
+AZURE_OPENAI_API_VERSION="your_api_version" # Eksampul, 2024-12-01-preview
+
+# Optional fallback sets: copy all di AZURE_OPENAI_* set with _1/_2 suffix (all vars get di same index)
 ```
 
 ---
 
-### Further Reading
+### More Reading
 
-- [How to Create a project in Azure AI Foundry](https://learn.microsoft.com/azure/ai-foundry/how-to/create-projects?tabs=ai-studio)
+- [How to Create project for Azure AI Foundry](https://learn.microsoft.com/azure/ai-foundry/how-to/create-projects?tabs=ai-studio)
 - [How to Create Azure AI resources](https://learn.microsoft.com/azure/ai-foundry/how-to/create-azure-ai-resource?tabs=portal)
-- [How to Deploy OpenAI models in Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/deploy-models-openai)
+- [How to Deploy OpenAI models for Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/deploy-models-openai)
 
 ---
 
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Disclaimer**:  
-Dis dokyument don use AI translet service [Co-op Translator](https://github.com/Azure/co-op-translator) do di translet. Even as we dey try make am correct, abeg make you sabi say AI translet fit get mistake or no dey accurate well. Di original dokyument for im native language na di one wey you go take as di correct source. For important mata, e good make you use professional human translet. We no go fit take blame for any misunderstanding or wrong interpretation wey fit happen because you use dis translet.
+Dis dokument don translate wit AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Even tho we dey try make am correct, abeg make you sabi say automated translation fit get errors or mistakes. Di original dokument for e correct language na di real correct source. For important information, make person wey sabi translate am well use human translation. We no go responsible if person no understand or misinterpret tins because of dis translation.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

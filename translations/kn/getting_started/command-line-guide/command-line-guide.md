@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "c64ba65e091e5d87385490fa63a8f574",
-  "translation_date": "2025-11-24T06:39:25+00:00",
-  "source_file": "getting_started/command-line-guide/command-line-guide.md",
-  "language_code": "kn"
-}
--->
 # Co-op Translator ಕಮಾಂಡ್ ಲೈನ್ ಇಂಟರ್ಫೇಸ್ (CLI) ಬಳಸುವ ವಿಧಾನ
 
 ## ಅಗತ್ಯವಿರುವವುಗಳು

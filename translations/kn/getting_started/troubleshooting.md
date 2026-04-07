@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "6e626bef5ed78a1cc55b0dbf44f01d47",
-  "translation_date": "2025-11-24T06:38:17+00:00",
-  "source_file": "getting_started/troubleshooting.md",
-  "language_code": "kn"
-}
--->
 # Microsoft Co-op Translator ತೊಂದರೆ ಪರಿಹಾರ ಮಾರ್ಗದರ್ಶಿ
 
 ## ಅವಲೋಕನ
