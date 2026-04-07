@@ -1,6 +1,6 @@
 # Co-op Translator
 
-_Easily automate and maintain translations for your educational GitHub content across multiple languages as your project evolves._
+_Ezili automate an maintain translations for your educational GitHub content across many languages as your project dey grow._
 
 ![Python 3.10–3.12](https://img.shields.io/badge/python-3.10--3.12-blue)
 [![Python package](https://img.shields.io/pypi/v/co-op-translator?color=4BA3FF)](https://pypi.org/project/co-op-translator/)
@@ -24,23 +24,23 @@ _Easily automate and maintain translations for your educational GitHub content a
 
 > **Prefer to Clone Locally?**
 >
-> Dis repository get 50+ language translations wey go make di download size big. If you wan clone without di translations, use sparse checkout:
+> Dis repository get 50+ language translations wey dey increase di download size well-well. To clone without translations, use sparse checkout:
 >
 > **Bash / macOS / Linux:**
 > ```bash
-> git clone --filter=blob:none --sparse https://github.com/skytin1004/co-op-translator.git
+> git clone --filter=blob:none --sparse https://github.com/Azure/co-op-translator.git
 > cd co-op-translator
 > git sparse-checkout set --no-cone '/*' '!translations' '!translated_images'
 > ```
 >
 > **CMD (Windows):**
 > ```cmd
-> git clone --filter=blob:none --sparse https://github.com/skytin1004/co-op-translator.git
+> git clone --filter=blob:none --sparse https://github.com/Azure/co-op-translator.git
 > cd co-op-translator
 > git sparse-checkout set --no-cone "/*" "!translations" "!translated_images"
 > ```
 >
-> Dis one go give you everything wey you need to complete di course with beta fast download.
+> Dis go give you everything you need to complete di course with way faster download.
 <!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
 [![GitHub watchers](https://img.shields.io/github/watchers/azure/co-op-translator.svg?style=social&label=Watch)](https://GitHub.com/azure/co-op-translator/watchers/)
@@ -53,8 +53,8 @@ _Easily automate and maintain translations for your educational GitHub content a
 
 ## Overview
 
-**Co-op Translator** dey help you lokalize your educational GitHub content enter plenti languages with no wahala.
-When you update your Markdown files, images, or notebooks, translations go dey synchronized automatically, to make sure say your content correct and up to date for learners all over di world.
+**Co-op Translator** dey help you localize your educational GitHub content to many languages without stress.
+When you update your Markdown files, images, or notebooks, translations dey stay automatically synchronized, so your content go dey correct and fresh for learners for all obodo.
 
 Example of how translated content dey organized:
 
@@ -65,17 +65,18 @@ Example of how translated content dey organized:
 Co-op Translator dey manage translated content as **versioned software artifacts**,  
 no be as static files.
 
-Di tool dey track di state of translated Markdown, images, and notebooks
+The tool dey track di state of translated Markdown, images, and notebooks
 using **language-scoped metadata**.
 
-Dis design make Co-op Translator fit:
+Dis design allow Co-op Translator to:
 
 - Reliably detect outdated translations
-- Treat Markdown, images, and notebooks the same way
-- Scale well with big, fast-changing, multi-language repositories
+- Treat Markdown, images, and notebooks consistently
+- Scale safely across large, fast-moving, multi-language repositories
 
 By modeling translations as managed artifacts,
-translation workflows dey follow modern software dependency and artifact management practices well well.
+translation workflows dey naturally align with modern
+software dependency and artifact management practices.
 
 → [How translation state is managed](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/rethinking-documentation-translation-treating-translations-as-versioned-software/4491755)
 
@@ -83,36 +84,36 @@ translation workflows dey follow modern software dependency and artifact managem
 ## Quick start
 
 ```bash
-# Make and activate one virtual environment (wey dem recommend)
+# Make and waka the virtual environment (na beta make you do am)
 python -m venv .venv
 # Windows
 .venv\Scripts\activate
 # macOS/Linux
 source .venv/bin/activate
-# Install di package
+# Put the package inside
 pip install co-op-translator
-# Translate
+# Change am to oda language
 translate -l "ko ja fr" -md
 ```
 
 Docker:
 
 ```bash
-# Drag di public image from GHCR
+# Drag the public image from GHCR
 docker pull ghcr.io/azure/co-op-translator:latest
-# Run wit di current folder mounted an .env provide (Bash/Zsh)
+# Run wit current folder mount and .env provide (Bash/Zsh)
 docker run --rm -it --env-file .env -v "${PWD}:/work" ghcr.io/azure/co-op-translator:latest -l "ko ja fr" -md
 ```
 
 ## Minimal setup
 
-1. Make sure say you get Python version wey dem support (currently 3.10-3.12). For poetry (pyproject.toml) dis one dey handled automatically.
-2. Create `.env` file using dis template: [.env.template](../../.env.template)
+1. Make sure say you get supported Python version (right now na 3.10-3.12). For poetry (pyproject.toml) dis dey handled automatically.
+2. Create `.env` file using di template: [.env.template](../../.env.template)
 3. Configure one LLM provider (Azure OpenAI or OpenAI)
 4. (Optional) For image translation (`-img`), configure Azure AI Vision
-5. (Optional) You fit configure multiple credential sets by duplicating variables with suffixes like `_1`, `_2`, etc. All variables for one set must get the same suffix.
-6. (Recommended) Clear any old translations to avoid wahala (e.g., `translations/`)
-7. (Recommended) Add translation section for your README using [README languages template](./getting_started/README_languages_template.md)
+5. (Optional) You fit configure many credential sets by duplicating variables with suffixes like `_1`, `_2`, etc. All variables for one set must get the same suffix.
+6. (Recommended) Clean up any previous translations to avoid wahala (e.g., `translations/`)
+7. (Recommended) Add translation section to your README using [README languages template](./getting_started/README_languages_template.md)
 8. See: [Set up Azure AI](./getting_started/set-up-azure-ai.md)
 
 ## Usage
@@ -146,10 +147,10 @@ More flags: [Command reference](./getting_started/command-reference.md)
 ## Features
 
 - Automated translation for Markdown, notebooks, and images
-- Keeps translations dey synchronized with source changes
-- Work locally (CLI) or inside CI (GitHub Actions)
-- Use Azure OpenAI or OpenAI; optional Azure AI Vision for images
-- Preserve Markdown formatting and structure
+- Keeps translations in sync with source changes
+- Works locally (CLI) or in CI (GitHub Actions)
+- Uses Azure OpenAI or OpenAI; optional Azure AI Vision for images
+- Preserves Markdown formatting and structure
 
 ## Docs
 
@@ -163,13 +164,13 @@ More flags: [Command reference](./getting_started/command-reference.md)
 
 ### Microsoft-specific guide
 > [!NOTE]
-> For maintainers of the Microsoft “For Beginners” repositories only.
+> For maintainers of Microsoft “For Beginners” repositories only.
 
 - [Updating the “other courses” list (for MS Beginners repositories only)](./getting_started/update-other-courses.md)
 
 ## Support us and foster global learning
 
-Join us for change how educational content dey shared all over di world! Show [Co-op Translator](https://github.com/azure/co-op-translator) some love wit ⭐ for GitHub and support our mission to break language wahala for learning and technology. Your interest and contributions dey make big impact! Code contributions and feature suggestions always dey welcome.
+Join us make we change how educational content dey shared globally! Give [Co-op Translator](https://github.com/azure/co-op-translator) a ⭐ for GitHub and support our mission make language barrier no dey for learning and technology. Your interest and contributions dey make big difference! Code contributions and feature suggestions dey always welcome.
 
 ### Explore Microsoft educational content in your language
 
@@ -191,15 +192,15 @@ Join us for change how educational content dey shared all over di world! Show [C
 
 ## Video presentations
 
-👉 Click di image below to watch for YouTube.
+👉 Click the image below make you watch for YouTube.
 
-- **Open at Microsoft**: Short 18-minute introduction and quick guide on how to use Co-op Translator.
+- **Open at Microsoft**: Small 18-minute introduction and quick guide on how to use Co-op Translator.
 
   [![Open at Microsoft](../../translated_images/pcm/open-ms-thumbnail.946b356b89bc5f0e.webp)](https://www.youtube.com/watch?v=jX_swfH_KNU)
 
 ## Contributing
 
-Dis project dey welcome contributions and suggestions. If you wan contribute to Azure Co-op Translator, abeg check our [CONTRIBUTING.md](./CONTRIBUTING.md) for beta info on how you fit help make Co-op Translator more better.
+Dis project dey welcome contributions and suggestions. You want contribute to Azure Co-op Translator? Abeg see our [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines on how you fit help make Co-op Translator more accessible.
 
 ## Contributors
 [![co-op-translator contributors](https://contrib.rocks/image?repo=Azure/co-op-translator)](https://github.com/Azure/co-op-translator/graphs/contributors)
@@ -207,37 +208,37 @@ Dis project dey welcome contributions and suggestions. If you wan contribute to 
 ## Code of Conduct
 
 Dis project don adopt di [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more info, check di [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) if you get any oda questions or comments.
+For more info see di [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
+contact [opencode@microsoft.com](mailto:opencode@microsoft.com) if you get any additional questions or comments.
 
 ## Responsible AI
 
-Microsoft dey committed to help our customers use our AI products responsibly, share our learnings, and build trust-based partnerships through tools like Transparency Notes and Impact Assessments. Plenty of these resources fit dey at [https://aka.ms/RAI](https://aka.ms/RAI).
+Microsoft dey committed to helping our customers use our AI products responsibly, dey share our learnings, and build trust-based partnerships through tools like Transparency Notes and Impact Assessments. Plenti of these resources fit dey for [https://aka.ms/RAI](https://aka.ms/RAI).
 Microsoft approach to responsible AI base on our AI principles of fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability.
 
-Big big natural language, image, and speech models - like di ones wey dem use for dis sample - fit behave sometimes inways wey no fair, unreliable, or offensive, wey fit cause harm. Abeg check di [Azure OpenAI service Transparency note](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) to sabi di risks and wahala wey fit happen.
+Big-big natural language, image, and speech models - like di ones wey dem use for dis sample - fit sometimes behave in ways wey no fair, no reliable, or dey offensive, wey fit cause wahala. Abeg look di [Azure OpenAI service Transparency note](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?tabs=text) to sabi more about di risks and limits.
 
-Di best way to reduce these risks na to put safety system for your architecture wey fit detect and stop bad behaviour. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) dey provide independent protection layer, wey fit detect harmful user-generated and AI-generated content for apps and services. Azure AI Content Safety get text and image APIs wey fit help you find bad bad content. Plus, we get interactive Content Safety Studio wey let you see, explore and try sample code to detect harmful content for different types. Di following [quickstart documentation](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) go guide you how to make requests to di service.
+Di betta way to reduce these risks na to put safety system for your architecture weh fit detect and stop bad behavior. [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview) dey provide independent layer of protection, wey fit detect bad user-generated and AI-generated content for applications and services. Azure AI Content Safety get text and image APIs weh go help you detect harmful material. We also get interactive Content Safety Studio weh let you view, explore and try sample code wey fit detect harmful content for different types. Dis [quickstart documentation](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Clinux&pivots=programming-language-rest) go guide you how to make requests to di service.
 
-Another thing wey you must think about na di general app performance. For multi-modal and multi-models apps, we dey look performance like how di system go perform as you and your users expect, including no to produce harmful outputs. E important to test di performance of your full app using [generation quality and risk and safety metrics](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
+Another thing wey you must consider na how your full application go perform. For multi-modal and multi-models applications, performance mean say di system go work as you and your users dey expect, including say e no go generate harmful outputs. E dey important to check how your full application dey perform using [generation quality and risk and safety metrics](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in).
 
-You fit check your AI app inside your development environment using di [prompt flow SDK](https://microsoft.github.io/promptflow/index.html). Whether you get test dataset or target, your generative AI app generation dey measured well with built-in evaluators or any custom evaluators you choose. To start with prompt flow sdk to evaluate your system, you fit follow di [quickstart guide](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). After you run evaluation, you fit [visualize di results for Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
+You fit evaluate your AI app for your development environment using di [prompt flow SDK](https://microsoft.github.io/promptflow/index.html). Whether na test dataset or target, your generative AI app generations go dey measured well with built-in evaluators or your own custom evaluators. To start with di prompt flow sdk to evaluate your system, you fit follow the [quickstart guide](https://learn.microsoft.com/azure/ai-studio/how-to/develop/flow-evaluate-sdk). Once you run evaluation, you fit [visualize di results inside Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-flow-results).
 
 ## Trademarks
 
 Dis project fit get trademarks or logos for projects, products, or services. Authorized use of Microsoft
-trademarks or logos dey under and you gats follow
+trademarks or logos need to follow
 [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
-Use of Microsoft trademarks or logos inside modified versions of this project no gats cause confusion or make person think say Microsoft sponsor am.
-Any use of third-party trademarks or logos dey under those third party's policies.
+If you use Microsoft trademarks or logos for modified versions of dis project, e no suppose cause confusion or make people think Microsoft sponsor am.
+Any use of third-party trademarks or logos na for those third-party policies to follow.
 
 ## Getting Help
 
-If you jam wahala or get any questions about building AI apps, join:
+If you get stuck or you get questions about how to build AI apps, waka go:
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
-If you get product feedback or errors while you dey build, visit:
+If you get product feedback or errors while you dey build, waka visit:
 
 [![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 
@@ -245,5 +246,5 @@ If you get product feedback or errors while you dey build, visit:
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Disclaimer**:  
-Dis document don translate wit AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Even tho we dey try make e correct, abeg sabi say automated translation fit get error or wahala. The original document for im own language na the correct source. If na important info, e better make person wey sabi translate am well do am. We no go take any blame for any misunderstanding or wrong meaning wey fit show because of dis translation.
+Dis document don translate wit AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). Even tho we dey try make am correct, abeg sabi say automated translations fit get errors or incorrect tins. Di original document wey e dey for im original language na di correct one. For important information, e better make human professional translate am. We no go responsible for any wahala or wrong understanding wey fit happen because of this translation.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
