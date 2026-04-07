@@ -28,14 +28,14 @@ _Easily automate and maintain translations for your educational GitHub content a
 >
 > **Bash / macOS / Linux:**
 > ```bash
-> git clone --filter=blob:none --sparse https://github.com/skytin1004/co-op-translator.git
+> git clone --filter=blob:none --sparse https://github.com/Azure/co-op-translator.git
 > cd co-op-translator
 > git sparse-checkout set --no-cone '/*' '!translations' '!translated_images'
 > ```
 >
 > **CMD (Windows):**
 > ```cmd
-> git clone --filter=blob:none --sparse https://github.com/skytin1004/co-op-translator.git
+> git clone --filter=blob:none --sparse https://github.com/Azure/co-op-translator.git
 > cd co-op-translator
 > git sparse-checkout set --no-cone "/*" "!translations" "!translated_images"
 > ```
