@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "9fac847815936ef6e6c8bfde6d191571",
-  "translation_date": "2025-10-15T02:21:52+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-org.md",
-  "language_code": "fa"
-}
--->
 # استفاده از اکشن Co-op Translator در گیت‌هاب (راهنمای سازمانی)
 
 **مخاطب هدف:** این راهنما برای **کاربران داخلی مایکروسافت** یا **تیم‌هایی که به مدارک لازم برای اپلیکیشن آماده Co-op Translator در گیت‌هاب دسترسی دارند** یا می‌توانند اپلیکیشن اختصاصی خود را بسازند، تهیه شده است.

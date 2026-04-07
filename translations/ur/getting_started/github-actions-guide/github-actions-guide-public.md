@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "527ca4d0a8d3f51087ec3317279e36ee",
-  "translation_date": "2025-10-15T02:25:43+00:00",
-  "source_file": "getting_started/github-actions-guide/github-actions-guide-public.md",
-  "language_code": "ur"
-}
--->
 # کو-آپ ٹرانسلیٹر گیٹ ہب ایکشن کا استعمال (پبلک سیٹ اپ)
 
 **ہدف صارفین:** یہ رہنمائی زیادہ تر پبلک یا پرائیویٹ ریپوزیٹریز کے صارفین کے لیے ہے جہاں اسٹینڈرڈ GitHub Actions کی اجازتیں کافی ہیں۔ اس میں بلٹ ان `GITHUB_TOKEN` استعمال ہوتا ہے۔
