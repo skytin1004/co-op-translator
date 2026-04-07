@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "62fe65c1d8e3796c01aa1e3c89666cba",
-  "translation_date": "2025-06-12T11:14:12+00:00",
-  "source_file": "SUPPORT.md",
-  "language_code": "fr"
-}
--->
 # TODO : Le mainteneur de ce dépôt n’a pas encore modifié ce fichier
 
 **PROPRIÉTAIRE DU DÉPÔT** : Souhaitez-vous un support Customer Service & Support (CSS) pour ce produit/projet ?
