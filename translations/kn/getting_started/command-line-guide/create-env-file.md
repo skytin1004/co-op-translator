@@ -1,40 +1,35 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "66029e3b67a3eb980ab8740367e91283",
-  "translation_date": "2025-11-24T06:39:40+00:00",
-  "source_file": "getting_started/command-line-guide/create-env-file.md",
-  "language_code": "kn"
-}
--->
-# ಮೂಲ ಡೈರೆಕ್ಟರಿಯಲ್ಲಿ *.env* ಫೈಲ್ ಅನ್ನು ರಚಿಸಿ
+# ಮೂಲ ಡೈರೆಕ್ಟರಿಯಲ್ಲಿ *.env* ಫೈಲ್ ರಚಿಸಿ
 
-ಈ ಪಾಠದಲ್ಲಿ, *.env* ಫೈಲ್ ಬಳಸಿ Azure ಸೇವೆಗಳಿಗಾಗಿ ನಿಮ್ಮ ಪರಿಸರ ವ್ಯತ್ಯಯಗಳನ್ನು ಹೊಂದಿಸುವ ಪ್ರಕ್ರಿಯೆಯನ್ನು ನಾವು ನಿಮಗೆ ಮಾರ್ಗದರ್ಶನ ಮಾಡುತ್ತೇವೆ. ಪರಿಸರ ವ್ಯತ್ಯಯಗಳು API ಕೀಗಳು ಮುಂತಾದ ಸಂವೇದನಶೀಲ ಪ್ರಮಾಣಪತ್ರಗಳನ್ನು ನಿಮ್ಮ ಕೋಡ್‌ಬೇಸ್‌ನಲ್ಲಿ ನೇರವಾಗಿ ಹಾರ್ಡ್-ಕೋಡ್ ಮಾಡದೆ ಸುರಕ್ಷಿತವಾಗಿ ನಿರ್ವಹಿಸಲು ಸಹಾಯ ಮಾಡುತ್ತವೆ.
+ಈ ಪಾಠಕ್ರಮದಲ್ಲಿ, ನಾವು ನಿಮಗೆ *.env* ಫೈಲ್ ಬಳಸಿ Azure ಸೇವೆಗಳಿಗಾಗಿ ನಿಮ್ಮ ಪರಿಸರ ಚರಗಳನ್ನು ಹೊಂದಿಸುವುದನ್ನು ಮಾರ್ಗದರ್ಶನ ಮಾಡಲಿದ್ದೇವೆ. ಪರಿಸರ ಚರಗಳು ನಿಮ್ಮ ಕೋಡ್ ಬೇಸ್‌ನಲ್ಲಿ ಹಾರ್ಡ್-ಕೋಡ್ ಮಾಡದೆ API ಕೀಗಳು ಸೇರಿದಂತೆ ಸಂವೇದನಾಶೀಲ ಪ್ರಮಾಣಪತ್ರಗಳನ್ನು ಭದ್ರವಾಗಿ ನಿರ್ವಹಿಸಲು ಸಹಕಾರಿಯಾಗಿದೆ.
 
 > [!IMPORTANT]
-> - ಒಂದೇ ಭಾಷಾ ಮಾದರಿ ಸೇವೆ (Azure OpenAI ಅಥವಾ OpenAI) ಅನ್ನು ಕಾನ್ಫಿಗರ್ ಮಾಡಬೇಕಾಗಿದೆ. ನಿಮ್ಮ ಇಚ್ಛಿತ ಸೇವೆಗೆ ಸಂಬಂಧಿಸಿದ ಪರಿಸರ ವ್ಯತ್ಯಯಗಳನ್ನು ತುಂಬಿ. ಬಹು ಭಾಷಾ ಮಾದರಿಗಳಿಗಾಗಿ ಪರಿಸರ ವ್ಯತ್ಯಯಗಳನ್ನು ಹೊಂದಿಸಿದರೆ, ಸಹಕರಿಸುವ ಅನುವಾದಕವು ಆದ್ಯತೆಯ ಆಧಾರದ ಮೇಲೆ ಒಂದನ್ನು ಆಯ್ಕೆ ಮಾಡುತ್ತದೆ.
-> - ಕಂಪ್ಯೂಟರ್ ವಿಸನ್ ಪರಿಸರ ವ್ಯತ್ಯಯಗಳನ್ನು ಹೊಂದಿಸದಿದ್ದರೆ, ಅನುವಾದಕವು ಸ್ವಯಂಚಾಲಿತವಾಗಿ [Markdown-only mode](./markdown-only-mode.md) ಗೆ ಬದಲಾಯಿಸುತ್ತದೆ.
+> - ಒಬ್ಬ ಭಾಷಾ ಮಾದರಿ ಸೇವೆ (Azure OpenAI ಅಥವಾ OpenAI) ಮಾತ್ರ ಕಾನ್ಫಿಗರ್ ಮಾಡಬೇಕಿದೆ. ನಿಮ್ಮ ಇಷ್ಟದ ಸೇವೆಗಾಗಿ ಪರಿಸರ ಚರಗಳನ್ನು ತುಂಬಿ. ಬಾಹ್ಯ ಭಾಷಾ ಮಾದರಿಗಳಿಗೆ ಪರಿಸರ ಚರಗಳು ಸಿದ್ಧಪಟ್ಟಿದ್ದಲ್ಲಿ, co-op translator ಆದ್ಯತೆಯ ಆಧಾರದಲ್ಲಿ ಒಂದನ್ನು ಆಯ್ಕೆಮಾಡುತ್ತದೆ.
+> - Computer Vision ಪರಿಸರ ಚರಗಳನ್ನು ಹೊಂದಿಸದಿದ್ದರೆ, translator ಸ್ವಯಂಚಾಲಿತವಾಗಿ [Markdown-only mode](./markdown-only-mode.md) ಗೆ ಬದಲಾಯಿಸುತ್ತದೆ.
 
 > [!NOTE]
-> ಈ ಮಾರ್ಗದರ್ಶನವು ಮುಖ್ಯವಾಗಿ Azure ಸೇವೆಗಳ ಮೇಲೆ ಕೇಂದ್ರೀಕೃತವಾಗಿದೆ, ಆದರೆ ನೀವು [ಆಧಾರಿತ ಮಾದರಿಗಳು ಮತ್ತು ಸೇವೆಗಳ ಪಟ್ಟಿ](../README.md#-supported-models-and-services) ಯಿಂದ ಯಾವುದೇ ಬೆಂಬಲಿತ ಭಾಷಾ ಮಾದರಿಯನ್ನು ಆಯ್ಕೆ ಮಾಡಬಹುದು.
+> ಈ ಮಾರ್ಗದರ್ಶಿ ಮುಖ್ಯವಾಗಿ Azure ಸೇವೆಗಳ ಮೇಲೆ ಕೇಂದ್ರೀಕೃತವಾಗಿದೆ, ಆದರೆ ನೀವು [supported models and services list](../README.md#-supported-models-and-services) ನಿಂದ ಯಾವುದೇ ಬೆಂಬಲಿತ ಭಾಷಾ ಮಾದರಿಯನ್ನು ಆಯ್ಕೆ ಮಾಡಬಹುದು.
 
-## *.env* ಫೈಲ್ ಅನ್ನು ರಚಿಸಿ
+## *.env* ಫೈಲ್ ರಚಿಸಿ
 
-ನಿಮ್ಮ ಪ್ರಾಜೆಕ್ಟ್‌ನ ಮೂಲ ಡೈರೆಕ್ಟರಿಯಲ್ಲಿ *.env* ಎಂಬ ಫೈಲ್ ಅನ್ನು ರಚಿಸಿ. ಈ ಫೈಲ್ ನಿಮ್ಮ ಎಲ್ಲಾ ಪರಿಸರ ವ್ಯತ್ಯಯಗಳನ್ನು ಸರಳ ಸ್ವರೂಪದಲ್ಲಿ ಸಂಗ್ರಹಿಸುತ್ತದೆ.
+ನಿಮ್ಮ ಯೋಜನೆಯ ಮೂಲ ಡೈರೆಕ್ಟರಿಯಲ್ಲಿ *.env* ಎಂಬ ಫೈಲ್ ರಚಿಸಿ. ಈ ಫೈಲ್ ಎಲ್ಲಾ ನಿಮ್ಮ ಪರಿಸರ ಚರಗಳನ್ನು ಸರಳ ಸ್ವರೂಪದಲ್ಲಿ ಸಂಗ್ರಹಿಸುತ್ತದೆ.
 
 > [!WARNING]
-> ನಿಮ್ಮ *.env* ಫೈಲ್ ಅನ್ನು Git ಮುಂತಾದ ಆವೃತ್ತಿ ನಿಯಂತ್ರಣ ವ್ಯವಸ್ಥೆಗಳಿಗೆ ಕಮಿಟ್ ಮಾಡಬೇಡಿ. *.env* ಅನ್ನು ನಿಮ್ಮ .gitignore ಫೈಲ್‌ಗೆ ಸೇರಿಸಿ, ಆಕಸ್ಮಿಕ ಕಮಿಟ್‌ಗಳನ್ನು ತಡೆಯಲು.
+> ನಿಮ್ಮ *.env* ಫೈಲ್ ಅನ್ನು Git ಮುಂತಾದ ಸಂಚಿಕೆ ನಿಯಂತ್ರಣ ವ್ಯವಸ್ಥೆಗಳಿಗೆ ಕಮಿಟ್ ಮಾಡಬೇಡಿ. ಹಲವು ತಪ್ಪು ಕಮಿಟ್ ಗಳಾಗದಂತೆ *.env* ಅನ್ನು ನಿಮ್ಮ .gitignore ಫೈಲ್‌ಗೆ ಸೇರಿಸಿ.
 
-1. ನಿಮ್ಮ ಪ್ರಾಜೆಕ್ಟ್‌ನ ಮೂಲ ಡೈರೆಕ್ಟರಿಗೆ ಹೋಗಿ.
+1. ನಿಮ್ಮ ಯೋಜನೆಯ ಮೂಲ ಡೈರೆಕ್ಟರಿಗೆ ಹಾದಿ ಮಾಡಿ.
 
-1. ನಿಮ್ಮ ಪ್ರಾಜೆಕ್ಟ್‌ನ ಮೂಲ ಡೈರೆಕ್ಟರಿಯಲ್ಲಿ *.env* ಫೈಲ್ ಅನ್ನು ರಚಿಸಿ.
+1. ನಿಮ್ಮ ಯೋಜನೆಯ ಮೂಲ ಡೈರೆಕ್ಟರಿಯಲ್ಲಿ *.env* ಫೈಲ್ ರಚಿಸಿ.
 
-1. *.env* ಫೈಲ್ ಅನ್ನು ತೆರೆಯಿ ಮತ್ತು ಕೆಳಗಿನ ಟೆಂಪ್ಲೇಟ್ ಅನ್ನು ಪೇಸ್ಟ್ ಮಾಡಿ:
+1. *.env* ಫೈಲ್ ತೆರೆಯಿರಿ ಮತ್ತು ಕೆಳಗಿನ ಟೆಂಪ್ಲೇಟ್ನ್ನು ಅಂಟಿಸಿ:
 
     ```plaintext
     # Azure Credentials
     AZURE_AI_SERVICE_API_KEY="your_azure_ai_service_api_key"
     AZURE_AI_SERVICE_ENDPOINT="https://your_azure_ai_service_endpoint"
+
+    # Optional fallback set example (index 1)
+    AZURE_AI_SERVICE_API_KEY_1="your_azure_ai_service_api_key_1"
+    AZURE_AI_SERVICE_ENDPOINT_1="https://your_azure_ai_service_endpoint_1"
 
     # Azure OpenAI Credentials
     AZURE_OPENAI_API_KEY="your_azure_openai_api_key"
@@ -43,19 +38,23 @@ CO_OP_TRANSLATOR_METADATA:
     AZURE_OPENAI_CHAT_DEPLOYMENT_NAME="your_deployment_name"
     AZURE_OPENAI_API_VERSION="your_api_version"
 
+    # Optional fallback sets: duplicate the full AZURE_OPENAI_* set with suffix _1/_2 (same index for all variables)
+
     # OpenAI Credentials
     OPENAI_API_KEY="your_openai_api_key"
     OPENAI_ORG_ID="your_openai_org_id"
     OPENAI_CHAT_MODEL_ID="your_chat_model_id(ex. gpt-4o)"
     OPENAI_BASE_URL="https://api.openai.com/v1 (If you don't have a custom base URL, you can delete this lin, then it will use the default base URL)"
+
+    # Optional fallback sets: duplicate the full OPENAI_* set with suffix _1/_2 (same index for all variables)
     ```
 
 > [!NOTE]
-> ನಿಮ್ಮ API ಕೀಗಳು ಮತ್ತು ಎಂಡ್‌ಪಾಯಿಂಟ್‌ಗಳನ್ನು ಹುಡುಕಲು ನೀವು [set-up-azure-ai.md](../set-up-azure-ai.md) ಅನ್ನು ಉಲ್ಲೇಖಿಸಬಹುದು.
+> ನಿಮ್ಮ API ಕೀಯುಗಳು ಮತ್ತು ಎಂಡ್‌ಪಾಯಿಂಟ್‌ಗಳನ್ನು ಕಂಡುಹಿಡಿಯಲು, ನೀವು [set-up-azure-ai.md](../set-up-azure-ai.md) ಅನ್ನು ಗಮನಿಸಬಹುದು.
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**ಅಸ್ವೀಕಾರ**:  
-ಈ ದಸ್ತಾವೇಜನ್ನು AI ಅನುವಾದ ಸೇವೆ [Co-op Translator](https://github.com/Azure/co-op-translator) ಬಳಸಿ ಅನುವಾದಿಸಲಾಗಿದೆ. ನಾವು ನಿಖರತೆಯನ್ನು ಸಾಧಿಸಲು ಪ್ರಯತ್ನಿಸುತ್ತಿದ್ದರೂ, ದಯವಿಟ್ಟು ಗಮನಿಸಿ, ಸ್ವಯಂಚಾಲಿತ ಅನುವಾದಗಳಲ್ಲಿ ದೋಷಗಳು ಅಥವಾ ಅಸಡ್ಡೆಗಳು ಇರಬಹುದು. ಮೂಲ ಭಾಷೆಯಲ್ಲಿರುವ ಮೂಲ ದಸ್ತಾವೇಜು ಪ್ರಾಮಾಣಿಕ ಮೂಲವೆಂದು ಪರಿಗಣಿಸಬೇಕು. ಮಹತ್ವದ ಮಾಹಿತಿಗಾಗಿ, ವೃತ್ತಿಪರ ಮಾನವ ಅನುವಾದವನ್ನು ಶಿಫಾರಸು ಮಾಡಲಾಗುತ್ತದೆ. ಈ ಅನುವಾದವನ್ನು ಬಳಸುವ ಮೂಲಕ ಉಂಟಾಗುವ ಯಾವುದೇ ತಪ್ಪು ಅರ್ಥಗಳ ಅಥವಾ ತಪ್ಪು ವ್ಯಾಖ್ಯಾನಗಳ ಬಗ್ಗೆ ನಾವು ಹೊಣೆಗಾರರಲ್ಲ.
+**ವಿಮರ್ಶೆಯ ನಿರಾಕರಣೆ**:  
+ಈ ದಾಖಲೆ [Co-op Translator](https://github.com/Azure/co-op-translator) ಎಂಬ AI ಅನುವಾದ ಸೇವೆಯನ್ನು ಬಳಸಿಕೊಂಡು ಅನುವಾದಿಸಲಾಗಿದೆ. ನಾವು ಸರಿಯಾದ ಅನುವಾದಕ್ಕಾಗಿ ಪ್ರಯತ್ನ ಮಾಡುತ್ತಿದ್ದೇವೆ ಆದರೆ ಸ್ವಯಂಚಾಲಿತ ಅನುವಾದಗಳಲ್ಲಿ ತಪ್ಪುಗಳು ಅಥವಾ ಅಸೂಯಿತತೆಗಳು ಇರಬಹುದಾಗಿದೆ ಎಂಬುದನ್ನು ದಯವಿಟ್ಟು ಗಮನಿಸಿ. ಮೂಲ ಭಾಷೆಯಲ್ಲಿ ಇರುವ ಮೂಲ ದಾಖಲೆ ಸರಿಯಾದ ಮೂಲವಾಗಿರುತ್ತದೆ. ಪ್ರಮುಖ ಮಾಹಿತಿಗಾಗಿ ವೃತ್ತಿಪರ ಮಾನವ ಅನುವಾದವನ್ನು ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ. ಈ ಅನುವಾದ ಬಳಕೆಯಿಂದ ಉಂಟಾಗುವ ಯಾವುದೇ ಅಸ್ಪಷ್ಟತೆಗಳು ಅಥವಾ ತಪ್ಪು ವ್ಯಾಖ್ಯಾನಗಳಿಗೆ ನಾವು ಜವಾಬ್ದಾರರಾಗುವುದಿಲ್ಲ.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

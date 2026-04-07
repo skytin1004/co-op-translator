@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "758ca1c5ae0d32c52d2dd59132dcfbf0",
-  "translation_date": "2025-11-30T13:14:07+00:00",
-  "source_file": "CONTRIBUTING.md",
-  "language_code": "ml"
-}
--->
 # കോ-ഓപ്പ് ട്രാൻസ്ലേറ്ററിലേക്ക് സംഭാവന ചെയ്യൽ
 
 ഈ പ്രോജക്റ്റ് സംഭാവനകളും നിർദ്ദേശങ്ങളും സ്വാഗതം ചെയ്യുന്നു. മിക്ക സംഭാവനകൾക്കും നിങ്ങൾക്ക് നിങ്ങളുടെ സംഭാവന ഉപയോഗിക്കാൻ അവകാശമുണ്ടെന്ന്, അതും യഥാർത്ഥത്തിൽ അവകാശം നൽകുന്നതായി പ്രഖ്യാപിക്കുന്ന Contributor License Agreement (CLA) ഒപ്പിടേണ്ടതുണ്ട്. വിശദാംശങ്ങൾക്ക് https://cla.opensource.microsoft.com സന്ദർശിക്കുക.

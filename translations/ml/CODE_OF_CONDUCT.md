@@ -1,25 +1,16 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "e8b14f0e66db374a2ada46e25fac88ae",
-  "translation_date": "2025-11-30T13:13:59+00:00",
-  "source_file": "CODE_OF_CONDUCT.md",
-  "language_code": "ml"
-}
--->
-# മൈക്രോസോഫ്റ്റ് ഓപ്പൺ സോഴ്‌സ് പെരുമാറ്റ നയം
+# Microsoft Open Source Code of Conduct
 
-ഈ പ്രോജക്ട് [മൈക്രോസോഫ്റ്റ് ഓപ്പൺ സോഴ്‌സ് പെരുമാറ്റ നയം](https://opensource.microsoft.com/codeofconduct/) സ്വീകരിച്ചിട്ടുണ്ട്.
+ഈ പ്രോജക്റ്റ് [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) എടുത്തുകഴിഞ്ഞതാണ്.
 
-സ്രോതസുകൾ:
+Resources:
 
-- [മൈക്രോസോഫ്റ്റ് ഓപ്പൺ സോഴ്‌സ് പെരുമാറ്റ നയം](https://opensource.microsoft.com/codeofconduct/)
-- [മൈക്രോസോഫ്റ്റ് പെരുമാറ്റ നയം FAQ](https://opensource.microsoft.com/codeofconduct/faq/)
-- ചോദ്യങ്ങൾക്കോ ആശങ്കകൾക്കോ [opencode@microsoft.com](mailto:opencode@microsoft.com) എന്ന വിലാസത്തിൽ ബന്ധപ്പെടുക
+- [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/)
+- [Microsoft Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/)
+- ചോദ്യങ്ങൾക്കോ ആശങ്കകൾക്കോ  [opencode@microsoft.com](mailto:opencode@microsoft.com)ൽ ബന്ധപ്പെടുക
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**അസൂയാ**:  
-ഈ രേഖ AI വിവർത്തന സേവനം [Co-op Translator](https://github.com/Azure/co-op-translator) ഉപയോഗിച്ച് വിവർത്തനം ചെയ്തതാണ്. നാം കൃത്യതയ്ക്ക് ശ്രമിച്ചെങ്കിലും, സ്വയം പ്രവർത്തിക്കുന്ന വിവർത്തനങ്ങളിൽ പിശകുകൾ അല്ലെങ്കിൽ തെറ്റുകൾ ഉണ്ടാകാമെന്ന് ദയവായി ശ്രദ്ധിക്കുക. അതിന്റെ മാതൃഭാഷയിലുള്ള യഥാർത്ഥ രേഖ അധികാരമുള്ള ഉറവിടമായി കണക്കാക്കണം. നിർണായക വിവരങ്ങൾക്ക്, പ്രൊഫഷണൽ മനുഷ്യ വിവർത്തനം ശുപാർശ ചെയ്യപ്പെടുന്നു. ഈ വിവർത്തനം ഉപയോഗിക്കുന്നതിൽ നിന്നുണ്ടാകുന്ന ഏതെങ്കിലും തെറ്റിദ്ധാരണകൾക്കോ തെറ്റായ വ്യാഖ്യാനങ്ങൾക്കോ ഞങ്ങൾ ഉത്തരവാദികളല്ല.
+**ഡിസ്‌ക്ലെയിമർ**:  
+ഈ ചട്ടം AI വിവർത്തന സേവനമായ [Co-op Translator](https://github.com/Azure/co-op-translator) ഉപയോഗിച്ച് വിവർത്തനം ചെയ്യപ്പെട്ടതാണ്. ഞങ്ങൾ കൃത്യതയ്ക്കായി പരിശ്രമിച്ചിട്ടുണ്ടെങ്കിലും, ഓട്ടോമേറ്റഡ് വിവർത്തനങ്ങളിൽ പിശകുകളോ അപ്പശ്രുതി കളോ ഉണ്ടാകാമെന്ന് ദയവായി അറിയിക്കുക. ആസ്ല’origine രേഖ പതിപ്പിലുള്ള ഭാഷയിലുള്ളത് മാത്രമേ അതിന്റെ ഔദ്യോഗിക ഉറവിടം ആയി കണക്കാക്കാവൂ. നിർണായകമായ വിവരങ്ങൾക്ക്, പ്രൊഫഷണൽ മനുഷ്യ വിവർത്തനം നിർദേശിക്കുന്നു. ഈ വിവർത്തനത്തിന്റെ ഉപയോഗം മൂലം ഉണ്ടായുകഴിഞ്ഞത് ഏതെങ്കിലും തെറ്റിദ്ധാരണകളുടെയും ദുർവ്യാഖ്യാനങ്ങളുടെയും പൂര്‍ത്തിവ്യവസ്ഥയ്ക്ക് ഞങ്ങൾ ഉത്തരവാദിത്തമില്ല.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->
