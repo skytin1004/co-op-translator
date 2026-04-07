@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "3fd2055f97f093b6fe102ea24df4458b",
-  "translation_date": "2025-10-15T04:29:22+00:00",
-  "source_file": "AGENTS.md",
-  "language_code": "fi"
-}
--->
 ## Projektin yleiskatsaus
 
 Co‑op Translator on Python-komentorivityökalu ja GitHub Actions -työnkulku, joka kääntää Markdown-tiedostoja, Jupyter-muistikirjoja ja kuvien tekstiä useille kielille. Se järjestää tulokset kielikohtaisiin kansioihin ja pitää käännökset synkronoituna lähdesisällön kanssa. Projekti on rakennettu Poetry-hallittuna kirjastona, jossa on CLI-päätepisteet.

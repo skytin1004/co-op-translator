@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "758ca1c5ae0d32c52d2dd59132dcfbf0",
-  "translation_date": "2025-11-30T11:31:34+00:00",
-  "source_file": "CONTRIBUTING.md",
-  "language_code": "fi"
-}
--->
 # Osallistuminen Co-op Translator -projektiin
 
 Tämä projekti ottaa mielellään vastaan panoksia ja ehdotuksia. Useimmat panokset edellyttävät, että hyväksyt
