@@ -27,11 +27,13 @@ from co_op_translator.utils.common.metadata_utils import (
     read_text_metadata_for_source,
     extract_metadata_from_content,
     extract_content_without_metadata,
+    normalize_language_codes_in_lang_metadata,
 )
 from co_op_translator.config.constants import SUPPORTED_MARKDOWN_EXTENSIONS
 from co_op_translator.core.llm.markdown_translator import MarkdownTranslator
 from co_op_translator.core.project.directory_manager import DirectoryManager
 from co_op_translator.utils.common.task_utils import worker
+from co_op_translator.core.project.language_migrator import LanguageFolderMigrator
 from co_op_translator.utils.llm.markdown_utils import (
     compare_line_breaks,
     update_image_links,
@@ -40,6 +42,11 @@ from co_op_translator.utils.common.metadata_utils import is_notebook_up_to_date
 from co_op_translator.config.base_config import Config
 from co_op_translator.utils.common.file_utils import (
     canonicalize_image_links_in_translations,
+)
+from co_op_translator.utils.common.token_estimation import (
+    estimate_tokens_for_outdated,
+    estimate_tokens_for_sources,
+    estimate_translation_tokens,
 )
 
 logger = logging.getLogger(__name__)
@@ -66,6 +73,7 @@ class TranslationManager:
         notebook_translator=None,
         translation_types: list[str] = None,
         add_disclaimer: bool = True,
+        lang_subdir: Path | None = None,
     ):
         """Initialize translation manager with required components and settings.
 
@@ -100,6 +108,7 @@ class TranslationManager:
             translation_types = ["markdown", "notebook", "images"]
         self.translation_types = translation_types
         self.add_disclaimer = add_disclaimer
+        self.lang_subdir = Path(lang_subdir) if lang_subdir else None
         self.directory_manager = DirectoryManager(
             root_dir,
             translations_dir,
@@ -107,6 +116,17 @@ class TranslationManager:
             excluded_dirs,
             image_dir=image_dir,
         )
+
+    def _get_language_root(self, language_code: str) -> Path:
+        """Return the root directory for a specific language.
+
+        Default layout is translations_dir / language_code. When lang_subdir is
+        set, we append it, yielding translations_dir / language_code / lang_subdir.
+        """
+        lang_dir = self.translations_dir / language_code
+        if self.lang_subdir:
+            lang_dir = lang_dir / self.lang_subdir
+        return lang_dir
 
     async def translate_image(
         self, image_path: Path, language_code: str, fast_mode: bool = False
@@ -172,7 +192,7 @@ class TranslationManager:
             document = read_input_file(file_path)
             if not document:
                 relative_path = file_path.relative_to(self.root_dir)
-                output_file = self.translations_dir / language_code / relative_path
+                output_file = self._get_language_root(language_code) / relative_path
                 handle_empty_document(file_path, output_file)
                 return str(output_file)
 
@@ -214,7 +234,7 @@ class TranslationManager:
                     )
 
             relative_path = file_path.relative_to(self.root_dir)
-            translated_path = self.translations_dir / language_code / relative_path
+            translated_path = self._get_language_root(language_code) / relative_path
             translated_path.parent.mkdir(parents=True, exist_ok=True)
 
             try:
@@ -224,7 +244,7 @@ class TranslationManager:
                     f"Translated {file_path} to {language_code} and saved to {translated_path}"
                 )
                 # Save centralized text metadata for this source file in the language directory
-                lang_dir = self.translations_dir / language_code
+                lang_dir = self._get_language_root(language_code)
                 save_text_metadata_for_source(
                     lang_dir,
                     file_path,
@@ -257,7 +277,7 @@ class TranslationManager:
             document = read_input_file(file_path)
             if not document:
                 relative_path = file_path.relative_to(self.root_dir)
-                output_file = self.translations_dir / language_code / relative_path
+                output_file = self._get_language_root(language_code) / relative_path
                 handle_empty_document(file_path, output_file)
                 return str(output_file)
 
@@ -276,7 +296,7 @@ class TranslationManager:
                 return ""
 
             relative_path = file_path.relative_to(self.root_dir)
-            translated_path = self.translations_dir / language_code / relative_path
+            translated_path = self._get_language_root(language_code) / relative_path
             translated_path.parent.mkdir(parents=True, exist_ok=True)
 
             try:
@@ -286,7 +306,7 @@ class TranslationManager:
                     f"Translated {file_path} to {language_code} and saved to {translated_path}"
                 )
                 # Save centralized text metadata for this source notebook in the language directory
-                lang_dir = self.translations_dir / language_code
+                lang_dir = self._get_language_root(language_code)
                 save_text_metadata_for_source(
                     lang_dir,
                     file_path,
@@ -322,7 +342,7 @@ class TranslationManager:
         if update:
             for language_code in self.language_codes:
                 delete_translated_markdown_files_by_language_code(
-                    language_code, self.translations_dir
+                    language_code, self.translations_dir, self.lang_subdir
                 )
                 logger.info(
                     f"Deleted all translated markdown files for language: {language_code}"
@@ -342,7 +362,7 @@ class TranslationManager:
             for language_code in self.language_codes:
                 relative_path = md_file_path.relative_to(self.root_dir)
                 translated_md_path = (
-                    self.translations_dir / language_code / relative_path
+                    self._get_language_root(language_code) / relative_path
                 )
 
                 if not update and translated_md_path.exists():
@@ -404,7 +424,7 @@ class TranslationManager:
         if update:
             for language_code in self.language_codes:
                 # Find and delete translated notebook files
-                translation_dir = self.translations_dir / language_code
+                translation_dir = self._get_language_root(language_code)
                 if translation_dir.exists():
                     for ext in self.supported_notebook_extensions:
                         for notebook_file in translation_dir.rglob(f"*{ext}"):
@@ -425,7 +445,7 @@ class TranslationManager:
             for language_code in self.language_codes:
                 relative_path = notebook_file_path.relative_to(self.root_dir)
                 translated_notebook_path = (
-                    self.translations_dir / language_code / relative_path
+                    self._get_language_root(language_code) / relative_path
                 )
 
                 if translated_notebook_path.exists() and not update:
@@ -707,38 +727,6 @@ class TranslationManager:
                     "Skipping translated image migration because image translation is disabled"
                 )
 
-            try:
-                # Always run link migration to rewrite legacy flattened links in content,
-                # even when no files were moved (empty rename_map)
-                migrated_md = self.directory_manager.migrate_markdown_image_links(
-                    rename_map
-                )
-                migrated_nb = self.directory_manager.migrate_notebook_image_links(
-                    rename_map
-                )
-                logger.info(
-                    "Migrated %d image files and updated %d markdown and %d notebook files",
-                    migrated_image_count,
-                    migrated_md,
-                    migrated_nb,
-                )
-            except Exception as e:
-                logger.warning(f"Image link migration skipped: {e}")
-
-            # As a safety net, canonicalize any remaining alias-based language dir segments in links
-            try:
-                md_fix, nb_fix = canonicalize_image_links_in_translations(
-                    self.translations_dir, self.image_dir
-                )
-                if md_fix or nb_fix:
-                    logger.info(
-                        "Canonicalized image links in %d markdown and %d notebooks",
-                        md_fix,
-                        nb_fix,
-                    )
-            except Exception as e:
-                logger.warning(f"Image link canonicalization skipped: {e}")
-
             # Clean up files no longer needed in target directories
             logger.info("Removing orphaned files...")
             with tqdm(total=1, desc="🧹 Cleaning orphaned files") as cleanup_progress:
@@ -809,6 +797,23 @@ class TranslationManager:
                     check_progress.update(1)
 
                 if outdated_files:
+                    try:
+                        est_tokens = estimate_tokens_for_outdated(
+                            self,
+                            outdated_files,
+                            content_type="markdown",
+                        ) + estimate_tokens_for_outdated(
+                            self,
+                            outdated_files,
+                            content_type="notebook",
+                        )
+                        logger.info(
+                            f"Estimated tokens for selected retranslation targets: {est_tokens:,}"
+                        )
+                    except Exception as e:
+                        logger.debug(
+                            f"Failed to estimate tokens for outdated files: {e}"
+                        )
                     await self.retranslate_outdated_files(outdated_files)
 
             # Find outdated images needing retranslation
@@ -835,6 +840,14 @@ class TranslationManager:
 
             # Execute translation for markdown, notebook and image files
             if "markdown" in self.translation_types:
+                try:
+                    md_pending = self._gather_pending_markdown(update=update)
+                    md_tokens = estimate_tokens_for_sources(md_pending)
+                    logger.info(
+                        f"Estimated tokens for markdown translations: {md_tokens:,} (files: {len(md_pending)})"
+                    )
+                except Exception as e:
+                    logger.debug(f"Failed to estimate markdown tokens: {e}")
                 md_modified, md_errors = await self.translate_all_markdown_files(
                     update=update
                 )
@@ -842,6 +855,14 @@ class TranslationManager:
                 all_errors.extend(md_errors)
 
             if "notebook" in self.translation_types:
+                try:
+                    nb_pending = self._gather_pending_notebooks(update=update)
+                    nb_tokens = estimate_tokens_for_sources(nb_pending)
+                    logger.info(
+                        f"Estimated tokens for notebook translations: {nb_tokens:,} (files: {len(nb_pending)})"
+                    )
+                except Exception as e:
+                    logger.debug(f"Failed to estimate notebook tokens: {e}")
                 nb_modified, nb_errors = await self.translate_all_notebook_files(
                     update=update
                 )
@@ -914,6 +935,50 @@ class TranslationManager:
 
         return total_modified, all_errors
 
+    def estimate_tokens(self, update: bool = False) -> dict:
+        """Estimate tokens for the upcoming translation run.
+
+        Backward-compatible shim that delegates token-estimation breakdown
+        calculation to shared estimation utilities.
+        """
+        return estimate_translation_tokens(self, update=update)
+
+    def _gather_pending_markdown(self, update: bool) -> List[Path]:
+        pending: List[Path] = []
+        markdown_files = filter_files(self.root_dir, self.excluded_dirs)
+        for md_file_path in markdown_files:
+            md_file_path = md_file_path.resolve()
+            if md_file_path.suffix.lower() in SUPPORTED_MARKDOWN_EXTENSIONS:
+                for language_code in self.language_codes:
+                    relative_path = md_file_path.relative_to(self.root_dir)
+                    translated_md_path = (
+                        self._get_language_root(language_code) / relative_path
+                    )
+                    if not update and translated_md_path.exists():
+                        continue
+                    pending.append(md_file_path)
+        return pending
+
+    def _gather_pending_notebooks(self, update: bool) -> List[Path]:
+        pending: List[Path] = []
+        notebook_files: List[Path] = []
+        for ext in self.supported_notebook_extensions:
+            notebook_files.extend(filter_files(self.root_dir, self.excluded_dirs, ext))
+        for notebook_file_path in notebook_files:
+            notebook_file_path = notebook_file_path.resolve()
+            for language_code in self.language_codes:
+                relative_path = notebook_file_path.relative_to(self.root_dir)
+                translated_notebook_path = (
+                    self._get_language_root(language_code) / relative_path
+                )
+                if translated_notebook_path.exists() and not update:
+                    # Existing notebook translations are handled separately by the
+                    # outdated-translation pass, so the pending bucket should
+                    # only include notebooks that do not have a translation yet.
+                    continue
+                pending.append(notebook_file_path)
+        return pending
+
     def get_outdated_translations(self) -> List[tuple[Path, Path]]:
         """Identify translations that need updates based on file hash comparison.
 
@@ -926,7 +991,7 @@ class TranslationManager:
         all_translation_files = []
 
         for lang_code in self.language_codes:
-            translation_dir = self.translations_dir / lang_code
+            translation_dir = self._get_language_root(lang_code)
             if not translation_dir.exists():
                 continue
             for ext in SUPPORTED_MARKDOWN_EXTENSIONS:
@@ -941,9 +1006,8 @@ class TranslationManager:
 
         for lang_code, trans_file in all_translation_files:
             try:
-                relative_path = trans_file.relative_to(
-                    self.translations_dir / lang_code
-                )
+                lang_dir = self._get_language_root(lang_code)
+                relative_path = trans_file.relative_to(lang_dir)
                 original_file = self.root_dir / relative_path
 
                 if not original_file.exists():
@@ -1195,7 +1259,7 @@ class TranslationManager:
                 # Find the path of the translated file
                 relative_path = md_file_path.relative_to(self.root_dir)
                 translated_md_file_path = (
-                    self.translations_dir / language_code / relative_path
+                    self._get_language_root(language_code) / relative_path
                 )
 
                 if not translated_md_file_path.exists():
@@ -1354,12 +1418,29 @@ class TranslationManager:
             if translation_file.suffix.lower() in self.supported_notebook_extensions:
                 return not is_notebook_up_to_date(original_file, translation_file)
 
-            # Determine language directory from translation path
+            # Determine language directory and language code from translation path
             lang_dir = None
+            lang_code = None
             try:
-                rel = translation_file.resolve().relative_to(self.translations_dir)
-                lang_code = rel.parts[0]
-                lang_dir = self.translations_dir / lang_code
+                # Find which language this file belongs to by checking roots
+                for lc in self.language_codes:
+                    root = self._get_language_root(lc)
+                    try:
+                        # Use resolve() to handle potential symlinks or relative path complexities
+                        rel = translation_file.resolve().relative_to(root.resolve())
+                        lang_code = lc
+                        lang_dir = root
+                        break
+                    except (ValueError, IndexError):
+                        continue
+
+                if not lang_dir:
+                    # Fallback to translations_dir / lang_code if not found in subdirs
+                    rel = translation_file.resolve().relative_to(
+                        self.translations_dir.resolve()
+                    )
+                    lang_code = rel.parts[0]
+                    lang_dir = self.translations_dir / lang_code
             except Exception:
                 # Fallback: use the parent directory (may be incorrect for deeply nested paths)
                 lang_dir = translation_file.parent

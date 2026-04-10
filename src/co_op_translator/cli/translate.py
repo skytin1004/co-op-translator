@@ -353,6 +353,52 @@ def translate_command(
             add_disclaimer=add_disclaimer,
         )
 
+        # Estimate tokens before running translation and print a concise summary
+        try:
+            est = translator.translation_manager.estimate_tokens(update=update)
+            translation_parts = []
+            if "markdown" in translation_types:
+                translation_parts.append(f"markdown: {est.get('markdown', 0):,}")
+            if "notebook" in translation_types:
+                translation_parts.append(f"notebook: {est.get('notebook', 0):,}")
+            if "images" in translation_types:
+                translation_parts.append(f"images: {est.get('images', 0):,}")
+
+            retranslation_parts = []
+            if "markdown" in translation_types:
+                retranslation_parts.append(
+                    f"outdated markdowns: {est.get('outdated_markdown', 0):,}"
+                )
+            if "notebook" in translation_types:
+                retranslation_parts.append(
+                    f"outdated notebooks: {est.get('outdated_notebook', 0):,}"
+                )
+            if "images" in translation_types:
+                retranslation_parts.append(
+                    f"outdated images: {est.get('outdated_images', 0):,}"
+                )
+
+            breakdown_sections = []
+            if translation_parts:
+                breakdown_sections.append(
+                    f"translation: {'; '.join(translation_parts)}"
+                )
+            if retranslation_parts:
+                breakdown_sections.append(
+                    f"retranslation: {'; '.join(retranslation_parts)}"
+                )
+            breakdown = " | ".join(breakdown_sections) if breakdown_sections else "none"
+            click.echo(
+                f"📊 Estimated tokens before translation: {est.get('total', 0):,} (breakdown: {breakdown})"
+            )
+        except Exception as e:
+            logger.debug(f"Failed to compute estimated tokens: {e}")
+
+        # If dry-run, stop after estimation without making any changes
+        if dry_run:
+            click.echo("🧪 Dry run complete: no changes made.")
+            return
+
         # Update README shared sections BEFORE translation
         readme_path = root_path / "README.md"
         try:

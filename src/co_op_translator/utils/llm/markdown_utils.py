@@ -225,41 +225,76 @@ def generate_prompt_template(
     language_code: str, language_name: str, document_chunk: str, is_rtl: bool
 ) -> str:
     """
-    Generate a translation prompt for a document chunk, considering language direction.
-
-    Args:
-        language_code (str): The target language code for translation.
-        language_name (str): The target language name for translation.
-        document_chunk (str): The chunk of the document to be translated.
-        is_rtl (bool): Whether the target language is right-to-left.
-
-    Returns:
-        str: The generated translation prompt.
+    Generate a safe and stable translation prompt that enforces strict
+    markdown structure preservation and prevents HTML/markdown rewriting.
     """
 
+    # --- 1) ONE-LINE CHUNKS (simple text or inline cases) ---
     if len(document_chunk.split("\n")) == 1:
-        prompt = f"Translate the following text to {language_name} ({language_code}). NEVER ADD ANY EXTRA CONTENT OR TAGS OUTSIDE THE TRANSLATION. DO NOT ADD '''markdown OR ANY OTHER TAGS. TRANSLATE ONLY WHAT IS GIVEN TO YOU. MAINTAIN MARKDOWN FORMAT."
+        prompt = (
+            f"Translate the following text to {language_name} ({language_code}). "
+            "STRICT RULE: Do NOT add, remove, or modify any markdown characters. "
+            "Do NOT introduce HTML tags. Translate ONLY text content. "
+            "Return ONLY the translation."
+        )
+
+    # --- 2) MULTI-LINE CHUNKS (markdown documents) ---
     else:
         prompt = f"""
-        Translate the following markdown file to {language_name} ({language_code}).
-        IMPORTANT RULES:
-        1. DO NOT add '''markdown or any other tags around the translation
-        2. Make sure the translation does not sound too literal
-        3. Translate comments as well
-        4. Preserve inline and block HTML (e.g., <a>, <img>, <details>, <summary>, <div>) exactly; do not convert to Markdown; translate only visible text (e.g., link text, alt/title, summary labels); do not change tag names, attributes, or URLs/paths.
-        5. Do not translate:
-           - [!NOTE], [!WARNING], [!TIP], [!IMPORTANT], [!CAUTION]
-           - Variable names, function names, class names
-           - Placeholders like @@INLINE_CODE_x@@ or @@CODE_BLOCK_x@@
-           - URLs or paths
-        6. Keep all original markdown formatting intact
-        7. Return ONLY the translated content without any additional tags or markup
-        """
+Translate the following markdown file to {language_name} ({language_code}).
 
+STRICT RULES (NO EXCEPTIONS):
+
+0. STRUCTURE PRESERVATION
+   - You MUST preserve the exact markdown syntax from the input.
+   - DO NOT canonicalize, optimize, reformat, or rewrite markdown.
+   - DO NOT convert markdown links ([text](url)) into HTML <a> tags.
+   - DO NOT convert existing HTML into markdown.
+   - DO NOT introduce any new HTML tags.
+
+1. OUTPUT FORMAT
+   - Return ONLY the translated content.
+   - Do NOT add ```markdown or ANY wrappers.
+   - Do NOT add explanations, metadata, or comments.
+
+2. TRANSLATION SCOPE
+   - Translate written, human-readable text ONLY.
+   - DO NOT translate:
+     * URLs or file paths
+     * Markdown syntax
+     * Variable names, function names, class names
+     * Placeholders like @@INLINE_CODE_x@@ and @@CODE_BLOCK_x@@
+     * Tags such as [!NOTE], [!TIP], [!WARNING], [!IMPORTANT], [!CAUTION]
+
+3. HTML HANDLING RULES
+   - Preserve all HTML EXACTLY as provided. This includes inline and block elements 
+     such as <a>, <img>, <details>, <summary>, <div>, and any other HTML tags.
+   - DO NOT alter tag names, attributes, URLs, paths, classes, IDs, or structure.
+   - Translate ONLY the visible human-readable text content (e.g., link text, alt/title text,
+     <summary> labels, descriptive text inside tags).
+   - DO NOT convert HTML to Markdown or Markdown to HTML.
+   - DO NOT add, remove, reorder, or rewrite ANY HTML. Maintain exact byte-for-byte
+     fidelity for all tags and attributes.
+
+4. FRONTMATTER RULE (YAML delimited by '---')
+   - If a YAML frontmatter block exists at the top of the document:
+       * KEEP the entire block EXACTLY.
+       * DO NOT modify field names or file paths.
+       * Translate ONLY human-readable values (e.g., title, description).
+       * DO NOT “fix” or normalize layout/import paths.
+
+5. SAFETY
+   - Do NOT reorder lines.
+   - Do NOT remove blank lines.
+   - Do NOT merge or split paragraphs.
+   - Preserve whitespace, indentation, and list structure exactly.
+"""
+
+    # Direction rule (minimal + unambiguous)
     if is_rtl:
-        prompt += "Please write the output from right to left, respecting that this is a right-to-left language.\n"
+        prompt += "\nWrite the output in right-to-left direction.\n"
     else:
-        prompt += "Please write the output from left to right.\n"
+        prompt += "\nWrite the output in left-to-right direction.\n"
 
     language_template = _read_language_prompt_template(language_code)
     if language_template:

@@ -22,6 +22,8 @@ from co_op_translator.utils.common.lang_utils import (
 
 from .directory_manager import DirectoryManager
 from .translation_manager import TranslationManager
+from co_op_translator.utils.common.file_utils import read_input_file
+from co_op_translator.utils.common.token_estimation import count_tokens
 
 logger = logging.getLogger(__name__)
 
@@ -41,6 +43,7 @@ class ProjectTranslator:
         add_disclaimer: bool = True,
         translations_dir=None,
         image_dir=None,
+        lang_subdir=None,
     ):
         """Initialize project translation environment.
 
@@ -54,6 +57,7 @@ class ProjectTranslator:
         # Normalize to canonical BCP 47 (accept alias input like tw/cn/br)
         self.language_codes = normalize_language_codes(language_codes.split())
         self.root_dir = Path(root_dir).resolve()
+        self.lang_subdir = Path(lang_subdir) if lang_subdir else None
         # Resolve translations_dir relative to root_dir when a relative path is provided.
         if translations_dir is not None:
             t_dir = Path(translations_dir)
@@ -152,6 +156,7 @@ class ProjectTranslator:
             self.language_codes,
             self.excluded_dirs,
             image_dir=self.image_dir,
+            lang_subdir=self.lang_subdir,
         )
         self.translation_manager = TranslationManager(
             self.root_dir,
@@ -166,6 +171,7 @@ class ProjectTranslator:
             self.notebook_translator,
             self.translation_types,
             add_disclaimer=add_disclaimer,
+            lang_subdir=self.lang_subdir,
         )
 
     def translate_project(
@@ -267,6 +273,7 @@ class ProjectTranslator:
             excluded_dirs=self.excluded_dirs,
             use_llm=True,
             use_rule=True,
+            lang_subdir=self.lang_subdir,
         )
 
         # Get low confidence files
@@ -317,6 +324,21 @@ class ProjectTranslator:
         if not files_to_retranslate:
             logger.info("No files could be prepared for retranslation")
             return 0, errors
+
+        # Estimate tokens for these retranslation sources (single language)
+        try:
+            est_total = 0
+            for orig_file, _ in files_to_retranslate:
+                try:
+                    text = read_input_file(orig_file)
+                    est_total += count_tokens(text)
+                except Exception:
+                    continue
+            logger.info(
+                f"Estimated tokens for selected low-confidence retranslation targets: {est_total:,} (files: {len(files_to_retranslate)})"
+            )
+        except Exception as e:
+            logger.debug(f"Failed to estimate tokens for low-confidence set: {e}")
 
         # Retranslate files
         retranslated = 0

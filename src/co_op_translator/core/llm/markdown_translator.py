@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 import asyncio
 import logging
+import os
 import re
 from pathlib import Path
 from importlib import resources
@@ -15,6 +16,10 @@ from co_op_translator.utils.llm.markdown_utils import (
     normalize_cjk_emphasis_markers,
     normalize_internal_anchor_links,
     SPLIT_DELIMITER,
+)
+from co_op_translator.utils.llm.frontmatter_utils import (
+    get_frontmatter_parser,
+    adjust_frontmatter_links,
 )
 from co_op_translator.utils.llm.code_comment_translator import (
     translate_comments_in_code_blocks,
@@ -91,6 +96,19 @@ class MarkdownTranslator(ABC):
         """
         return format_metadata_comment(metadata)
 
+    @staticmethod
+    def _insert_metadata_comment(content: str, metadata_comment: str) -> str:
+        if not metadata_comment:
+            return content
+
+        frontmatter_pattern = r"^---\s*\n.*?\n---\s*\n"
+        match = re.match(frontmatter_pattern, content, re.DOTALL)
+        if match:
+            end = match.end()
+            return content[:end] + metadata_comment + content[end:]
+
+        return metadata_comment + content
+
     async def translate_markdown(
         self,
         document: str,
@@ -103,7 +121,8 @@ class MarkdownTranslator(ABC):
         """Translate markdown document to target language.
 
         Handles complex documents by splitting into manageable chunks while
-        preserving formatting, links, and code blocks.
+        preserving formatting, links, and code blocks. Frontmatter fields are
+        handled deterministically based on configuration.
 
         Args:
             document: Content of the markdown file
@@ -132,11 +151,40 @@ class MarkdownTranslator(ABC):
         language_name = self.font_config.get_language_name(language_code)
         is_rtl = self.font_config.is_rtl(language_code)
 
+        # Step 0: Extract and process frontmatter
+        parser = get_frontmatter_parser()
+        frontmatter, body = parser.extract_frontmatter(document)
+
+        preserve_fields = {}
+        translate_fields = {}
+        frontmatter_section = ""
+
+        if frontmatter:
+            # Split frontmatter into preserve and translate fields
+            preserve_fields, translate_fields = parser.split_fields(frontmatter)
+            logger.debug(
+                f"Frontmatter split for '{md_file_path.name}': "
+                f"{len(preserve_fields)} preserve, {len(translate_fields)} translate"
+            )
+
+            # Convert translatable fields to markdown for LLM
+            if translate_fields:
+                frontmatter_section = parser.extract_translatable_fields_as_markdown(
+                    translate_fields
+                )
+                logger.debug(
+                    f"Translatable frontmatter fields for '{md_file_path.name}': "
+                    f"{list(translate_fields.keys())}"
+                )
+
+        # Use body for translation (frontmatter already extracted)
+        document_to_translate = body
+
         # Step 1: Replace code blocks and inline code with placeholders
         (
             document_with_placeholders,
             placeholder_map,
-        ) = replace_code_blocks(document)
+        ) = replace_code_blocks(document_to_translate)
 
         # Step 1.5: Translate only the comments inside fenced code blocks
         placeholder_map = await translate_comments_in_code_blocks(
@@ -172,7 +220,63 @@ class MarkdownTranslator(ABC):
         # Step 4.75: Restore the code blocks and inline code from placeholders
         translated_content = restore_code_blocks(translated_content, placeholder_map)
 
-        # Step 5: Update links
+        # Step 5: Translate frontmatter fields if any
+        translated_frontmatter_fields = {}
+        if frontmatter_section:
+            # Translate the frontmatter section
+            frontmatter_prompt = generate_prompt_template(
+                language_code, language_name, frontmatter_section, is_rtl
+            )
+            try:
+                translated_fm_markdown = await asyncio.wait_for(
+                    self._run_prompt(frontmatter_prompt, "frontmatter", 1),
+                    timeout=self.TRANSLATION_TIMEOUT_SECONDS,
+                )
+                # Parse translated fields back from markdown
+                translated_frontmatter_fields = (
+                    parser.parse_translated_fields_from_markdown(
+                        translated_fm_markdown, translate_fields
+                    )
+                )
+                logger.debug(
+                    f"Translated frontmatter fields for '{md_file_path.name}': "
+                    f"{list(translated_frontmatter_fields.keys())}"
+                )
+            except asyncio.TimeoutError:
+                logger.warning(
+                    f"Frontmatter translation timeout for '{md_file_path.name}': "
+                    f"Using original values for translatable fields."
+                )
+                translated_frontmatter_fields = translate_fields
+            except Exception as e:
+                logger.error(
+                    f"Frontmatter translation failed for '{md_file_path.name}': {e}. "
+                    f"Using original values for translatable fields."
+                )
+                translated_frontmatter_fields = translate_fields
+
+        # Step 6: Merge frontmatter and reconstruct
+        if frontmatter:
+            merged_frontmatter = parser.merge_fields(
+                preserve_fields, translated_frontmatter_fields
+            )
+
+            # Step 6.5: Adjust frontmatter links (same logic as markdown-only mode)
+            adjusted_frontmatter = adjust_frontmatter_links(
+                merged_frontmatter,
+                md_file_path,
+                language_code,
+                self.root_dir,
+                self.translations_dir,
+                self.image_dir,
+                translation_types,
+            )
+
+            translated_content = parser.reconstruct_content(
+                adjusted_frontmatter, translated_content
+            )
+
+        # Step 7: Update links
         updated_content = update_links(
             md_file_path,
             translated_content,
@@ -183,10 +287,10 @@ class MarkdownTranslator(ABC):
             translation_types=translation_types,
         )
 
-        # Step 6: Add metadata and disclaimer (only if requested)
+        # Step 8: Add metadata and disclaimer (only if requested)
         result = updated_content
         if add_metadata:
-            result = metadata_comment + result
+            result = self._insert_metadata_comment(updated_content, metadata_comment)
         if add_disclaimer:
             disclaimer = await self.generate_disclaimer(language_code)
             if disclaimer:

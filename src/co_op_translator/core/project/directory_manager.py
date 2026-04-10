@@ -35,6 +35,7 @@ class DirectoryManager:
         language_codes: list[str],
         excluded_dirs: list[str],
         image_dir: Path | None = None,
+        lang_subdir: Path | None = None,
     ):
         """Initialize directory manager with project configuration.
 
@@ -44,6 +45,7 @@ class DirectoryManager:
             language_codes: List of target language codes
             excluded_dirs: List of directories to exclude
             image_dir: Directory for translated images (flat tree, language code embedded in filename)
+            lang_subdir: Optional nested subdirectory within each language folder
         """
         self.root_dir = root_dir
         self.translations_dir = translations_dir
@@ -55,6 +57,21 @@ class DirectoryManager:
             if image_dir is not None
             else (self.root_dir / "translated_images")
         )
+        self.lang_subdir = Path(lang_subdir) if lang_subdir else None
+
+    def _get_language_root(self, language_code: str) -> Path:
+        """Get the root directory for a specific language's translations.
+
+        Args:
+            language_code: The target language code (e.g., 'ko', 'fr')
+
+        Returns:
+            Path to the language-specific translation directory
+        """
+        lang_dir = self.translations_dir / language_code
+        if self.lang_subdir:
+            lang_dir = lang_dir / self.lang_subdir
+        return lang_dir
 
     def sync_directory_structure(
         self, markdown: bool = True, images: bool = True, notebooks: bool = True
@@ -106,7 +123,7 @@ class DirectoryManager:
 
         # Sync each language directory
         for lang_code in self.language_codes:
-            lang_dir = self.translations_dir / lang_code
+            lang_dir = self._get_language_root(lang_code)
             if not lang_dir.exists():
                 lang_dir.mkdir(parents=True)
                 logger.info(f"Created language directory: {lang_dir}")
@@ -190,7 +207,7 @@ class DirectoryManager:
         # Handle markdown files
         if markdown:
             for lang_code in self.language_codes:
-                translation_dir = self.translations_dir / lang_code
+                translation_dir = self._get_language_root(lang_code)
                 if not translation_dir.exists():
                     logger.info(
                         f"Translation directory does not exist: {translation_dir}"
@@ -288,7 +305,7 @@ class DirectoryManager:
         # Handle notebook files
         if notebooks:
             for lang_code in self.language_codes:
-                translation_dir = self.translations_dir / lang_code
+                translation_dir = self._get_language_root(lang_code)
                 if not translation_dir.exists():
                     logger.info(
                         f"Notebook translation directory does not exist: {translation_dir}"
@@ -436,7 +453,6 @@ class DirectoryManager:
                             rel_parts = image_file.relative_to(image_dir).parts
                         except Exception:
                             rel_parts = ()
-
                         lang_code = None
                         # Accept alias language folder names by normalizing to canonical
                         if len(rel_parts) >= 2:
@@ -454,6 +470,7 @@ class DirectoryManager:
                             path_hash_segment = parts[-3]
                             base_name = ".".join(parts[:-3])
 
+                        # If language code is not supported (not in language_codes), delete it
                         if lang_code not in self.language_codes:
                             try:
                                 image_file.unlink()

@@ -828,7 +828,7 @@ def delete_translated_images_by_language_code(language_code: str, image_dir: Pat
 
 
 def delete_translated_markdown_files_by_language_code(
-    language_code: str, translations_dir: Path
+    language_code: str, translations_dir: Path, lang_subdir: Path | None = None
 ):
     """
     Delete the entire directory for the specified language code, including all its contents.
@@ -839,6 +839,8 @@ def delete_translated_markdown_files_by_language_code(
     """
     # Construct the path to the directory for the specific language
     language_dir = translations_dir / language_code
+    if lang_subdir:
+        language_dir = language_dir / Path(lang_subdir)
 
     if not language_dir.exists():
         logger.warning(
