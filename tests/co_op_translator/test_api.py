@@ -2,38 +2,22 @@ from unittest.mock import MagicMock
 
 import pytest
 
-from co_op_translator.localizeflow import runner
+from co_op_translator.api import translation as api
 
 
 @pytest.mark.asyncio
-async def test_run_translation_calls_project_translator_and_sets_glossaries(tmp_path):
-    """run_translation should set glossaries and delegate to ProjectTranslator.
-
-    This test avoids real network/API calls by patching configuration checks,
-    logging setup, and ProjectTranslator, and focuses on wiring/arguments.
-    """
-
-    # Ensure the temporary directory exists and use it as root_dir
+async def test_run_translation_calls_project_translator(tmp_path):
     root_dir = tmp_path
 
-    # Patch configuration and health checks to no-op
-    runner.Config.check_configuration = MagicMock(return_value=None)
-    runner.LLMConfig.validate_connectivity = MagicMock(return_value=None)
+    api.Config.check_configuration = MagicMock(return_value=None)
+    api.LLMConfig.validate_connectivity = MagicMock(return_value=None)
+    api.setup_logging = MagicMock(return_value=None)
 
-    # Avoid real logging setup
-    runner.setup_logging = MagicMock(return_value=None)
-
-    # Patch glossary setter to observe calls
-    set_glossaries_mock = MagicMock()
-    runner.set_glossaries = set_glossaries_mock
-
-    # Patch ProjectTranslator to avoid touching real translators
     project_translator_instance = MagicMock()
     project_translator_class = MagicMock(return_value=project_translator_instance)
-    runner.ProjectTranslator = project_translator_class
+    api.ProjectTranslator = project_translator_class
 
-    # Execute: markdown-only, no images/notebooks, with glossaries
-    runner.run_translation(
+    api.run_translation(
         language_codes="ko ja",
         root_dir=str(root_dir),
         update=False,
@@ -43,15 +27,8 @@ async def test_run_translation_calls_project_translator_and_sets_glossaries(tmp_
         debug=False,
         save_logs=False,
         yes=True,
-        glossaries=["PR", "Issue"],
     )
 
-    # Glossaries should be applied once with the provided list
-    set_glossaries_mock.assert_called_once_with(["PR", "Issue"])
-
-    # ProjectTranslator should be constructed with language codes, root_dir, and
-    # translation_types matching the CLI semantics (markdown-only here), with
-    # disclaimers disabled for Localizeflow and default output dirs.
     assert project_translator_class.call_count == 2
     project_translator_class.assert_any_call(
         "ko ja",
@@ -62,8 +39,6 @@ async def test_run_translation_calls_project_translator_and_sets_glossaries(tmp_
         image_dir=None,
         lang_subdir=None,
     )
-
-    # translate_project should run once (the preflight estimator instance is not executed)
     project_translator_instance.translate_project.assert_called_once_with(
         update=False,
     )
@@ -73,15 +48,15 @@ async def test_run_translation_calls_project_translator_and_sets_glossaries(tmp_
 async def test_run_translation_with_disclaimer_flag(tmp_path):
     root_dir = tmp_path
 
-    runner.Config.check_configuration = MagicMock(return_value=None)
-    runner.LLMConfig.validate_connectivity = MagicMock(return_value=None)
-    runner.setup_logging = MagicMock(return_value=None)
+    api.Config.check_configuration = MagicMock(return_value=None)
+    api.LLMConfig.validate_connectivity = MagicMock(return_value=None)
+    api.setup_logging = MagicMock(return_value=None)
 
     project_translator_instance = MagicMock()
     project_translator_class = MagicMock(return_value=project_translator_instance)
-    runner.ProjectTranslator = project_translator_class
+    api.ProjectTranslator = project_translator_class
 
-    runner.run_translation(
+    api.run_translation(
         language_codes="ko",
         root_dir=str(root_dir),
         markdown=True,
@@ -107,15 +82,15 @@ async def test_run_translation_with_multiple_root_dirs(tmp_path):
     root1.mkdir()
     root2.mkdir()
 
-    runner.Config.check_configuration = MagicMock(return_value=None)
-    runner.LLMConfig.validate_connectivity = MagicMock(return_value=None)
-    runner.setup_logging = MagicMock(return_value=None)
+    api.Config.check_configuration = MagicMock(return_value=None)
+    api.LLMConfig.validate_connectivity = MagicMock(return_value=None)
+    api.setup_logging = MagicMock(return_value=None)
 
     project_translator_instance = MagicMock()
     project_translator_class = MagicMock(return_value=project_translator_instance)
-    runner.ProjectTranslator = project_translator_class
+    api.ProjectTranslator = project_translator_class
 
-    runner.run_translation(
+    api.run_translation(
         language_codes="ko",
         markdown=True,
         root_dirs=[str(root1), str(root2)],
@@ -137,20 +112,20 @@ async def test_run_translation_with_groups(tmp_path):
     out1.mkdir()
     out2.mkdir()
 
-    runner.Config.check_configuration = MagicMock(return_value=None)
-    runner.LLMConfig.validate_connectivity = MagicMock(return_value=None)
-    runner.setup_logging = MagicMock(return_value=None)
+    api.Config.check_configuration = MagicMock(return_value=None)
+    api.LLMConfig.validate_connectivity = MagicMock(return_value=None)
+    api.setup_logging = MagicMock(return_value=None)
 
     project_translator_instance = MagicMock()
     project_translator_class = MagicMock(return_value=project_translator_instance)
-    runner.ProjectTranslator = project_translator_class
+    api.ProjectTranslator = project_translator_class
 
     groups = [
         (str(root1), str(out1)),
         (str(root2), str(out2)),
     ]
 
-    runner.run_translation(
+    api.run_translation(
         language_codes="ko",
         markdown=True,
         groups=groups,
@@ -177,19 +152,22 @@ async def test_run_translation_dry_run_groups_shows_single_aggregated_estimate(
     out1.mkdir()
     out2.mkdir()
 
-    runner.Config.check_configuration = MagicMock(return_value=None)
-    runner.LLMConfig.validate_connectivity = MagicMock(return_value=None)
-    runner.setup_logging = MagicMock(return_value=None)
+    api.Config.check_configuration = MagicMock(return_value=None)
+    api.LLMConfig.validate_connectivity = MagicMock(return_value=None)
+    api.setup_logging = MagicMock(return_value=None)
 
     translators = [MagicMock() for _ in range(4)]
-    runner.ProjectTranslator = MagicMock(side_effect=translators)
+    api.ProjectTranslator = MagicMock(side_effect=translators)
 
-    runner.estimate_translation_tokens = MagicMock(
+    api.estimate_translation_tokens = MagicMock(
         side_effect=[
             {
                 "markdown": 65,
                 "notebook": 0,
                 "images": 0,
+                "outdated_markdown": 0,
+                "outdated_notebook": 0,
+                "outdated_images": 0,
                 "outdated": 0,
                 "total": 65,
             },
@@ -197,12 +175,15 @@ async def test_run_translation_dry_run_groups_shows_single_aggregated_estimate(
                 "markdown": 65,
                 "notebook": 0,
                 "images": 0,
+                "outdated_markdown": 0,
+                "outdated_notebook": 0,
+                "outdated_images": 0,
                 "outdated": 0,
                 "total": 65,
             },
         ]
     )
-    runner.estimate_translation_words = MagicMock(
+    api.estimate_translation_words = MagicMock(
         side_effect=[
             {
                 "markdown": 40,
@@ -222,14 +203,14 @@ async def test_run_translation_dry_run_groups_shows_single_aggregated_estimate(
     )
 
     echo_mock = MagicMock()
-    runner.click.echo = echo_mock
+    api.click.echo = echo_mock
 
     groups = [
         (str(root1), str(out1)),
         (str(root2), str(out2)),
     ]
 
-    runner.run_translation(
+    api.run_translation(
         language_codes="ko",
         markdown=True,
         groups=groups,

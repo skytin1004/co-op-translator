@@ -1,9 +1,9 @@
-import logging
-from pathlib import Path
-from typing import Iterable
 import importlib.resources
+import logging
 import os
 from contextlib import contextmanager
+from pathlib import Path
+from typing import Iterable
 
 import click
 import yaml
@@ -11,25 +11,19 @@ import yaml
 from co_op_translator.config.base_config import Config
 from co_op_translator.config.llm_config.config import LLMConfig
 from co_op_translator.config.vision_config.config import VisionConfig
-from co_op_translator.core.project.project_translator import ProjectTranslator
 from co_op_translator.core.project.language_migrator import LanguageFolderMigrator
-from co_op_translator.utils.common.logging_utils import setup_logging
+from co_op_translator.core.project.project_translator import ProjectTranslator
 from co_op_translator.utils.common.file_utils import (
     update_readme_languages_table,
     update_readme_other_courses,
 )
-
-from co_op_translator.localizeflow.glossary import set_glossaries
-from co_op_translator.localizeflow.frontmatter import (
-    ensure_localizeflow_frontmatter_parser,
-)
+from co_op_translator.utils.common.lang_utils import normalize_language_codes
+from co_op_translator.utils.common.logging_utils import setup_logging
 from co_op_translator.utils.common.metadata_utils import (
     normalize_language_codes_in_lang_metadata,
 )
-from co_op_translator.utils.common.lang_utils import normalize_language_codes
-from co_op_translator.localizeflow.utils.token_utils import estimate_translation_tokens
-from co_op_translator.localizeflow.utils.words_utils import estimate_translation_words
-
+from co_op_translator.utils.common.token_estimation import estimate_translation_tokens
+from co_op_translator.utils.common.word_estimation import estimate_translation_words
 
 logger = logging.getLogger(__name__)
 
@@ -44,7 +38,6 @@ def run_translation(
     debug: bool = False,
     save_logs: bool = False,
     yes: bool = True,
-    glossaries: Iterable[str] | None = None,
     add_disclaimer: bool = False,
     translations_dir: str | None = None,
     image_dir: str | None = None,
@@ -53,22 +46,9 @@ def run_translation(
     repo_url: str | None = None,
     dry_run: bool = False,
 ) -> None:
-    """Programmatic translation entrypoint mirroring the translate CLI options.
-
-    This helper keeps behavior close to co_op_translator.cli.translate.translate_command
-    while allowing Localizeflow to inject glossaries and avoid interactive prompts.
-    """
+    """Programmatic translation entrypoint mirroring the translate CLI options."""
 
     def _split_lang_placeholder(path: str) -> tuple[str, str | None]:
-        """Split a target path containing a <lang> placeholder.
-
-        Example:
-            "i18n/<lang>/docusaurus-plugin-content-docs/current" ->
-            ("i18n", "docusaurus-plugin-content-docs/current")
-
-        If no placeholder is present, returns (path, None).
-        """
-
         placeholder = "<lang>"
         if placeholder not in path:
             return path, None
@@ -90,7 +70,6 @@ def run_translation(
         debug: bool,
         save_logs: bool,
         yes: bool,
-        glossaries: Iterable[str] | None,
         add_disclaimer: bool,
         translations_dir: str | None,
         image_dir: str | None,
@@ -98,11 +77,8 @@ def run_translation(
         repo_url: str | None,
         dry_run: bool,
     ) -> None:
-        # Validate configuration
         Config.check_configuration()
-        ensure_localizeflow_frontmatter_parser()
 
-        # Build translation types list
         translation_types: list[str] = []
         if markdown:
             translation_types.append("markdown")
@@ -113,7 +89,6 @@ def run_translation(
         if not translation_types:
             translation_types = ["markdown", "notebook", "images"]
 
-        # If images enabled, ensure Vision config is available
         if "images" in translation_types:
             cv_available = VisionConfig.check_configuration()
             if not cv_available:
@@ -124,11 +99,8 @@ def run_translation(
                     "See the .env.template file for required variables."
                 )
 
-        # Log selected translation mode
-        mode_msg = f"🚀 Translation mode: {', '.join(translation_types)}"
-        click.echo(mode_msg)
+        click.echo(f"🚀 Translation mode: {', '.join(translation_types)}")
 
-        # Validate root directory and configure logging
         root_path = Path(root_dir).resolve()
         if not root_path.exists():
             raise ValueError(f"Root directory does not exist: {root_dir}")
@@ -143,18 +115,15 @@ def run_translation(
         if save_logs and log_file_path is not None:
             click.echo(f"📄 Logs will be saved to: {log_file_path}")
 
-        # LLM health check (raises on failure)
         LLMConfig.validate_connectivity()
         logger.info("LLM health check passed.")
         click.echo("✅ LLM health check passed.")
 
-        # Vision health check when images are enabled
         if "images" in translation_types:
             VisionConfig.validate_connectivity()
             logger.info("Vision health check passed.")
             click.echo("✅ Vision health check passed.")
 
-        # Handle 'all' languages selection (non-interactive: auto-proceed)
         all_languages_selected = language_codes == "all"
         if all_languages_selected:
             click.echo(
@@ -190,7 +159,6 @@ def run_translation(
             except (FileNotFoundError, yaml.YAMLError) as e:
                 raise RuntimeError(f"Failed to load font mappings: {str(e)}") from e
 
-        # Build normalized language list for pre-processing steps
         if all_languages_selected:
             try:
                 lang_list = Config.get_language_codes()
@@ -204,20 +172,13 @@ def run_translation(
             ]
         lang_list = normalize_language_codes(lang_list) if lang_list else []
 
-        # Warn when update mode is enabled (non-interactive: no prompt)
         if update:
             click.echo(
                 f"Warning: Update mode will delete all existing translations for '{language_codes}' "
                 f"and re-translate them."
             )
 
-        # Apply glossaries (Localizeflow feature)
-        if glossaries is not None:
-            set_glossaries(glossaries)
-
-        # Detect and (optionally) migrate alias-based language folders BEFORE estimation
         try:
-            # Resolve effective directories for scanning
             effective_translations_dir = (
                 (root_path / translations_dir).resolve()
                 if translations_dir is not None
@@ -258,13 +219,11 @@ def run_translation(
                         logger.info("Auto-migrated %d language folder(s).", renamed)
                         for m in msgs:
                             logger.warning(m)
-        except Exception as e:  # pragma: no cover - best-effort logging only
+        except Exception as e:  # pragma: no cover
             logger.warning(f"Language folder migration step skipped: {e}")
 
-        # Ensure per-language metadata files store canonical language_code values BEFORE estimation
         try:
             for lang in lang_list:
-                # translations/<lang>/.co-op-translator.json
                 lang_root = (
                     effective_translations_dir
                     if "effective_translations_dir" in locals()
@@ -277,7 +236,6 @@ def run_translation(
                     lang_root,
                     lang,
                 )
-                # translated_images/<lang>/.co-op-translator.json
                 normalize_language_codes_in_lang_metadata(
                     (
                         effective_image_dir
@@ -287,34 +245,30 @@ def run_translation(
                     / lang,
                     lang,
                 )
-                # translated_images_fast/<lang>/.co-op-translator.json (best-effort)
                 normalize_language_codes_in_lang_metadata(
                     root_path / "translated_images_fast" / lang,
                     lang,
                 )
-        except Exception as e:  # pragma: no cover - best-effort logging only
+        except Exception as e:  # pragma: no cover
             logger.debug(f"Metadata normalization skipped: {e}")
 
-        # Update README shared sections BEFORE estimation (mirror CLI behavior)
         readme_path = root_path / "README.md"
         try:
-            # Always attempt to update, and personalize advisory using repo_url when provided
             if update_readme_languages_table(readme_path, repo_url=repo_url):
                 click.echo("✅ Updated README languages table from template.")
             else:
                 click.echo(
                     "ℹ️ README languages table not updated (markers missing or template unavailable)."
                 )
-        except Exception as e:  # pragma: no cover - best-effort logging only
+        except Exception as e:  # pragma: no cover
             logger.warning(f"Failed to update README languages table: {e}")
 
         try:
             if update_readme_other_courses(readme_path):
                 click.echo("✅ Updated README 'Other courses' section from template.")
-        except Exception as e:  # pragma: no cover - best-effort logging only
+        except Exception as e:  # pragma: no cover
             logger.warning(f"Failed to update README 'Other courses': {e}")
 
-        # Initialize ProjectTranslator with determined settings
         translator = ProjectTranslator(
             language_codes,
             root_dir,
@@ -530,7 +484,6 @@ def run_translation(
                 debug=debug,
                 save_logs=save_logs,
                 yes=yes,
-                glossaries=glossaries,
                 add_disclaimer=add_disclaimer,
                 translations_dir=per_translations_dir,
                 image_dir=image_dir,

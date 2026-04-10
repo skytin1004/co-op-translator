@@ -1,8 +1,8 @@
 [tool.poetry]
 
-name = "localizeflow-co-op-translator"
-version = "0.17.0+lf1"
-description = "Private internal fork of Co-op Translator for Localizeflow, optimized for SaaS-based document translation automation."
+name = "co-op-translator"
+version = "0.17.1"
+description = "Translate Markdown files, Jupyter notebooks, and image text into multiple languages."
 
 authors = [
     "Minseok Song <minseok@localizeflow.com>",
@@ -10,7 +10,7 @@ authors = [
 maintainers = [
     "Minseok Song <minseok@localizeflow.com>"
 ]
-repository = "https://github.com/localizeflow/localizeflow-co-op-translator"
+repository = "https://github.com/Azure/co-op-translator"
 license = "MIT"
 readme = "README.md"
 keywords = ["translator", "translation","azure", "openai", "gpt"]

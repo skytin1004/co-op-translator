@@ -7,7 +7,7 @@ from co_op_translator.config.constants import (
     SUPPORTED_IMAGE_EXTENSIONS,
     SUPPORTED_NOTEBOOK_EXTENSIONS,
 )
-from co_op_translator.localizeflow.utils.token_utils import count_tokens
+from co_op_translator.utils.common.token_estimation import count_tokens
 from co_op_translator.utils.common.file_utils import generate_translated_filename
 
 

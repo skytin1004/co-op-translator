@@ -43,6 +43,11 @@ from co_op_translator.config.base_config import Config
 from co_op_translator.utils.common.file_utils import (
     canonicalize_image_links_in_translations,
 )
+from co_op_translator.utils.common.token_estimation import (
+    estimate_tokens_for_outdated,
+    estimate_tokens_for_sources,
+    estimate_translation_tokens,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -793,10 +798,6 @@ class TranslationManager:
 
                 if outdated_files:
                     try:
-                        from co_op_translator.localizeflow.utils.token_utils import (
-                            estimate_tokens_for_outdated,
-                        )
-
                         est_tokens = estimate_tokens_for_outdated(
                             self,
                             outdated_files,
@@ -841,10 +842,6 @@ class TranslationManager:
             if "markdown" in self.translation_types:
                 try:
                     md_pending = self._gather_pending_markdown(update=update)
-                    from co_op_translator.localizeflow.utils.token_utils import (
-                        estimate_tokens_for_sources,
-                    )
-
                     md_tokens = estimate_tokens_for_sources(md_pending)
                     logger.info(
                         f"Estimated tokens for markdown translations: {md_tokens:,} (files: {len(md_pending)})"
@@ -860,10 +857,6 @@ class TranslationManager:
             if "notebook" in self.translation_types:
                 try:
                     nb_pending = self._gather_pending_notebooks(update=update)
-                    from co_op_translator.localizeflow.utils.token_utils import (
-                        estimate_tokens_for_sources,
-                    )
-
                     nb_tokens = estimate_tokens_for_sources(nb_pending)
                     logger.info(
                         f"Estimated tokens for notebook translations: {nb_tokens:,} (files: {len(nb_pending)})"
@@ -946,12 +939,8 @@ class TranslationManager:
         """Estimate tokens for the upcoming translation run.
 
         Backward-compatible shim that delegates token-estimation breakdown
-        calculation to localizeflow utilities.
+        calculation to shared estimation utilities.
         """
-        from co_op_translator.localizeflow.utils.token_utils import (
-            estimate_translation_tokens,
-        )
-
         return estimate_translation_tokens(self, update=update)
 
     def _gather_pending_markdown(self, update: bool) -> List[Path]:
@@ -983,10 +972,10 @@ class TranslationManager:
                     self._get_language_root(language_code) / relative_path
                 )
                 if translated_notebook_path.exists() and not update:
-                    if is_notebook_up_to_date(
-                        notebook_file_path, translated_notebook_path
-                    ):
-                        continue
+                    # Existing notebook translations are handled separately by the
+                    # outdated-translation pass, so the pending bucket should
+                    # only include notebooks that do not have a translation yet.
+                    continue
                 pending.append(notebook_file_path)
         return pending
 
