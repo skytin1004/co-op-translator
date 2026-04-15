@@ -48,6 +48,7 @@ class MarkdownTranslator(ABC):
         root_dir: Path | None = None,
         translations_dir: Path | None = None,
         image_dir: Path | None = None,
+        lang_subdir: Path | None = None,
     ):
         """Initialize translator with project configuration.
 
@@ -57,6 +58,7 @@ class MarkdownTranslator(ABC):
         self.root_dir = root_dir
         self.translations_dir = translations_dir
         self.image_dir = image_dir
+        self.lang_subdir = Path(lang_subdir) if lang_subdir else None
         self.font_config = FontConfig()
 
     def calculate_file_hash(self, file_path: Path) -> str:
@@ -270,6 +272,7 @@ class MarkdownTranslator(ABC):
                 self.translations_dir,
                 self.image_dir,
                 translation_types,
+                lang_subdir=self.lang_subdir,
             )
 
             translated_content = parser.reconstruct_content(
@@ -424,6 +427,7 @@ class MarkdownTranslator(ABC):
         root_dir: Path | None = None,
         translations_dir: Path | None = None,
         image_dir: Path | None = None,
+        lang_subdir: Path | None = None,
     ) -> "MarkdownTranslator":
         """Create appropriate markdown translator based on configured provider.
 
@@ -454,6 +458,7 @@ class MarkdownTranslator(ABC):
                 root_dir=root_dir,
                 translations_dir=translations_dir,
                 image_dir=image_dir,
+                lang_subdir=lang_subdir,
             )
         elif provider == LLMProvider.OPENAI:
             from co_op_translator.core.llm.providers.openai.markdown_translator import (
@@ -464,6 +469,7 @@ class MarkdownTranslator(ABC):
                 root_dir=root_dir,
                 translations_dir=translations_dir,
                 image_dir=image_dir,
+                lang_subdir=lang_subdir,
             )
         else:
             raise ValueError(

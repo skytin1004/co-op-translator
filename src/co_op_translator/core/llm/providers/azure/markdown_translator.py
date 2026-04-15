@@ -25,6 +25,7 @@ class AzureMarkdownTranslator(MarkdownTranslator):
         root_dir: Path | None = None,
         translations_dir: Path | None = None,
         image_dir: Path | None = None,
+        lang_subdir: Path | None = None,
     ):
         """Initialize translator with Azure-specific configuration.
 
@@ -32,7 +33,10 @@ class AzureMarkdownTranslator(MarkdownTranslator):
             root_dir: Optional root directory for the project
         """
         super().__init__(
-            root_dir, translations_dir=translations_dir, image_dir=image_dir
+            root_dir,
+            translations_dir=translations_dir,
+            image_dir=image_dir,
+            lang_subdir=lang_subdir,
         )
         self.kernel = self._initialize_kernel()
         active = AzureOpenAIConfig.get_active_env_set()

@@ -510,7 +510,46 @@ class TestAdjustFrontmatterLinks:
         assert "image" in adjusted
         # Path should point to translated_images with language-specific filename
         assert "translated_images" in adjusted["image"]
-        assert "ko" in adjusted["image"] or "hero" in adjusted["image"]
+        assert "/ko/" in adjusted["image"] or adjusted["image"].startswith("../ko/")
+
+    def test_adjust_with_translated_images_and_lang_subdir(self, tmp_path):
+        """Test translated image paths remain correct when lang_subdir is used."""
+        root_dir = tmp_path / "project"
+        root_dir.mkdir()
+
+        docs_dir = root_dir / "docs"
+        docs_dir.mkdir()
+
+        images_dir = root_dir / "images"
+        images_dir.mkdir()
+
+        image_file = images_dir / "hero.png"
+        image_file.write_text("dummy")
+
+        md_file = docs_dir / "guide.md"
+        md_file.write_text("# Guide")
+
+        frontmatter = {
+            "title": "Getting Started",
+            "image": "../images/hero.png",
+        }
+
+        translations_dir = root_dir / "translations"
+        translated_images_dir = root_dir / "translated_images"
+
+        adjusted = adjust_frontmatter_links(
+            frontmatter,
+            md_file,
+            "ko",
+            root_dir,
+            translations_dir,
+            translated_images_dir,
+            translation_types=["markdown", "images"],
+            lang_subdir=Path("docs"),
+        )
+
+        assert adjusted["image"].startswith("../../../../translated_images/ko/")
+        assert adjusted["image"].endswith(".webp")
 
     def test_no_modification_for_non_path_fields(self, tmp_path):
         """Test that non-path fields are not modified."""

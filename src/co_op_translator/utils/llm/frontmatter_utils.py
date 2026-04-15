@@ -18,6 +18,10 @@ from typing import Dict, List, Tuple, Any, Optional
 from urllib.parse import urlparse
 import yaml
 from importlib import resources
+from co_op_translator.utils.llm.markdown_utils import (
+    build_translated_image_link,
+    get_translated_markdown_dir,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -429,6 +433,7 @@ def adjust_frontmatter_links(
     translations_dir: Path,
     translated_images_dir: Path,
     translation_types: List[str],
+    lang_subdir: Path | None = None,
 ) -> Dict[str, Any]:
     """Adjust file paths in frontmatter fields to point to correct locations.
 
@@ -455,8 +460,12 @@ def adjust_frontmatter_links(
 
     # Calculate translated markdown directory
     try:
-        translated_md_dir = (
-            translations_dir / language_code / md_file_path.relative_to(root_dir).parent
+        translated_md_dir = get_translated_markdown_dir(
+            md_file_path,
+            language_code,
+            translations_dir,
+            root_dir,
+            lang_subdir=lang_subdir,
         )
     except ValueError:
         logger.warning(
@@ -501,18 +510,13 @@ def adjust_frontmatter_links(
                     # This requires resolving the actual image path
                     actual_image_path = root_dir / path.lstrip("/")
                     if actual_image_path.exists():
-                        from co_op_translator.utils.common.file_utils import (
-                            generate_translated_filename,
-                        )
-
-                        rel_path = os.path.relpath(
-                            translated_images_dir, translated_md_dir
-                        )
-                        new_filename = generate_translated_filename(
-                            actual_image_path, language_code, root_dir
-                        )
-                        adjusted[field] = os.path.join(rel_path, new_filename).replace(
-                            os.path.sep, "/"
+                        adjusted[field] = build_translated_image_link(
+                            path,
+                            md_file_path,
+                            language_code,
+                            translated_md_dir,
+                            translated_images_dir,
+                            root_dir,
                         )
                         logger.debug(
                             f"Adjusted root-relative image path in '{field}': {value} -> {adjusted[field]}"
@@ -532,18 +536,13 @@ def adjust_frontmatter_links(
                 if is_image_field and use_translated_images:
                     # Point to translated image
                     if original_linked_file_path.exists():
-                        from co_op_translator.utils.common.file_utils import (
-                            generate_translated_filename,
-                        )
-
-                        rel_path = os.path.relpath(
-                            translated_images_dir, translated_md_dir
-                        )
-                        new_filename = generate_translated_filename(
-                            original_linked_file_path, language_code, root_dir
-                        )
-                        adjusted[field] = os.path.join(rel_path, new_filename).replace(
-                            os.path.sep, "/"
+                        adjusted[field] = build_translated_image_link(
+                            path,
+                            md_file_path,
+                            language_code,
+                            translated_md_dir,
+                            translated_images_dir,
+                            root_dir,
                         )
                         logger.debug(
                             f"Adjusted relative image path in '{field}': {value} -> {adjusted[field]}"

@@ -137,6 +137,7 @@ class ProjectTranslator:
             self.root_dir,
             translations_dir=self.translations_dir,
             image_dir=self.image_dir,
+            lang_subdir=self.lang_subdir,
         )
 
         # Initialize notebook translator if notebooks are enabled
@@ -145,6 +146,7 @@ class ProjectTranslator:
                 self.root_dir,
                 translations_dir=self.translations_dir,
                 image_dir=self.image_dir,
+                lang_subdir=self.lang_subdir,
             )
         else:
             self.notebook_translator = None
