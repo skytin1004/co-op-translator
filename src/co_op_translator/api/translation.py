@@ -153,7 +153,7 @@ def run_translation(
                 "Warning: Translating all languages at once can take a significant amount of time, "
                 "especially for large projects."
             )
-            if not yes:
+            if yes:
                 logger.info("Auto-confirming 'all' languages in non-interactive mode.")
                 click.echo("Auto-confirming translation for all languages...")
 
