@@ -398,7 +398,7 @@ async def test_translate_markdown_full_integration(real_markdown_translator, tmp
 def test_insert_metadata_comment_after_frontmatter(tmp_path):
     translator = ConcreteMarkdownTranslator(root_dir=tmp_path)
 
-content_with_frontmatter = """---
+    content_with_frontmatter = """---
 layout: ../layouts/DocsLayout.astro
 title: Co-op Translator - Quick Start Guide
 ---
