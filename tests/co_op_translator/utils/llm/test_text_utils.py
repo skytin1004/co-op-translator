@@ -4,6 +4,7 @@ from co_op_translator.utils.llm.text_utils import (
     strip_line_number_prefix,
     TranslationResponse,
 )
+from co_op_translator.glossary import set_glossary_terms
 
 
 def test_remove_code_backticks():
@@ -76,6 +77,18 @@ def test_gen_image_translation_prompt_special_chars():
 
     assert isinstance(prompt, str)
     assert all(line in prompt for line in text_data)
+
+
+def test_gen_image_translation_prompt_includes_glossary_and_keeps_rules():
+    try:
+        set_glossary_terms(["Co-op Translator"])
+        prompt = gen_image_translation_prompt(["Co-op Translator Cloud"], "ko", "Korean")
+        assert "GLOSSARY" in prompt
+        assert "Co-op Translator" in prompt
+        assert "EXACTLY 1 items" in prompt
+        assert "without line numbers" in prompt
+    finally:
+        set_glossary_terms([])
 
 
 def test_translation_response():

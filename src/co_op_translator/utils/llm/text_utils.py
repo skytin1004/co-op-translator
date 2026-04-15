@@ -7,6 +7,7 @@ import re
 import logging
 from typing import List
 from pydantic import BaseModel
+from co_op_translator.glossary import build_image_glossary_block
 
 
 class TranslationResponse(BaseModel):
@@ -48,12 +49,15 @@ def gen_image_translation_prompt(text_data, language_code, language_name):
     line_count = len(text_data)
     numbered_lines = "\n".join(f"{i}. {line}" for i, line in enumerate(text_data, 1))
 
+    glossary_block = build_image_glossary_block()
+    glossary_section = f"\n\n{glossary_block}" if glossary_block else ""
+
     prompt = f"""Translate to {language_name} ({language_code}). Return EXACTLY {line_count} items.
 
 RULES:
 - Output translated text only, without line numbers
 - Keep symbols/numbers unchanged: +, -, →, 123
-- Empty input → empty string ""
+- Empty input → empty string ""{glossary_section}
 
 {numbered_lines}"""
     return prompt

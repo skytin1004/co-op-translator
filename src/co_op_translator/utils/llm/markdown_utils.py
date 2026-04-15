@@ -25,6 +25,7 @@ from co_op_translator.utils.common.file_utils import (
     map_original_to_translated,
 )
 from co_op_translator.utils.common.lang_utils import normalize_language_code
+from co_op_translator.glossary import inject_markdown_glossary
 
 logger = logging.getLogger(__name__)
 
@@ -304,7 +305,7 @@ STRICT RULES (NO EXCEPTIONS):
     prompt += SPLIT_DELIMITER
     prompt += document_chunk
 
-    return prompt
+    return inject_markdown_glossary(prompt, SPLIT_DELIMITER)
 
 
 def get_tokenizer(encoding_name: str):
