@@ -279,6 +279,7 @@ class TestGetFrontmatterParser:
         parser = get_frontmatter_parser()
         assert parser is not None
         assert isinstance(parser, FrontmatterParser)
+        assert isinstance(parser, QuickLinksFrontmatterParser)
 
     def test_singleton_behavior(self):
         """Test that parser is reused (singleton pattern)."""

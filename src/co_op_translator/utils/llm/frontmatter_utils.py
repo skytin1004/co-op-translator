@@ -392,7 +392,7 @@ def get_frontmatter_parser(
     """
     global _default_parser
     if _default_parser is None or config_path is not None:
-        _default_parser = FrontmatterParser(FrontmatterConfig(config_path))
+        _default_parser = QuickLinksFrontmatterParser(FrontmatterConfig(config_path))
     return _default_parser
 
 
