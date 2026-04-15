@@ -1,6 +1,5 @@
 import logging
 from azure.ai.vision.imageanalysis import ImageAnalysisClient
-from azure.core.exceptions import HttpResponseError, ServiceRequestError
 from azure.core.credentials import AzureKeyCredential
 from co_op_translator.core.vision.image_translator import ImageTranslator
 from co_op_translator.config.vision_config.azure_computer_vision import (
