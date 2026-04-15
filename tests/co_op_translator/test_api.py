@@ -235,3 +235,78 @@ async def test_run_translation_dry_run_groups_shows_single_aggregated_estimate(
         == "📊 Estimated translation volume before translation: 130 tokens (80 words) "
         "(breakdown: translation: markdown: 130 | retranslation: outdated markdowns: 0)"
     )
+
+
+@pytest.mark.asyncio
+async def test_run_translation_dry_run_uses_virtual_readme_without_writing(tmp_path):
+    readme_path = tmp_path / "README.md"
+    readme_path.write_text(
+        "\n".join(
+            [
+                "# Sample",
+                "",
+                "<!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->",
+                "old languages",
+                "<!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->",
+                "",
+                "<!-- CO-OP TRANSLATOR OTHER COURSES START -->",
+                "old courses",
+                "<!-- CO-OP TRANSLATOR OTHER COURSES END -->",
+                "",
+            ]
+        ),
+        encoding="utf-8",
+    )
+
+    api.Config.check_configuration = MagicMock(return_value=None)
+    api.LLMConfig.validate_connectivity = MagicMock(return_value=None)
+    api.setup_logging = MagicMock(return_value=None)
+    api.update_readme_languages_table = MagicMock(return_value=True)
+    api.update_readme_other_courses = MagicMock(return_value=True)
+
+    project_translator_instance = MagicMock()
+    project_translator_class = MagicMock(return_value=project_translator_instance)
+    api.ProjectTranslator = project_translator_class
+
+    token_estimate_mock = MagicMock(
+        return_value={
+            "markdown": 10,
+            "notebook": 0,
+            "images": 0,
+            "outdated_markdown": 0,
+            "outdated_notebook": 0,
+            "outdated_images": 0,
+            "outdated": 0,
+            "total": 10,
+        }
+    )
+    word_estimate_mock = MagicMock(
+        return_value={
+            "markdown": 5,
+            "notebook": 0,
+            "images": 0,
+            "outdated": 0,
+            "total": 5,
+        }
+    )
+    api.estimate_translation_tokens = token_estimate_mock
+    api.estimate_translation_words = word_estimate_mock
+
+    original_readme = readme_path.read_text(encoding="utf-8")
+
+    api.run_translation(
+        language_codes="ko",
+        root_dir=str(tmp_path),
+        markdown=True,
+        dry_run=True,
+        repo_url="https://github.com/example/repo",
+    )
+
+    virtual_inputs = token_estimate_mock.call_args.kwargs["virtual_file_contents"]
+    assert readme_path.resolve() in virtual_inputs
+    assert virtual_inputs[readme_path.resolve()] != original_readme
+    assert "old languages" not in virtual_inputs[readme_path.resolve()]
+    assert "old courses" not in virtual_inputs[readme_path.resolve()]
+    assert readme_path.read_text(encoding="utf-8") == original_readme
+    api.update_readme_languages_table.assert_not_called()
+    api.update_readme_other_courses.assert_not_called()

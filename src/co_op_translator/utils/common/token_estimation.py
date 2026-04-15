@@ -67,11 +67,31 @@ def count_tokens(text: str) -> int:
         return max(1, len(text) // 4)
 
 
-def estimate_tokens_for_sources(files: list[Path]) -> int:
+def _get_estimation_source_text(
+    file_path: Path,
+    virtual_file_contents: dict[Path, str] | None = None,
+) -> str:
+    if virtual_file_contents:
+        try:
+            resolved_path = file_path.resolve()
+        except Exception:
+            resolved_path = file_path
+        if resolved_path in virtual_file_contents:
+            return virtual_file_contents[resolved_path].strip()
+    return read_input_file(file_path)
+
+
+def estimate_tokens_for_sources(
+    files: list[Path],
+    virtual_file_contents: dict[Path, str] | None = None,
+) -> int:
     total = 0
     for file_path in files:
         try:
-            text = read_input_file(file_path)
+            text = _get_estimation_source_text(
+                file_path,
+                virtual_file_contents=virtual_file_contents,
+            )
             try:
                 total += count_tokens(text)
             except Exception:
@@ -144,6 +164,7 @@ def estimate_tokens_for_outdated(
     translation_manager: Any,
     outdated_files: list[tuple[Path, Path]],
     content_type: Literal["markdown", "notebook"],
+    virtual_file_contents: dict[Path, str] | None = None,
 ) -> int:
     if content_type == "markdown":
         allowed_extensions = SUPPORTED_MARKDOWN_EXTENSIONS
@@ -155,7 +176,10 @@ def estimate_tokens_for_outdated(
         for original, _ in outdated_files
         if original.suffix.lower() in allowed_extensions
     ]
-    return estimate_tokens_for_sources(sources)
+    return estimate_tokens_for_sources(
+        sources,
+        virtual_file_contents=virtual_file_contents,
+    )
 
 
 def estimate_tokens_for_outdated_images(
@@ -176,6 +200,7 @@ def estimate_tokens_for_outdated_images(
 def estimate_translation_tokens(
     translation_manager: Any,
     update: bool = False,
+    virtual_file_contents: dict[Path, str] | None = None,
 ) -> dict[str, int]:
     """Return token estimate breakdown from translation manager state."""
     breakdown = {
@@ -196,11 +221,13 @@ def estimate_translation_tokens(
                 translation_manager,
                 outdated,
                 "markdown",
+                virtual_file_contents=virtual_file_contents,
             )
             breakdown["outdated_notebook"] = estimate_tokens_for_outdated(
                 translation_manager,
                 outdated,
                 "notebook",
+                virtual_file_contents=virtual_file_contents,
             )
 
     if "images" in translation_manager.translation_types:
@@ -211,12 +238,18 @@ def estimate_translation_tokens(
     if "markdown" in translation_manager.translation_types:
         markdown_pending = translation_manager._gather_pending_markdown(update=update)
         if markdown_pending:
-            breakdown["markdown"] = estimate_tokens_for_sources(markdown_pending)
+            breakdown["markdown"] = estimate_tokens_for_sources(
+                markdown_pending,
+                virtual_file_contents=virtual_file_contents,
+            )
 
     if "notebook" in translation_manager.translation_types:
         notebook_pending = translation_manager._gather_pending_notebooks(update=update)
         if notebook_pending:
-            breakdown["notebook"] = estimate_tokens_for_sources(notebook_pending)
+            breakdown["notebook"] = estimate_tokens_for_sources(
+                notebook_pending,
+                virtual_file_contents=virtual_file_contents,
+            )
 
     if "images" in translation_manager.translation_types:
         try:

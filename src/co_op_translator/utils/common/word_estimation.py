@@ -6,11 +6,31 @@ from co_op_translator.config.constants import SUPPORTED_MARKDOWN_EXTENSIONS
 from co_op_translator.utils.common.file_utils import read_input_file
 
 
-def _estimate_words_for_sources(files: list[Path]) -> int:
+def _get_estimation_source_text(
+    file_path: Path,
+    virtual_file_contents: dict[Path, str] | None = None,
+) -> str:
+    if virtual_file_contents:
+        try:
+            resolved_path = file_path.resolve()
+        except Exception:
+            resolved_path = file_path
+        if resolved_path in virtual_file_contents:
+            return virtual_file_contents[resolved_path].strip()
+    return read_input_file(file_path)
+
+
+def _estimate_words_for_sources(
+    files: list[Path],
+    virtual_file_contents: dict[Path, str] | None = None,
+) -> int:
     total = 0
     for file_path in files:
         try:
-            text = read_input_file(file_path)
+            text = _get_estimation_source_text(
+                file_path,
+                virtual_file_contents=virtual_file_contents,
+            )
             total += len(re.findall(r"\S+", text))
         except Exception:
             continue
@@ -42,7 +62,9 @@ def _collect_outdated_sources_for_update(translation_manager: Any) -> list[Path]
 
 
 def estimate_translation_words(
-    translation_manager: Any, update: bool = False
+    translation_manager: Any,
+    update: bool = False,
+    virtual_file_contents: dict[Path, str] | None = None,
 ) -> dict[str, int]:
     """Estimate direct source word counts for pre-run display."""
     breakdown = {"outdated": 0, "markdown": 0, "notebook": 0, "images": 0}
@@ -59,17 +81,26 @@ def estimate_translation_words(
             ]
 
         if outdated_sources:
-            breakdown["outdated"] = _estimate_words_for_sources(outdated_sources)
+            breakdown["outdated"] = _estimate_words_for_sources(
+                outdated_sources,
+                virtual_file_contents=virtual_file_contents,
+            )
 
     if "markdown" in translation_manager.translation_types:
         md_pending = translation_manager._gather_pending_markdown(update=update)
         if md_pending:
-            breakdown["markdown"] = _estimate_words_for_sources(md_pending)
+            breakdown["markdown"] = _estimate_words_for_sources(
+                md_pending,
+                virtual_file_contents=virtual_file_contents,
+            )
 
     if "notebook" in translation_manager.translation_types:
         nb_pending = translation_manager._gather_pending_notebooks(update=update)
         if nb_pending:
-            breakdown["notebook"] = _estimate_words_for_sources(nb_pending)
+            breakdown["notebook"] = _estimate_words_for_sources(
+                nb_pending,
+                virtual_file_contents=virtual_file_contents,
+            )
 
     total = sum(breakdown.values())
     return {**breakdown, "total": total}

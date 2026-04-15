@@ -14,6 +14,8 @@ from co_op_translator.config.vision_config.config import VisionConfig
 from co_op_translator.core.project.language_migrator import LanguageFolderMigrator
 from co_op_translator.core.project.project_translator import ProjectTranslator
 from co_op_translator.utils.common.file_utils import (
+    render_updated_readme_languages_table,
+    render_updated_readme_other_courses,
     update_readme_languages_table,
     update_readme_other_courses,
 )
@@ -26,6 +28,27 @@ from co_op_translator.utils.common.token_estimation import estimate_translation_
 from co_op_translator.utils.common.word_estimation import estimate_translation_words
 
 logger = logging.getLogger(__name__)
+
+
+def compute_pretranslation_virtual_inputs(
+    root_path: Path,
+    translation_types: list[str],
+    repo_url: str | None = None,
+) -> dict[Path, str]:
+    """Return virtual source content for deterministic pre-translation rewrites."""
+    if "markdown" not in translation_types:
+        return {}
+
+    readme_path = (root_path / "README.md").resolve()
+    if not readme_path.exists():
+        return {}
+
+    original = readme_path.read_text(encoding="utf-8")
+    updated = render_updated_readme_languages_table(original, repo_url=repo_url)
+    updated = render_updated_readme_other_courses(updated)
+    if updated == original:
+        return {}
+    return {readme_path: updated}
 
 
 def run_translation(
@@ -222,52 +245,53 @@ def run_translation(
         except Exception as e:  # pragma: no cover
             logger.warning(f"Language folder migration step skipped: {e}")
 
-        try:
-            for lang in lang_list:
-                lang_root = (
-                    effective_translations_dir
-                    if "effective_translations_dir" in locals()
-                    else (root_path / "translations")
-                ) / lang
-                if lang_subdir:
-                    lang_root = lang_root / lang_subdir
+        if not dry_run:
+            try:
+                for lang in lang_list:
+                    lang_root = (
+                        effective_translations_dir
+                        if "effective_translations_dir" in locals()
+                        else (root_path / "translations")
+                    ) / lang
+                    if lang_subdir:
+                        lang_root = lang_root / lang_subdir
 
-                normalize_language_codes_in_lang_metadata(
-                    lang_root,
-                    lang,
-                )
-                normalize_language_codes_in_lang_metadata(
-                    (
-                        effective_image_dir
-                        if "effective_image_dir" in locals()
-                        else (root_path / "translated_images")
+                    normalize_language_codes_in_lang_metadata(
+                        lang_root,
+                        lang,
                     )
-                    / lang,
-                    lang,
-                )
-                normalize_language_codes_in_lang_metadata(
-                    root_path / "translated_images_fast" / lang,
-                    lang,
-                )
-        except Exception as e:  # pragma: no cover
-            logger.debug(f"Metadata normalization skipped: {e}")
+                    normalize_language_codes_in_lang_metadata(
+                        (
+                            effective_image_dir
+                            if "effective_image_dir" in locals()
+                            else (root_path / "translated_images")
+                        )
+                        / lang,
+                        lang,
+                    )
+                    normalize_language_codes_in_lang_metadata(
+                        root_path / "translated_images_fast" / lang,
+                        lang,
+                    )
+            except Exception as e:  # pragma: no cover
+                logger.debug(f"Metadata normalization skipped: {e}")
 
-        readme_path = root_path / "README.md"
-        try:
-            if update_readme_languages_table(readme_path, repo_url=repo_url):
-                click.echo("✅ Updated README languages table from template.")
-            else:
-                click.echo(
-                    "ℹ️ README languages table not updated (markers missing or template unavailable)."
-                )
-        except Exception as e:  # pragma: no cover
-            logger.warning(f"Failed to update README languages table: {e}")
+            readme_path = root_path / "README.md"
+            try:
+                if update_readme_languages_table(readme_path, repo_url=repo_url):
+                    click.echo("✅ Updated README languages table from template.")
+                else:
+                    click.echo(
+                        "ℹ️ README languages table not updated (markers missing or template unavailable)."
+                    )
+            except Exception as e:  # pragma: no cover
+                logger.warning(f"Failed to update README languages table: {e}")
 
-        try:
-            if update_readme_other_courses(readme_path):
-                click.echo("✅ Updated README 'Other courses' section from template.")
-        except Exception as e:  # pragma: no cover
-            logger.warning(f"Failed to update README 'Other courses': {e}")
+            try:
+                if update_readme_other_courses(readme_path):
+                    click.echo("✅ Updated README 'Other courses' section from template.")
+            except Exception as e:  # pragma: no cover
+                logger.warning(f"Failed to update README 'Other courses': {e}")
 
         translator = ProjectTranslator(
             language_codes,
@@ -360,6 +384,7 @@ def run_translation(
         translations_dir: str | None,
         image_dir: str | None,
         lang_subdir: str | None,
+        repo_url: str | None,
     ) -> dict[str, int]:
         translation_types: list[str] = []
         if markdown:
@@ -380,11 +405,20 @@ def run_translation(
             image_dir=image_dir,
             lang_subdir=lang_subdir,
         )
-
-        est = estimate_translation_tokens(translator.translation_manager, update=update)
+        virtual_file_contents = compute_pretranslation_virtual_inputs(
+            Path(root_dir).resolve(),
+            translation_types,
+            repo_url=repo_url,
+        )
+        est = estimate_translation_tokens(
+            translator.translation_manager,
+            update=update,
+            virtual_file_contents=virtual_file_contents,
+        )
         words_est = estimate_translation_words(
             translator.translation_manager,
             update=update,
+            virtual_file_contents=virtual_file_contents,
         )
 
         return {
@@ -465,6 +499,7 @@ def run_translation(
             translations_dir=per_translations_dir,
             image_dir=image_dir,
             lang_subdir=per_lang_subdir,
+            repo_url=repo_url,
         )
         aggregated_estimate = _merge_estimates(aggregated_estimate, group_estimate)
 
