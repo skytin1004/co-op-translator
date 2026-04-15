@@ -101,11 +101,11 @@ class MarkdownTranslator(ABC):
         if not metadata_comment:
             return content
 
-        frontmatter_pattern = r"^---\s*\n.*?\n---\s*\n"
+        frontmatter_pattern = r"^---[ \t]*\n.*?\n---[ \t]*\n"
         match = re.match(frontmatter_pattern, content, re.DOTALL)
         if match:
             end = match.end()
-            return content[:end] + metadata_comment + content[end:]
+            return content[:end] + "\n" + metadata_comment + content[end:]
 
         return metadata_comment + content
 
