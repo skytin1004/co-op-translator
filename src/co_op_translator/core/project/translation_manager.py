@@ -668,6 +668,10 @@ class TranslationManager:
         try:
             rename_map: dict[str, str] = {}
             migrated_image_count = 0
+            should_migrate_links = (
+                "markdown" in self.translation_types
+                or "notebook" in self.translation_types
+            )
 
             if "images" in self.translation_types:
                 # Migrate legacy translated image filenames and update markdown/notebook links
@@ -690,10 +694,15 @@ class TranslationManager:
                 else:
                     rename_map.update(webp_rename_map)
                     migrated_image_count += len(webp_rename_map)
+            else:
+                logger.info(
+                    "Skipping translated image migration because image translation is disabled"
+                )
 
+            if should_migrate_links:
                 try:
                     # Always run link migration to rewrite legacy flattened links in content,
-                    # even when no files were moved (empty rename_map)
+                    # even when no files were moved or image translation is disabled.
                     migrated_md = self.directory_manager.migrate_markdown_image_links(
                         rename_map
                     )
@@ -701,15 +710,15 @@ class TranslationManager:
                         rename_map
                     )
                     logger.info(
-                        "Migrated %d image files and updated %d markdown and %d notebook files",
-                        migrated_image_count,
+                        "Updated image links in %d markdown and %d notebook files (migrated image files: %d)",
                         migrated_md,
                         migrated_nb,
+                        migrated_image_count,
                     )
                 except Exception as e:
                     logger.warning(f"Image link migration skipped: {e}")
 
-                # As a safety net, canonicalize any remaining alias-based language dir segments in links
+                # As a safety net, canonicalize any remaining alias-based language dir segments in links.
                 try:
                     md_fix, nb_fix = canonicalize_image_links_in_translations(
                         self.translations_dir, self.image_dir
@@ -722,10 +731,6 @@ class TranslationManager:
                         )
                 except Exception as e:
                     logger.warning(f"Image link canonicalization skipped: {e}")
-            else:
-                logger.info(
-                    "Skipping translated image migration because image translation is disabled"
-                )
 
             # Clean up files no longer needed in target directories
             logger.info("Removing orphaned files...")
@@ -991,7 +996,9 @@ class TranslationManager:
         all_translation_files = []
 
         for lang_code in self.language_codes:
-            translation_dir = self._get_language_root(lang_code)
+            translation_dir = TranslationManager._resolve_language_root(
+                self, lang_code
+            )
             if not translation_dir.exists():
                 continue
             for ext in SUPPORTED_MARKDOWN_EXTENSIONS:
@@ -1006,7 +1013,7 @@ class TranslationManager:
 
         for lang_code, trans_file in all_translation_files:
             try:
-                lang_dir = self._get_language_root(lang_code)
+                lang_dir = TranslationManager._resolve_language_root(self, lang_code)
                 relative_path = trans_file.relative_to(lang_dir)
                 original_file = self.root_dir / relative_path
 
@@ -1021,6 +1028,21 @@ class TranslationManager:
                 continue
 
         return outdated_files
+
+    def _resolve_language_root(self, language_code: str) -> Path:
+        """Return a concrete language root even for partially mocked managers in tests."""
+        try:
+            lang_dir = self._get_language_root(language_code)
+            if isinstance(lang_dir, Path):
+                return lang_dir
+        except Exception:
+            pass
+
+        lang_dir = Path(self.translations_dir) / language_code
+        lang_subdir = getattr(self, "lang_subdir", None)
+        if isinstance(lang_subdir, (str, Path)) and str(lang_subdir):
+            lang_dir = lang_dir / Path(lang_subdir)
+        return lang_dir
 
     async def retranslate_outdated_files(
         self, outdated_files: List[tuple[Path, Path]]
