@@ -1,6 +1,7 @@
 import pytest
 import os
 from pathlib import Path
+from co_op_translator.glossary import set_glossary_terms
 
 from co_op_translator.utils.llm.markdown_utils import (
     update_links,
@@ -175,6 +176,16 @@ def test_generate_prompt_template_without_language_template_for_non_configured_l
     prompt = generate_prompt_template("ko", "Korean", "Test content", False)
 
     assert "STRUCTURE IS MORE IMPORTANT THAN STYLE." not in prompt
+
+
+def test_generate_prompt_template_includes_glossary_when_configured():
+    try:
+        set_glossary_terms(["Co-op Translator"])
+        prompt = generate_prompt_template("ko", "Korean", "Test content", False)
+        assert "GLOSSARY" in prompt
+        assert "Co-op Translator" in prompt
+    finally:
+        set_glossary_terms([])
 
 
 def test_count_links_in_markdown():

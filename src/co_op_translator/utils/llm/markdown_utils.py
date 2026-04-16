@@ -25,6 +25,7 @@ from co_op_translator.utils.common.file_utils import (
     map_original_to_translated,
 )
 from co_op_translator.utils.common.lang_utils import normalize_language_code
+from co_op_translator.glossary import inject_markdown_glossary
 
 logger = logging.getLogger(__name__)
 
@@ -225,41 +226,76 @@ def generate_prompt_template(
     language_code: str, language_name: str, document_chunk: str, is_rtl: bool
 ) -> str:
     """
-    Generate a translation prompt for a document chunk, considering language direction.
-
-    Args:
-        language_code (str): The target language code for translation.
-        language_name (str): The target language name for translation.
-        document_chunk (str): The chunk of the document to be translated.
-        is_rtl (bool): Whether the target language is right-to-left.
-
-    Returns:
-        str: The generated translation prompt.
+    Generate a safe and stable translation prompt that enforces strict
+    markdown structure preservation and prevents HTML/markdown rewriting.
     """
 
+    # --- 1) ONE-LINE CHUNKS (simple text or inline cases) ---
     if len(document_chunk.split("\n")) == 1:
-        prompt = f"Translate the following text to {language_name} ({language_code}). NEVER ADD ANY EXTRA CONTENT OR TAGS OUTSIDE THE TRANSLATION. DO NOT ADD '''markdown OR ANY OTHER TAGS. TRANSLATE ONLY WHAT IS GIVEN TO YOU. MAINTAIN MARKDOWN FORMAT."
+        prompt = (
+            f"Translate the following text to {language_name} ({language_code}). "
+            "STRICT RULE: Do NOT add, remove, or modify any markdown characters. "
+            "Do NOT introduce HTML tags. Translate ONLY text content. "
+            "Return ONLY the translation."
+        )
+
+    # --- 2) MULTI-LINE CHUNKS (markdown documents) ---
     else:
         prompt = f"""
-        Translate the following markdown file to {language_name} ({language_code}).
-        IMPORTANT RULES:
-        1. DO NOT add '''markdown or any other tags around the translation
-        2. Make sure the translation does not sound too literal
-        3. Translate comments as well
-        4. Preserve inline and block HTML (e.g., <a>, <img>, <details>, <summary>, <div>) exactly; do not convert to Markdown; translate only visible text (e.g., link text, alt/title, summary labels); do not change tag names, attributes, or URLs/paths.
-        5. Do not translate:
-           - [!NOTE], [!WARNING], [!TIP], [!IMPORTANT], [!CAUTION]
-           - Variable names, function names, class names
-           - Placeholders like @@INLINE_CODE_x@@ or @@CODE_BLOCK_x@@
-           - URLs or paths
-        6. Keep all original markdown formatting intact
-        7. Return ONLY the translated content without any additional tags or markup
-        """
+Translate the following markdown file to {language_name} ({language_code}).
 
+STRICT RULES (NO EXCEPTIONS):
+
+0. STRUCTURE PRESERVATION
+   - You MUST preserve the exact markdown syntax from the input.
+   - DO NOT canonicalize, optimize, reformat, or rewrite markdown.
+   - DO NOT convert markdown links ([text](url)) into HTML <a> tags.
+   - DO NOT convert existing HTML into markdown.
+   - DO NOT introduce any new HTML tags.
+
+1. OUTPUT FORMAT
+   - Return ONLY the translated content.
+   - Do NOT add ```markdown or ANY wrappers.
+   - Do NOT add explanations, metadata, or comments.
+
+2. TRANSLATION SCOPE
+   - Translate written, human-readable text ONLY.
+   - DO NOT translate:
+     * URLs or file paths
+     * Markdown syntax
+     * Variable names, function names, class names
+     * Placeholders like @@INLINE_CODE_x@@ and @@CODE_BLOCK_x@@
+     * Tags such as [!NOTE], [!TIP], [!WARNING], [!IMPORTANT], [!CAUTION]
+
+3. HTML HANDLING RULES
+   - Preserve all HTML EXACTLY as provided. This includes inline and block elements 
+     such as <a>, <img>, <details>, <summary>, <div>, and any other HTML tags.
+   - DO NOT alter tag names, attributes, URLs, paths, classes, IDs, or structure.
+   - Translate ONLY the visible human-readable text content (e.g., link text, alt/title text,
+     <summary> labels, descriptive text inside tags).
+   - DO NOT convert HTML to Markdown or Markdown to HTML.
+   - DO NOT add, remove, reorder, or rewrite ANY HTML. Maintain exact byte-for-byte
+     fidelity for all tags and attributes.
+
+4. FRONTMATTER RULE (YAML delimited by '---')
+   - If a YAML frontmatter block exists at the top of the document:
+       * KEEP the entire block EXACTLY.
+       * DO NOT modify field names or file paths.
+       * Translate ONLY human-readable values (e.g., title, description).
+       * DO NOT “fix” or normalize layout/import paths.
+
+5. SAFETY
+   - Do NOT reorder lines.
+   - Do NOT remove blank lines.
+   - Do NOT merge or split paragraphs.
+   - Preserve whitespace, indentation, and list structure exactly.
+"""
+
+    # Direction rule (minimal + unambiguous)
     if is_rtl:
-        prompt += "Please write the output from right to left, respecting that this is a right-to-left language.\n"
+        prompt += "\nWrite the output in right-to-left direction.\n"
     else:
-        prompt += "Please write the output from left to right.\n"
+        prompt += "\nWrite the output in left-to-right direction.\n"
 
     language_template = _read_language_prompt_template(language_code)
     if language_template:
@@ -269,7 +305,7 @@ def generate_prompt_template(
     prompt += SPLIT_DELIMITER
     prompt += document_chunk
 
-    return prompt
+    return inject_markdown_glossary(prompt, SPLIT_DELIMITER)
 
 
 def get_tokenizer(encoding_name: str):
@@ -604,6 +640,60 @@ def update_links(
     )
 
     return markdown_string
+
+
+def get_translated_markdown_dir(
+    md_file_path: Path,
+    language_code: str,
+    translations_dir: Path,
+    root_dir: Path,
+    lang_subdir: Path | None = None,
+) -> Path:
+    """Return the directory containing the translated markdown file."""
+    language_root = translations_dir / language_code
+    if lang_subdir:
+        language_root = language_root / Path(lang_subdir)
+
+    try:
+        _ = md_file_path.relative_to(language_root)
+        return md_file_path.parent.resolve()
+    except Exception:
+        return (language_root / md_file_path.relative_to(root_dir).parent).resolve()
+
+
+def build_translated_image_link(
+    path: str,
+    md_file_path: Path,
+    language_code: str,
+    translated_md_dir: Path,
+    translated_images_dir: Path,
+    root_dir: Path,
+) -> str:
+    """Build a translated image link relative to the translated markdown file."""
+    base_names = {
+        translated_images_dir.name,
+        "translated_images",
+        "translated_images_fast",
+    }
+    parts = path.split("/")
+    rel_path = os.path.relpath(translated_images_dir.resolve(), translated_md_dir)
+
+    if len(parts) >= 3 and parts[-3] in base_names and parts[-2] == language_code:
+        return os.path.join(rel_path, language_code, parts[-1]).replace(
+            os.path.sep, "/"
+        )
+
+    if path.startswith("/"):
+        actual_image_path = get_actual_image_path(path, md_file_path, root_dir)
+    else:
+        actual_image_path = get_actual_image_path(path, md_file_path)
+
+    new_filename = generate_translated_filename(
+        actual_image_path, language_code, root_dir
+    )
+    return os.path.join(rel_path, language_code, new_filename).replace(
+        os.path.sep, "/"
+    )
 
 
 def _slugify_heading_text(text: str) -> str:
@@ -1005,15 +1095,12 @@ def update_image_links(
                 # Target translated markdown directory structure: translations/<lang>/<relative_path_to_parent>
                 # The translated file will be saved at: translations_dir / language_code / (md_file_path relative to root_dir)
                 # Its directory is:
-                try:
-                    _ = md_file_path.relative_to(translations_dir / language_code)
-                    translated_md_dir = md_file_path.parent.resolve()
-                except Exception:
-                    translated_md_dir = (
-                        translations_dir
-                        / language_code
-                        / md_file_path.relative_to(root_dir).parent
-                    ).resolve()
+                translated_md_dir = get_translated_markdown_dir(
+                    md_file_path,
+                    language_code,
+                    translations_dir,
+                    root_dir,
+                )
 
                 if not use_translated_images:
                     # Link to original image when using original images
@@ -1038,51 +1125,14 @@ def update_image_links(
                         logger.info(f"Using original image link: {updated_link}")
                 else:
                     try:
-                        base_names = {
-                            translated_images_dir.name,
-                            "translated_images",
-                            "translated_images_fast",
-                        }
-                        parts = path.split("/")
-                        if (
-                            len(parts) >= 3
-                            and parts[-3] in base_names
-                            and parts[-2] == language_code
-                        ):
-                            rel_path = os.path.relpath(
-                                translated_images_dir.resolve(), translated_md_dir
-                            )
-                            updated_link = os.path.join(
-                                rel_path,
-                                language_code,
-                                parts[-1],
-                            ).replace(os.path.sep, "/")
-                        else:
-                            # Pass root_dir to get_actual_image_path to properly handle root-relative paths
-                            if path.startswith("/"):
-                                # For root-relative paths, we need to use the root_dir
-                                logger.info(
-                                    f"Root-relative path detected in non-markdown-only mode: {path}"
-                                )
-                                # Use the modified get_actual_image_path that accepts root_dir
-                                actual_image_path = get_actual_image_path(
-                                    path, md_file_path, root_dir
-                                )
-                            else:
-                                # No change for regular paths
-                                actual_image_path = get_actual_image_path(
-                                    path, md_file_path
-                                )
-
-                            rel_path = os.path.relpath(
-                                translated_images_dir.resolve(), translated_md_dir
-                            )
-                            new_filename = generate_translated_filename(
-                                actual_image_path, language_code, root_dir
-                            )
-                            updated_link = os.path.join(
-                                rel_path, language_code, new_filename
-                            ).replace(os.path.sep, "/")
+                        updated_link = build_translated_image_link(
+                            path,
+                            md_file_path,
+                            language_code,
+                            translated_md_dir,
+                            translated_images_dir,
+                            root_dir,
+                        )
                         logger.info(f"Using translated image link: {updated_link}")
                     except Exception as e:
                         logger.error(f"Error processing image path {path}: {e}")
@@ -1122,15 +1172,12 @@ def update_image_links(
             return match.group(0)
 
         try:
-            try:
-                _ = md_file_path.relative_to(translations_dir / language_code)
-                translated_md_dir = md_file_path.parent.resolve()
-            except Exception:
-                translated_md_dir = (
-                    translations_dir
-                    / language_code
-                    / md_file_path.relative_to(root_dir).parent
-                ).resolve()
+            translated_md_dir = get_translated_markdown_dir(
+                md_file_path,
+                language_code,
+                translations_dir,
+                root_dir,
+            )
 
             if not use_translated_images:
                 # Link to original image when using original images
@@ -1142,42 +1189,14 @@ def update_image_links(
                         original_linked_file_path, translated_md_dir
                     ).replace(os.path.sep, "/")
             else:
-                base_names = {
-                    translated_images_dir.name,
-                    "translated_images",
-                    "translated_images_fast",
-                }
-                parts = path.split("/")
-                if (
-                    len(parts) >= 3
-                    and parts[-3] in base_names
-                    and parts[-2] == language_code
-                ):
-                    rel_path = os.path.relpath(
-                        translated_images_dir.resolve(), translated_md_dir
-                    )
-                    updated_src = os.path.join(
-                        rel_path,
-                        language_code,
-                        parts[-1],
-                    ).replace(os.path.sep, "/")
-                else:
-                    if path.startswith("/"):
-                        actual_image_path = get_actual_image_path(
-                            path, md_file_path, root_dir
-                        )
-                    else:
-                        actual_image_path = get_actual_image_path(path, md_file_path)
-
-                    rel_path = os.path.relpath(
-                        translated_images_dir.resolve(), translated_md_dir
-                    )
-                    new_filename = generate_translated_filename(
-                        actual_image_path, language_code, root_dir
-                    )
-                    updated_src = os.path.join(
-                        rel_path, language_code, new_filename
-                    ).replace(os.path.sep, "/")
+                updated_src = build_translated_image_link(
+                    path,
+                    md_file_path,
+                    language_code,
+                    translated_md_dir,
+                    translated_images_dir,
+                    root_dir,
+                )
         except Exception as e:
             logger.error(f"Error processing HTML <img> path {src}: {e}")
             updated_src = src

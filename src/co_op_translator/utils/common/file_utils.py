@@ -83,24 +83,13 @@ def load_other_courses_template() -> str:
         return ""
 
 
-def update_readme_languages_table(
-    readme_path: Path, repo_url: str | None = None
-) -> bool:
-    """
-    Update README languages table between markers using bundled template.
-    Optionally appends a 'Prefer to Clone Locally?' advisory block INSIDE the markers.
-
-    If repo_url is provided, it will be used to personalize the snippet; otherwise
-    the advisory will be shown with placeholder stars as given by the user.
-
-    Returns True if updated, False otherwise.
-    """
-    if not readme_path.exists():
-        return False
-    original = readme_path.read_text(encoding="utf-8")
+def render_updated_readme_languages_table(
+    readme_text: str, repo_url: str | None = None
+) -> str:
+    """Return README content with the bundled languages table rendered."""
     template = load_languages_table_template()
     if not template:
-        return False
+        return readme_text
     # Strip markdownlint directives from template to avoid injecting them into user README
     template = re.sub(
         r"^\s*<!--\s*markdownlint-disable[^>]*-->\s*\n?",
@@ -150,9 +139,37 @@ def update_readme_languages_table(
     inner_content = template[start_idx + len(LANG_TABLE_START) : end_idx].strip()
     new_block = f"{LANG_TABLE_START}\n{inner_content}\n{LANG_TABLE_END}"
 
-    updated = _replace_between_markers_generic(
-        original, new_block, LANG_TABLE_START, LANG_TABLE_END
+    return _replace_between_markers_generic(
+        readme_text, new_block, LANG_TABLE_START, LANG_TABLE_END
     )
+
+
+def render_updated_readme_other_courses(readme_text: str) -> str:
+    """Return README content with the bundled Other courses block rendered."""
+    template = load_other_courses_template()
+    if not template:
+        return readme_text
+    return _replace_between_markers_generic(
+        readme_text, template, OTHER_COURSES_START, OTHER_COURSES_END
+    )
+
+
+def update_readme_languages_table(
+    readme_path: Path, repo_url: str | None = None
+) -> bool:
+    """
+    Update README languages table between markers using bundled template.
+    Optionally appends a 'Prefer to Clone Locally?' advisory block INSIDE the markers.
+
+    If repo_url is provided, it will be used to personalize the snippet; otherwise
+    the advisory will be shown with placeholder stars as given by the user.
+
+    Returns True if updated, False otherwise.
+    """
+    if not readme_path.exists():
+        return False
+    original = readme_path.read_text(encoding="utf-8")
+    updated = render_updated_readme_languages_table(original, repo_url=repo_url)
     if updated != original:
         readme_path.write_text(updated, encoding="utf-8", newline="\n")
         return True
@@ -167,12 +184,7 @@ def update_readme_other_courses(readme_path: Path) -> bool:
     if not readme_path.exists():
         return False
     original = readme_path.read_text(encoding="utf-8")
-    template = load_other_courses_template()
-    if not template:
-        return False
-    updated = _replace_between_markers_generic(
-        original, template, OTHER_COURSES_START, OTHER_COURSES_END
-    )
+    updated = render_updated_readme_other_courses(original)
     if updated != original:
         readme_path.write_text(updated, encoding="utf-8", newline="\n")
         return True
@@ -828,7 +840,7 @@ def delete_translated_images_by_language_code(language_code: str, image_dir: Pat
 
 
 def delete_translated_markdown_files_by_language_code(
-    language_code: str, translations_dir: Path
+    language_code: str, translations_dir: Path, lang_subdir: Path | None = None
 ):
     """
     Delete the entire directory for the specified language code, including all its contents.
@@ -839,6 +851,8 @@ def delete_translated_markdown_files_by_language_code(
     """
     # Construct the path to the directory for the specific language
     language_dir = translations_dir / language_code
+    if lang_subdir:
+        language_dir = language_dir / Path(lang_subdir)
 
     if not language_dir.exists():
         logger.warning(

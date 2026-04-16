@@ -1,0 +1,83 @@
+# Frontmatter Translation Configuration
+#
+# This file defines which frontmatter fields should be preserved (not translated)
+# and which should be translated when processing markdown files.
+#
+# Usage:
+#   - preserve: Fields that should NEVER be translated (e.g., slug, id, technical identifiers)
+#   - translate: Fields that should be translated (e.g., title, description, user-facing text)
+#
+# Note: This configuration provides deterministic control over frontmatter translation,
+# ensuring that technical fields are never accidentally modified by the LLM.
+
+frontmatter:
+  # Fields to preserve as-is (never translate)
+  preserve:
+    - slug
+    - id
+    - order
+    - section
+    - sidebar_position
+    - sidebar_label  # Often used as a fallback, but sometimes contains translatable text
+    - date
+    - author
+    - tags  # Array of technical tags
+    - categories  # Array of technical categories
+    - draft
+    - published
+    - layout
+    - template
+    - type
+    - weight
+    - url
+    - permalink
+    - redirect_from
+    - redirect_to
+    - canonical_url
+    - robots
+    - sitemap
+    - priority
+    - changefreq
+    - lastmod
+    - image  # Path to image file
+    - cover
+    - thumbnail
+    - featured_image
+    - og_image
+    - twitter_image
+    - icon
+    - emoji
+    - color
+    - badge
+    - status
+    - version
+    - api_version
+    - schema_version
+
+  # Fields to translate
+  translate:
+    - title
+    - description
+    - excerpt
+    - summary
+    - abstract
+    - subtitle
+    - tagline
+    - caption
+    - alt
+    - label  # User-facing label text
+    - placeholder
+    - tooltip
+    - help_text
+    - error_message
+    - success_message
+    - warning_message
+    - info_message
+    - og_title
+    - og_description
+    - twitter_title
+    - twitter_description
+    - meta_title
+    - meta_description
+    - seo_title
+    - seo_description
