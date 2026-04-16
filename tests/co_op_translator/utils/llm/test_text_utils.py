@@ -36,9 +36,9 @@ def test_gen_image_translation_prompt():
     assert "EXACTLY 3 items" in prompt
     assert "without line numbers" in prompt
     # Check numbered lines are included
-    assert "1. Line 1" in prompt
-    assert "2. Line 2" in prompt
-    assert "3. Line 3" in prompt
+    assert "[1] Line 1" in prompt
+    assert "[2] Line 2" in prompt
+    assert "[3] Line 3" in prompt
 
 
 def test_strip_line_number_prefix():
@@ -87,6 +87,11 @@ def test_gen_image_translation_prompt_includes_glossary_and_keeps_rules():
         assert "Co-op Translator" in prompt
         assert "EXACTLY 1 items" in prompt
         assert "without line numbers" in prompt
+        assert "instruction-only metadata" in prompt
+        assert "Translate ONLY the numbered INPUT LINES section" in prompt
+        assert "INPUT LINES:" in prompt
+        assert "END INPUT LINES" in prompt
+        assert "[1] Co-op Translator Cloud" in prompt
     finally:
         set_glossary_terms([])
 

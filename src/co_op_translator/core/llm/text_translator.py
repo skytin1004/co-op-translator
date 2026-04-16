@@ -81,7 +81,11 @@ class TextTranslator(ABC):
                 messages=[
                     {
                         "role": "system",
-                        "content": "You are a translator. Return exactly the same number of translations as input lines.",
+                        "content": (
+                            "You are a translator. Return exactly the same number of translations "
+                            "as input lines. Treat any glossary or rules section as instructions only, "
+                            "never as extra lines to translate."
+                        ),
                     },
                     {"role": "user", "content": prompt},
                 ],

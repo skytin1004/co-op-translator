@@ -47,19 +47,31 @@ def gen_image_translation_prompt(text_data, language_code, language_name):
         str: Generated translation prompt for structured output.
     """
     line_count = len(text_data)
-    numbered_lines = "\n".join(f"{i}. {line}" for i, line in enumerate(text_data, 1))
+    numbered_lines = "\n".join(f"[{i}] {line}" for i, line in enumerate(text_data, 1))
 
     glossary_block = build_image_glossary_block()
-    glossary_section = f"\n\n{glossary_block}" if glossary_block else ""
+    glossary_section = ""
+    if glossary_block:
+        glossary_section = (
+            "\n\nGLOSSARY INSTRUCTIONS:\n"
+            "- The glossary section is instruction-only metadata, not input text.\n"
+            "- Do not add glossary terms unless they already appear in an input line.\n"
+            "- If a glossary term appears in an input line, preserve it exactly as written.\n"
+            f"{glossary_block}"
+        )
 
     prompt = f"""Translate to {language_name} ({language_code}). Return EXACTLY {line_count} items.
 
 RULES:
+- Translate ONLY the numbered INPUT LINES section
+- Do NOT translate or echo glossary instructions themselves
 - Output translated text only, without line numbers
 - Keep symbols/numbers unchanged: +, -, →, 123
 - Empty input → empty string ""{glossary_section}
 
-{numbered_lines}"""
+INPUT LINES:
+{numbered_lines}
+END INPUT LINES"""
     return prompt
 
 
