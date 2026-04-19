@@ -8,10 +8,12 @@ from typing import Iterable
 import click
 import yaml
 
+from co_op_translator.glossary import glossary_terms_context
 from co_op_translator.config.base_config import Config
 from co_op_translator.config.llm_config.config import LLMConfig
 from co_op_translator.config.vision_config.config import VisionConfig
 from co_op_translator.core.project.language_migrator import LanguageFolderMigrator
+from co_op_translator.core.project.options import resolve_translation_types
 from co_op_translator.core.project.project_translator import ProjectTranslator
 from co_op_translator.utils.common.file_utils import (
     render_updated_readme_languages_table,
@@ -66,6 +68,7 @@ def run_translation(
     image_dir: str | None = None,
     root_dirs: Iterable[str] | None = None,
     groups: Iterable[tuple[str, str | None]] | None = None,
+    glossaries: Iterable[str] | None = None,
     repo_url: str | None = None,
     dry_run: bool = False,
 ) -> None:
@@ -102,15 +105,11 @@ def run_translation(
     ) -> None:
         Config.check_configuration()
 
-        translation_types: list[str] = []
-        if markdown:
-            translation_types.append("markdown")
-        if images:
-            translation_types.append("images")
-        if notebook:
-            translation_types.append("notebook")
-        if not translation_types:
-            translation_types = ["markdown", "notebook", "images"]
+        translation_types = resolve_translation_types(
+            markdown=markdown,
+            images=images,
+            notebook=notebook,
+        )
 
         if "images" in translation_types:
             cv_available = VisionConfig.check_configuration()
@@ -289,7 +288,9 @@ def run_translation(
 
             try:
                 if update_readme_other_courses(readme_path):
-                    click.echo("✅ Updated README 'Other courses' section from template.")
+                    click.echo(
+                        "✅ Updated README 'Other courses' section from template."
+                    )
             except Exception as e:  # pragma: no cover
                 logger.warning(f"Failed to update README 'Other courses': {e}")
 
@@ -386,15 +387,11 @@ def run_translation(
         lang_subdir: str | None,
         repo_url: str | None,
     ) -> dict[str, int]:
-        translation_types: list[str] = []
-        if markdown:
-            translation_types.append("markdown")
-        if images:
-            translation_types.append("images")
-        if notebook:
-            translation_types.append("notebook")
-        if not translation_types:
-            translation_types = ["markdown", "notebook", "images"]
+        translation_types = resolve_translation_types(
+            markdown=markdown,
+            images=images,
+            notebook=notebook,
+        )
 
         translator = ProjectTranslator(
             language_codes,
@@ -449,6 +446,58 @@ def run_translation(
             else:
                 os.environ["TQDM_DISABLE"] = previous
 
+    with glossary_terms_context(glossaries):
+        _run_translation_with_context(
+            language_codes=language_codes,
+            root_dir=root_dir,
+            update=update,
+            images=images,
+            markdown=markdown,
+            notebook=notebook,
+            debug=debug,
+            save_logs=save_logs,
+            yes=yes,
+            add_disclaimer=add_disclaimer,
+            translations_dir=translations_dir,
+            image_dir=image_dir,
+            root_dirs=root_dirs,
+            groups=groups,
+            repo_url=repo_url,
+            dry_run=dry_run,
+            split_lang_placeholder=_split_lang_placeholder,
+            run_single_group=_run_single_group,
+            merge_estimates=_merge_estimates,
+            echo_estimate_summary=_echo_estimate_summary,
+            compute_estimate_for_group=_compute_estimate_for_group,
+            tqdm_disabled=_tqdm_disabled,
+        )
+
+
+def _run_translation_with_context(
+    *,
+    language_codes: str,
+    root_dir: str,
+    update: bool,
+    images: bool,
+    markdown: bool,
+    notebook: bool,
+    debug: bool,
+    save_logs: bool,
+    yes: bool,
+    add_disclaimer: bool,
+    translations_dir: str | None,
+    image_dir: str | None,
+    root_dirs: Iterable[str] | None,
+    groups: Iterable[tuple[str, str | None]] | None,
+    repo_url: str | None,
+    dry_run: bool,
+    split_lang_placeholder,
+    run_single_group,
+    merge_estimates,
+    echo_estimate_summary,
+    compute_estimate_for_group,
+    tqdm_disabled,
+) -> None:
     aggregate_template = {
         "markdown": 0,
         "notebook": 0,
@@ -460,15 +509,11 @@ def run_translation(
         "total": 0,
         "words": 0,
     }
-    translation_types_for_summary: list[str] = []
-    if markdown:
-        translation_types_for_summary.append("markdown")
-    if images:
-        translation_types_for_summary.append("images")
-    if notebook:
-        translation_types_for_summary.append("notebook")
-    if not translation_types_for_summary:
-        translation_types_for_summary = ["markdown", "notebook", "images"]
+    translation_types_for_summary = resolve_translation_types(
+        markdown=markdown,
+        images=images,
+        notebook=notebook,
+    )
 
     execution_targets: list[tuple[str, str | None, str | None]] = []
     if groups is not None:
@@ -476,7 +521,7 @@ def run_translation(
             per_translations_dir: str | None = per_translations
             per_lang_subdir: str | None = None
             if per_translations is not None:
-                base_part, suffix = _split_lang_placeholder(per_translations)
+                base_part, suffix = split_lang_placeholder(per_translations)
                 per_translations_dir = base_part or None
                 per_lang_subdir = suffix
             execution_targets.append((per_root, per_translations_dir, per_lang_subdir))
@@ -488,7 +533,7 @@ def run_translation(
 
     aggregated_estimate = dict(aggregate_template)
     for per_root, per_translations_dir, per_lang_subdir in execution_targets:
-        group_estimate = _compute_estimate_for_group(
+        group_estimate = compute_estimate_for_group(
             language_codes=language_codes,
             root_dir=per_root,
             update=update,
@@ -501,15 +546,15 @@ def run_translation(
             lang_subdir=per_lang_subdir,
             repo_url=repo_url,
         )
-        aggregated_estimate = _merge_estimates(aggregated_estimate, group_estimate)
+        aggregated_estimate = merge_estimates(aggregated_estimate, group_estimate)
 
-    _echo_estimate_summary(aggregated_estimate, translation_types_for_summary)
+    echo_estimate_summary(aggregated_estimate, translation_types_for_summary)
 
     multi_group_mode = len(execution_targets) > 1
 
     for per_root, per_translations_dir, per_lang_subdir in execution_targets:
-        with _tqdm_disabled(multi_group_mode):
-            _run_single_group(
+        with tqdm_disabled(multi_group_mode):
+            run_single_group(
                 language_codes=language_codes,
                 root_dir=per_root,
                 update=update,

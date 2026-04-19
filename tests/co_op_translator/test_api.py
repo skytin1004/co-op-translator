@@ -2,6 +2,7 @@ from unittest.mock import MagicMock
 
 import pytest
 
+from co_op_translator.glossary import get_glossary_terms
 from co_op_translator.api import translation as api
 
 
@@ -73,6 +74,30 @@ async def test_run_translation_with_disclaimer_flag(tmp_path):
         image_dir=None,
         lang_subdir=None,
     )
+
+
+@pytest.mark.asyncio
+async def test_run_translation_scopes_glossaries_to_api_call(tmp_path):
+    api.Config.check_configuration = MagicMock(return_value=None)
+    api.LLMConfig.validate_connectivity = MagicMock(return_value=None)
+    api.setup_logging = MagicMock(return_value=None)
+
+    project_translator_instance = MagicMock()
+
+    def make_project_translator(*args, **kwargs):
+        assert get_glossary_terms() == ["PR", "Issue"]
+        return project_translator_instance
+
+    api.ProjectTranslator = MagicMock(side_effect=make_project_translator)
+
+    api.run_translation(
+        language_codes="ko",
+        root_dir=str(tmp_path),
+        markdown=True,
+        glossaries=["PR", "Issue"],
+    )
+
+    assert get_glossary_terms() == []
 
 
 @pytest.mark.asyncio

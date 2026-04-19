@@ -8,6 +8,7 @@ import click
 from pathlib import Path
 
 from co_op_translator.core.project.project_translator import ProjectTranslator
+from co_op_translator.core.project.options import resolve_translation_types
 from co_op_translator.config.base_config import Config
 from co_op_translator.config.vision_config.config import VisionConfig
 from co_op_translator.config.llm_config.config import LLMConfig
@@ -171,17 +172,11 @@ def translate_command(
         Config.check_configuration()
 
         # Build translation types list based on user selection
-        translation_types = []
-        if markdown:
-            translation_types.append("markdown")
-        if images:
-            translation_types.append("images")
-        if notebook:
-            translation_types.append("notebook")
-
-        # Default: translate all supported file types if nothing specified
-        if not translation_types:
-            translation_types = ["markdown", "notebook", "images"]
+        translation_types = resolve_translation_types(
+            markdown=markdown,
+            images=images,
+            notebook=notebook,
+        )
 
         # Check Azure AI Service availability if images are included
         if "images" in translation_types:

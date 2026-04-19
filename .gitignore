@@ -415,6 +415,7 @@ dist
 
 # pytest cache directory
 .pytest_cache/
+.tmp/
 
 # Egg info
 co_op_translator.egg-info/

@@ -1,6 +1,11 @@
+from contextlib import contextmanager
+from contextvars import ContextVar
 from typing import Iterable
 
-_glossary_terms: list[str] = []
+_glossary_terms: ContextVar[tuple[str, ...]] = ContextVar(
+    "co_op_translator_glossary_terms",
+    default=(),
+)
 
 
 def normalize_glossary_terms(glossary_terms: Iterable[str] | None) -> list[str]:
@@ -22,14 +27,23 @@ def normalize_glossary_terms(glossary_terms: Iterable[str] | None) -> list[str]:
 
 
 def set_glossary_terms(glossary_terms: Iterable[str] | None) -> None:
-    """Set the process-wide glossary terms used by prompt builders."""
-    global _glossary_terms
-    _glossary_terms = normalize_glossary_terms(glossary_terms)
+    """Set glossary terms for the current execution context."""
+    _glossary_terms.set(tuple(normalize_glossary_terms(glossary_terms)))
 
 
 def get_glossary_terms() -> list[str]:
-    """Return the current process-wide glossary terms."""
-    return list(_glossary_terms)
+    """Return the glossary terms for the current execution context."""
+    return list(_glossary_terms.get())
+
+
+@contextmanager
+def glossary_terms_context(glossary_terms: Iterable[str] | None):
+    """Temporarily set glossary terms for a single API/workflow call."""
+    token = _glossary_terms.set(tuple(normalize_glossary_terms(glossary_terms)))
+    try:
+        yield
+    finally:
+        _glossary_terms.reset(token)
 
 
 def _build_glossary_lines() -> list[str]:

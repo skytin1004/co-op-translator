@@ -135,6 +135,43 @@ async def test_translate_all_image_files(mock_translation_manager, temp_project_
 
 
 @pytest.mark.asyncio
+async def test_translate_all_image_files_counts_failures_per_source(
+    mock_translation_manager, temp_project_dir, monkeypatch
+):
+    """Image failures should be counted against their own source path."""
+    first_image = temp_project_dir / "images" / "first.png"
+    second_image = temp_project_dir / "images" / "second.png"
+    first_image.touch()
+    second_image.touch()
+
+    monkeypatch.setattr(
+        "co_op_translator.core.project.translation_manager.content_translation.filter_files",
+        lambda *args, **kwargs: [first_image, second_image],
+    )
+
+    mock_translation_manager.root_dir = temp_project_dir
+    mock_translation_manager.excluded_dirs = []
+    mock_translation_manager.image_dir = temp_project_dir / "translated_images"
+    mock_translation_manager.language_codes = ["ko"]
+    mock_translation_manager.supported_image_extensions = [".png"]
+    mock_translation_manager.translate_image = AsyncMock()
+    mock_translation_manager.process_api_requests_parallel = AsyncMock(
+        return_value=[
+            str(first_image),
+            str(temp_project_dir / "translated_images" / "ko" / "images__second.png"),
+        ]
+    )
+    mock_translation_manager.translate_all_image_files = (
+        TranslationManager.translate_all_image_files.__get__(mock_translation_manager)
+    )
+
+    count, errors = await mock_translation_manager.translate_all_image_files()
+
+    assert count == 1
+    assert errors == [f"Failed to translate image file: {first_image} (lang: ko)"]
+
+
+@pytest.mark.asyncio
 async def test_process_api_requests_parallel(mock_translation_manager):
     """Tests parallel API request processing."""
     mock_tasks = [AsyncMock() for _ in range(3)]
@@ -370,15 +407,15 @@ async def test_translate_project_runs_link_migration_when_no_images(
 
     # Force migration helpers to return empty rename maps
     monkeypatch.setattr(
-        "co_op_translator.core.project.translation_manager.migrate_translated_image_filenames",
+        "co_op_translator.core.project.translation_manager.migration.migrate_translated_image_filenames",
         lambda *args, **kwargs: {},
     )
     monkeypatch.setattr(
-        "co_op_translator.core.project.translation_manager.migrate_images_to_webp",
+        "co_op_translator.core.project.translation_manager.migration.migrate_images_to_webp",
         lambda *args, **kwargs: {},
     )
     monkeypatch.setattr(
-        "co_op_translator.core.project.translation_manager.canonicalize_image_links_in_translations",
+        "co_op_translator.core.project.translation_manager.migration.canonicalize_image_links_in_translations",
         lambda *args, **kwargs: (0, 0),
     )
 
@@ -581,12 +618,12 @@ async def test_translate_all_notebook_files_with_hash_check(temp_project_dir):
 
     # Mock filter_files to return only the original notebook
     with patch(
-        "co_op_translator.core.project.translation_manager.filter_files",
+        "co_op_translator.core.project.translation_manager.content_translation.filter_files",
         return_value=[original_notebook],
     ):
         # Mock is_notebook_up_to_date to return True (up-to-date)
         with patch(
-            "co_op_translator.core.project.translation_manager.is_notebook_up_to_date",
+            "co_op_translator.core.project.translation_manager.content_translation.is_notebook_up_to_date",
             return_value=True,
         ):
             result = await manager.translate_all_notebook_files(update=False)
@@ -664,12 +701,12 @@ async def test_translate_all_notebook_files_outdated(temp_project_dir):
 
     # Mock filter_files to return only the original notebook
     with patch(
-        "co_op_translator.core.project.translation_manager.filter_files",
+        "co_op_translator.core.project.translation_manager.content_translation.filter_files",
         return_value=[original_notebook],
     ):
         # Mock is_notebook_up_to_date to return False (outdated)
         with patch(
-            "co_op_translator.core.project.translation_manager.is_notebook_up_to_date",
+            "co_op_translator.core.project.translation_manager.content_translation.is_notebook_up_to_date",
             return_value=False,
         ):
             result = await manager.translate_all_notebook_files(update=False)

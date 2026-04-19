@@ -4,7 +4,11 @@ from co_op_translator.utils.llm.text_utils import (
     strip_line_number_prefix,
     TranslationResponse,
 )
-from co_op_translator.glossary import set_glossary_terms
+from co_op_translator.glossary import (
+    get_glossary_terms,
+    glossary_terms_context,
+    set_glossary_terms,
+)
 
 
 def test_remove_code_backticks():
@@ -82,7 +86,9 @@ def test_gen_image_translation_prompt_special_chars():
 def test_gen_image_translation_prompt_includes_glossary_and_keeps_rules():
     try:
         set_glossary_terms(["Co-op Translator"])
-        prompt = gen_image_translation_prompt(["Co-op Translator Cloud"], "ko", "Korean")
+        prompt = gen_image_translation_prompt(
+            ["Co-op Translator Cloud"], "ko", "Korean"
+        )
         assert "GLOSSARY" in prompt
         assert "Co-op Translator" in prompt
         assert "EXACTLY 1 items" in prompt
@@ -92,6 +98,16 @@ def test_gen_image_translation_prompt_includes_glossary_and_keeps_rules():
         assert "INPUT LINES:" in prompt
         assert "END INPUT LINES" in prompt
         assert "[1] Co-op Translator Cloud" in prompt
+    finally:
+        set_glossary_terms([])
+
+
+def test_glossary_terms_context_restores_previous_terms():
+    try:
+        set_glossary_terms(["Outer"])
+        with glossary_terms_context(["Inner"]):
+            assert get_glossary_terms() == ["Inner"]
+        assert get_glossary_terms() == ["Outer"]
     finally:
         set_glossary_terms([])
 

@@ -21,6 +21,7 @@ from co_op_translator.utils.common.lang_utils import (
 )
 
 from .directory_manager import DirectoryManager
+from .layout import OutputLayout
 from .translation_manager import TranslationManager
 from co_op_translator.utils.common.file_utils import read_input_file
 from co_op_translator.utils.common.token_estimation import count_tokens
@@ -56,27 +57,16 @@ class ProjectTranslator:
         """
         # Normalize to canonical BCP 47 (accept alias input like tw/cn/br)
         self.language_codes = normalize_language_codes(language_codes.split())
-        self.root_dir = Path(root_dir).resolve()
-        self.lang_subdir = Path(lang_subdir) if lang_subdir else None
-        # Resolve translations_dir relative to root_dir when a relative path is provided.
-        if translations_dir is not None:
-            t_dir = Path(translations_dir)
-            if t_dir.is_absolute():
-                self.translations_dir = t_dir.resolve()
-            else:
-                self.translations_dir = (self.root_dir / t_dir).resolve()
-        else:
-            self.translations_dir = self.root_dir / "translations"
-
-        # Resolve image_dir relative to root_dir when a relative path is provided.
-        if image_dir is not None:
-            i_dir = Path(image_dir)
-            if i_dir.is_absolute():
-                self.image_dir = i_dir.resolve()
-            else:
-                self.image_dir = (self.root_dir / i_dir).resolve()
-        else:
-            self.image_dir = self.root_dir / "translated_images"
+        self.output_layout = OutputLayout.from_paths(
+            root_dir=root_dir,
+            translations_dir=translations_dir,
+            image_dir=image_dir,
+            lang_subdir=lang_subdir,
+        )
+        self.root_dir = self.output_layout.root_dir
+        self.translations_dir = self.output_layout.translations_dir
+        self.image_dir = self.output_layout.image_dir
+        self.lang_subdir = self.output_layout.lang_subdir
 
         # Default translation types if not specified (safe fallback for direct API usage)
         if translation_types is None:
