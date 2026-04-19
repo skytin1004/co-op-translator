@@ -444,19 +444,20 @@ def split_markdown_content(content: str, max_tokens: int, tokenizer) -> list:
 
 
 def _group_lines_preserving_list_items(text: str) -> list[str]:
-    """Group markdown text into split units while keeping list-item blocks together."""
+    """Group markdown text while keeping each list item's continuation together."""
     lines = text.splitlines(keepends=True)
     if not lines:
         return []
 
     grouped_lines: list[str] = []
     idx = 0
-    list_item_pattern = re.compile(r"^\s{0,3}(?:[*+-]|\d+[.)])\s+")
+    list_item_pattern = re.compile(r"^(\s*)(?:[*+-]|\d+[.)])\s+")
 
     while idx < len(lines):
         line = lines[idx]
+        list_item_match = list_item_pattern.match(line)
 
-        if list_item_pattern.match(line):
+        if list_item_match:
             block = [line]
             idx += 1
 
@@ -467,9 +468,11 @@ def _group_lines_preserving_list_items(text: str) -> list[str]:
                     idx += 1
                     continue
 
-                if next_line.startswith((" ", "\t")) or list_item_pattern.match(
-                    next_line
-                ):
+                next_item_match = list_item_pattern.match(next_line)
+                if next_item_match:
+                    break
+
+                if next_line.startswith((" ", "\t")):
                     block.append(next_line)
                     idx += 1
                     continue
@@ -691,9 +694,7 @@ def build_translated_image_link(
     new_filename = generate_translated_filename(
         actual_image_path, language_code, root_dir
     )
-    return os.path.join(rel_path, language_code, new_filename).replace(
-        os.path.sep, "/"
-    )
+    return os.path.join(rel_path, language_code, new_filename).replace(os.path.sep, "/")
 
 
 def _slugify_heading_text(text: str) -> str:
