@@ -1248,10 +1248,15 @@ def update_untranslated_file_links(
 
     for alt_text, link in file_matches:
         parsed_url = urlparse(link)
+        path = parsed_url.path
 
-        # Keep same-document anchors untouched (e.g., [Section](#section)).
-        if parsed_url.fragment and not parsed_url.path:
-            logger.info(f"Skipping internal anchor link {link}")
+        # Keep same-document links untouched. Some LLMs occasionally emit
+        # empty/current-page links while preserving TOCs; treating those as
+        # files rewrites them to the source directory path.
+        if path in ("", ".", "./") or (
+            path == "/" and (parsed_url.fragment or parsed_url.query)
+        ):
+            logger.info(f"Skipping same-document link {link}")
             continue
 
         if (
@@ -1262,7 +1267,6 @@ def update_untranslated_file_links(
             logger.info(f"Skipped {link} as it is an email or web URL")
             continue
 
-        path = parsed_url.path
         original_filename, file_ext = get_filename_and_extension(path)
 
         if file_ext in SUPPORTED_IMAGE_EXTENSIONS:

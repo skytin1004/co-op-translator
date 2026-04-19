@@ -129,6 +129,30 @@ def test_update_untranslated_file_links_skips_internal_anchor_links(temp_dir):
     assert "../.." not in result
 
 
+@pytest.mark.parametrize(
+    "link",
+    ["", ".", "./", "?tab=readme", ".#section-one", "./#section-one", "/#section-one"],
+)
+def test_update_untranslated_file_links_skips_current_document_links(temp_dir, link):
+    """Current-document links should not be rewritten to the source directory."""
+    md_file_path = temp_dir / "docs" / "README.md"
+    md_file_path.parent.mkdir(exist_ok=True)
+    md_file_path.touch()
+
+    translations_dir = temp_dir / "translations"
+    translations_dir.mkdir(exist_ok=True)
+    (translations_dir / "ja").mkdir(exist_ok=True)
+
+    test_markdown = f"- [Section]({link})"
+
+    result = update_untranslated_file_links(
+        test_markdown, md_file_path, "ja", translations_dir, temp_dir
+    )
+
+    assert result == test_markdown
+    assert "../" not in result
+
+
 def test_process_markdown():
     """Test processing markdown content into chunks."""
     content = "# Test\n" * 100  # Create large content
