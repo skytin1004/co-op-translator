@@ -12,6 +12,7 @@ from co_op_translator.utils.llm.markdown_utils import (
     generate_prompt_template,
     count_links_in_markdown,
     split_markdown_content,
+    _group_lines_preserving_list_items,
     update_notebook_links,
     normalize_cjk_emphasis_markers,
     normalize_internal_anchor_links,
@@ -172,6 +173,141 @@ def test_process_markdown_with_many_links():
     assert isinstance(chunks, list)
     assert len(chunks) > 1
     assert all(count_links_in_markdown(chunk) <= max_links for chunk in chunks)
+
+
+def test_group_lines_preserving_list_items_splits_sibling_items():
+    """Sibling list items should be separate split units for large TOCs."""
+    content = """- [One](one.md)
+- [Two](two.md)
+- [Three](three.md)
+
+Paragraph
+"""
+
+    groups = _group_lines_preserving_list_items(content)
+
+    assert groups == [
+        "- [One](one.md)\n",
+        "- [Two](two.md)\n",
+        "- [Three](three.md)\n\n",
+        "Paragraph\n",
+    ]
+
+
+def test_group_lines_preserving_list_items_keeps_nested_code_with_item():
+    """Indented code blocks inside a list item should stay with that item."""
+    content = """- Step 1
+
+    ```bash
+    echo one
+    ```
+- Step 2
+"""
+
+    groups = _group_lines_preserving_list_items(content)
+
+    assert groups == [
+        "- Step 1\n\n    ```bash\n    echo one\n    ```\n",
+        "- Step 2\n",
+    ]
+
+
+def test_group_lines_preserving_list_items_splits_nested_items():
+    """Nested list items should still be separate split units."""
+    content = """- Parent
+  - Child 1
+    - Grandchild
+- Next
+"""
+
+    groups = _group_lines_preserving_list_items(content)
+
+    assert groups == [
+        "- Parent\n",
+        "  - Child 1\n",
+        "    - Grandchild\n",
+        "- Next\n",
+    ]
+
+
+def test_split_markdown_content_keeps_list_newlines_when_splitting_large_toc():
+    """Oversized link-heavy lists should split at item boundaries, not words."""
+    content = """- [One](one.md)
+- [Two](two.md)
+- [Three](three.md)
+- [Four](four.md)
+"""
+
+    class MockTokenizer:
+        def encode(self, text):
+            return list(text)
+
+    chunks = split_markdown_content(content, 35, MockTokenizer())
+
+    assert len(chunks) > 1
+    assert all(" - " not in chunk for chunk in chunks)
+    assert "".join(chunks) == content
+
+
+def test_split_markdown_content_keeps_nested_toc_newlines_when_splitting():
+    """Large nested TOCs should not be flattened into one-line chunks."""
+    content = """- Phi application development samples
+  - Text & Chat Applications
+    - Phi-4 Samples
+      - [Chat With Phi-4-mini ONNX Model](./md/02.Application/01.TextAndChat/Phi4/ChatWithPhi4ONNX/README.md)
+      - [Chat with Phi-4 local ONNX Model .NET](./md/04.HOL/dotnet/src/LabsPhi4-Chat-01OnnxRuntime/)
+  - Azure AI Inference SDK Code Based Samples
+    - Phi-4 Samples
+      - [Generate project code using Phi-4-multimodal](./md/02.Application/02.Code/Phi4/GenProjectCode/README.md)
+"""
+
+    class MockTokenizer:
+        def encode(self, text):
+            return list(text)
+
+    chunks = split_markdown_content(content, 120, MockTokenizer())
+
+    assert len(chunks) > 1
+    assert (
+        "- Phi application development samples - Text & Chat Applications"
+        not in "".join(chunks)
+    )
+    assert "- Phi-4 Samples - [Chat With Phi-4-mini ONNX Model]" not in "".join(chunks)
+    assert "".join(chunks) == content
+
+
+def test_split_markdown_content_preserves_whitespace_in_oversized_fallback():
+    """Fallback splitting should preserve exact whitespace and newlines."""
+    content = """- Step with a very long continuation
+  This continuation keeps  double spaces.
+  This continuation keeps the second line.
+"""
+
+    class MockTokenizer:
+        def encode(self, text):
+            return list(text)
+
+    chunks = split_markdown_content(content, 32, MockTokenizer())
+
+    assert len(chunks) > 1
+    assert "".join(chunks) == content
+    assert "  double spaces" in "".join(chunks)
+    assert "\n  This continuation keeps the second line." in "".join(chunks)
+
+
+def test_split_markdown_content_splits_unbroken_text_without_losing_characters():
+    """Fallback splitting should preserve oversized spans without whitespace."""
+    content = "https://example.com/" + ("verylongpath" * 8) + "\n"
+
+    class MockTokenizer:
+        def encode(self, text):
+            return list(text)
+
+    chunks = split_markdown_content(content, 25, MockTokenizer())
+
+    assert len(chunks) > 1
+    assert "".join(chunks) == content
+    assert all(len(chunk) <= 25 for chunk in chunks if chunk.strip())
 
 
 def test_generate_prompt_template():

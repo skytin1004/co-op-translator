@@ -406,26 +406,11 @@ def split_markdown_content(content: str, max_tokens: int, tokenizer) -> list:
                             if "@@CODE_BLOCK" in line or "@@INLINE_CODE" in line:
                                 chunks.append(line)
                             else:
-                                words = line.split()
-                                word_chunk = []
-                                word_chunk_tokens = 0
-
-                                for word in words:
-                                    word_with_space = word + " "
-                                    word_tokens = count_tokens(
-                                        word_with_space, tokenizer
+                                chunks.extend(
+                                    _split_text_preserving_whitespace(
+                                        line, max_tokens, tokenizer
                                     )
-
-                                    if word_chunk_tokens + word_tokens <= max_tokens:
-                                        word_chunk.append(word_with_space)
-                                        word_chunk_tokens += word_tokens
-                                    else:
-                                        chunks.append("".join(word_chunk))
-                                        word_chunk = [word_with_space]
-                                        word_chunk_tokens = word_tokens
-
-                                if word_chunk:
-                                    chunks.append("".join(word_chunk))
+                                )
                         else:
                             current_chunk = [line]
                             current_length = line_tokens
@@ -443,20 +428,82 @@ def split_markdown_content(content: str, max_tokens: int, tokenizer) -> list:
     return chunks
 
 
+def _split_text_preserving_whitespace(
+    text: str, max_tokens: int, tokenizer
+) -> list[str]:
+    """Split oversized text without normalizing whitespace or line breaks."""
+    chunks: list[str] = []
+    current_parts: list[str] = []
+    current_tokens = 0
+
+    for part in re.findall(r"\s+|\S+", text):
+        part_tokens = count_tokens(part, tokenizer)
+
+        if part_tokens > max_tokens:
+            if current_parts:
+                chunks.append("".join(current_parts))
+                current_parts = []
+                current_tokens = 0
+
+            chunks.extend(
+                _split_unbroken_text_preserving_characters(part, max_tokens, tokenizer)
+            )
+            continue
+
+        if current_tokens + part_tokens <= max_tokens:
+            current_parts.append(part)
+            current_tokens += part_tokens
+        else:
+            chunks.append("".join(current_parts))
+            current_parts = [part]
+            current_tokens = part_tokens
+
+    if current_parts:
+        chunks.append("".join(current_parts))
+
+    return chunks
+
+
+def _split_unbroken_text_preserving_characters(
+    text: str, max_tokens: int, tokenizer
+) -> list[str]:
+    """Split a single oversized non-whitespace span while preserving all chars."""
+    chunks: list[str] = []
+    current_chars: list[str] = []
+    current_tokens = 0
+
+    for char in text:
+        char_tokens = count_tokens(char, tokenizer)
+
+        if current_chars and current_tokens + char_tokens > max_tokens:
+            chunks.append("".join(current_chars))
+            current_chars = [char]
+            current_tokens = char_tokens
+        else:
+            current_chars.append(char)
+            current_tokens += char_tokens
+
+    if current_chars:
+        chunks.append("".join(current_chars))
+
+    return chunks
+
+
 def _group_lines_preserving_list_items(text: str) -> list[str]:
-    """Group markdown text into split units while keeping list-item blocks together."""
+    """Group markdown text while keeping each list item's continuation together."""
     lines = text.splitlines(keepends=True)
     if not lines:
         return []
 
     grouped_lines: list[str] = []
     idx = 0
-    list_item_pattern = re.compile(r"^\s{0,3}(?:[*+-]|\d+[.)])\s+")
+    list_item_pattern = re.compile(r"^(\s*)(?:[*+-]|\d+[.)])\s+")
 
     while idx < len(lines):
         line = lines[idx]
+        list_item_match = list_item_pattern.match(line)
 
-        if list_item_pattern.match(line):
+        if list_item_match:
             block = [line]
             idx += 1
 
@@ -467,9 +514,11 @@ def _group_lines_preserving_list_items(text: str) -> list[str]:
                     idx += 1
                     continue
 
-                if next_line.startswith((" ", "\t")) or list_item_pattern.match(
-                    next_line
-                ):
+                next_item_match = list_item_pattern.match(next_line)
+                if next_item_match:
+                    break
+
+                if next_line.startswith((" ", "\t")):
                     block.append(next_line)
                     idx += 1
                     continue
@@ -691,9 +740,7 @@ def build_translated_image_link(
     new_filename = generate_translated_filename(
         actual_image_path, language_code, root_dir
     )
-    return os.path.join(rel_path, language_code, new_filename).replace(
-        os.path.sep, "/"
-    )
+    return os.path.join(rel_path, language_code, new_filename).replace(os.path.sep, "/")
 
 
 def _slugify_heading_text(text: str) -> str:
