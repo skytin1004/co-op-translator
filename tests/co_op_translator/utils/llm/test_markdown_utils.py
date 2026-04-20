@@ -276,6 +276,40 @@ def test_split_markdown_content_keeps_nested_toc_newlines_when_splitting():
     assert "".join(chunks) == content
 
 
+def test_split_markdown_content_preserves_whitespace_in_oversized_fallback():
+    """Fallback splitting should preserve exact whitespace and newlines."""
+    content = """- Step with a very long continuation
+  This continuation keeps  double spaces.
+  This continuation keeps the second line.
+"""
+
+    class MockTokenizer:
+        def encode(self, text):
+            return list(text)
+
+    chunks = split_markdown_content(content, 32, MockTokenizer())
+
+    assert len(chunks) > 1
+    assert "".join(chunks) == content
+    assert "  double spaces" in "".join(chunks)
+    assert "\n  This continuation keeps the second line." in "".join(chunks)
+
+
+def test_split_markdown_content_splits_unbroken_text_without_losing_characters():
+    """Fallback splitting should preserve oversized spans without whitespace."""
+    content = "https://example.com/" + ("verylongpath" * 8) + "\n"
+
+    class MockTokenizer:
+        def encode(self, text):
+            return list(text)
+
+    chunks = split_markdown_content(content, 25, MockTokenizer())
+
+    assert len(chunks) > 1
+    assert "".join(chunks) == content
+    assert all(len(chunk) <= 25 for chunk in chunks if chunk.strip())
+
+
 def test_generate_prompt_template():
     """Test generating translation prompt template."""
     document_chunk = "Test content"
