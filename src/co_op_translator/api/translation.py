@@ -13,6 +13,7 @@ from co_op_translator.config.llm_config.config import LLMConfig
 from co_op_translator.config.vision_config.config import VisionConfig
 from co_op_translator.core.project.language_migrator import LanguageFolderMigrator
 from co_op_translator.core.project.project_translator import ProjectTranslator
+from co_op_translator.glossary import glossary_terms_scope
 from co_op_translator.utils.common.file_utils import (
     render_updated_readme_languages_table,
     render_updated_readme_other_courses,
@@ -67,6 +68,7 @@ def run_translation(
     root_dirs: Iterable[str] | None = None,
     groups: Iterable[tuple[str, str | None]] | None = None,
     repo_url: str | None = None,
+    glossaries: Iterable[str] | None = None,
     dry_run: bool = False,
 ) -> None:
     """Programmatic translation entrypoint mirroring the translate CLI options."""
@@ -289,7 +291,9 @@ def run_translation(
 
             try:
                 if update_readme_other_courses(readme_path):
-                    click.echo("✅ Updated README 'Other courses' section from template.")
+                    click.echo(
+                        "✅ Updated README 'Other courses' section from template."
+                    )
             except Exception as e:  # pragma: no cover
                 logger.warning(f"Failed to update README 'Other courses': {e}")
 
@@ -449,80 +453,83 @@ def run_translation(
             else:
                 os.environ["TQDM_DISABLE"] = previous
 
-    aggregate_template = {
-        "markdown": 0,
-        "notebook": 0,
-        "images": 0,
-        "outdated_markdown": 0,
-        "outdated_notebook": 0,
-        "outdated_images": 0,
-        "outdated": 0,
-        "total": 0,
-        "words": 0,
-    }
-    translation_types_for_summary: list[str] = []
-    if markdown:
-        translation_types_for_summary.append("markdown")
-    if images:
-        translation_types_for_summary.append("images")
-    if notebook:
-        translation_types_for_summary.append("notebook")
-    if not translation_types_for_summary:
-        translation_types_for_summary = ["markdown", "notebook", "images"]
+    with glossary_terms_scope(glossaries):
+        aggregate_template = {
+            "markdown": 0,
+            "notebook": 0,
+            "images": 0,
+            "outdated_markdown": 0,
+            "outdated_notebook": 0,
+            "outdated_images": 0,
+            "outdated": 0,
+            "total": 0,
+            "words": 0,
+        }
+        translation_types_for_summary: list[str] = []
+        if markdown:
+            translation_types_for_summary.append("markdown")
+        if images:
+            translation_types_for_summary.append("images")
+        if notebook:
+            translation_types_for_summary.append("notebook")
+        if not translation_types_for_summary:
+            translation_types_for_summary = ["markdown", "notebook", "images"]
 
-    execution_targets: list[tuple[str, str | None, str | None]] = []
-    if groups is not None:
-        for per_root, per_translations in list(groups):
-            per_translations_dir: str | None = per_translations
-            per_lang_subdir: str | None = None
-            if per_translations is not None:
-                base_part, suffix = _split_lang_placeholder(per_translations)
-                per_translations_dir = base_part or None
-                per_lang_subdir = suffix
-            execution_targets.append((per_root, per_translations_dir, per_lang_subdir))
-    elif root_dirs is not None:
-        for per_root in list(root_dirs):
-            execution_targets.append((per_root, translations_dir, None))
-    else:
-        execution_targets.append((root_dir, translations_dir, None))
+        execution_targets: list[tuple[str, str | None, str | None]] = []
+        if groups is not None:
+            for per_root, per_translations in list(groups):
+                per_translations_dir: str | None = per_translations
+                per_lang_subdir: str | None = None
+                if per_translations is not None:
+                    base_part, suffix = _split_lang_placeholder(per_translations)
+                    per_translations_dir = base_part or None
+                    per_lang_subdir = suffix
+                execution_targets.append(
+                    (per_root, per_translations_dir, per_lang_subdir)
+                )
+        elif root_dirs is not None:
+            for per_root in list(root_dirs):
+                execution_targets.append((per_root, translations_dir, None))
+        else:
+            execution_targets.append((root_dir, translations_dir, None))
 
-    aggregated_estimate = dict(aggregate_template)
-    for per_root, per_translations_dir, per_lang_subdir in execution_targets:
-        group_estimate = _compute_estimate_for_group(
-            language_codes=language_codes,
-            root_dir=per_root,
-            update=update,
-            markdown=markdown,
-            images=images,
-            notebook=notebook,
-            add_disclaimer=add_disclaimer,
-            translations_dir=per_translations_dir,
-            image_dir=image_dir,
-            lang_subdir=per_lang_subdir,
-            repo_url=repo_url,
-        )
-        aggregated_estimate = _merge_estimates(aggregated_estimate, group_estimate)
-
-    _echo_estimate_summary(aggregated_estimate, translation_types_for_summary)
-
-    multi_group_mode = len(execution_targets) > 1
-
-    for per_root, per_translations_dir, per_lang_subdir in execution_targets:
-        with _tqdm_disabled(multi_group_mode):
-            _run_single_group(
+        aggregated_estimate = dict(aggregate_template)
+        for per_root, per_translations_dir, per_lang_subdir in execution_targets:
+            group_estimate = _compute_estimate_for_group(
                 language_codes=language_codes,
                 root_dir=per_root,
                 update=update,
-                images=images,
                 markdown=markdown,
+                images=images,
                 notebook=notebook,
-                debug=debug,
-                save_logs=save_logs,
-                yes=yes,
                 add_disclaimer=add_disclaimer,
                 translations_dir=per_translations_dir,
                 image_dir=image_dir,
                 lang_subdir=per_lang_subdir,
                 repo_url=repo_url,
-                dry_run=dry_run,
             )
+            aggregated_estimate = _merge_estimates(aggregated_estimate, group_estimate)
+
+        _echo_estimate_summary(aggregated_estimate, translation_types_for_summary)
+
+        multi_group_mode = len(execution_targets) > 1
+
+        for per_root, per_translations_dir, per_lang_subdir in execution_targets:
+            with _tqdm_disabled(multi_group_mode):
+                _run_single_group(
+                    language_codes=language_codes,
+                    root_dir=per_root,
+                    update=update,
+                    images=images,
+                    markdown=markdown,
+                    notebook=notebook,
+                    debug=debug,
+                    save_logs=save_logs,
+                    yes=yes,
+                    add_disclaimer=add_disclaimer,
+                    translations_dir=per_translations_dir,
+                    image_dir=image_dir,
+                    lang_subdir=per_lang_subdir,
+                    repo_url=repo_url,
+                    dry_run=dry_run,
+                )

@@ -1,4 +1,5 @@
-from typing import Iterable
+from contextlib import contextmanager
+from typing import Iterable, Iterator
 
 _glossary_terms: list[str] = []
 
@@ -7,6 +8,9 @@ def normalize_glossary_terms(glossary_terms: Iterable[str] | None) -> list[str]:
     """Normalize glossary terms into a de-duplicated ordered list of strings."""
     if not glossary_terms:
         return []
+
+    if isinstance(glossary_terms, str):
+        glossary_terms = [glossary_terms]
 
     normalized: list[str] = []
     seen: set[str] = set()
@@ -30,6 +34,17 @@ def set_glossary_terms(glossary_terms: Iterable[str] | None) -> None:
 def get_glossary_terms() -> list[str]:
     """Return the current process-wide glossary terms."""
     return list(_glossary_terms)
+
+
+@contextmanager
+def glossary_terms_scope(glossary_terms: Iterable[str] | None) -> Iterator[None]:
+    """Temporarily set glossary terms for one translation API invocation."""
+    previous_terms = get_glossary_terms()
+    set_glossary_terms(glossary_terms)
+    try:
+        yield
+    finally:
+        set_glossary_terms(previous_terms)
 
 
 def _build_glossary_lines() -> list[str]:
