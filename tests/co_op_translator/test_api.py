@@ -3,6 +3,7 @@ from unittest.mock import MagicMock
 import pytest
 
 from co_op_translator.api import translation as api
+from co_op_translator.glossary import get_glossary_terms, set_glossary_terms
 
 
 @pytest.mark.asyncio
@@ -310,3 +311,59 @@ async def test_run_translation_dry_run_uses_virtual_readme_without_writing(tmp_p
     assert readme_path.read_text(encoding="utf-8") == original_readme
     api.update_readme_languages_table.assert_not_called()
     api.update_readme_other_courses.assert_not_called()
+
+
+@pytest.mark.asyncio
+async def test_run_translation_accepts_glossaries_and_restores_previous_terms(tmp_path):
+    root_dir = tmp_path
+
+    api.Config.check_configuration = MagicMock(return_value=None)
+    api.LLMConfig.validate_connectivity = MagicMock(return_value=None)
+    api.setup_logging = MagicMock(return_value=None)
+
+    project_translator_instance = MagicMock()
+    project_translator_class = MagicMock(return_value=project_translator_instance)
+    api.ProjectTranslator = project_translator_class
+
+    observed_terms: list[list[str]] = []
+
+    def fake_estimate_tokens(*args, **kwargs):
+        observed_terms.append(get_glossary_terms())
+        return {
+            "markdown": 10,
+            "notebook": 0,
+            "images": 0,
+            "outdated_markdown": 0,
+            "outdated_notebook": 0,
+            "outdated_images": 0,
+            "outdated": 0,
+            "total": 10,
+        }
+
+    api.estimate_translation_tokens = MagicMock(side_effect=fake_estimate_tokens)
+    api.estimate_translation_words = MagicMock(
+        return_value={
+            "markdown": 5,
+            "notebook": 0,
+            "images": 0,
+            "outdated": 0,
+            "total": 5,
+        }
+    )
+
+    set_glossary_terms(["Existing Term"])
+    try:
+        api.run_translation(
+            language_codes="ko",
+            root_dir=str(root_dir),
+            markdown=True,
+            glossaries=[" Co-op Translator ", "Co-op Translator", "Azure AI"],
+        )
+
+        assert observed_terms == [["Co-op Translator", "Azure AI"]]
+        assert get_glossary_terms() == ["Existing Term"]
+        project_translator_instance.translate_project.assert_called_once_with(
+            update=False,
+        )
+    finally:
+        set_glossary_terms([])
