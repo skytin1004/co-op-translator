@@ -103,6 +103,41 @@ async def test_translate_comments_in_code_blocks_mermaid_block():
 
 
 @pytest.mark.asyncio
+async def test_translate_comments_in_code_blocks_mermaid_restores_fence_newlines():
+    """Mermaid translation must keep closing fences on their own lines."""
+
+    placeholder_map = {
+        "@@CODE_BLOCK_0@@": (
+            "```mermaid\n"
+            "graph TD\n"
+            "    subgraph Server A\n"
+            "        KnowledgeA[Knowledge]\n"
+            "    end\n"
+            "```\n"
+        )
+    }
+
+    async def fake_run_prompt(prompt, index, total):
+        if "Mermaid diagram code" in prompt:
+            _, code_block = prompt.split(SPLIT_DELIMITER, 1)
+            return code_block.replace("Knowledge", "知識").replace("\n```\n", "```")
+        return prompt
+
+    result_map = await translate_comments_in_code_blocks(
+        placeholder_map,
+        language_code="ja",
+        language_name="Japanese",
+        is_rtl=False,
+        run_prompt=fake_run_prompt,
+    )
+
+    translated_block = result_map["@@CODE_BLOCK_0@@"]
+
+    assert "end\n```\n" in translated_block
+    assert "end```" not in translated_block
+
+
+@pytest.mark.asyncio
 async def test_translate_comments_in_code_blocks_non_code_block_unchanged():
     """Non-fenced or unsupported language blocks should be returned unchanged."""
 
