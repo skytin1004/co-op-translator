@@ -166,7 +166,53 @@ async def _translate_mermaid_block(
     prompt = instruction + SPLIT_DELIMITER + code_block
 
     translated = await run_prompt(prompt, "mermaid", 1)
-    return translated or code_block
+    if not translated:
+        return code_block
+
+    return _normalize_mermaid_fence_boundaries(translated, code_block)
+
+
+def _normalize_mermaid_fence_boundaries(
+    translated_block: str, original_block: str
+) -> str:
+    """Keep translated Mermaid fences parseable after LLM post-processing.
+
+    LLMs sometimes preserve the fence markers but collapse the newline before or
+    after the closing fence, producing invalid Markdown like ``end```Text``.
+    Normalize only the fence boundaries; leave the diagram body untouched.
+    """
+    original_lines = original_block.splitlines(keepends=True)
+    if not original_lines:
+        return translated_block
+
+    opening_line = original_lines[0]
+    fence_match = re.match(r"^(\s*)(`{3,}|~{3,})", opening_line)
+    if not fence_match:
+        return translated_block
+
+    fence_marker = fence_match.group(2)
+    normalized = translated_block
+
+    if not normalized.lstrip().startswith(fence_marker):
+        inner = normalized.strip("\r\n")
+        normalized = opening_line + inner
+        if inner and not inner.endswith(("\n", "\r")):
+            normalized += "\n"
+        normalized += fence_marker
+
+    escaped_marker = re.escape(fence_marker)
+    normalized = re.sub(
+        rf"([^\r\n])({escaped_marker})(?=\s*(?:\r?\n|$))",
+        r"\1\n\2",
+        normalized,
+    )
+
+    if original_block.endswith(("\r\n", "\n", "\r")) and not normalized.endswith(
+        ("\r\n", "\n", "\r")
+    ):
+        normalized += "\n"
+
+    return normalized
 
 
 def _extract_language_from_fence(fence_line: str) -> str:

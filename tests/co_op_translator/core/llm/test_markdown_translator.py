@@ -36,6 +36,20 @@ graph TD;
 """
 
 
+TEST_MD_WITH_MERMAID_AND_PARAGRAPH = """
+# Sample Markdown
+
+```mermaid
+graph TD
+    ServerA --> KnowledgeA
+    subgraph Server A
+        KnowledgeA[Knowledge]
+    end
+```
+Universal connector text.
+"""
+
+
 TEST_MD_WITH_DETAILS = """
 # Sample Details
 
@@ -273,6 +287,45 @@ async def test_translate_markdown_translates_mermaid_block(
     assert "[es]Decision[/es]" in result
     assert "[es]Do it[/es]" in result
     assert "[es]Stop[/es]" in result
+
+
+@pytest.mark.asyncio
+async def test_translate_markdown_keeps_mermaid_closing_fence_separate_from_text(
+    real_markdown_translator, tmp_path
+):
+    """Mermaid fence boundaries must survive translation before paragraph text."""
+    test_file = tmp_path / "example_mermaid_paragraph.md"
+    test_file.write_text(TEST_MD_WITH_MERMAID_AND_PARAGRAPH)
+
+    async def fake_prompt(prompt, index, total):
+        if "Mermaid diagram code" in prompt:
+            _, code_block = prompt.split(SPLIT_DELIMITER, 1)
+            return code_block.replace("Knowledge", "知識").replace("\n```\n", "```")
+        if "Sample Markdown" in prompt:
+            _, body = prompt.split(SPLIT_DELIMITER, 1)
+            return body.replace("# Sample Markdown", "# サンプル Markdown").replace(
+                "Universal connector text.", "ユニバーサルコネクターにより"
+            )
+        if "Disclaimer" in prompt.lower():
+            return "Aviso Legal: Este es un documento traducido."
+        return prompt
+
+    with patch.object(
+        real_markdown_translator, "_run_prompt", new_callable=AsyncMock
+    ) as mock_run_prompt:
+        mock_run_prompt.side_effect = fake_prompt
+
+        result = await real_markdown_translator.translate_markdown(
+            document=TEST_MD_WITH_MERMAID_AND_PARAGRAPH,
+            language_code="ja",
+            md_file_path=test_file,
+            add_metadata=False,
+            add_disclaimer=False,
+        )
+
+    assert "end\n```\nユニバーサルコネクターにより" in result
+    assert "end```" not in result
+    assert "```ユニバーサル" not in result
 
 
 @pytest.mark.asyncio
