@@ -409,6 +409,7 @@ venv.bak/
 
 # Generated output
 dist
+site/
 
 # PyCharm
 .idea/
