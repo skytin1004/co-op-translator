@@ -11,8 +11,8 @@ window.tailwind.config = {
         coop: {
           ink: "#172033",
           blue: "#2563eb",
-          cyan: "#0891b2",
-          mint: "#10b981",
+          cyan: "#2563eb",
+          mint: "#2563eb",
           soft: "#f4f8fb",
         },
       },
