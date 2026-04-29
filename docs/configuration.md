@@ -4,6 +4,39 @@ Co-op Translator requires one language model provider. Image translation additio
 
 Configuration is read from environment variables. For local projects, place them in a `.env` file at the project root.
 
+## Local runtime setup
+
+Use a virtual environment before running the CLI locally. Co-op Translator supports Python 3.10 through 3.12.
+
+For normal CLI usage, install the published package inside a virtual environment:
+
+=== "Windows"
+
+    ```powershell
+    python -m venv .venv
+    .venv\Scripts\activate
+    pip install co-op-translator
+    translate --help
+    ```
+
+=== "macOS / Linux"
+
+    ```bash
+    python -m venv .venv
+    source .venv/bin/activate
+    pip install co-op-translator
+    translate --help
+    ```
+
+For repository development, install dependencies from the project root instead:
+
+```bash
+poetry install
+poetry run translate --help
+```
+
+After the CLI is available, configure one language model provider in `.env`.
+
 ## Provider selection
 
 The tool auto-detects providers in this order:
