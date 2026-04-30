@@ -3,6 +3,7 @@ from unittest.mock import AsyncMock, patch
 import re
 
 from co_op_translator.core.llm.markdown_translator import MarkdownTranslator
+from co_op_translator.utils.common.lang_utils import get_supported_language_codes
 from co_op_translator.utils.llm.markdown_utils import SPLIT_DELIMITER
 
 # A sample markdown with a code block and a link for testing.
@@ -92,10 +93,36 @@ def real_markdown_translator(tmp_path):
 
 
 @pytest.mark.asyncio
-async def test_generate_disclaimer_includes_markdown_safety_rules(
+async def test_generate_disclaimer_uses_packaged_language_template(
     real_markdown_translator,
 ):
-    """Disclaimer prompt should include minimal markdown-structure preservation rules."""
+    """Supported languages should use packaged templates without an LLM call."""
+
+    with patch.object(
+        real_markdown_translator, "_run_prompt", new_callable=AsyncMock
+    ) as mock_run_prompt:
+        result = await real_markdown_translator.generate_disclaimer("ja")
+
+    assert "**免責事項**" in result
+    assert "[Co-op Translator](https://github.com/Azure/co-op-translator)" in result
+    mock_run_prompt.assert_not_called()
+
+
+def test_disclaimer_templates_cover_supported_languages(real_markdown_translator):
+    """Every supported language should have a canonical disclaimer template."""
+
+    templates = real_markdown_translator._load_disclaimer_templates()
+    co_op_link = "[Co-op Translator](https://github.com/Azure/co-op-translator)"
+
+    assert set(get_supported_language_codes()).issubset(set(templates))
+    assert all(co_op_link in templates[code] for code in get_supported_language_codes())
+
+
+@pytest.mark.asyncio
+async def test_generate_disclaimer_fallback_includes_markdown_safety_rules(
+    real_markdown_translator,
+):
+    """Fallback disclaimer prompt should preserve markdown-structure rules."""
 
     captured_prompts = []
 
@@ -103,9 +130,16 @@ async def test_generate_disclaimer_includes_markdown_safety_rules(
         captured_prompts.append(prompt)
         return "Translated disclaimer"
 
-    with patch.object(
-        real_markdown_translator, "_run_prompt", new_callable=AsyncMock
-    ) as mock_run_prompt:
+    with (
+        patch.object(
+            real_markdown_translator,
+            "_read_disclaimer_template_for_language",
+            return_value="",
+        ),
+        patch.object(
+            real_markdown_translator, "_run_prompt", new_callable=AsyncMock
+        ) as mock_run_prompt,
+    ):
         mock_run_prompt.side_effect = fake_prompt
 
         result = await real_markdown_translator.generate_disclaimer("ja")
@@ -401,9 +435,7 @@ async def test_translate_markdown_keeps_internal_links_inside_code_blocks_unchan
 ## 섹션 1
 
 {code_placeholder}
-""".format(
-                code_placeholder=code_placeholder
-            )
+""".format(code_placeholder=code_placeholder)
 
         return prompt
 

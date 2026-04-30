@@ -1,10 +1,12 @@
 from abc import ABC, abstractmethod
 import asyncio
 import logging
-import os
 import re
-from pathlib import Path
 from importlib import resources
+from pathlib import Path
+
+import yaml
+
 from co_op_translator.config.llm_config.provider import LLMProvider
 from co_op_translator.utils.llm.markdown_utils import (
     process_markdown,
@@ -26,6 +28,7 @@ from co_op_translator.utils.llm.code_comment_translator import (
 )
 from co_op_translator.config.font_config import FontConfig
 from co_op_translator.config.llm_config.config import LLMConfig
+from co_op_translator.utils.common.lang_utils import normalize_language_code
 from co_op_translator.utils.common.metadata_utils import (
     calculate_file_hash,
     create_metadata,
@@ -42,6 +45,7 @@ class MarkdownTranslator(ABC):
     """
 
     TRANSLATION_TIMEOUT_SECONDS = 1000  # Translation timeout in seconds
+    _disclaimer_templates_cache: dict[str, str] | None = None
 
     def __init__(
         self,
@@ -357,10 +361,11 @@ class MarkdownTranslator(ABC):
         pass
 
     async def generate_disclaimer(self, output_lang: str) -> str:
-        """Generate a translated disclaimer notice.
+        """Return a translated disclaimer notice.
 
-        Creates standardized disclaimer about machine translation quality
-        in the target language.
+        Uses packaged language-specific templates first so contributor-reviewed
+        disclaimers remain stable. Falls back to LLM generation only when no
+        template exists for the target language.
 
         Args:
             output_lang: Target language code
@@ -368,6 +373,10 @@ class MarkdownTranslator(ABC):
         Returns:
             Translated disclaimer text
         """
+        disclaimer_template = self._read_disclaimer_template_for_language(output_lang)
+        if disclaimer_template:
+            return disclaimer_template
+
         template_text = self._read_disclaimer_template_inner()
         if not template_text:
             return ""
@@ -395,6 +404,41 @@ class MarkdownTranslator(ABC):
             return ""
 
         return disclaimer
+
+    @classmethod
+    def _load_disclaimer_templates(cls) -> dict[str, str]:
+        """Load packaged language-specific disclaimer templates."""
+        if cls._disclaimer_templates_cache is not None:
+            return cls._disclaimer_templates_cache
+
+        try:
+            with (
+                resources.files("co_op_translator.templates")
+                .joinpath("disclaimer_templates.yml")
+                .open("r", encoding="utf-8") as f
+            ):
+                raw_templates = yaml.safe_load(f) or {}
+        except Exception as e:
+            logger.warning(f"Failed to load disclaimer templates: {e}")
+            cls._disclaimer_templates_cache = {}
+            return cls._disclaimer_templates_cache
+
+        templates: dict[str, str] = {}
+        for language_code, disclaimer in raw_templates.items():
+            if not isinstance(disclaimer, str):
+                continue
+            normalized_code = normalize_language_code(str(language_code))
+            disclaimer = disclaimer.strip()
+            if normalized_code and disclaimer:
+                templates[normalized_code] = disclaimer
+
+        cls._disclaimer_templates_cache = templates
+        return templates
+
+    def _read_disclaimer_template_for_language(self, output_lang: str) -> str:
+        """Read a packaged disclaimer template for the requested language."""
+        normalized_lang = normalize_language_code(output_lang)
+        return self._load_disclaimer_templates().get(normalized_lang, "")
 
     def _read_disclaimer_template_inner(self) -> str:
         """Read the packaged disclaimer template and return inner content between markers.
