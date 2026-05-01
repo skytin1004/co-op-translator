@@ -96,7 +96,13 @@ def map_original_to_translated(
     return candidate if candidate.exists() else None
 
 
-def get_unique_id(file_path: str | Path, root_dir: Path) -> str:
+def _normalize_path_for_hashing(path: str | Path) -> Path:
+    if isinstance(path, str):
+        path = path.replace("\\", "/")
+    return Path(path).resolve()
+
+
+def get_unique_id(file_path: str | Path, root_dir: str | Path) -> str:
     """
     Generate a unique identifier (hash) for the given file path, based on the relative path to the root directory.
     This function normalizes path separators to '/' before hashing to ensure consistency across operating systems.
@@ -108,11 +114,12 @@ def get_unique_id(file_path: str | Path, root_dir: Path) -> str:
     Returns:
         str: A SHA-256 hash of the normalized relative file path.
     """
-    file_path = Path(file_path).resolve()
+    file_path = _normalize_path_for_hashing(file_path)
+    root_dir = _normalize_path_for_hashing(root_dir)
     relative_path = file_path.relative_to(root_dir)
 
     # Normalize path separators to '/' for cross-platform consistency
-    normalized_path = str(relative_path).replace(os.sep, "/")
+    normalized_path = str(relative_path).replace(os.sep, "/").replace("\\", "/")
 
     # Convert the normalized path to bytes and hash it
     relative_path_bytes = normalized_path.encode("utf-8")
