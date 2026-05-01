@@ -83,12 +83,13 @@ class ReviewSummary:
                 ]
             )
             for issue in self.issues:
+                escaped_message = issue.message.replace("|", "\\|")
                 lines.append(
                     "| "
                     f"{issue.severity.value} | "
                     f"{issue.check} | "
                     f"{issue.language or '-'} | "
                     f"`{issue.location()}` | "
-                    f"{issue.message.replace('|', '\\|')} |"
+                    f"{escaped_message} |"
                 )
         return "\n".join(lines)
