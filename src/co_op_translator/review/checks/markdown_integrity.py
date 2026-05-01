@@ -4,8 +4,8 @@ import json
 import re
 from pathlib import Path
 
-from co_op_translator.review.checks.structure import expected_translation_path
 from co_op_translator.review.models import ReviewIssue, ReviewSeverity
+from co_op_translator.review.targets import ReviewTarget
 
 FENCE_PATTERN = re.compile(r"^\s*(```|~~~)", re.MULTILINE)
 
@@ -25,12 +25,12 @@ def _fence_count(content: str) -> int:
 
 
 def _check_markdown_file(
-    root_dir: Path, source_file: Path, translated_path: Path, language: str
+    target: ReviewTarget, source_file: Path, translated_path: Path, language: str
 ) -> list[ReviewIssue]:
     issues: list[ReviewIssue] = []
     source_content = source_file.read_text(encoding="utf-8")
     translated_content = translated_path.read_text(encoding="utf-8")
-    relative_path = source_file.relative_to(root_dir)
+    relative_path = target.display_source_path(source_file)
 
     if _has_frontmatter(source_content):
         if not _has_frontmatter(translated_content):
@@ -69,7 +69,7 @@ def _check_markdown_file(
 
 
 def _check_notebook_file(
-    root_dir: Path, source_file: Path, translated_path: Path, language: str
+    target: ReviewTarget, source_file: Path, translated_path: Path, language: str
 ) -> list[ReviewIssue]:
     try:
         json.loads(translated_path.read_text(encoding="utf-8"))
@@ -78,7 +78,7 @@ def _check_notebook_file(
             ReviewIssue(
                 check="notebook-integrity",
                 severity=ReviewSeverity.ERROR,
-                path=source_file.relative_to(root_dir),
+                path=target.display_source_path(source_file),
                 language=language,
                 message="Translated notebook is not valid JSON.",
             )
@@ -87,24 +87,20 @@ def _check_notebook_file(
 
 
 def check_markdown_integrity(
-    root_dir: Path, source_files: list[Path], languages: list[str]
+    target: ReviewTarget, source_files: list[Path], languages: list[str]
 ) -> list[ReviewIssue]:
     issues: list[ReviewIssue] = []
     for source_file in source_files:
         for language in languages:
-            translated_path = expected_translation_path(root_dir, source_file, language)
+            translated_path = target.translated_path(source_file, language)
             if not translated_path.exists():
                 continue
             if source_file.suffix.lower() == ".ipynb":
                 issues.extend(
-                    _check_notebook_file(
-                        root_dir, source_file, translated_path, language
-                    )
+                    _check_notebook_file(target, source_file, translated_path, language)
                 )
             else:
                 issues.extend(
-                    _check_markdown_file(
-                        root_dir, source_file, translated_path, language
-                    )
+                    _check_markdown_file(target, source_file, translated_path, language)
                 )
     return issues

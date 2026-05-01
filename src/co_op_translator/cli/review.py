@@ -4,7 +4,7 @@ from pathlib import Path
 
 import click
 
-from co_op_translator.review.runner import ReviewConfig, ReviewRunner
+from co_op_translator.api.review import run_review
 
 
 def _split_language_options(values: tuple[str, ...]) -> list[str]:
@@ -52,19 +52,14 @@ def review_command(
     if not root_path.is_dir():
         raise click.ClickException(f"Root path is not a directory: {root_dir}")
 
-    config = ReviewConfig(
-        root_dir=root_path,
-        languages=_split_language_options(language_code),
-        changed_from=changed_from,
-    )
-    summary = ReviewRunner(config).run()
-
-    if output_format == "github":
-        click.echo(summary.to_github_markdown())
-    else:
-        click.echo(summary.to_text())
-
-    if summary.error_count:
-        raise click.ClickException(
-            f"co-op-review found {summary.error_count} blocking issue(s)."
+    try:
+        run_review(
+            language_codes=_split_language_options(language_code) or "all",
+            root_dir=str(root_path),
+            markdown=True,
+            notebook=True,
+            changed_from=changed_from,
+            output_format=output_format,
         )
+    except RuntimeError as exc:
+        raise click.ClickException(str(exc)) from exc

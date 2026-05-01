@@ -4,8 +4,8 @@ import re
 from pathlib import Path
 from urllib.parse import unquote
 
-from co_op_translator.review.checks.structure import expected_translation_path
 from co_op_translator.review.models import ReviewIssue, ReviewSeverity
+from co_op_translator.review.targets import ReviewTarget
 
 MARKDOWN_LINK_PATTERN = re.compile(r"(!?)\[[^\]]*]\(([^)]+)\)")
 
@@ -37,28 +37,30 @@ def _target_exists(translated_path: Path, target: str) -> bool:
 
 
 def check_local_links(
-    root_dir: Path, source_files: list[Path], languages: list[str]
+    target: ReviewTarget, source_files: list[Path], languages: list[str]
 ) -> list[ReviewIssue]:
     issues: list[ReviewIssue] = []
     for source_file in source_files:
         if source_file.suffix.lower() == ".ipynb":
             continue
         for language in languages:
-            translated_path = expected_translation_path(root_dir, source_file, language)
+            translated_path = target.translated_path(source_file, language)
             if not translated_path.exists():
                 continue
             content = translated_path.read_text(encoding="utf-8")
-            for is_image, target in MARKDOWN_LINK_PATTERN.findall(content):
-                if _is_external_link(target) or _target_exists(translated_path, target):
+            for is_image, link_target in MARKDOWN_LINK_PATTERN.findall(content):
+                if _is_external_link(link_target) or _target_exists(
+                    translated_path, link_target
+                ):
                     continue
                 check_name = "image-link" if is_image else "local-link"
                 issues.append(
                     ReviewIssue(
                         check=check_name,
                         severity=ReviewSeverity.WARNING,
-                        path=translated_path.relative_to(root_dir),
+                        path=target.display_translated_path(translated_path),
                         language=language,
-                        message=f"Local target does not exist: {target}",
+                        message=f"Local target does not exist: {link_target}",
                     )
                 )
     return issues
