@@ -13,6 +13,7 @@ on:
 
 permissions:
   contents: read
+  pull-requests: write
 
 concurrency:
   group: co-op-review-${{ github.ref }}
@@ -48,6 +49,53 @@ jobs:
         run: poetry install --with dev --no-interaction
 
       - name: Run co-op review
+        id: co_op_review
         run: |
           git fetch origin "${{ github.base_ref }}" --depth=1
-          poetry run co-op-review --changed-from "origin/${{ github.base_ref }}" --format github | tee "$GITHUB_STEP_SUMMARY"
+          set +e
+          poetry run co-op-review --changed-from "origin/${{ github.base_ref }}" --format github > co-op-review-summary.md
+          status=$?
+          cat co-op-review-summary.md
+          cat co-op-review-summary.md >> "$GITHUB_STEP_SUMMARY"
+          exit "$status"
+
+      - name: Comment on co-op review failure
+        if: failure() && github.event.pull_request.head.repo.full_name == github.repository
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require("fs");
+            const marker = "<!-- co-op-review-failure -->";
+            const summary = fs.readFileSync("co-op-review-summary.md", "utf8");
+            const body = [
+              marker,
+              summary,
+              "",
+              "_This comment is updated only when co-op review fails. Passing runs are reported in the check summary._",
+            ].join("\n");
+
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner,
+              repo,
+              issue_number,
+              per_page: 100,
+            });
+            const existing = comments.find((comment) => comment.body?.includes(marker));
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner,
+                repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number,
+                body,
+              });
+            }
