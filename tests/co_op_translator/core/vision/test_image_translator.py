@@ -2,6 +2,7 @@ import pytest
 from unittest.mock import patch, MagicMock
 from pathlib import Path
 from PIL import Image
+from azure.ai.vision.imageanalysis.models import VisualFeatures
 from co_op_translator.core.vision.image_translator import ImageTranslator
 from co_op_translator.core.llm.text_translator import TextTranslator
 
@@ -64,6 +65,16 @@ class MockImageTranslator(ImageTranslator):
         return Path(self.default_output_dir) / "translated_image.png"
 
 
+class ClientBackedImageTranslator(ImageTranslator):
+    """ImageTranslator test double that exercises the base OCR extraction path."""
+
+    def __init__(self, client):
+        self.client = client
+
+    def get_image_analysis_client(self):
+        return self.client
+
+
 @pytest.fixture
 def image_translator(tmp_path):
     """
@@ -89,6 +100,64 @@ def mock_line_bounding_boxes():
             "confidence": 0.993,
         },
     ]
+
+
+def _mock_read_result(text="피하세요", confidence=0.98):
+    mock_line = MagicMock()
+    mock_line.text = text
+    mock_line.bounding_polygon = [
+        MagicMock(x=10, y=20),
+        MagicMock(x=110, y=20),
+        MagicMock(x=110, y=60),
+        MagicMock(x=10, y=60),
+    ]
+    mock_line.words = [MagicMock(confidence=confidence)]
+
+    mock_block = MagicMock()
+    mock_block.lines = [mock_line]
+
+    mock_result = MagicMock()
+    mock_result.read.blocks = [mock_block]
+    return mock_result
+
+
+def test_extract_line_bounding_boxes_passes_configured_ocr_language(tmp_path):
+    """
+    Korean source images should be sent to Azure READ with an explicit OCR language
+    hint instead of falling back to the SDK's English default.
+    """
+    image_path = tmp_path / "korean-ui.png"
+    image_path.write_bytes(b"fake image bytes")
+
+    mock_client = MagicMock()
+    mock_client.analyze.return_value = _mock_read_result()
+    translator = ClientBackedImageTranslator(mock_client)
+
+    with patch.dict("os.environ", {"AZURE_AI_SERVICE_OCR_LANGUAGE": " ko "}):
+        bounding_boxes = translator.extract_line_bounding_boxes(image_path)
+
+    assert bounding_boxes[0]["text"] == "피하세요"
+    mock_client.analyze.assert_called_once()
+    analyze_kwargs = mock_client.analyze.call_args.kwargs
+    assert analyze_kwargs["image_data"] == b"fake image bytes"
+    assert analyze_kwargs["visual_features"] == [VisualFeatures.READ]
+    assert analyze_kwargs["language"] == "ko"
+
+
+def test_extract_line_bounding_boxes_omits_ocr_language_when_unset(tmp_path):
+    """Default image OCR behavior should remain unchanged when no language is configured."""
+    image_path = tmp_path / "english-ui.png"
+    image_path.write_bytes(b"fake image bytes")
+
+    mock_client = MagicMock()
+    mock_client.analyze.return_value = _mock_read_result(text="Avoid")
+    translator = ClientBackedImageTranslator(mock_client)
+
+    with patch.dict("os.environ", {}, clear=True):
+        translator.extract_line_bounding_boxes(image_path)
+
+    analyze_kwargs = mock_client.analyze.call_args.kwargs
+    assert "language" not in analyze_kwargs
 
 
 @patch("builtins.open", new_callable=MagicMock)
@@ -262,7 +331,6 @@ def test_extract_text_with_low_confidence(image_translator):
     """
     Test extract_text_from_image method's handling of low confidence text.
     """
-    mock_client = image_translator.get_image_analysis_client()
 
     # Override the mock implementation for this specific test
     def mock_extract_text(*args, **kwargs):

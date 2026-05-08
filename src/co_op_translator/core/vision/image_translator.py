@@ -1,25 +1,20 @@
-import os
 import logging
-import numpy as np
-from PIL import Image, ImageFont
-from pathlib import Path
-
-import cv2
 import math
-from math import hypot
-from tqdm import tqdm
+import os
 import time
-from PIL import Image, ImageFont, ImageDraw
-import numpy as np
+from abc import ABC, abstractmethod
+from math import hypot
 from pathlib import Path
 
 import arabic_reshaper
+import numpy as np
+from azure.ai.vision.imageanalysis.models import VisualFeatures
 from bidi.algorithm import get_display
-
+from PIL import Image, ImageDraw, ImageFont
+from tqdm import tqdm
 
 from co_op_translator.config.font_config import FontConfig
 from co_op_translator.config.constants import RGB_IMAGE_EXTENSIONS
-from co_op_translator.config.vision_config.config import VisionConfig
 from co_op_translator.config.vision_config.provider import VisionProvider
 from co_op_translator.utils.vision.image_utils import (
     get_dominant_color,
@@ -33,11 +28,9 @@ from co_op_translator.utils.vision.image_utils import (
     adjust_bg_color,
     save_optimized_image,
 )
-from azure.ai.vision.imageanalysis.models import VisualFeatures
 from co_op_translator.core.llm.text_translator import TextTranslator
 from co_op_translator.utils.common.file_utils import generate_translated_filename
 from co_op_translator.utils.common.metadata_utils import save_image_metadata
-from abc import ABC, abstractmethod
 
 logger = logging.getLogger(__name__)
 
@@ -69,6 +62,14 @@ class ImageTranslator(ABC):
         """
         pass
 
+    def get_ocr_language(self):
+        """Return an optional OCR source-language hint for image text extraction."""
+        from co_op_translator.config.vision_config.azure_computer_vision import (
+            AzureAIVisionConfig,
+        )
+
+        return AzureAIVisionConfig.get_ocr_language()
+
     def extract_line_bounding_boxes(self, image_path):
         """
         Extract line bounding boxes from an image using Azure Analysis Client.
@@ -84,11 +85,18 @@ class ImageTranslator(ABC):
             Exception: If text recognition fails or no text is found
         """
         image_analysis_client = self.get_image_analysis_client()
+        analyze_kwargs = {
+            "visual_features": [VisualFeatures.READ],
+        }
+        ocr_language = self.get_ocr_language()
+        if ocr_language:
+            analyze_kwargs["language"] = ocr_language
+
         with open(image_path, "rb") as image_stream:
             image_data = image_stream.read()
             result = image_analysis_client.analyze(
                 image_data=image_data,
-                visual_features=[VisualFeatures.READ],
+                **analyze_kwargs,
             )
 
         if result.read is not None and result.read.blocks:

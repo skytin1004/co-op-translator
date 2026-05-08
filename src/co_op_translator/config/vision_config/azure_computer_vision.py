@@ -44,3 +44,18 @@ class AzureAIVisionConfig:
         if env_set is None:
             return None
         return env_set.values.get("AZURE_AI_SERVICE_ENDPOINT")
+
+    @staticmethod
+    def get_ocr_language():
+        """Return an optional OCR source-language hint for Azure AI Vision READ.
+
+        Azure Image Analysis defaults the READ language to English when no language
+        hint is supplied. Projects whose source images contain Korean, Japanese, or
+        other non-English text can set this to a two-letter language code such as
+        "ko" to improve OCR accuracy before translation.
+        """
+        language = os.getenv("AZURE_AI_SERVICE_OCR_LANGUAGE")
+        if not language:
+            return None
+        language = language.strip()
+        return language or None

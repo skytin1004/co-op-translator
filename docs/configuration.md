@@ -82,6 +82,14 @@ AZURE_AI_SERVICE_API_KEY="..."
 AZURE_AI_SERVICE_ENDPOINT="https://<resource>.cognitiveservices.azure.com/"
 ```
 
+For source images that contain non-English text, set an OCR language hint so Azure READ does not use its English default while extracting text:
+
+```bash
+AZURE_AI_SERVICE_OCR_LANGUAGE="ko"
+```
+
+Use a two-letter source language code, such as `ko` for Korean. Leave it unset when your source images are already English or when you want Azure AI Vision's default behavior.
+
 If image translation is selected with `-img`, `images=True`, or no content-type filter, the tool validates Vision configuration before translation starts.
 
 ## Multiple credential sets
