@@ -5,8 +5,6 @@ import logging
 
 from tqdm import tqdm
 
-from co_op_translator.utils.common.task_utils import worker
-
 logger = logging.getLogger(__name__)
 
 
@@ -28,32 +26,35 @@ class TranslationTaskExecutorMixin:
             logger.warning("No tasks available for processing.")
             return []
 
-        task_queue = asyncio.Queue()
+        async def run_task(task):
+            try:
+                if asyncio.iscoroutine(task):
+                    return await task
+                if asyncio.iscoroutinefunction(task):
+                    return await task()
+                if callable(task):
+                    result = await asyncio.to_thread(task)
+                    if asyncio.iscoroutine(result):
+                        return await result
+                    return result
+                return task
+            except Exception as e:
+                logger.error(f"Error processing task: {e}")
+                return None
 
-        # Initialize queue with all translation tasks
-        for task in tasks:
-            task_queue.put_nowait(task)
+        semaphore = asyncio.Semaphore(5)
 
-        # Add sentinel values so workers can exit cleanly after processing tasks
-        worker_count = 5
-        for _ in range(worker_count):
-            task_queue.put_nowait(None)
+        async def run_limited(task, progress_bar):
+            async with semaphore:
+                try:
+                    return await run_task(task)
+                finally:
+                    progress_bar.update(1)
 
-        # Setup progress tracking UI
         with tqdm(total=len(tasks), desc=task_desc) as progress_bar:
-            # Launch parallel worker tasks for processing
-            workers = [
-                asyncio.create_task(worker(task_queue, progress_bar))
-                for _ in range(worker_count)
-            ]
-
-            # Wait for all queued tasks to complete
-            await task_queue.join()
-
-            # Gather worker completion to avoid InvalidStateError from unfinished tasks
-            results = [t.result() for t in workers]
-
-        return results
+            return await asyncio.gather(
+                *(run_limited(task, progress_bar) for task in tasks)
+            )
 
     async def process_api_requests_sequential(
         self, tasks, task_desc, file_names=None

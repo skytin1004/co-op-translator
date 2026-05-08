@@ -466,12 +466,14 @@ class ContentTranslationMixin:
                 tasks, f"{'🏎️  (fast mode)' if fast_mode else '🖼️ '} Translating images"
             )
             modified_count = sum(
-                1 for r in results if r != str(image_file_path)
+                1
+                for (file_path, _), result in zip(task_info, results)
+                if result and str(result) != file_path
             )  # Count successful translations
             errors = [
                 f"Failed to translate image file: {file_path} (lang: {lang_code})"
                 for (file_path, lang_code), result in zip(task_info, results)
-                if result == file_path
+                if not result or str(result) == file_path
             ]
         else:
             logger.warning("No image files found for translation.")

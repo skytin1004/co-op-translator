@@ -169,12 +169,14 @@ async def test_process_api_requests_parallel_executes_tasks(translation_manager)
 
     async def task(value):
         seen.append(value)
+        return value
 
-    await translation_manager.process_api_requests_parallel(
+    results = await translation_manager.process_api_requests_parallel(
         [task(1), task(2), task(3)], "Test tasks"
     )
 
     assert sorted(seen) == [1, 2, 3]
+    assert sorted(results) == [1, 2, 3]
 
 
 def test_get_outdated_translations_detects_stale_metadata(
