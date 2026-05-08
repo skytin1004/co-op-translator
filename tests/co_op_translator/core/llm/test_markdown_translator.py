@@ -455,6 +455,86 @@ async def test_translate_markdown_keeps_internal_links_inside_code_blocks_unchan
 
 
 @pytest.mark.asyncio
+async def test_translate_markdown_repairs_untranslated_japanese_heading_and_link_text(
+    real_markdown_translator, tmp_path
+):
+    """A second pass should repair visible English left in headings and link text."""
+
+    source = "# Solution\n\nSee [generative AI](./intro.md).\n"
+    test_file = tmp_path / "example_untranslated_link.md"
+    test_file.write_text(source, encoding="utf-8")
+
+    async def fake_prompt(prompt, index, total):
+        if "UNIT_0:" in prompt:
+            assert "Japanese mode: preserve Markdown tokens strictly." in prompt
+            return "UNIT_0: 解答例\nUNIT_1: 生成 AI"
+        if "Solution" in prompt:
+            return (
+                "# Solution\n\n"
+                "詳しくは [generative AI](./intro.md) を参照してください。"
+            )
+        return prompt
+
+    with patch.object(
+        real_markdown_translator, "_run_prompt", new_callable=AsyncMock
+    ) as mock_run_prompt:
+        mock_run_prompt.side_effect = fake_prompt
+
+        result = await real_markdown_translator.translate_markdown(
+            document=source,
+            language_code="ja",
+            md_file_path=test_file,
+            add_metadata=False,
+            add_disclaimer=False,
+        )
+
+    assert "# 解答例" in result
+    assert "[生成 AI](./intro.md)" in result
+    assert "Solution" not in result
+    assert "[generative AI]" not in result
+
+
+@pytest.mark.asyncio
+async def test_translate_markdown_repairs_fully_untranslated_japanese_line_with_link(
+    real_markdown_translator, tmp_path
+):
+    """A full visible line left in English should be translated as a whole line."""
+
+    source = "Join the [Microsoft Foundry Discord](https://example.com) for help.\n"
+    test_file = tmp_path / "example_untranslated_line.md"
+    test_file.write_text(source, encoding="utf-8")
+
+    async def fake_prompt(prompt, index, total):
+        if "UNIT_0:" in prompt:
+            return (
+                "UNIT_0: サポートが必要な場合は "
+                "[Microsoft Foundry Discord](https://example.com) に参加してください。"
+            )
+        if "Join the" in prompt:
+            return source
+        return prompt
+
+    with patch.object(
+        real_markdown_translator, "_run_prompt", new_callable=AsyncMock
+    ) as mock_run_prompt:
+        mock_run_prompt.side_effect = fake_prompt
+
+        result = await real_markdown_translator.translate_markdown(
+            document=source,
+            language_code="ja",
+            md_file_path=test_file,
+            add_metadata=False,
+            add_disclaimer=False,
+        )
+
+    assert (
+        "サポートが必要な場合は [Microsoft Foundry Discord](https://example.com) に参加してください。"
+        in result
+    )
+    assert "Join the" not in result
+
+
+@pytest.mark.asyncio
 async def test_translate_markdown_full_integration(real_markdown_translator, tmp_path):
     """A full integration test that avoids mocking _run_prompt at all.
     This only works if the abstract _run_prompt has a default implementation

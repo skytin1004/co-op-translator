@@ -90,6 +90,48 @@ def test_review_runner_reports_local_link_warnings(tmp_path):
     assert summary.issues[0].check == "local-link"
 
 
+def test_review_runner_reports_untranslated_visible_text(tmp_path):
+    source_file = _write_source(
+        tmp_path,
+        "README.md",
+        "# Solution\n\nSee [generative AI](https://example.com).\n",
+    )
+    _write_translation(
+        tmp_path,
+        source_file,
+        "ja",
+        "# Solution\n\n生成 AI については [generative AI](https://example.com) を参照してください。\n",
+    )
+
+    summary = ReviewRunner(ReviewConfig(tmp_path, languages=["ja"])).run()
+
+    assert summary.error_count == 2
+    assert [issue.check for issue in summary.issues] == [
+        "untranslated-text",
+        "untranslated-text",
+    ]
+    assert "Solution" in summary.issues[0].message
+    assert "generative AI" in summary.issues[1].message
+
+
+def test_review_runner_allows_preserved_product_names(tmp_path):
+    source_file = _write_source(
+        tmp_path,
+        "README.md",
+        "# Co-op Translator\n\n[Microsoft Foundry Discord](https://example.com)\n",
+    )
+    _write_translation(
+        tmp_path,
+        source_file,
+        "ja",
+        "# Co-op Translator\n\n[Microsoft Foundry Discord](https://example.com)\n",
+    )
+
+    summary = ReviewRunner(ReviewConfig(tmp_path, languages=["ja"])).run()
+
+    assert summary.error_count == 0
+
+
 def test_review_cli_outputs_github_summary(tmp_path):
     source_file = _write_source(tmp_path, "README.md")
     _write_translation(tmp_path, source_file, "ko")

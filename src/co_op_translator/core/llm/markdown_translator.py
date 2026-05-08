@@ -26,6 +26,10 @@ from co_op_translator.utils.llm.frontmatter_utils import (
 from co_op_translator.utils.llm.code_comment_translator import (
     translate_comments_in_code_blocks,
 )
+from co_op_translator.utils.markdown.untranslated import (
+    apply_untranslated_markdown_replacements,
+    find_untranslated_markdown_units,
+)
 from co_op_translator.config.font_config import FontConfig
 from co_op_translator.config.llm_config.config import LLMConfig
 from co_op_translator.utils.common.lang_utils import normalize_language_code
@@ -226,6 +230,15 @@ class MarkdownTranslator(ABC):
         # Step 4.75: Restore the code blocks and inline code from placeholders
         translated_content = restore_code_blocks(translated_content, placeholder_map)
 
+        # Step 4.9: Repair visible markdown text that the first pass left untranslated.
+        translated_content = await self._repair_untranslated_visible_text(
+            document_to_translate,
+            translated_content,
+            language_code,
+            language_name,
+            is_rtl,
+        )
+
         # Step 5: Translate frontmatter fields if any
         translated_frontmatter_fields = {}
         if frontmatter_section:
@@ -345,6 +358,96 @@ class MarkdownTranslator(ABC):
                     f"Markdown translation failed for chunk {index + 1} of '{md_file_path.name}': {e}"
                 ) from e
         return results
+
+    async def _repair_untranslated_visible_text(
+        self,
+        source_content: str,
+        translated_content: str,
+        language_code: str,
+        language_name: str,
+        is_rtl: bool,
+    ) -> str:
+        """Run a narrow second pass for headings, links, or lines left in English."""
+
+        normalized_language = normalize_language_code(language_code).lower()
+        if normalized_language == "en" or normalized_language.startswith("en-"):
+            return translated_content
+
+        units = find_untranslated_markdown_units(source_content, translated_content)
+        if not units:
+            return translated_content
+
+        unique_texts: list[str] = []
+        text_to_index: dict[str, int] = {}
+        for unit in units:
+            if unit.source_text in text_to_index:
+                continue
+            text_to_index[unit.source_text] = len(unique_texts)
+            unique_texts.append(unit.source_text)
+
+        user_lines = [
+            f"UNIT_{index}: {text}" for index, text in enumerate(unique_texts)
+        ]
+        prompt = (
+            f"Translate the following untranslated Markdown visible text units to {language_name} ({language_code}).\n"
+            "Return exactly one line for each input line in the form UNIT_n: <translation>.\n"
+            "Translate human-readable English text that was accidentally left unchanged.\n"
+            "Preserve product names, code identifiers, placeholders, URLs, and Markdown syntax.\n"
+            "If a unit contains a Markdown link, translate only the visible prose and keep the link structure intact.\n"
+            "Do not add explanations, bullets, code fences, or extra lines.\n"
+        )
+        prompt += (
+            "Write the output in right-to-left direction.\n"
+            if is_rtl
+            else "Write the output in left-to-right direction.\n"
+        )
+        language_template = _read_language_prompt_template(language_code)
+        if language_template:
+            prompt += f"\n{language_template}\n"
+        prompt += SPLIT_DELIMITER + "\n".join(user_lines)
+
+        try:
+            response = await asyncio.wait_for(
+                self._run_prompt(prompt, "untranslated visible text repair", 1),
+                timeout=self.TRANSLATION_TIMEOUT_SECONDS,
+            )
+        except asyncio.TimeoutError:
+            logger.warning("Untranslated visible text repair timed out.")
+            return translated_content
+        except Exception as e:
+            logger.warning("Untranslated visible text repair failed: %s", e)
+            return translated_content
+
+        translated_by_index = self._parse_untranslated_repair_response(response)
+        replacements = {}
+        for unit in units:
+            index = text_to_index.get(unit.source_text)
+            if index is None:
+                continue
+            replacement = translated_by_index.get(index, "")
+            if replacement:
+                replacements[unit] = replacement
+
+        repaired_content = apply_untranslated_markdown_replacements(
+            translated_content, units, replacements
+        )
+        remaining = find_untranslated_markdown_units(source_content, repaired_content)
+        if remaining:
+            logger.warning(
+                "Untranslated visible text repair left %s unit(s) unchanged.",
+                len(remaining),
+            )
+        return repaired_content
+
+    @staticmethod
+    def _parse_untranslated_repair_response(response: str) -> dict[int, str]:
+        translations: dict[int, str] = {}
+        for line in response.splitlines():
+            match = re.match(r"^\s*UNIT_(\d+)\s*:\s*(.*?)\s*$", line)
+            if not match:
+                continue
+            translations[int(match.group(1))] = match.group(2)
+        return translations
 
     @abstractmethod
     async def _run_prompt(self, prompt: str, index: int, total: int) -> str:

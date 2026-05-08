@@ -6,6 +6,9 @@ from pathlib import Path
 
 from co_op_translator.review.models import ReviewIssue, ReviewSeverity
 from co_op_translator.review.targets import ReviewTarget
+from co_op_translator.utils.markdown.untranslated import (
+    find_untranslated_markdown_units,
+)
 
 FENCE_PATTERN = re.compile(r"^\s*(```|~~~)", re.MULTILINE)
 
@@ -62,6 +65,20 @@ def _check_markdown_file(
                 path=relative_path,
                 language=language,
                 message="Code fence count differs from the source file.",
+            )
+        )
+
+    for unit in find_untranslated_markdown_units(source_content, translated_content):
+        issues.append(
+            ReviewIssue(
+                check="untranslated-text",
+                severity=ReviewSeverity.ERROR,
+                path=relative_path,
+                language=language,
+                message=(
+                    f"Visible {unit.kind.replace('_', ' ')} appears untranslated: "
+                    f"{unit.source_text}"
+                ),
             )
         )
 
