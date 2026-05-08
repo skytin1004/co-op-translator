@@ -78,6 +78,14 @@ TEST_MD_WITH_INTERNAL_LINK_IN_CODE = """
 """
 
 
+TEST_MD_WITH_ADMONITION = """
+# Relational Databases
+
+> [!NOTE]
+> Foreign keys are often abbreviated as FK
+"""
+
+
 class ConcreteMarkdownTranslator(MarkdownTranslator):
     """A concrete implementation of MarkdownTranslator for testing."""
 
@@ -360,6 +368,38 @@ async def test_translate_markdown_keeps_mermaid_closing_fence_separate_from_text
     assert "end\n```\nユニバーサルコネクターにより" in result
     assert "end```" not in result
     assert "```ユニバーサル" not in result
+
+
+@pytest.mark.asyncio
+async def test_translate_markdown_repairs_collapsed_github_admonition(
+    real_markdown_translator, tmp_path
+):
+    """Collapsed GitHub admonition lines should be repaired after translation."""
+    test_file = tmp_path / "example_admonition.md"
+    test_file.write_text(TEST_MD_WITH_ADMONITION)
+
+    async def fake_prompt(prompt, index, total):
+        if "Relational Databases" in prompt:
+            return "# リレーショナルデータベース\n\n> [!NOTE] 外部キーは頻繁にFKと略されます"
+        if "Disclaimer" in prompt.lower():
+            return "Aviso Legal: Este es un documento traducido."
+        return prompt
+
+    with patch.object(
+        real_markdown_translator, "_run_prompt", new_callable=AsyncMock
+    ) as mock_run_prompt:
+        mock_run_prompt.side_effect = fake_prompt
+
+        result = await real_markdown_translator.translate_markdown(
+            document=TEST_MD_WITH_ADMONITION,
+            language_code="ja",
+            md_file_path=test_file,
+            add_metadata=False,
+            add_disclaimer=False,
+        )
+
+    assert "> [!NOTE]\n> 外部キーは頻繁にFKと略されます" in result
+    assert "> [!NOTE] 外部キー" not in result
 
 
 @pytest.mark.asyncio

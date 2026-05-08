@@ -6,6 +6,7 @@ from pathlib import Path
 
 from co_op_translator.review.models import ReviewIssue, ReviewSeverity
 from co_op_translator.review.targets import ReviewTarget
+from co_op_translator.utils.markdown import find_collapsed_github_admonitions
 
 FENCE_PATTERN = re.compile(r"^\s*(```|~~~)", re.MULTILINE)
 
@@ -62,6 +63,21 @@ def _check_markdown_file(
                 path=relative_path,
                 language=language,
                 message="Code fence count differs from the source file.",
+            )
+        )
+
+    for admonition in find_collapsed_github_admonitions(translated_content):
+        issues.append(
+            ReviewIssue(
+                check="markdown-integrity",
+                severity=ReviewSeverity.ERROR,
+                path=relative_path,
+                language=language,
+                message=(
+                    f"GitHub admonition {admonition.marker} has trailing text on "
+                    f"line {admonition.line_number}; put the content on the next "
+                    "blockquote line."
+                ),
             )
         )
 

@@ -16,6 +16,7 @@ from co_op_translator.utils.llm.markdown_utils import (
     replace_code_blocks,
     restore_code_blocks,
     normalize_cjk_emphasis_markers,
+    normalize_github_admonitions,
     normalize_internal_anchor_links,
     SPLIT_DELIMITER,
 )
@@ -217,13 +218,17 @@ class MarkdownTranslator(ABC):
             translated_content, language_code=language_code
         )
 
-        # Step 4.5: Normalize internal anchor links against translated headings.
+        # Step 4.5: Repair GitHub admonition markers whose content was collapsed
+        # onto the directive line during translation.
+        translated_content = normalize_github_admonitions(translated_content)
+
+        # Step 4.6: Normalize internal anchor links against translated headings.
         # Run this before restoring code placeholders so code examples are never rewritten.
         translated_content = normalize_internal_anchor_links(
             document, translated_content
         )
 
-        # Step 4.75: Restore the code blocks and inline code from placeholders
+        # Step 4.8: Restore the code blocks and inline code from placeholders
         translated_content = restore_code_blocks(translated_content, placeholder_map)
 
         # Step 5: Translate frontmatter fields if any

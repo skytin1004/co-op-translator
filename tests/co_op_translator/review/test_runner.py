@@ -79,6 +79,28 @@ def test_review_runner_reports_markdown_integrity_errors(tmp_path):
     assert summary.issues[0].check == "markdown-integrity"
 
 
+def test_review_runner_reports_collapsed_github_admonition(tmp_path):
+    source_file = _write_source(
+        tmp_path,
+        "README.md",
+        "# Hello\n\n> [!NOTE]\n> Foreign keys are often abbreviated as FK\n",
+    )
+    _write_translation(
+        tmp_path,
+        source_file,
+        "ja",
+        "# こんにちは\n\n> [!NOTE] 外部キーは頻繁にFKと略されます\n",
+    )
+
+    summary = ReviewRunner(ReviewConfig(tmp_path, languages=["ja"])).run()
+
+    assert summary.error_count == 1
+    issue = summary.issues[0]
+    assert issue.check == "markdown-integrity"
+    assert issue.severity == ReviewSeverity.ERROR
+    assert "GitHub admonition [!NOTE]" in issue.message
+
+
 def test_review_runner_reports_local_link_warnings(tmp_path):
     source_file = _write_source(tmp_path, "README.md")
     _write_translation(tmp_path, source_file, "ko", "[missing](missing.md)\n")

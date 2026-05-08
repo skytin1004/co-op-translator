@@ -1,5 +1,10 @@
 """Markdown utility modules split by responsibility."""
 
+from .admonitions import (
+    CollapsedGitHubAdmonition,
+    find_collapsed_github_admonitions,
+    normalize_github_admonitions,
+)
 from .anchors import normalize_internal_anchor_links
 from .cjk_emphasis import normalize_cjk_emphasis_markers
 from .constants import SPLIT_DELIMITER
@@ -33,16 +38,19 @@ __all__ = [
     "_parse_markdown_text_and_code_parts",
     "_read_language_prompt_template",
     "build_translated_image_link",
+    "CollapsedGitHubAdmonition",
     "compare_line_breaks",
     "count_links_in_markdown",
     "count_tokens",
     "extract_json_from_markdown_codeblock",
+    "find_collapsed_github_admonitions",
     "generate_evaluation_prompt",
     "generate_prompt_template",
     "get_tokenizer",
     "get_translated_markdown_dir",
     "migrate_notebook_links",
     "normalize_cjk_emphasis_markers",
+    "normalize_github_admonitions",
     "normalize_internal_anchor_links",
     "process_markdown",
     "process_markdown_with_many_links",
