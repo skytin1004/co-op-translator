@@ -48,8 +48,6 @@ def temp_dir(tmp_path):
 def test_update_links(temp_dir, sample_markdown):
     """Test updating all links in markdown content."""
     md_file_path = temp_dir / "test.md"
-    translations_dir = temp_dir / "translations"
-    translated_images_dir = temp_dir / "translated_images"
 
     result = update_links(
         md_file_path,
@@ -331,11 +329,23 @@ def test_generate_prompt_template_includes_japanese_language_template():
     assert "NEVER rewrite links as plain text" in prompt
 
 
+def test_generate_prompt_template_includes_korean_language_template():
+    """Korean prompt should include placeholder and particle guidance."""
+    document_chunk = "Excluding {days}"
+
+    prompt = generate_prompt_template("ko", "Korean", document_chunk, False)
+
+    assert "Korean mode: write natural Korean" in prompt
+    assert "Do not omit required Korean particles" in prompt
+    assert "Correct: {days}를 제외하고" in prompt
+
+
 def test_generate_prompt_template_without_language_template_for_non_configured_language():
     """Languages without a dedicated template should use the default prompt only."""
-    prompt = generate_prompt_template("ko", "Korean", "Test content", False)
+    prompt = generate_prompt_template("fr", "French", "Test content", False)
 
     assert "STRUCTURE IS MORE IMPORTANT THAN STYLE." not in prompt
+    assert "Korean mode: write natural Korean" not in prompt
 
 
 def test_generate_prompt_template_includes_glossary_when_configured():
@@ -638,26 +648,22 @@ def complex_dir_structure(tmp_path):
 
     # Create markdown files
     with open(tmp_path / "docs/examples/nested.md", "w") as f:
-        f.write(
-            """# Nested Document
+        f.write("""# Nested Document
 This is a test with an image in the same directory: ![Local Image](images/test2.png)
 This is a test with an image from parent: ![Parent Image](../images/test1.png)
 This is a test with an image from root: ![Root Image](../hero.jpg)
-"""
-        )
+""")
 
     # Create markdown file with root-relative paths
     with open(tmp_path / "README.md", "w") as f:
-        f.write(
-            """# Root Document
+        f.write("""# Root Document
 ![Logo](/imgs/logo.png)
 
 ## Video Presentations
 Learn more here:
 
 [![Thumbnail](/imgs/open-ms-thumbnail.jpg)](https://example.com)
-"""
-        )
+""")
 
     return tmp_path
 
@@ -709,7 +715,7 @@ def test_untranslated_images_mode_image_paths(complex_dir_structure):
         os.path.sep, "/"
     )
 
-    print(f"\nExpected paths:")
+    print("\nExpected paths:")
     print(f"Local image: {expected_local_path}")
     print(f"Parent image: {expected_parent_path}")
     print(f"Root image: {expected_root_path}")
@@ -728,7 +734,7 @@ def test_untranslated_images_mode_image_paths(complex_dir_structure):
         elif "![Root Image](" in line:
             root_image_actual = line.split("(")[1].split(")")[0]
 
-    print(f"\nActual paths:")
+    print("\nActual paths:")
     print(f"Local image: {local_image_actual}")
     print(f"Parent image: {parent_image_actual}")
     print(f"Root image: {root_image_actual}")
@@ -928,7 +934,7 @@ def test_image_paths_in_nested_structure(complex_dir_structure):
         elif "![Root Image](" in line:
             root_image_actual = line.split("(")[1].split(")")[0]
 
-    print(f"\nActual paths in nested test:")
+    print("\nActual paths in nested test:")
     print(f"Local image: {local_image_actual}")
     print(f"Parent image: {parent_image_actual}")
     print(f"Root image: {root_image_actual}")
