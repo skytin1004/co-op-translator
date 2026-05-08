@@ -1,6 +1,7 @@
 import pytest
 import re
 
+from co_op_translator.glossary import set_glossary_terms
 from co_op_translator.utils.llm.code_comment_translator import (
     translate_comments_in_code_blocks,
 )
@@ -52,6 +53,94 @@ async def test_translate_comments_in_code_blocks_python_comments():
     # Comments should be translated according to our fake_run_prompt
     assert "# [es]First comment[/es]" in translated_block
     assert "# [es]Second comment[/es]" in translated_block
+
+
+@pytest.mark.asyncio
+async def test_translate_comments_in_code_blocks_preserves_runtime_terms():
+    """Code comment translation should not transliterate runtime names."""
+
+    placeholder_map = {
+        "@@CODE_BLOCK_0@@": (
+            "```bash\n"
+            "# Python\n"
+            "pip list | grep mcp\n"
+            "\n"
+            "# Node.js\n"
+            "npm list @modelcontextprotocol/sdk\n"
+            "```\n"
+        )
+    }
+
+    async def fake_run_prompt(prompt, index, total):
+        _, user_part = prompt.split(SPLIT_DELIMITER, 1)
+
+        assert "Python" not in user_part
+        assert "Node.js" not in user_part
+        assert "COMMENT_1: @@CODE_TERM_1@@" in user_part
+        assert "COMMENT_2: @@CODE_TERM_2@@" in user_part
+
+        return "COMMENT_1: @@CODE_TERM_1@@用\nCOMMENT_2: @@CODE_TERM_2@@用"
+
+    result_map = await translate_comments_in_code_blocks(
+        placeholder_map,
+        language_code="ja",
+        language_name="Japanese",
+        is_rtl=False,
+        run_prompt=fake_run_prompt,
+    )
+
+    translated_block = result_map["@@CODE_BLOCK_0@@"]
+
+    assert "# Python用" in translated_block
+    assert "# Node.js用" in translated_block
+    assert "パイソン" not in translated_block
+    assert "ノード" not in translated_block
+    assert "pip list | grep mcp" in translated_block
+    assert "npm list @modelcontextprotocol/sdk" in translated_block
+
+
+@pytest.mark.asyncio
+async def test_translate_comments_in_code_blocks_preserves_glossary_terms():
+    """Configured glossary terms should also be protected inside code comments."""
+
+    set_glossary_terms(["ContosoRuntime"])
+    try:
+        placeholder_map = {
+            "@@CODE_BLOCK_0@@": (
+                "```python\n"
+                "# Install ContosoRuntime before starting the app\n"
+                "print('ready')\n"
+                "```\n"
+            )
+        }
+
+        async def fake_run_prompt(prompt, index, total):
+            _, user_part = prompt.split(SPLIT_DELIMITER, 1)
+
+            assert "ContosoRuntime" not in user_part
+            assert (
+                "COMMENT_1: Install @@CODE_TERM_1@@ before starting the app"
+                in user_part
+            )
+
+            return "COMMENT_1: アプリを起動する前に@@CODE_TERM_1@@をインストールします"
+
+        result_map = await translate_comments_in_code_blocks(
+            placeholder_map,
+            language_code="ja",
+            language_name="Japanese",
+            is_rtl=False,
+            run_prompt=fake_run_prompt,
+        )
+    finally:
+        set_glossary_terms([])
+
+    translated_block = result_map["@@CODE_BLOCK_0@@"]
+
+    assert (
+        "# アプリを起動する前にContosoRuntimeをインストールします" in translated_block
+    )
+    assert "print('ready')" in translated_block
 
 
 @pytest.mark.asyncio

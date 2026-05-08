@@ -2,11 +2,35 @@ import logging
 import re
 from typing import Awaitable, Callable, Dict, List, Tuple
 
+from co_op_translator.glossary import get_glossary_terms
 from co_op_translator.utils.llm.markdown_utils import SPLIT_DELIMITER
 
 logger = logging.getLogger(__name__)
 
 RunPromptFunc = Callable[[str, int | str, int], Awaitable[str]]
+CODE_COMMENT_TERM_PLACEHOLDER = "@@CODE_TERM_{}@@"
+BUILT_IN_CODE_COMMENT_PRESERVED_TERMS = (
+    "JavaScript",
+    "TypeScript",
+    "PowerShell",
+    "Python",
+    "Node.js",
+    "Node",
+    "OpenAI",
+    "Azure",
+    "GitHub",
+    "Docker",
+    "npm",
+    "npx",
+    "pip",
+    "MCP",
+    "SDK",
+    "API",
+    "JSON",
+    "YAML",
+    "HTTP",
+    "SSE",
+)
 
 
 async def translate_comments_in_code_blocks(
@@ -361,10 +385,12 @@ async def _translate_comment_texts(
     is_rtl: bool,
     run_prompt: RunPromptFunc,
 ) -> List[str]:
+    protected_comments, protected_terms = _protect_code_comment_terms(comments)
     instruction = (
         f"Translate the following code comments to {language_name} ({language_code}).\n"
         "Each line is in the form 'COMMENT_n: <text>'.\n"
         "Translate only the text after the colon into the target language.\n"
+        "Do not translate or alter placeholders like @@CODE_TERM_1@@.\n"
         "Keep the 'COMMENT_n:' prefix exactly the same and in English.\n"
         "Return the same number of lines, with the same COMMENT_n numbers, one per line.\n"
         "Do not add, remove, or reorder lines.\n"
@@ -377,7 +403,7 @@ async def _translate_comment_texts(
         instruction += "Write the translated comments from left to right.\n"
 
     user_lines: List[str] = []
-    for idx, text in enumerate(comments, start=1):
+    for idx, text in enumerate(protected_comments, start=1):
         user_lines.append(f"COMMENT_{idx}: {text}")
 
     prompt = instruction + SPLIT_DELIMITER + "\n".join(user_lines)
@@ -400,6 +426,62 @@ async def _translate_comment_texts(
 
     results: List[str] = []
     for i, original in enumerate(comments, start=1):
-        results.append(mapping.get(i, original))
+        translated_comment = mapping.get(i)
+        if translated_comment is None:
+            results.append(original)
+            continue
+        results.append(_restore_code_comment_terms(translated_comment, protected_terms))
 
     return results
+
+
+def _protect_code_comment_terms(
+    comments: List[str],
+) -> tuple[List[str], Dict[str, str]]:
+    terms = _get_code_comment_preserved_terms()
+    if not terms:
+        return comments, {}
+
+    protected_terms: Dict[str, str] = {}
+    placeholder_index = 1
+    protected_comments: List[str] = []
+
+    for comment in comments:
+        protected_comment = comment
+        for term in terms:
+            pattern = _build_preserved_term_pattern(term)
+
+            def _replace(match: re.Match[str]) -> str:
+                nonlocal placeholder_index
+                placeholder = CODE_COMMENT_TERM_PLACEHOLDER.format(placeholder_index)
+                placeholder_index += 1
+                protected_terms[placeholder] = match.group(0)
+                return placeholder
+
+            protected_comment = pattern.sub(_replace, protected_comment)
+        protected_comments.append(protected_comment)
+
+    return protected_comments, protected_terms
+
+
+def _restore_code_comment_terms(comment: str, protected_terms: Dict[str, str]) -> str:
+    for placeholder, term in protected_terms.items():
+        comment = comment.replace(placeholder, term)
+    return comment
+
+
+def _get_code_comment_preserved_terms() -> List[str]:
+    terms: List[str] = []
+    seen: set[str] = set()
+    for term in [*get_glossary_terms(), *BUILT_IN_CODE_COMMENT_PRESERVED_TERMS]:
+        normalized = str(term).strip()
+        if not normalized or normalized in seen:
+            continue
+        seen.add(normalized)
+        terms.append(normalized)
+    return sorted(terms, key=len, reverse=True)
+
+
+def _build_preserved_term_pattern(term: str) -> re.Pattern[str]:
+    escaped = re.escape(term)
+    return re.compile(rf"(?<![A-Za-z0-9_]){escaped}(?![A-Za-z0-9_])")
