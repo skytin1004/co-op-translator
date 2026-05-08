@@ -9,6 +9,15 @@ from .constants import SPLIT_DELIMITER
 
 logger = logging.getLogger(__name__)
 
+MIXED_LANGUAGE_RULES = """
+MIXED-LANGUAGE INPUT RULES:
+- The input may contain multiple human languages in the same line, paragraph, list item, heading, or table cell.
+- Translate every human-readable natural-language segment into the target language, regardless of its source language.
+- Do not leave non-target-language text untranslated just because it differs from the surrounding language.
+- If a segment is already in the target language, keep it natural and do not duplicate it or add language labels.
+- Preserve markdown syntax, placeholders, URLs, code identifiers, and line structure while translating mixed-language text.
+""".strip()
+
 
 def _read_language_prompt_template(language_code: str) -> str:
     """Read a language-specific prompt template from packaged templates.
@@ -50,6 +59,7 @@ def generate_prompt_template(
             f"Translate the following text to {language_name} ({language_code}). "
             "STRICT RULE: Do NOT add, remove, or modify any markdown characters. "
             "Do NOT introduce HTML tags. Translate ONLY text content. "
+            f"{MIXED_LANGUAGE_RULES} "
             "Return ONLY the translation."
         )
 
@@ -103,6 +113,18 @@ STRICT RULES (NO EXCEPTIONS):
    - Do NOT remove blank lines.
    - Do NOT merge or split paragraphs.
    - Preserve whitespace, indentation, and list structure exactly.
+
+6. MIXED-LANGUAGE INPUT
+   - The input may contain multiple human languages in the same line, paragraph,
+     list item, heading, or table cell.
+   - Translate every human-readable natural-language segment into the target language,
+     regardless of its source language.
+   - Do not leave non-target-language text untranslated just because it differs from
+     the surrounding language.
+   - If a segment is already in the target language, keep it natural and do not
+     duplicate it or add language labels.
+   - Preserve markdown syntax, placeholders, URLs, code identifiers, and line
+     structure while translating mixed-language text.
 """
 
     # Direction rule (minimal + unambiguous)

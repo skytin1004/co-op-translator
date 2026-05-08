@@ -48,8 +48,6 @@ def temp_dir(tmp_path):
 def test_update_links(temp_dir, sample_markdown):
     """Test updating all links in markdown content."""
     md_file_path = temp_dir / "test.md"
-    translations_dir = temp_dir / "translations"
-    translated_images_dir = temp_dir / "translated_images"
 
     result = update_links(
         md_file_path,
@@ -329,6 +327,31 @@ def test_generate_prompt_template_includes_japanese_language_template():
 
     assert "STRUCTURE IS MORE IMPORTANT THAN STYLE." in prompt
     assert "NEVER rewrite links as plain text" in prompt
+
+
+def test_generate_prompt_template_includes_mixed_language_rules_for_inline_chunks():
+    """Inline chunks should tell the model to translate all human languages."""
+    document_chunk = "Intro: 这是一个 [demo](./demo.md) for Python."
+
+    prompt = generate_prompt_template("es", "Spanish", document_chunk, False)
+
+    assert "MIXED-LANGUAGE INPUT RULES" in prompt
+    assert "multiple human languages in the same line" in prompt
+    assert "Translate every human-readable natural-language segment" in prompt
+    assert "Do not leave non-target-language text untranslated" in prompt
+    assert document_chunk in prompt
+
+
+def test_generate_prompt_template_includes_mixed_language_rules_for_markdown_chunks():
+    """Markdown chunks should preserve structure while handling mixed languages."""
+    document_chunk = "# Overview 概述\n\nEnglish text and 中文 text in one paragraph.\n"
+
+    prompt = generate_prompt_template("ko", "Korean", document_chunk, False)
+
+    assert "6. MIXED-LANGUAGE INPUT" in prompt
+    assert "list item, heading, or table cell" in prompt
+    assert "Preserve markdown syntax, placeholders, URLs, code identifiers" in prompt
+    assert document_chunk in prompt
 
 
 def test_generate_prompt_template_without_language_template_for_non_configured_language():
@@ -638,26 +661,22 @@ def complex_dir_structure(tmp_path):
 
     # Create markdown files
     with open(tmp_path / "docs/examples/nested.md", "w") as f:
-        f.write(
-            """# Nested Document
+        f.write("""# Nested Document
 This is a test with an image in the same directory: ![Local Image](images/test2.png)
 This is a test with an image from parent: ![Parent Image](../images/test1.png)
 This is a test with an image from root: ![Root Image](../hero.jpg)
-"""
-        )
+""")
 
     # Create markdown file with root-relative paths
     with open(tmp_path / "README.md", "w") as f:
-        f.write(
-            """# Root Document
+        f.write("""# Root Document
 ![Logo](/imgs/logo.png)
 
 ## Video Presentations
 Learn more here:
 
 [![Thumbnail](/imgs/open-ms-thumbnail.jpg)](https://example.com)
-"""
-        )
+""")
 
     return tmp_path
 
@@ -709,7 +728,7 @@ def test_untranslated_images_mode_image_paths(complex_dir_structure):
         os.path.sep, "/"
     )
 
-    print(f"\nExpected paths:")
+    print("\nExpected paths:")
     print(f"Local image: {expected_local_path}")
     print(f"Parent image: {expected_parent_path}")
     print(f"Root image: {expected_root_path}")
@@ -728,7 +747,7 @@ def test_untranslated_images_mode_image_paths(complex_dir_structure):
         elif "![Root Image](" in line:
             root_image_actual = line.split("(")[1].split(")")[0]
 
-    print(f"\nActual paths:")
+    print("\nActual paths:")
     print(f"Local image: {local_image_actual}")
     print(f"Parent image: {parent_image_actual}")
     print(f"Root image: {root_image_actual}")
@@ -928,7 +947,7 @@ def test_image_paths_in_nested_structure(complex_dir_structure):
         elif "![Root Image](" in line:
             root_image_actual = line.split("(")[1].split(")")[0]
 
-    print(f"\nActual paths in nested test:")
+    print("\nActual paths in nested test:")
     print(f"Local image: {local_image_actual}")
     print(f"Parent image: {parent_image_actual}")
     print(f"Root image: {root_image_actual}")
