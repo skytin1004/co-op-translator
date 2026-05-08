@@ -291,6 +291,7 @@ def _parse_markdown_text_and_code_parts(content: str) -> list[tuple[str, str]]:
             start_line, end_line = tok.map  # end is exclusive
             start_char = offsets[start_line]
             end_char = offsets[end_line]
+            end_char = _exclude_trailing_line_ending(content, start_char, end_char)
             code_spans.append((start_char, end_char))
 
     code_spans.sort(key=lambda x: x[0])
@@ -310,6 +311,17 @@ def _parse_markdown_text_and_code_parts(content: str) -> list[tuple[str, str]]:
         return [(content, "text")]
 
     return parts
+
+
+def _exclude_trailing_line_ending(content: str, start_char: int, end_char: int) -> int:
+    if end_char <= start_char:
+        return end_char
+
+    if end_char >= 2 and content[end_char - 2 : end_char] == "\r\n":
+        return end_char - 2
+    if content[end_char - 1 : end_char] in {"\n", "\r"}:
+        return end_char - 1
+    return end_char
 
 
 def process_markdown_with_many_links(content: str, max_links) -> list:
@@ -393,13 +405,24 @@ def replace_code_blocks(document: str):
     for segment, seg_type in parts:
         if seg_type == "code":
             placeholder = f"@@CODE_BLOCK_{code_index}@@"
-            output_segments.append(placeholder)
-            placeholder_map[placeholder] = segment
+            prefix, code = _split_code_fence_prefix(segment)
+            output_segments.append(f"{prefix}{placeholder}")
+            placeholder_map[placeholder] = code
             code_index += 1
         else:
             output_segments.append(segment)
 
     return "".join(output_segments), placeholder_map
+
+
+def _split_code_fence_prefix(segment: str) -> tuple[str, str]:
+    first_line = segment.splitlines(keepends=True)[0] if segment else ""
+    match = re.match(r"^([ \t]*(?:>[ \t]*)*)(`{3,}|~{3,})", first_line)
+    if not match:
+        return "", segment
+
+    prefix = match.group(1)
+    return prefix, segment[len(prefix) :]
 
 
 def restore_code_blocks(translated_document: str, placeholder_map: dict) -> str:

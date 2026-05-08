@@ -16,6 +16,8 @@ from co_op_translator.utils.llm.markdown_utils import (
     update_notebook_links,
     normalize_cjk_emphasis_markers,
     normalize_internal_anchor_links,
+    replace_code_blocks,
+    restore_code_blocks,
 )
 
 
@@ -48,8 +50,6 @@ def temp_dir(tmp_path):
 def test_update_links(temp_dir, sample_markdown):
     """Test updating all links in markdown content."""
     md_file_path = temp_dir / "test.md"
-    translations_dir = temp_dir / "translations"
-    translated_images_dir = temp_dir / "translated_images"
 
     result = update_links(
         md_file_path,
@@ -398,6 +398,45 @@ def test_split_markdown_content_keeps_list_item_with_code_placeholder():
     assert any("- Step 1" in chunk and "@@CODE_BLOCK_0@@" in chunk for chunk in chunks)
 
 
+def test_replace_code_blocks_keeps_following_text_separate():
+    """A fenced block placeholder must not merge with the next prose line."""
+    content = "Before text.\n```bash\necho hi\n```\nAfter text.\n"
+
+    document_with_placeholders, placeholder_map = replace_code_blocks(content)
+
+    assert "@@CODE_BLOCK_0@@\nAfter text." in document_with_placeholders
+    assert "@@CODE_BLOCK_0@@After text." not in document_with_placeholders
+    assert restore_code_blocks(document_with_placeholders, placeholder_map) == content
+
+
+def test_replace_code_blocks_preserves_crlf_after_fence():
+    """Moving the closing-fence line ending outside the placeholder keeps CRLF intact."""
+    content = "Before text.\r\n```bash\r\necho hi\r\n```\r\nAfter text.\r\n"
+
+    document_with_placeholders, placeholder_map = replace_code_blocks(content)
+
+    assert "@@CODE_BLOCK_0@@\r\nAfter text." in document_with_placeholders
+    assert restore_code_blocks(document_with_placeholders, placeholder_map) == content
+
+
+def test_replace_code_blocks_keeps_indented_placeholder_in_list_item():
+    """A placeholder inside a list item should stay inside that list item."""
+    content = (
+        "- Step 1\n\n"
+        "    Create Python venv directory:\n\n"
+        "    ```bash|powershell\n"
+        "    python -m venv venv\n"
+        "    ```\n"
+        "    Then activate venv environment.\n"
+    )
+
+    document_with_placeholders, placeholder_map = replace_code_blocks(content)
+
+    assert "\n    @@CODE_BLOCK_0@@\n    Then activate" in document_with_placeholders
+    assert "\n@@CODE_BLOCK_0@@" not in document_with_placeholders
+    assert restore_code_blocks(document_with_placeholders, placeholder_map) == content
+
+
 def test_normalize_cjk_emphasis_markers_for_italic_and_bold():
     """CJK-adjacent emphasis markers should be normalized to HTML tags."""
     content = "これは*重要*です。これは**太字**です。"
@@ -638,26 +677,22 @@ def complex_dir_structure(tmp_path):
 
     # Create markdown files
     with open(tmp_path / "docs/examples/nested.md", "w") as f:
-        f.write(
-            """# Nested Document
+        f.write("""# Nested Document
 This is a test with an image in the same directory: ![Local Image](images/test2.png)
 This is a test with an image from parent: ![Parent Image](../images/test1.png)
 This is a test with an image from root: ![Root Image](../hero.jpg)
-"""
-        )
+""")
 
     # Create markdown file with root-relative paths
     with open(tmp_path / "README.md", "w") as f:
-        f.write(
-            """# Root Document
+        f.write("""# Root Document
 ![Logo](/imgs/logo.png)
 
 ## Video Presentations
 Learn more here:
 
 [![Thumbnail](/imgs/open-ms-thumbnail.jpg)](https://example.com)
-"""
-        )
+""")
 
     return tmp_path
 
@@ -709,7 +744,7 @@ def test_untranslated_images_mode_image_paths(complex_dir_structure):
         os.path.sep, "/"
     )
 
-    print(f"\nExpected paths:")
+    print("\nExpected paths:")
     print(f"Local image: {expected_local_path}")
     print(f"Parent image: {expected_parent_path}")
     print(f"Root image: {expected_root_path}")
@@ -728,7 +763,7 @@ def test_untranslated_images_mode_image_paths(complex_dir_structure):
         elif "![Root Image](" in line:
             root_image_actual = line.split("(")[1].split(")")[0]
 
-    print(f"\nActual paths:")
+    print("\nActual paths:")
     print(f"Local image: {local_image_actual}")
     print(f"Parent image: {parent_image_actual}")
     print(f"Root image: {root_image_actual}")
@@ -928,7 +963,7 @@ def test_image_paths_in_nested_structure(complex_dir_structure):
         elif "![Root Image](" in line:
             root_image_actual = line.split("(")[1].split(")")[0]
 
-    print(f"\nActual paths in nested test:")
+    print("\nActual paths in nested test:")
     print(f"Local image: {local_image_actual}")
     print(f"Parent image: {parent_image_actual}")
     print(f"Root image: {root_image_actual}")

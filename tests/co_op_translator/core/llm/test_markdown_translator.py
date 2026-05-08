@@ -51,6 +51,27 @@ Universal connector text.
 """
 
 
+TEST_MD_WITH_TEXT_AFTER_CODE = """# Setup
+
+Run this command:
+```bash
+pip install -r requirements.txt
+```
+Then continue with the virtual environment.
+"""
+
+
+TEST_MD_WITH_LIST_TEXT_AFTER_CODE = """- **NOTE**: Create the venv first.
+
+    Create Python venv directory:
+
+    ```bash|powershell
+    python -m venv venv
+    ```
+    Then activate venv environment.
+"""
+
+
 TEST_MD_WITH_DETAILS = """
 # Sample Details
 
@@ -360,6 +381,105 @@ async def test_translate_markdown_keeps_mermaid_closing_fence_separate_from_text
     assert "end\n```\nユニバーサルコネクターにより" in result
     assert "end```" not in result
     assert "```ユニバーサル" not in result
+
+
+@pytest.mark.asyncio
+async def test_translate_markdown_translates_text_immediately_after_code_block(
+    real_markdown_translator, tmp_path
+):
+    """Text after a fenced code block should not be glued to its placeholder."""
+    test_file = tmp_path / "example_text_after_code.md"
+    test_file.write_text(TEST_MD_WITH_TEXT_AFTER_CODE)
+
+    captured_bodies = []
+
+    async def fake_prompt(prompt, index, total):
+        if "Disclaimer" in prompt.lower():
+            return "Aviso Legal: Este es un documento traducido."
+
+        if "Translate the following markdown file" in prompt:
+            _, body = prompt.split(SPLIT_DELIMITER, 1)
+            captured_bodies.append(body)
+            assert "@@CODE_BLOCK_0@@Then continue" not in body
+
+            return (
+                body.replace("# Setup", "# セットアップ")
+                .replace("Run this command:", "このコマンドを実行します:")
+                .replace(
+                    "Then continue with the virtual environment.",
+                    "その後、仮想環境を続行します。",
+                )
+            )
+
+        return prompt
+
+    with patch.object(
+        real_markdown_translator, "_run_prompt", new_callable=AsyncMock
+    ) as mock_run_prompt:
+        mock_run_prompt.side_effect = fake_prompt
+
+        result = await real_markdown_translator.translate_markdown(
+            document=TEST_MD_WITH_TEXT_AFTER_CODE,
+            language_code="ja",
+            md_file_path=test_file,
+            add_metadata=False,
+            add_disclaimer=False,
+        )
+
+    assert captured_bodies
+    assert "@@CODE_BLOCK_0@@\nThen continue" in captured_bodies[0]
+    assert "```bash\npip install -r requirements.txt\n```\nその後" in result
+    assert "Then continue with the virtual environment." not in result
+
+
+@pytest.mark.asyncio
+async def test_translate_markdown_keeps_list_text_after_indented_code_block(
+    real_markdown_translator, tmp_path
+):
+    """Indented fenced blocks should not push following list text into code."""
+    test_file = tmp_path / "example_list_text_after_code.md"
+    test_file.write_text(TEST_MD_WITH_LIST_TEXT_AFTER_CODE)
+
+    captured_bodies = []
+
+    async def fake_prompt(prompt, index, total):
+        if "Disclaimer" in prompt.lower():
+            return "Aviso Legal: Este es un documento traducido."
+
+        if "Translate the following markdown file" in prompt:
+            _, body = prompt.split(SPLIT_DELIMITER, 1)
+            captured_bodies.append(body)
+            assert "\n    @@CODE_BLOCK_0@@\n    Then activate" in body
+
+            return body.replace(
+                "Create Python venv directory:",
+                "Python仮想環境ディレクトリを作成:",
+            ).replace(
+                "Then activate venv environment.",
+                "続いて仮想環境を有効化:",
+            )
+
+        return prompt
+
+    with patch.object(
+        real_markdown_translator, "_run_prompt", new_callable=AsyncMock
+    ) as mock_run_prompt:
+        mock_run_prompt.side_effect = fake_prompt
+
+        result = await real_markdown_translator.translate_markdown(
+            document=TEST_MD_WITH_LIST_TEXT_AFTER_CODE,
+            language_code="ja",
+            md_file_path=test_file,
+            add_metadata=False,
+            add_disclaimer=False,
+        )
+
+    assert captured_bodies
+    assert "\n@@CODE_BLOCK_0@@" not in captured_bodies[0]
+    assert (
+        "    ```bash|powershell\n    python -m venv venv\n    ```\n    続いて" in result
+    )
+    assert "Then activate venv environment." not in result
 
 
 @pytest.mark.asyncio
