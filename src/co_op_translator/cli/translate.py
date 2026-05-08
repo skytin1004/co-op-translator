@@ -11,6 +11,7 @@ from co_op_translator.core.project.project_translator import ProjectTranslator
 from co_op_translator.config.base_config import Config
 from co_op_translator.config.vision_config.config import VisionConfig
 from co_op_translator.config.llm_config.config import LLMConfig
+from co_op_translator.glossary import glossary_terms_scope
 from co_op_translator.utils.common.logging_utils import setup_logging
 from co_op_translator.utils.common.file_utils import (
     update_readme_languages_table,
@@ -96,6 +97,16 @@ logger = logging.getLogger(__name__)
     help="Repository URL to show in the 'Prefer to Clone Locally?' advisory inside the languages table.",
 )
 @click.option(
+    "--glossary",
+    "-g",
+    "glossaries",
+    multiple=True,
+    help=(
+        "Term to keep exactly as written during translation. "
+        "Repeat for multiple terms, for example: -g Python -g Node.js."
+    ),
+)
+@click.option(
     "--migrate-language-folders",
     is_flag=True,
     help=(
@@ -123,6 +134,7 @@ def translate_command(
     min_confidence,
     add_disclaimer,
     repo_url,
+    glossaries,
     migrate_language_folders,
     dry_run,
 ):
@@ -345,147 +357,158 @@ def translate_command(
             else:
                 click.echo("Auto-confirming update operation...")
 
-        # Initialize ProjectTranslator with determined settings
-        translator = ProjectTranslator(
-            language_codes,
-            root_dir,
-            translation_types=translation_types,
-            add_disclaimer=add_disclaimer,
-        )
-
-        # Estimate tokens before running translation and print a concise summary
-        try:
-            est = translator.translation_manager.estimate_tokens(update=update)
-            translation_parts = []
-            if "markdown" in translation_types:
-                translation_parts.append(f"markdown: {est.get('markdown', 0):,}")
-            if "notebook" in translation_types:
-                translation_parts.append(f"notebook: {est.get('notebook', 0):,}")
-            if "images" in translation_types:
-                translation_parts.append(f"images: {est.get('images', 0):,}")
-
-            retranslation_parts = []
-            if "markdown" in translation_types:
-                retranslation_parts.append(
-                    f"outdated markdowns: {est.get('outdated_markdown', 0):,}"
-                )
-            if "notebook" in translation_types:
-                retranslation_parts.append(
-                    f"outdated notebooks: {est.get('outdated_notebook', 0):,}"
-                )
-            if "images" in translation_types:
-                retranslation_parts.append(
-                    f"outdated images: {est.get('outdated_images', 0):,}"
-                )
-
-            breakdown_sections = []
-            if translation_parts:
-                breakdown_sections.append(
-                    f"translation: {'; '.join(translation_parts)}"
-                )
-            if retranslation_parts:
-                breakdown_sections.append(
-                    f"retranslation: {'; '.join(retranslation_parts)}"
-                )
-            breakdown = " | ".join(breakdown_sections) if breakdown_sections else "none"
-            click.echo(
-                f"📊 Estimated tokens before translation: {est.get('total', 0):,} (breakdown: {breakdown})"
+        with glossary_terms_scope(glossaries):
+            # Initialize ProjectTranslator with determined settings
+            translator = ProjectTranslator(
+                language_codes,
+                root_dir,
+                translation_types=translation_types,
+                add_disclaimer=add_disclaimer,
             )
-        except Exception as e:
-            logger.debug(f"Failed to compute estimated tokens: {e}")
 
-        # If dry-run, stop after estimation without making any changes
-        if dry_run:
-            click.echo("🧪 Dry run complete: no changes made.")
-            return
+            # Estimate tokens before running translation and print a concise summary
+            try:
+                est = translator.translation_manager.estimate_tokens(update=update)
+                translation_parts = []
+                if "markdown" in translation_types:
+                    translation_parts.append(f"markdown: {est.get('markdown', 0):,}")
+                if "notebook" in translation_types:
+                    translation_parts.append(f"notebook: {est.get('notebook', 0):,}")
+                if "images" in translation_types:
+                    translation_parts.append(f"images: {est.get('images', 0):,}")
 
-        # Update README shared sections BEFORE translation
-        readme_path = root_path / "README.md"
-        try:
-            if update_readme_languages_table(readme_path, repo_url=repo_url):
-                click.echo("✅ Updated README languages table from template.")
-            else:
-                click.echo(
-                    "ℹ️ README languages table not updated (markers missing or template unavailable)."
-                )
-        except Exception as e:
-            logger.warning(f"Failed to update README languages table: {e}")
-
-        try:
-            if update_readme_other_courses(readme_path):
-                click.echo("✅ Updated README 'Other courses' section from template.")
-        except Exception as e:
-            logger.warning(f"Failed to update README 'Other courses': {e}")
-
-        if fix:
-            click.echo(f"Fixing translations with confidence below {min_confidence}...")
-
-            # Fix is only applicable to markdown files, not images
-            if images and not markdown:
-                click.echo("Note: --fix only applies to markdown files, not images.")
-
-            # Handle language codes
-            if language_codes.lower() == "all":
-                lang_list = Config.get_language_codes()
-            else:
-                lang_list = [code.strip() for code in language_codes.split()]
-
-            total_retranslated = 0
-            total_errors = 0
-
-            for lang_code in lang_list:
-
-                logger.info(f"Processing language: {lang_code}")
-
-                try:
-                    retranslated_count, errors = asyncio.run(
-                        translator.retranslate_low_confidence_files(
-                            lang_code, min_confidence
-                        )
+                retranslation_parts = []
+                if "markdown" in translation_types:
+                    retranslation_parts.append(
+                        f"outdated markdowns: {est.get('outdated_markdown', 0):,}"
+                    )
+                if "notebook" in translation_types:
+                    retranslation_parts.append(
+                        f"outdated notebooks: {est.get('outdated_notebook', 0):,}"
+                    )
+                if "images" in translation_types:
+                    retranslation_parts.append(
+                        f"outdated images: {est.get('outdated_images', 0):,}"
                     )
 
-                    total_retranslated += retranslated_count
-                    total_errors += len(errors)
+                breakdown_sections = []
+                if translation_parts:
+                    breakdown_sections.append(
+                        f"translation: {'; '.join(translation_parts)}"
+                    )
+                if retranslation_parts:
+                    breakdown_sections.append(
+                        f"retranslation: {'; '.join(retranslation_parts)}"
+                    )
+                breakdown = (
+                    " | ".join(breakdown_sections) if breakdown_sections else "none"
+                )
+                click.echo(
+                    f"📊 Estimated tokens before translation: {est.get('total', 0):,} (breakdown: {breakdown})"
+                )
+            except Exception as e:
+                logger.debug(f"Failed to compute estimated tokens: {e}")
 
-                    if retranslated_count > 0:
-                        logger.info(
-                            f"{retranslated_count} files were retranslated successfully"
+            # If dry-run, stop after estimation without making any changes
+            if dry_run:
+                click.echo("🧪 Dry run complete: no changes made.")
+                return
+
+            # Update README shared sections BEFORE translation
+            readme_path = root_path / "README.md"
+            try:
+                if update_readme_languages_table(readme_path, repo_url=repo_url):
+                    click.echo("✅ Updated README languages table from template.")
+                else:
+                    click.echo(
+                        "ℹ️ README languages table not updated (markers missing or template unavailable)."
+                    )
+            except Exception as e:
+                logger.warning(f"Failed to update README languages table: {e}")
+
+            try:
+                if update_readme_other_courses(readme_path):
+                    click.echo(
+                        "✅ Updated README 'Other courses' section from template."
+                    )
+            except Exception as e:
+                logger.warning(f"Failed to update README 'Other courses': {e}")
+
+            if fix:
+                click.echo(
+                    f"Fixing translations with confidence below {min_confidence}..."
+                )
+
+                # Fix is only applicable to markdown files, not images
+                if images and not markdown:
+                    click.echo(
+                        "Note: --fix only applies to markdown files, not images."
+                    )
+
+                # Handle language codes
+                if language_codes.lower() == "all":
+                    lang_list = Config.get_language_codes()
+                else:
+                    lang_list = [code.strip() for code in language_codes.split()]
+
+                total_retranslated = 0
+                total_errors = 0
+
+                for lang_code in lang_list:
+
+                    logger.info(f"Processing language: {lang_code}")
+
+                    try:
+                        retranslated_count, errors = asyncio.run(
+                            translator.retranslate_low_confidence_files(
+                                lang_code, min_confidence
+                            )
                         )
-                    else:
-                        logger.info(
-                            f"No files with confidence below {min_confidence} were found or needed retranslation"
-                        )
 
-                    if errors:
-                        logger.warning(
-                            f"Errors during retranslation: {len(errors)} errors"
-                        )
-                        for error in errors:
-                            logger.error(f"Error detail: {error}")
-                except Exception as e:
-                    logger.error(f"Error processing {lang_code}: {str(e)}")
+                        total_retranslated += retranslated_count
+                        total_errors += len(errors)
 
-            click.echo(f"\n{click.style('Summary:', fg='blue', bold=True)}")
-            click.echo(
-                f"Total files retranslated: {click.style(str(total_retranslated), fg='green')}"
-            )
-            if total_errors > 0:
-                click.echo(f"Total errors: {click.style(str(total_errors), fg='red')}")
+                        if retranslated_count > 0:
+                            logger.info(
+                                f"{retranslated_count} files were retranslated successfully"
+                            )
+                        else:
+                            logger.info(
+                                f"No files with confidence below {min_confidence} were found or needed retranslation"
+                            )
 
-            logger.info(
-                f"Project translation completed for languages: {language_codes}"
-            )
+                        if errors:
+                            logger.warning(
+                                f"Errors during retranslation: {len(errors)} errors"
+                            )
+                            for error in errors:
+                                logger.error(f"Error detail: {error}")
+                    except Exception as e:
+                        logger.error(f"Error processing {lang_code}: {str(e)}")
 
-        else:
-            # Call translate_project with determined settings
-            translator.translate_project(
-                update=update,
-                fast_mode=fast,
-            )
+                click.echo(f"\n{click.style('Summary:', fg='blue', bold=True)}")
+                click.echo(
+                    f"Total files retranslated: {click.style(str(total_retranslated), fg='green')}"
+                )
+                if total_errors > 0:
+                    click.echo(
+                        f"Total errors: {click.style(str(total_errors), fg='red')}"
+                    )
 
-            logger.info(
-                f"Project translation completed for languages: {language_codes}"
-            )
+                logger.info(
+                    f"Project translation completed for languages: {language_codes}"
+                )
+
+            else:
+                # Call translate_project with determined settings
+                translator.translate_project(
+                    update=update,
+                    fast_mode=fast,
+                )
+
+                logger.info(
+                    f"Project translation completed for languages: {language_codes}"
+                )
 
     except Exception as e:
         if debug:
