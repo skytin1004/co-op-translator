@@ -1,6 +1,7 @@
 import pytest
+import yaml
 from pathlib import Path
-from unittest.mock import patch, mock_open
+from unittest.mock import MagicMock, patch
 
 from co_op_translator.config.font_config import FontConfig
 
@@ -18,24 +19,19 @@ pt-BR:
 
 
 def test_font_config_resolves_canonical_to_alias_keys():
-    # Mock YAML with alias keys only
-    with (
-        patch("importlib.resources.path") as mock_path_yaml,
-        patch("builtins.open", mock_open(read_data=sample_yaml)),
-    ):
-        mock_path_yaml.return_value = Path("fake/fonts/font_language_mappings.yml")
-        fc = FontConfig()
+    fc = FontConfig.__new__(FontConfig)
+    fc.font_mappings = yaml.safe_load(sample_yaml)
 
     # get_font_path should resolve alias input 'tw' to canonical 'zh-TW'
+    mock_package_files = MagicMock()
+    mock_package_files.joinpath.return_value = Path("fake_fonts/NotoSansCJK-Medium.ttc")
     with patch(
-        "importlib.resources.path",
-        return_value=Path("fake_fonts/NotoSansCJK-Medium.ttc"),
-    ) as mock_path_font:
+        "importlib.resources.files", return_value=mock_package_files
+    ) as mock_files:
         path = fc.get_font_path("tw")
         assert Path(path).name == "NotoSansCJK-Medium.ttc"
-        mock_path_font.assert_called_once_with(
-            "co_op_translator.fonts", "NotoSansCJK-Medium.ttc"
-        )
+        mock_files.assert_called_once_with("co_op_translator.fonts")
+        mock_package_files.joinpath.assert_called_once_with("NotoSansCJK-Medium.ttc")
 
     # get_language_name should resolve alias input 'br' to canonical 'pt-BR'
     name = fc.get_language_name("br")
@@ -46,12 +42,8 @@ def test_font_config_resolves_canonical_to_alias_keys():
 
 
 def test_font_config_invalid_language_errors():
-    with (
-        patch("importlib.resources.path") as mock_path_yaml,
-        patch("builtins.open", mock_open(read_data=sample_yaml)),
-    ):
-        mock_path_yaml.return_value = Path("fake/fonts/font_language_mappings.yml")
-        fc = FontConfig()
+    fc = FontConfig.__new__(FontConfig)
+    fc.font_mappings = yaml.safe_load(sample_yaml)
 
     with pytest.raises(ValueError) as excinfo:
         fc.get_language_name("xx")

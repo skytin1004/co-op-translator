@@ -1,4 +1,3 @@
-import importlib.resources
 import logging
 import os
 from contextlib import contextmanager
@@ -6,7 +5,6 @@ from pathlib import Path
 from typing import Iterable
 
 import click
-import yaml
 
 from co_op_translator.config.base_config import Config
 from co_op_translator.config.llm_config.config import LLMConfig
@@ -160,28 +158,14 @@ def run_translation(
                 click.echo("Auto-confirming translation for all languages...")
 
             try:
-                with importlib.resources.path(
-                    "co_op_translator.fonts", "font_language_mappings.yml"
-                ) as mappings_path:
-                    with open(mappings_path, "r", encoding="utf-8") as file:
-                        font_mappings = yaml.safe_load(file)
-                        if not font_mappings:
-                            raise RuntimeError("Empty font mappings file")
-                        language_codes = " ".join(
-                            [
-                                lang_code
-                                for lang_code in font_mappings
-                                if isinstance(font_mappings[lang_code], dict)
-                            ]
-                        )
-                        if not language_codes:
-                            raise RuntimeError(
-                                "No valid language codes found in font mappings"
-                            )
-                        logging.debug(
-                            f"Loaded language codes from font mapping: {language_codes}"
-                        )
-            except (FileNotFoundError, yaml.YAMLError) as e:
+                loaded_language_codes = Config.get_language_codes()
+                if not loaded_language_codes:
+                    raise RuntimeError("No valid language codes found in font mappings")
+                language_codes = " ".join(loaded_language_codes)
+                logging.debug(
+                    f"Loaded language codes from font mapping: {language_codes}"
+                )
+            except Exception as e:
                 raise RuntimeError(f"Failed to load font mappings: {str(e)}") from e
 
         if all_languages_selected:

@@ -5,7 +5,8 @@ This module contains utility functions for handling file metadata and hashing op
 import hashlib
 import json
 import logging
-from datetime import datetime
+import threading
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, Any, Optional
 
@@ -60,7 +61,7 @@ def create_metadata(
     Returns:
         dict: Metadata dictionary containing file information
     """
-    utc_time = datetime.utcnow()
+    utc_time = datetime.now(timezone.utc)
     formatted_time = utc_time.strftime("%Y-%m-%dT%H:%M:%S+00:00")
 
     # Calculate relative path if root_dir is provided
@@ -345,9 +346,6 @@ def _find_lang_dir_for_translated_file(translated_path: Path) -> Optional[Path]:
 
 # Metadata file name (placed in each language folder)
 IMAGE_METADATA_FILENAME = ".co-op-translator.json"
-
-# Lock for thread-safe metadata file access (per-language locks)
-import threading
 
 _metadata_locks: dict[str, threading.Lock] = {}
 _locks_lock = threading.Lock()

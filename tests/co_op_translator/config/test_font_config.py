@@ -1,6 +1,8 @@
 import pytest
-from unittest.mock import patch, mock_open
+import yaml
+from unittest.mock import MagicMock, patch
 from pathlib import Path
+
 from co_op_translator.config.font_config import FontConfig
 
 # Sample YAML data for mocking font_language_mappings.yml
@@ -22,12 +24,9 @@ def mock_font_mappings():
     Fixture that provides an instance of FontConfig with mocked font mappings.
     Mocks the loading of 'font_language_mappings.yml'.
     """
-    with (
-        patch("importlib.resources.path") as mock_path,
-        patch("builtins.open", mock_open(read_data=sample_yaml)),
-    ):
-        mock_path.return_value = Path("fake_path/font_language_mappings.yml")
-        return FontConfig()
+    font_config = FontConfig.__new__(FontConfig)
+    font_config.font_mappings = yaml.safe_load(sample_yaml)
+    return font_config
 
 
 def test_get_font_path(mock_font_mappings):
@@ -35,15 +34,19 @@ def test_get_font_path(mock_font_mappings):
     Test retrieving the font path for a valid language code.
     Ensures the correct path is returned for a valid language code.
     """
+    mock_package_files = MagicMock()
+    mock_package_files.joinpath.return_value = Path("fake_font_path/Arial.ttf")
+
     with patch(
-        "importlib.resources.path", return_value=Path("fake_font_path/Arial.ttf")
-    ) as mock_path:
+        "importlib.resources.files", return_value=mock_package_files
+    ) as mock_files:
         font_path = mock_font_mappings.get_font_path("en")
 
         assert Path(font_path) == Path(
             "fake_font_path/Arial.ttf"
         ), "Font path for 'en' should return the correct path"
-        mock_path.assert_called_once_with("co_op_translator.fonts", "Arial.ttf")
+        mock_files.assert_called_once_with("co_op_translator.fonts")
+        mock_package_files.joinpath.assert_called_once_with("Arial.ttf")
 
 
 def test_get_font_path_invalid(mock_font_mappings):

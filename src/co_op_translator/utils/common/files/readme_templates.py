@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from importlib import resources
 from pathlib import Path
 import re
 
@@ -56,12 +57,11 @@ def replace_between_markers(readme_text: str, new_block: str) -> str:
 def load_languages_table_template() -> str:
     """Load the bundled languages table template markdown."""
     try:
-        from importlib import resources
-
-        with resources.open_text(
-            "co_op_translator.templates", "languages_table.md", encoding="utf-8"
-        ) as f:
-            return f.read()
+        return (
+            resources.files("co_op_translator.templates")
+            .joinpath("languages_table.md")
+            .read_text(encoding="utf-8")
+        )
     except Exception:
         return ""
 
@@ -69,12 +69,11 @@ def load_languages_table_template() -> str:
 def load_other_courses_template() -> str:
     """Load the bundled other courses template markdown."""
     try:
-        from importlib import resources
-
-        with resources.open_text(
-            "co_op_translator.templates", "other_courses.md", encoding="utf-8"
-        ) as f:
-            return f.read()
+        return (
+            resources.files("co_op_translator.templates")
+            .joinpath("other_courses.md")
+            .read_text(encoding="utf-8")
+        )
     except Exception:
         return ""
 
