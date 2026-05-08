@@ -48,8 +48,6 @@ def temp_dir(tmp_path):
 def test_update_links(temp_dir, sample_markdown):
     """Test updating all links in markdown content."""
     md_file_path = temp_dir / "test.md"
-    translations_dir = temp_dir / "translations"
-    translated_images_dir = temp_dir / "translated_images"
 
     result = update_links(
         md_file_path,
@@ -465,23 +463,58 @@ def test_normalize_cjk_emphasis_markers_converts_one_sided_cjk_boundaries():
     assert "これは<strong>Bold</strong>" in normalized
 
 
-def test_normalize_cjk_emphasis_markers_does_not_convert_underscore_patterns():
-    """Underscore-delimited fragments should remain unchanged to avoid identifier mutations."""
-    content = "変数_name_を確認します。"
+def test_normalize_cjk_emphasis_markers_converts_cjk_underscore_italic():
+    """CJK-adjacent underscore emphasis should normalize to HTML italics."""
+    content = (
+        "アクセスできる_ホスト型エンドポイント_（API）を使います。"
+        "| AZURE_OPENAI_DEPLOYMENT | _テキスト生成_モデル |"
+    )
+
+    normalized = normalize_cjk_emphasis_markers(content, language_code="ja")
+
+    assert "アクセスできる<em>ホスト型エンドポイント</em>（API）" in normalized
+    assert "| AZURE_OPENAI_DEPLOYMENT | <em>テキスト生成</em>モデル |" in normalized
+
+
+def test_normalize_cjk_emphasis_markers_converts_safe_ascii_underscore_italic():
+    """Human-readable underscore emphasis with spaces should normalize near CJK."""
+    content = "環境変数を使用した_Deployment name_に合わせて更新します。"
+
+    normalized = normalize_cjk_emphasis_markers(content, language_code="ja")
+
+    assert (
+        "環境変数を使用した<em>Deployment name</em>に合わせて更新します。" == normalized
+    )
+
+
+def test_normalize_cjk_emphasis_markers_skips_underscore_identifiers_and_paths():
+    """Identifier-like underscore fragments should remain unchanged."""
+    content = "変数_name_を確認します。path/to/_file_を確認します。"
 
     normalized = normalize_cjk_emphasis_markers(content, language_code="ja")
 
     assert normalized == content
 
 
+def test_normalize_cjk_emphasis_markers_skips_underscore_for_non_cjk_target():
+    """Underscore normalization should still be limited to configured languages."""
+    content = "これは_重要_です。"
+
+    normalized = normalize_cjk_emphasis_markers(content, language_code="fr")
+
+    assert normalized == content
+
+
 def test_normalize_cjk_emphasis_markers_skips_inline_code_spans():
     """Inline code spans should not be rewritten by emphasis normalization."""
-    content = "説明 `漢*字*語` と本文の漢*字*語"
+    content = "説明 `漢*字*語` と `漢_字_語` と本文の漢*字*語と漢_字_語"
 
     normalized = normalize_cjk_emphasis_markers(content, language_code="ja")
 
     assert "`漢*字*語`" in normalized
+    assert "`漢_字_語`" in normalized
     assert "本文の漢<em>字</em>語" in normalized
+    assert "と漢<em>字</em>語" in normalized
 
 
 def test_normalize_cjk_emphasis_markers_skips_multibacktick_inline_code_spans():
@@ -638,26 +671,22 @@ def complex_dir_structure(tmp_path):
 
     # Create markdown files
     with open(tmp_path / "docs/examples/nested.md", "w") as f:
-        f.write(
-            """# Nested Document
+        f.write("""# Nested Document
 This is a test with an image in the same directory: ![Local Image](images/test2.png)
 This is a test with an image from parent: ![Parent Image](../images/test1.png)
 This is a test with an image from root: ![Root Image](../hero.jpg)
-"""
-        )
+""")
 
     # Create markdown file with root-relative paths
     with open(tmp_path / "README.md", "w") as f:
-        f.write(
-            """# Root Document
+        f.write("""# Root Document
 ![Logo](/imgs/logo.png)
 
 ## Video Presentations
 Learn more here:
 
 [![Thumbnail](/imgs/open-ms-thumbnail.jpg)](https://example.com)
-"""
-        )
+""")
 
     return tmp_path
 
@@ -709,7 +738,7 @@ def test_untranslated_images_mode_image_paths(complex_dir_structure):
         os.path.sep, "/"
     )
 
-    print(f"\nExpected paths:")
+    print("\nExpected paths:")
     print(f"Local image: {expected_local_path}")
     print(f"Parent image: {expected_parent_path}")
     print(f"Root image: {expected_root_path}")
@@ -728,7 +757,7 @@ def test_untranslated_images_mode_image_paths(complex_dir_structure):
         elif "![Root Image](" in line:
             root_image_actual = line.split("(")[1].split(")")[0]
 
-    print(f"\nActual paths:")
+    print("\nActual paths:")
     print(f"Local image: {local_image_actual}")
     print(f"Parent image: {parent_image_actual}")
     print(f"Root image: {root_image_actual}")
@@ -928,7 +957,7 @@ def test_image_paths_in_nested_structure(complex_dir_structure):
         elif "![Root Image](" in line:
             root_image_actual = line.split("(")[1].split(")")[0]
 
-    print(f"\nActual paths in nested test:")
+    print("\nActual paths in nested test:")
     print(f"Local image: {local_image_actual}")
     print(f"Parent image: {parent_image_actual}")
     print(f"Root image: {root_image_actual}")

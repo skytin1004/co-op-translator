@@ -11,15 +11,25 @@ CJK_EMPHASIS_LANGUAGE_PREFIXES = ("ja", "ko", "zh")
 _CJK_CHAR_RE = re.compile(rf"[{CJK_CHAR_CLASS}]")
 _CJK_FULL_TEXT_RE = re.compile(rf"^[{CJK_CHAR_CLASS}]+$")
 
-# Inner emphasis text must not contain '*' so a match cannot bleed into
-# neighboring emphasis regions.
-_EMPHASIS_INNER_TEXT_PATTERN = r"[^\n*]+?"
+# Inner emphasis text must not contain the delimiter so a match cannot bleed
+# into neighboring emphasis regions.
+_ASTERISK_EMPHASIS_INNER_TEXT_PATTERN = r"[^\n*]+?"
+_UNDERSCORE_EMPHASIS_INNER_TEXT_PATTERN = r"[^\n_]+?"
+_ASCII_IDENTIFIER_OR_PATH_RE = re.compile(
+    r"^[A-Za-z][A-Za-z0-9]*(?:[._/-][A-Za-z0-9]+)*$"
+)
 
 
 def _build_cjk_emphasis_pattern(delim: str) -> re.Pattern[str]:
     escaped = re.escape(delim)
+    edge_marker = re.escape(delim[-1])
+    inner_pattern = (
+        _UNDERSCORE_EMPHASIS_INNER_TEXT_PATTERN
+        if "_" in delim
+        else _ASTERISK_EMPHASIS_INNER_TEXT_PATTERN
+    )
     return re.compile(
-        rf"(?<!\*){escaped}(?P<text>{_EMPHASIS_INNER_TEXT_PATTERN}){escaped}(?!\*)"
+        rf"(?<!{edge_marker}){escaped}(?P<text>{inner_pattern}){escaped}(?!{edge_marker})"
     )
 
 
@@ -28,6 +38,7 @@ _CJK_EMPHASIS_PATTERNS: list[tuple[re.Pattern[str], str]] = [
     (_build_cjk_emphasis_pattern("**"), "<strong>{text}</strong>"),
     (_build_cjk_emphasis_pattern("*"), "<em>{text}</em>"),
 ]
+_CJK_UNDERSCORE_EMPHASIS_PATTERN = _build_cjk_emphasis_pattern("_")
 
 
 def _apply_cjk_emphasis_pattern(
@@ -51,6 +62,37 @@ def _apply_cjk_emphasis_pattern(
         return match.group(0)
 
     return pattern.sub(_replace, segment)
+
+
+def _apply_cjk_underscore_emphasis_pattern(segment: str) -> str:
+    def _replace(match: re.Match[str]) -> str:
+        inner_text = match.group("text")
+        if not inner_text:
+            return match.group(0)
+
+        if _looks_like_ascii_identifier_or_path(inner_text):
+            return match.group(0)
+
+        source = match.string
+        start, end = match.span()
+        left_char = source[start - 1] if start > 0 else ""
+        right_char = source[end] if end < len(source) else ""
+        left_is_cjk = bool(_CJK_CHAR_RE.fullmatch(left_char))
+        right_is_cjk = bool(_CJK_CHAR_RE.fullmatch(right_char))
+        pure_cjk_inner = bool(_CJK_FULL_TEXT_RE.fullmatch(inner_text))
+
+        if left_is_cjk or right_is_cjk or pure_cjk_inner:
+            return f"<em>{inner_text}</em>"
+        return match.group(0)
+
+    return _CJK_UNDERSCORE_EMPHASIS_PATTERN.sub(_replace, segment)
+
+
+def _looks_like_ascii_identifier_or_path(text: str) -> bool:
+    stripped = text.strip()
+    if stripped != text:
+        return False
+    return bool(_ASCII_IDENTIFIER_OR_PATH_RE.fullmatch(stripped))
 
 
 def _collect_inline_code_spans_with_markdown_ast(content: str) -> list[tuple[int, int]]:
@@ -144,12 +186,13 @@ def normalize_cjk_emphasis_markers(
         ):
             return content
 
-    if "*" not in content:
+    if "*" not in content and "_" not in content:
         return content
 
     def _normalize_text_segment(segment: str) -> str:
         for pattern, html_template in _CJK_EMPHASIS_PATTERNS:
             segment = _apply_cjk_emphasis_pattern(segment, pattern, html_template)
+        segment = _apply_cjk_underscore_emphasis_pattern(segment)
         return segment
 
     # Skip inline code spans so literal examples are never rewritten.
