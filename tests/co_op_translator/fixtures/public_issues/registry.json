@@ -1,0 +1,93 @@
+[
+  {
+    "issue": 357,
+    "url": "https://github.com/Azure/co-op-translator/issues/357",
+    "title": "Incorrect chunking of list items with code placeholders causes broken ``` fences",
+    "state": "closed",
+    "category": "markdown_code_fence_integrity",
+    "target_language": "ja",
+    "source": "cases/issue-0357-list-code-fence/source.md",
+    "problem": "cases/issue-0357-list-code-fence/problem.ja.md",
+    "expected": "cases/issue-0357-list-code-fence/expected.ja.md",
+    "known_bad_markers": ["```この文"],
+    "expected_checks": ["balanced_fences"]
+  },
+  {
+    "issue": 400,
+    "url": "https://github.com/Azure/co-op-translator/issues/400",
+    "title": "Mermaid diagram translation (en→jp)",
+    "state": "closed",
+    "category": "mermaid_label_translation",
+    "target_language": "ja",
+    "source": "cases/issue-0400-mermaid-ja/source.md",
+    "problem": "cases/issue-0400-mermaid-ja/problem.ja.md",
+    "expected": "cases/issue-0400-mermaid-ja/expected.ja.md",
+    "known_bad_markers": ["Client Application", "Available Tools"],
+    "expected_checks": ["balanced_fences"]
+  },
+  {
+    "issue": 406,
+    "url": "https://github.com/Azure/co-op-translator/issues/406",
+    "title": "Update link text from 'Solution' to '解答例' (en→jp)",
+    "state": "open",
+    "category": "ja_untranslated_link_text",
+    "target_language": "ja",
+    "source": "cases/issue-0406-solution-link/source.md",
+    "problem": "cases/issue-0406-solution-link/problem.ja.md",
+    "expected": "cases/issue-0406-solution-link/expected.ja.md",
+    "known_bad_markers": ["[Solution]"],
+    "expected_checks": []
+  },
+  {
+    "issue": 230,
+    "url": "https://github.com/Azure/co-op-translator/issues/230",
+    "title": "\"[Solution]\" in the link is not translated (en→ja)",
+    "state": "open",
+    "category": "ja_untranslated_link_text",
+    "target_language": "ja",
+    "source": "cases/issue-0230-solution-link/source.md",
+    "problem": "cases/issue-0230-solution-link/problem.ja.md",
+    "expected": "cases/issue-0230-solution-link/expected.ja.md",
+    "known_bad_markers": ["[Solution]"],
+    "expected_checks": []
+  },
+  {
+    "issue": 219,
+    "url": "https://github.com/Azure/co-op-translator/issues/219",
+    "title": "\"[generative AI]\" in the link is not translated (en→ja)",
+    "state": "open",
+    "category": "ja_untranslated_link_text",
+    "target_language": "ja",
+    "source": "cases/issue-0219-generative-ai-link/source.md",
+    "problem": "cases/issue-0219-generative-ai-link/problem.ja.md",
+    "expected": "cases/issue-0219-generative-ai-link/expected.ja.md",
+    "known_bad_markers": ["[generative AI]"],
+    "expected_checks": []
+  },
+  {
+    "issue": 381,
+    "url": "https://github.com/Azure/co-op-translator/issues/381",
+    "title": "The headline has not been translated (en→ja)",
+    "state": "open",
+    "category": "ja_untranslated_heading",
+    "target_language": "ja",
+    "source": "cases/issue-0381-untranslated-heading/source.md",
+    "problem": "cases/issue-0381-untranslated-heading/problem.ja.md",
+    "expected": "cases/issue-0381-untranslated-heading/expected.ja.md",
+    "known_bad_markers": ["# Exploring Agentic Frameworks"],
+    "expected_checks": []
+  },
+  {
+    "issue": 388,
+    "url": "https://github.com/Azure/co-op-translator/issues/388",
+    "title": "\"Join the [Microsoft Foundry Discord]～\" has not been translated. (en→ja)",
+    "state": "open",
+    "category": "ja_untranslated_sentence_with_link",
+    "target_language": "ja",
+    "source": "cases/issue-0388-untranslated-join-discord/source.md",
+    "problem": "cases/issue-0388-untranslated-join-discord/problem.ja.md",
+    "expected": "cases/issue-0388-untranslated-join-discord/expected.ja.md",
+    "known_bad_markers": ["Join the [Microsoft Foundry Discord]"],
+    "expected_checks": []
+  }
+]
