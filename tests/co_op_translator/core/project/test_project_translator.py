@@ -69,7 +69,6 @@ async def project_translator(temp_project_dir):
 async def test_check_and_retry_translations(project_translator, temp_project_dir):
     """Test checking and retrying translations."""
     # Setup
-    md_file = temp_project_dir / "docs" / "test.md"
     translated_file = temp_project_dir / "translations" / "ko" / "docs" / "test.md"
     translated_file.parent.mkdir(parents=True)
     translated_file.write_text(
@@ -100,8 +99,12 @@ async def test_check_and_retry_translations(project_translator, temp_project_dir
 
 def test_translate_project(project_translator):
     """Test the synchronous translate_project method."""
-    # Setup
-    with patch.object(asyncio, "run", side_effect=lambda x: None) as mock_run:
+
+    def close_created_coroutine(coroutine):
+        coroutine.close()
+        return None
+
+    with patch.object(asyncio, "run", side_effect=close_created_coroutine) as mock_run:
         # Execute
         project_translator.translate_project()
         # Verify
