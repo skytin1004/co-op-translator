@@ -79,9 +79,64 @@ def test_review_runner_reports_markdown_integrity_errors(tmp_path):
     assert summary.issues[0].check == "markdown-integrity"
 
 
+def test_review_runner_reports_github_admonition_integrity_errors(tmp_path):
+    source_file = _write_source(
+        tmp_path,
+        "README.md",
+        "> [!NOTE]\n> Keep this note together.\n",
+    )
+    _write_translation(
+        tmp_path,
+        source_file,
+        "ko",
+        "> [!NOTE] 이 노트를 함께 유지합니다.\n",
+    )
+
+    summary = ReviewRunner(ReviewConfig(tmp_path, languages=["ko"])).run()
+
+    assert summary.error_count == 1
+    assert summary.issues[0].check == "markdown-integrity"
+    assert "GitHub admonition count differs" in summary.issues[0].message
+
+
 def test_review_runner_reports_local_link_warnings(tmp_path):
     source_file = _write_source(tmp_path, "README.md")
     _write_translation(tmp_path, source_file, "ko", "[missing](missing.md)\n")
+
+    summary = ReviewRunner(ReviewConfig(tmp_path, languages=["ko"])).run()
+
+    assert summary.error_count == 0
+    assert summary.warning_count == 1
+    assert summary.issues[0].check == "local-link"
+
+
+def test_review_runner_ignores_local_links_inside_code_blocks(tmp_path):
+    source_file = _write_source(
+        tmp_path,
+        "README.md",
+        "```md\n[example](missing.md)\n```\n",
+    )
+    _write_translation(
+        tmp_path,
+        source_file,
+        "ko",
+        "```md\n[example](missing.md)\n```\n",
+    )
+
+    summary = ReviewRunner(ReviewConfig(tmp_path, languages=["ko"])).run()
+
+    assert summary.error_count == 0
+    assert summary.warning_count == 0
+
+
+def test_review_runner_reports_reference_style_local_link_warnings(tmp_path):
+    source_file = _write_source(tmp_path, "README.md")
+    _write_translation(
+        tmp_path,
+        source_file,
+        "ko",
+        "[missing][target]\n\n[target]: missing.md\n",
+    )
 
     summary = ReviewRunner(ReviewConfig(tmp_path, languages=["ko"])).run()
 

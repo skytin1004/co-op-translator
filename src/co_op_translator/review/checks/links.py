@@ -1,13 +1,15 @@
 from __future__ import annotations
 
-import re
 from pathlib import Path
+from typing import Iterator
 from urllib.parse import unquote
+
+from markdown_it import MarkdownIt
 
 from co_op_translator.review.models import ReviewIssue, ReviewSeverity
 from co_op_translator.review.targets import ReviewTarget
 
-MARKDOWN_LINK_PATTERN = re.compile(r"(!?)\[[^\]]*]\(([^)]+)\)")
+MARKDOWN_PARSER = MarkdownIt("commonmark")
 
 
 def _is_external_link(target: str) -> bool:
@@ -36,6 +38,22 @@ def _target_exists(translated_path: Path, target: str) -> bool:
     return (translated_path.parent / candidate).exists()
 
 
+def _iter_markdown_link_targets(content: str) -> Iterator[tuple[bool, str]]:
+    for token in MARKDOWN_PARSER.parse(content):
+        if token.type != "inline" or not token.children:
+            continue
+
+        for child in token.children:
+            if child.type == "link_open":
+                href = child.attrs.get("href") if child.attrs else None
+                if href:
+                    yield False, href
+            elif child.type == "image":
+                src = child.attrs.get("src") if child.attrs else None
+                if src:
+                    yield True, src
+
+
 def check_local_links(
     target: ReviewTarget, source_files: list[Path], languages: list[str]
 ) -> list[ReviewIssue]:
@@ -48,7 +66,7 @@ def check_local_links(
             if not translated_path.exists():
                 continue
             content = translated_path.read_text(encoding="utf-8")
-            for is_image, link_target in MARKDOWN_LINK_PATTERN.findall(content):
+            for is_image, link_target in _iter_markdown_link_targets(content):
                 if _is_external_link(link_target) or _target_exists(
                     translated_path, link_target
                 ):

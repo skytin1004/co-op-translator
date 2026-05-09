@@ -4,10 +4,20 @@ import json
 import re
 from pathlib import Path
 
+from markdown_it import MarkdownIt
+
 from co_op_translator.review.models import ReviewIssue, ReviewSeverity
 from co_op_translator.review.targets import ReviewTarget
 
 FENCE_PATTERN = re.compile(r"^\s*(```|~~~)", re.MULTILINE)
+MARKDOWN_PARSER = MarkdownIt("commonmark")
+ADMONITION_MARKERS = {
+    "[!NOTE]",
+    "[!TIP]",
+    "[!IMPORTANT]",
+    "[!WARNING]",
+    "[!CAUTION]",
+}
 
 
 def _has_frontmatter(content: str) -> bool:
@@ -22,6 +32,29 @@ def _frontmatter_is_closed(content: str) -> bool:
 
 def _fence_count(content: str) -> int:
     return len(FENCE_PATTERN.findall(content))
+
+
+def _github_admonition_count(content: str) -> int:
+    count = 0
+    tokens = MARKDOWN_PARSER.parse(content)
+    for index, token in enumerate(tokens):
+        if token.type != "blockquote_open":
+            continue
+
+        for nested_token in tokens[index + 1 :]:
+            if nested_token.type == "blockquote_close":
+                break
+            if nested_token.type != "inline" or not nested_token.children:
+                continue
+
+            first_child = nested_token.children[0]
+            if (
+                first_child.type == "text"
+                and first_child.content.strip().upper() in ADMONITION_MARKERS
+            ):
+                count += 1
+            break
+    return count
 
 
 def _check_markdown_file(
@@ -62,6 +95,19 @@ def _check_markdown_file(
                 path=relative_path,
                 language=language,
                 message="Code fence count differs from the source file.",
+            )
+        )
+
+    if _github_admonition_count(source_content) != _github_admonition_count(
+        translated_content
+    ):
+        issues.append(
+            ReviewIssue(
+                check="markdown-integrity",
+                severity=ReviewSeverity.ERROR,
+                path=relative_path,
+                language=language,
+                message="GitHub admonition count differs from the source file.",
             )
         )
 
