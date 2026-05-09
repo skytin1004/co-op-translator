@@ -6,9 +6,6 @@ from co_op_translator.core.llm import (
     text_translator,
     JupyterNotebookTranslator,
 )
-from co_op_translator.core.vision import (
-    image_translator,
-)
 from co_op_translator.config.constants import (
     EXCLUDED_DIRS,
     SUPPORTED_IMAGE_EXTENSIONS,
@@ -116,9 +113,23 @@ class ProjectTranslator:
         # Initialize image translator if images are enabled
         if "images" in self.translation_types:
             try:
-                self.image_translator = image_translator.ImageTranslator.create(
+                from co_op_translator.core.vision.image_translator import (
+                    ImageTranslator,
+                )
+
+                self.image_translator = ImageTranslator.create(
                     default_output_dir=self.image_dir, root_dir=self.root_dir
                 )
+            except ImportError as e:
+                logger.error(
+                    "Image translation dependencies are not installed for project '%s'.",
+                    self.root_dir.name,
+                )
+                raise ValueError(
+                    "Image translation requires optional image dependencies. "
+                    'Install them with `pip install "co-op-translator[image]"` '
+                    "or exclude images with --markdown and/or --notebook."
+                ) from e
             except ValueError as e:
                 logger.error(
                     f"Azure AI Service not configured for project '{self.root_dir.name}' but image translation was requested. "
@@ -302,7 +313,6 @@ class ProjectTranslator:
                 # drop first part (lang code)
                 if len(rel.parts) < 2:
                     raise ValueError("Unexpected translation path structure")
-                lang_code = rel.parts[0]
                 orig_rel = Path(*rel.parts[1:])
                 orig_file = (self.root_dir / orig_rel).resolve()
 

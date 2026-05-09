@@ -55,6 +55,13 @@ Install via Co-Op Translator via pip
 ```
 pip install co-op-translator
 ```
+
+If you plan to translate images with `-img` or run the default all-types mode, install the image extra:
+
+```
+pip install "co-op-translator[image]"
+```
+
 Or 
 
 Install via poetry
@@ -67,10 +74,16 @@ poetry add co-op-translator
 > [!NOTE]
 > Please do NOT do this if you install co-op translator via the quick install.
 
-1. If you're using pip, type the following command inside your terminal. It will automatically install the required packages specified in the `requirements.txt` file:
+1. If you're using pip, type the following command inside your terminal. It will automatically install the required core packages specified in the `requirements.txt` file:
 
     ```bash
     pip install -r requirements.txt
+    ```
+
+   For image translation, also install the optional image requirements:
+
+    ```bash
+    pip install -r requirements-image.txt
     ```
 
 #### Using Poetry (from pyproject.toml)

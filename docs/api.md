@@ -190,6 +190,8 @@ OPENAI_API_KEY="..."
 OPENAI_CHAT_MODEL_ID="gpt-4o"
 ```
 
+Image translation also requires the `co-op-translator[image]` package extra.
+
 Required Azure AI Vision variables for image translation:
 
 ```bash
@@ -204,7 +206,7 @@ AZURE_AI_SERVICE_ENDPOINT="https://<resource>.cognitiveservices.azure.com/"
 - The API prints progress and estimate summaries through Click, matching the CLI user experience.
 - `dry_run=True` computes estimates using virtual README updates, but does not write the README or translation files.
 - `groups` are processed sequentially. A single aggregate estimate is printed before work begins.
-- When image translation is selected, missing Vision configuration raises an error before translation starts.
+- When image translation is selected, missing image dependencies or Vision configuration raise an error before translation starts.
 - Existing alias-based language folders are detected and can be migrated to canonical language folder names as part of the run.
 - `run_review` fails on missing translated files, missing or stale translation metadata, malformed Markdown frontmatter/code fences, and invalid translated notebook JSON.
 - `run_review` reports missing local Markdown and image link targets as warnings by default.

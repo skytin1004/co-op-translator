@@ -76,7 +76,7 @@ translate -l "ko" -s
 | `--migrate-language-folders` | No | Rename legacy alias folders, such as `cn` or `tw`, to canonical BCP 47 folders. |
 | `--dry-run` | No | Preview language folder migration and translation estimates without writing files. |
 
-If no type flag is provided, `translate` processes Markdown, notebooks, and images. Image translation requires Azure AI Vision configuration.
+If no type flag is provided, `translate` processes Markdown, notebooks, and images. Image translation requires `co-op-translator[image]` and Azure AI Vision configuration.
 
 ## evaluate
 

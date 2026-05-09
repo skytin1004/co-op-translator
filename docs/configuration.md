@@ -16,6 +16,8 @@ For normal CLI usage, install the published package inside a virtual environment
     python -m venv .venv
     .venv\Scripts\activate
     pip install co-op-translator
+    # Use this instead when translating images:
+    # pip install "co-op-translator[image]"
     translate --help
     ```
 
@@ -25,6 +27,8 @@ For normal CLI usage, install the published package inside a virtual environment
     python -m venv .venv
     source .venv/bin/activate
     pip install co-op-translator
+    # Use this instead when translating images:
+    # pip install "co-op-translator[image]"
     translate --help
     ```
 
@@ -75,14 +79,14 @@ OPENAI_BASE_URL="..."        # optional
 
 ## Azure AI Vision
 
-Image translation requires Azure AI Vision so the tool can extract text from images before translating it.
+Image translation requires the `co-op-translator[image]` package extra and Azure AI Vision so the tool can extract text from images before translating it.
 
 ```bash
 AZURE_AI_SERVICE_API_KEY="..."
 AZURE_AI_SERVICE_ENDPOINT="https://<resource>.cognitiveservices.azure.com/"
 ```
 
-If image translation is selected with `-img`, `images=True`, or no content-type filter, the tool validates Vision configuration before translation starts.
+If image translation is selected with `-img`, `images=True`, or no content-type filter, the tool validates the optional image dependencies and Vision configuration before translation starts.
 
 ## Multiple credential sets
 
@@ -106,18 +110,18 @@ Each set must be complete. The health check selects a working set before transla
 
 ## Command requirements
 
-| Command or API | LLM required | Vision required | Notes |
-| --- | --- | --- | --- |
-| `translate -md` | Yes | No | Translates Markdown only. |
-| `translate -nb` | Yes | No | Translates notebooks only. |
-| `translate -img` | Yes | Yes | Translates images only. |
-| `translate` with no type flags | Yes | Yes | Default mode includes Markdown, notebooks, and images. |
-| `evaluate` | Yes | No | Uses LLM evaluation unless `--fast` is selected. |
-| `migrate-links` | Yes | No | Performs link migration, but still runs shared configuration checks. |
-| `co-op-review` | No | No | Runs deterministic translation structure, freshness, Markdown, notebook, and local link checks. |
-| `run_translation(markdown=True)` | Yes | No | Programmatic Markdown translation. |
-| `run_translation(images=True)` | Yes | Yes | Programmatic image translation. |
-| `run_review(...)` | No | No | Programmatic deterministic review. |
+| Command or API | LLM required | Image extra required | Vision required | Notes |
+| --- | --- | --- | --- | --- |
+| `translate -md` | Yes | No | No | Translates Markdown only. |
+| `translate -nb` | Yes | No | No | Translates notebooks only. |
+| `translate -img` | Yes | Yes | Yes | Translates images only. |
+| `translate` with no type flags | Yes | Yes | Yes | Default mode includes Markdown, notebooks, and images. |
+| `evaluate` | Yes | No | No | Uses LLM evaluation unless `--fast` is selected. |
+| `migrate-links` | Yes | No | No | Performs link migration, but still runs shared configuration checks. |
+| `co-op-review` | No | No | No | Runs deterministic translation structure, freshness, Markdown, notebook, and local link checks. |
+| `run_translation(markdown=True)` | Yes | No | No | Programmatic Markdown translation. |
+| `run_translation(images=True)` | Yes | Yes | Yes | Programmatic image translation. |
+| `run_review(...)` | No | No | No | Programmatic deterministic review. |
 
 ## Output directories
 

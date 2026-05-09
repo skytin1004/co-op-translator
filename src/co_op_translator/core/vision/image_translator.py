@@ -1,25 +1,17 @@
 import os
 import logging
 import numpy as np
-from PIL import Image, ImageFont
 from pathlib import Path
 
-import cv2
 import math
 from math import hypot
 from tqdm import tqdm
 import time
 from PIL import Image, ImageFont, ImageDraw
-import numpy as np
-from pathlib import Path
-
-import arabic_reshaper
-from bidi.algorithm import get_display
 
 
 from co_op_translator.config.font_config import FontConfig
 from co_op_translator.config.constants import RGB_IMAGE_EXTENSIONS
-from co_op_translator.config.vision_config.config import VisionConfig
 from co_op_translator.config.vision_config.provider import VisionProvider
 from co_op_translator.utils.vision.image_utils import (
     get_dominant_color,
@@ -33,7 +25,6 @@ from co_op_translator.utils.vision.image_utils import (
     adjust_bg_color,
     save_optimized_image,
 )
-from azure.ai.vision.imageanalysis.models import VisualFeatures
 from co_op_translator.core.llm.text_translator import TextTranslator
 from co_op_translator.utils.common.file_utils import generate_translated_filename
 from co_op_translator.utils.common.metadata_utils import save_image_metadata
@@ -83,6 +74,8 @@ class ImageTranslator(ABC):
         Raises:
             Exception: If text recognition fails or no text is found
         """
+        from azure.ai.vision.imageanalysis.models import VisualFeatures
+
         image_analysis_client = self.get_image_analysis_client()
         with open(image_path, "rb") as image_stream:
             image_data = image_stream.read()
@@ -159,6 +152,9 @@ class ImageTranslator(ABC):
         try:
             # Import these libraries only when needed
             if target_language_code in ["ar", "fa", "ur", "he"]:
+                import arabic_reshaper
+                from bidi.algorithm import get_display
+
                 for text in translated_text_list:
                     # Reshape Arabic text
                     reshaped_text = arabic_reshaper.reshape(text)

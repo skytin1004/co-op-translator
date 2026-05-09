@@ -95,6 +95,8 @@ python -m venv .venv
 source .venv/bin/activate
 # Install the package
 pip install co-op-translator
+# Add image translation support when you use -img or the default all-types mode
+pip install "co-op-translator[image]"
 # Translate
 translate -l "ko ja fr" -md
 
@@ -111,12 +113,14 @@ docker pull ghcr.io/azure/co-op-translator:latest
 docker run --rm -it --env-file .env -v "${PWD}:/work" ghcr.io/azure/co-op-translator:latest -l "ko ja fr" -md
 ```
 
+The default image keeps image translation dependencies out of the runtime. Build with `--build-arg POETRY_EXTRAS=image` when you need `-img`.
+
 ## Minimal setup
 
 1. Assert that you have a supported Python version (currently 3.10-3.12). In poetry (pyproject.toml) this is handeled automatically.
 2. Create a `.env` file using the template: [.env.template](./.env.template)
 3. Configure one LLM provider (Azure OpenAI or OpenAI)
-4. (Optional) For image translation (`-img`), configure Azure AI Vision
+4. (Optional) For image translation (`-img`), install the image extra and configure Azure AI Vision
 5. (Optional) You can configure multiple credential sets by duplicating variables with suffixes like `_1`, `_2`, etc. All variables in a set must share the same suffix.
 6. (Recommended) Clean up any previous translations to avoid conflicts (e.g., `translations/`)
 7. (Recommended) Add a translation section to your README using the [README languages template](./getting_started/README_languages_template.md)

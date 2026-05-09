@@ -1,0 +1,9 @@
+# Optional dependencies for image translation (`translate -img`).
+arabic-reshaper>=3.0.0,<4.0.0
+azure-ai-vision-imageanalysis>=1.0.0b2,<2.0.0
+azure-core>=1.38.0,<2.0.0
+matplotlib>=3.9.0,<4.0.0
+numpy>=1.25.2,<2.0.0
+opencv-python>=4.10.0.82,<5.0.0
+pillow>=12.2.0,<13.0
+python-bidi>=0.6.6,<0.7.0

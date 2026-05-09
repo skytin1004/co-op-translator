@@ -110,6 +110,12 @@ class VisionConfig:
                     api_key=api_key,
                     timeout=10.0,
                 )
+            except ImportError as e:
+                raise ValueError(
+                    "Image translation requires optional image dependencies. "
+                    'Install them with `pip install "co-op-translator[image]"` '
+                    "or exclude images with --markdown and/or --notebook."
+                ) from e
             except Exception as e:
                 last_message = str(e)
                 continue

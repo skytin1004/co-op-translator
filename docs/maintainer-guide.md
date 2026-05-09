@@ -111,10 +111,11 @@ The workflow installs:
 
 ```bash
 pip install -r requirements.txt
+pip install -r requirements-image.txt  # optional, needed for image translation tests
 pip install -r requirements-docs.txt
 ```
 
-Installing runtime dependencies before docs dependencies lets `mkdocstrings` import the package and render the public Python API reference.
+Installing runtime dependencies before docs dependencies lets `mkdocstrings` import the package and render the public Python API reference. The image requirements are optional unless you need image translation coverage locally.
 
 ## Docs quality bar
 
