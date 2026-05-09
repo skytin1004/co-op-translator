@@ -5,6 +5,7 @@ from pathlib import Path
 from urllib.parse import unquote
 
 from co_op_translator.review.models import ReviewIssue, ReviewSeverity
+from co_op_translator.review.notebooks import notebook_markdown_cells, read_notebook
 from co_op_translator.review.targets import ReviewTarget
 
 MARKDOWN_LINK_PATTERN = re.compile(r"(!?)\[[^\]]*]\(([^)]+)\)")
@@ -36,31 +37,48 @@ def _target_exists(translated_path: Path, target: str) -> bool:
     return (translated_path.parent / candidate).exists()
 
 
+def _translated_markdown_blocks(translated_path: Path) -> list[tuple[int | None, str]]:
+    if translated_path.suffix.lower() != ".ipynb":
+        return [(None, translated_path.read_text(encoding="utf-8"))]
+
+    try:
+        notebook = read_notebook(translated_path)
+    except Exception:
+        return []
+
+    return [(cell.ordinal, cell.content) for cell in notebook_markdown_cells(notebook)]
+
+
 def check_local_links(
     target: ReviewTarget, source_files: list[Path], languages: list[str]
 ) -> list[ReviewIssue]:
     issues: list[ReviewIssue] = []
     for source_file in source_files:
-        if source_file.suffix.lower() == ".ipynb":
-            continue
         for language in languages:
             translated_path = target.translated_path(source_file, language)
             if not translated_path.exists():
                 continue
-            content = translated_path.read_text(encoding="utf-8")
-            for is_image, link_target in MARKDOWN_LINK_PATTERN.findall(content):
-                if _is_external_link(link_target) or _target_exists(
-                    translated_path, link_target
-                ):
-                    continue
-                check_name = "image-link" if is_image else "local-link"
-                issues.append(
-                    ReviewIssue(
-                        check=check_name,
-                        severity=ReviewSeverity.WARNING,
-                        path=target.display_translated_path(translated_path),
-                        language=language,
-                        message=f"Local target does not exist: {link_target}",
+
+            for cell_ordinal, content in _translated_markdown_blocks(translated_path):
+                for is_image, link_target in MARKDOWN_LINK_PATTERN.findall(content):
+                    if _is_external_link(link_target) or _target_exists(
+                        translated_path, link_target
+                    ):
+                        continue
+                    check_name = "image-link" if is_image else "local-link"
+                    cell_prefix = (
+                        f"Markdown cell {cell_ordinal}: " if cell_ordinal else ""
                     )
-                )
+                    issues.append(
+                        ReviewIssue(
+                            check=check_name,
+                            severity=ReviewSeverity.WARNING,
+                            path=target.display_translated_path(translated_path),
+                            language=language,
+                            message=(
+                                f"{cell_prefix}Local target does not exist: "
+                                f"{link_target}"
+                            ),
+                        )
+                    )
     return issues

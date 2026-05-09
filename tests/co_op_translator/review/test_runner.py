@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 from click.testing import CliRunner
@@ -30,6 +31,31 @@ def _write_translation(
         root_dir=root,
     )
     return translated_file
+
+
+def _notebook(markdown_cells: list[str]) -> str:
+    cells = [
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": cell.splitlines(keepends=True),
+        }
+        for cell in markdown_cells
+    ]
+    cells.append(
+        {
+            "cell_type": "code",
+            "execution_count": None,
+            "metadata": {},
+            "outputs": [],
+            "source": ["print('preserve')\n"],
+        }
+    )
+    return json.dumps(
+        {"cells": cells, "metadata": {}, "nbformat": 4, "nbformat_minor": 5},
+        ensure_ascii=False,
+        indent=1,
+    )
 
 
 def test_review_runner_passes_for_fresh_translation(tmp_path):
@@ -79,6 +105,48 @@ def test_review_runner_reports_markdown_integrity_errors(tmp_path):
     assert summary.issues[0].check == "markdown-integrity"
 
 
+def test_review_runner_reports_notebook_markdown_cell_fence_errors(tmp_path):
+    source_file = _write_source(
+        tmp_path,
+        "notebooks/demo.ipynb",
+        _notebook(["# Demo\n\n```python\nprint(1)\n```\n"]),
+    )
+    _write_translation(
+        tmp_path,
+        source_file,
+        "ko",
+        _notebook(["# 데모\n\n```python\nprint(1)\n"]),
+    )
+
+    summary = ReviewRunner(ReviewConfig(tmp_path, languages=["ko"])).run()
+
+    assert summary.error_count == 1
+    issue = summary.issues[0]
+    assert issue.check == "notebook-integrity"
+    assert "Markdown cell 1 code fence count differs" in issue.message
+
+
+def test_review_runner_reports_notebook_markdown_cell_admonition_errors(tmp_path):
+    source_file = _write_source(
+        tmp_path,
+        "notebooks/demo.ipynb",
+        _notebook(["> [!NOTE]\n> Keep this note together.\n"]),
+    )
+    _write_translation(
+        tmp_path,
+        source_file,
+        "ko",
+        _notebook(["> [!NOTE] 이 노트를 함께 유지합니다.\n"]),
+    )
+
+    summary = ReviewRunner(ReviewConfig(tmp_path, languages=["ko"])).run()
+
+    assert summary.error_count == 1
+    issue = summary.issues[0]
+    assert issue.check == "notebook-integrity"
+    assert "GitHub admonition count differs" in issue.message
+
+
 def test_review_runner_reports_local_link_warnings(tmp_path):
     source_file = _write_source(tmp_path, "README.md")
     _write_translation(tmp_path, source_file, "ko", "[missing](missing.md)\n")
@@ -88,6 +156,28 @@ def test_review_runner_reports_local_link_warnings(tmp_path):
     assert summary.error_count == 0
     assert summary.warning_count == 1
     assert summary.issues[0].check == "local-link"
+
+
+def test_review_runner_reports_notebook_markdown_cell_link_warnings(tmp_path):
+    source_file = _write_source(
+        tmp_path,
+        "notebooks/demo.ipynb",
+        _notebook(["# Demo\n"]),
+    )
+    _write_translation(
+        tmp_path,
+        source_file,
+        "ko",
+        _notebook(["[missing](missing.md)\n"]),
+    )
+
+    summary = ReviewRunner(ReviewConfig(tmp_path, languages=["ko"])).run()
+
+    assert summary.error_count == 0
+    assert summary.warning_count == 1
+    issue = summary.issues[0]
+    assert issue.check == "local-link"
+    assert "Markdown cell 1" in issue.message
 
 
 def test_review_cli_outputs_github_summary(tmp_path):

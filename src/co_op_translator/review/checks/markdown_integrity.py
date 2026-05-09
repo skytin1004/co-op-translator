@@ -5,9 +5,14 @@ import re
 from pathlib import Path
 
 from co_op_translator.review.models import ReviewIssue, ReviewSeverity
+from co_op_translator.review.notebooks import notebook_markdown_cells, read_notebook
 from co_op_translator.review.targets import ReviewTarget
 
 FENCE_PATTERN = re.compile(r"^\s*(```|~~~)", re.MULTILINE)
+ADMONITION_PATTERN = re.compile(
+    r"^\s*>\s*\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]\s*$",
+    re.IGNORECASE | re.MULTILINE,
+)
 
 
 def _has_frontmatter(content: str) -> bool:
@@ -22,6 +27,10 @@ def _frontmatter_is_closed(content: str) -> bool:
 
 def _fence_count(content: str) -> int:
     return len(FENCE_PATTERN.findall(content))
+
+
+def _admonition_count(content: str) -> int:
+    return len(ADMONITION_PATTERN.findall(content))
 
 
 def _check_markdown_file(
@@ -71,19 +80,78 @@ def _check_markdown_file(
 def _check_notebook_file(
     target: ReviewTarget, source_file: Path, translated_path: Path, language: str
 ) -> list[ReviewIssue]:
+    issues: list[ReviewIssue] = []
+    relative_path = target.display_source_path(source_file)
+
     try:
-        json.loads(translated_path.read_text(encoding="utf-8"))
+        translated_notebook = read_notebook(translated_path)
     except (OSError, json.JSONDecodeError):
         return [
             ReviewIssue(
                 check="notebook-integrity",
                 severity=ReviewSeverity.ERROR,
-                path=target.display_source_path(source_file),
+                path=relative_path,
                 language=language,
                 message="Translated notebook is not valid JSON.",
             )
         ]
-    return []
+
+    try:
+        source_notebook = read_notebook(source_file)
+    except (OSError, json.JSONDecodeError):
+        return issues
+
+    source_cells = notebook_markdown_cells(source_notebook)
+    translated_cells = notebook_markdown_cells(translated_notebook)
+
+    for cell_position, source_cell in enumerate(source_cells):
+        if cell_position >= len(translated_cells):
+            issues.append(
+                ReviewIssue(
+                    check="notebook-integrity",
+                    severity=ReviewSeverity.ERROR,
+                    path=relative_path,
+                    language=language,
+                    message=(
+                        f"Translated notebook is missing markdown cell "
+                        f"{source_cell.ordinal} from the source notebook."
+                    ),
+                )
+            )
+            continue
+
+        translated_cell = translated_cells[cell_position]
+        if _fence_count(source_cell.content) != _fence_count(translated_cell.content):
+            issues.append(
+                ReviewIssue(
+                    check="notebook-integrity",
+                    severity=ReviewSeverity.ERROR,
+                    path=relative_path,
+                    language=language,
+                    message=(
+                        f"Markdown cell {source_cell.ordinal} code fence count "
+                        "differs from the source cell."
+                    ),
+                )
+            )
+
+        if _admonition_count(source_cell.content) != _admonition_count(
+            translated_cell.content
+        ):
+            issues.append(
+                ReviewIssue(
+                    check="notebook-integrity",
+                    severity=ReviewSeverity.ERROR,
+                    path=relative_path,
+                    language=language,
+                    message=(
+                        f"Markdown cell {source_cell.ordinal} GitHub admonition "
+                        "count differs from the source cell."
+                    ),
+                )
+            )
+
+    return issues
 
 
 def check_markdown_integrity(
