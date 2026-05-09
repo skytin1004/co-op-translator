@@ -16,6 +16,7 @@ documentation:
   - '**/*.md'
   - .github/ISSUE_TEMPLATE/**
   - .github/PULL_REQUEST_TEMPLATE.md
+  - .github/PULL_REQUEST_TEMPLATE.MD
 
 # Apply 'build' label for any changes in the build configuration files, CI workflows, or Dockerfile
 build:
@@ -23,3 +24,5 @@ build:
   - requirements.txt
   - Dockerfile
   - .github/workflows/**
+  - .github/release.yml
+  - scripts/validate_release.py

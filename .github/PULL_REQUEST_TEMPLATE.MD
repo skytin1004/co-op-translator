@@ -36,6 +36,7 @@ Before submitting your pull request, please confirm the following:
 - [ ] **I have added new tests** (if applicable): I have written tests that cover the new functionality introduced by my code changes.
 - [ ] **I have followed the Co-op Translators coding conventions**: My code adheres to the style guide and coding conventions outlined in the repository.
 - [ ] **I have documented my changes** (if applicable): I have updated the documentation to reflect the changes where necessary.
+- [ ] **Release/version changes are complete** (if applicable): I updated `pyproject.toml`, used generated release notes or wrote a release summary, and validated the release metadata.
 
 ## Additional context
 

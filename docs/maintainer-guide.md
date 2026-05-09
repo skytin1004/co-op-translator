@@ -116,6 +116,30 @@ pip install -r requirements-docs.txt
 
 Installing runtime dependencies before docs dependencies lets `mkdocstrings` import the package and render the public Python API reference.
 
+## Release workflow
+
+Python package publishing runs from `.github/workflows/python-publish.yml` when a GitHub Release is published.
+
+Before uploading to PyPI, the workflow now validates:
+
+- The release tag uses `v<version>` format.
+- The tag version matches `[tool.poetry].version` in `pyproject.toml`.
+- The GitHub Release name and notes are not empty placeholder text.
+- Built wheel and source distribution metadata match the release version.
+
+Use GitHub's generated release notes when drafting a release. The generated notes are configured by `.github/release.yml` and grouped by existing repository labels such as `core`, `build`, `documentation`, `tests`, and `language-support`.
+
+Local validation:
+
+```bash
+python scripts/validate_release.py \
+  --tag v0.18.3 \
+  --release-name "Co-op Translator v0.18.3" \
+  --release-body "Summarize the release here."
+python -m build
+python scripts/validate_release.py --tag v0.18.3 --dist dist --skip-release-notes
+```
+
 ## Docs quality bar
 
 Before merging documentation changes, run:
