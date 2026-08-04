@@ -44,7 +44,7 @@ You only need to add your **AI service credentials** as encrypted secrets in you
 2.  Navigate to **Settings** > **Secrets and variables** > **Actions**.
 3.  Under **Repository secrets**, click **New repository secret** for each required AI service secret listed below.
 
-    ![Select setting action](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.en.png) *(Image Reference: Shows where to add secrets)*
+    ![Select setting action](../../../../translated_images/en/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.png) *(Image Reference: Shows where to add secrets)*
 
 **Required AI Service Secrets (Add ALL that apply based on your Prerequisites):**
 
@@ -72,7 +72,7 @@ The GitHub Action needs permissions via the `GITHUB_TOKEN` to check out code and
 4.  Make sure the checkbox for **Allow GitHub Actions to create and approve pull requests** is **checked**.
 5.  Click **Save**.
 
-![Permission setting](../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.en.png)
+![Permission setting](../../../../translated_images/en/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.png)
 
 ### Step 4: Create the Workflow File
 

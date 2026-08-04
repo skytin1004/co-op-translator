@@ -44,7 +44,7 @@ Solo necesitas agregar tus **credenciales del servicio de IA** como secretos cif
 2.  Dirígete a **Settings** > **Secrets and variables** > **Actions**.
 3.  En **Repository secrets**, haz clic en **New repository secret** para cada secreto de servicio de IA requerido que se indica abajo.
 
-    ![Seleccionar acción de configuración](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.es.png) *(Referencia de imagen: muestra dónde agregar secretos)*
+    ![Seleccionar acción de configuración](../../../../translated_images/es/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.png) *(Referencia de imagen: muestra dónde agregar secretos)*
 
 **Secretos requeridos del servicio de IA (Agrega TODOS los que correspondan según tus requisitos previos):**
 
@@ -72,7 +72,7 @@ La Acción de GitHub necesita permisos otorgados mediante el `GITHUB_TOKEN` para
 4.  Asegúrate de que la casilla **Allow GitHub Actions to create and approve pull requests** esté **marcada**.
 5.  Haz clic en **Save**.
 
-![Configuración de permisos](../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.es.png)
+![Configuración de permisos](../../../../translated_images/es/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.png)
 
 ### Paso 4: Crear el archivo de flujo de trabajo
 

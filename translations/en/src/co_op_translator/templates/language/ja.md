@@ -1,35 +1,18 @@
----
-title: Localizeflow を使用した Azure アプリの翻訳と公開
-description: GitHub App 形式の Localizeflow を使った Azure アプリの翻訳プロセスの紹介
----
+English mode: preserve Markdown tokens strictly.
 
-# Localizeflow を使用した Azure アプリの翻訳と公開
+Rules (must follow):
+1) Keep Markdown links exactly: [text](../../../../../../src/co_op_translator/templates/language/URL) -> [translated text](../../../../../../src/co_op_translator/templates/language/same URL).
+2) NEVER rewrite links as plain text (e.g., “text” (URL), text (URL)).
+3) Translate only link text; keep Markdown structure and URL unchanged.
+4) Do not add quotation marks around a Markdown link unless outside-link grammar requires it.
 
-このドキュメントでは、GitHub 上の Azure アプリに対して [Localizeflow] という GitHub App を使って翻訳を自動化し、翻訳された内容をどのように公開するかを説明します。
+STRUCTURE IS MORE IMPORTANT THAN STYLE.
+Do not optimize English naturalness if Markdown tokens would change.
 
-## 前提
-
-- アプリは GitHub リポジトリにあります
-- Localizeflow GitHub App がリポジトリにインストールされています
-- 翻訳は PR を通じて管理されます
-
-## 流れ
-
-1. 原文の更新や新機能の追加に伴い、source ファイルをリポジトリにコミット
-2. Localizeflow が自動的にそれを検知し、翻訳 PR を作成
-3. 翻訳者やレビュワーが PR を確認・編集
-4. PR がマージされると翻訳済みのコンテンツが本番に反映
-
-## メリット
-
-- 翻訳と開発のサイクルがシームレス
-- Azure アプリの公開内容が常に最新の状態に保たれる
-- 翻訳の管理が GitHub 上で完結し利便性が高い
-
-## 参考リンク
-
-- [Localizeflow GitHub App](https://github.com/marketplace/localizeflow)
-- [Azure アプリ開発ドキュメント](https://docs.microsoft.com/azure/app-service/)
+Example
+Source: This document uses [Co-op Translator](https://github.com/Azure/co-op-translator).
+Correct: This document uses [Co-op Translator](https://github.com/Azure/co-op-translator).
+Incorrect: This document uses “Co-op Translator” (https://github.com/Azure/co-op-translator).
 
 ---
 

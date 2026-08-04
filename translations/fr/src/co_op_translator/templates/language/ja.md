@@ -1,35 +1,22 @@
----
-title: Introduction
-description: Azure SDK C++ クイックスタート コレクション
----
+Mode japonais : préserver strictement les jetons Markdown.
 
-# Azure SDK C++ クイックスタート
+Règles (à suivre impérativement) :
+1) Garder les liens Markdown exactement : [texte](../../../../../../src/co_op_translator/templates/language/URL) -> [texte traduit](../../../../../../src/co_op_translator/templates/language/même URL).
+2) NE JAMAIS réécrire les liens en texte brut (ex. 「texte」（URL）, texte (URL)).
+3) Traduire uniquement le texte du lien ; garder la structure Markdown et l’URL inchangées.
+4) Ne pas ajouter 「」 autour d’un lien Markdown sauf si la grammaire des liens externes l’exige.
 
-このリポジトリは、Azure SDK for C++で提供される各サービス クライアントのクイックスタート サンプルの集合です。これらのサンプルは、各サービス クライアントの一般的な使い方を示しています。
+LA STRUCTURE EST PLUS IMPORTANTE QUE LE STYLE.
+Ne pas optimiser la naturalité en japonais si cela modifie les jetons Markdown.
 
-## サポートされているサービス
-
-- Azure Storage Blob
-- Azure Key Vault Keys
-- Azure Identity
-
-## サンプルの構成
-
-各サービスはそれぞれのディレクトリを持っています。たとえば、Blob Storageのサンプルは`storage_blobs`ディレクトリにあります。
-
-## 使い方
-
-1. Azure Subscriptionを用意し、必要なサービスを有効にします。
-2. 環境変数を設定して、認証情報を構成します。
-3. 各サンプル ディレクトリで README.md ファイルを参照して、ビルドと実行方法を確認します。
-
-## 参考資料
-
-詳細については、[Azure SDK for C++ ドキュメント](https://azure.github.io/azure-sdk-for-cpp/)を参照してください。
+Exemple
+Source : Ce document utilise [Co-op Translator](https://github.com/Azure/co-op-translator).
+Correct : 本書類は [Co-op Translator](https://github.com/Azure/co-op-translator) を使用しています。
+Incorrect : 本書類は「Co-op Translator」（https://github.com/Azure/co-op-translator）を使用しています。
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Avertissement** :  
-Ce document a été traduit à l’aide du service de traduction IA [Co-op Translator](https://github.com/Azure/co-op-translator). Bien que nous nous efforcions d’assurer l’exactitude, veuillez noter que les traductions automatiques peuvent contenir des erreurs ou des inexactitudes. Le document original dans sa langue d’origine doit être considéré comme la source faisant foi. Pour les informations critiques, une traduction professionnelle humaine est recommandée. Nous déclinons toute responsabilité en cas de malentendus ou de mauvaises interprétations résultant de l’utilisation de cette traduction.
+**Avertissement** :
+Ce document a été traduit à l'aide du service de traduction automatique [Co-op Translator](https://github.com/Azure/co-op-translator). Bien que nous nous efforçions d'assurer l'exactitude, veuillez noter que les traductions automatisées peuvent contenir des erreurs ou des inexactitudes. Le document original dans sa langue native doit être considéré comme la source faisant autorité. Pour les informations critiques, il est recommandé de recourir à une traduction professionnelle réalisée par un humain. Nous ne saurions être tenus responsables des malentendus ou erreurs d'interprétation découlant de l'utilisation de cette traduction.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

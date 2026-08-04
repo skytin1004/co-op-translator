@@ -1,62 +1,22 @@
----
-title: Localizeflow を使用して GitHub のプルリクエストを自動的にローカライズする
-description: Azure Pipelines ではなく GitHub App を使用して GitHub のプルリクエスト（PR）を自動的にローカライズする方法に関するガイドです。
----
+Modo japonés: preservar estrictamente los tokens Markdown.
 
-# Localizeflow を使用して GitHub のプルリクエストを自動的にローカライズする
+Reglas (deben seguirse):
+1) Mantener los enlaces Markdown exactamente: [text](../../../../../../src/co_op_translator/templates/language/URL) -> [texto traducido](../../../../../../src/co_op_translator/templates/language/misma URL).
+2) NUNCA reescribir los enlaces como texto plano (p. ej., 「text」（URL）, text (URL)).
+3) Traducir solo el texto del enlace; mantener la estructura Markdown y la URL sin cambios.
+4) No agregar 「」 alrededor de un enlace Markdown a menos que la gramática externa del enlace lo requiera.
 
-このドキュメントでは、デフォルトの Azure Pipelines ではなく [Localizeflow GitHub App](https://github.com/marketplace/localizeflow) を使用して GitHub リポジトリ内でプルリクエスト（PR）をローカライズする方法について説明します。
+LA ESTRUCTURA ES MÁS IMPORTANTE QUE EL ESTILO.
+No optimizar la naturalidad japonesa si los tokens Markdown cambiarían.
 
-## 概要
-
-- [Localizeflow GitHub App](https://github.com/marketplace/localizeflow) を GitHub リポジトリにインストールします。
-- App は PR イベントをトリガーとして検出します。
-- App は PR で変更されたファイルから翻訳されていないリソース文字列を抽出します。
-- App は翻訳プロバイダーを呼び出して翻訳を取得します。
-- App は翻訳された文字列で新しいコミットを PR に追加します。
-
-## インストール
-
-1. [Localizeflow GitHub App ページ](https://github.com/marketplace/localizeflow) にアクセスします。
-2. 「インストール」をクリックし、ローカライズしたいリポジトリを選択します。
-3. インストールを完了します。
-
-## 設定
-
-- App は `localizeflow.yaml` 設定ファイルを必要とします。リポジトリのルートに配置してください。
-- 設定ファイルには以下を含めます:
-  - 翻訳対象ファイルのパターン
-  - ターゲット言語
-  - 使用する翻訳プロバイダーの設定
-
-例:
-
-```yaml
-sources:
-  - path: "resources/*.resx"
-    languages: [ "ja", "fr", "de" ]
-
-providers:
-  azure:
-    apiKey: ${{ secrets.AZURE_TRANSLATOR_KEY }}
-```
-
-## 使い方
-
-- PR を作成または更新すると、Localizeflow が自動的に実行され、ローカライズされていない文字列を検出および翻訳します。
-- 翻訳結果は同じ PR に新しいコミットとして追加されます。
-
-## メリット
-
-- Azure Pipelines を使わずに GitHub のみで完結します。
-- PR ごとに最新の変更を自動的にローカライズ。
-- 翻訳ワークフローが簡素化されます。
-
-詳細は [Localizeflow ドキュメント](https://localizeflow.com/docs) をご覧ください。
+Ejemplo
+Fuente: This document uses [Co-op Translator](https://github.com/Azure/co-op-translator).
+Correcto: 本書類は [Co-op Translator](https://github.com/Azure/co-op-translator) を使用しています。
+Incorrecto: 本書類は「Co-op Translator」（https://github.com/Azure/co-op-translator）を使用しています。
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Descargo de responsabilidad**:  
-Este documento ha sido traducido utilizando el servicio de traducción automática [Co-op Translator](https://github.com/Azure/co-op-translator). Aunque nos esforzamos por la precisión, tenga en cuenta que las traducciones automáticas pueden contener errores o inexactitudes. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda una traducción profesional realizada por humanos. No nos hacemos responsables de malentendidos o interpretaciones erróneas derivadas del uso de esta traducción.
+**Descargo de responsabilidad**:
+Este documento ha sido traducido utilizando el servicio de traducción automática [Co-op Translator](https://github.com/Azure/co-op-translator). Aunque nos esforzamos por la precisión, tenga en cuenta que las traducciones automatizadas pueden contener errores o inexactitudes. El documento original en su idioma nativo debe considerarse la fuente autorizada. Para información crítica, se recomienda una traducción profesional humana. No somos responsables de cualquier malentendido o interpretación errónea que surja del uso de esta traducción.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

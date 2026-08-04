@@ -44,7 +44,7 @@ Vous devez simplement ajouter vos **identifiants de service IA** comme secrets c
 2.  Allez dans **Settings** > **Secrets and variables** > **Actions**.
 3.  Sous **Repository secrets**, cliquez sur **New repository secret** pour chaque secret de service IA requis listé ci-dessous.
 
-    <img src="../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.fr.png" alt="Sélectionner l’action de paramétrage"> *(Référence image : montre où ajouter les secrets)*
+    <img src="../../../../translated_images/fr/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.png" alt="Sélectionner l’action de paramétrage"> *(Référence image : montre où ajouter les secrets)*
 
 **Secrets de service IA requis (Ajoutez TOUS ceux qui correspondent à vos prérequis) :**
 
@@ -72,7 +72,7 @@ L’action GitHub a besoin d’autorisations via le `GITHUB_TOKEN` pour cloner l
 4.  Vérifiez que la case **Allow GitHub Actions to create and approve pull requests** est **cochée**.
 5.  Cliquez sur **Save**.
 
-<img src="../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.fr.png" alt="Paramétrage des autorisations">
+<img src="../../../../translated_images/fr/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.png" alt="Paramétrage des autorisations">
 
 ### Étape 4 : Créer le fichier de workflow
 
