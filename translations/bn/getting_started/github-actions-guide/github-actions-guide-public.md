@@ -44,7 +44,7 @@ GitHub Action কনফিগার করার আগে, আপনার AI �
 ২.  **Settings** > **Secrets and variables** > **Actions** এ যান।
 ৩.  **Repository secrets**-এর নিচে, প্রতিটি প্রয়োজনীয় AI সার্ভিস সিক্রেটের জন্য **New repository secret**-এ ক্লিক করুন।
 
-    <img src="../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.bn.png" alt="সেটিং অ্যাকশন নির্বাচন করুন"> *(ছবির রেফারেন্স: এখানে কিভাবে সিক্রেট যোগ করবেন দেখানো হয়েছে)*
+    <img src="../../../../translated_images/bn/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.png" alt="সেটিং অ্যাকশন নির্বাচন করুন"> *(ছবির রেফারেন্স: এখানে কিভাবে সিক্রেট যোগ করবেন দেখানো হয়েছে)*
 
 **প্রয়োজনীয় AI সার্ভিস সিক্রেট (পূর্বশর্ত অনুযায়ী প্রযোজ্য সব যোগ করুন):**
 
@@ -72,7 +72,7 @@ GitHub Action-কে `GITHUB_TOKEN`-এর মাধ্যমে কোড check
 ৪.  **Allow GitHub Actions to create and approve pull requests** চেকবক্সটি **চেক** করুন।
 ৫.  **Save** নির্বাচন করুন।
 
-<img src="../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.bn.png" alt="পারমিশন সেটিং">
+<img src="../../../../translated_images/bn/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.png" alt="পারমিশন সেটিং">
 
 ### ধাপ ৪: Workflow ফাইল তৈরি করুন
 

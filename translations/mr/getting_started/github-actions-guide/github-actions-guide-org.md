@@ -47,11 +47,11 @@ Workflow तुमच्या repository सोबत सुरक्षित�
 
 1. **Install** निवडा आणि तुमच्या target repository असलेल्या account किंवा organization निवडा.
 
-    <img alt="Install app" src="../../../../translated_images/install-app.d0f0a24cbb1d6c93f293f002eb34e633f7bc8f5caaba46b97806ba7bdc958f27.mr.png">
+    <img alt="Install app" src="../../../../translated_images/mr/install-app.d0f0a24cbb1d6c93f293f002eb34e633f7bc8f5caaba46b97806ba7bdc958f27.png">
 
 1. **Only select repositories** निवडा आणि तुमचा target repository (उदा. `PhiCookBook`) निवडा. **Install** क्लिक करा. Authentication विचारले जाऊ शकते.
 
-    <img alt="Install authorize" src="../../../../translated_images/install-authorize.29df6238c3eb8f707e7fc6f97a946cb654b328530c4aeddce28b874693f076a0.mr.png">
+    <img alt="Install authorize" src="../../../../translated_images/mr/install-authorize.29df6238c3eb8f707e7fc6f97a946cb654b328530c4aeddce28b874693f076a0.png">
 
 1. **App Credentials मिळवा (Internal Process Required):** Workflow ला app म्हणून authenticate करण्यासाठी Co-op Translator टीमकडून दोन गोष्टी मिळवाव्या लागतील:
   - **App ID:** Co-op Translator app साठी unique identifier. App ID आहे: `1164076`.
@@ -73,7 +73,7 @@ GitHub App credentials आणि AI सेवा credentials encrypted secrets �
 
 1. **Repository secrets** खाली, प्रत्येक secret साठी **New repository secret** क्लिक करा.
 
-   <img alt="Select setting action" src="../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.mr.png">
+   <img alt="Select setting action" src="../../../../translated_images/mr/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.png">
 
 **Required Secrets (GitHub App Authentication साठी):**
 
@@ -98,7 +98,7 @@ GitHub App credentials आणि AI सेवा credentials encrypted secrets �
 | `OPENAI_CHAT_MODEL_ID`              | Specific OpenAI model ID                  | OpenAI Platform                    |
 | `OPENAI_BASE_URL`                   | Custom OpenAI API Base URL                | OpenAI Platform                    |
 
-<img alt="Enter environment variable name" src="../../../../translated_images/add-secrets-done.444861ce6956d5cb20781ead1237fcc12805078349bb0d4e95bb9540ee192227.mr.png">
+<img alt="Enter environment variable name" src="../../../../translated_images/mr/add-secrets-done.444861ce6956d5cb20781ead1237fcc12805078349bb0d4e95bb9540ee192227.png">
 
 ### Step 3: Workflow File तयार करा
 
