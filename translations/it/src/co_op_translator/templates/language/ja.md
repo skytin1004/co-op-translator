@@ -1,45 +1,22 @@
----
-title: ファイル システムの永続性について
-description: Node.js のファイル システムでの永続性を検証します。
----
+Modalità giapponese: preservare rigorosamente i token Markdown.
 
-# ファイル システムの永続性について
+Regole (da seguire assolutamente):
+1) Mantenere esattamente i link Markdown: [testo](../../../../../../src/co_op_translator/templates/language/URL) -> [testo tradotto](../../../../../../src/co_op_translator/templates/language/stesso URL).
+2) MAI riscrivere i link come testo normale (es. 「testo」（URL）, testo (URL)).
+3) Tradurre solo il testo del link; mantenere invariata la struttura Markdown e l’URL.
+4) Non aggiungere 「」 intorno a un link Markdown a meno che la grammatica del testo esterno lo richieda.
 
-このドキュメントでは、Node.js のファイル システムの変更がプロセス間でどのように永続するかを確認します。
+LA STRUTTURA È PIÙ IMPORTANTE DELLO STILE.
+Non ottimizzare la naturalezza giapponese se i token Markdown verrebbero modificati.
 
-## テスト
-
-```bash
-node fs.mjs && node fs.mjs
-```
-
-`fs.mjs` の内容は以下のとおりです:
-
-```js
-import fs from "fs";
-
-if (!fs.existsSync("test.txt")) {
-  fs.writeFileSync("test.txt", "hello");
-}
-
-const content = fs.readFileSync("test.txt", "utf8");
-console.log(`file content: ${content}`);
-
-fs.writeFileSync("test.txt", "world");
-```
-
-### 結果
-
-初回の実行では `test.txt` が存在しないため、ファイルが作成され `hello` が書き込まれます。2回目の実行時には、`test.txt` が存在しその内容が表示され、その後 `world` に書き換えられます。
-
-このことから、Node.js のファイル システムの変更は持続されていることがわかります。
-
-[!IMPORTANT]
-ファイル システムの永続性は、デプロイ環境の設定やボリュームのマウント状況によって異なる場合があります。このテストは一般的なローカル環境を想定しています。
+Esempio
+Origine: This document uses [Co-op Translator](https://github.com/Azure/co-op-translator).
+Corretto: 本書類は [Co-op Translator](https://github.com/Azure/co-op-translator) を使用しています。
+Errato: 本書類は「Co-op Translator」（https://github.com/Azure/co-op-translator）を使用しています。
 
 ---
 
 <!-- CO-OP TRANSLATOR DISCLAIMER START -->
-**Disclaimer**:  
-Questo documento è stato tradotto utilizzando il servizio di traduzione AI [Co-op Translator](https://github.com/Azure/co-op-translator). Pur impegnandoci per garantire l’accuratezza, si prega di essere consapevoli che le traduzioni automatiche potrebbero contenere errori o inesattezze. Il documento originale nella sua lingua nativa deve essere considerato la fonte autorevole. Per informazioni critiche, si raccomanda la traduzione professionale umana. Non siamo responsabili per eventuali incomprensioni o interpretazioni errate derivanti dall’uso di questa traduzione.
+**Disclaimer**:
+Questo documento è stato tradotto utilizzando il servizio di traduzione AI [Co-op Translator](https://github.com/Azure/co-op-translator). Sebbene ci impegniamo per garantire la precisione, si prega di notare che le traduzioni automatizzate possono contenere errori o imprecisioni. Il documento originale nella sua lingua nativa deve essere considerato la fonte autorevole. Per informazioni critiche, si raccomanda una traduzione professionale effettuata da un essere umano. Non siamo responsabili per eventuali malintesi o interpretazioni errate derivanti dall’uso di questa traduzione.
 <!-- CO-OP TRANSLATOR DISCLAIMER END -->

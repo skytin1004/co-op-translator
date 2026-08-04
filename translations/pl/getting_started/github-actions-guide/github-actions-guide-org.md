@@ -47,11 +47,11 @@ Workflow używa uwierzytelniania przez GitHub App, aby bezpiecznie wykonywać op
 
 1. Wybierz **Install** i wskaż konto lub organizację, w której znajduje się docelowe repozytorium.
 
-    ![Instalacja aplikacji](../../../../translated_images/install-app.d0f0a24cbb1d6c93f293f002eb34e633f7bc8f5caaba46b97806ba7bdc958f27.pl.png)
+    ![Instalacja aplikacji](../../../../translated_images/pl/install-app.d0f0a24cbb1d6c93f293f002eb34e633f7bc8f5caaba46b97806ba7bdc958f27.png)
 
 1. Wybierz **Only select repositories** i wskaż swoje repozytorium (np. `PhiCookBook`). Kliknij **Install**. Może być wymagane uwierzytelnienie.
 
-    ![Instalacja autoryzacja](../../../../translated_images/install-authorize.29df6238c3eb8f707e7fc6f97a946cb654b328530c4aeddce28b874693f076a0.pl.png)
+    ![Instalacja autoryzacja](../../../../translated_images/pl/install-authorize.29df6238c3eb8f707e7fc6f97a946cb654b328530c4aeddce28b874693f076a0.png)
 
 1. **Uzyskaj dane uwierzytelniające aplikacji (wymagany proces wewnętrzny):** Aby workflow mógł uwierzytelniać się jako aplikacja, potrzebujesz dwóch informacji od zespołu Co-op Translator:
   - **App ID:** Unikalny identyfikator aplikacji Co-op Translator. App ID to: `1164076`.
@@ -73,7 +73,7 @@ Musisz dodać dane uwierzytelniające aplikacji GitHub App oraz usługi AI jako 
 
 1. W sekcji **Repository secrets** kliknij **New repository secret** dla każdego sekretu z poniższej listy.
 
-   ![Wybierz ustawienia akcji](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.pl.png)
+   ![Wybierz ustawienia akcji](../../../../translated_images/pl/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.png)
 
 **Wymagane sekrety (do uwierzytelniania przez GitHub App):**
 
@@ -98,7 +98,7 @@ Musisz dodać dane uwierzytelniające aplikacji GitHub App oraz usługi AI jako 
 | `OPENAI_CHAT_MODEL_ID`               | ID konkretnego modelu OpenAI                  | OpenAI Platform                |
 | `OPENAI_BASE_URL`                    | Niestandardowy Base URL API OpenAI            | OpenAI Platform                |
 
-![Wprowadź nazwę zmiennej środowiskowej](../../../../translated_images/add-secrets-done.444861ce6956d5cb20781ead1237fcc12805078349bb0d4e95bb9540ee192227.pl.png)
+![Wprowadź nazwę zmiennej środowiskowej](../../../../translated_images/pl/add-secrets-done.444861ce6956d5cb20781ead1237fcc12805078349bb0d4e95bb9540ee192227.png)
 
 ### Krok 3: Utwórz plik workflow
 

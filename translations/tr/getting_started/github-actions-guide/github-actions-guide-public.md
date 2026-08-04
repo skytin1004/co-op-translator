@@ -44,7 +44,7 @@ Sadece **yapay zeka servis kimlik bilgilerinizi** depo ayarlarında şifreli giz
 2.  **Settings** > **Secrets and variables** > **Actions** yolunu izleyin.
 3.  **Repository secrets** altında, aşağıda listelenen her bir gerekli yapay zeka servisi için **New repository secret** butonuna tıklayın.
 
-    <img src="../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.tr.png" alt="Select setting action"> *(Görsel Açıklaması: Gizli anahtarların nereden ekleneceğini gösterir)*
+    <img src="../../../../translated_images/tr/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.png" alt="Select setting action"> *(Görsel Açıklaması: Gizli anahtarların nereden ekleneceğini gösterir)*
 
 **Gerekli Yapay Zeka Servis Gizli Anahtarları (Ön Gereksinimlerinize göre UYGUN OLANLARIN HEPSİNİ ekleyin):**
 
@@ -72,7 +72,7 @@ GitHub Action'ın kodu çekebilmesi ve pull request oluşturabilmesi için `GITH
 4.  **Allow GitHub Actions to create and approve pull requests** kutusunun **işaretli** olduğundan emin olun.
 5.  **Save** seçeneğine tıklayın.
 
-<img src="../../../../translated_images/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.tr.png" alt="Permission setting">
+<img src="../../../../translated_images/tr/permission-setting.ae2f02748b0579e7dc3633f14dad67005b533ea8f69890818857de058089a7f5.png" alt="Permission setting">
 
 ### 4. Adım: Workflow Dosyasını Oluşturun
 

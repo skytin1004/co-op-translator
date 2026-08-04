@@ -47,11 +47,11 @@ Co-op Translator GitHub Action'ı deponuzda yapılandırmak için aşağıdaki a
 
 1. **Install** seçeneğine tıklayın ve hedef deponuzun bulunduğu hesabı veya organizasyonu seçin.
 
-    ![Uygulamayı kur](../../../../translated_images/install-app.d0f0a24cbb1d6c93f293f002eb34e633f7bc8f5caaba46b97806ba7bdc958f27.tr.png)
+    ![Uygulamayı kur](../../../../translated_images/tr/install-app.d0f0a24cbb1d6c93f293f002eb34e633f7bc8f5caaba46b97806ba7bdc958f27.png)
 
 1. **Only select repositories** seçeneğini işaretleyin ve hedef deponuzu seçin (ör. `PhiCookBook`). **Install**'a tıklayın. Kimlik doğrulamanız istenebilir.
 
-    ![Kurulum yetkilendir](../../../../translated_images/install-authorize.29df6238c3eb8f707e7fc6f97a946cb654b328530c4aeddce28b874693f076a0.tr.png)
+    ![Kurulum yetkilendir](../../../../translated_images/tr/install-authorize.29df6238c3eb8f707e7fc6f97a946cb654b328530c4aeddce28b874693f076a0.png)
 
 1. **Uygulama Kimlik Bilgilerini Alın (İç Süreç Gerekli):** İş akışının uygulama olarak kimlik doğrulaması yapabilmesi için Co-op Translator ekibi tarafından sağlanan iki bilgiye ihtiyacınız var:
    - **App ID:** Co-op Translator uygulamasının benzersiz kimliği. App ID: `1164076`.
@@ -73,7 +73,7 @@ GitHub App kimlik bilgilerini ve AI servis kimlik bilgilerinizi deponuzun ayarla
 
 1. **Repository secrets** altında, aşağıda listelenen her bir secret için **New repository secret**'a tıklayın.
 
-   ![Ayarlar actions seç](../../../../translated_images/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.tr.png)
+   ![Ayarlar actions seç](../../../../translated_images/tr/select-setting-action.3b95c915d60311592ca51ecb91b3a7bbe0ae45438a2ee872c1520dc90b677780.png)
 
 **Gerekli Sırlar (GitHub App Kimlik Doğrulaması için):**
 
@@ -98,7 +98,7 @@ GitHub App kimlik bilgilerini ve AI servis kimlik bilgilerinizi deponuzun ayarla
 | `OPENAI_CHAT_MODEL_ID`              | Belirli OpenAI model kimliği             | OpenAI Platformu               |
 | `OPENAI_BASE_URL`                   | Özel OpenAI API Base URL                 | OpenAI Platformu               |
 
-![Ortam değişkeni adını girin](../../../../translated_images/add-secrets-done.444861ce6956d5cb20781ead1237fcc12805078349bb0d4e95bb9540ee192227.tr.png)
+![Ortam değişkeni adını girin](../../../../translated_images/tr/add-secrets-done.444861ce6956d5cb20781ead1237fcc12805078349bb0d4e95bb9540ee192227.png)
 
 ### Adım 3: Workflow Dosyasını Oluşturun
 
