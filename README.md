@@ -14,18 +14,6 @@ Co-op Translator detects changed source content, updates stale translations, and
 
 > Translating one file is easy. Keeping an entire documentation repository translated, linked, and up to date is the hard part.
 
-## Why Co-op Translator?
-
-Translation is not finished when a model returns text. Repository-scale documentation needs to stay complete, navigable, and synchronized after every source change.
-
-| Problem | How Co-op Translator helps |
-| --- | --- |
-| Source content keeps changing | Source hashes and language-scoped metadata identify stale files and skip unchanged translations. |
-| Long documents do not fit one reliable model response | Markdown is split into manageable chunks, with retry and re-chunking for failed sections. |
-| Models can alter Markdown structure or destinations | Structure checks and parser-based protection preserve Markdown URLs, code, and Markdown structure. |
-| Links must follow the translated repository tree | Relative links for Markdown, notebooks, images, and README files are rewritten for `translations/<lang>/...`. |
-| A repository contains more than prose | One workflow can handle Markdown, Jupyter notebooks, image text, and repository-level review. |
-
 ## See Co-op Translator in real repositories
 
 Co-op Translator has been used in Microsoft open-source learning repositories that combine lessons, code samples, links, notebooks, and supporting assets.
@@ -65,6 +53,18 @@ Technical learning content covering Model Context Protocol concepts, examples, a
 - [PhiCookBook](https://github.com/microsoft/PhiCookBook)
 
 </details>
+
+## Why Co-op Translator?
+
+Translation is not finished when a model returns text. Repository-scale documentation needs to stay complete, navigable, and synchronized after every source change.
+
+| Problem | How Co-op Translator helps |
+| --- | --- |
+| Source content keeps changing | Source hashes and language-scoped metadata identify stale files and skip unchanged translations. |
+| Long documents do not fit one reliable model response | Markdown is split into manageable chunks, with retry and re-chunking for failed sections. |
+| Models can alter Markdown structure or destinations | Structure checks and parser-based protection preserve Markdown URLs, code, and Markdown structure. |
+| Links must follow the translated repository tree | Relative links for Markdown, notebooks, images, and README files are rewritten for `translations/<lang>/...`. |
+| A repository contains more than prose | One workflow can handle Markdown, Jupyter notebooks, image text, and repository-level review. |
 
 ## Get started
 
