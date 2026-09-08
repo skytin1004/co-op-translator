@@ -13,7 +13,11 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 def _poetry_dependency_names() -> tuple[set[str], set[str]]:
     config = tomllib.loads((REPO_ROOT / "pyproject.toml").read_text(encoding="utf-8"))
     poetry = config["tool"]["poetry"]
-    runtime = set(poetry["dependencies"])
+    runtime = {
+        name
+        for name, spec in poetry["dependencies"].items()
+        if not (isinstance(spec, dict) and spec.get("optional"))
+    }
     runtime.discard("python")
     development = set(poetry["group"]["dev"]["dependencies"])
     return (
@@ -107,3 +111,12 @@ def test_runtime_export_preserves_required_extras():
 
     assert requirements["az-ai-healthcheck"].extras == {"vision"}
     assert requirements["pyjwt"].extras == {"crypto"}
+
+
+def test_anthropic_extra_is_optional_and_locked():
+    config = tomllib.loads((REPO_ROOT / "pyproject.toml").read_text(encoding="utf-8"))
+    poetry = config["tool"]["poetry"]
+    assert poetry["dependencies"]["agent-framework-anthropic"]["optional"] is True
+    assert poetry["extras"]["anthropic"] == ["agent-framework-anthropic"]
+    lock = tomllib.loads((REPO_ROOT / "poetry.lock").read_text(encoding="utf-8"))
+    assert lock["extras"]["anthropic"] == ["agent-framework-anthropic"]

@@ -6,7 +6,8 @@ version = "1.0.0b260827"
 description = "Anthropic integration for Microsoft Agent Framework."
 optional = false
 python-versions = ">=3.10"
-groups = ["dev"]
+groups = ["main", "dev"]
+markers = {main = "extra == \"anthropic\""}
 files = [
     {file = "agent_framework_anthropic-1.0.0b260827-py3-none-any.whl", hash = "sha256:92572c975d13cf00cd45c897a4d6963865861cec20858b3ea240d7dbb440ba94"},
     {file = "agent_framework_anthropic-1.0.0b260827.tar.gz", hash = "sha256:1cbe4a8b8615554db1c58f67b94b5e83b9bdfecf75cbfa29046b7a49fc5bf0cb"},
@@ -317,7 +318,8 @@ version = "0.116.0"
 description = "The official Python library for the anthropic API"
 optional = false
 python-versions = ">=3.9"
-groups = ["dev"]
+groups = ["main", "dev"]
+markers = {main = "extra == \"anthropic\""}
 files = [
     {file = "anthropic-0.116.0-py3-none-any.whl", hash = "sha256:6c0a7698e8d652455da3499978279bb2588c7264d0a35be3666009a4258c8256"},
     {file = "anthropic-0.116.0.tar.gz", hash = "sha256:5fc248fbb9fe03ef686f8a774f81586bca31a043260aab88b387ea3660f4a396"},
@@ -1452,7 +1454,8 @@ version = "0.18.0"
 description = "Parse Python docstrings in reST, Google and Numpydoc format"
 optional = false
 python-versions = ">=3.8"
-groups = ["dev"]
+groups = ["main", "dev"]
+markers = {main = "extra == \"anthropic\""}
 files = [
     {file = "docstring_parser-0.18.0-py3-none-any.whl", hash = "sha256:b3fcbed555c47d8479be0796ef7e19c2670d428d72e96da63f3a40122860374b"},
     {file = "docstring_parser-0.18.0.tar.gz", hash = "sha256:292510982205c12b1248696f44959db3cdd1740237a968ea1e2e7a900eeb2015"},
@@ -5484,7 +5487,10 @@ idna = ">=2.0"
 multidict = ">=4.0"
 propcache = ">=0.2.1"
 
+[extras]
+anthropic = ["agent-framework-anthropic"]
+
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.11,<3.15"
-content-hash = "53555fb0c5cbe5744542a70925503e4e032d487474da735e176e9fb727f790d9"
+content-hash = "f5a4bf9a6b07b8ec11fc719932af3485a31cfd2d16986a7cf64720a5c0f1d6be"

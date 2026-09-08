@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from typing import Dict, Optional
 import logging
+import os
 
 from ai_healthcheck import check_openai
 from az_ai_healthcheck import check_azure_openai
@@ -8,6 +9,10 @@ from az_ai_healthcheck import check_azure_openai
 from co_op_translator.config.llm_config.provider import LLMProvider
 from co_op_translator.config.llm_config.azure_openai import AzureOpenAIConfig
 from co_op_translator.config.llm_config.openai import OpenAIConfig
+from co_op_translator.config.llm_config.anthropic import (
+    AnthropicConfig,
+    ANTHROPIC_INSTALL_MESSAGE,
+)
 from co_op_translator.utils.common.env_set_utils import (
     any_env_var_present,
     set_preferred_env_set,
@@ -97,6 +102,22 @@ class LLMConfig:
             cls.validate_env_vars(env_vars, provider)
             return LLMServiceConfig(required=False, env_vars=env_vars)
 
+        elif provider == LLMProvider.ANTHROPIC:
+            env_vars = {
+                "ANTHROPIC_API_KEY": AnthropicConfig.get_api_key(),
+                "ANTHROPIC_CHAT_MODEL_ID": AnthropicConfig.get_chat_model_id(),
+            }
+            if not any(env_vars.values()) and not os.getenv("ANTHROPIC_MAX_TOKENS"):
+                raise ValueError("NO_CONFIG_ANTHROPIC")
+            missing = [name for name, value in env_vars.items() if not value]
+            if missing:
+                raise ValueError(
+                    "Incomplete Anthropic configuration. Set " + ", ".join(missing) + "."
+                )
+            AnthropicConfig.get_max_tokens()
+            AnthropicConfig.validate_backend()
+            return LLMServiceConfig(required=False, env_vars=env_vars)
+
         else:
             raise ValueError(
                 f"Unknown LLM provider: {provider}. Expected one of: {[e.name for e in LLMProvider]}"
@@ -104,45 +125,50 @@ class LLMConfig:
 
     @classmethod
     def get_available_provider(cls) -> LLMProvider:
-        """
-        1) Attempt Azure. If it fails:
-           - If error string contains "NO_CONFIG_AZURE", ignore it (means Azure is not set at all).
-           - Otherwise, raise that error (it must be an Incomplete config).
-        2) Attempt OpenAI similarly.
-        3) If both providers are "no config," raise "No LLM service is properly configured."
-        """
-        azure_error = None
-        try:
-            cls.get_service_config(LLMProvider.AZURE_OPENAI)
-            return LLMProvider.AZURE_OPENAI
-        except ValueError as e:
-            if "NO_CONFIG_AZURE" in str(e):
-                azure_error = None  # Means Azure is not configured at all
-            else:
-                azure_error = e  # Incomplete or other error
+        """Select an explicit provider, or preserve Azure/OpenAI auto-detection priority."""
+        selected = os.getenv("CO_OP_TRANSLATOR_PROVIDER", "").strip().lower()
+        if selected:
+            try:
+                provider = LLMProvider(selected)
+            except ValueError:
+                raise ValueError(
+                    "Invalid CO_OP_TRANSLATOR_PROVIDER. Expected azure_openai, openai, or anthropic."
+                ) from None
+            try:
+                cls.get_service_config(provider)
+            except ValueError as exc:
+                if str(exc).startswith("NO_CONFIG_"):
+                    required = {
+                        LLMProvider.AZURE_OPENAI: "AZURE_OPENAI_* variables",
+                        LLMProvider.OPENAI: "OPENAI_API_KEY and OPENAI_CHAT_MODEL_ID",
+                        LLMProvider.ANTHROPIC: "ANTHROPIC_API_KEY and ANTHROPIC_CHAT_MODEL_ID",
+                    }[provider]
+                    raise ValueError(
+                        f"Selected provider {selected} is not configured. Set {required}."
+                    ) from None
+                raise
+            return provider
 
-        openai_error = None
-        try:
-            cls.get_service_config(LLMProvider.OPENAI)
-            return LLMProvider.OPENAI
-        except ValueError as e:
-            if "NO_CONFIG_OPENAI" in str(e):
-                openai_error = None  # Means OpenAI is not configured at all
-            else:
-                openai_error = e
-
-        # If azure_error and openai_error are both None => neither configured at all
-        if not azure_error and not openai_error:
-            raise ValueError("No LLM service is properly configured")
-
-        # Otherwise, raise the first "incomplete" error if it exists
-        if azure_error:
-            raise azure_error
-        if openai_error:
-            raise openai_error
-
-        # Fallback if something unexpected happened
+        errors = []
+        for provider in LLMProvider:
+            try:
+                cls.get_service_config(provider)
+                return provider
+            except ValueError as exc:
+                if not str(exc).startswith("NO_CONFIG_"):
+                    errors.append(exc)
+        if errors:
+            raise errors[0]
         raise ValueError("No LLM service is properly configured")
+
+    @classmethod
+    def validate_image_support(cls) -> None:
+        """Reject unsupported image translation before any provider calls."""
+        if cls.get_available_provider() == LLMProvider.ANTHROPIC:
+            raise ValueError(
+                "Anthropic currently supports Markdown, notebooks, and LLM evaluation only. "
+                "Use -md and/or -nb (API: images=False), or select OpenAI/Azure OpenAI for images."
+            )
 
     @classmethod
     def check_configuration(cls):
@@ -164,6 +190,31 @@ class LLMConfig:
             ValueError: with actionable message if validation fails.
         """
         provider = cls.get_available_provider()
+
+        if provider == LLMProvider.ANTHROPIC:
+            try:
+                from anthropic import Anthropic
+                from agent_framework_anthropic import AnthropicClient  # noqa: F401
+            except ImportError:
+                raise ValueError(ANTHROPIC_INSTALL_MESSAGE) from None
+            try:
+                with Anthropic(
+                    api_key=AnthropicConfig.get_api_key(), timeout=10.0, max_retries=0
+                ) as client:
+                    client.messages.create(
+                        model=AnthropicConfig.get_chat_model_id(),
+                        max_tokens=1,
+                        messages=[{"role": "user", "content": "Hi"}],
+                    )
+            except Exception as exc:
+                # Do not expose credentials or provider response bodies in CLI errors.
+                status = getattr(exc, "status_code", None)
+                detail = f" (HTTP {status})" if isinstance(status, int) else ""
+                raise ValueError(
+                    f"Anthropic connectivity check failed{detail}. Check ANTHROPIC_API_KEY, "
+                    "ANTHROPIC_CHAT_MODEL_ID, model access, quota, and network connectivity."
+                ) from None
+            return True
 
         if provider == LLMProvider.AZURE_OPENAI:
             env_sets = AzureOpenAIConfig.get_env_sets()

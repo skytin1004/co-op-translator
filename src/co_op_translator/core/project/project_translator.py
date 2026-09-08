@@ -150,7 +150,7 @@ class ProjectTranslator:
         expected_images = "images" in self.translation_types
         expected_notebooks = "notebook" in self.translation_types
         if (
-            self.text_translator is not None
+            (not expected_images or self.text_translator is not None)
             and self.markdown_translator is not None
             and (not expected_images or self.image_translator is not None)
             and (not expected_notebooks or self.notebook_translator is not None)
@@ -159,7 +159,9 @@ class ProjectTranslator:
 
         # Build the provider-backed object graph before assigning it. If any
         # factory fails, a later retry starts from a clean state.
-        new_text_translator = text_translator.TextTranslator.create()
+        new_text_translator = (
+            text_translator.TextTranslator.create() if expected_images else None
+        )
         new_image_translator = None
 
         if expected_images:

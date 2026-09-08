@@ -169,6 +169,7 @@ class TextTranslator(ABC):
         Raises:
             ValueError: When no valid LLM provider is configured
         """
+        LLMConfig.validate_image_support()
         provider = LLMConfig.get_available_provider()
         if provider == LLMProvider.AZURE_OPENAI:
             from co_op_translator.core.llm.providers.azure.text_translator import (

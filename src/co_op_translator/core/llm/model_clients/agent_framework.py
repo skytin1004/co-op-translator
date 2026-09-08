@@ -10,8 +10,11 @@ from co_op_translator.core.llm.model_clients.protocol import ModelResponse
 class AgentFrameworkModelClient:
     """Adapt a Microsoft Agent Framework chat client to the translation boundary."""
 
-    def __init__(self, client: BaseChatClient[Any]) -> None:
+    def __init__(
+        self, client: BaseChatClient[Any], *, default_options: dict[str, Any] | None = None
+    ) -> None:
         self._client = client
+        self._default_options = dict(default_options or {})
 
     async def complete(
         self,
@@ -25,7 +28,7 @@ class AgentFrameworkModelClient:
             messages.append(Message("system", [system_prompt]))
         messages.append(Message("user", [user_content]))
 
-        options: dict[str, Any] = {}
+        options: dict[str, Any] = dict(self._default_options)
         if temperature is not None:
             options["temperature"] = temperature
 

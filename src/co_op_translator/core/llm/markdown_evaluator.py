@@ -215,12 +215,23 @@ class MarkdownEvaluator(ABC):
             return AzureMarkdownEvaluator(
                 root_dir=root_dir, use_llm=use_llm, use_rule=use_rule
             )
-        elif provider == LLMProvider.OPENAI:
+        elif provider in {LLMProvider.OPENAI, LLMProvider.ANTHROPIC}:
             from co_op_translator.core.llm.providers.openai.markdown_evaluator import (
                 OpenAIMarkdownEvaluator,
             )
 
+            from co_op_translator.core.llm.model_clients import (
+                create_translation_model_client,
+            )
+
+            # An injected client bypasses the legacy OpenAI credential/fallback path.
+            model_client = (
+                create_translation_model_client(provider)
+                if provider == LLMProvider.ANTHROPIC
+                else None
+            )
             return OpenAIMarkdownEvaluator(
+                model_client=model_client,
                 root_dir=root_dir, use_llm=use_llm, use_rule=use_rule
             )
         else:

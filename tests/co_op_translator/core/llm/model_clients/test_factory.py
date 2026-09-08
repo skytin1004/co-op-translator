@@ -32,7 +32,7 @@ def test_model_client_backend_rejects_unknown_value(monkeypatch):
         get_model_client_backend()
 
 
-@pytest.mark.parametrize("provider", list(LLMProvider))
+@pytest.mark.parametrize("provider", [LLMProvider.AZURE_OPENAI, LLMProvider.OPENAI])
 def test_factory_creates_semantic_kernel_adapters(provider, monkeypatch):
     monkeypatch.setenv(MODEL_CLIENT_ENV_VAR, "semantic-kernel")
     config_values = _patch_provider_config(provider)
@@ -42,7 +42,7 @@ def test_factory_creates_semantic_kernel_adapters(provider, monkeypatch):
     assert isinstance(client, SemanticKernelModelClient)
 
 
-@pytest.mark.parametrize("provider", list(LLMProvider))
+@pytest.mark.parametrize("provider", [LLMProvider.AZURE_OPENAI, LLMProvider.OPENAI])
 def test_factory_creates_agent_framework_adapters(provider, monkeypatch):
     monkeypatch.setenv(MODEL_CLIENT_ENV_VAR, "agent-framework")
     config_values = _patch_provider_config(provider)

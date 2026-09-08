@@ -36,6 +36,30 @@ def create_translation_model_client(
     *,
     backend: ModelClientBackend | None = None,
 ) -> TranslationModelClient:
+    if provider == LLMProvider.ANTHROPIC:
+        from co_op_translator.config.llm_config.anthropic import (
+            AnthropicConfig,
+            ANTHROPIC_INSTALL_MESSAGE,
+        )
+        from co_op_translator.core.llm.model_clients.agent_framework import (
+            AgentFrameworkModelClient,
+        )
+
+        AnthropicConfig.validate_backend()
+        if backend is not None and backend != ModelClientBackend.AGENT_FRAMEWORK:
+            raise ValueError("Anthropic requires the agent-framework backend.")
+        try:
+            from agent_framework_anthropic import AnthropicClient
+        except ImportError:
+            raise ValueError(ANTHROPIC_INSTALL_MESSAGE) from None
+        return AgentFrameworkModelClient(
+            AnthropicClient(
+                api_key=AnthropicConfig.get_api_key(),
+                model=AnthropicConfig.get_chat_model_id(),
+            ),
+            default_options={"max_tokens": AnthropicConfig.get_max_tokens()},
+        )
+
     selected_backend = backend or get_model_client_backend()
     if selected_backend == ModelClientBackend.SEMANTIC_KERNEL:
         return _create_semantic_kernel_client(provider)

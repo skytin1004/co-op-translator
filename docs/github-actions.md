@@ -12,6 +12,7 @@ Text translation requires one language model provider:
 
 - Azure OpenAI: `AZURE_OPENAI_API_KEY`, `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_MODEL_NAME`, `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME`, `AZURE_OPENAI_API_VERSION`
 - OpenAI: `OPENAI_API_KEY`, `OPENAI_CHAT_MODEL_ID`, plus optional `OPENAI_ORG_ID` and `OPENAI_BASE_URL`
+- Anthropic (experimental, text only): `ANTHROPIC_API_KEY` and `ANTHROPIC_CHAT_MODEL_ID`, with the `anthropic` installation extra
 
 Image translation additionally requires Azure AI Vision:
 
@@ -115,6 +116,27 @@ jobs:
 ```
 
 Change `translate -l "es fr de" -y` to the target languages and content flags your project needs. For large repositories, add a `paths:` filter under `on:` so the workflow only runs when documentation changes.
+
+## Anthropic text translation
+
+For a version that includes Anthropic provider support, replace the installation and translation steps in the standard workflow with:
+
+```yaml
+      - name: Install Co-op Translator with Anthropic
+        run: pip install 'co-op-translator[anthropic]'
+
+      - name: Translate Markdown and notebooks with Claude
+        env:
+          PYTHONIOENCODING: utf-8
+          CO_OP_TRANSLATOR_PROVIDER: anthropic
+          CO_OP_TRANSLATOR_MODEL_CLIENT: agent-framework
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ANTHROPIC_CHAT_MODEL_ID: ${{ vars.ANTHROPIC_CHAT_MODEL_ID }}
+          ANTHROPIC_MAX_TOKENS: "8192"
+        run: translate -l "ko" -md -nb -y
+```
+
+Store the API key as a repository secret and a model ID your account can access as the repository variable `ANTHROPIC_CHAT_MODEL_ID`. Keep the checkout, Python setup, and translation pull-request steps from the standard workflow. No OpenAI or Azure secrets are needed for this text-only configuration. Image translation is not supported on this provider.
 
 ## GitHub App Setup
 

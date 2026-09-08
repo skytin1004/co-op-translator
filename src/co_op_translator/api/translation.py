@@ -332,6 +332,7 @@ def _run_translation_impl(
             Config.check_configuration()
 
         if not dry_run and "images" in translation_types:
+            LLMConfig.validate_image_support()
             cv_available = VisionConfig.check_configuration()
             if not cv_available:
                 raise RuntimeError(

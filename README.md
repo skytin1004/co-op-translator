@@ -257,3 +257,7 @@ For project problems, open a [GitHub issue](https://github.com/Azure/co-op-trans
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
 [![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
+
+### Experimental Claude text translation
+
+Install `co-op-translator[anthropic]` from a version containing Anthropic support, then set `CO_OP_TRANSLATOR_PROVIDER=anthropic`, `ANTHROPIC_API_KEY`, and `ANTHROPIC_CHAT_MODEL_ID`. Run `translate -l "ko" -md -nb -y` for Markdown and notebooks. See [Anthropic configuration](docs/configuration.md#anthropic-claude-experimental) for setup, limitations, and [GitHub Actions](docs/github-actions.md#anthropic-text-translation) for CI usage.

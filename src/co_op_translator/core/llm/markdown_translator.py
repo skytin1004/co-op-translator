@@ -750,12 +750,23 @@ class MarkdownTranslator(ABC):
                 image_dir=image_dir,
                 lang_subdir=lang_subdir,
             )
-        elif provider == LLMProvider.OPENAI:
+        elif provider in {LLMProvider.OPENAI, LLMProvider.ANTHROPIC}:
             from co_op_translator.core.llm.providers.openai.markdown_translator import (
                 OpenAIMarkdownTranslator,
             )
 
+            from co_op_translator.core.llm.model_clients import (
+                create_translation_model_client,
+            )
+
+            # An injected client bypasses the legacy OpenAI credential/fallback path.
+            model_client = (
+                create_translation_model_client(provider)
+                if provider == LLMProvider.ANTHROPIC
+                else None
+            )
             return OpenAIMarkdownTranslator(
+                model_client=model_client,
                 root_dir=root_dir,
                 translations_dir=translations_dir,
                 image_dir=image_dir,
@@ -763,5 +774,5 @@ class MarkdownTranslator(ABC):
             )
         else:
             raise ValueError(
-                f"Unsupported LLM provider '{provider}'. Supported providers: AZURE_OPENAI, OPENAI. Please check your configuration."
+                f"Unsupported LLM provider '{provider}'. Supported providers: AZURE_OPENAI, OPENAI, ANTHROPIC. Please check your configuration."
             )
