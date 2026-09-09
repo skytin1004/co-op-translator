@@ -57,6 +57,29 @@ def test_deferred_translators_initialize_atomically_and_attach_to_manager(tmp_pa
     assert create_notebook.call_count == 2
 
 
+def test_markdown_only_initialization_skips_image_text_translator(tmp_path):
+    translator = ProjectTranslator(
+        "ko",
+        root_dir=tmp_path,
+        translation_types=["markdown"],
+        initialize_translators=False,
+    )
+
+    with (
+        patch(
+            "co_op_translator.core.project.project_translator.text_translator.TextTranslator.create"
+        ) as create_text,
+        patch(
+            "co_op_translator.core.project.project_translator.markdown_translator.MarkdownTranslator.create",
+            return_value=MagicMock(),
+        ),
+    ):
+        translator._initialize_translators()
+
+    create_text.assert_not_called()
+    assert translator.text_translator is None
+
+
 @pytest.fixture
 def temp_project_dir(tmp_path):
     """Create a temporary project directory structure."""

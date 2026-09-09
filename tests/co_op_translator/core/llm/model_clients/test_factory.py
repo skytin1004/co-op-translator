@@ -32,7 +32,7 @@ def test_model_client_backend_rejects_unknown_value(monkeypatch):
         get_model_client_backend()
 
 
-@pytest.mark.parametrize("provider", list(LLMProvider))
+@pytest.mark.parametrize("provider", [LLMProvider.AZURE_OPENAI, LLMProvider.OPENAI])
 def test_factory_creates_semantic_kernel_adapters(provider, monkeypatch):
     monkeypatch.setenv(MODEL_CLIENT_ENV_VAR, "semantic-kernel")
     config_values = _patch_provider_config(provider)
@@ -50,6 +50,22 @@ def test_factory_creates_agent_framework_adapters(provider, monkeypatch):
         client = create_translation_model_client(provider)
 
     assert isinstance(client, AgentFrameworkModelClient)
+
+
+def test_anthropic_defaults_to_agent_framework(monkeypatch):
+    monkeypatch.delenv(MODEL_CLIENT_ENV_VAR, raising=False)
+    with _patch_provider_config(LLMProvider.ANTHROPIC):
+        client = create_translation_model_client(LLMProvider.ANTHROPIC)
+
+    assert isinstance(client, AgentFrameworkModelClient)
+
+
+def test_anthropic_rejects_semantic_kernel_backend():
+    with pytest.raises(ValueError, match="Agent Framework"):
+        create_translation_model_client(
+            LLMProvider.ANTHROPIC,
+            backend=ModelClientBackend.SEMANTIC_KERNEL,
+        )
 
 
 def test_agent_framework_azure_client_uses_explicit_azure_routing():
@@ -92,6 +108,23 @@ def test_agent_framework_openai_client_preserves_custom_base_url():
     )
 
 
+def test_agent_framework_anthropic_client_uses_claude_configuration():
+    with (
+        _patch_provider_config(LLMProvider.ANTHROPIC),
+        patch("agent_framework_anthropic.AnthropicClient") as client_constructor,
+    ):
+        create_translation_model_client(
+            LLMProvider.ANTHROPIC,
+            backend=ModelClientBackend.AGENT_FRAMEWORK,
+        )
+
+    client_constructor.assert_called_once_with(
+        model="claude-test",
+        api_key="test-key",
+        base_url="https://api.anthropic.test",
+    )
+
+
 def _patch_provider_config(provider):
     if provider == LLMProvider.AZURE_OPENAI:
         return patch.multiple(
@@ -101,10 +134,17 @@ def _patch_provider_config(provider):
             get_api_key=lambda: "test-key",
             get_api_version=lambda: "2024-12-01-preview",
         )
+    if provider == LLMProvider.OPENAI:
+        return patch.multiple(
+            "co_op_translator.core.llm.model_clients.factory.OpenAIConfig",
+            get_chat_model_id=lambda: "gpt-4o-mini",
+            get_org_id=lambda: None,
+            get_api_key=lambda: "test-key",
+            get_base_url=lambda: "https://api.openai.com/v1",
+        )
     return patch.multiple(
-        "co_op_translator.core.llm.model_clients.factory.OpenAIConfig",
-        get_chat_model_id=lambda: "gpt-4o-mini",
-        get_org_id=lambda: None,
+        "co_op_translator.core.llm.model_clients.factory.AnthropicConfig",
+        get_model=lambda: "claude-test",
         get_api_key=lambda: "test-key",
-        get_base_url=lambda: "https://api.openai.com/v1",
+        get_base_url=lambda: "https://api.anthropic.test",
     )

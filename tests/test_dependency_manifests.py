@@ -92,13 +92,12 @@ def test_ai_sdk_exports_are_on_current_compatible_generations():
     assert _pinned_version(requirements["agent-framework-openai"]) >= Version("1.14.1")
 
 
-def test_optional_agent_framework_provider_exports_are_development_only():
+def test_agent_framework_provider_exports_match_runtime_support():
     runtime = _requirements(REPO_ROOT / "requirements.txt")
     development = _requirements(REPO_ROOT / "requirements-dev.txt")
 
-    assert "agent-framework-anthropic" not in runtime
+    assert "agent-framework-anthropic" in runtime
     assert "agent-framework-ollama" not in runtime
-    assert "agent-framework-anthropic" in development
     assert "agent-framework-ollama" in development
 
 

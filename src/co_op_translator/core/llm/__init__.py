@@ -6,6 +6,15 @@ from co_op_translator.core.llm.providers.openai import (
     OpenAITextTranslator,
     OpenAIMarkdownTranslator,
 )
+from co_op_translator.core.llm.model_client_evaluator import (
+    ModelClientMarkdownEvaluator,
+)
+from co_op_translator.core.llm.model_client_text_translator import (
+    ModelClientTextTranslator,
+)
+from co_op_translator.core.llm.model_client_translator import (
+    ModelClientMarkdownTranslator,
+)
 from co_op_translator.core.llm.jupyter_notebook_translator import (
     JupyterNotebookTranslator,
 )
@@ -13,6 +22,9 @@ from co_op_translator.core.llm.jupyter_notebook_translator import (
 __all__ = [
     "AzureTextTranslator",
     "AzureMarkdownTranslator",
+    "ModelClientMarkdownEvaluator",
+    "ModelClientMarkdownTranslator",
+    "ModelClientTextTranslator",
     "OpenAITextTranslator",
     "OpenAIMarkdownTranslator",
     "JupyterNotebookTranslator",

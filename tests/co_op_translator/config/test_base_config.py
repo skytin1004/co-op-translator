@@ -4,6 +4,7 @@ from unittest.mock import patch
 
 from co_op_translator.config.base_config import Config
 from co_op_translator.config.llm_config.config import LLMConfig
+from co_op_translator.config.llm_config.provider import LLMProvider
 from co_op_translator.config.vision_config.config import VisionConfig
 
 
@@ -23,6 +24,14 @@ def openai_env_vars():
     return {
         "OPENAI_API_KEY": "fake_openai_key",
         "OPENAI_CHAT_MODEL_ID": "gpt-4o",
+    }
+
+
+@pytest.fixture
+def anthropic_env_vars():
+    return {
+        "ANTHROPIC_API_KEY": "fake_anthropic_key",
+        "ANTHROPIC_MODEL": "claude-test",
     }
 
 
@@ -68,6 +77,13 @@ def test_config_with_openai_only(openai_env_vars):
         assert VisionConfig.check_configuration() is False
 
 
+def test_config_with_anthropic_only(anthropic_env_vars):
+    with patch.dict(os.environ, anthropic_env_vars, clear=True):
+        Config.check_configuration()
+        assert LLMConfig.get_available_provider() == LLMProvider.ANTHROPIC
+        assert VisionConfig.check_configuration() is False
+
+
 def test_config_with_no_llm_service():
     """Test configuration with no LLM service available"""
     with patch.dict(os.environ, {}, clear=True):
@@ -104,6 +120,31 @@ def test_config_with_partial_openai():
             "Incomplete OpenAI configuration. The 'OPENAI_API_KEY' must be set."
             in str(excinfo.value)
         )
+
+
+def test_config_with_partial_anthropic():
+    with patch.dict(
+        os.environ,
+        {"ANTHROPIC_API_KEY": "fake_key"},
+        clear=True,
+    ):
+        with pytest.raises(ValueError, match="ANTHROPIC_MODEL"):
+            Config.check_configuration()
+
+
+def test_anthropic_connectivity_uses_configured_model(anthropic_env_vars):
+    with (
+        patch.dict(os.environ, anthropic_env_vars, clear=True),
+        patch("anthropic.Anthropic") as client_type,
+    ):
+        assert LLMConfig.validate_connectivity() is True
+
+    client_type.assert_called_once_with(api_key="fake_anthropic_key", base_url=None)
+    client_type.return_value.messages.create.assert_called_once_with(
+        model="claude-test",
+        max_tokens=1,
+        messages=[{"role": "user", "content": "Reply OK"}],
+    )
 
 
 def test_get_language_codes_reads_packaged_font_mappings():

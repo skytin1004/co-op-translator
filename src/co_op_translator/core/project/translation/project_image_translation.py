@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import asyncio
 import logging
 import os
 from pathlib import Path
@@ -78,9 +79,24 @@ class ProjectImageTranslationMixin:
                 )
                 return str(translated_image_path)
 
-            translated_image = self.image_translator.translate_image(
-                image_path, language_code, fast_mode=fast_mode
+            translate_async = getattr(
+                self.image_translator,
+                "translate_image_async",
+                None,
             )
+            if translate_async is not None:
+                translated_image = await translate_async(
+                    image_path,
+                    language_code,
+                    fast_mode=fast_mode,
+                )
+            else:
+                translated_image = await asyncio.to_thread(
+                    self.image_translator.translate_image,
+                    image_path,
+                    language_code,
+                    fast_mode=fast_mode,
+                )
             translated_image_path.parent.mkdir(parents=True, exist_ok=True)
             save_optimized_image(translated_image, translated_image_path)
             save_image_metadata(

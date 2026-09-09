@@ -10,8 +10,10 @@ from co_op_translator.core.llm.model_clients import (
     AgentFrameworkModelClient,
     ModelResponse,
     SemanticKernelModelClient,
+    StructuredTranslationModelClient,
     TranslationModelClient,
 )
+from co_op_translator.utils.llm.text_utils import TranslationResponse
 
 
 class FakeAgentFrameworkClient:
@@ -54,6 +56,33 @@ async def test_agent_framework_adapter_maps_messages_and_response():
     ]
     assert client.options == {"temperature": 0.2}
     assert isinstance(adapter, TranslationModelClient)
+
+
+@pytest.mark.asyncio
+async def test_agent_framework_adapter_returns_structured_response():
+    client = FakeAgentFrameworkClient()
+    client.get_response = AsyncMock(
+        return_value=ChatResponse(
+            messages=Message(
+                "assistant",
+                ['{"translations":["번역"]}'],
+            ),
+            response_format=TranslationResponse,
+        )
+    )
+    adapter = AgentFrameworkModelClient(client)  # type: ignore[arg-type]
+
+    response = await adapter.complete_structured(
+        "system rules",
+        "source content",
+        TranslationResponse,
+    )
+
+    assert response == TranslationResponse(translations=["번역"])
+    assert client.get_response.await_args.kwargs["options"] == {
+        "response_format": TranslationResponse
+    }
+    assert isinstance(adapter, StructuredTranslationModelClient)
 
 
 @pytest.mark.asyncio

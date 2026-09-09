@@ -12,6 +12,7 @@ class LLMProvider(Enum):
 
     AZURE_OPENAI = "azure_openai"
     OPENAI = "openai"
+    ANTHROPIC = "anthropic"
 
     @property
     def display_name(self) -> str:

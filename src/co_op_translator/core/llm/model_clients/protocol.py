@@ -1,7 +1,11 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Any, Protocol, runtime_checkable
+from typing import Any, Protocol, TypeVar, runtime_checkable
+
+from pydantic import BaseModel
+
+StructuredResponseT = TypeVar("StructuredResponseT", bound=BaseModel)
 
 
 @dataclass(frozen=True)
@@ -25,3 +29,18 @@ class TranslationModelClient(Protocol):
         temperature: float | None = None,
     ) -> ModelResponse:
         """Complete one system/user prompt pair."""
+
+
+@runtime_checkable
+class StructuredTranslationModelClient(TranslationModelClient, Protocol):
+    """Model client that can validate responses against a Pydantic schema."""
+
+    async def complete_structured(
+        self,
+        system_prompt: str,
+        user_content: str,
+        response_format: type[StructuredResponseT],
+        *,
+        temperature: float | None = None,
+    ) -> StructuredResponseT:
+        """Complete a prompt and return a validated structured response."""

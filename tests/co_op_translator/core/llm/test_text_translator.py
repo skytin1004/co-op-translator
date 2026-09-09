@@ -1,114 +1,110 @@
+from unittest.mock import MagicMock, patch
+
 import pytest
-from unittest.mock import MagicMock
+
+from co_op_translator.config.llm_config.provider import LLMProvider
+from co_op_translator.core.llm.model_client_text_translator import (
+    ModelClientTextTranslator,
+)
+from co_op_translator.core.llm.model_clients import ModelClientBackend, ModelResponse
 from co_op_translator.core.llm.text_translator import TextTranslator
 from co_op_translator.utils.llm.text_utils import TranslationResponse
 
 
-class MockTextTranslator(TextTranslator):
-    """Mock implementation of TextTranslator for testing."""
+class RecordingStructuredModelClient:
+    def __init__(self) -> None:
+        self.calls = []
 
-    def __init__(self):
-        # Do not call super().__init__ to avoid real env/config lookups.
-        # Instead, manually set the attributes used by translate_image_text.
-        self.client = self.get_openai_client()
-        self.font_config = MagicMock()
-        self.font_config.get_language_name.return_value = "Korean"
-        # Ensure any code path that inspects this attribute has a safe default.
-        self._env_set_index = None
+    async def complete(
+        self,
+        system_prompt,
+        user_content,
+        *,
+        temperature=None,
+    ):
+        self.calls.append(("text", system_prompt, user_content, temperature))
+        return ModelResponse("```\nTranslated Text\n```", "stop")
 
-    def _get_env_sets_and_group(self):
-        """Return empty env set so run_with_env_set_fallback is not used in tests.
-
-        This keeps translate_image_text on the simple code path that directly
-        calls the mocked client without touching real environment configuration.
-        """
-
-        return [], ""
-
-    def get_openai_client(self):
-        mock_client = MagicMock()
-
-        # Mock for structured outputs (translate_image_text)
-        mock_parsed_response = MagicMock()
-        mock_parsed_response.choices = [
-            MagicMock(
-                message=MagicMock(
-                    parsed=TranslationResponse(
-                        translations=["Translated line 1", "Translated line 2"]
-                    )
-                )
+    async def complete_structured(
+        self,
+        system_prompt,
+        user_content,
+        response_format,
+        *,
+        temperature=None,
+    ):
+        self.calls.append(
+            (
+                "structured",
+                system_prompt,
+                user_content,
+                response_format,
+                temperature,
             )
-        ]
-        mock_client.chat.completions.parse.return_value = mock_parsed_response
-
-        # Mock for regular text translation
-        mock_response = MagicMock()
-        mock_response.choices = [
-            MagicMock(message=MagicMock(content="```\nTranslated Text\n```"))
-        ]
-        mock_client.chat.completions.create.return_value = mock_response
-
-        return mock_client
-
-    def get_model_name(self):
-        return "gpt-4o"
-
-    def translate_batch(self, texts, target_language):
-        """Mock implementation of translate_batch."""
-        return [f"Translated: {text}" for text in texts]
-
-    def translate_text(self, text, target_language):
-        """Mock implementation of translate_text."""
-        return f"Translated: {text}"
+        )
+        return TranslationResponse(
+            translations=["Translated line 1", "Translated line 2"]
+        )
 
 
 @pytest.fixture
 def text_translator():
-    """
-    Fixture to provide an instance of MockTextTranslator for each test.
-    """
-    return MockTextTranslator()
+    translator = ModelClientTextTranslator(
+        model_client=RecordingStructuredModelClient()
+    )
+    translator.font_config = MagicMock()
+    translator.font_config.get_language_name.return_value = "Korean"
+    return translator
 
 
 def test_translate_text(text_translator):
-    """
-    Test the translate_text method to ensure it translates text correctly.
-    """
-    text = "Text to translate"
-    target_language = "es"
-    result = text_translator.translate_text(text, target_language)
+    result = text_translator.translate_text("Text to translate", "es")
 
-    assert result == "Translated: Text to translate"
-
-
-def test_translate_batch(text_translator):
-    """
-    Test the translate_batch method to ensure it translates multiple texts correctly.
-    """
-    texts = ["Line 1", "Line 2"]
-    target_language = "es"
-    result = text_translator.translate_batch(texts, target_language)
-
-    assert result == ["Translated: Line 1", "Translated: Line 2"]
+    assert result == "Translated Text"
 
 
 def test_translate_image_text(text_translator):
-    """
-    Test the translate_image_text method using structured outputs.
-    """
-    text_data = ["Line 1", "Line 2"]
-    target_language = "ko"
-    result = text_translator.translate_image_text(text_data, target_language)
+    result = text_translator.translate_image_text(["Line 1", "Line 2"], "ko")
 
     assert result == ["Translated line 1", "Translated line 2"]
-    assert len(result) == len(text_data)
-    # Verify structured output was used
-    text_translator.client.chat.completions.parse.assert_called_once()
+    assert len(result) == 2
+    call = text_translator.model_client.calls[-1]
+    assert call[0] == "structured"
+    assert call[3] is TranslationResponse
+
+
+@pytest.mark.asyncio
+async def test_translate_image_text_async(text_translator):
+    result = await text_translator.translate_image_text_async(
+        ["Line 1", "Line 2"],
+        "ko",
+    )
+
+    assert result == ["Translated line 1", "Translated line 2"]
 
 
 def test_translate_image_text_empty(text_translator):
-    """
-    Test the translate_image_text method with empty input.
-    """
-    result = text_translator.translate_image_text([], "ko")
-    assert result == []
+    assert text_translator.translate_image_text([], "ko") == []
+
+
+@pytest.mark.parametrize("provider", list(LLMProvider))
+def test_text_translator_factory_uses_common_agent_framework_path(provider):
+    client = RecordingStructuredModelClient()
+    with (
+        patch(
+            "co_op_translator.core.llm.text_translator.LLMConfig.get_available_provider",
+            return_value=provider,
+        ),
+        patch(
+            "co_op_translator.core.llm.model_client_text_translator.create_translation_model_client",
+            return_value=client,
+        ) as create_client,
+    ):
+        translator = TextTranslator.create()
+
+    assert isinstance(translator, ModelClientTextTranslator)
+    assert translator.provider == provider
+    create_client.assert_called_once_with(
+        provider,
+        backend=ModelClientBackend.AGENT_FRAMEWORK,
+    )
