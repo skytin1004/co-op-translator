@@ -6,6 +6,7 @@ from ai_healthcheck import check_openai
 from az_ai_healthcheck import check_azure_openai
 
 from co_op_translator.config.llm_config.provider import LLMProvider
+from co_op_translator.config.llm_config.anthropic import AnthropicConfig
 from co_op_translator.config.llm_config.azure_openai import AzureOpenAIConfig
 from co_op_translator.config.llm_config.openai import OpenAIConfig
 from co_op_translator.utils.common.env_set_utils import (
@@ -33,7 +34,8 @@ class LLMConfig:
     ):
         """
         Validate environment variables for a given provider.
-        - For OpenAI, only 'OPENAI_API_KEY' is required.
+        - For OpenAI, the API key and model ID are required.
+        - For Anthropic, the API key and Claude model are required.
         - For Azure, all listed env_vars must be non-empty.
 
         Additionally, distinguish between:
@@ -58,6 +60,23 @@ class LLMConfig:
             if not env_vars.get("OPENAI_CHAT_MODEL_ID"):
                 raise ValueError(
                     "Incomplete OpenAI configuration. The 'OPENAI_CHAT_MODEL_ID' must be set."
+                )
+
+        elif provider == LLMProvider.ANTHROPIC:
+            bases = [
+                "ANTHROPIC_API_KEY",
+                "ANTHROPIC_MODEL",
+                "ANTHROPIC_BASE_URL",
+            ]
+            if not any_env_var_present(bases):
+                raise ValueError("NO_CONFIG_ANTHROPIC")
+
+            if not env_vars.get("ANTHROPIC_API_KEY") or not env_vars.get(
+                "ANTHROPIC_MODEL"
+            ):
+                raise ValueError(
+                    "Incomplete Anthropic configuration. Ensure 'ANTHROPIC_API_KEY' "
+                    "and 'ANTHROPIC_MODEL' are set."
                 )
 
         elif provider == LLMProvider.AZURE_OPENAI:
@@ -97,6 +116,16 @@ class LLMConfig:
             cls.validate_env_vars(env_vars, provider)
             return LLMServiceConfig(required=False, env_vars=env_vars)
 
+        elif provider == LLMProvider.ANTHROPIC:
+            anthropic_config = AnthropicConfig()
+            env_vars = {
+                "ANTHROPIC_API_KEY": anthropic_config.get_api_key(),
+                "ANTHROPIC_MODEL": anthropic_config.get_model(),
+                "ANTHROPIC_BASE_URL": anthropic_config.get_base_url(),
+            }
+            cls.validate_env_vars(env_vars, provider)
+            return LLMServiceConfig(required=False, env_vars=env_vars)
+
         else:
             raise ValueError(
                 f"Unknown LLM provider: {provider}. Expected one of: {[e.name for e in LLMProvider]}"
@@ -109,7 +138,8 @@ class LLMConfig:
            - If error string contains "NO_CONFIG_AZURE", ignore it (means Azure is not set at all).
            - Otherwise, raise that error (it must be an Incomplete config).
         2) Attempt OpenAI similarly.
-        3) If both providers are "no config," raise "No LLM service is properly configured."
+        3) Attempt Anthropic similarly.
+        4) If no provider is configured, raise "No LLM service is properly configured."
         """
         azure_error = None
         try:
@@ -131,8 +161,18 @@ class LLMConfig:
             else:
                 openai_error = e
 
-        # If azure_error and openai_error are both None => neither configured at all
-        if not azure_error and not openai_error:
+        anthropic_error = None
+        try:
+            cls.get_service_config(LLMProvider.ANTHROPIC)
+            return LLMProvider.ANTHROPIC
+        except ValueError as e:
+            if "NO_CONFIG_ANTHROPIC" in str(e):
+                anthropic_error = None
+            else:
+                anthropic_error = e
+
+        # If every provider error is None, no provider is configured at all.
+        if not azure_error and not openai_error and not anthropic_error:
             raise ValueError("No LLM service is properly configured")
 
         # Otherwise, raise the first "incomplete" error if it exists
@@ -140,6 +180,8 @@ class LLMConfig:
             raise azure_error
         if openai_error:
             raise openai_error
+        if anthropic_error:
+            raise anthropic_error
 
         # Fallback if something unexpected happened
         raise ValueError("No LLM service is properly configured")
@@ -172,7 +214,7 @@ class LLMConfig:
                     "Azure OpenAI configuration missing required values. Ensure AZURE_OPENAI_ENDPOINT, AZURE_OPENAI_API_VERSION, AZURE_OPENAI_API_KEY, and AZURE_OPENAI_CHAT_DEPLOYMENT_NAME are set."
                 )
 
-            last_message: Optional[str] = None
+            azure_last_message: Optional[str] = None
             for env_set in env_sets:
                 endpoint = (env_set.values.get("AZURE_OPENAI_ENDPOINT") or "").rstrip(
                     "/"
@@ -193,15 +235,17 @@ class LLMConfig:
                         timeout=10.0,
                     )
                 except Exception as e:
-                    last_message = str(e)
+                    azure_last_message = str(e)
                     continue
 
                 if res.ok:
                     set_preferred_env_set(AzureOpenAIConfig._GROUP, env_set.index)
                     return True
-                last_message = res.message
+                azure_last_message = res.message
 
-            raise ValueError(last_message or "Azure OpenAI connectivity check failed")
+            raise ValueError(
+                azure_last_message or "Azure OpenAI connectivity check failed"
+            )
 
         elif provider == LLMProvider.OPENAI:
             env_sets = OpenAIConfig.get_env_sets()
@@ -210,7 +254,7 @@ class LLMConfig:
                     "OpenAI configuration missing required values. Ensure OPENAI_API_KEY and OPENAI_CHAT_MODEL_ID are set."
                 )
 
-            last_message: Optional[str] = None
+            openai_last_message: Optional[str] = None
             for env_set in env_sets:
                 api_key = env_set.values.get("OPENAI_API_KEY")
                 base_url = env_set.values.get("OPENAI_BASE_URL")
@@ -229,15 +273,50 @@ class LLMConfig:
                         timeout=10.0,
                     )
                 except Exception as e:
-                    last_message = str(e)
+                    openai_last_message = str(e)
                     continue
 
                 if res.ok:
                     set_preferred_env_set(OpenAIConfig._GROUP, env_set.index)
                     return True
-                last_message = res.message
+                openai_last_message = res.message
 
-            raise ValueError(last_message or "OpenAI connectivity check failed")
+            raise ValueError(openai_last_message or "OpenAI connectivity check failed")
+        elif provider == LLMProvider.ANTHROPIC:
+            from anthropic import Anthropic
+
+            env_sets = AnthropicConfig.get_env_sets()
+            if not env_sets:
+                raise ValueError(
+                    "Anthropic configuration missing required values. Ensure "
+                    "ANTHROPIC_API_KEY and ANTHROPIC_MODEL are set."
+                )
+
+            anthropic_last_message: Optional[str] = None
+            for env_set in env_sets:
+                api_key = env_set.values.get("ANTHROPIC_API_KEY")
+                model = env_set.values.get("ANTHROPIC_MODEL")
+                base_url = env_set.values.get("ANTHROPIC_BASE_URL")
+                if not api_key or not model:
+                    continue
+
+                try:
+                    client = Anthropic(api_key=api_key, base_url=base_url)
+                    client.messages.create(
+                        model=model,
+                        max_tokens=1,
+                        messages=[{"role": "user", "content": "Reply OK"}],
+                    )
+                except Exception as e:
+                    anthropic_last_message = str(e)
+                    continue
+
+                set_preferred_env_set(AnthropicConfig._GROUP, env_set.index)
+                return True
+
+            raise ValueError(
+                anthropic_last_message or "Anthropic connectivity check failed"
+            )
         else:
             # Should not happen because get_available_provider() would have raised earlier otherwise
             raise ValueError("No LLM provider available for connectivity validation.")

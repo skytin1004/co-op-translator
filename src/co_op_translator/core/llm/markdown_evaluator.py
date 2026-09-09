@@ -223,6 +223,14 @@ class MarkdownEvaluator(ABC):
             return OpenAIMarkdownEvaluator(
                 root_dir=root_dir, use_llm=use_llm, use_rule=use_rule
             )
+        elif provider == LLMProvider.ANTHROPIC:
+            from co_op_translator.core.llm.providers.anthropic.markdown_evaluator import (
+                AnthropicMarkdownEvaluator,
+            )
+
+            return AnthropicMarkdownEvaluator(
+                root_dir=root_dir, use_llm=use_llm, use_rule=use_rule
+            )
         else:
             raise ValueError(f"Unsupported provider: {provider}")
 

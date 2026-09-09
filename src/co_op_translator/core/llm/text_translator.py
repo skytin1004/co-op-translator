@@ -182,5 +182,10 @@ class TextTranslator(ABC):
             )
 
             return OpenAITextTranslator()
+        elif provider == LLMProvider.ANTHROPIC:
+            raise ValueError(
+                "Claude supports Markdown and notebook translation, but image-text "
+                "translation still requires Azure OpenAI or OpenAI."
+            )
         else:
             raise ValueError("No valid LLM provider configured")

@@ -13,7 +13,7 @@ maintainers = [
 repository = "https://github.com/Azure/co-op-translator"
 license = "MIT"
 readme = "README.md"
-keywords = ["translator", "translation","azure", "openai", "gpt"]
+keywords = ["translator", "translation", "azure", "openai", "anthropic", "claude"]
 packages = [{ include = "co_op_translator", from = "src" }]
 include = ["src/co_op_translator/fonts/*", "src/co_op_translator/templates/**/*"]
 documentation = "https://azure.github.io/co-op-translator/"
@@ -28,8 +28,10 @@ co-op-translator-mcp = "co_op_translator.mcp.server:main"
 [tool.poetry.dependencies]
 python = ">=3.11,<3.15"
 agent-framework-core = "^1.16.0"
+agent-framework-anthropic = { version = "1.0.0b260827", allow-prereleases = true }
 agent-framework-openai = "^1.14.1"
 ai-healthcheck = "^0.1.2"
+anthropic = "^0.116.0"
 arabic-reshaper = "^3.0.1"
 azure-ai-vision-imageanalysis = "^1.0.0"
 azure-core = "^1.41.0"
@@ -58,7 +60,6 @@ tiktoken = "^0.14.0"
 az-ai-healthcheck = { version = "^0.1.7", extras = ["vision"] }
 
 [tool.poetry.group.dev.dependencies]
-agent-framework-anthropic = { version = "1.0.0b260827", allow-prereleases = true }
 agent-framework-ollama = { version = "1.0.0b260813", allow-prereleases = true }
 black = "^26.5.1"
 coverage = "^7.16.0"

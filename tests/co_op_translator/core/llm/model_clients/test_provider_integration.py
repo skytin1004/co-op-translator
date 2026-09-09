@@ -11,6 +11,12 @@ from co_op_translator.core.llm.providers.azure.markdown_evaluator import (
 from co_op_translator.core.llm.providers.azure.markdown_translator import (
     AzureMarkdownTranslator,
 )
+from co_op_translator.core.llm.providers.anthropic.markdown_evaluator import (
+    AnthropicMarkdownEvaluator,
+)
+from co_op_translator.core.llm.providers.anthropic.markdown_translator import (
+    AnthropicMarkdownTranslator,
+)
 from co_op_translator.core.llm.providers.openai.markdown_evaluator import (
     OpenAIMarkdownEvaluator,
 )
@@ -48,6 +54,10 @@ class RecordingModelClient:
             OpenAIMarkdownTranslator,
             "co_op_translator.core.llm.providers.openai.markdown_translator.asyncio.sleep",
         ),
+        (
+            AnthropicMarkdownTranslator,
+            "co_op_translator.core.llm.providers.anthropic.markdown_translator.asyncio.sleep",
+        ),
     ],
 )
 async def test_provider_translators_use_framework_neutral_client(
@@ -80,6 +90,10 @@ async def test_provider_translators_use_framework_neutral_client(
         (
             OpenAIMarkdownEvaluator,
             "co_op_translator.core.llm.providers.openai.markdown_evaluator.asyncio.sleep",
+        ),
+        (
+            AnthropicMarkdownEvaluator,
+            "co_op_translator.core.llm.providers.anthropic.markdown_evaluator.asyncio.sleep",
         ),
     ],
 )

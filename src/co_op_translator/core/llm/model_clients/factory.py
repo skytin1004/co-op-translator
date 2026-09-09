@@ -4,6 +4,7 @@ from enum import Enum
 import os
 
 from co_op_translator.config.llm_config.azure_openai import AzureOpenAIConfig
+from co_op_translator.config.llm_config.anthropic import AnthropicConfig
 from co_op_translator.config.llm_config.openai import OpenAIConfig
 from co_op_translator.config.llm_config.provider import LLMProvider
 from co_op_translator.core.llm.model_clients.protocol import TranslationModelClient
@@ -36,10 +37,19 @@ def create_translation_model_client(
     *,
     backend: ModelClientBackend | None = None,
 ) -> TranslationModelClient:
-    selected_backend = backend or get_model_client_backend()
+    selected_backend = backend or _default_backend_for_provider(provider)
     if selected_backend == ModelClientBackend.SEMANTIC_KERNEL:
         return _create_semantic_kernel_client(provider)
     return _create_agent_framework_client(provider)
+
+
+def _default_backend_for_provider(provider: LLMProvider) -> ModelClientBackend:
+    configured_backend = os.getenv(MODEL_CLIENT_ENV_VAR)
+    if configured_backend is not None:
+        return get_model_client_backend()
+    if provider == LLMProvider.ANTHROPIC:
+        return ModelClientBackend.AGENT_FRAMEWORK
+    return ModelClientBackend.SEMANTIC_KERNEL
 
 
 def _create_semantic_kernel_client(
@@ -72,6 +82,12 @@ def _create_semantic_kernel_client(
             org_id=OpenAIConfig.get_org_id(),
             api_key=OpenAIConfig.get_api_key(),
         )
+    elif provider == LLMProvider.ANTHROPIC:
+        raise ValueError(
+            "Anthropic is available through the Agent Framework model client. "
+            f"Unset {MODEL_CLIENT_ENV_VAR} or set it to "
+            f"'{ModelClientBackend.AGENT_FRAMEWORK.value}'."
+        )
     else:
         raise ValueError(f"Unsupported LLM provider: {provider}")
 
@@ -83,13 +99,13 @@ def _create_semantic_kernel_client(
 def _create_agent_framework_client(
     provider: LLMProvider,
 ) -> TranslationModelClient:
-    from agent_framework.openai import OpenAIChatCompletionClient
-
     from co_op_translator.core.llm.model_clients.agent_framework import (
         AgentFrameworkModelClient,
     )
 
     if provider == LLMProvider.AZURE_OPENAI:
+        from agent_framework.openai import OpenAIChatCompletionClient
+
         client = OpenAIChatCompletionClient(
             model=AzureOpenAIConfig.get_chat_deployment_name(),
             api_key=AzureOpenAIConfig.get_api_key(),
@@ -97,11 +113,21 @@ def _create_agent_framework_client(
             api_version=AzureOpenAIConfig.get_api_version(),
         )
     elif provider == LLMProvider.OPENAI:
+        from agent_framework.openai import OpenAIChatCompletionClient
+
         client = OpenAIChatCompletionClient(
             model=OpenAIConfig.get_chat_model_id(),
             api_key=OpenAIConfig.get_api_key(),
             org_id=OpenAIConfig.get_org_id(),
             base_url=OpenAIConfig.get_base_url(),
+        )
+    elif provider == LLMProvider.ANTHROPIC:
+        from agent_framework_anthropic import AnthropicClient
+
+        client = AnthropicClient(
+            model=AnthropicConfig.get_model(),
+            api_key=AnthropicConfig.get_api_key(),
+            base_url=AnthropicConfig.get_base_url(),
         )
     else:
         raise ValueError(f"Unsupported LLM provider: {provider}")

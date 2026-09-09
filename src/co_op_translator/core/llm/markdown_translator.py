@@ -736,7 +736,8 @@ class MarkdownTranslator(ABC):
         provider = LLMConfig.get_available_provider()
         if provider is None:
             raise ValueError(
-                "No valid LLM provider configured. Please check your .env file and ensure AZURE_OPENAI_API_KEY or OPENAI_API_KEY is set."
+                "No valid LLM provider configured. Please check your .env file and "
+                "configure Azure OpenAI, OpenAI, or Anthropic credentials."
             )
 
         if provider == LLMProvider.AZURE_OPENAI:
@@ -761,7 +762,19 @@ class MarkdownTranslator(ABC):
                 image_dir=image_dir,
                 lang_subdir=lang_subdir,
             )
+        elif provider == LLMProvider.ANTHROPIC:
+            from co_op_translator.core.llm.providers.anthropic.markdown_translator import (
+                AnthropicMarkdownTranslator,
+            )
+
+            return AnthropicMarkdownTranslator(
+                root_dir=root_dir,
+                translations_dir=translations_dir,
+                image_dir=image_dir,
+                lang_subdir=lang_subdir,
+            )
         else:
             raise ValueError(
-                f"Unsupported LLM provider '{provider}'. Supported providers: AZURE_OPENAI, OPENAI. Please check your configuration."
+                f"Unsupported LLM provider '{provider}'. Supported providers: "
+                "AZURE_OPENAI, OPENAI, ANTHROPIC. Please check your configuration."
             )
