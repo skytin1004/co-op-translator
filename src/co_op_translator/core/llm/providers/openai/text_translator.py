@@ -1,30 +1,18 @@
-from openai import OpenAI
-from co_op_translator.core.llm.text_translator import TextTranslator
-from co_op_translator.config.llm_config.openai import OpenAIConfig
+from co_op_translator.config.llm_config.provider import LLMProvider
+from co_op_translator.core.llm.model_client_text_translator import (
+    ModelClientTextTranslator,
+)
+from co_op_translator.core.llm.model_clients import StructuredTranslationModelClient
 
 
-class OpenAITextTranslator(TextTranslator):
-    """OpenAI implementation for text translation."""
+class OpenAITextTranslator(ModelClientTextTranslator):
+    """Backward-compatible OpenAI image-text translator."""
 
-    def __init__(self):
-        """Initialize the OpenAI text translator with client."""
-        super().__init__()
-
-    def get_openai_client(self):
-        """Create an OpenAI client instance.
-
-        Configures client with API key, organization ID, and base URL
-        from application settings.
-
-        Returns:
-            Configured OpenAI client
-        """
-        return OpenAI(
-            api_key=OpenAIConfig.get_api_key(),
-            organization=OpenAIConfig.get_org_id(),
-            base_url=OpenAIConfig.get_base_url(),
+    def __init__(
+        self,
+        model_client: StructuredTranslationModelClient | None = None,
+    ) -> None:
+        super().__init__(
+            provider=LLMProvider.OPENAI,
+            model_client=model_client,
         )
-
-    def get_model_name(self) -> str:
-        """Retrieve the configured OpenAI model name."""
-        return OpenAIConfig.get_chat_model_id()

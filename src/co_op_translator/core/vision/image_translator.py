@@ -1,4 +1,5 @@
 import logging
+import asyncio
 import math
 import time
 from abc import ABC, abstractmethod
@@ -473,6 +474,43 @@ class ImageTranslator(ABC):
             text_data, target_language_code
         )
         return self.render_translated_image(
+            image_path,
+            line_bounding_boxes,
+            translated_text_list,
+            target_language_code,
+            verbose=verbose,
+            fast_mode=fast_mode,
+        )
+
+    async def translate_image_async(
+        self, image_path, target_language_code, fast_mode=False, verbose=False
+    ) -> Image.Image:
+        """Translate and render an image without blocking the async workflow."""
+        image_path = Path(image_path)
+        line_bounding_boxes = await asyncio.to_thread(
+            self.extract_line_bounding_boxes,
+            image_path,
+        )
+        if not line_bounding_boxes:
+            logger.info(
+                f"No text detected in image '{image_path.name}': "
+                "The image may not contain readable text or text may be too "
+                "small/blurry to detect."
+            )
+
+            def _copy_original() -> Image.Image:
+                with Image.open(image_path) as original_image:
+                    return original_image.copy()
+
+            return await asyncio.to_thread(_copy_original)
+
+        text_data = [line["text"] for line in line_bounding_boxes]
+        translated_text_list = await self.text_translator.translate_image_text_async(
+            text_data,
+            target_language_code,
+        )
+        return await asyncio.to_thread(
+            self.render_translated_image,
             image_path,
             line_bounding_boxes,
             translated_text_list,

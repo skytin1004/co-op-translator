@@ -9,6 +9,7 @@ from co_op_translator.core.llm.model_clients.factory import (
 )
 from co_op_translator.core.llm.model_clients.protocol import (
     ModelResponse,
+    StructuredTranslationModelClient,
     TranslationModelClient,
 )
 from co_op_translator.core.llm.model_clients.semantic_kernel import (
@@ -21,6 +22,7 @@ __all__ = [
     "ModelClientBackend",
     "ModelResponse",
     "SemanticKernelModelClient",
+    "StructuredTranslationModelClient",
     "TranslationModelClient",
     "create_translation_model_client",
     "get_model_client_backend",

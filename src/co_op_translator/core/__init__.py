@@ -4,6 +4,7 @@ from co_op_translator.core.llm import (
     JupyterNotebookTranslator,
     ModelClientMarkdownEvaluator,
     ModelClientMarkdownTranslator,
+    ModelClientTextTranslator,
     OpenAIMarkdownTranslator,
     OpenAITextTranslator,
 )
@@ -17,6 +18,7 @@ __all__ = [
     "JupyterNotebookTranslator",
     "ModelClientMarkdownEvaluator",
     "ModelClientMarkdownTranslator",
+    "ModelClientTextTranslator",
     "OpenAIMarkdownTranslator",
     "OpenAITextTranslator",
     "ProjectTranslator",

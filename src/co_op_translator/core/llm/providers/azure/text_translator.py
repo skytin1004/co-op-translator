@@ -1,30 +1,18 @@
-from openai import AzureOpenAI
-from co_op_translator.core.llm.text_translator import TextTranslator
-from co_op_translator.config.llm_config.azure_openai import AzureOpenAIConfig
+from co_op_translator.config.llm_config.provider import LLMProvider
+from co_op_translator.core.llm.model_client_text_translator import (
+    ModelClientTextTranslator,
+)
+from co_op_translator.core.llm.model_clients import StructuredTranslationModelClient
 
 
-class AzureTextTranslator(TextTranslator):
-    """Azure OpenAI implementation for text translation."""
+class AzureTextTranslator(ModelClientTextTranslator):
+    """Backward-compatible Azure OpenAI image-text translator."""
 
-    def __init__(self):
-        """Initialize Azure Text Translator."""
-        super().__init__()
-
-    def get_openai_client(self):
-        """Create an Azure OpenAI client instance.
-
-        Configures client with API key, version and deployment endpoint
-        from application settings.
-
-        Returns:
-            Configured Azure OpenAI client
-        """
-        return AzureOpenAI(
-            api_key=AzureOpenAIConfig.get_api_key(),
-            api_version=AzureOpenAIConfig.get_api_version(),
-            base_url=f"{AzureOpenAIConfig.get_endpoint()}/openai/deployments/{AzureOpenAIConfig.get_chat_deployment_name()}",
+    def __init__(
+        self,
+        model_client: StructuredTranslationModelClient | None = None,
+    ) -> None:
+        super().__init__(
+            provider=LLMProvider.AZURE_OPENAI,
+            model_client=model_client,
         )
-
-    def get_model_name(self):
-        """Retrieve the configured Azure OpenAI model name."""
-        return AzureOpenAIConfig.get_model_name()

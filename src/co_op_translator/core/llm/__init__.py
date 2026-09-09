@@ -9,6 +9,9 @@ from co_op_translator.core.llm.providers.openai import (
 from co_op_translator.core.llm.model_client_evaluator import (
     ModelClientMarkdownEvaluator,
 )
+from co_op_translator.core.llm.model_client_text_translator import (
+    ModelClientTextTranslator,
+)
 from co_op_translator.core.llm.model_client_translator import (
     ModelClientMarkdownTranslator,
 )
@@ -21,6 +24,7 @@ __all__ = [
     "AzureMarkdownTranslator",
     "ModelClientMarkdownEvaluator",
     "ModelClientMarkdownTranslator",
+    "ModelClientTextTranslator",
     "OpenAITextTranslator",
     "OpenAIMarkdownTranslator",
     "JupyterNotebookTranslator",
