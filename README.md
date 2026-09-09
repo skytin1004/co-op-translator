@@ -75,7 +75,7 @@ pip install co-op-translator
 translate -l "ko" -md --dry-run
 ```
 
-Configure [Azure OpenAI or OpenAI credentials](./docs/configuration.md), then run the translation and deterministic review:
+Configure [Azure OpenAI, OpenAI, or Anthropic credentials](./docs/configuration.md), then run the translation and deterministic review:
 
 ```bash
 translate -l "ko" -md

@@ -1,8 +1,9 @@
 from co_op_translator.core.llm import (
-    AnthropicMarkdownTranslator,
     AzureMarkdownTranslator,
     AzureTextTranslator,
     JupyterNotebookTranslator,
+    ModelClientMarkdownEvaluator,
+    ModelClientMarkdownTranslator,
     OpenAIMarkdownTranslator,
     OpenAITextTranslator,
 )
@@ -10,11 +11,12 @@ from co_op_translator.core.project import ProjectTranslator
 from co_op_translator.core.vision import AzureImageTranslator
 
 __all__ = [
-    "AnthropicMarkdownTranslator",
     "AzureMarkdownTranslator",
     "AzureTextTranslator",
     "AzureImageTranslator",
     "JupyterNotebookTranslator",
+    "ModelClientMarkdownEvaluator",
+    "ModelClientMarkdownTranslator",
     "OpenAIMarkdownTranslator",
     "OpenAITextTranslator",
     "ProjectTranslator",

@@ -8,7 +8,6 @@ from pathlib import Path
 
 import yaml
 
-from co_op_translator.config.llm_config.provider import LLMProvider
 from co_op_translator.utils.markdown import (
     process_markdown,
     generate_prompt_template,
@@ -740,41 +739,14 @@ class MarkdownTranslator(ABC):
                 "configure Azure OpenAI, OpenAI, or Anthropic credentials."
             )
 
-        if provider == LLMProvider.AZURE_OPENAI:
-            from co_op_translator.core.llm.providers.azure.markdown_translator import (
-                AzureMarkdownTranslator,
-            )
+        from co_op_translator.core.llm.model_client_translator import (
+            ModelClientMarkdownTranslator,
+        )
 
-            return AzureMarkdownTranslator(
-                root_dir=root_dir,
-                translations_dir=translations_dir,
-                image_dir=image_dir,
-                lang_subdir=lang_subdir,
-            )
-        elif provider == LLMProvider.OPENAI:
-            from co_op_translator.core.llm.providers.openai.markdown_translator import (
-                OpenAIMarkdownTranslator,
-            )
-
-            return OpenAIMarkdownTranslator(
-                root_dir=root_dir,
-                translations_dir=translations_dir,
-                image_dir=image_dir,
-                lang_subdir=lang_subdir,
-            )
-        elif provider == LLMProvider.ANTHROPIC:
-            from co_op_translator.core.llm.providers.anthropic.markdown_translator import (
-                AnthropicMarkdownTranslator,
-            )
-
-            return AnthropicMarkdownTranslator(
-                root_dir=root_dir,
-                translations_dir=translations_dir,
-                image_dir=image_dir,
-                lang_subdir=lang_subdir,
-            )
-        else:
-            raise ValueError(
-                f"Unsupported LLM provider '{provider}'. Supported providers: "
-                "AZURE_OPENAI, OPENAI, ANTHROPIC. Please check your configuration."
-            )
+        return ModelClientMarkdownTranslator(
+            provider=provider,
+            root_dir=root_dir,
+            translations_dir=translations_dir,
+            image_dir=image_dir,
+            lang_subdir=lang_subdir,
+        )

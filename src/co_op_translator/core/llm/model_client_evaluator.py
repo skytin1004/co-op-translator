@@ -13,20 +13,27 @@ from co_op_translator.core.llm.model_clients import (
 logger = logging.getLogger(__name__)
 
 
-class AnthropicMarkdownEvaluator(MarkdownEvaluator):
-    """Claude implementation for Markdown evaluation."""
+class ModelClientMarkdownEvaluator(MarkdownEvaluator):
+    """Evaluate Markdown through the framework-neutral model client boundary."""
 
     def __init__(
         self,
+        provider: LLMProvider | None = None,
         root_dir: Path | None = None,
         use_llm: bool = True,
         use_rule: bool = True,
         model_client: TranslationModelClient | None = None,
     ):
         super().__init__(root_dir, use_llm, use_rule)
-        self.model_client = model_client or create_translation_model_client(
-            LLMProvider.ANTHROPIC
-        )
+        if provider is None and model_client is None:
+            raise ValueError("A provider or injected model client is required.")
+        self.provider = provider
+        self.model_client = model_client or self._initialize_model_client()
+
+    def _initialize_model_client(self) -> TranslationModelClient:
+        if self.provider is None:
+            raise ValueError("An injected model client is required without a provider.")
+        return create_translation_model_client(self.provider)
 
     async def _run_prompt(self, prompt: str, index: int, total: int) -> str:
         try:

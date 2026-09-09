@@ -4,7 +4,6 @@ import logging
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 from co_op_translator.config.llm_config.config import LLMConfig
-from co_op_translator.config.llm_config.provider import LLMProvider
 from co_op_translator.utils.common.metadata_utils import (
     extract_metadata_from_content,
     extract_content_without_metadata,
@@ -207,32 +206,16 @@ class MarkdownEvaluator(ABC):
         if provider is None:
             raise ValueError("No valid LLM provider configured")
 
-        if provider == LLMProvider.AZURE_OPENAI:
-            from co_op_translator.core.llm.providers.azure.markdown_evaluator import (
-                AzureMarkdownEvaluator,
-            )
+        from co_op_translator.core.llm.model_client_evaluator import (
+            ModelClientMarkdownEvaluator,
+        )
 
-            return AzureMarkdownEvaluator(
-                root_dir=root_dir, use_llm=use_llm, use_rule=use_rule
-            )
-        elif provider == LLMProvider.OPENAI:
-            from co_op_translator.core.llm.providers.openai.markdown_evaluator import (
-                OpenAIMarkdownEvaluator,
-            )
-
-            return OpenAIMarkdownEvaluator(
-                root_dir=root_dir, use_llm=use_llm, use_rule=use_rule
-            )
-        elif provider == LLMProvider.ANTHROPIC:
-            from co_op_translator.core.llm.providers.anthropic.markdown_evaluator import (
-                AnthropicMarkdownEvaluator,
-            )
-
-            return AnthropicMarkdownEvaluator(
-                root_dir=root_dir, use_llm=use_llm, use_rule=use_rule
-            )
-        else:
-            raise ValueError(f"Unsupported provider: {provider}")
+        return ModelClientMarkdownEvaluator(
+            provider=provider,
+            root_dir=root_dir,
+            use_llm=use_llm,
+            use_rule=use_rule,
+        )
 
     async def evaluate_markdown(
         self,

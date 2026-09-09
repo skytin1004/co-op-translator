@@ -28,6 +28,20 @@ class LLMServiceConfig:
 class LLMConfig:
     """Configuration for LLM-related services."""
 
+    _PROVIDER_CONFIG_TYPES = {
+        LLMProvider.AZURE_OPENAI: AzureOpenAIConfig,
+        LLMProvider.OPENAI: OpenAIConfig,
+        LLMProvider.ANTHROPIC: AnthropicConfig,
+    }
+
+    @classmethod
+    def get_provider_config_type(cls, provider: LLMProvider):
+        """Return the environment configuration type for a provider."""
+        try:
+            return cls._PROVIDER_CONFIG_TYPES[provider]
+        except KeyError as exc:
+            raise ValueError(f"Unsupported LLM provider: {provider}") from exc
+
     @classmethod
     def validate_env_vars(
         cls, env_vars: Dict[str, Optional[str]], provider: LLMProvider

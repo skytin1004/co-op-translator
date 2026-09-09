@@ -4,18 +4,21 @@ from unittest.mock import AsyncMock, patch
 
 import pytest
 
+from co_op_translator.config.llm_config.provider import LLMProvider
+from co_op_translator.core.llm.markdown_evaluator import MarkdownEvaluator
+from co_op_translator.core.llm.markdown_translator import MarkdownTranslator
 from co_op_translator.core.llm.model_clients import ModelResponse
+from co_op_translator.core.llm.model_client_evaluator import (
+    ModelClientMarkdownEvaluator,
+)
+from co_op_translator.core.llm.model_client_translator import (
+    ModelClientMarkdownTranslator,
+)
 from co_op_translator.core.llm.providers.azure.markdown_evaluator import (
     AzureMarkdownEvaluator,
 )
 from co_op_translator.core.llm.providers.azure.markdown_translator import (
     AzureMarkdownTranslator,
-)
-from co_op_translator.core.llm.providers.anthropic.markdown_evaluator import (
-    AnthropicMarkdownEvaluator,
-)
-from co_op_translator.core.llm.providers.anthropic.markdown_translator import (
-    AnthropicMarkdownTranslator,
 )
 from co_op_translator.core.llm.providers.openai.markdown_evaluator import (
     OpenAIMarkdownEvaluator,
@@ -42,21 +45,59 @@ class RecordingModelClient:
         return self.response
 
 
+@pytest.mark.parametrize("provider", list(LLMProvider))
+def test_markdown_factory_uses_common_model_client_translator(tmp_path, provider):
+    client = RecordingModelClient(ModelResponse("translated", "stop"))
+    with (
+        patch(
+            "co_op_translator.core.llm.markdown_translator.LLMConfig.get_available_provider",
+            return_value=provider,
+        ),
+        patch(
+            "co_op_translator.core.llm.model_client_translator.create_translation_model_client",
+            return_value=client,
+        ),
+    ):
+        translator = MarkdownTranslator.create(root_dir=tmp_path)
+
+    assert type(translator) is ModelClientMarkdownTranslator
+    assert translator.provider == provider
+
+
+@pytest.mark.parametrize("provider", list(LLMProvider))
+def test_evaluator_factory_uses_common_model_client_evaluator(tmp_path, provider):
+    client = RecordingModelClient(ModelResponse('{"score": 1}', "stop"))
+    with (
+        patch(
+            "co_op_translator.core.llm.markdown_evaluator.LLMConfig.get_available_provider",
+            return_value=provider,
+        ),
+        patch(
+            "co_op_translator.core.llm.model_client_evaluator.create_translation_model_client",
+            return_value=client,
+        ),
+    ):
+        evaluator = MarkdownEvaluator.create(root_dir=tmp_path)
+
+    assert type(evaluator) is ModelClientMarkdownEvaluator
+    assert evaluator.provider == provider
+
+
 @pytest.mark.asyncio
 @pytest.mark.parametrize(
     ("translator_type", "sleep_target"),
     [
         (
             AzureMarkdownTranslator,
-            "co_op_translator.core.llm.providers.azure.markdown_translator.asyncio.sleep",
+            "co_op_translator.core.llm.model_client_translator.asyncio.sleep",
         ),
         (
             OpenAIMarkdownTranslator,
-            "co_op_translator.core.llm.providers.openai.markdown_translator.asyncio.sleep",
+            "co_op_translator.core.llm.model_client_translator.asyncio.sleep",
         ),
         (
-            AnthropicMarkdownTranslator,
-            "co_op_translator.core.llm.providers.anthropic.markdown_translator.asyncio.sleep",
+            ModelClientMarkdownTranslator,
+            "co_op_translator.core.llm.model_client_translator.asyncio.sleep",
         ),
     ],
 )
@@ -85,15 +126,15 @@ async def test_provider_translators_use_framework_neutral_client(
     [
         (
             AzureMarkdownEvaluator,
-            "co_op_translator.core.llm.providers.azure.markdown_evaluator.asyncio.sleep",
+            "co_op_translator.core.llm.model_client_evaluator.asyncio.sleep",
         ),
         (
             OpenAIMarkdownEvaluator,
-            "co_op_translator.core.llm.providers.openai.markdown_evaluator.asyncio.sleep",
+            "co_op_translator.core.llm.model_client_evaluator.asyncio.sleep",
         ),
         (
-            AnthropicMarkdownEvaluator,
-            "co_op_translator.core.llm.providers.anthropic.markdown_evaluator.asyncio.sleep",
+            ModelClientMarkdownEvaluator,
+            "co_op_translator.core.llm.model_client_evaluator.asyncio.sleep",
         ),
     ],
 )
@@ -119,11 +160,11 @@ async def test_injected_model_client_bypasses_provider_credential_fallback(tmp_p
 
     with (
         patch(
-            "co_op_translator.core.llm.providers.openai.markdown_translator.OpenAIConfig.get_env_sets",
+            "co_op_translator.config.llm_config.openai.OpenAIConfig.get_env_sets",
             side_effect=AssertionError("provider fallback should not be queried"),
         ),
         patch(
-            "co_op_translator.core.llm.providers.openai.markdown_translator.asyncio.sleep",
+            "co_op_translator.core.llm.model_client_translator.asyncio.sleep",
             new=AsyncMock(),
         ),
     ):
