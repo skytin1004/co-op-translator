@@ -45,19 +45,18 @@ The tool auto-detects providers in this order:
 
 1. Azure OpenAI
 2. OpenAI
-3. Anthropic
 
-If no provider is configured, `translate`, `evaluate`, `migrate-links`, and `run_translation` fail during configuration checks. `co-op-review` and `run_review` are deterministic maintenance checks and do not require provider credentials.
+If neither provider is configured, `translate`, `evaluate`, `migrate-links`, and `run_translation` fail during configuration checks. `co-op-review` and `run_review` are deterministic maintenance checks and do not require provider credentials.
 
 ## Model client backend
 
-Semantic Kernel remains the default model client for Azure OpenAI and OpenAI Markdown, notebook, and LLM evaluation prompts. To exercise the experimental Microsoft Agent Framework adapter with either provider, set:
+Semantic Kernel remains the default model client for Markdown, notebook, and LLM evaluation prompts. To exercise the experimental Microsoft Agent Framework adapter with the same Azure OpenAI or OpenAI provider configuration, set:
 
 ```bash
 CO_OP_TRANSLATOR_MODEL_CLIENT="agent-framework"
 ```
 
-Supported values are `semantic-kernel` and `agent-framework`. Anthropic automatically uses Agent Framework when this variable is unset; explicitly selecting `semantic-kernel` with Anthropic fails with a configuration error. Invalid values fail during provider-backed translator initialization instead of silently falling back. Image-text translation continues to use the OpenAI SDK structured-output path while the framework-neutral structured-response contract is developed.
+Supported values are `semantic-kernel` and `agent-framework`. Invalid values fail during provider-backed translator initialization instead of silently falling back. Image-text translation continues to use the OpenAI SDK structured-output path while the framework-neutral structured-response contract is developed.
 
 ## Azure OpenAI
 
@@ -85,20 +84,6 @@ OPENAI_BASE_URL="..."        # optional
 ```
 
 `OPENAI_CHAT_MODEL_ID` is required because the translator needs an explicit chat model for API calls.
-
-## Anthropic Claude
-
-Use Anthropic for provider-backed Markdown and notebook translation or LLM evaluation:
-
-```bash
-ANTHROPIC_API_KEY="..."
-ANTHROPIC_MODEL="claude-..."
-ANTHROPIC_BASE_URL="..."      # optional; omit for the Anthropic API
-```
-
-Claude runs through the Microsoft Agent Framework adapter. You do not need to set `CO_OP_TRANSLATOR_MODEL_CLIENT` unless you want to make that selection explicit with `agent-framework`.
-
-Image-text translation is not yet supported with Anthropic because that path requires the existing OpenAI structured-output client. When using Claude, select Markdown and/or notebooks with `-md` and `-nb` (or `markdown=True` and `notebook=True` in the Python API).
 
 ## Azure AI Vision
 
@@ -131,16 +116,14 @@ AZURE_OPENAI_API_VERSION_2="2024-12-01-preview"
 
 Each set must be complete. The health check selects a working set before translation proceeds.
 
-Anthropic supports the same suffix convention with `ANTHROPIC_API_KEY_1`, `ANTHROPIC_MODEL_1`, and optional `ANTHROPIC_BASE_URL_1`.
-
 ## Command requirements
 
 | Command or API | LLM required | Vision required | Notes |
 | --- | --- | --- | --- |
 | `translate -md` | Yes | No | Translates Markdown only. |
 | `translate -nb` | Yes | No | Translates notebooks only. |
-| `translate -img` | Yes | Yes | Translates images only; requires Azure OpenAI or OpenAI for structured text output. |
-| `translate` with no type flags | Yes | Yes | Default mode includes Markdown, notebooks, and images; Claude users should select `-md` and/or `-nb`. |
+| `translate -img` | Yes | Yes | Translates images only. |
+| `translate` with no type flags | Yes | Yes | Default mode includes Markdown, notebooks, and images. |
 | `evaluate` | Yes | No | Uses LLM evaluation unless `--fast` is selected. |
 | `migrate-links` | Yes | No | Performs link migration, but still runs shared configuration checks. |
 | `co-op-review` | No | No | Runs deterministic translation structure, freshness, Markdown, notebook, and local link checks. |

@@ -7,7 +7,7 @@ Co‑op Translator is a Python command‑line tool and GitHub Actions workflow t
 ### Architecture overview
 
 - CLI entry points (`translate`, `migrate-links`, `evaluate`) invoke a unified CLI that dispatches to translation, link migration, and evaluation flows.
-- Configuration loader reads `.env` and auto‑detects the LLM provider (Azure OpenAI, OpenAI, or Anthropic) and, if requested, the vision provider (Azure AI Service) for image text extraction.
+- Configuration loader reads `.env` and auto‑detects the LLM provider (Azure OpenAI or OpenAI) and, if requested, the vision provider (Azure AI Service) for image text extraction.
 - Translation core handles Markdown and notebooks; the vision pipeline extracts text from images when `-img` is used.
 - Outputs are organized into `translations/<lang>/` for text and `translated_images/` for images, preserving original structure.
 
@@ -15,7 +15,7 @@ Co‑op Translator is a Python command‑line tool and GitHub Actions workflow t
 
 - Python 3.11–3.14, Poetry for packaging
 - CLI: `click`
-- LLM/AI SDKs: Azure OpenAI, OpenAI, Anthropic, Semantic Kernel, Microsoft Agent Framework
+- LLM/AI SDKs: Azure OpenAI, OpenAI, Semantic Kernel, Microsoft Agent Framework
 - Vision: Azure AI Service (Computer Vision)
 - HTTP and data: `httpx`, `pydantic`
 - Imaging: `pillow`, `opencv-python`, `matplotlib`
@@ -104,11 +104,6 @@ At least one LLM provider must be configured. For image translation, Azure AI Se
   - `OPENAI_CHAT_MODEL_ID` (required when using OpenAI provider)
   - `OPENAI_BASE_URL` (optional; defaults to `https://api.openai.com/v1`)
 
-- Anthropic Claude (Markdown, notebook, and evaluation alternative):
-  - `ANTHROPIC_API_KEY`
-  - `ANTHROPIC_MODEL`
-  - `ANTHROPIC_BASE_URL` (optional)
-
 - Azure AI Service for image text extraction (required when using `-img`):
   - `AZURE_AI_SERVICE_API_KEY` (preferred) or legacy `AZURE_SUBSCRIPTION_KEY`
   - `AZURE_AI_SERVICE_ENDPOINT`
@@ -136,7 +131,7 @@ OPENAI_BASE_URL="https://api.openai.com/v1" # optional
 
 Notes:
 
-- The tool auto-detects the available LLM provider; configure Azure OpenAI, OpenAI, or Anthropic.
+- The tool auto-detects the available LLM provider; configure either Azure OpenAI or OpenAI.
 - Image translation requires both `AZURE_AI_SERVICE_API_KEY` and `AZURE_AI_SERVICE_ENDPOINT`.
 - The CLI will raise a clear error if required variables are missing.
 
