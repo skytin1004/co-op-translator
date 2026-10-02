@@ -1,0 +1,233 @@
+name: Publish completed LocalizeFlow translations upstream
+
+# One-time fork setup:
+# 1. Add a classic PAT with the public_repo scope as the UPSTREAM_PR_TOKEN
+#    repository secret. Use the GitHub account that will open the upstream PR.
+# 2. In Settings > Actions > General, grant workflows read and write access.
+# The workflow publishes only completed LocalizeFlow PRs from update-translations.
+# It carries translations/ and translated_images/ onto the latest upstream main;
+# patch conflicts stop the run and require a fresh LocalizeFlow translation batch.
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, edited, ready_for_review, closed]
+  workflow_dispatch:
+    inputs:
+      pull_request_number:
+        description: LocalizeFlow pull request number in this fork
+        required: true
+        type: number
+
+permissions:
+  contents: write
+  pull-requests: read
+
+concurrency:
+  group: publish-localizeflow-upstream
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.repository == 'skytin1004/co-op-translator'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Validate the completed LocalizeFlow pull request
+        id: validate
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number || inputs.pull_request_number }}
+        with:
+          github-token: ${{ github.token }}
+          script: |
+            const pullNumber = Number(process.env.PR_NUMBER);
+            if (!Number.isInteger(pullNumber) || pullNumber <= 0) {
+              core.setFailed('A valid LocalizeFlow pull request number is required.');
+              return;
+            }
+
+            const { data: pull } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pullNumber,
+            });
+
+            const expectedRepository = context.repo.owner + '/' + context.repo.repo;
+            const isLocalizeFlowPull =
+              pull.user?.login === 'localizeflow[bot]' &&
+              pull.head.repo?.full_name === expectedRepository &&
+              pull.head.ref === 'update-translations';
+
+            if (!isLocalizeFlowPull) {
+              core.notice('Ignoring a pull request that was not created by LocalizeFlow.');
+              core.setOutput('publish', 'false');
+              return;
+            }
+
+            const body = pull.body || '';
+            const status = body.match(/\*\*Status:\*\*\s*([^\r\n]+)/)?.[1].trim();
+            const progress = body.match(/\*\*Progress:\*\*\s*(\d+)%/)?.[1];
+            const jobs = body.match(/Jobs:\s*(\d+)\s*\/\s*(\d+)\s*completed/);
+            const queue = body.match(
+              /Queue:\s*(\d+)\s+running\s*·\s*(\d+)\s+queued\s*·\s*(\d+)\s+failed/
+            );
+
+            const completed =
+              !pull.draft &&
+              status === 'Completed' &&
+              progress === '100' &&
+              jobs &&
+              jobs[1] === jobs[2] &&
+              queue &&
+              queue[1] === '0' &&
+              queue[2] === '0' &&
+              queue[3] === '0';
+
+            if (!completed) {
+              core.notice(
+                'LocalizeFlow PR #' + pull.number +
+                  ' is not complete yet; no upstream PR will be published.'
+              );
+              core.setOutput('publish', 'false');
+              return;
+            }
+
+            core.setOutput('publish', 'true');
+            core.setOutput('base_sha', pull.base.sha);
+            core.setOutput('head_sha', pull.head.sha);
+            core.setOutput('source_url', pull.html_url);
+            core.setOutput('source_number', String(pull.number));
+
+      - name: Verify the upstream pull request token
+        if: steps.validate.outputs.publish == 'true'
+        env:
+          UPSTREAM_PR_TOKEN: ${{ secrets.UPSTREAM_PR_TOKEN }}
+        run: |
+          if [[ -z "$UPSTREAM_PR_TOKEN" ]]; then
+            echo "::error::Add a repository secret named UPSTREAM_PR_TOKEN before publishing upstream."
+            exit 1
+          fi
+
+      - name: Check out the completed translation commit
+        if: steps.validate.outputs.publish == 'true'
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ steps.validate.outputs.head_sha }}
+          fetch-depth: 0
+          token: ${{ github.token }}
+
+      - name: Apply translation changes to the latest upstream main
+        if: steps.validate.outputs.publish == 'true'
+        id: prepare
+        env:
+          BASE_SHA: ${{ steps.validate.outputs.base_sha }}
+          HEAD_SHA: ${{ steps.validate.outputs.head_sha }}
+          PUBLISH_BRANCH: automation/localizeflow-upstream-sync
+          SOURCE_PR: ${{ steps.validate.outputs.source_number }}
+        run: |
+          set -euo pipefail
+
+          git fetch --no-tags origin "$BASE_SHA" "$HEAD_SHA"
+          git remote add upstream https://github.com/Azure/co-op-translator.git
+          git fetch --no-tags upstream main
+
+          patch_file="$RUNNER_TEMP/localizeflow-translations.patch"
+          git diff --binary --full-index "$BASE_SHA" "$HEAD_SHA" -- translations translated_images > "$patch_file"
+
+          if [[ ! -s "$patch_file" ]]; then
+            echo "No translation changes were found."
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          git switch --force-create "$PUBLISH_BRANCH" upstream/main
+
+          if ! git apply --3way --index "$patch_file"; then
+            echo "::error::The completed translation changes conflict with upstream/main. Sync the fork and rerun LocalizeFlow."
+            exit 1
+          fi
+
+          if git diff --cached --quiet; then
+            echo "The completed translations are already present upstream."
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Docs: Sync completed LocalizeFlow translations" -m "LocalizeFlow-PR: #$SOURCE_PR" -m "LocalizeFlow-Head: $HEAD_SHA"
+
+          echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          echo "publish_branch=$PUBLISH_BRANCH" >> "$GITHUB_OUTPUT"
+
+      - name: Push the upstream submission branch
+        if: steps.prepare.outputs.has_changes == 'true'
+        env:
+          PUBLISH_BRANCH: ${{ steps.prepare.outputs.publish_branch }}
+        run: |
+          set -euo pipefail
+          git fetch origin "$PUBLISH_BRANCH:refs/remotes/origin/$PUBLISH_BRANCH" || true
+          git push --force-with-lease origin "HEAD:refs/heads/$PUBLISH_BRANCH"
+
+      - name: Create or update the upstream pull request
+        if: steps.prepare.outputs.has_changes == 'true'
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        env:
+          PUBLISH_BRANCH: ${{ steps.prepare.outputs.publish_branch }}
+          SOURCE_URL: ${{ steps.validate.outputs.source_url }}
+          SOURCE_HEAD: ${{ steps.validate.outputs.head_sha }}
+        with:
+          github-token: ${{ secrets.UPSTREAM_PR_TOKEN }}
+          script: |
+            const upstream = {
+              owner: 'Azure',
+              repo: 'co-op-translator',
+              base: 'main',
+            };
+            const head = context.repo.owner + ':' + process.env.PUBLISH_BRANCH;
+            const title = 'Docs: Sync translations with latest source changes';
+            const body = [
+              'This PR was created automatically after LocalizeFlow completed a translation batch in the fork.',
+              '',
+              'Source LocalizeFlow PR: ' + process.env.SOURCE_URL,
+              'Source translation commit: ' + process.env.SOURCE_HEAD,
+              '',
+              'Only changes under translations/ and translated_images/ were carried onto the latest upstream main branch.',
+            ].join('\n');
+
+            const { data: pulls } = await github.rest.pulls.list({
+              owner: upstream.owner,
+              repo: upstream.repo,
+              state: 'open',
+              base: upstream.base,
+              head,
+              per_page: 1,
+            });
+
+            let pull;
+            if (pulls.length > 0) {
+              ({ data: pull } = await github.rest.pulls.update({
+                owner: upstream.owner,
+                repo: upstream.repo,
+                pull_number: pulls[0].number,
+                title,
+                body,
+              }));
+              core.notice('Updated upstream PR #' + pull.number + ': ' + pull.html_url);
+            } else {
+              ({ data: pull } = await github.rest.pulls.create({
+                owner: upstream.owner,
+                repo: upstream.repo,
+                title,
+                head,
+                base: upstream.base,
+                body,
+                maintainer_can_modify: true,
+              }));
+              core.notice('Created upstream PR #' + pull.number + ': ' + pull.html_url);
+            }
+
+            await core.summary
+              .addHeading('Upstream translation pull request')
+              .addLink('#' + pull.number + ' ' + pull.title, pull.html_url)
+              .write();
