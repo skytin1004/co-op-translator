@@ -36,6 +36,7 @@ anthropic = "^0.116.0"
 arabic-reshaper = "^3.0.1"
 azure-ai-vision-imageanalysis = "^1.0.0"
 azure-core = "^1.41.0"
+certifi = ">=2026.10.19"
 click = "^8.5.0"
 markdown-it-py = "^4.2.0"
 # Semantic Kernel 1.x requires the MCP 1.x API.
