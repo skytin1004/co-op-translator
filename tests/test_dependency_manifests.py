@@ -1,13 +1,21 @@
+import hashlib
 from pathlib import Path
+import ssl
 
 from packaging.requirements import Requirement
+from packaging.specifiers import SpecifierSet
 from packaging.utils import canonicalize_name
 from packaging.version import Version
 import yaml
 
+import certifi
 import tomllib
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
+COMPROMISED_TRUST_ANCHOR_SHA256 = {
+    "86a1ecba089c4a8d3bbe2734c612ba341d813e043cf9e8a862cd5c57a36bbe6b",
+    "d7a7a0fb5d7e2731d771e9484ebcdef71d5f0c3e0a2948782bc83ee0ea699ef4",
+}
 
 
 def _poetry_dependency_names() -> tuple[set[str], set[str]]:
@@ -81,6 +89,122 @@ def test_typing_extensions_range_supports_semantic_kernel():
     ]
 
     assert _pinned_version(typing_requirement) >= Version("4.15.0")
+
+
+def test_certifi_export_rejects_compromised_emudhra_certificates():
+    certifi_requirement = _requirements(REPO_ROOT / "requirements.txt")["certifi"]
+
+    assert _pinned_version(certifi_requirement) >= Version("2026.10.19")
+
+
+def test_certifi_development_export_matches_runtime_export():
+    runtime_certifi = _requirements(REPO_ROOT / "requirements.txt")["certifi"]
+    development_certifi = _requirements(REPO_ROOT / "requirements-dev.txt")["certifi"]
+
+    assert _pinned_version(development_certifi) == _pinned_version(runtime_certifi)
+
+
+def test_certifi_lock_rejects_compromised_emudhra_certificates():
+    lock = tomllib.loads((REPO_ROOT / "poetry.lock").read_text(encoding="utf-8"))
+    certifi_package = next(
+        package for package in lock["package"] if package["name"] == "certifi"
+    )
+
+    assert Version(certifi_package["version"]) >= Version("2026.10.19")
+
+
+def test_certifi_poetry_constraint_rejects_vulnerable_versions():
+    config = tomllib.loads((REPO_ROOT / "pyproject.toml").read_text(encoding="utf-8"))
+    certifi_constraint = SpecifierSet(
+        config["tool"]["poetry"]["dependencies"]["certifi"]
+    )
+
+    assert Version("2026.10.19") in certifi_constraint
+    assert Version("2026.10.18") not in certifi_constraint
+
+
+def test_installed_certifi_bundle_distrusts_compromised_emudhra_root():
+    context = ssl.create_default_context(cafile=certifi.where())
+    fingerprints = {
+        hashlib.sha256(certificate).hexdigest()
+        for certificate in context.get_ca_certs(binary_form=True)
+    }
+
+    assert COMPROMISED_TRUST_ANCHOR_SHA256.isdisjoint(fingerprints)
+
+
+def test_docker_build_refreshes_system_and_python_ca_stores():
+    dockerfile = (REPO_ROOT / "Dockerfile").read_text(encoding="utf-8")
+
+    assert dockerfile.count("ca-certificates") >= 2
+    assert "pip-26.2.2-py3-none-any.whl" in dockerfile
+    assert (
+        "sha256=fd7f4dfa8190e014013b9f08f3e973f4e4c26ffd179a204895533a7254813a70"
+        in dockerfile
+    )
+    assert "pip==26.2.2 /tmp/*.whl" in dockerfile
+
+
+def test_docker_publish_forces_a_fresh_base_and_uncached_rebuild():
+    workflow = yaml.safe_load(
+        (REPO_ROOT / ".github" / "workflows" / "docker-publish.yml").read_text(
+            encoding="utf-8"
+        )
+    )
+    build_step = next(
+        step
+        for step in workflow["jobs"]["build-and-push"]["steps"]
+        if str(step.get("uses", "")).startswith("docker/build-push-action@")
+    )
+
+    assert build_step["with"]["pull"] is True
+    assert build_step["with"]["no-cache"] is True
+
+
+def test_ci_bootstraps_patched_pip_before_installing_dependencies():
+    workflow = yaml.safe_load(
+        (REPO_ROOT / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8")
+    )
+
+    for job_name in ("requirements", "test"):
+        commands = "\n".join(
+            str(step.get("run", "")) for step in workflow["jobs"][job_name]["steps"]
+        )
+        assert "pip-26.2.2-py3-none-any.whl" in commands
+        assert (
+            "sha256=fd7f4dfa8190e014013b9f08f3e973f4e4c26ffd179a204895533a7254813a70"
+            in commands
+        )
+        assert "pip install --upgrade pip" not in commands
+
+
+def test_ci_builds_and_smoke_tests_the_runtime_container():
+    workflow = yaml.safe_load(
+        (REPO_ROOT / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8")
+    )
+    container_steps = workflow["jobs"]["container"]["steps"]
+    build_step = next(
+        step
+        for step in container_steps
+        if str(step.get("uses", "")).startswith("docker/build-push-action@")
+    )
+    arm_build_step = next(
+        step
+        for step in container_steps
+        if step.get("name") == "Build fresh ARM64 runtime image"
+    )
+    commands = "\n".join(str(step.get("run", "")) for step in container_steps)
+
+    assert build_step["with"]["load"] is True
+    assert build_step["with"]["pull"] is True
+    assert build_step["with"]["no-cache"] is True
+    assert all(
+        fingerprint in commands for fingerprint in COMPROMISED_TRUST_ANCHOR_SHA256
+    )
+    assert arm_build_step["with"]["platforms"] == "linux/arm64"
+    assert arm_build_step["with"]["pull"] is True
+    assert arm_build_step["with"]["no-cache"] is True
+    assert "--dry-run" in commands
 
 
 def test_ai_sdk_exports_are_on_current_compatible_generations():
